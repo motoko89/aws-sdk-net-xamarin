@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>AWSSDK.Extensions.CognitoAuthentication</AssemblyName>
     <RootNamespace>AWSSDK.Extensions.CognitoAuthentication</RootNamespace>
     <PackageId>AWSSDK.Extension.CogntioAuthentication</PackageId>
@@ -13,9 +13,6 @@
     <RepositoryUrl>https://github.com/aws/aws-sdk-net/</RepositoryUrl>
     <PackageTags>AWS Amazon aws-sdk-v3</PackageTags>
     <IconUrl>http://media.amazonwebservices.com/aws_singlebox_01.png</IconUrl>
-
-    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
-
     <SignAssembly>True</SignAssembly>
 
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
@@ -42,8 +39,11 @@
   </Choose>
 
   <ItemGroup>
-    <PackageReference Include="AWSSDK.CognitoIdentity" Version="3.3.2.14" />
-    <PackageReference Include="AWSSDK.CognitoIdentityProvider" Version="3.3.5" />
-    <PackageReference Include="System.Collections.NonGeneric" Version="4.0.1" />
+    <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\sdk\src\Services\CognitoIdentity\AWSSDK.CognitoIdentity.CoreCLR.csproj" />
+    <ProjectReference Include="..\..\..\sdk\src\Services\CognitoIdentityProvider\AWSSDK.CognitoIdentityProvider.CoreCLR.csproj" />
   </ItemGroup>
 </Project>

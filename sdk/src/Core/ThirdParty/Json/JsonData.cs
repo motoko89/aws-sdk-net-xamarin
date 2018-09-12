@@ -17,10 +17,6 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
 
-#if ((PCL || ADD_SUPPORT_IORDERED_DICTIONARY) && !(__ANDROID__ || __IOS__))
-using Amazon.MissingTypes;
-#endif
-
 namespace ThirdParty.Json.LitJson
 {
     public class JsonData : IJsonWrapper, IEquatable<JsonData>

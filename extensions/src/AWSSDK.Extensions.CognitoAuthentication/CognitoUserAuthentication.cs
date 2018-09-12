@@ -23,6 +23,8 @@ using Amazon.CognitoIdentityProvider.Model;
 using Amazon.CognitoIdentity;
 
 using Amazon.Extensions.CognitoAuthentication.ThirdParty;
+using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace Amazon.Extensions.CognitoAuthentication
 {
@@ -44,12 +46,16 @@ namespace Amazon.Extensions.CognitoAuthentication
 
             Tuple<BigInteger, BigInteger> tupleAa = AuthenticationHelper.CreateAaTuple();
             InitiateAuthRequest initiateRequest = CreateSrpAuthRequest(tupleAa);
+            Debug.WriteLine("InitiateAuthRequest is " + JsonConvert.SerializeObject(initiateRequest) + Environment.NewLine);
 
             InitiateAuthResponse initiateResponse = await Provider.InitiateAuthAsync(initiateRequest).ConfigureAwait(false);
+            Debug.WriteLine("InitiateAuth response is " + JsonConvert.SerializeObject(initiateResponse) + Environment.NewLine);
+
             UpdateUsernameAndSecretHash(initiateResponse.ChallengeParameters);
 
             RespondToAuthChallengeRequest challengeRequest =
                 CreateSrpPasswordVerifierAuthRequest(initiateResponse, srpRequest.Password, tupleAa);
+            Debug.WriteLine("RespondToAuthChallenge request is " + JsonConvert.SerializeObject(challengeRequest) + Environment.NewLine);
 
             bool challengeResponsesValid = challengeRequest != null && challengeRequest.ChallengeResponses != null;
             bool deviceKeyValid = Device != null && !string.IsNullOrEmpty(Device.DeviceKey);
