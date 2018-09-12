@@ -18,6 +18,7 @@ using Amazon.Runtime.Internal.Util;
 using Amazon.Util;
 using System;
 using System.Net;
+using System.Net.Http;
 
 namespace Amazon.Runtime.Internal
 {
@@ -33,11 +34,11 @@ namespace Amazon.Runtime.Internal
         /// </summary>
         /// <param name="executionContext">The execution context which contains both the
         /// requests and response context.</param>
-        public override void InvokeSync(IExecutionContext executionContext)
+        public override void InvokeSync(HttpMessageHandler httpMessageHandler, IExecutionContext executionContext)
         {
             do
             {
-                base.InvokeSync(executionContext);
+                base.InvokeSync(httpMessageHandler, executionContext);
             } while (HandleRedirect(executionContext));
         }
 
@@ -51,12 +52,12 @@ namespace Amazon.Runtime.Internal
         /// <param name="executionContext">The execution context, it contains the
         /// request and response context.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        public override async System.Threading.Tasks.Task<T> InvokeAsync<T>(IExecutionContext executionContext)
+        public override async System.Threading.Tasks.Task<T> InvokeAsync<T>(HttpMessageHandler httpMessageHandler, IExecutionContext executionContext)
         {
             T result = null;
             do
             {
-                result = await base.InvokeAsync<T>(executionContext).ConfigureAwait(false);
+                result = await base.InvokeAsync<T>(httpMessageHandler, executionContext).ConfigureAwait(false);
             } while (HandleRedirect(executionContext));
             return result;
         }

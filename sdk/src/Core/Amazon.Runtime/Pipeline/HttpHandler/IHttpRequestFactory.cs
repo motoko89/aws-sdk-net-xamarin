@@ -18,6 +18,7 @@ using Amazon.Runtime.Internal.Util;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
 
 namespace Amazon.Runtime
 {
@@ -32,7 +33,7 @@ namespace Amazon.Runtime
         /// </summary>
         /// <param name="requestUri">The request URI.</param>
         /// <returns>An HTTP request.</returns>
-        IHttpRequest<TRequestContent> CreateHttpRequest(Uri requestUri);
+        IHttpRequest<TRequestContent> CreateHttpRequest(HttpMessageHandler httpMessageHandler, Uri requestUri);
     }
 
     /// <summary>

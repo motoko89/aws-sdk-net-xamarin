@@ -60,7 +60,7 @@ namespace Amazon.Runtime
         /// </summary>
         /// <param name="requestUri">The request URI.</param>
         /// <returns>An HTTP request.</returns>
-        public IHttpRequest<HttpContent> CreateHttpRequest(Uri requestUri)
+        public IHttpRequest<HttpContent> CreateHttpRequest(HttpMessageHandler httpMessageHandler, Uri requestUri)
         {
             HttpClient httpClient = null;
             if(_clientConfig.CacheHttpClient)
@@ -74,7 +74,7 @@ namespace Amazon.Runtime
                         {
                             if (_httpClientCache == null)
                             {
-                                _httpClientCache = CreateHttpClientCache(_clientConfig);
+                                _httpClientCache = CreateHttpClientCache(httpMessageHandler, _clientConfig);
                             }
                         }
                         finally
@@ -108,7 +108,7 @@ namespace Amazon.Runtime
                                 // while this thread was waiting for the lock.
                                 if (!_httpClientCaches.TryGetValue(configUniqueString, out _httpClientCache))
                                 {
-                                    _httpClientCache = CreateHttpClientCache(_clientConfig);
+                                    _httpClientCache = CreateHttpClientCache(httpMessageHandler, _clientConfig);
                                     _httpClientCaches[configUniqueString] = _httpClientCache;
                                 }
                             }
@@ -126,7 +126,7 @@ namespace Amazon.Runtime
             }
             else
             {
-                httpClient = CreateHttpClient(_clientConfig);
+                httpClient = CreateHttpClient(httpMessageHandler, _clientConfig);
             }
 
 
@@ -150,23 +150,22 @@ namespace Amazon.Runtime
         {
         }
 
-        private static HttpClientCache CreateHttpClientCache(IClientConfig clientConfig)
+        private static HttpClientCache CreateHttpClientCache(HttpMessageHandler httpMessageHandler, IClientConfig clientConfig)
         {
             var clients = new HttpClient[clientConfig.HttpClientCacheSize];
             for(int i = 0; i < clients.Length; i++)
             {
-                clients[i] = CreateHttpClient(clientConfig);
+                clients[i] = CreateHttpClient(httpMessageHandler, clientConfig);
             }
             var cache = new HttpClientCache(clients);
             return cache;
         }
 
-        private static HttpClient CreateHttpClient(IClientConfig clientConfig)
+        private static HttpClient CreateHttpClient(HttpMessageHandler httpMessageHandler, IClientConfig clientConfig)
         {
-            var httpMessageHandler = new HttpClientHandler();
 #if CORECLR
-            if (clientConfig.MaxConnectionsPerServer.HasValue)
-                httpMessageHandler.MaxConnectionsPerServer = clientConfig.MaxConnectionsPerServer.Value;
+          /*  if (clientConfig.MaxConnectionsPerServer.HasValue)
+                httpMessageHandler.MaxConnectionsPerServer = clientConfig.MaxConnectionsPerServer.Value;*/
 #endif
 
             // If HttpClientHandler.AllowAutoRedirect is set to true (default value),
@@ -174,7 +173,7 @@ namespace Amazon.Runtime
             // requests are thrown back as exceptions.
             // If HttpClientHandler.AllowAutoRedirect is set to false (e.g. S3),
             // redirects are returned as responses.
-            httpMessageHandler.AllowAutoRedirect = clientConfig.AllowAutoRedirect;
+          /*  httpMessageHandler.AllowAutoRedirect = clientConfig.AllowAutoRedirect;
 
             // Disable automatic decompression when Content-Encoding header is present
             httpMessageHandler.AutomaticDecompression = DecompressionMethods.None;
@@ -188,7 +187,7 @@ namespace Amazon.Runtime
             if (httpMessageHandler.Proxy != null && clientConfig.ProxyCredentials != null)
             {
                 httpMessageHandler.Proxy.Credentials = clientConfig.ProxyCredentials;
-            }
+            }*/
 
             var httpClient = new HttpClient(httpMessageHandler);
             if (clientConfig.Timeout.HasValue)

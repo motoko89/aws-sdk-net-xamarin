@@ -22,6 +22,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Net.Http;
 using System.Reflection;
 using System.Text;
 
@@ -182,7 +183,7 @@ namespace Amazon.Runtime
 
         #region Invoke methods
 
-        protected TResponse Invoke<TRequest, TResponse>(TRequest request,
+        protected TResponse Invoke<TRequest, TResponse>(HttpMessageHandler httpMessageHandler, TRequest request,
             IMarshaller<IRequest, AmazonWebServiceRequest> marshaller, ResponseUnmarshaller unmarshaller)
             where TRequest : AmazonWebServiceRequest
             where TResponse : AmazonWebServiceResponse
@@ -201,7 +202,7 @@ namespace Amazon.Runtime
                 new ResponseContext()
             );
 
-            var response = (TResponse)this.RuntimePipeline.InvokeSync(executionContext).Response;
+            var response = (TResponse)this.RuntimePipeline.InvokeSync(httpMessageHandler, executionContext).Response;
             return response;
         }
 
@@ -234,7 +235,9 @@ namespace Amazon.Runtime
 
 #if AWS_ASYNC_API 
 
-        protected System.Threading.Tasks.Task<TResponse> InvokeAsync<TRequest, TResponse>(TRequest request, 
+        protected System.Threading.Tasks.Task<TResponse> InvokeAsync<TRequest, TResponse>(
+            HttpMessageHandler httpMessageHandler,
+            TRequest request, 
             IMarshaller<IRequest, AmazonWebServiceRequest> marshaller, ResponseUnmarshaller unmarshaller,
             System.Threading.CancellationToken cancellationToken)            
             where TRequest: AmazonWebServiceRequest
@@ -255,7 +258,7 @@ namespace Amazon.Runtime
                 new ResponseContext()
             );
 
-            return this.RuntimePipeline.InvokeAsync<TResponse>(executionContext);
+            return this.RuntimePipeline.InvokeAsync<TResponse>(httpMessageHandler, executionContext);
         }
 
 #elif AWS_APM_API

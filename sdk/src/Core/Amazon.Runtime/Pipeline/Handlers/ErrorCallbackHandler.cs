@@ -16,6 +16,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 
 namespace Amazon.Runtime.Internal
@@ -32,11 +33,11 @@ namespace Amazon.Runtime.Internal
         /// </summary>
         public Action<IExecutionContext,Exception> OnError { get; set; }
 
-        public override void InvokeSync(IExecutionContext executionContext)
+        public override void InvokeSync(HttpMessageHandler httpMessageHandler, IExecutionContext executionContext)
         {
             try
             {
-                base.InvokeSync(executionContext);
+                base.InvokeSync(httpMessageHandler, executionContext);
             }
             catch (Exception exception)
             {
@@ -46,11 +47,11 @@ namespace Amazon.Runtime.Internal
         }
 
 #if AWS_ASYNC_API 
-        public override async System.Threading.Tasks.Task<T> InvokeAsync<T>(IExecutionContext executionContext)
+        public override async System.Threading.Tasks.Task<T> InvokeAsync<T>(HttpMessageHandler httpMessageHandler, IExecutionContext executionContext)
         {
             try
             {   
-                return await base.InvokeAsync<T>(executionContext).ConfigureAwait(false);
+                return await base.InvokeAsync<T>(httpMessageHandler, executionContext).ConfigureAwait(false);
             }
             catch(Exception exception)
             {

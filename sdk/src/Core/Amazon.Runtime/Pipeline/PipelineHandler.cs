@@ -15,6 +15,7 @@
 
 using Amazon.Runtime.Internal.Util;
 using System;
+using System.Net.Http;
 
 namespace Amazon.Runtime.Internal
 {
@@ -50,11 +51,11 @@ namespace Amazon.Runtime.Internal
         /// <param name="executionContext">The execution context which contains both the
         /// requests and response context.</param>
 //        [System.Diagnostics.DebuggerHidden]
-        public virtual void InvokeSync(IExecutionContext executionContext)
+        public virtual void InvokeSync(HttpMessageHandler httpMessageHandler, IExecutionContext executionContext)
         {
             if (this.InnerHandler != null)
             {
-                InnerHandler.InvokeSync(executionContext);
+                InnerHandler.InvokeSync(httpMessageHandler, executionContext);
                 return;
             }
             throw new InvalidOperationException("Cannot invoke InnerHandler. InnerHandler is not set.");
@@ -157,12 +158,12 @@ namespace Amazon.Runtime.Internal
 #if !CORECLR
         [System.Diagnostics.DebuggerHidden]
 #endif
-        public virtual System.Threading.Tasks.Task<T> InvokeAsync<T>(IExecutionContext executionContext)
+        public virtual System.Threading.Tasks.Task<T> InvokeAsync<T>(HttpMessageHandler httpMessageHandler, IExecutionContext executionContext)
             where T : AmazonWebServiceResponse, new()
         {
             if (this.InnerHandler != null)
             {
-                return InnerHandler.InvokeAsync<T>(executionContext);                
+                return InnerHandler.InvokeAsync<T>(httpMessageHandler, executionContext);                
             }
             throw new InvalidOperationException("Cannot invoke InnerHandler. InnerHandler is not set.");
         }
