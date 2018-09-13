@@ -56,8 +56,75 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property Value. 
         /// <para>
-        /// The filter value. 
+        /// The filter value. Valid values for each filter key are as follows:
         /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// InvokedAfter: A timestamp to limit your results. For example, specify <code>2018-07-07T00:00:00Z</code>
+        /// to see results occurring July 7, 2018, and later.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// InvokedBefore: A timestamp to limit your results. For example, specify <code>2018-07-07T00:00:00Z</code>
+        /// to see results before July 7, 2018.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Status: Specify a valid command status to see a list of all command executions with
+        /// that status. Status values you can specify include:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Pending
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// InProgress
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Success
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Cancelled
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Failed
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// TimedOut
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Cancelling 
+        /// </para>
+        ///  </li> </ul> </li> <li> 
+        /// <para>
+        /// DocumentName: The name of the SSM document for which you want to see command results.
+        /// </para>
+        ///  
+        /// <para>
+        /// For example, specify <code>AWS-RunPatchBaseline</code> to see command executions that
+        /// used this SSM document to perform security patching operations on instances. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// ExecutionStage: An enum whose value can be either <code>Executing</code> or <code>Complete</code>.
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Specify <code>Executing</code> to see a list of command executions that are currently
+        /// still running.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Specify <code>Complete</code> to see a list of command exeuctions that have already
+        /// completed.
+        /// </para>
+        ///  </li> </ul> </li> </ul>
         /// </summary>
         public string Value
         {

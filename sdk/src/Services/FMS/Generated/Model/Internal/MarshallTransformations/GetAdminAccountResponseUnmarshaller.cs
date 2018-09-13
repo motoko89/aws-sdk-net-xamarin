@@ -57,6 +57,12 @@ namespace Amazon.FMS.Model.Internal.MarshallTransformations
                     response.AdminAccount = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("RoleStatus", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.RoleStatus = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
 
             return response;

@@ -1,3 +1,19 @@
+### 3.3.360.0 (2018-09-12 20:09 UTC)
+* Connect (3.3.2.0)
+	* This update adds the Amazon Connect Update Contact Attributes API, which lets you update contact attributes for contacts in your Amazon Connect instance.
+* EC2 (3.3.60.0)
+	* Pagination Support for DescribeNetworkInterfaces API
+* FMS (3.3.1.0)
+	* This update of Amazon Fire Wall Manager adds the ability to scope down the policy as well as to get all the member accounts belonging to a certain Fire Wall Manager admin account.
+* SimpleEmail (3.3.6.20)
+	* Documentation updates for Amazon Simple Email Service
+
+### 3.3.359.0 (2018-09-11 18:10 UTC)
+* OpsWorksCM (3.3.5.3)
+	* Documentation updates for opsworkscm
+* SimpleSystemsManagement (3.3.31.0)
+	* Session Manager is a fully managed AWS Systems Manager capability that provides interactive one-click access to Amazon EC2 Linux and Windows instances.
+
 ### 3.3.358.0 (2018-09-10 21:55 UTC)
 * CloudHSMV2 (3.3.3.0)
 	* With this release, we are adding 2 new APIs. DeleteBackup deletes a specified AWS CloudHSM backup. A backup can be restored up to 7 days after the DeleteBackup request. During this 7-day period, the backup will be in state PENDING_DELETION. Backups can be restored using the RestoreBackup API, which will move the backup from state PENDING_DELETION back to ACTIVE.
