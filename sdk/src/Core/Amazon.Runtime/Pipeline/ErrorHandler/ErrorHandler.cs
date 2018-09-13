@@ -66,11 +66,11 @@ namespace Amazon.Runtime.Internal
         /// </summary>
         /// <param name="executionContext">The execution context which contains both the
         /// requests and response context.</param>
-        public override void InvokeSync(HttpMessageHandler httpMessageHandler, IExecutionContext executionContext)
+        public override void InvokeSync(IExecutionContext executionContext)
         {
             try
             {
-                base.InvokeSync(httpMessageHandler, executionContext);
+                base.InvokeSync(executionContext);
                 return;
             }
             catch (Exception exception)
@@ -93,11 +93,11 @@ namespace Amazon.Runtime.Internal
         /// <param name="executionContext">The execution context, it contains the
         /// request and response context.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        public override async System.Threading.Tasks.Task<T> InvokeAsync<T>(HttpMessageHandler httpMessageHandler, IExecutionContext executionContext)
+        public override async System.Threading.Tasks.Task<T> InvokeAsync<T>( IExecutionContext executionContext)
         {
             try
             {
-                return await base.InvokeAsync<T>(httpMessageHandler, executionContext).ConfigureAwait(false);
+                return await base.InvokeAsync<T>(executionContext).ConfigureAwait(false);
             }
             catch (Exception exception)
             {

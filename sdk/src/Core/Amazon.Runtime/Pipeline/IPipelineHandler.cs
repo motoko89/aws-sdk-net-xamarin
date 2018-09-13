@@ -47,7 +47,7 @@ namespace Amazon.Runtime
         /// </summary>
         /// <param name="executionContext">The execution context which contains both the
         /// requests and response context.</param>
-        void InvokeSync(HttpMessageHandler httpMessageHandler, IExecutionContext executionContext);
+        void InvokeSync(IExecutionContext executionContext);
 
 #if AWS_APM_API
 
@@ -86,7 +86,7 @@ namespace Amazon.Runtime
         /// <param name="executionContext">The execution context, it contains the
         /// request and response context.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        System.Threading.Tasks.Task<T> InvokeAsync<T>(HttpMessageHandler httpMessageHandler, IExecutionContext executionContext)
+        System.Threading.Tasks.Task<T> InvokeAsync<T>(IExecutionContext executionContext)
             where T : AmazonWebServiceResponse, new();
 #endif
     }

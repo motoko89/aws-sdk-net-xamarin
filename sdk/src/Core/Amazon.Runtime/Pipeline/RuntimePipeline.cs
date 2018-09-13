@@ -129,11 +129,11 @@ namespace Amazon.Runtime.Internal
         /// </summary>
         /// <param name="executionContext">Request context</param>
         /// <returns>Response context</returns>
-        public IResponseContext InvokeSync(HttpMessageHandler httpMessageHandler, IExecutionContext executionContext)
+        public IResponseContext InvokeSync(IExecutionContext executionContext)
         {
             ThrowIfDisposed();
 
-            _handler.InvokeSync(httpMessageHandler, executionContext);            
+            _handler.InvokeSync(executionContext);            
             return executionContext.ResponseContext;
         }
 
@@ -144,12 +144,12 @@ namespace Amazon.Runtime.Internal
         /// </summary>
         /// <param name="executionContext">Request context</param>
         /// <returns>Response context</returns>
-        public System.Threading.Tasks.Task<T> InvokeAsync<T>(HttpMessageHandler httpMessageHandler, IExecutionContext executionContext)
+        public System.Threading.Tasks.Task<T> InvokeAsync<T>(IExecutionContext executionContext)
             where T : AmazonWebServiceResponse, new()
         {
             ThrowIfDisposed();
 
-            return _handler.InvokeAsync<T>(httpMessageHandler, executionContext);
+            return _handler.InvokeAsync<T>(executionContext);
         }
 
 #elif AWS_APM_API

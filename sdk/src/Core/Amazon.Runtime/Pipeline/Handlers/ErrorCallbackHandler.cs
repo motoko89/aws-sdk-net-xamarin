@@ -33,11 +33,11 @@ namespace Amazon.Runtime.Internal
         /// </summary>
         public Action<IExecutionContext,Exception> OnError { get; set; }
 
-        public override void InvokeSync(HttpMessageHandler httpMessageHandler, IExecutionContext executionContext)
+        public override void InvokeSync( IExecutionContext executionContext)
         {
             try
             {
-                base.InvokeSync(httpMessageHandler, executionContext);
+                base.InvokeSync(executionContext);
             }
             catch (Exception exception)
             {
@@ -47,11 +47,11 @@ namespace Amazon.Runtime.Internal
         }
 
 #if AWS_ASYNC_API 
-        public override async System.Threading.Tasks.Task<T> InvokeAsync<T>(HttpMessageHandler httpMessageHandler, IExecutionContext executionContext)
+        public override async System.Threading.Tasks.Task<T> InvokeAsync<T>( IExecutionContext executionContext)
         {
             try
             {   
-                return await base.InvokeAsync<T>(httpMessageHandler, executionContext).ConfigureAwait(false);
+                return await base.InvokeAsync<T>( executionContext).ConfigureAwait(false);
             }
             catch(Exception exception)
             {

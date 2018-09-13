@@ -33,7 +33,7 @@ namespace Amazon.Runtime
         /// </summary>
         /// <param name="requestUri">The request URI.</param>
         /// <returns>An HTTP request.</returns>
-        IHttpRequest<TRequestContent> CreateHttpRequest(HttpMessageHandler httpMessageHandler, Uri requestUri);
+        IHttpRequest<TRequestContent> CreateHttpRequest(Uri requestUri);
     }
 
     /// <summary>

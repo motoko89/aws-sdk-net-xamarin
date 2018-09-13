@@ -60,7 +60,7 @@ namespace Amazon.Runtime
         /// </summary>
         /// <param name="requestUri">The request URI.</param>
         /// <returns>An HTTP request.</returns>
-        public IHttpRequest<HttpContent> CreateHttpRequest(HttpMessageHandler httpMessageHandler, Uri requestUri)
+        public IHttpRequest<HttpContent> CreateHttpRequest(Uri requestUri)
         {
             HttpClient httpClient = null;
             if(_clientConfig.CacheHttpClient)
@@ -74,7 +74,7 @@ namespace Amazon.Runtime
                         {
                             if (_httpClientCache == null)
                             {
-                                _httpClientCache = CreateHttpClientCache(httpMessageHandler, _clientConfig);
+                                _httpClientCache = CreateHttpClientCache( _clientConfig);
                             }
                         }
                         finally
@@ -108,7 +108,7 @@ namespace Amazon.Runtime
                                 // while this thread was waiting for the lock.
                                 if (!_httpClientCaches.TryGetValue(configUniqueString, out _httpClientCache))
                                 {
-                                    _httpClientCache = CreateHttpClientCache(httpMessageHandler, _clientConfig);
+                                    _httpClientCache = CreateHttpClientCache(_clientConfig);
                                     _httpClientCaches[configUniqueString] = _httpClientCache;
                                 }
                             }
@@ -126,7 +126,7 @@ namespace Amazon.Runtime
             }
             else
             {
-                httpClient = CreateHttpClient(httpMessageHandler, _clientConfig);
+                httpClient = CreateHttpClient( _clientConfig);
             }
 
 
@@ -150,18 +150,18 @@ namespace Amazon.Runtime
         {
         }
 
-        private static HttpClientCache CreateHttpClientCache(HttpMessageHandler httpMessageHandler, IClientConfig clientConfig)
+        private static HttpClientCache CreateHttpClientCache(IClientConfig clientConfig)
         {
             var clients = new HttpClient[clientConfig.HttpClientCacheSize];
             for(int i = 0; i < clients.Length; i++)
             {
-                clients[i] = CreateHttpClient(httpMessageHandler, clientConfig);
+                clients[i] = CreateHttpClient( clientConfig);
             }
             var cache = new HttpClientCache(clients);
             return cache;
         }
 
-        private static HttpClient CreateHttpClient(HttpMessageHandler httpMessageHandler, IClientConfig clientConfig)
+        private static HttpClient CreateHttpClient(IClientConfig clientConfig)
         {
 #if CORECLR
           /*  if (clientConfig.MaxConnectionsPerServer.HasValue)
@@ -189,7 +189,7 @@ namespace Amazon.Runtime
                 httpMessageHandler.Proxy.Credentials = clientConfig.ProxyCredentials;
             }*/
 
-            var httpClient = new HttpClient(httpMessageHandler);
+            var httpClient = new HttpClient();
             if (clientConfig.Timeout.HasValue)
             {
                 // Timeout value is set to ClientConfig.MaxTimeout for S3 and Glacier.

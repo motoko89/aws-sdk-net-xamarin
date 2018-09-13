@@ -56,14 +56,14 @@ namespace Amazon.Runtime.Internal
         /// </summary>
         /// <param name="executionContext">The execution context which contains both the
         /// requests and response context.</param>
-        public override void InvokeSync(HttpMessageHandler httpMessageHandler, IExecutionContext executionContext)
+        public override void InvokeSync(IExecutionContext executionContext)
         {
             IHttpRequest<TRequestContent> httpRequest = null;
             try
             {
                 SetMetrics(executionContext.RequestContext);
                 IRequest wrappedRequest = executionContext.RequestContext.Request; 
-                httpRequest = CreateWebRequest(httpMessageHandler, executionContext.RequestContext);
+                httpRequest = CreateWebRequest(executionContext.RequestContext);
                 httpRequest.SetRequestHeaders(wrappedRequest.Headers);
 
                 using (executionContext.RequestContext.Metrics.StartEvent(Metric.HttpRequestTime))
@@ -139,14 +139,14 @@ namespace Amazon.Runtime.Internal
         /// <param name="executionContext">The execution context, it contains the
         /// request and response context.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        public override async System.Threading.Tasks.Task<T> InvokeAsync<T>(HttpMessageHandler httpMessageHandler, IExecutionContext executionContext)
+        public override async System.Threading.Tasks.Task<T> InvokeAsync<T>( IExecutionContext executionContext)
         {
             IHttpRequest<TRequestContent> httpRequest = null;
             try
             {
                 SetMetrics(executionContext.RequestContext);
                 IRequest wrappedRequest = executionContext.RequestContext.Request;
-                httpRequest = CreateWebRequest(httpMessageHandler, executionContext.RequestContext);
+                httpRequest = CreateWebRequest(executionContext.RequestContext);
                 httpRequest.SetRequestHeaders(wrappedRequest.Headers);
                 
                 using(executionContext.RequestContext.Metrics.StartEvent(Metric.HttpRequestTime))
@@ -422,11 +422,11 @@ namespace Amazon.Runtime.Internal
         /// </summary>
         /// <param name="requestContext">The async request.</param>
         /// <returns>The web request that actually makes the call.</returns>
-        protected virtual IHttpRequest<TRequestContent> CreateWebRequest(HttpMessageHandler httpMessageHandler, IRequestContext requestContext)
+        protected virtual IHttpRequest<TRequestContent> CreateWebRequest(IRequestContext requestContext)
         {
             IRequest request = requestContext.Request;
             Uri url = AmazonServiceClient.ComposeUrl(request);
-            var httpRequest = _requestFactory.CreateHttpRequest(httpMessageHandler, url);
+            var httpRequest = _requestFactory.CreateHttpRequest(url);
             httpRequest.ConfigureRequest(requestContext);
 
             httpRequest.Method = request.HttpMethod;
