@@ -620,6 +620,38 @@ namespace Amazon.CloudWatch
 
         #endregion
         
+        #region  GetMetricWidgetImage
+
+        internal virtual GetMetricWidgetImageResponse GetMetricWidgetImage(GetMetricWidgetImageRequest request)
+        {
+            var marshaller = GetMetricWidgetImageRequestMarshaller.Instance;
+            var unmarshaller = GetMetricWidgetImageResponseUnmarshaller.Instance;
+
+            return Invoke<GetMetricWidgetImageRequest,GetMetricWidgetImageResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetMetricWidgetImage operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetMetricWidgetImage operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/GetMetricWidgetImage">REST API Reference for GetMetricWidgetImage Operation</seealso>
+        public virtual Task<GetMetricWidgetImageResponse> GetMetricWidgetImageAsync(GetMetricWidgetImageRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = GetMetricWidgetImageRequestMarshaller.Instance;
+            var unmarshaller = GetMetricWidgetImageResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetMetricWidgetImageRequest,GetMetricWidgetImageResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListDashboards
 
         internal virtual ListDashboardsResponse ListDashboards(ListDashboardsRequest request)
@@ -668,8 +700,8 @@ namespace Amazon.CloudWatch
 
 
         /// <summary>
-        /// List the specified metrics. You can use the returned metrics with <a>GetMetricStatistics</a>
-        /// to obtain statistical data.
+        /// List the specified metrics. You can use the returned metrics with <a>GetMetricData</a>
+        /// or <a>GetMetricStatistics</a> to obtain statistical data.
         /// 
         ///  
         /// <para>
@@ -679,7 +711,8 @@ namespace Amazon.CloudWatch
         ///  
         /// <para>
         /// After you create a metric, allow up to fifteen minutes before the metric appears.
-        /// Statistics about the metric, however, are available sooner using <a>GetMetricStatistics</a>.
+        /// Statistics about the metric, however, are available sooner using <a>GetMetricData</a>
+        /// or <a>GetMetricStatistics</a>.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">

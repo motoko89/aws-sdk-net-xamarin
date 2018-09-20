@@ -75,6 +75,15 @@ namespace Amazon.ElastiCache.Model.Internal.MarshallTransformations
                         publicRequestlistValueIndex++;
                     }
                 }
+                if(publicRequest.IsSetNodeGroupsToRetain())
+                {
+                    int publicRequestlistValueIndex = 1;
+                    foreach(var publicRequestlistValue in publicRequest.NodeGroupsToRetain)
+                    {
+                        request.Parameters.Add("NodeGroupsToRetain" + "." + "member" + "." + publicRequestlistValueIndex, StringUtils.FromString(publicRequestlistValue));
+                        publicRequestlistValueIndex++;
+                    }
+                }
                 if(publicRequest.IsSetReplicationGroupId())
                 {
                     request.Parameters.Add("ReplicationGroupId", StringUtils.FromString(publicRequest.ReplicationGroupId));
@@ -84,6 +93,10 @@ namespace Amazon.ElastiCache.Model.Internal.MarshallTransformations
                     int publicRequestlistValueIndex = 1;
                     foreach(var publicRequestlistValue in publicRequest.ReshardingConfiguration)
                     {
+                        if(publicRequestlistValue.IsSetNodeGroupId())
+                        {
+                            request.Parameters.Add("ReshardingConfiguration" + "." + "member" + "." + publicRequestlistValueIndex + "." + "NodeGroupId", StringUtils.FromString(publicRequestlistValue.NodeGroupId));
+                        }
                         if(publicRequestlistValue.IsSetPreferredAvailabilityZones())
                         {
                             int publicRequestlistValuelistValueIndex = 1;

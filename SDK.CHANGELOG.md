@@ -1,3 +1,37 @@
+### 3.3.364.0 (2018-09-19 18:33 UTC)
+* CloudWatch (3.3.8.0)
+	* Amazon CloudWatch adds the ability to request png image snapshots of metric widgets using the GetMetricWidgetImage API.
+* Organizations (3.3.9.0)
+	* Introducing a new exception - AccountOwnerNotVerifiedException which will be returned for InviteAccountToOrganization call for unverified accounts.
+* S3 (3.3.24.0)
+	* S3 Cross Region Replication now allows customers to use S3 object tags to filter the scope of replication. By using S3 object tags, customers can identify individual objects for replication across AWS Regions for compliance and data protection. Cross Region Replication for S3 enables automatic and asynchronous replication of objects to another AWS Region, and with this release customers can replicate at a bucket level, prefix level or by using object tags.
+
+### 3.3.363.0 (2018-09-18 21:35 UTC)
+* Elasticsearch (3.3.9.0)
+	* Amazon Elasticsearch Service adds support for node-to-node encryption for new domains running Elasticsearch version 6.0 and above
+* Rekognition (3.3.11.0)
+	* This release updates the Amazon Rekognition IndexFaces API operation. It introduces a QualityFilter parameter that allows you to automatically filter out detected faces that are deemed to be of low quality by Amazon Rekognition. The quality bar is based on a variety of common use cases.  You can filter low-quality detected faces by setting QualityFilter to AUTO, which is also the default setting. To index all detected faces regardless of quality, you can specify NONE.  This release also provides a MaxFaces parameter that is useful when you want to only index the most prominent and largest faces in an image and don't want to index other faces detected in the image, such as smaller faces belonging to people standing in the background.
+
+### 3.3.362.0 (2018-09-17 21:41 UTC)
+* CloudWatch (3.3.7.0)
+	* Amazon CloudWatch adds the ability to publish values and counts using PutMetricData
+* CodeBuild (3.3.16.0)
+	* Support build logs configuration.
+* EC2 (3.3.61.0)
+	* Added support for customers to tag EC2 Dedicated Hosts on creation.
+* ECS (3.3.18.0)
+	* This release of Amazon Elastic Container Service (Amazon ECS) introduces support for additional Docker flags as Task Definition parameters. Customers can now configure their ECS Tasks to use systemControls (sysctl), pseudoTerminal (tty), and interactive (i) Docker flags.
+* ElastiCache (3.3.6.0)
+	* ElastiCache for Redis added support for adding and removing read-replicas from any cluster with no cluster downtime, Shard naming: ElastiCache for Redis customers have the option of allowing ElastiCache to create names for their node groups (shards) or generating their own node group names. For more information, see https:// docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_NodeGroupConfiguration.html, ShardsToRetain: When reducing the number of node groups (shards) in an ElastiCache for Redis (cluster mode enabled) you have the option of specifying which node groups to retain or which node groups to remove. For more information, see https:// docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html, ReservationARN: ReservedNode includes an ARN, ReservationARN, member which identifies the reserved node. For more information, see https:// docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ReservedCacheNode.html
+* ElasticTranscoder (3.3.3.0)
+	* Added support for MP2 container
+* SecretsManager (3.3.2.7)
+	* Documentation updates for secretsmanager
+
+### 3.3.361.0 (2018-09-13 18:37 UTC)
+* Polly (3.3.8.0)
+	* Amazon Polly adds Mandarin Chinese language support with new female voice - "Zhiyu"
+
 ### 3.3.360.0 (2018-09-12 20:09 UTC)
 * Connect (3.3.2.0)
 	* This update adds the Amazon Connect Update Contact Attributes API, which lets you update contact attributes for contacts in your Amazon Connect instance.

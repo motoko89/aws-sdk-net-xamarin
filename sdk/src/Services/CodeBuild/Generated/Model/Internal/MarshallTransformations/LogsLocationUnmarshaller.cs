@@ -64,6 +64,12 @@ namespace Amazon.CodeBuild.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("cloudWatchLogs", targetDepth))
+                {
+                    var unmarshaller = CloudWatchLogsConfigUnmarshaller.Instance;
+                    unmarshalledObject.CloudWatchLogs = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("deepLink", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -74,6 +80,18 @@ namespace Amazon.CodeBuild.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.GroupName = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("s3DeepLink", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.S3DeepLink = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("s3Logs", targetDepth))
+                {
+                    var unmarshaller = S3LogsConfigUnmarshaller.Instance;
+                    unmarshalledObject.S3Logs = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("streamName", targetDepth))
