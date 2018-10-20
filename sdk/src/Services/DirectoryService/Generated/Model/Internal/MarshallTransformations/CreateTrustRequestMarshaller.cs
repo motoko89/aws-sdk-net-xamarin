@@ -90,6 +90,12 @@ namespace Amazon.DirectoryService.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.RemoteDomainName);
                 }
 
+                if(publicRequest.IsSetSelectiveAuth())
+                {
+                    context.Writer.WritePropertyName("SelectiveAuth");
+                    context.Writer.Write(publicRequest.SelectiveAuth);
+                }
+
                 if(publicRequest.IsSetTrustDirection())
                 {
                     context.Writer.WritePropertyName("TrustDirection");

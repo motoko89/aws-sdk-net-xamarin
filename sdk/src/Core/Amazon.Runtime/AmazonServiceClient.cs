@@ -25,6 +25,8 @@ using System.IO;
 using System.Net.Http;
 using System.Reflection;
 using System.Text;
+using System.Linq;
+using Amazon.Util.Internal;
 
 namespace Amazon.Runtime
 {
@@ -32,11 +34,10 @@ namespace Amazon.Runtime
     {
         private bool _disposed;
         private Logger _logger;
-
         protected RuntimePipeline RuntimePipeline { get; set; }
         protected internal AWSCredentials Credentials { get; private set; }
         public IClientConfig Config { get; private set; }
-
+        protected virtual IServiceMetadata ServiceMetadata { get; } = new ServiceMetadata();
         protected virtual bool SupportResponseLogging
         {
             get { return true; }
@@ -155,7 +156,6 @@ namespace Amazon.Runtime
             Signer = CreateSigner();
 
             Initialize();
-
             BuildRuntimePipeline();
         }
 
@@ -197,11 +197,12 @@ namespace Amazon.Runtime
                     Marshaller = marshaller,
                     OriginalRequest = request,
                     Unmarshaller = unmarshaller,
-                    IsAsync = false
+                    IsAsync = false,
+                    ServiceMetaData = this.ServiceMetadata
                 },
                 new ResponseContext()
             );
-
+            SetupCSMHandler(executionContext.RequestContext);
             var response = (TResponse)this.RuntimePipeline.InvokeSync(executionContext).Response;
             return response;
         }
@@ -224,7 +225,8 @@ namespace Amazon.Runtime
                     Unmarshaller = unmarshaller,
                     Action = callbackHelper,
                     AsyncOptions = asyncOptions,
-                    IsAsync = true
+                    IsAsync = true,
+                    ServiceMetaData = this.ServiceMetadata
                 },
                 new AsyncResponseContext()
             );
@@ -233,7 +235,7 @@ namespace Amazon.Runtime
         }
 #endif
 
-#if AWS_ASYNC_API 
+#if AWS_ASYNC_API
 
         protected System.Threading.Tasks.Task<TResponse> InvokeAsync<TRequest, TResponse>(
             TRequest request, 
@@ -252,11 +254,12 @@ namespace Amazon.Runtime
                     OriginalRequest = request,
                     Unmarshaller = unmarshaller,
                     IsAsync = true,
-                    CancellationToken = cancellationToken
+                    CancellationToken = cancellationToken,
+                    ServiceMetaData = this.ServiceMetadata
                 },
                 new ResponseContext()
             );
-
+            SetupCSMHandler(executionContext.RequestContext);
             return this.RuntimePipeline.InvokeAsync<TResponse>(executionContext);
         }
 
@@ -277,11 +280,12 @@ namespace Amazon.Runtime
                     Unmarshaller = unmarshaller,
                     Callback = callback,
                     State = state,
-                    IsAsync = true
+                    IsAsync = true,
+                    ServiceMetaData = this.ServiceMetadata
                 },
                 new AsyncResponseContext()
             );
-
+            SetupCSMHandler(executionContext.RequestContext);
             var asyncResult = this.RuntimePipeline.InvokeAsync(executionContext);
             return asyncResult;
         }
@@ -364,7 +368,7 @@ namespace Amazon.Runtime
             mExceptionEvent(this, args);
         }
 
-        #endregion
+#endregion
 
         #region Dispose methods
 
@@ -394,7 +398,7 @@ namespace Amazon.Runtime
                 throw new ObjectDisposedException(GetType().FullName);
         }
 
-        #endregion
+#endregion
 
         protected abstract AbstractAWSSigner CreateSigner();
         protected virtual void CustomizeRuntimePipeline(RuntimePipeline pipeline) { }
@@ -457,12 +461,18 @@ namespace Amazon.Runtime
                 _logger
             );
 
+#if BCL || CORECLR
+            if (DeterminedCSMConfiguration.Instance.CSMConfiguration.Enabled && !string.IsNullOrEmpty(ServiceMetadata.ServiceId))
+            {
+                this.RuntimePipeline.AddHandlerBefore<ErrorHandler>(new CSMHandler());
+            }
+#endif
+
             CustomizeRuntimePipeline(this.RuntimePipeline);
 
             // Apply global pipeline customizations
             RuntimePipelineCustomizerRegistry.Instance.ApplyCustomizations(this.GetType(), this.RuntimePipeline);
         }
-
         public static Uri ComposeUrl(IRequest iRequest)
         {
             Uri url = iRequest.Endpoint;
@@ -601,5 +611,16 @@ namespace Amazon.Runtime
             newConfig.ProxyPort = this.Config.ProxyPort;
 #endif
         }
+
+        private static void SetupCSMHandler(IRequestContext requestContext)
+        {
+#if BCL || CORECLR
+            if (requestContext.CSMEnabled)
+            {
+                requestContext.CSMCallEvent = new MonitoringAPICallEvent(requestContext);
+            }
+#endif
+        }
+
     }
 }

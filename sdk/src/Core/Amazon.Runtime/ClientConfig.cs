@@ -65,6 +65,9 @@ namespace Amazon.Runtime
         private bool allowAutoRedirect = true;
         private bool useDualstackEndpoint = false;
         private TimeSpan? readWriteTimeout = null;
+#if BCL
+        private readonly TcpKeepAlive tcpKeepAlive = new TcpKeepAlive();
+#endif
 
         /// <summary>
         /// Gets Service Version
@@ -280,6 +283,7 @@ namespace Amazon.Runtime
 
         /// <summary>
         /// Flag on whether to resign requests on retry or not.
+        /// For Amazon S3 and Amazon Glacier this value will always be set to true.
         /// </summary>
         public bool ResignRetries
         {
@@ -348,6 +352,16 @@ namespace Amazon.Runtime
             }
             set { this.proxyCredentials = value; }
         }
+
+#if BCL
+        /// <summary>
+        /// Specifies the TCP keep-alive values to use for service requests.
+        /// </summary>
+        public TcpKeepAlive TcpKeepAlive
+        {
+            get { return this.tcpKeepAlive; }            
+        }                
+#endif
 
         #region Constructor 
         public ClientConfig()
@@ -453,6 +467,13 @@ namespace Amazon.Runtime
         {
             if (RegionEndpoint == null && string.IsNullOrEmpty(this.ServiceURL))
                 throw new AmazonClientException("No RegionEndpoint or ServiceURL configured");
+#if BCL
+            if (TcpKeepAlive.Enabled)
+            {
+                ValidateTcpKeepAliveTimeSpan(TcpKeepAlive.Timeout, "TcpKeepAlive.Timeout");
+                ValidateTcpKeepAliveTimeSpan(TcpKeepAlive.Interval, "TcpKeepAlive.Interval");
+            }            
+#endif
         }
 
         /// <summary>
@@ -508,6 +529,21 @@ namespace Amazon.Runtime
             }
         }
 
+#if BCL
+        private static void ValidateTcpKeepAliveTimeSpan(TimeSpan? value, string paramName)
+        {
+            if (!value.HasValue)
+            {
+                throw new ArgumentNullException(paramName);
+            }
+
+            if (value > MaxTimeout || (int)value.Value.TotalMilliseconds <= 0)
+            {
+                throw new ArgumentOutOfRangeException(paramName);
+            }
+        }
+
+#endif
         /// <summary>
         /// Returns the request timeout value if its value is set, 
         /// else returns client timeout value.

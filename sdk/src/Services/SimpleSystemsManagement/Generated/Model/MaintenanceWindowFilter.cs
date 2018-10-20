@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.SimpleSystemsManagement.Model
 {
     /// <summary>
-    /// Filter used in the request.
+    /// Filter used in the request. Supported filter keys are Name and Enabled.
     /// </summary>
     public partial class MaintenanceWindowFilter
     {

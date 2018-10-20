@@ -3063,6 +3063,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType F12xlarge = new InstanceType("f1.2xlarge");
         /// <summary>
+        /// Constant F14xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType F14xlarge = new InstanceType("f1.4xlarge");
+        /// <summary>
         /// Constant G22xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType G22xlarge = new InstanceType("g2.2xlarge");
@@ -3082,6 +3086,10 @@ namespace Amazon.EC2
         /// Constant G38xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType G38xlarge = new InstanceType("g3.8xlarge");
+        /// <summary>
+        /// Constant G3sXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType G3sXlarge = new InstanceType("g3s.xlarge");
         /// <summary>
         /// Constant H116xlarge for InstanceType
         /// </summary>
@@ -3466,6 +3474,18 @@ namespace Amazon.EC2
         /// Constant T3Xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType T3Xlarge = new InstanceType("t3.xlarge");
+        /// <summary>
+        /// Constant U12tb1Metal for InstanceType
+        /// </summary>
+        public static readonly InstanceType U12tb1Metal = new InstanceType("u-12tb1.metal");
+        /// <summary>
+        /// Constant U6tb1Metal for InstanceType
+        /// </summary>
+        public static readonly InstanceType U6tb1Metal = new InstanceType("u-6tb1.metal");
+        /// <summary>
+        /// Constant U9tb1Metal for InstanceType
+        /// </summary>
+        public static readonly InstanceType U9tb1Metal = new InstanceType("u-9tb1.metal");
         /// <summary>
         /// Constant X116xlarge for InstanceType
         /// </summary>

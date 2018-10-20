@@ -419,7 +419,7 @@ namespace Amazon.Runtime.Internal
             if (proxy != null)
             {
                 requestContext.Metrics.AddProperty(Metric.ProxyHost, requestContext.ClientConfig.ProxyHost);
-                requestContext.Metrics.AddProperty(Metric.ProxyHost, requestContext.ClientConfig.ProxyPort);
+                requestContext.Metrics.AddProperty(Metric.ProxyPort, requestContext.ClientConfig.ProxyPort);
                 _request.Proxy = proxy;
             }
 
@@ -428,6 +428,10 @@ namespace Amazon.Runtime.Internal
             _request.ServicePoint.UseNagleAlgorithm = clientConfig.UseNagleAlgorithm;
             _request.ServicePoint.MaxIdleTime = clientConfig.MaxIdleTime;
             _request.ServicePoint.Expect100Continue = originalRequest.GetExpect100Continue();
+
+            var tcpKeepAlive = clientConfig.TcpKeepAlive;
+            _request.ServicePoint.SetTcpKeepAlive(tcpKeepAlive.Enabled, (int)tcpKeepAlive.Timeout.Value.TotalMilliseconds, 
+                    (int)tcpKeepAlive.Interval.Value.TotalMilliseconds);
         }
 
         /// <summary>

@@ -26,6 +26,7 @@ using System.Collections.Generic;
 
 using Amazon.DirectoryService.Model;
 using Amazon.DirectoryService.Model.Internal.MarshallTransformations;
+using Amazon.DirectoryService.Internal;
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
 using Amazon.Runtime.Internal.Auth;
@@ -58,6 +59,7 @@ namespace Amazon.DirectoryService
     /// </summary>
     public partial class AmazonDirectoryServiceClient : AmazonServiceClient, IAmazonDirectoryService
     {
+        private static IServiceMetadata serviceMetadata = new AmazonDirectoryServiceMetadata();
         
         #region Constructors
 
@@ -232,6 +234,16 @@ namespace Amazon.DirectoryService
             return new AWS4Signer();
         } 
 
+        /// <summary>
+        /// Capture metadata for the service.
+        /// </summary>
+        protected override IServiceMetadata ServiceMetadata
+        {
+            get
+            {
+                return serviceMetadata;
+            }
+        }
 
         #endregion
 
@@ -247,6 +259,38 @@ namespace Amazon.DirectoryService
 
         #endregion
 
+        
+        #region  AcceptSharedDirectory
+
+        internal virtual AcceptSharedDirectoryResponse AcceptSharedDirectory(AcceptSharedDirectoryRequest request)
+        {
+            var marshaller = AcceptSharedDirectoryRequestMarshaller.Instance;
+            var unmarshaller = AcceptSharedDirectoryResponseUnmarshaller.Instance;
+
+            return Invoke<AcceptSharedDirectoryRequest,AcceptSharedDirectoryResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the AcceptSharedDirectory operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the AcceptSharedDirectory operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ds-2015-04-16/AcceptSharedDirectory">REST API Reference for AcceptSharedDirectory Operation</seealso>
+        public virtual Task<AcceptSharedDirectoryResponse> AcceptSharedDirectoryAsync(AcceptSharedDirectoryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = AcceptSharedDirectoryRequestMarshaller.Instance;
+            var unmarshaller = AcceptSharedDirectoryResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AcceptSharedDirectoryRequest,AcceptSharedDirectoryResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
         
         #region  AddIpRoutes
 
@@ -504,6 +548,38 @@ namespace Amazon.DirectoryService
 
         #endregion
         
+        #region  CreateLogSubscription
+
+        internal virtual CreateLogSubscriptionResponse CreateLogSubscription(CreateLogSubscriptionRequest request)
+        {
+            var marshaller = CreateLogSubscriptionRequestMarshaller.Instance;
+            var unmarshaller = CreateLogSubscriptionResponseUnmarshaller.Instance;
+
+            return Invoke<CreateLogSubscriptionRequest,CreateLogSubscriptionResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateLogSubscription operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateLogSubscription operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ds-2015-04-16/CreateLogSubscription">REST API Reference for CreateLogSubscription Operation</seealso>
+        public virtual Task<CreateLogSubscriptionResponse> CreateLogSubscriptionAsync(CreateLogSubscriptionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = CreateLogSubscriptionRequestMarshaller.Instance;
+            var unmarshaller = CreateLogSubscriptionResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateLogSubscriptionRequest,CreateLogSubscriptionResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateMicrosoftAD
 
         internal virtual CreateMicrosoftADResponse CreateMicrosoftAD(CreateMicrosoftADRequest request)
@@ -664,6 +740,38 @@ namespace Amazon.DirectoryService
 
         #endregion
         
+        #region  DeleteLogSubscription
+
+        internal virtual DeleteLogSubscriptionResponse DeleteLogSubscription(DeleteLogSubscriptionRequest request)
+        {
+            var marshaller = DeleteLogSubscriptionRequestMarshaller.Instance;
+            var unmarshaller = DeleteLogSubscriptionResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteLogSubscriptionRequest,DeleteLogSubscriptionResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteLogSubscription operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteLogSubscription operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ds-2015-04-16/DeleteLogSubscription">REST API Reference for DeleteLogSubscription Operation</seealso>
+        public virtual Task<DeleteLogSubscriptionResponse> DeleteLogSubscriptionAsync(DeleteLogSubscriptionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = DeleteLogSubscriptionRequestMarshaller.Instance;
+            var unmarshaller = DeleteLogSubscriptionResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteLogSubscriptionRequest,DeleteLogSubscriptionResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteSnapshot
 
         internal virtual DeleteSnapshotResponse DeleteSnapshot(DeleteSnapshotRequest request)
@@ -813,19 +921,20 @@ namespace Amazon.DirectoryService
         ///  
         /// <para>
         /// You can retrieve information about specific directories by passing the directory identifiers
-        /// in the <i>DirectoryIds</i> parameter. Otherwise, all directories that belong to the
-        /// current account are returned.
+        /// in the <code>DirectoryIds</code> parameter. Otherwise, all directories that belong
+        /// to the current account are returned.
         /// </para>
         ///  
         /// <para>
-        /// This operation supports pagination with the use of the <i>NextToken</i> request and
-        /// response parameters. If more results are available, the <i>DescribeDirectoriesResult.NextToken</i>
+        /// This operation supports pagination with the use of the <code>NextToken</code> request
+        /// and response parameters. If more results are available, the <code>DescribeDirectoriesResult.NextToken</code>
         /// member contains a token that you pass in the next call to <a>DescribeDirectories</a>
         /// to retrieve the next set of items.
         /// </para>
         ///  
         /// <para>
-        /// You can also specify a maximum number of return results with the <i>Limit</i> parameter.
+        /// You can also specify a maximum number of return results with the <code>Limit</code>
+        /// parameter.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -840,7 +949,7 @@ namespace Amazon.DirectoryService
         /// The specified entity could not be found.
         /// </exception>
         /// <exception cref="Amazon.DirectoryService.Model.InvalidNextTokenException">
-        /// The <i>NextToken</i> value is not valid.
+        /// The <code>NextToken</code> value is not valid.
         /// </exception>
         /// <exception cref="Amazon.DirectoryService.Model.InvalidParameterException">
         /// One or more parameters are not valid.
@@ -935,6 +1044,38 @@ namespace Amazon.DirectoryService
             var unmarshaller = DescribeEventTopicsResponseUnmarshaller.Instance;
 
             return InvokeAsync<DescribeEventTopicsRequest,DescribeEventTopicsResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeSharedDirectories
+
+        internal virtual DescribeSharedDirectoriesResponse DescribeSharedDirectories(DescribeSharedDirectoriesRequest request)
+        {
+            var marshaller = DescribeSharedDirectoriesRequestMarshaller.Instance;
+            var unmarshaller = DescribeSharedDirectoriesResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeSharedDirectoriesRequest,DescribeSharedDirectoriesResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeSharedDirectories operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeSharedDirectories operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ds-2015-04-16/DescribeSharedDirectories">REST API Reference for DescribeSharedDirectories Operation</seealso>
+        public virtual Task<DescribeSharedDirectoriesResponse> DescribeSharedDirectoriesAsync(DescribeSharedDirectoriesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = DescribeSharedDirectoriesRequestMarshaller.Instance;
+            var unmarshaller = DescribeSharedDirectoriesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeSharedDirectoriesRequest,DescribeSharedDirectoriesResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -1256,6 +1397,38 @@ namespace Amazon.DirectoryService
 
         #endregion
         
+        #region  ListLogSubscriptions
+
+        internal virtual ListLogSubscriptionsResponse ListLogSubscriptions(ListLogSubscriptionsRequest request)
+        {
+            var marshaller = ListLogSubscriptionsRequestMarshaller.Instance;
+            var unmarshaller = ListLogSubscriptionsResponseUnmarshaller.Instance;
+
+            return Invoke<ListLogSubscriptionsRequest,ListLogSubscriptionsResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListLogSubscriptions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListLogSubscriptions operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ds-2015-04-16/ListLogSubscriptions">REST API Reference for ListLogSubscriptions Operation</seealso>
+        public virtual Task<ListLogSubscriptionsResponse> ListLogSubscriptionsAsync(ListLogSubscriptionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = ListLogSubscriptionsRequestMarshaller.Instance;
+            var unmarshaller = ListLogSubscriptionsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListLogSubscriptionsRequest,ListLogSubscriptionsResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListSchemaExtensions
 
         internal virtual ListSchemaExtensionsResponse ListSchemaExtensions(ListSchemaExtensionsRequest request)
@@ -1347,6 +1520,38 @@ namespace Amazon.DirectoryService
             var unmarshaller = RegisterEventTopicResponseUnmarshaller.Instance;
 
             return InvokeAsync<RegisterEventTopicRequest,RegisterEventTopicResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  RejectSharedDirectory
+
+        internal virtual RejectSharedDirectoryResponse RejectSharedDirectory(RejectSharedDirectoryRequest request)
+        {
+            var marshaller = RejectSharedDirectoryRequestMarshaller.Instance;
+            var unmarshaller = RejectSharedDirectoryResponseUnmarshaller.Instance;
+
+            return Invoke<RejectSharedDirectoryRequest,RejectSharedDirectoryResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the RejectSharedDirectory operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the RejectSharedDirectory operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ds-2015-04-16/RejectSharedDirectory">REST API Reference for RejectSharedDirectory Operation</seealso>
+        public virtual Task<RejectSharedDirectoryResponse> RejectSharedDirectoryAsync(RejectSharedDirectoryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = RejectSharedDirectoryRequestMarshaller.Instance;
+            var unmarshaller = RejectSharedDirectoryResponseUnmarshaller.Instance;
+
+            return InvokeAsync<RejectSharedDirectoryRequest,RejectSharedDirectoryResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -1480,6 +1685,38 @@ namespace Amazon.DirectoryService
 
         #endregion
         
+        #region  ShareDirectory
+
+        internal virtual ShareDirectoryResponse ShareDirectory(ShareDirectoryRequest request)
+        {
+            var marshaller = ShareDirectoryRequestMarshaller.Instance;
+            var unmarshaller = ShareDirectoryResponseUnmarshaller.Instance;
+
+            return Invoke<ShareDirectoryRequest,ShareDirectoryResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ShareDirectory operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ShareDirectory operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ds-2015-04-16/ShareDirectory">REST API Reference for ShareDirectory Operation</seealso>
+        public virtual Task<ShareDirectoryResponse> ShareDirectoryAsync(ShareDirectoryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = ShareDirectoryRequestMarshaller.Instance;
+            var unmarshaller = ShareDirectoryResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ShareDirectoryRequest,ShareDirectoryResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  StartSchemaExtension
 
         internal virtual StartSchemaExtensionResponse StartSchemaExtension(StartSchemaExtensionRequest request)
@@ -1507,6 +1744,38 @@ namespace Amazon.DirectoryService
             var unmarshaller = StartSchemaExtensionResponseUnmarshaller.Instance;
 
             return InvokeAsync<StartSchemaExtensionRequest,StartSchemaExtensionResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UnshareDirectory
+
+        internal virtual UnshareDirectoryResponse UnshareDirectory(UnshareDirectoryRequest request)
+        {
+            var marshaller = UnshareDirectoryRequestMarshaller.Instance;
+            var unmarshaller = UnshareDirectoryResponseUnmarshaller.Instance;
+
+            return Invoke<UnshareDirectoryRequest,UnshareDirectoryResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UnshareDirectory operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UnshareDirectory operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ds-2015-04-16/UnshareDirectory">REST API Reference for UnshareDirectory Operation</seealso>
+        public virtual Task<UnshareDirectoryResponse> UnshareDirectoryAsync(UnshareDirectoryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = UnshareDirectoryRequestMarshaller.Instance;
+            var unmarshaller = UnshareDirectoryResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UnshareDirectoryRequest,UnshareDirectoryResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -1603,6 +1872,38 @@ namespace Amazon.DirectoryService
             var unmarshaller = UpdateRadiusResponseUnmarshaller.Instance;
 
             return InvokeAsync<UpdateRadiusRequest,UpdateRadiusResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateTrust
+
+        internal virtual UpdateTrustResponse UpdateTrust(UpdateTrustRequest request)
+        {
+            var marshaller = UpdateTrustRequestMarshaller.Instance;
+            var unmarshaller = UpdateTrustResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateTrustRequest,UpdateTrustResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateTrust operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateTrust operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ds-2015-04-16/UpdateTrust">REST API Reference for UpdateTrust Operation</seealso>
+        public virtual Task<UpdateTrustResponse> UpdateTrustAsync(UpdateTrustRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = UpdateTrustRequestMarshaller.Instance;
+            var unmarshaller = UpdateTrustResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateTrustRequest,UpdateTrustResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 

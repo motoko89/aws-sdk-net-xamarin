@@ -26,6 +26,7 @@ using System.Collections.Generic;
 
 using Amazon.Lambda.Model;
 using Amazon.Lambda.Model.Internal.MarshallTransformations;
+using Amazon.Lambda.Internal;
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
 using Amazon.Runtime.Internal.Auth;
@@ -50,6 +51,7 @@ namespace Amazon.Lambda
     /// </summary>
     public partial class AmazonLambdaClient : AmazonServiceClient, IAmazonLambda
     {
+        private static IServiceMetadata serviceMetadata = new AmazonLambdaMetadata();
         #region Constructors
 
         /// <summary>
@@ -219,6 +221,16 @@ namespace Amazon.Lambda
             return new AWS4Signer();
         }    
 
+        /// <summary>
+        /// Capture metadata for the service.
+        /// </summary>
+        protected override IServiceMetadata ServiceMetadata
+        {
+            get
+            {
+                return serviceMetadata;
+            }
+        }
 
         #endregion
 
@@ -241,20 +253,17 @@ namespace Amazon.Lambda
         /// <summary>
         /// Adds a permission to the resource policy associated with the specified AWS Lambda
         /// function. You use resource policies to grant permissions to event sources that use
-        /// <i>push</i> model. In a <i>push</i> model, event sources (such as Amazon S3 and custom
-        /// applications) invoke your Lambda function. Each permission you add to the resource
-        /// policy allows an event source, permission to invoke the Lambda function. 
+        /// the <i>push</i> model. In a <i>push</i> model, event sources (such as Amazon S3 and
+        /// custom applications) invoke your Lambda function. Each permission you add to the resource
+        /// policy allows an event source permission to invoke the Lambda function. 
         /// 
         ///  
         /// <para>
-        /// For information about the push model, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">Lambda
-        /// Functions</a>. 
-        /// </para>
-        ///  
-        /// <para>
-        /// If you are using versioning, the permissions you add are specific to the Lambda function
-        /// version or alias you specify in the <code>AddPermission</code> request via the <code>Qualifier</code>
-        /// parameter. For more information about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
+        /// Permissions apply to the Amazon Resource Name (ARN) used to invoke the function, which
+        /// can be unqualified (the unpublished version of the function), or include a version
+        /// or alias. If a client uses a version or alias to invoke a function, use the <code>Qualifier</code>
+        /// parameter to apply permissions to that ARN. For more information about versioning,
+        /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
         /// Lambda Function Versioning and Aliases</a>. 
         /// </para>
         ///  
@@ -289,7 +298,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/AddPermission">REST API Reference for AddPermission Operation</seealso>
         public virtual AddPermissionResponse AddPermission(AddPermissionRequest request)
@@ -354,7 +363,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/CreateAlias">REST API Reference for CreateAlias Operation</seealso>
         public virtual CreateAliasResponse CreateAlias(CreateAliasRequest request)
@@ -391,8 +400,8 @@ namespace Amazon.Lambda
 
         /// <summary>
         /// Identifies a poll-based event source for a Lambda function. It can be either an Amazon
-        /// Kinesis or DynamoDB stream, or an Amazon SQS queue. AWS Lambda invokes the specified
-        /// function when records are posted to the event source.
+        /// Kinesis or DynamoDB stream. AWS Lambda invokes the specified function when records
+        /// are posted to the event source.
         /// 
         ///  
         /// <para>
@@ -410,6 +419,11 @@ namespace Amazon.Lambda
         /// Lambda functions and a given Lambda function can be associated with multiple AWS event
         /// sources. For Amazon SQS, you can configure multiple queues as event sources for a
         /// single Lambda function, but an SQS queue can be mapped only to a single Lambda function.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can configure an SQS queue in an account separate from your Lambda function's
+        /// account. Also the queue needs to reside in the same AWS region as your function. 
         /// </para>
         ///  
         /// <para>
@@ -442,7 +456,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/CreateEventSourceMapping">REST API Reference for CreateEventSourceMapping Operation</seealso>
         public virtual CreateEventSourceMappingResponse CreateEventSourceMapping(CreateEventSourceMappingRequest request)
@@ -478,18 +492,10 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Creates a new Lambda function. The function metadata is created from the request parameters,
-        /// and the code for the function is provided by a .zip file in the request body. If the
-        /// function name already exists, the operation will fail. Note that the function name
-        /// is case-sensitive.
+        /// Creates a new Lambda function. The function configuration is created from the request
+        /// parameters, and the code for the function is provided by a .zip file. The function
+        /// name is case-sensitive.
         /// 
-        ///  
-        /// <para>
-        ///  If you are using versioning, you can also publish a version of the Lambda function
-        /// you are creating using the <code>Publish</code> parameter. For more information about
-        /// versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-        /// Lambda Function Versioning and Aliases</a>. 
-        /// </para>
         ///  
         /// <para>
         /// This operation requires permission for the <code>lambda:CreateFunction</code> action.
@@ -517,7 +523,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/CreateFunction">REST API Reference for CreateFunction Operation</seealso>
         public virtual CreateFunctionResponse CreateFunction(CreateFunctionRequest request)
@@ -573,7 +579,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/DeleteAlias">REST API Reference for DeleteAlias Operation</seealso>
         public virtual DeleteAliasResponse DeleteAlias(DeleteAliasRequest request)
@@ -639,7 +645,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/DeleteEventSourceMapping">REST API Reference for DeleteEventSourceMapping Operation</seealso>
         public virtual DeleteEventSourceMappingResponse DeleteEventSourceMapping(DeleteEventSourceMappingRequest request)
@@ -675,28 +681,16 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Deletes the specified Lambda function code and configuration.
+        /// Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code>
+        /// parameter. Otherwise, all versions and aliases are deleted. Event source mappings
+        /// are not deleted.
         /// 
-        ///  
-        /// <para>
-        /// If you are using the versioning feature and you don't specify a function version in
-        /// your <code>DeleteFunction</code> request, AWS Lambda will delete the function, including
-        /// all its versions, and any aliases pointing to the function versions. To delete a specific
-        /// function version, you must provide the function version via the <code>Qualifier</code>
-        /// parameter. For information about function versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-        /// Lambda Function Versioning and Aliases</a>. 
-        /// </para>
-        ///  
-        /// <para>
-        /// When you delete a function the associated resource policy is also deleted. You will
-        /// need to delete the event source mappings explicitly.
-        /// </para>
         ///  
         /// <para>
         /// This operation requires permission for the <code>lambda:DeleteFunction</code> action.
         /// </para>
         /// </summary>
-        /// <param name="functionName">The Lambda function to delete.  You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. </param>
+        /// <param name="functionName">The name of the lambda function. <p class="title"> <b>Name formats</b>  <ul> <li>  <b>Function name</b> - <code>MyFunction</code>. </li> <li>  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>. </li> <li>  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>. </li> </ul> The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</param>
         /// 
         /// <returns>The response from the DeleteFunction service method, as returned by Lambda.</returns>
         /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
@@ -715,7 +709,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/DeleteFunction">REST API Reference for DeleteFunction Operation</seealso>
         public virtual DeleteFunctionResponse DeleteFunction(string functionName)
@@ -727,22 +721,10 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Deletes the specified Lambda function code and configuration.
+        /// Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code>
+        /// parameter. Otherwise, all versions and aliases are deleted. Event source mappings
+        /// are not deleted.
         /// 
-        ///  
-        /// <para>
-        /// If you are using the versioning feature and you don't specify a function version in
-        /// your <code>DeleteFunction</code> request, AWS Lambda will delete the function, including
-        /// all its versions, and any aliases pointing to the function versions. To delete a specific
-        /// function version, you must provide the function version via the <code>Qualifier</code>
-        /// parameter. For information about function versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-        /// Lambda Function Versioning and Aliases</a>. 
-        /// </para>
-        ///  
-        /// <para>
-        /// When you delete a function the associated resource policy is also deleted. You will
-        /// need to delete the event source mappings explicitly.
-        /// </para>
         ///  
         /// <para>
         /// This operation requires permission for the <code>lambda:DeleteFunction</code> action.
@@ -767,7 +749,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/DeleteFunction">REST API Reference for DeleteFunction Operation</seealso>
         public virtual DeleteFunctionResponse DeleteFunction(DeleteFunctionRequest request)
@@ -780,28 +762,16 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Deletes the specified Lambda function code and configuration.
+        /// Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code>
+        /// parameter. Otherwise, all versions and aliases are deleted. Event source mappings
+        /// are not deleted.
         /// 
-        ///  
-        /// <para>
-        /// If you are using the versioning feature and you don't specify a function version in
-        /// your <code>DeleteFunction</code> request, AWS Lambda will delete the function, including
-        /// all its versions, and any aliases pointing to the function versions. To delete a specific
-        /// function version, you must provide the function version via the <code>Qualifier</code>
-        /// parameter. For information about function versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-        /// Lambda Function Versioning and Aliases</a>. 
-        /// </para>
-        ///  
-        /// <para>
-        /// When you delete a function the associated resource policy is also deleted. You will
-        /// need to delete the event source mappings explicitly.
-        /// </para>
         ///  
         /// <para>
         /// This operation requires permission for the <code>lambda:DeleteFunction</code> action.
         /// </para>
         /// </summary>
-        /// <param name="functionName">The Lambda function to delete.  You can specify the function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. </param>
+        /// <param name="functionName">The name of the lambda function. <p class="title"> <b>Name formats</b>  <ul> <li>  <b>Function name</b> - <code>MyFunction</code>. </li> <li>  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>. </li> <li>  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>. </li> </ul> The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -823,7 +793,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/DeleteFunction">REST API Reference for DeleteFunction Operation</seealso>
         public virtual Task<DeleteFunctionResponse> DeleteFunctionAsync(string functionName, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
@@ -859,7 +829,8 @@ namespace Amazon.Lambda
 
         /// <summary>
         /// Removes concurrent execution limits from this function. For more information, see
-        /// <a>concurrent-executions</a>.
+        /// <a href="http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing
+        /// Concurrency</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteFunctionConcurrency service method.</param>
         /// 
@@ -877,7 +848,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/DeleteFunctionConcurrency">REST API Reference for DeleteFunctionConcurrency Operation</seealso>
         public virtual DeleteFunctionConcurrencyResponse DeleteFunctionConcurrency(DeleteFunctionConcurrencyRequest request)
@@ -913,15 +884,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Returns a customer's account settings.
-        /// 
-        ///  
-        /// <para>
-        /// You can use this operation to retrieve Lambda limits information, such as code size
-        /// and concurrency limits. For more information about limits, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html">AWS
-        /// Lambda Limits</a>. You can also retrieve resource usage statistics, such as code storage
-        /// usage and function count.
-        /// </para>
+        /// Retrieves details about your account's <a href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a>
+        /// and usage in a region.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAccountSettings service method.</param>
         /// 
@@ -930,7 +894,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetAccountSettings">REST API Reference for GetAccountSettings Operation</seealso>
         public virtual GetAccountSettingsResponse GetAccountSettings(GetAccountSettingsRequest request)
@@ -991,7 +955,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetAlias">REST API Reference for GetAlias Operation</seealso>
         public virtual GetAliasResponse GetAlias(GetAliasRequest request)
@@ -1051,7 +1015,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetEventSourceMapping">REST API Reference for GetEventSourceMapping Operation</seealso>
         public virtual GetEventSourceMappingResponse GetEventSourceMapping(GetEventSourceMappingRequest request)
@@ -1094,10 +1058,9 @@ namespace Amazon.Lambda
         /// 
         ///  
         /// <para>
-        /// Using the optional <code>Qualifier</code> parameter, you can specify a specific function
-        /// version for which you want this information. If you don't specify this parameter,
-        /// the API uses unqualified function ARN which return information about the <code>$LATEST</code>
-        /// version of the Lambda function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
+        /// Use the <code>Qualifier</code> parameter to retrieve a published version of the function.
+        /// Otherwise, returns the unpublished version (<code>$LATEST</code>). For more information,
+        /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
         /// Lambda Function Versioning and Aliases</a>.
         /// </para>
         ///  
@@ -1105,7 +1068,7 @@ namespace Amazon.Lambda
         /// This operation requires permission for the <code>lambda:GetFunction</code> action.
         /// </para>
         /// </summary>
-        /// <param name="functionName">The Lambda function name.  You can specify a function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). AWS Lambda also allows you to specify a partial ARN (for example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. </param>
+        /// <param name="functionName">The name of the lambda function. <p class="title"> <b>Name formats</b>  <ul> <li>  <b>Function name</b> - <code>MyFunction</code>. </li> <li>  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>. </li> <li>  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>. </li> </ul> The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</param>
         /// 
         /// <returns>The response from the GetFunction service method, as returned by Lambda.</returns>
         /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
@@ -1121,7 +1084,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetFunction">REST API Reference for GetFunction Operation</seealso>
         public virtual GetFunctionResponse GetFunction(string functionName)
@@ -1140,10 +1103,9 @@ namespace Amazon.Lambda
         /// 
         ///  
         /// <para>
-        /// Using the optional <code>Qualifier</code> parameter, you can specify a specific function
-        /// version for which you want this information. If you don't specify this parameter,
-        /// the API uses unqualified function ARN which return information about the <code>$LATEST</code>
-        /// version of the Lambda function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
+        /// Use the <code>Qualifier</code> parameter to retrieve a published version of the function.
+        /// Otherwise, returns the unpublished version (<code>$LATEST</code>). For more information,
+        /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
         /// Lambda Function Versioning and Aliases</a>.
         /// </para>
         ///  
@@ -1167,7 +1129,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetFunction">REST API Reference for GetFunction Operation</seealso>
         public virtual GetFunctionResponse GetFunction(GetFunctionRequest request)
@@ -1187,10 +1149,9 @@ namespace Amazon.Lambda
         /// 
         ///  
         /// <para>
-        /// Using the optional <code>Qualifier</code> parameter, you can specify a specific function
-        /// version for which you want this information. If you don't specify this parameter,
-        /// the API uses unqualified function ARN which return information about the <code>$LATEST</code>
-        /// version of the Lambda function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
+        /// Use the <code>Qualifier</code> parameter to retrieve a published version of the function.
+        /// Otherwise, returns the unpublished version (<code>$LATEST</code>). For more information,
+        /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
         /// Lambda Function Versioning and Aliases</a>.
         /// </para>
         ///  
@@ -1198,7 +1159,7 @@ namespace Amazon.Lambda
         /// This operation requires permission for the <code>lambda:GetFunction</code> action.
         /// </para>
         /// </summary>
-        /// <param name="functionName">The Lambda function name.  You can specify a function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). AWS Lambda also allows you to specify a partial ARN (for example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. </param>
+        /// <param name="functionName">The name of the lambda function. <p class="title"> <b>Name formats</b>  <ul> <li>  <b>Function name</b> - <code>MyFunction</code>. </li> <li>  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>. </li> <li>  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>. </li> </ul> The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -1217,7 +1178,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetFunction">REST API Reference for GetFunction Operation</seealso>
         public virtual Task<GetFunctionResponse> GetFunctionAsync(string functionName, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
@@ -1270,7 +1231,7 @@ namespace Amazon.Lambda
         /// operation.
         /// </para>
         /// </summary>
-        /// <param name="functionName">The name of the Lambda function for which you want to retrieve the configuration information.  You can specify a function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). AWS Lambda also allows you to specify a partial ARN (for example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. </param>
+        /// <param name="functionName">The name of the lambda function. <p class="title"> <b>Name formats</b>  <ul> <li>  <b>Function name</b> - <code>MyFunction</code>. </li> <li>  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>. </li> <li>  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>. </li> </ul> The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</param>
         /// 
         /// <returns>The response from the GetFunctionConfiguration service method, as returned by Lambda.</returns>
         /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
@@ -1286,7 +1247,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetFunctionConfiguration">REST API Reference for GetFunctionConfiguration Operation</seealso>
         public virtual GetFunctionConfigurationResponse GetFunctionConfiguration(string functionName)
@@ -1332,7 +1293,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetFunctionConfiguration">REST API Reference for GetFunctionConfiguration Operation</seealso>
         public virtual GetFunctionConfigurationResponse GetFunctionConfiguration(GetFunctionConfigurationRequest request)
@@ -1363,7 +1324,7 @@ namespace Amazon.Lambda
         /// operation.
         /// </para>
         /// </summary>
-        /// <param name="functionName">The name of the Lambda function for which you want to retrieve the configuration information.  You can specify a function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). AWS Lambda also allows you to specify a partial ARN (for example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. </param>
+        /// <param name="functionName">The name of the lambda function. <p class="title"> <b>Name formats</b>  <ul> <li>  <b>Function name</b> - <code>MyFunction</code>. </li> <li>  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>. </li> <li>  <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>. </li> </ul> The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -1382,7 +1343,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetFunctionConfiguration">REST API Reference for GetFunctionConfiguration Operation</seealso>
         public virtual Task<GetFunctionConfigurationResponse> GetFunctionConfigurationAsync(string functionName, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
@@ -1421,15 +1382,7 @@ namespace Amazon.Lambda
         /// 
         ///  
         /// <para>
-        ///  If you are using the versioning feature, you can get the resource policy associated
-        /// with the specific Lambda function version or alias by specifying the version or alias
-        /// name using the <code>Qualifier</code> parameter. For more information about versioning,
-        /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-        /// Lambda Function Versioning and Aliases</a>. 
-        /// </para>
-        ///  
-        /// <para>
-        /// You need permission for the <code>lambda:GetPolicy action.</code> 
+        /// This action requires permission for the <code>lambda:GetPolicy action.</code> 
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetPolicy service method.</param>
@@ -1448,7 +1401,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetPolicy">REST API Reference for GetPolicy Operation</seealso>
         public virtual GetPolicyResponse GetPolicy(GetPolicyRequest request)
@@ -1484,25 +1437,34 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Invokes a specific Lambda function. For an example, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/with-dynamodb-create-function.html#with-dbb-invoke-manually">Create
+        /// Invokes a Lambda function. For an example, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/with-dynamodb-create-function.html#with-dbb-invoke-manually">Create
         /// the Lambda Function and Test It Manually</a>. 
         /// 
         ///  
         /// <para>
-        /// If you are using the versioning feature, you can invoke the specific function version
-        /// by providing function version or alias name that is pointing to the function version
-        /// using the <code>Qualifier</code> parameter in the request. If you don't provide the
-        /// <code>Qualifier</code> parameter, the <code>$LATEST</code> version of the Lambda function
-        /// is invoked. Invocations occur at least once in response to an event and functions
-        /// must be idempotent to handle this. For information about the versioning feature, see
-        /// <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-        /// Lambda Function Versioning and Aliases</a>. 
+        /// Specify just a function name to invoke the latest version of the function. To invoke
+        /// a published version, use the <code>Qualifier</code> parameter to specify a <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">version
+        /// or alias</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you use the <code>RequestResponse</code> (synchronous) invocation option, the function
+        /// will be invoked only once. If you use the <code>Event</code> (asynchronous) invocation
+        /// option, the function will be invoked at least once in response to an event and the
+        /// function must be idempotent to handle this.
+        /// </para>
+        ///  
+        /// <para>
+        /// For functions with a long timeout, your client may be disconnected during synchronous
+        /// invocation while it waits for a response. Configure your HTTP client, SDK, firewall,
+        /// proxy, or operating system to allow for long connections with timeout or keep-alive
+        /// settings.
         /// </para>
         ///  
         /// <para>
         /// This operation requires permission for the <code>lambda:InvokeFunction</code> action.
         /// </para>
-        ///  <note> 
+        ///  
         /// <para>
         /// The <code>TooManyRequestsException</code> noted below will return the following: <code>ConcurrentInvocationLimitExceeded</code>
         /// will be returned if you have no functions with reserved concurrency and have exceeded
@@ -1511,13 +1473,12 @@ namespace Amazon.Lambda
         /// will be returned when a function with reserved concurrency exceeds its configured
         /// concurrency limit. 
         /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the Invoke service method.</param>
         /// 
         /// <returns>The response from the Invoke service method, as returned by Lambda.</returns>
         /// <exception cref="Amazon.Lambda.Model.EC2AccessDeniedException">
-        /// 
+        /// Need additional permissions to configure VPC settings.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.EC2ThrottledException">
         /// AWS Lambda was throttled by Amazon EC2 during Lambda function initialization using
@@ -1550,7 +1511,7 @@ namespace Amazon.Lambda
         /// The Subnet ID provided in the Lambda function VPC configuration is invalid.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.InvalidZipFileException">
-        /// AWS Lambda could not unzip the function zip file.
+        /// AWS Lambda could not unzip the deployment package.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.KMSAccessDeniedException">
         /// Lambda was unable to decrypt the environment variables because KMS access was denied.
@@ -1584,7 +1545,7 @@ namespace Amazon.Lambda
         /// more configured subnets has no available IP addresses.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.UnsupportedMediaTypeException">
         /// The content type of the <code>Invoke</code> request body is not JSON.
@@ -1625,7 +1586,7 @@ namespace Amazon.Lambda
         /// <summary>
         /// <important> 
         /// <para>
-        /// This API is deprecated. We recommend you use <code>Invoke</code> API (see <a>Invoke</a>).
+        /// For asynchronous function invocation, use <a>Invoke</a>.
         /// </para>
         ///  </important> 
         /// <para>
@@ -1716,7 +1677,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListAliases">REST API Reference for ListAliases Operation</seealso>
         public virtual ListAliasesResponse ListAliases(ListAliasesRequest request)
@@ -1762,13 +1723,6 @@ namespace Amazon.Lambda
         /// </para>
         ///  
         /// <para>
-        /// If you are using the versioning feature, you can get list of event source mappings
-        /// for a specific Lambda function version or an alias as described in the <code>FunctionName</code>
-        /// parameter. For information about the versioning feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-        /// Lambda Function Versioning and Aliases</a>. 
-        /// </para>
-        ///  
-        /// <para>
         /// This operation requires permission for the <code>lambda:ListEventSourceMappings</code>
         /// action.
         /// </para>
@@ -1789,7 +1743,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListEventSourceMappings">REST API Reference for ListEventSourceMappings Operation</seealso>
         public virtual ListEventSourceMappingsResponse ListEventSourceMappings(ListEventSourceMappingsRequest request)
@@ -1852,7 +1806,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListFunctions">REST API Reference for ListFunctions Operation</seealso>
         public virtual ListFunctionsResponse ListFunctions()
@@ -1891,7 +1845,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListFunctions">REST API Reference for ListFunctions Operation</seealso>
         public virtual ListFunctionsResponse ListFunctions(ListFunctionsRequest request)
@@ -1934,7 +1888,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListFunctions">REST API Reference for ListFunctions Operation</seealso>
         public virtual Task<ListFunctionsResponse> ListFunctionsAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
@@ -1988,7 +1942,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListTags">REST API Reference for ListTags Operation</seealso>
         public virtual ListTagsResponse ListTags(ListTagsRequest request)
@@ -2024,8 +1978,7 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// List all versions of a function. For information about the versioning feature, see
-        /// <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
+        /// Lists all versions of a function. For information about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
         /// Lambda Function Versioning and Aliases</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListVersionsByFunction service method.</param>
@@ -2044,7 +1997,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListVersionsByFunction">REST API Reference for ListVersionsByFunction Operation</seealso>
         public virtual ListVersionsByFunctionResponse ListVersionsByFunction(ListVersionsByFunctionRequest request)
@@ -2110,7 +2063,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/PublishVersion">REST API Reference for PublishVersion Operation</seealso>
         public virtual PublishVersionResponse PublishVersion(PublishVersionRequest request)
@@ -2151,7 +2104,8 @@ namespace Amazon.Lambda
         /// Lambda automatically reserves a buffer of 100 concurrent executions for functions
         /// without any reserved concurrency limit. This means if your account limit is 1000,
         /// you have a total of 900 available to allocate to individual functions. For more information,
-        /// see <a>concurrent-executions</a>.
+        /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing
+        /// Concurrency</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutFunctionConcurrency service method.</param>
         /// 
@@ -2169,7 +2123,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/PutFunctionConcurrency">REST API Reference for PutFunctionConcurrency Operation</seealso>
         public virtual PutFunctionConcurrencyResponse PutFunctionConcurrency(PutFunctionConcurrencyRequest request)
@@ -2205,21 +2159,19 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// You can remove individual permissions from an resource policy associated with a Lambda
-        /// function by providing a statement ID that you provided when you added the permission.
+        /// Removes permissions from a function. You can remove individual permissions from an
+        /// resource policy associated with a Lambda function by providing a statement ID that
+        /// you provided when you added the permission. When you remove permissions, disable the
+        /// event source mapping or trigger configuration first to avoid errors.
         /// 
         ///  
         /// <para>
-        /// If you are using versioning, the permissions you remove are specific to the Lambda
-        /// function version or alias you specify in the <code>AddPermission</code> request via
-        /// the <code>Qualifier</code> parameter. For more information about versioning, see <a
-        /// href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda
-        /// Function Versioning and Aliases</a>. 
-        /// </para>
-        ///  
-        /// <para>
-        /// Note that removal of a permission will cause an active event source to lose permission
-        /// to the function.
+        /// Permissions apply to the Amazon Resource Name (ARN) used to invoke the function, which
+        /// can be unqualified (the unpublished version of the function), or include a version
+        /// or alias. If a client uses a version or alias to invoke a function, use the <code>Qualifier</code>
+        /// parameter to apply permissions to that ARN. For more information about versioning,
+        /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
+        /// Lambda Function Versioning and Aliases</a>. 
         /// </para>
         ///  
         /// <para>
@@ -2247,7 +2199,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/RemovePermission">REST API Reference for RemovePermission Operation</seealso>
         public virtual RemovePermissionResponse RemovePermission(RemovePermissionRequest request)
@@ -2305,7 +2257,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/TagResource">REST API Reference for TagResource Operation</seealso>
         public virtual TagResourceResponse TagResource(TagResourceRequest request)
@@ -2361,7 +2313,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/UntagResource">REST API Reference for UntagResource Operation</seealso>
         public virtual UntagResourceResponse UntagResource(UntagResourceRequest request)
@@ -2427,7 +2379,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/UpdateAlias">REST API Reference for UpdateAlias Operation</seealso>
         public virtual UpdateAliasResponse UpdateAlias(UpdateAliasRequest request)
@@ -2470,13 +2422,6 @@ namespace Amazon.Lambda
         /// 
         ///  
         /// <para>
-        /// If you are using the versioning feature, you can update the event source mapping to
-        /// map to a specific Lambda function version or alias as described in the <code>FunctionName</code>
-        /// parameter. For information about the versioning feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-        /// Lambda Function Versioning and Aliases</a>. 
-        /// </para>
-        ///  
-        /// <para>
         /// If you disable the event source mapping, AWS Lambda stops polling. If you enable again,
         /// it will resume polling from the time it had stopped polling, so you don't lose processing
         /// of any records. However, if you delete event source mapping and create it again, it
@@ -2512,7 +2457,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/UpdateEventSourceMapping">REST API Reference for UpdateEventSourceMapping Operation</seealso>
         public virtual UpdateEventSourceMappingResponse UpdateEventSourceMapping(UpdateEventSourceMappingRequest request)
@@ -2588,7 +2533,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/UpdateFunctionCode">REST API Reference for UpdateFunctionCode Operation</seealso>
         public virtual UpdateFunctionCodeResponse UpdateFunctionCode(UpdateFunctionCodeRequest request)
@@ -2666,7 +2611,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
-        /// 
+        /// Request throughput limit exceeded
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/UpdateFunctionConfiguration">REST API Reference for UpdateFunctionConfiguration Operation</seealso>
         public virtual UpdateFunctionConfigurationResponse UpdateFunctionConfiguration(UpdateFunctionConfigurationRequest request)

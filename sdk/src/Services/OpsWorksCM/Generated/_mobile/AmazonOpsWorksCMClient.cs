@@ -26,6 +26,7 @@ using System.Collections.Generic;
 
 using Amazon.OpsWorksCM.Model;
 using Amazon.OpsWorksCM.Model.Internal.MarshallTransformations;
+using Amazon.OpsWorksCM.Internal;
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
 using Amazon.Runtime.Internal.Auth;
@@ -139,6 +140,7 @@ namespace Amazon.OpsWorksCM
     /// </summary>
     public partial class AmazonOpsWorksCMClient : AmazonServiceClient, IAmazonOpsWorksCM
     {
+        private static IServiceMetadata serviceMetadata = new AmazonOpsWorksCMMetadata();
         
         #region Constructors
 
@@ -313,6 +315,16 @@ namespace Amazon.OpsWorksCM
             return new AWS4Signer();
         } 
 
+        /// <summary>
+        /// Capture metadata for the service.
+        /// </summary>
+        protected override IServiceMetadata ServiceMetadata
+        {
+            get
+            {
+                return serviceMetadata;
+            }
+        }
 
         #endregion
 
@@ -676,6 +688,38 @@ namespace Amazon.OpsWorksCM
             var unmarshaller = DisassociateNodeResponseUnmarshaller.Instance;
 
             return InvokeAsync<DisassociateNodeRequest,DisassociateNodeResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ExportServerEngineAttribute
+
+        internal virtual ExportServerEngineAttributeResponse ExportServerEngineAttribute(ExportServerEngineAttributeRequest request)
+        {
+            var marshaller = ExportServerEngineAttributeRequestMarshaller.Instance;
+            var unmarshaller = ExportServerEngineAttributeResponseUnmarshaller.Instance;
+
+            return Invoke<ExportServerEngineAttributeRequest,ExportServerEngineAttributeResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ExportServerEngineAttribute operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ExportServerEngineAttribute operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/opsworkscm-2016-11-01/ExportServerEngineAttribute">REST API Reference for ExportServerEngineAttribute Operation</seealso>
+        public virtual Task<ExportServerEngineAttributeResponse> ExportServerEngineAttributeAsync(ExportServerEngineAttributeRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = ExportServerEngineAttributeRequestMarshaller.Instance;
+            var unmarshaller = ExportServerEngineAttributeResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ExportServerEngineAttributeRequest,ExportServerEngineAttributeResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 

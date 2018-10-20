@@ -42,6 +42,7 @@ namespace Amazon.RDS.Model
         private CloudwatchLogsExportConfiguration _cloudwatchLogsExportConfiguration;
         private string _dbClusterIdentifier;
         private string _dbClusterParameterGroupName;
+        private bool? _deletionProtection;
         private bool? _enableIAMDatabaseAuthentication;
         private string _engineVersion;
         private string _masterUserPassword;
@@ -217,6 +218,25 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property DeletionProtection. 
+        /// <para>
+        /// Indicates if the DB cluster has deletion protection enabled. The database can't be
+        /// deleted when this value is set to true. 
+        /// </para>
+        /// </summary>
+        public bool DeletionProtection
+        {
+            get { return this._deletionProtection.GetValueOrDefault(); }
+            set { this._deletionProtection = value; }
+        }
+
+        // Check to see if DeletionProtection property is set
+        internal bool IsSetDeletionProtection()
+        {
+            return this._deletionProtection.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property EnableIAMDatabaseAuthentication. 
         /// <para>
         /// True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
@@ -306,7 +326,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Cannot end with a hyphen or contain two consecutive hyphens
+        /// Can't end with a hyphen or contain two consecutive hyphens
         /// </para>
         ///  </li> </ul> 
         /// <para>

@@ -26,6 +26,7 @@ using System.Collections.Generic;
 
 using Amazon.StorageGateway.Model;
 using Amazon.StorageGateway.Model.Internal.MarshallTransformations;
+using Amazon.StorageGateway.Internal;
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
 using Amazon.Runtime.Internal.Auth;
@@ -119,6 +120,7 @@ namespace Amazon.StorageGateway
     /// </summary>
     public partial class AmazonStorageGatewayClient : AmazonServiceClient, IAmazonStorageGateway
     {
+        private static IServiceMetadata serviceMetadata = new AmazonStorageGatewayMetadata();
         #region Constructors
 
         /// <summary>
@@ -288,6 +290,16 @@ namespace Amazon.StorageGateway
             return new AWS4Signer();
         }    
 
+        /// <summary>
+        /// Capture metadata for the service.
+        /// </summary>
+        protected override IServiceMetadata ServiceMetadata
+        {
+            get
+            {
+                return serviceMetadata;
+            }
+        }
 
         #endregion
 
@@ -3294,7 +3306,9 @@ namespace Amazon.StorageGateway
         /// Refreshes the cache for the specified file share. This operation finds objects in
         /// the Amazon S3 bucket that were added, removed or replaced since the gateway last listed
         /// the bucket's contents and cached the results. This operation is only supported in
-        /// the file gateway type.
+        /// the file gateway type. You can subscribe to be notified through an Amazon CloudWatch
+        /// event when your RefreshCache operation completes. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification">Getting
+        /// Notified About File Operations</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RefreshCache service method.</param>
         /// 

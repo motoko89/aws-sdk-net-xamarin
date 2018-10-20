@@ -18,6 +18,8 @@ using Amazon.Runtime.Internal.Auth;
 using Amazon.Runtime.Internal.Transform;
 using Amazon.Runtime.Internal.Util;
 using System;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace Amazon.Runtime
 {
@@ -40,6 +42,14 @@ namespace Amazon.Runtime
 #if AWS_ASYNC_API
         System.Threading.CancellationToken CancellationToken { get; }
 #endif
+#if BCL || CORECLR
+        MonitoringAPICallAttempt CSMCallAttempt { get; set; }
+
+        MonitoringAPICallEvent CSMCallEvent { get; set; }
+#endif
+        IServiceMetadata ServiceMetaData { get; }
+
+        bool CSMEnabled { get; }
     }
 
     public interface IResponseContext
@@ -71,7 +81,6 @@ namespace Amazon.Runtime
     {
         IResponseContext ResponseContext { get; }
         IRequestContext RequestContext { get; }
-
     }
 
     public interface IAsyncExecutionContext
@@ -87,6 +96,7 @@ namespace Amazon.Runtime.Internal
 {
     public class RequestContext : IRequestContext
     {
+        private IServiceMetadata _serviceMetadata;
         AbstractAWSSigner clientSigner;
 
         public RequestContext(bool enableMetrics, AbstractAWSSigner clientSigner)
@@ -109,7 +119,6 @@ namespace Amazon.Runtime.Internal
         public IMarshaller<IRequest, AmazonWebServiceRequest> Marshaller { get; set; }
         public ResponseUnmarshaller Unmarshaller { get; set; }
         public ImmutableCredentials ImmutableCredentials { get; set; }
-
         public AbstractAWSSigner Signer
         {
             get
@@ -130,6 +139,31 @@ namespace Amazon.Runtime.Internal
         {
             get { return this.OriginalRequest.GetType().Name; }
         }
+#if BCL || CORECLR
+        public MonitoringAPICallAttempt CSMCallAttempt { get; set; }
+
+        public MonitoringAPICallEvent CSMCallEvent { get; set; }
+#endif
+        public IServiceMetadata ServiceMetaData
+        {
+            get
+            {
+                return _serviceMetadata;
+            }
+            internal set
+            {
+                _serviceMetadata = value;
+                // The CSMEnabled flag is referred in the runtime pipeline before capturing any CSM data.
+                // Along with the customer set CSMEnabled flag, the ServiceMetadata.ServiceId needs to be set
+                // to capture client side metrics. Older service nuget packages might not have a ServiceMetadata
+                // implementation and in such cases client side metrics will not be captured.
+#if BCL || CORECLR
+                CSMEnabled = DeterminedCSMConfiguration.Instance.CSMConfiguration.Enabled && !string.IsNullOrEmpty(_serviceMetadata.ServiceId);
+#endif
+            }
+        }
+
+        public bool CSMEnabled { get; private set; }
     }
 
     public class AsyncRequestContext : RequestContext, IAsyncRequestContext
@@ -164,7 +198,7 @@ namespace Amazon.Runtime.Internal
     public class ExecutionContext : IExecutionContext
     {
         public IRequestContext RequestContext { get; private set; }
-        public IResponseContext ResponseContext { get; private set; }        
+        public IResponseContext ResponseContext { get; private set; }
 
         public ExecutionContext(bool enableMetrics, AbstractAWSSigner clientSigner)
         {
@@ -177,7 +211,6 @@ namespace Amazon.Runtime.Internal
             this.RequestContext = requestContext;
             this.ResponseContext = responseContext;
         }
-
         public static IExecutionContext CreateFromAsyncContext(IAsyncExecutionContext asyncContext)
         {
             return new ExecutionContext(asyncContext.RequestContext,
@@ -189,7 +222,6 @@ namespace Amazon.Runtime.Internal
     {
         public IAsyncResponseContext ResponseContext { get; private set; }
         public IAsyncRequestContext RequestContext { get; private set; }
-
         public object RuntimeState { get; set; }
 
         public AsyncExecutionContext(bool enableMetrics, AbstractAWSSigner clientSigner)

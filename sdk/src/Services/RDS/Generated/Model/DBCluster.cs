@@ -28,12 +28,12 @@ using Amazon.Runtime.Internal;
 namespace Amazon.RDS.Model
 {
     /// <summary>
-    /// Contains the details of an Amazon RDS DB cluster. 
+    /// Contains the details of an Amazon Aurora DB cluster. 
     /// 
     ///  
     /// <para>
-    /// This data type is used as a response element in the <a>DescribeDBClusters</a> action.
-    /// 
+    /// This data type is used as a response element in the <a>DescribeDBClusters</a>, <a>StopDBCluster</a>,
+    /// and <a>StartDBCluster</a> actions. 
     /// </para>
     /// </summary>
     public partial class DBCluster
@@ -56,6 +56,7 @@ namespace Amazon.RDS.Model
         private string _dbClusterParameterGroup;
         private string _dbClusterResourceId;
         private string _dbSubnetGroup;
+        private bool? _deletionProtection;
         private DateTime? _earliestBacktrackTime;
         private DateTime? _earliestRestorableTime;
         private List<string> _enabledCloudwatchLogsExports = new List<string>();
@@ -418,6 +419,25 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property DeletionProtection. 
+        /// <para>
+        /// Indicates if the DB cluster has deletion protection enabled. The database can't be
+        /// deleted when this value is set to true. 
+        /// </para>
+        /// </summary>
+        public bool DeletionProtection
+        {
+            get { return this._deletionProtection.GetValueOrDefault(); }
+            set { this._deletionProtection = value; }
+        }
+
+        // Check to see if DeletionProtection property is set
+        internal bool IsSetDeletionProtection()
+        {
+            return this._deletionProtection.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property EarliestBacktrackTime. 
         /// <para>
         /// The earliest time to which a DB cluster can be backtracked.
@@ -516,7 +536,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property EngineMode. 
         /// <para>
-        /// The DB engine mode of the DB cluster, either <code>provisioned</code> or <code>serverless</code>.
+        /// The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
+        /// or <code>parallelquery</code>.
         /// </para>
         /// </summary>
         public string EngineMode

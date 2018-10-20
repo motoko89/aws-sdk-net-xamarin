@@ -75,5 +75,21 @@ namespace AWSSDK.UnitTests
             // Sanity test to make sure we haven't messed up the == operator
             Assert.IsTrue(EventType.ObjectCreatedPut == EventType.ObjectCreatedPut);
         }
+
+        [TestMethod]
+        [TestCategory("S3")]
+        public void EnsureResignOnRetriesIsEnabled()
+        {
+            var serviceClient = new AmazonS3Client("aaaa", "bbbb", Amazon.RegionEndpoint.USEast1);
+            Assert.IsTrue(serviceClient.Config.ResignRetries);
+
+
+            serviceClient = new AmazonS3Client("aaaa", "bbbb", new AmazonS3Config
+            {
+                RegionEndpoint = Amazon.RegionEndpoint.USEast1,
+                ResignRetries = false
+            });
+            Assert.IsTrue(serviceClient.Config.ResignRetries);
+        }
     }
 }

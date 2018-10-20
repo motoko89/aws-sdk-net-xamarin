@@ -26,6 +26,7 @@ using System.Collections.Generic;
 
 using Amazon.Elasticsearch.Model;
 using Amazon.Elasticsearch.Model.Internal.MarshallTransformations;
+using Amazon.Elasticsearch.Internal;
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
 using Amazon.Runtime.Internal.Auth;
@@ -51,6 +52,7 @@ namespace Amazon.Elasticsearch
     /// </summary>
     public partial class AmazonElasticsearchClient : AmazonServiceClient, IAmazonElasticsearch
     {
+        private static IServiceMetadata serviceMetadata = new AmazonElasticsearchMetadata();
         
         #region Constructors
 
@@ -225,6 +227,16 @@ namespace Amazon.Elasticsearch
             return new AWS4Signer();
         } 
 
+        /// <summary>
+        /// Capture metadata for the service.
+        /// </summary>
+        protected override IServiceMetadata ServiceMetadata
+        {
+            get
+            {
+                return serviceMetadata;
+            }
+        }
 
         #endregion
 
@@ -267,6 +279,37 @@ namespace Amazon.Elasticsearch
             var unmarshaller = AddTagsResponseUnmarshaller.Instance;
 
             return InvokeAsync<AddTagsRequest,AddTagsResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CancelElasticsearchServiceSoftwareUpdate
+
+        internal virtual CancelElasticsearchServiceSoftwareUpdateResponse CancelElasticsearchServiceSoftwareUpdate(CancelElasticsearchServiceSoftwareUpdateRequest request)
+        {
+            var marshaller = CancelElasticsearchServiceSoftwareUpdateRequestMarshaller.Instance;
+            var unmarshaller = CancelElasticsearchServiceSoftwareUpdateResponseUnmarshaller.Instance;
+
+            return Invoke<CancelElasticsearchServiceSoftwareUpdateRequest,CancelElasticsearchServiceSoftwareUpdateResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CancelElasticsearchServiceSoftwareUpdate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CancelElasticsearchServiceSoftwareUpdate operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<CancelElasticsearchServiceSoftwareUpdateResponse> CancelElasticsearchServiceSoftwareUpdateAsync(CancelElasticsearchServiceSoftwareUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = CancelElasticsearchServiceSoftwareUpdateRequestMarshaller.Instance;
+            var unmarshaller = CancelElasticsearchServiceSoftwareUpdateResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CancelElasticsearchServiceSoftwareUpdateRequest,CancelElasticsearchServiceSoftwareUpdateResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -825,6 +868,37 @@ namespace Amazon.Elasticsearch
             var unmarshaller = RemoveTagsResponseUnmarshaller.Instance;
 
             return InvokeAsync<RemoveTagsRequest,RemoveTagsResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  StartElasticsearchServiceSoftwareUpdate
+
+        internal virtual StartElasticsearchServiceSoftwareUpdateResponse StartElasticsearchServiceSoftwareUpdate(StartElasticsearchServiceSoftwareUpdateRequest request)
+        {
+            var marshaller = StartElasticsearchServiceSoftwareUpdateRequestMarshaller.Instance;
+            var unmarshaller = StartElasticsearchServiceSoftwareUpdateResponseUnmarshaller.Instance;
+
+            return Invoke<StartElasticsearchServiceSoftwareUpdateRequest,StartElasticsearchServiceSoftwareUpdateResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartElasticsearchServiceSoftwareUpdate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartElasticsearchServiceSoftwareUpdate operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<StartElasticsearchServiceSoftwareUpdateResponse> StartElasticsearchServiceSoftwareUpdateAsync(StartElasticsearchServiceSoftwareUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = StartElasticsearchServiceSoftwareUpdateRequestMarshaller.Instance;
+            var unmarshaller = StartElasticsearchServiceSoftwareUpdateResponseUnmarshaller.Instance;
+
+            return InvokeAsync<StartElasticsearchServiceSoftwareUpdateRequest,StartElasticsearchServiceSoftwareUpdateResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 

@@ -1,3 +1,192 @@
+### 3.3.389.0 (2018-10-19 20:49 UTC)
+* SimpleSystemsManagement (3.3.34.0)
+	* Rate Control feature release for State Manager. Users now have the ability to apply rate control parameters similar to run command to their association in state manager console or CLI.
+* WorkSpaces (3.3.3.0)
+	* Added support for PowerPro and GraphicsPro WorkSpaces bundles.
+
+### 3.3.388.0 (2018-10-18 21:32 UTC)
+* AppStream (3.3.19.0)
+	* This API update adds support for creating, managing, and deleting users in the AppStream 2.0 user pool.
+* MediaLive (3.3.10.0)
+	* This release allows you to now turn on Quality-Defined Variable Bitrate (QVBR) encoding for your AWS Elemental MediaLive channels. You can now deliver a consistently high-quality video viewing experience while reducing overall distribution bitrates by using Quality-Defined Variable Bitrate (QVBR) encoding with AWS Elemental MediaLive. QVBR is a video compression technique that automatically adjusts output bitrates to the complexity of source content and only use the bits required to maintain a defined level of quality. This means using QVBR encoding, you can save on distribution cost, while maintaining, or increasing video quality for your viewers.
+* Route53 (3.3.17.0)
+	* This change allows customers to disable health checks.
+
+### 3.3.387.0 (2018-10-17 20:41 UTC)
+* APIGateway (3.3.22.3)
+	* Documentation updates for API Gateway
+* CloudWatchEvents (3.3.7.0)
+	* AWS Events - AWS Organizations Support in Event-Bus Policies. This release introduces a new parameter in the PutPermission API named Condition. Using the Condition parameter, customers can allow one or more AWS Organizations to access their CloudWatch Events Event-Bus resource.
+
+### 3.3.386.0 (2018-10-17 18:09 UTC)
+* Lambda (3.3.17.0)
+	* Enables TCP keepalive as default in Lambda.
+* S3 (3.3.25.1)
+	* Fixed incorrect marshalling of S3 tag.
+* Core 3.3.27.3
+	* Referencing the CredentialProfileStoreChain constructor that takes in the profile location on AWSConfigs. Make code more defensive looking for CSM configuration. 
+	* All services packages updated to require new Core
+
+### 3.3.385.0 (2018-10-17 00:57 UTC)
+* Glue (3.3.15.0)
+	* New Glue APIs for creating, updating, reading and deleting Data Catalog resource-based policies.
+* Lightsail (3.3.7.0)
+	* Adds support for Lightsail managed databases.
+* ResourceGroups (3.3.2.0)
+	* AWS Resource Groups service added a new feature to filter resource groups by resource-type when using the ListGroups operation.
+
+### 3.3.384.0 (2018-10-15 21:19 UTC)
+* Lambda (3.3.16.6)
+	* Documentation updates for lambda
+* RDS (3.3.31.0)
+	* This release adds a new parameter to specify the DB instance or cluster parameter group for restore from DB snapshot and restore to point int time operations. For more information, see Amazon RDS Documentation.
+* ServiceCatalog (3.3.11.0)
+	* AWS Service Catalog enables you to reduce administrative maintenance and end-user training while adhering to compliance and security measures. With service actions, you as the administrator can enable end users to perform operational tasks, troubleshoot issues, run approved commands, or request permissions within Service Catalog. Service actions are defined using AWS Systems Manager documents, where you have access to pre-defined actions that implement AWS best practices, such asEC2 stop and reboot, as well as the ability to define custom actions.
+
+### 3.3.383.0 (2018-10-12 21:46 UTC)
+* CloudTrail (3.3.3.0)
+	* The LookupEvents API now supports two new attribute keys: ReadOnly and AccessKeyId
+
+### 3.3.382.0 (2018-10-12 17:01 UTC)
+* MobileAnalytics (3.3.1.44)
+	* Fixed bugs in handling attributes of CustomEvent.
+Fixed NullReferenceException in DeliveryClient.AttemptDeliveryAsync()
+* S3 (3.3.25.0)
+	* Changed service client to throw an exception when operations are called without a required BucketName or Key parameter.
+Changed service client to resign request on retries.
+* Core 3.3.27.2
+	* Changed the exception thrown by ClientContext constructor to be more descriptive.
+
+### 3.3.381.0 (2018-10-11 22:56 UTC)
+* Athena (3.3.1.0)
+	* 1. GetQueryExecution API changes to return statementType of a submitted Athena query.  2. GetQueryResults API changes to return the number of rows added to a table when a CTAS query is executed.
+* DirectConnect (3.3.8.0)
+	* This release adds support for Jumbo Frames over AWS Direct Connect. You can now set MTU value when creating new virtual interfaces. This release also includes a new API to modify MTU value of existing virtual interfaces.
+* EC2 (3.3.65.0)
+	* You can now launch the smaller-sized G3 instance called g3s.xlarge. G3s.xlarge provides 4 vCPU, 30.5 GB RAM and a NVIDIA Tesla M60 GPU. It is ideal for remote workstations, engineering and architectural applications, and 3D visualizations and rendering for visual effects.
+* TranscribeService (3.3.5.0)
+	* With this release, Amazon Transcribe now supports transcriptions from audio sources in British English (en-UK), Australian English (en-AU), and Canadian French (fr-CA).
+
+### 3.3.380.0 (2018-10-10 22:51 UTC)
+* Comprehend (3.3.3.0)
+	* This release adds French, Italian, German and Portuguese language support for all existing synchronous and asynchronous APIs
+* Elasticsearch (3.3.10.0)
+	* Amazon Elasticsearch Service now supports customer-scheduled service software updates. When new service software becomes available, you can request an update to your domain and benefit from new features more quickly. If you take no action, we update the service software automatically after a certain time frame.
+* TranscribeService (3.3.4.0)
+	* With this update Amazon Transcribe now supports deleting completed transcription jobs. 
+
+### 3.3.379.1 (2018-10-10 02:29 UTC)
+* S3 (3.3.24.4)
+	* Updated to use new Core, version 3.3.27.1
+	* Fixed bug parsing event stream used by S3's Select operation.
+* Core 3.3.27.1
+	* Fixed bug parsing event stream used by S3's Select operation.
+
+### 3.3.379.0 (2018-10-09 20:36 UTC)
+* SimpleSystemsManagement (3.3.33.0)
+	* Adds StartDate, EndDate, and ScheduleTimezone to CreateMaintenanceWindow and UpdateMaintenanceWindow; Adds NextExecutionTime to GetMaintenanceWindow and DescribeMaintenanceWindows; Adds CancelMaintenanceWindowExecution, DescribeMaintenanceWindowSchedule and DescribeMaintenanceWindowsForTarget APIs.
+
+### 3.3.378.0 (2018-10-08 20:08 UTC)
+* IoT (3.3.19.0)
+	* We are releasing job execution timeout functionalities to customers. Customer now can set job execution timeout on the job level when creating a job. 
+* IoTJobsDataPlane (3.3.1.0)
+	* We are releasing job execution timeout functionalities to customers. Device can now set and update their job execution timeout. 
+
+### 3.3.377.0 (2018-10-06 01:28 UTC)
+* Core 3.3.27.0
+	* Fix to rectify breaking change that was introduced in v3.3.26 of AWSSDK.Core nuget package. Customer should update to this version of the AWSSDK.Core nuget package.
+	* All services packages updated to require new Core
+
+### 3.3.376.0 (2018-10-05 21:07 UTC)
+* DirectoryService (3.3.8.0)
+	* SDK changes to create a new type of trust for active directory
+
+### 3.3.375.0 (2018-10-04 22:55 UTC)
+* APIGateway (3.3.22.0)
+	* Adding support for multi-value parameters in TestInvokeMethod and TestInvokeAuthorizer.
+* CodeBuild (3.3.17.0)
+	* Add resolved source version field in build output
+* SimpleSystemsManagement (3.3.32.0)
+	*  Adds RejectedPatchesAction to baseline to enable stricted validation of the rejected Patches List ; Add InstalledRejected and InstallOverrideList to compliance reporting
+* StorageGateway (3.3.11.0)
+	* AWS Storage Gateway now enables you to specify folders and subfolders when you update your file gateway's view of your S3 objects using the Refresh Cache API.
+
+### 3.3.374.0 (2018-10-03 23:53 UTC)
+* CloudFront (3.3.10.5)
+	* Fixed client throwing NullReferenceException instead of AmazonCloudFrontException when requests are performed without specifying certain missing required properties.
+* Core 3.3.26.0
+	* Code for future SDK instrumentation and telemetry
+Add credential_source parameter in the shared credentials file
+Correct Metric.ProxyHost setup
+	* All services packages updated to require new Core
+
+### 3.3.373.0 (2018-10-02 21:12 UTC)
+* SageMaker (3.3.13.0)
+	* Waiter for SageMaker Batch Transform Jobs.
+* SecretsManager (3.3.2.9)
+	* Documentation updates for secretsmanager
+
+### 3.3.372.0 (2018-10-01 22:10 UTC)
+* GuardDuty (3.3.5.0)
+	* Support optional FindingPublishingFrequency parameter in CreateDetector and UpdateDetector operations, and ClientToken on Create* operations
+* Rekognition (3.3.11.2)
+	* Documentation updates for Amazon Rekognition
+
+### 3.3.371.0 (2018-09-28 18:48 UTC)
+* CodeStar (3.3.2.0)
+	* This release enables tagging CodeStar Projects at creation. The CreateProject API now includes optional tags parameter.
+* EC2 (3.3.64.0)
+	* You can now use EC2 High Memory instances with 6 TiB memory (u-6tb1.metal), 9 TiB memory (u-9tb1.metal), and 12 TiB memory (u-12tb1.metal), which are ideal for running large in-memory databases, including production deployments of SAP HANA. These instances offer 448 logical processors, where each logical processor is a hyperthread on 224 cores. These instance deliver high networking throughput and lower latency with up to 25 Gbps of aggregate network bandwidth using Elastic Network Adapter (ENA)-based Enhanced Networking. These instances are EBS-Optimized by default, and support encrypted and unencrypted EBS volumes. This instance is only available in host-tenancy. You will need an EC2 Dedicated Host for this instance type to launch an instance.
+
+### 3.3.370.0 (2018-09-27 19:54 UTC)
+* APIGateway (3.3.21.0)
+	* Adding support for OpenAPI 3.0 import and export.
+* CodeCommit (3.3.6.0)
+	* This release adds API support for getting the contents of a file, getting the contents of a folder, and for deleting a file in an AWS CodeCommit repository.
+* MQ (3.3.2.0)
+	* Amazon MQ supports ActiveMQ 5.15.6, in addition to 5.15.0. Automatic minor version upgrades can be toggled. Updated the documentation.
+
+### 3.3.369.0 (2018-09-26 21:15 UTC)
+* Glue (3.3.14.0)
+	* AWS Glue now supports data encryption at rest for ETL jobs and development endpoints. With encryption enabled, when you run ETL jobs, or development endpoints, Glue will use AWS KMS keys to write encrypted data at rest. You can also encrypt the metadata stored in the Glue Data Catalog using keys that you manage with AWS KMS. Additionally, you can use AWS KMS keys to encrypt the logs generated by crawlers and ETL jobs as well as encrypt ETL job bookmarks. Encryption settings for Glue crawlers, ETL jobs, and development endpoints can be configured using the security configurations in Glue. Glue Data Catalog encryption can be enabled via the settings for the Glue Data Catalog.
+* OpsWorksCM (3.3.6.0)
+	* This release introduces a new API called ExportServerEngineAttribute to Opsworks-CM. You can use this API call to export engine specific attributes like the UserData script used for unattended bootstrapping of new nodes that connect to the server. 
+* RDS (3.3.30.0)
+	* This release includes Deletion Protection for RDS databases.
+* SQS (3.3.3.20)
+	* Documentation updates for Amazon SQS.
+* Core 3.3.25.4
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.368.0 (2018-09-25 20:16 UTC)
+* CloudFront (3.3.10.3)
+	* Documentation updates for cloudfront
+* DirectoryService (3.3.7.0)
+	* API changes related to launch of cross account for Directory Service.
+* EC2 (3.3.63.0)
+	* Add pagination support for ec2.describe-route-tables API. 
+
+### 3.3.367.0 (2018-09-24 21:20 UTC)
+* Connect (3.3.3.0)
+	* This update adds the Amazon Connect Metrics API, which lets you get current metric data and historical metric data within 24 hours for the queues in your Amazon Connect instance.
+* RDS (3.3.29.0)
+	*  Adds DB engine version requirements for option group option settings, and specifies if an option setting requires a value.
+
+### 3.3.366.0 (2018-09-21 20:31 UTC)
+* MediaConvert (3.3.9.0)
+	* To offer lower prices for predictable, non-urgent workloads, we propose the concept of Reserved Transcode pricing. Reserved Transcode pricing Reserved Transcoding pricing would offer the customer access to a fixed parallel processing capacity for a fixed monthly rate. This capacity would be stated in terms of number of Reserved Transcode Slots (RTSs). One RTS would be able to process one job at a time for a fixed monthly fee.
+
+### 3.3.365.0 (2018-09-20 21:23 UTC)
+* DirectoryService (3.3.6.0)
+	* Added CreateLogSubscription, DeleteLogSubscription, and ListLogSubscriptions APIs for Microsoft AD. Customers can now opt in to have Windows security event logs from the domain controllers forwarded to a log group in their account.
+* EC2 (3.3.62.0)
+	* You can now launch f1.4xlarge, a new instance size within the existing f1 family which provides two Xilinx Virtex Field Programmable Arrays (FPGAs) for acceleration. FPGA acceleration provide additional performance and time sensitivity for specialized accelerated workloads such as clinical genomics and real-time video processing. F1.4xlarge instances are available in the US East (N. Virginia), US West (Oregon), GovCloud (US), and EU West (Dublin) AWS Regions.
+* RDS (3.3.28.0)
+	* This launch enables RDS start-db-cluster and stop-db-cluster. Stopping and starting Amazon Aurora clusters helps you manage costs for development and test environments. You can temporarily stop all the DB instances in your cluster, instead of setting up and tearing down all the DB instances each time that you use the cluster.
+
 ### 3.3.364.0 (2018-09-19 18:33 UTC)
 * CloudWatch (3.3.8.0)
 	* Amazon CloudWatch adds the ability to request png image snapshots of metric widgets using the GetMetricWidgetImage API.
@@ -327,7 +516,7 @@
 
 ### 3.3.330.0 (2018-08-02 20:22 UTC)
 * Kinesis (3.3.6.0)
-	* This update introduces SubscribeToShard and RegisterStreamConsumer APIs which allows for retrieving records on a data stream over HTTP2 with enhanced fan-out capabilities. With this new feature the Java SDK now supports event streaming natively which will allow you to define payload and exception structures on the client over a persistent connection. For more information, see Developing Consumers with Enhanced Fan-Out in the Kinesis Developer Guide.
+	* This version adds the foundation for future support of HTTP2-based event stream operations for Kinesis. The following operations have been added: DeregisterStreamConsumer, DescribeStreamConsumer, ListStreamConsumers, and RegisterStreamConsumer. The SubscribeToShard operation is not included in this release.
 * Polly (3.3.7.0)
 	* Amazon Polly enables female voice Aditi to speak Hindi language
 * ResourceGroups (3.3.1.0)

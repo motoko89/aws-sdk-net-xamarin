@@ -30,7 +30,7 @@ namespace Amazon.DirectoryService.Model
     /// <summary>
     /// Container for the parameters to the UpdateRadius operation.
     /// Updates the Remote Authentication Dial In User Service (RADIUS) server information
-    /// for an AD Connector directory.
+    /// for an AD Connector or Microsoft AD directory.
     /// </summary>
     public partial class UpdateRadiusRequest : AmazonDirectoryServiceRequest
     {

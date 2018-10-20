@@ -26,6 +26,7 @@ using System.Collections.Generic;
 
 using Amazon.TranscribeService.Model;
 using Amazon.TranscribeService.Model.Internal.MarshallTransformations;
+using Amazon.TranscribeService.Internal;
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
 using Amazon.Runtime.Internal.Auth;
@@ -40,6 +41,7 @@ namespace Amazon.TranscribeService
     /// </summary>
     public partial class AmazonTranscribeServiceClient : AmazonServiceClient, IAmazonTranscribeService
     {
+        private static IServiceMetadata serviceMetadata = new AmazonTranscribeServiceMetadata();
         
         #region Constructors
 
@@ -214,6 +216,16 @@ namespace Amazon.TranscribeService
             return new AWS4Signer();
         } 
 
+        /// <summary>
+        /// Capture metadata for the service.
+        /// </summary>
+        protected override IServiceMetadata ServiceMetadata
+        {
+            get
+            {
+                return serviceMetadata;
+            }
+        }
 
         #endregion
 
@@ -257,6 +269,38 @@ namespace Amazon.TranscribeService
             var unmarshaller = CreateVocabularyResponseUnmarshaller.Instance;
 
             return InvokeAsync<CreateVocabularyRequest,CreateVocabularyResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteTranscriptionJob
+
+        internal virtual DeleteTranscriptionJobResponse DeleteTranscriptionJob(DeleteTranscriptionJobRequest request)
+        {
+            var marshaller = DeleteTranscriptionJobRequestMarshaller.Instance;
+            var unmarshaller = DeleteTranscriptionJobResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteTranscriptionJobRequest,DeleteTranscriptionJobResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteTranscriptionJob operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteTranscriptionJob operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/DeleteTranscriptionJob">REST API Reference for DeleteTranscriptionJob Operation</seealso>
+        public virtual Task<DeleteTranscriptionJobResponse> DeleteTranscriptionJobAsync(DeleteTranscriptionJobRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = DeleteTranscriptionJobRequestMarshaller.Instance;
+            var unmarshaller = DeleteTranscriptionJobResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteTranscriptionJobRequest,DeleteTranscriptionJobResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 

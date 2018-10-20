@@ -26,6 +26,7 @@ using System.Collections.Generic;
 
 using Amazon.CodeCommit.Model;
 using Amazon.CodeCommit.Model.Internal.MarshallTransformations;
+using Amazon.CodeCommit.Internal;
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
 using Amazon.Runtime.Internal.Auth;
@@ -112,6 +113,19 @@ namespace Amazon.CodeCommit
     /// Files, by calling the following:
     /// </para>
     ///  <ul> <li> 
+    /// <para>
+    ///  <a>DeleteFile</a>, which deletes the content of a specified file from a specified
+    /// branch.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <a>GetFile</a>, which returns the base-64 encoded content of a specified file.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <a>GetFolder</a>, which returns the contents of a specified folder or directory.
+    /// </para>
+    ///  </li> <li> 
     /// <para>
     ///  <a>PutFile</a>, which adds or modifies a file in a specified repository and branch.
     /// </para>
@@ -247,6 +261,7 @@ namespace Amazon.CodeCommit
     /// </summary>
     public partial class AmazonCodeCommitClient : AmazonServiceClient, IAmazonCodeCommit
     {
+        private static IServiceMetadata serviceMetadata = new AmazonCodeCommitMetadata();
         
         #region Constructors
 
@@ -421,6 +436,16 @@ namespace Amazon.CodeCommit
             return new AWS4Signer();
         } 
 
+        /// <summary>
+        /// Capture metadata for the service.
+        /// </summary>
+        protected override IServiceMetadata ServiceMetadata
+        {
+            get
+            {
+                return serviceMetadata;
+            }
+        }
 
         #endregion
 
@@ -624,6 +649,38 @@ namespace Amazon.CodeCommit
             var unmarshaller = DeleteCommentContentResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteCommentContentRequest,DeleteCommentContentResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteFile
+
+        internal virtual DeleteFileResponse DeleteFile(DeleteFileRequest request)
+        {
+            var marshaller = DeleteFileRequestMarshaller.Instance;
+            var unmarshaller = DeleteFileResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteFileRequest,DeleteFileResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteFile operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteFile operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/DeleteFile">REST API Reference for DeleteFile Operation</seealso>
+        public virtual Task<DeleteFileResponse> DeleteFileAsync(DeleteFileRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = DeleteFileRequestMarshaller.Instance;
+            var unmarshaller = DeleteFileResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteFileRequest,DeleteFileResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -912,6 +969,70 @@ namespace Amazon.CodeCommit
             var unmarshaller = GetDifferencesResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetDifferencesRequest,GetDifferencesResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetFile
+
+        internal virtual GetFileResponse GetFile(GetFileRequest request)
+        {
+            var marshaller = GetFileRequestMarshaller.Instance;
+            var unmarshaller = GetFileResponseUnmarshaller.Instance;
+
+            return Invoke<GetFileRequest,GetFileResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetFile operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetFile operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetFile">REST API Reference for GetFile Operation</seealso>
+        public virtual Task<GetFileResponse> GetFileAsync(GetFileRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = GetFileRequestMarshaller.Instance;
+            var unmarshaller = GetFileResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetFileRequest,GetFileResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetFolder
+
+        internal virtual GetFolderResponse GetFolder(GetFolderRequest request)
+        {
+            var marshaller = GetFolderRequestMarshaller.Instance;
+            var unmarshaller = GetFolderResponseUnmarshaller.Instance;
+
+            return Invoke<GetFolderRequest,GetFolderResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetFolder operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetFolder operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetFolder">REST API Reference for GetFolder Operation</seealso>
+        public virtual Task<GetFolderResponse> GetFolderAsync(GetFolderRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = GetFolderRequestMarshaller.Instance;
+            var unmarshaller = GetFolderResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetFolderRequest,GetFolderResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
