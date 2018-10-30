@@ -159,6 +159,56 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  AdvertiseByoipCidr
+
+
+        /// <summary>
+        /// Advertises an IPv4 address range that is provisioned for use with your AWS resources
+        /// through bring your own IP addresses (BYOIP).
+        /// 
+        ///  
+        /// <para>
+        /// You can perform this operation at most once every 10 seconds, even if you specify
+        /// different address ranges each time.
+        /// </para>
+        ///  
+        /// <para>
+        /// We recommend that you stop advertising the BYOIP CIDR from other locations when you
+        /// advertise it from AWS. To minimize down time, you can configure your AWS resources
+        /// to use an address from a BYOIP CIDR before it is advertised, and then simultaneously
+        /// stop advertising it from the current location and start advertising it through AWS.
+        /// </para>
+        ///  
+        /// <para>
+        /// It can take a few minutes before traffic to the specified addresses starts routing
+        /// to AWS because of BGP propagation delays.
+        /// </para>
+        ///  
+        /// <para>
+        /// To stop advertising the BYOIP CIDR, use <a>WithdrawByoipCidr</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AdvertiseByoipCidr service method.</param>
+        /// 
+        /// <returns>The response from the AdvertiseByoipCidr service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AdvertiseByoipCidr">REST API Reference for AdvertiseByoipCidr Operation</seealso>
+        AdvertiseByoipCidrResponse AdvertiseByoipCidr(AdvertiseByoipCidrRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the AdvertiseByoipCidr operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the AdvertiseByoipCidr operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AdvertiseByoipCidr">REST API Reference for AdvertiseByoipCidr Operation</seealso>
+        Task<AdvertiseByoipCidrResponse> AdvertiseByoipCidrAsync(AdvertiseByoipCidrRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  AllocateAddress
 
 
@@ -168,6 +218,14 @@ namespace Amazon.EC2
         /// an Elastic IP address, it is released to the IP address pool and can be allocated
         /// to a different AWS account.
         /// 
+        ///  
+        /// <para>
+        /// You can allocate an Elastic IP address from an address pool owned by AWS or from an
+        /// address pool created from a public IPv4 address range that you have brought to AWS
+        /// for use with your AWS resources using bring your own IP addresses (BYOIP). For more
+        /// information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
+        /// Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
         ///  
         /// <para>
         /// [EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You
@@ -201,6 +259,14 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
+        /// You can allocate an Elastic IP address from an address pool owned by AWS or from an
+        /// address pool created from a public IPv4 address range that you have brought to AWS
+        /// for use with your AWS resources using bring your own IP addresses (BYOIP). For more
+        /// information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
+        /// Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
         /// [EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You
         /// cannot recover an Elastic IP address that you released after it is allocated to another
         /// AWS account. You cannot recover an Elastic IP address for EC2-Classic. To attempt
@@ -231,6 +297,14 @@ namespace Amazon.EC2
         /// an Elastic IP address, it is released to the IP address pool and can be allocated
         /// to a different AWS account.
         /// 
+        ///  
+        /// <para>
+        /// You can allocate an Elastic IP address from an address pool owned by AWS or from an
+        /// address pool created from a public IPv4 address range that you have brought to AWS
+        /// for use with your AWS resources using bring your own IP addresses (BYOIP). For more
+        /// information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
+        /// Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
         ///  
         /// <para>
         /// [EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You
@@ -339,6 +413,9 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Assigns one or more secondary private IP addresses to the specified network interface.
+        /// 
+        ///  
+        /// <para>
         /// You can specify one or more specific secondary IP addresses, or you can specify the
         /// number of secondary IP addresses to be automatically assigned within the subnet's
         /// CIDR block range. The number of secondary IP addresses that you can assign to an instance
@@ -346,10 +423,17 @@ namespace Amazon.EC2
         /// Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information
         /// about Elastic IP addresses, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
         /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// 
+        /// </para>
         ///  
         /// <para>
-        /// AssignPrivateIpAddresses is available only in EC2-VPC.
+        /// When you move a secondary private IP address to another network interface, any Elastic
+        /// IP address that is associated with the IP address is also moved.
+        /// </para>
+        ///  
+        /// <para>
+        /// Remapping an IP address is an asynchronous operation. When you move an IP address
+        /// from one network interface to another, check <code>network/interfaces/macs/mac/local-ipv4s</code>
+        /// in the instance metadata to confirm that the remapping is complete.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssignPrivateIpAddresses service method.</param>
@@ -973,6 +1057,43 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  CancelCapacityReservation
+
+
+        /// <summary>
+        /// Cancels the specified Capacity Reservation, releases the reserved capacity, and changes
+        /// the Capacity Reservation's state to <code>cancelled</code>.
+        /// 
+        ///  
+        /// <para>
+        /// Instances running in the reserved capacity continue running until you stop them. Stopped
+        /// instances that target the Capacity Reservation can no longer launch. Modify these
+        /// instances to either target a different Capacity Reservation, launch On-Demand Instance
+        /// capacity, or run in any open Capacity Reservation that has matching attributes and
+        /// sufficient capacity.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CancelCapacityReservation service method.</param>
+        /// 
+        /// <returns>The response from the CancelCapacityReservation service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelCapacityReservation">REST API Reference for CancelCapacityReservation Operation</seealso>
+        CancelCapacityReservationResponse CancelCapacityReservation(CancelCapacityReservationRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CancelCapacityReservation operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CancelCapacityReservation operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelCapacityReservation">REST API Reference for CancelCapacityReservation Operation</seealso>
+        Task<CancelCapacityReservationResponse> CancelCapacityReservationAsync(CancelCapacityReservationRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  CancelConversionTask
 
 
@@ -1318,6 +1439,61 @@ namespace Amazon.EC2
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CopySnapshot">REST API Reference for CopySnapshot Operation</seealso>
         Task<CopySnapshotResponse> CopySnapshotAsync(CopySnapshotRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  CreateCapacityReservation
+
+
+        /// <summary>
+        /// Creates a new Capacity Reservation with the specified attributes.
+        /// 
+        ///  
+        /// <para>
+        /// Capacity Reservations enable you to reserve capacity for your Amazon EC2 instances
+        /// in a specific Availability Zone for any duration. This gives you the flexibility to
+        /// selectively add capacity reservations and still get the Regional RI discounts for
+        /// that usage. By creating Capacity Reservations, you ensure that you always have access
+        /// to Amazon EC2 capacity when you need it, for as long as you need it. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">Capacity
+        /// Reservations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Your request to create a Capacity Reservation could fail if Amazon EC2 does not have
+        /// sufficient capacity to fulfill the request. If your request fails due to Amazon EC2
+        /// capacity constraints, either try again at a later time, try in a different Availability
+        /// Zone, or request a smaller capacity reservation. If your application is flexible across
+        /// instance types and sizes, try to create a Capacity Reservation with different instance
+        /// attributes.
+        /// </para>
+        ///  
+        /// <para>
+        /// Your request could also fail if the requested quantity exceeds your On-Demand Instance
+        /// limit for the selected instance type. If your request fails due to limit constraints,
+        /// increase your On-Demand Instance limit for the required instance type and try again.
+        /// For more information about increasing your instance limits, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon
+        /// EC2 Service Limits</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateCapacityReservation service method.</param>
+        /// 
+        /// <returns>The response from the CreateCapacityReservation service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateCapacityReservation">REST API Reference for CreateCapacityReservation Operation</seealso>
+        CreateCapacityReservationResponse CreateCapacityReservation(CreateCapacityReservationRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateCapacityReservation operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateCapacityReservation operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateCapacityReservation">REST API Reference for CreateCapacityReservation Operation</seealso>
+        Task<CreateCapacityReservationResponse> CreateCapacityReservationAsync(CreateCapacityReservationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -3962,6 +4138,41 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DeprovisionByoipCidr
+
+
+        /// <summary>
+        /// Releases the specified address range that you provisioned for use with your AWS resources
+        /// through bring your own IP addresses (BYOIP) and deletes the corresponding address
+        /// pool.
+        /// 
+        ///  
+        /// <para>
+        /// Before you can release an address range, you must stop advertising it using <a>WithdrawByoipCidr</a>
+        /// and you must not have any IP addresses allocated from its address range.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeprovisionByoipCidr service method.</param>
+        /// 
+        /// <returns>The response from the DeprovisionByoipCidr service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeprovisionByoipCidr">REST API Reference for DeprovisionByoipCidr Operation</seealso>
+        DeprovisionByoipCidrResponse DeprovisionByoipCidr(DeprovisionByoipCidrRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeprovisionByoipCidr operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeprovisionByoipCidr operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeprovisionByoipCidr">REST API Reference for DeprovisionByoipCidr Operation</seealso>
+        Task<DeprovisionByoipCidrResponse> DeprovisionByoipCidrAsync(DeprovisionByoipCidrRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DeregisterImage
 
 
@@ -4408,6 +4619,67 @@ namespace Amazon.EC2
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeBundleTasks">REST API Reference for DescribeBundleTasks Operation</seealso>
         Task<DescribeBundleTasksResponse> DescribeBundleTasksAsync(DescribeBundleTasksRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DescribeByoipCidrs
+
+
+        /// <summary>
+        /// Describes the IP address ranges that were specified in calls to <a>ProvisionByoipCidr</a>.
+        /// 
+        ///  
+        /// <para>
+        /// To describe the address pools that were created when you provisioned the address ranges,
+        /// use <a>DescribePublicIpv4Pools</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeByoipCidrs service method.</param>
+        /// 
+        /// <returns>The response from the DescribeByoipCidrs service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeByoipCidrs">REST API Reference for DescribeByoipCidrs Operation</seealso>
+        DescribeByoipCidrsResponse DescribeByoipCidrs(DescribeByoipCidrsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeByoipCidrs operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeByoipCidrs operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeByoipCidrs">REST API Reference for DescribeByoipCidrs Operation</seealso>
+        Task<DescribeByoipCidrsResponse> DescribeByoipCidrsAsync(DescribeByoipCidrsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DescribeCapacityReservations
+
+
+        /// <summary>
+        /// Describes one or more of your Capacity Reservations. The results describe only the
+        /// Capacity Reservations in the AWS Region that you're currently using.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeCapacityReservations service method.</param>
+        /// 
+        /// <returns>The response from the DescribeCapacityReservations service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeCapacityReservations">REST API Reference for DescribeCapacityReservations Operation</seealso>
+        DescribeCapacityReservationsResponse DescribeCapacityReservations(DescribeCapacityReservationsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeCapacityReservations operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeCapacityReservations operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeCapacityReservations">REST API Reference for DescribeCapacityReservations Operation</seealso>
+        Task<DescribeCapacityReservationsResponse> DescribeCapacityReservationsAsync(DescribeCapacityReservationsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -6158,6 +6430,33 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DescribePublicIpv4Pools
+
+
+        /// <summary>
+        /// Describes the specified IPv4 address pools.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribePublicIpv4Pools service method.</param>
+        /// 
+        /// <returns>The response from the DescribePublicIpv4Pools service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribePublicIpv4Pools">REST API Reference for DescribePublicIpv4Pools Operation</seealso>
+        DescribePublicIpv4PoolsResponse DescribePublicIpv4Pools(DescribePublicIpv4PoolsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribePublicIpv4Pools operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribePublicIpv4Pools operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribePublicIpv4Pools">REST API Reference for DescribePublicIpv4Pools Operation</seealso>
+        Task<DescribePublicIpv4PoolsResponse> DescribePublicIpv4PoolsAsync(DescribePublicIpv4PoolsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DescribeRegions
 
 
@@ -7206,6 +7505,7 @@ namespace Amazon.EC2
         /// <para>
         /// Spot Fleet events are delayed by up to 30 seconds before they can be described. This
         /// ensures that you can query by the last evaluated time and not miss a recorded event.
+        /// Spot Fleet events are available for 48 hours.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeSpotFleetRequestHistory service method.</param>
@@ -9353,6 +9653,37 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  ModifyCapacityReservation
+
+
+        /// <summary>
+        /// Modifies a Capacity Reservation's capacity and the conditions under which it is to
+        /// be released. You cannot change a Capacity Reservation's instance type, EBS optimization,
+        /// instance store settings, platform, Availability Zone, or instance eligibility. If
+        /// you need to modify any of these attributes, we recommend that you cancel the Capacity
+        /// Reservation, and then create a new one with the required attributes.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyCapacityReservation service method.</param>
+        /// 
+        /// <returns>The response from the ModifyCapacityReservation service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyCapacityReservation">REST API Reference for ModifyCapacityReservation Operation</seealso>
+        ModifyCapacityReservationResponse ModifyCapacityReservation(ModifyCapacityReservationRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyCapacityReservation operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyCapacityReservation operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyCapacityReservation">REST API Reference for ModifyCapacityReservation Operation</seealso>
+        Task<ModifyCapacityReservationResponse> ModifyCapacityReservationAsync(ModifyCapacityReservationRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  ModifyFleet
 
 
@@ -9644,6 +9975,35 @@ namespace Amazon.EC2
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstanceAttribute">REST API Reference for ModifyInstanceAttribute Operation</seealso>
         Task<ModifyInstanceAttributeResponse> ModifyInstanceAttributeAsync(ModifyInstanceAttributeRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  ModifyInstanceCapacityReservationAttributes
+
+
+        /// <summary>
+        /// Modifies the Capacity Reservation settings for a stopped instance. Use this action
+        /// to configure an instance to target a specific Capacity Reservation, run in any <code>open</code>
+        /// Capacity Reservation with matching attributes, or run On-Demand Instance capacity.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyInstanceCapacityReservationAttributes service method.</param>
+        /// 
+        /// <returns>The response from the ModifyInstanceCapacityReservationAttributes service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstanceCapacityReservationAttributes">REST API Reference for ModifyInstanceCapacityReservationAttributes Operation</seealso>
+        ModifyInstanceCapacityReservationAttributesResponse ModifyInstanceCapacityReservationAttributes(ModifyInstanceCapacityReservationAttributesRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyInstanceCapacityReservationAttributes operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyInstanceCapacityReservationAttributes operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstanceCapacityReservationAttributes">REST API Reference for ModifyInstanceCapacityReservationAttributes Operation</seealso>
+        Task<ModifyInstanceCapacityReservationAttributesResponse> ModifyInstanceCapacityReservationAttributesAsync(ModifyInstanceCapacityReservationAttributesRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -10377,6 +10737,52 @@ namespace Amazon.EC2
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/MoveAddressToVpc">REST API Reference for MoveAddressToVpc Operation</seealso>
         Task<MoveAddressToVpcResponse> MoveAddressToVpcAsync(MoveAddressToVpcRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  ProvisionByoipCidr
+
+
+        /// <summary>
+        /// Provisions an address range for use with your AWS resources through bring your own
+        /// IP addresses (BYOIP) and creates a corresponding address pool. After the address range
+        /// is provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.
+        /// 
+        ///  
+        /// <para>
+        /// AWS verifies that you own the address range and are authorized to advertise it. You
+        /// must ensure that the address range is registered to you and that you created an RPKI
+        /// ROA to authorize Amazon ASNs 16509 and 14618 to advertise the address range. For more
+        /// information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
+        /// Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Provisioning an address range is an asynchronous operation, so the call returns immediately,
+        /// but the address range is not ready to use until its status changes from <code>pending-provision</code>
+        /// to <code>provisioned</code>. To monitor the status of an address range, use <a>DescribeByoipCidrs</a>.
+        /// To allocate an Elastic IP address from your address pool, use <a>AllocateAddress</a>
+        /// with either the specific address from the address pool or the ID of the address pool.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ProvisionByoipCidr service method.</param>
+        /// 
+        /// <returns>The response from the ProvisionByoipCidr service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ProvisionByoipCidr">REST API Reference for ProvisionByoipCidr Operation</seealso>
+        ProvisionByoipCidrResponse ProvisionByoipCidr(ProvisionByoipCidrRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ProvisionByoipCidr operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ProvisionByoipCidr operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ProvisionByoipCidr">REST API Reference for ProvisionByoipCidr Operation</seealso>
+        Task<ProvisionByoipCidrResponse> ProvisionByoipCidrAsync(ProvisionByoipCidrRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -11814,6 +12220,44 @@ namespace Amazon.EC2
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UpdateSecurityGroupRuleDescriptionsIngress">REST API Reference for UpdateSecurityGroupRuleDescriptionsIngress Operation</seealso>
         Task<UpdateSecurityGroupRuleDescriptionsIngressResponse> UpdateSecurityGroupRuleDescriptionsIngressAsync(UpdateSecurityGroupRuleDescriptionsIngressRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  WithdrawByoipCidr
+
+
+        /// <summary>
+        /// Stops advertising an IPv4 address range that is provisioned as an address pool.
+        /// 
+        ///  
+        /// <para>
+        /// You can perform this operation at most once every 10 seconds, even if you specify
+        /// different address ranges each time.
+        /// </para>
+        ///  
+        /// <para>
+        /// It can take a few minutes before traffic to the specified addresses stops routing
+        /// to AWS because of BGP propagation delays.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the WithdrawByoipCidr service method.</param>
+        /// 
+        /// <returns>The response from the WithdrawByoipCidr service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/WithdrawByoipCidr">REST API Reference for WithdrawByoipCidr Operation</seealso>
+        WithdrawByoipCidrResponse WithdrawByoipCidr(WithdrawByoipCidrRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the WithdrawByoipCidr operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the WithdrawByoipCidr operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/WithdrawByoipCidr">REST API Reference for WithdrawByoipCidr Operation</seealso>
+        Task<WithdrawByoipCidrResponse> WithdrawByoipCidrAsync(WithdrawByoipCidrRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         

@@ -1,3 +1,40 @@
+### 3.3.396.2 (2018-10-29 20:45 UTC)
+* Core 3.3.29.2
+	* Allow PCL users to manually create HttpClients to be used by service clients in the SDK.
+	* All services packages updated to require new Core
+
+### 3.3.396.1 (2018-10-29 16:36 UTC)
+* Core 3.3.29.1
+	* Allow PCL users to manually create HttpClients to be used by service clients in the SDK.
+	* All services packages updated to require new Core
+
+### 3.3.396.0 (2018-10-26 20:02 UTC)
+* AlexaForBusiness (3.3.6.2)
+	* Documentation updates for AWS Alexa for Business
+* SageMaker (3.3.14.0)
+	* SageMaker notebook instances can now have a volume size configured.
+* SimpleSystemsManagement (3.3.35.0)
+	* Compliance Severity feature release for State Manager. Users now have the ability to select compliance severity to their association in state manager console or CLI.
+
+### 3.3.395.0 (2018-10-26 17:53 UTC)
+* Core 3.3.29.0
+	* Code for future SDK instrumentation and telemetry.
+	* All services packages updated to require new Core
+
+### 3.3.394.0 (2018-10-25 18:59 UTC)
+* EC2 (3.3.68.0)
+	* As part of this release we are introducing EC2 On-Demand Capacity Reservations. With On-Demand Capacity Reservations, customers can reserve the exact EC2 capacity they need, and can keep it only for as long as they need it.
+
+### 3.3.393.0 (2018-10-24 19:20 UTC)
+* AlexaForBusiness (3.3.6.0)
+	* We extended the functionality of the Alexa for Business SDK, including additional support for third-party Alexa built-in devices, managing private and public skills, and conferencing setup.
+* CodeStar (3.3.3.0)
+	* This release lets you create projects from source code and a toolchain definition that you provide.
+
+### 3.3.392.0 (2018-10-23 20:09 UTC)
+* EC2 (3.3.67.0)
+	* Provides customers the ability to Bring Your Own IP (BYOIP) prefix.  You can bring part or all of your public IPv4 address range from your on-premises network to your AWS account. You continue to own the address range, but AWS advertises it on the internet.
+
 ### 3.3.391.0 (2018-10-22 21:38 UTC)
 * Inspector (3.3.8.0)
 	* Finding will be decorated with ec2 related metadata

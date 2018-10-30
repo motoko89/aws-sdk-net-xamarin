@@ -117,6 +117,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("EC2")]
+        public void AdvertiseByoipCidrMarshallTest()
+        {
+            var operation = service_model.FindOperation("AdvertiseByoipCidr");
+
+            var request = InstantiateClassGenerator.Execute<AdvertiseByoipCidrRequest>();
+            var marshaller = new AdvertiseByoipCidrRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            UnmarshallerContext context = new EC2UnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, new WebResponseData());
+            var response = AdvertiseByoipCidrResponseUnmarshaller.Instance.Unmarshall(context)
+                as AdvertiseByoipCidrResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("EC2")]
         public void AllocateAddressMarshallTest()
         {
             var operation = service_model.FindOperation("AllocateAddress");
@@ -548,6 +572,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("EC2")]
+        public void CancelCapacityReservationMarshallTest()
+        {
+            var operation = service_model.FindOperation("CancelCapacityReservation");
+
+            var request = InstantiateClassGenerator.Execute<CancelCapacityReservationRequest>();
+            var marshaller = new CancelCapacityReservationRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            UnmarshallerContext context = new EC2UnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, new WebResponseData());
+            var response = CancelCapacityReservationResponseUnmarshaller.Instance.Unmarshall(context)
+                as CancelCapacityReservationResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("EC2")]
         public void CancelConversionTaskMarshallTest()
         {
             var operation = service_model.FindOperation("CancelConversionTask");
@@ -769,6 +817,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             UnmarshallerContext context = new EC2UnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, new WebResponseData());
             var response = CopySnapshotResponseUnmarshaller.Instance.Unmarshall(context)
                 as CopySnapshotResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("EC2")]
+        public void CreateCapacityReservationMarshallTest()
+        {
+            var operation = service_model.FindOperation("CreateCapacityReservation");
+
+            var request = InstantiateClassGenerator.Execute<CreateCapacityReservationRequest>();
+            var marshaller = new CreateCapacityReservationRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            UnmarshallerContext context = new EC2UnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, new WebResponseData());
+            var response = CreateCapacityReservationResponseUnmarshaller.Instance.Unmarshall(context)
+                as CreateCapacityReservationResponse;   
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
         }
 
@@ -2314,6 +2386,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("EC2")]
+        public void DeprovisionByoipCidrMarshallTest()
+        {
+            var operation = service_model.FindOperation("DeprovisionByoipCidr");
+
+            var request = InstantiateClassGenerator.Execute<DeprovisionByoipCidrRequest>();
+            var marshaller = new DeprovisionByoipCidrRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            UnmarshallerContext context = new EC2UnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, new WebResponseData());
+            var response = DeprovisionByoipCidrResponseUnmarshaller.Instance.Unmarshall(context)
+                as DeprovisionByoipCidrResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("EC2")]
         public void DeregisterImageMarshallTest()
         {
             var operation = service_model.FindOperation("DeregisterImage");
@@ -2444,6 +2540,54 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             UnmarshallerContext context = new EC2UnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, new WebResponseData());
             var response = DescribeBundleTasksResponseUnmarshaller.Instance.Unmarshall(context)
                 as DescribeBundleTasksResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("EC2")]
+        public void DescribeByoipCidrsMarshallTest()
+        {
+            var operation = service_model.FindOperation("DescribeByoipCidrs");
+
+            var request = InstantiateClassGenerator.Execute<DescribeByoipCidrsRequest>();
+            var marshaller = new DescribeByoipCidrsRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            UnmarshallerContext context = new EC2UnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, new WebResponseData());
+            var response = DescribeByoipCidrsResponseUnmarshaller.Instance.Unmarshall(context)
+                as DescribeByoipCidrsResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("EC2")]
+        public void DescribeCapacityReservationsMarshallTest()
+        {
+            var operation = service_model.FindOperation("DescribeCapacityReservations");
+
+            var request = InstantiateClassGenerator.Execute<DescribeCapacityReservationsRequest>();
+            var marshaller = new DescribeCapacityReservationsRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            UnmarshallerContext context = new EC2UnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, new WebResponseData());
+            var response = DescribeCapacityReservationsResponseUnmarshaller.Instance.Unmarshall(context)
+                as DescribeCapacityReservationsResponse;   
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
         }
 
@@ -3404,6 +3548,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             UnmarshallerContext context = new EC2UnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, new WebResponseData());
             var response = DescribePrincipalIdFormatResponseUnmarshaller.Instance.Unmarshall(context)
                 as DescribePrincipalIdFormatResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("EC2")]
+        public void DescribePublicIpv4PoolsMarshallTest()
+        {
+            var operation = service_model.FindOperation("DescribePublicIpv4Pools");
+
+            var request = InstantiateClassGenerator.Execute<DescribePublicIpv4PoolsRequest>();
+            var marshaller = new DescribePublicIpv4PoolsRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            UnmarshallerContext context = new EC2UnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, new WebResponseData());
+            var response = DescribePublicIpv4PoolsResponseUnmarshaller.Instance.Unmarshall(context)
+                as DescribePublicIpv4PoolsResponse;   
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
         }
 
@@ -4957,6 +5125,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("EC2")]
+        public void ModifyCapacityReservationMarshallTest()
+        {
+            var operation = service_model.FindOperation("ModifyCapacityReservation");
+
+            var request = InstantiateClassGenerator.Execute<ModifyCapacityReservationRequest>();
+            var marshaller = new ModifyCapacityReservationRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            UnmarshallerContext context = new EC2UnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, new WebResponseData());
+            var response = ModifyCapacityReservationResponseUnmarshaller.Instance.Unmarshall(context)
+                as ModifyCapacityReservationResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("EC2")]
         public void ModifyFleetMarshallTest()
         {
             var operation = service_model.FindOperation("ModifyFleet");
@@ -5097,6 +5289,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             validator.Validate();
 
 
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("EC2")]
+        public void ModifyInstanceCapacityReservationAttributesMarshallTest()
+        {
+            var operation = service_model.FindOperation("ModifyInstanceCapacityReservationAttributes");
+
+            var request = InstantiateClassGenerator.Execute<ModifyInstanceCapacityReservationAttributesRequest>();
+            var marshaller = new ModifyInstanceCapacityReservationAttributesRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            UnmarshallerContext context = new EC2UnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, new WebResponseData());
+            var response = ModifyInstanceCapacityReservationAttributesResponseUnmarshaller.Instance.Unmarshall(context)
+                as ModifyInstanceCapacityReservationAttributesResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
         }
 
         
@@ -5527,6 +5743,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             UnmarshallerContext context = new EC2UnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, new WebResponseData());
             var response = MoveAddressToVpcResponseUnmarshaller.Instance.Unmarshall(context)
                 as MoveAddressToVpcResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("EC2")]
+        public void ProvisionByoipCidrMarshallTest()
+        {
+            var operation = service_model.FindOperation("ProvisionByoipCidr");
+
+            var request = InstantiateClassGenerator.Execute<ProvisionByoipCidrRequest>();
+            var marshaller = new ProvisionByoipCidrRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            UnmarshallerContext context = new EC2UnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, new WebResponseData());
+            var response = ProvisionByoipCidrResponseUnmarshaller.Instance.Unmarshall(context)
+                as ProvisionByoipCidrResponse;   
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
         }
 
@@ -6307,6 +6547,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             UnmarshallerContext context = new EC2UnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, new WebResponseData());
             var response = UpdateSecurityGroupRuleDescriptionsIngressResponseUnmarshaller.Instance.Unmarshall(context)
                 as UpdateSecurityGroupRuleDescriptionsIngressResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("EC2")]
+        public void WithdrawByoipCidrMarshallTest()
+        {
+            var operation = service_model.FindOperation("WithdrawByoipCidr");
+
+            var request = InstantiateClassGenerator.Execute<WithdrawByoipCidrRequest>();
+            var marshaller = new WithdrawByoipCidrRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            UnmarshallerContext context = new EC2UnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, new WebResponseData());
+            var response = WithdrawByoipCidrResponseUnmarshaller.Instance.Unmarshall(context)
+                as WithdrawByoipCidrResponse;   
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
         }
 
