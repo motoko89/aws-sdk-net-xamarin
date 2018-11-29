@@ -45,6 +45,12 @@ namespace Amazon.Pinpoint.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(EmailChannelRequest requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetConfigurationSet())
+            {
+                context.Writer.WritePropertyName("ConfigurationSet");
+                context.Writer.Write(requestObject.ConfigurationSet);
+            }
+
             if(requestObject.IsSetEnabled())
             {
                 context.Writer.WritePropertyName("Enabled");

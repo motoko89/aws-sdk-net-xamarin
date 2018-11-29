@@ -29,12 +29,16 @@ namespace Amazon.ServiceCatalog.Model
 {
     /// <summary>
     /// Container for the parameters to the CreatePortfolioShare operation.
-    /// Shares the specified portfolio with the specified account.
+    /// Shares the specified portfolio with the specified account or organization node. Shares
+    /// to an organization node can only be created by the master account of an Organization.
+    /// AWSOrganizationsAccess must be enabled in order to create a portfolio share to an
+    /// organization node.
     /// </summary>
     public partial class CreatePortfolioShareRequest : AmazonServiceCatalogRequest
     {
         private string _acceptLanguage;
         private string _accountId;
+        private OrganizationNode _organizationNode;
         private string _portfolioId;
 
         /// <summary>
@@ -71,7 +75,7 @@ namespace Amazon.ServiceCatalog.Model
         /// <summary>
         /// Gets and sets the property AccountId. 
         /// <para>
-        /// The AWS account ID.
+        /// The AWS account ID. For example, <code>123456789012</code>.
         /// </para>
         /// </summary>
         public string AccountId
@@ -84,6 +88,28 @@ namespace Amazon.ServiceCatalog.Model
         internal bool IsSetAccountId()
         {
             return this._accountId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property OrganizationNode. 
+        /// <para>
+        /// The organization node to whom you are going to share. If <code>OrganizationNode</code>
+        /// is passed in, <code>PortfolioShare</code> will be created for the node and its children
+        /// (when applies), and a <code>PortfolioShareToken</code> will be returned in the output
+        /// in order for the administrator to monitor the status of the <code>PortfolioShare</code>
+        /// creation process.
+        /// </para>
+        /// </summary>
+        public OrganizationNode OrganizationNode
+        {
+            get { return this._organizationNode; }
+            set { this._organizationNode = value; }
+        }
+
+        // Check to see if OrganizationNode property is set
+        internal bool IsSetOrganizationNode()
+        {
+            return this._organizationNode != null;
         }
 
         /// <summary>

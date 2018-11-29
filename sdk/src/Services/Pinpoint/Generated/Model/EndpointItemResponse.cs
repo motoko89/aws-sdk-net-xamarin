@@ -28,8 +28,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Pinpoint.Model
 {
     /// <summary>
-    /// The responses that are returned after you create or update an endpoint and record
-    /// an event.
+    /// A complex object that holds the status code and message as a result of processing
+    /// an endpoint.
     /// </summary>
     public partial class EndpointItemResponse
     {
@@ -53,8 +53,8 @@ namespace Amazon.Pinpoint.Model
         }
 
         /// <summary>
-        /// Gets and sets the property StatusCode. The status code to respond with for a particular
-        /// endpoint id after endpoint registration
+        /// Gets and sets the property StatusCode. The status code associated with the merging
+        /// of an endpoint when issuing a response.
         /// </summary>
         public int StatusCode
         {

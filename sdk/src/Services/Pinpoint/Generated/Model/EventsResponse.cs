@@ -28,15 +28,18 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Pinpoint.Model
 {
     /// <summary>
-    /// The results from processing a put events request
+    /// Custom messages associated with events.
     /// </summary>
     public partial class EventsResponse
     {
         private Dictionary<string, ItemResponse> _results = new Dictionary<string, ItemResponse>();
 
         /// <summary>
-        /// Gets and sets the property Results. A map containing a multi part response for each
-        /// endpoint, with the endpoint id as the key and item response as the value
+        /// Gets and sets the property Results. A map that contains a multipart response for each
+        /// endpoint. Each item in this object uses the endpoint ID as the key, and the item response
+        /// as the value.If no item response exists, the value can also be one of the following:
+        /// 202 (if the request was processed successfully) or 400 (if the payload was invalid,
+        /// or required fields were missing).
         /// </summary>
         public Dictionary<string, ItemResponse> Results
         {

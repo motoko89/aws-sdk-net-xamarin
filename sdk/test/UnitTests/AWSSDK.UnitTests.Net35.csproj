@@ -51,6 +51,7 @@
     <ProjectReference Include="..\..\src\Services\Batch\AWSSDK.Batch.Net35.csproj"/>
     <ProjectReference Include="..\..\src\Services\Budgets\AWSSDK.Budgets.Net35.csproj"/>
     <ProjectReference Include="..\..\src\Services\CertificateManager\AWSSDK.CertificateManager.Net35.csproj"/>
+    <ProjectReference Include="..\..\src\Services\Chime\AWSSDK.Chime.Net35.csproj"/>
     <ProjectReference Include="..\..\src\Services\Cloud9\AWSSDK.Cloud9.Net35.csproj"/>
     <ProjectReference Include="..\..\src\Services\CloudDirectory\AWSSDK.CloudDirectory.Net35.csproj"/>
     <ProjectReference Include="..\..\src\Services\CloudFormation\AWSSDK.CloudFormation.Net35.csproj"/>
@@ -143,6 +144,7 @@
     <ProjectReference Include="..\..\src\Services\Organizations\AWSSDK.Organizations.Net35.csproj"/>
     <ProjectReference Include="..\..\src\Services\PI\AWSSDK.PI.Net35.csproj"/>
     <ProjectReference Include="..\..\src\Services\Pinpoint\AWSSDK.Pinpoint.Net35.csproj"/>
+    <ProjectReference Include="..\..\src\Services\PinpointEmail\AWSSDK.PinpointEmail.Net35.csproj"/>
     <ProjectReference Include="..\..\src\Services\Polly\AWSSDK.Polly.Net35.csproj"/>
     <ProjectReference Include="..\..\src\Services\Pricing\AWSSDK.Pricing.Net35.csproj"/>
     <ProjectReference Include="..\..\src\Services\RDS\AWSSDK.RDS.Net35.csproj"/>

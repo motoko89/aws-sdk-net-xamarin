@@ -39,7 +39,8 @@ namespace Amazon.Greengrass.Model
         private string _updatedAt;
 
         /// <summary>
-        /// Gets and sets the property DeploymentStatus. The status of the deployment.
+        /// Gets and sets the property DeploymentStatus. The status of the deployment: ''Pending'',
+        /// ''InProgress'', ''Success'', or ''Failure''.
         /// </summary>
         public string DeploymentStatus
         {

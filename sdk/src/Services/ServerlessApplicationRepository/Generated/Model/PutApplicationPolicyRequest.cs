@@ -29,8 +29,9 @@ namespace Amazon.ServerlessApplicationRepository.Model
 {
     /// <summary>
     /// Container for the parameters to the PutApplicationPolicy operation.
-    /// Sets the permission policy for an application. See <a href="https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions">Application
-    /// Permissions</a> for the list of supported actions that can be used with this operation.
+    /// Sets the permission policy for an application. For the list of actions supported for
+    /// this operation, see <a href="https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions">Application
+    ///  Permissions</a> .
     /// </summary>
     public partial class PutApplicationPolicyRequest : AmazonServerlessApplicationRepositoryRequest
     {

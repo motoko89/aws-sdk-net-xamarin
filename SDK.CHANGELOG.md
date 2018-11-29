@@ -1,3 +1,66 @@
+### 3.3.402.0 (2018-11-06 23:16 UTC)
+* APIGateway (3.3.23.0)
+	* AWS WAF integration with APIGW. Changes for adding webAclArn as a part of  Stage output. When the user calls a get-stage or get-stages, webAclArn will also be returned as a part of the output.
+* CodeBuild (3.3.17.10)
+	* Documentation updates for codebuild
+* EC2 (3.3.69.0)
+	* You can now launch the new Amazon EC2 memory optimized R5a and general purpose M5a instances families that feature AMD EPYC processors.
+* Pinpoint (3.3.10.0)
+	* This update adds the ability to send transactional email by using the SendMessage API. Transactional emails are emails that you send directly to specific email addresses. Unlike campaign-based email that you send from Amazon Pinpoint, you don't have to create segments and campaigns in order to send transactional email.
+* PinpointEmail (3.3.0.0)
+	* This is the first release of the Amazon Pinpoint Email API. You can use this API to configure and send transactional email from your Amazon Pinpoint account to specific email addresses. Unlike campaign-based email that you send from Amazon Pinpoint, you don't have to create segments and campaigns in order to send transactional email. 
+* WAFRegional (3.3.6.0)
+	* You can now use AWS WAF to configure protections for your Amazon API Gateway APIs.  This will enable you to block (or count) undesired traffic to your APIs based on the different AWS WAF rules and conditions you create. For more information about AWS WAF, see the AWS WAF Developer Guide.
+* Core 3.3.29.5
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.401.1 (2018-11-06 17:46 UTC)
+* Core 3.3.29.4
+	* Make IClientConfig.HttpClientFactory available in .NET standard SDK
+	* All services packages updated to require new Core
+
+### 3.3.401.0 (2018-11-05 23:11 UTC)
+* EKS (3.3.2.0)
+	* Adds waiters for ClusterActive and ClusterDeleted
+* ServerlessApplicationRepository (3.3.3.0)
+	* New AWS Serverless Application Repository APIs that support creating and reading a broader set of AWS CloudFormation templates, as well as enhancements to our existing APIs.
+
+### 3.3.400.0 (2018-11-02 20:06 UTC)
+* CloudDirectory (3.3.10.0)
+	* ListObjectParents API now supports a bool parameter IncludeAllLinksToEachParent, which if set to true, will return a ParentLinks list instead of a Parents map; BatchRead API now supports ListObjectParents operation.
+* Rekognition (3.3.12.0)
+	* This release updates the DetectLabels operation. Bounding boxes are now returned for certain objects, a hierarchical taxonomy is now available for labels, and you can now get the version of the detection model used for detection.
+
+### 3.3.399.0 (2018-11-01 22:29 UTC)
+* ServiceCatalog (3.3.12.0)
+	* Service Catalog integration with AWS Organizations, enables customers to more easily create and manage a portfolio of IT services across an organization. Administrators can now take advantage of the AWS account structure and account groupings configured in AWS Organizations to share Service Catalog Portfolios increasing agility and reducing risk. With this integration the admin user will leverage the trust relationship that exists within the accounts of the Organization to share portfolios to the entire Organization, a specific Organizational Unit or a specific Account.
+
+### 3.3.398.0 (2018-10-31 21:06 UTC)
+* ConfigService (3.3.21.0)
+	* With this release, AWS Config updated the ResourceType values. The updated list includes AWS Systems Manager AssociationCompliance and PatchCompliance, AWS Shield regional Protection, AWS Config ResourceCompliance, and AWS CodePipeline Pipeline.
+* Greengrass (3.3.4.0)
+	* Greengrass APIs now support bulk deployment operations, and APIs that list definition versions now support pagination.
+* MediaStoreData (3.3.1.0)
+	* The object size limit is increased from 10MB to 25MB and the content type is more permissive.
+* SecretsManager (3.3.2.19)
+	* Documentation updates for AWS Secrets Manager.
+
+### 3.3.397.0 (2018-10-30 22:04 UTC)
+* Chime (3.3.0.0)
+	* This is the initial release for the Amazon Chime AWS SDK. In this release, Amazon Chime adds support for administrative actions on users and accounts. API Documentation is also updated on https://docs.aws.amazon.com/chime/index.html
+* DatabaseMigrationService (3.3.10.0)
+	* Add waiters for TestConnectionSucceeds, EndpointDeleted, ReplicationInstanceAvailable, ReplicationInstanceDeleted, ReplicationTaskReady, ReplicationTaskStopped, ReplicationTaskRunning and ReplicationTaskDeleted.
+* RDS (3.3.33.0)
+	* This release adds the listener connection endpoint for SQL Server Always On to the list of fields returned when performing a describe-db-instances operation.
+* Core 3.3.29.3
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
 ### 3.3.396.2 (2018-10-29 20:45 UTC)
 * Core 3.3.29.2
 	* Allow PCL users to manually create HttpClients to be used by service clients in the SDK.

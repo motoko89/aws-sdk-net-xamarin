@@ -35,6 +35,7 @@ namespace Amazon.Greengrass.Model
     {
         private string _loggerDefinitionId;
         private string _loggerDefinitionVersionId;
+        private string _nextToken;
 
         /// <summary>
         /// Gets and sets the property LoggerDefinitionId. The ID of the logger definition.
@@ -65,6 +66,22 @@ namespace Amazon.Greengrass.Model
         internal bool IsSetLoggerDefinitionVersionId()
         {
             return this._loggerDefinitionVersionId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property NextToken. The token for the next set of results, or ''null''
+        /// if there are no additional results.
+        /// </summary>
+        public string NextToken
+        {
+            get { return this._nextToken; }
+            set { this._nextToken = value; }
+        }
+
+        // Check to see if NextToken property is set
+        internal bool IsSetNextToken()
+        {
+            return this._nextToken != null;
         }
 
     }

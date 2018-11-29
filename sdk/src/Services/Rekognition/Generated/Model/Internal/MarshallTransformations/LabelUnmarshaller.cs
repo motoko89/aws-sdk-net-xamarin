@@ -70,10 +70,22 @@ namespace Amazon.Rekognition.Model.Internal.MarshallTransformations
                     unmarshalledObject.Confidence = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("Instances", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<Instance, InstanceUnmarshaller>(InstanceUnmarshaller.Instance);
+                    unmarshalledObject.Instances = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Name", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.Name = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("Parents", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<Parent, ParentUnmarshaller>(ParentUnmarshaller.Instance);
+                    unmarshalledObject.Parents = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }
