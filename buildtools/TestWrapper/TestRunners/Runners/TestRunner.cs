@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Text.RegularExpressions;
+using Amazon.Runtime.CredentialManagement;
 
 namespace TestWrapper.TestRunners
 {
@@ -25,6 +26,7 @@ namespace TestWrapper.TestRunners
             ' ',
             '\t',
         };
+        private const string AWS_PROFILE_ENVIRONMENT_VARIABLE = "AWS_PROFILE";
 
         protected TestRunner(string testSuiteExecutable, FileInfo testContainer, DirectoryInfo workingDirectory)
         {
@@ -50,6 +52,7 @@ namespace TestWrapper.TestRunners
         public DirectoryInfo WorkingDirectory { get; private set; }
         public string[] Categories { get; set; }
         public TestConfiguration Configuration { get; set; }
+        public string TestExecutionProfile { get; set; }
 
         /// <summary>
         /// Run the tests for this test runner.
@@ -219,6 +222,21 @@ namespace TestWrapper.TestRunners
             Console.WriteLine("File: {0}", file);
             Console.WriteLine("Args: {0}", args);
             Console.WriteLine("Dir:  {0}", workingDir);
+            if (!string.IsNullOrWhiteSpace(TestExecutionProfile))
+            {
+                var chain = new CredentialProfileStoreChain();
+                CredentialProfile profile;
+                if (chain.TryGetProfile(TestExecutionProfile, out profile))
+                {
+                    Console.WriteLine($"Profile '{TestExecutionProfile}' found.");
+                    si.EnvironmentVariables[AWS_PROFILE_ENVIRONMENT_VARIABLE] = TestExecutionProfile;
+                    Console.WriteLine($"TestExecutionProfile: {TestExecutionProfile}");
+                }
+                else
+                {
+                    Console.WriteLine($"Profile '{TestExecutionProfile}' not found, ignoring the TestExecutionProfile attribute on test wrapper build task.");
+                }
+            }
 
             string error;
             string output;

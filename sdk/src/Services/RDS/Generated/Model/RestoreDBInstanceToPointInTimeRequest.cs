@@ -73,6 +73,7 @@ namespace Amazon.RDS.Model
         private bool? _publiclyAccessible;
         private DateTime? _restoreTimeUtc;
         private string _sourceDBInstanceIdentifier;
+        private string _sourceDbiResourceId;
         private string _storageType;
         private List<Tag> _tags = new List<Tag>();
         private string _targetDBInstanceIdentifier;
@@ -80,6 +81,7 @@ namespace Amazon.RDS.Model
         private string _tdeCredentialPassword;
         private bool? _useDefaultProcessorFeatures;
         private bool? _useLatestRestorableTime;
+        private List<string> _vpcSecurityGroupIds = new List<string>();
 
         /// <summary>
         /// Empty constructor used to set  properties independently even when a simple constructor is available
@@ -707,6 +709,24 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property SourceDbiResourceId. 
+        /// <para>
+        /// The resource ID of the source DB instance from which to restore.
+        /// </para>
+        /// </summary>
+        public string SourceDbiResourceId
+        {
+            get { return this._sourceDbiResourceId; }
+            set { this._sourceDbiResourceId = value; }
+        }
+
+        // Check to see if SourceDbiResourceId property is set
+        internal bool IsSetSourceDbiResourceId()
+        {
+            return this._sourceDbiResourceId != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property StorageType. 
         /// <para>
         /// Specifies the storage type to be associated with the DB instance.
@@ -868,6 +888,28 @@ namespace Amazon.RDS.Model
         internal bool IsSetUseLatestRestorableTime()
         {
             return this._useLatestRestorableTime.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property VpcSecurityGroupIds. 
+        /// <para>
+        ///  A list of EC2 VPC security groups to associate with this DB instance. 
+        /// </para>
+        ///  
+        /// <para>
+        ///  Default: The default EC2 VPC security group for the DB subnet group's VPC. 
+        /// </para>
+        /// </summary>
+        public List<string> VpcSecurityGroupIds
+        {
+            get { return this._vpcSecurityGroupIds; }
+            set { this._vpcSecurityGroupIds = value; }
+        }
+
+        // Check to see if VpcSecurityGroupIds property is set
+        internal bool IsSetVpcSecurityGroupIds()
+        {
+            return this._vpcSecurityGroupIds != null && this._vpcSecurityGroupIds.Count > 0; 
         }
 
 #region Backwards compatible properties

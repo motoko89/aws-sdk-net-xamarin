@@ -48,6 +48,8 @@ namespace Amazon.Redshift.Model
         private long? _estimatedSecondsToCompletion;
         private string _kmsKeyId;
         private string _maintenanceTrackName;
+        private int? _manualSnapshotRemainingDays;
+        private int? _manualSnapshotRetentionPeriod;
         private string _masterUsername;
         private string _nodeType;
         private int? _numberOfNodes;
@@ -56,6 +58,7 @@ namespace Amazon.Redshift.Model
         private List<string> _restorableNodeTypes = new List<string>();
         private DateTime? _snapshotCreateTime;
         private string _snapshotIdentifier;
+        private DateTime? _snapshotRetentionStartTime;
         private string _snapshotType;
         private string _sourceRegion;
         private string _status;
@@ -370,6 +373,47 @@ namespace Amazon.Redshift.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ManualSnapshotRemainingDays. 
+        /// <para>
+        /// The number of days until a manual snapshot will pass its retention period.
+        /// </para>
+        /// </summary>
+        public int ManualSnapshotRemainingDays
+        {
+            get { return this._manualSnapshotRemainingDays.GetValueOrDefault(); }
+            set { this._manualSnapshotRemainingDays = value; }
+        }
+
+        // Check to see if ManualSnapshotRemainingDays property is set
+        internal bool IsSetManualSnapshotRemainingDays()
+        {
+            return this._manualSnapshotRemainingDays.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property ManualSnapshotRetentionPeriod. 
+        /// <para>
+        /// The number of days that a manual snapshot is retained. If the value is -1, the manual
+        /// snapshot is retained indefinitely. 
+        /// </para>
+        ///  
+        /// <para>
+        /// The value must be either -1 or an integer between 1 and 3,653.
+        /// </para>
+        /// </summary>
+        public int ManualSnapshotRetentionPeriod
+        {
+            get { return this._manualSnapshotRetentionPeriod.GetValueOrDefault(); }
+            set { this._manualSnapshotRetentionPeriod = value; }
+        }
+
+        // Check to see if ManualSnapshotRetentionPeriod property is set
+        internal bool IsSetManualSnapshotRetentionPeriod()
+        {
+            return this._manualSnapshotRetentionPeriod.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property MasterUsername. 
         /// <para>
         /// The master user name for the cluster.
@@ -482,8 +526,8 @@ namespace Amazon.Redshift.Model
         /// <summary>
         /// Gets and sets the property SnapshotCreateTime. 
         /// <para>
-        /// The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains a copy
-        /// of the cluster data as of this exact time.
+        /// The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains
+        /// a copy of the cluster data as of this exact time.
         /// </para>
         /// </summary>
         public DateTime SnapshotCreateTime
@@ -517,10 +561,28 @@ namespace Amazon.Redshift.Model
         }
 
         /// <summary>
+        /// Gets and sets the property SnapshotRetentionStartTime. 
+        /// <para>
+        /// A timestamp representing the start of the retention period for the snapshot.
+        /// </para>
+        /// </summary>
+        public DateTime SnapshotRetentionStartTime
+        {
+            get { return this._snapshotRetentionStartTime.GetValueOrDefault(); }
+            set { this._snapshotRetentionStartTime = value; }
+        }
+
+        // Check to see if SnapshotRetentionStartTime property is set
+        internal bool IsSetSnapshotRetentionStartTime()
+        {
+            return this._snapshotRetentionStartTime.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property SnapshotType. 
         /// <para>
         /// The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a>
-        /// will be of type "manual". 
+        /// are of type "manual". 
         /// </para>
         /// </summary>
         public string SnapshotType
@@ -556,7 +618,7 @@ namespace Amazon.Redshift.Model
         /// <summary>
         /// Gets and sets the property Status. 
         /// <para>
-        /// The snapshot status. The value of the status depends on the API operation used. 
+        /// The snapshot status. The value of the status depends on the API operation used: 
         /// </para>
         ///  <ul> <li> 
         /// <para>

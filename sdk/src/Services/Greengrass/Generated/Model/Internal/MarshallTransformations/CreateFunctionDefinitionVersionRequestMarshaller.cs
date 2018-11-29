@@ -61,13 +61,24 @@ namespace Amazon.Greengrass.Model.Internal.MarshallTransformations
             string uriResourcePath = "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
             if (!publicRequest.IsSetFunctionDefinitionId())
                 throw new AmazonGreengrassException("Request object does not have required field FunctionDefinitionId set");
-            uriResourcePath = uriResourcePath.Replace("{FunctionDefinitionId}", StringUtils.FromString(publicRequest.FunctionDefinitionId));
+            uriResourcePath = uriResourcePath.Replace("{FunctionDefinitionId}", StringUtils.FromStringWithSlashEncoding(publicRequest.FunctionDefinitionId));
             request.ResourcePath = uriResourcePath;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetDefaultConfig())
+                {
+                    context.Writer.WritePropertyName("DefaultConfig");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = FunctionDefaultConfigMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.DefaultConfig, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetFunctions())
                 {
                     context.Writer.WritePropertyName("Functions");

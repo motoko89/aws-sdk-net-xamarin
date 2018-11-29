@@ -86,6 +86,17 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
                 context.Writer.WriteArrayEnd();
             }
 
+            if(requestObject.IsSetLaunchTemplate())
+            {
+                context.Writer.WritePropertyName("launchTemplate");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = LaunchTemplateSpecificationMarshaller.Instance;
+                marshaller.Marshall(requestObject.LaunchTemplate, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetMaxvCpus())
             {
                 context.Writer.WritePropertyName("maxvCpus");
@@ -96,6 +107,12 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
             {
                 context.Writer.WritePropertyName("minvCpus");
                 context.Writer.Write(requestObject.MinvCpus);
+            }
+
+            if(requestObject.IsSetPlacementGroup())
+            {
+                context.Writer.WritePropertyName("placementGroup");
+                context.Writer.Write(requestObject.PlacementGroup);
             }
 
             if(requestObject.IsSetSecurityGroupIds())

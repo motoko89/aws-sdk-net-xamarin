@@ -28,7 +28,14 @@ using Amazon.Runtime.Internal;
 namespace Amazon.AutoScalingPlans.Model
 {
     /// <summary>
-    /// Represents a customized metric for a target tracking policy.
+    /// Represents a CloudWatch metric of your choosing that can be used for dynamic scaling
+    /// as part of a target tracking scaling policy. 
+    /// 
+    ///  
+    /// <para>
+    /// For information about terminology, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon
+    /// CloudWatch Concepts</a>.
+    /// </para>
     /// </summary>
     public partial class CustomizedScalingMetricSpecification
     {
@@ -113,7 +120,7 @@ namespace Amazon.AutoScalingPlans.Model
         /// <summary>
         /// Gets and sets the property Unit. 
         /// <para>
-        /// The unit of the metric.
+        /// The unit of the metric. 
         /// </para>
         /// </summary>
         public string Unit

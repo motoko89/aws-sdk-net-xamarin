@@ -34,6 +34,7 @@ namespace Amazon.Comprehend.Model
     {
         private string _dataAccessRoleArn;
         private DateTime? _endTime;
+        private string _entityRecognizerArn;
         private InputDataConfig _inputDataConfig;
         private string _jobId;
         private string _jobName;
@@ -78,6 +79,24 @@ namespace Amazon.Comprehend.Model
         internal bool IsSetEndTime()
         {
             return this._endTime.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property EntityRecognizerArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) that identifies the entity recognizer.
+        /// </para>
+        /// </summary>
+        public string EntityRecognizerArn
+        {
+            get { return this._entityRecognizerArn; }
+            set { this._entityRecognizerArn = value; }
+        }
+
+        // Check to see if EntityRecognizerArn property is set
+        internal bool IsSetEntityRecognizerArn()
+        {
+            return this._entityRecognizerArn != null;
         }
 
         /// <summary>

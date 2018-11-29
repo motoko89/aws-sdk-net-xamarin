@@ -100,6 +100,12 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
                     unmarshalledObject.InstanceTypes = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("launchTemplate", targetDepth))
+                {
+                    var unmarshaller = LaunchTemplateSpecificationUnmarshaller.Instance;
+                    unmarshalledObject.LaunchTemplate = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("maxvCpus", targetDepth))
                 {
                     var unmarshaller = IntUnmarshaller.Instance;
@@ -110,6 +116,12 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = IntUnmarshaller.Instance;
                     unmarshalledObject.MinvCpus = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("placementGroup", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.PlacementGroup = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("securityGroupIds", targetDepth))

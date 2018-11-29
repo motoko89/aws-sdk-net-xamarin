@@ -28,7 +28,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.AutoScalingPlans.Model
 {
     /// <summary>
-    /// Represents a predefined metric for a target tracking policy.
+    /// Represents a predefined metric that can be used for dynamic scaling as part of a target
+    /// tracking scaling policy.
     /// </summary>
     public partial class PredefinedScalingMetricSpecification
     {
@@ -39,7 +40,7 @@ namespace Amazon.AutoScalingPlans.Model
         /// Gets and sets the property PredefinedScalingMetricType. 
         /// <para>
         /// The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only
-        /// to Auto Scaling groups, Sport Fleet requests, and ECS services.
+        /// to Auto Scaling groups, Spot Fleet requests, and ECS services.
         /// </para>
         /// </summary>
         public ScalingMetricType PredefinedScalingMetricType
@@ -70,7 +71,7 @@ namespace Amazon.AutoScalingPlans.Model
         ///  <ul> <li> 
         /// <para>
         /// app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt; is the final portion of the
-        /// load balancer ARN
+        /// load balancer ARN.
         /// </para>
         ///  </li> <li> 
         /// <para>

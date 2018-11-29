@@ -902,7 +902,9 @@ namespace Amazon.S3
         #region  DeleteBucketReplication
 
         /// <summary>
-        /// Deletes the replication configuration from the bucket.
+        /// Deletes the replication configuration from the bucket. For information about replication
+        /// configuration, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region
+        /// Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteBucketReplication service method.</param>
         /// 
@@ -1080,7 +1082,7 @@ namespace Amazon.S3
         #region  DeleteCORSConfiguration
 
         /// <summary>
-        /// Deletes the cors configuration information set for the bucket.
+        /// Deletes the CORS configuration information set for the bucket.
         /// </summary>
         /// <param name="bucketName">A property of DeleteCORSConfigurationRequest used to execute the DeleteCORSConfiguration service method.</param>
         /// 
@@ -1094,7 +1096,7 @@ namespace Amazon.S3
 
 
         /// <summary>
-        /// Deletes the cors configuration information set for the bucket.
+        /// Deletes the CORS configuration information set for the bucket.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteCORSConfiguration service method.</param>
         /// 
@@ -1392,6 +1394,56 @@ namespace Amazon.S3
         public virtual DeleteObjectTaggingResponse EndDeleteObjectTagging(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteObjectTaggingResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  DeletePublicAccessBlock
+
+        /// <summary>
+        /// Removes the <code>PublicAccessBlock</code> configuration from an Amazon S3 bucket.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeletePublicAccessBlock service method.</param>
+        /// 
+        /// <returns>The response from the DeletePublicAccessBlock service method, as returned by S3.</returns>
+        public virtual DeletePublicAccessBlockResponse DeletePublicAccessBlock(DeletePublicAccessBlockRequest request)
+        {
+            var marshaller = DeletePublicAccessBlockRequestMarshaller.Instance;
+            var unmarshaller = DeletePublicAccessBlockResponseUnmarshaller.Instance;
+
+            return Invoke<DeletePublicAccessBlockRequest,DeletePublicAccessBlockResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeletePublicAccessBlock operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeletePublicAccessBlock operation on AmazonS3Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeletePublicAccessBlock
+        ///         operation.</returns>
+        public virtual IAsyncResult BeginDeletePublicAccessBlock(DeletePublicAccessBlockRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = DeletePublicAccessBlockRequestMarshaller.Instance;
+            var unmarshaller = DeletePublicAccessBlockResponseUnmarshaller.Instance;
+
+            return BeginInvoke<DeletePublicAccessBlockRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeletePublicAccessBlock operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeletePublicAccessBlock.</param>
+        /// 
+        /// <returns>Returns a  DeletePublicAccessBlockResult from S3.</returns>
+        public virtual DeletePublicAccessBlockResponse EndDeletePublicAccessBlock(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DeletePublicAccessBlockResponse>(asyncResult);
         }
 
         #endregion
@@ -1984,6 +2036,57 @@ namespace Amazon.S3
 
         #endregion
         
+        #region  GetBucketPolicyStatus
+
+        /// <summary>
+        /// Retrieves the policy status for an Amazon S3 bucket, indicating whether the bucket
+        /// is public.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetBucketPolicyStatus service method.</param>
+        /// 
+        /// <returns>The response from the GetBucketPolicyStatus service method, as returned by S3.</returns>
+        public virtual GetBucketPolicyStatusResponse GetBucketPolicyStatus(GetBucketPolicyStatusRequest request)
+        {
+            var marshaller = GetBucketPolicyStatusRequestMarshaller.Instance;
+            var unmarshaller = GetBucketPolicyStatusResponseUnmarshaller.Instance;
+
+            return Invoke<GetBucketPolicyStatusRequest,GetBucketPolicyStatusResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetBucketPolicyStatus operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetBucketPolicyStatus operation on AmazonS3Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetBucketPolicyStatus
+        ///         operation.</returns>
+        public virtual IAsyncResult BeginGetBucketPolicyStatus(GetBucketPolicyStatusRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = GetBucketPolicyStatusRequestMarshaller.Instance;
+            var unmarshaller = GetBucketPolicyStatusResponseUnmarshaller.Instance;
+
+            return BeginInvoke<GetBucketPolicyStatusRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetBucketPolicyStatus operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetBucketPolicyStatus.</param>
+        /// 
+        /// <returns>Returns a  GetBucketPolicyStatusResult from S3.</returns>
+        public virtual GetBucketPolicyStatusResponse EndGetBucketPolicyStatus(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetBucketPolicyStatusResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  GetBucketReplication
 
         /// <summary>
@@ -2279,7 +2382,7 @@ namespace Amazon.S3
         #region  GetCORSConfiguration
 
         /// <summary>
-        /// Returns the cors configuration for the bucket.
+        /// Returns the CORS configuration for the bucket.
         /// </summary>
         /// <param name="bucketName">A property of GetCORSConfigurationRequest used to execute the GetCORSConfiguration service method.</param>
         /// 
@@ -2293,7 +2396,7 @@ namespace Amazon.S3
 
 
         /// <summary>
-        /// Returns the cors configuration for the bucket.
+        /// Returns the CORS configuration for the bucket.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetCORSConfiguration service method.</param>
         /// 
@@ -2488,6 +2591,108 @@ namespace Amazon.S3
 
         #endregion
         
+        #region  GetObjectLegalHold
+
+        /// <summary>
+        /// Gets an object's current Legal Hold status.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetObjectLegalHold service method.</param>
+        /// 
+        /// <returns>The response from the GetObjectLegalHold service method, as returned by S3.</returns>
+        public virtual GetObjectLegalHoldResponse GetObjectLegalHold(GetObjectLegalHoldRequest request)
+        {
+            var marshaller = GetObjectLegalHoldRequestMarshaller.Instance;
+            var unmarshaller = GetObjectLegalHoldResponseUnmarshaller.Instance;
+
+            return Invoke<GetObjectLegalHoldRequest,GetObjectLegalHoldResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetObjectLegalHold operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetObjectLegalHold operation on AmazonS3Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetObjectLegalHold
+        ///         operation.</returns>
+        public virtual IAsyncResult BeginGetObjectLegalHold(GetObjectLegalHoldRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = GetObjectLegalHoldRequestMarshaller.Instance;
+            var unmarshaller = GetObjectLegalHoldResponseUnmarshaller.Instance;
+
+            return BeginInvoke<GetObjectLegalHoldRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetObjectLegalHold operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetObjectLegalHold.</param>
+        /// 
+        /// <returns>Returns a  GetObjectLegalHoldResult from S3.</returns>
+        public virtual GetObjectLegalHoldResponse EndGetObjectLegalHold(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetObjectLegalHoldResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetObjectLockConfiguration
+
+        /// <summary>
+        /// Gets the Object Lock configuration for a bucket. The rule specified in the Object
+        /// Lock configuration will be applied by default to every new object placed in the specified
+        /// bucket.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetObjectLockConfiguration service method.</param>
+        /// 
+        /// <returns>The response from the GetObjectLockConfiguration service method, as returned by S3.</returns>
+        public virtual GetObjectLockConfigurationResponse GetObjectLockConfiguration(GetObjectLockConfigurationRequest request)
+        {
+            var marshaller = GetObjectLockConfigurationRequestMarshaller.Instance;
+            var unmarshaller = GetObjectLockConfigurationResponseUnmarshaller.Instance;
+
+            return Invoke<GetObjectLockConfigurationRequest,GetObjectLockConfigurationResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetObjectLockConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetObjectLockConfiguration operation on AmazonS3Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetObjectLockConfiguration
+        ///         operation.</returns>
+        public virtual IAsyncResult BeginGetObjectLockConfiguration(GetObjectLockConfigurationRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = GetObjectLockConfigurationRequestMarshaller.Instance;
+            var unmarshaller = GetObjectLockConfigurationResponseUnmarshaller.Instance;
+
+            return BeginInvoke<GetObjectLockConfigurationRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetObjectLockConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetObjectLockConfiguration.</param>
+        /// 
+        /// <returns>Returns a  GetObjectLockConfigurationResult from S3.</returns>
+        public virtual GetObjectLockConfigurationResponse EndGetObjectLockConfiguration(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetObjectLockConfigurationResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  GetObjectMetadata
 
         /// <summary>
@@ -2574,6 +2779,56 @@ namespace Amazon.S3
         public virtual GetObjectMetadataResponse EndGetObjectMetadata(IAsyncResult asyncResult)
         {
             return EndInvoke<GetObjectMetadataResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetObjectRetention
+
+        /// <summary>
+        /// Retrieves an object's retention settings.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetObjectRetention service method.</param>
+        /// 
+        /// <returns>The response from the GetObjectRetention service method, as returned by S3.</returns>
+        public virtual GetObjectRetentionResponse GetObjectRetention(GetObjectRetentionRequest request)
+        {
+            var marshaller = GetObjectRetentionRequestMarshaller.Instance;
+            var unmarshaller = GetObjectRetentionResponseUnmarshaller.Instance;
+
+            return Invoke<GetObjectRetentionRequest,GetObjectRetentionResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetObjectRetention operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetObjectRetention operation on AmazonS3Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetObjectRetention
+        ///         operation.</returns>
+        public virtual IAsyncResult BeginGetObjectRetention(GetObjectRetentionRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = GetObjectRetentionRequestMarshaller.Instance;
+            var unmarshaller = GetObjectRetentionResponseUnmarshaller.Instance;
+
+            return BeginInvoke<GetObjectRetentionRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetObjectRetention operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetObjectRetention.</param>
+        /// 
+        /// <returns>Returns a  GetObjectRetentionResult from S3.</returns>
+        public virtual GetObjectRetentionResponse EndGetObjectRetention(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetObjectRetentionResponse>(asyncResult);
         }
 
         #endregion
@@ -2690,6 +2945,56 @@ namespace Amazon.S3
         public virtual GetObjectTorrentResponse EndGetObjectTorrent(IAsyncResult asyncResult)
         {
             return EndInvoke<GetObjectTorrentResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetPublicAccessBlock
+
+        /// <summary>
+        /// Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetPublicAccessBlock service method.</param>
+        /// 
+        /// <returns>The response from the GetPublicAccessBlock service method, as returned by S3.</returns>
+        public virtual GetPublicAccessBlockResponse GetPublicAccessBlock(GetPublicAccessBlockRequest request)
+        {
+            var marshaller = GetPublicAccessBlockRequestMarshaller.Instance;
+            var unmarshaller = GetPublicAccessBlockResponseUnmarshaller.Instance;
+
+            return Invoke<GetPublicAccessBlockRequest,GetPublicAccessBlockResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetPublicAccessBlock operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetPublicAccessBlock operation on AmazonS3Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetPublicAccessBlock
+        ///         operation.</returns>
+        public virtual IAsyncResult BeginGetPublicAccessBlock(GetPublicAccessBlockRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = GetPublicAccessBlockRequestMarshaller.Instance;
+            var unmarshaller = GetPublicAccessBlockResponseUnmarshaller.Instance;
+
+            return BeginInvoke<GetPublicAccessBlockRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetPublicAccessBlock operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetPublicAccessBlock.</param>
+        /// 
+        /// <returns>Returns a  GetPublicAccessBlockResult from S3.</returns>
+        public virtual GetPublicAccessBlockResponse EndGetPublicAccessBlock(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetPublicAccessBlockResponse>(asyncResult);
         }
 
         #endregion
@@ -3959,9 +4264,9 @@ namespace Amazon.S3
         #region  PutBucketReplication
 
         /// <summary>
-        /// Creates a new replication configuration (or replaces an existing one, if present).
-        /// For more information, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region
-        /// Replication (CRR)</a> in the Amazon S3 Developer Guide.
+        /// Creates a replication configuration or replaces an existing one. For more information,
+        /// see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region
+        /// Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutBucketReplication service method.</param>
         /// 
@@ -4266,7 +4571,7 @@ namespace Amazon.S3
         #region  PutCORSConfiguration
 
         /// <summary>
-        /// Sets the cors configuration for a bucket.
+        /// Sets the CORS configuration for a bucket.
         /// </summary>
         /// <param name="bucketName">A property of PutCORSConfigurationRequest used to execute the PutCORSConfiguration service method.</param>
         /// <param name="configuration">A property of PutCORSConfigurationRequest used to execute the PutCORSConfiguration service method.</param>
@@ -4282,7 +4587,7 @@ namespace Amazon.S3
 
 
         /// <summary>
-        /// Sets the cors configuration for a bucket.
+        /// Sets the CORS configuration for a bucket.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutCORSConfiguration service method.</param>
         /// 
@@ -4447,6 +4752,158 @@ namespace Amazon.S3
 
         #endregion
         
+        #region  PutObjectLegalHold
+
+        /// <summary>
+        /// Applies a Legal Hold configuration to the specified object.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the PutObjectLegalHold service method.</param>
+        /// 
+        /// <returns>The response from the PutObjectLegalHold service method, as returned by S3.</returns>
+        public virtual PutObjectLegalHoldResponse PutObjectLegalHold(PutObjectLegalHoldRequest request)
+        {
+            var marshaller = PutObjectLegalHoldRequestMarshaller.Instance;
+            var unmarshaller = PutObjectLegalHoldResponseUnmarshaller.Instance;
+
+            return Invoke<PutObjectLegalHoldRequest,PutObjectLegalHoldResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the PutObjectLegalHold operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the PutObjectLegalHold operation on AmazonS3Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPutObjectLegalHold
+        ///         operation.</returns>
+        public virtual IAsyncResult BeginPutObjectLegalHold(PutObjectLegalHoldRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = PutObjectLegalHoldRequestMarshaller.Instance;
+            var unmarshaller = PutObjectLegalHoldResponseUnmarshaller.Instance;
+
+            return BeginInvoke<PutObjectLegalHoldRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  PutObjectLegalHold operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginPutObjectLegalHold.</param>
+        /// 
+        /// <returns>Returns a  PutObjectLegalHoldResult from S3.</returns>
+        public virtual PutObjectLegalHoldResponse EndPutObjectLegalHold(IAsyncResult asyncResult)
+        {
+            return EndInvoke<PutObjectLegalHoldResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  PutObjectLockConfiguration
+
+        /// <summary>
+        /// Places an Object Lock configuration on the specified bucket. The rule specified in
+        /// the Object Lock configuration will be applied by default to every new object placed
+        /// in the specified bucket.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the PutObjectLockConfiguration service method.</param>
+        /// 
+        /// <returns>The response from the PutObjectLockConfiguration service method, as returned by S3.</returns>
+        public virtual PutObjectLockConfigurationResponse PutObjectLockConfiguration(PutObjectLockConfigurationRequest request)
+        {
+            var marshaller = PutObjectLockConfigurationRequestMarshaller.Instance;
+            var unmarshaller = PutObjectLockConfigurationResponseUnmarshaller.Instance;
+
+            return Invoke<PutObjectLockConfigurationRequest,PutObjectLockConfigurationResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the PutObjectLockConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the PutObjectLockConfiguration operation on AmazonS3Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPutObjectLockConfiguration
+        ///         operation.</returns>
+        public virtual IAsyncResult BeginPutObjectLockConfiguration(PutObjectLockConfigurationRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = PutObjectLockConfigurationRequestMarshaller.Instance;
+            var unmarshaller = PutObjectLockConfigurationResponseUnmarshaller.Instance;
+
+            return BeginInvoke<PutObjectLockConfigurationRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  PutObjectLockConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginPutObjectLockConfiguration.</param>
+        /// 
+        /// <returns>Returns a  PutObjectLockConfigurationResult from S3.</returns>
+        public virtual PutObjectLockConfigurationResponse EndPutObjectLockConfiguration(IAsyncResult asyncResult)
+        {
+            return EndInvoke<PutObjectLockConfigurationResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  PutObjectRetention
+
+        /// <summary>
+        /// Places an Object Retention configuration on an object.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the PutObjectRetention service method.</param>
+        /// 
+        /// <returns>The response from the PutObjectRetention service method, as returned by S3.</returns>
+        public virtual PutObjectRetentionResponse PutObjectRetention(PutObjectRetentionRequest request)
+        {
+            var marshaller = PutObjectRetentionRequestMarshaller.Instance;
+            var unmarshaller = PutObjectRetentionResponseUnmarshaller.Instance;
+
+            return Invoke<PutObjectRetentionRequest,PutObjectRetentionResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the PutObjectRetention operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the PutObjectRetention operation on AmazonS3Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPutObjectRetention
+        ///         operation.</returns>
+        public virtual IAsyncResult BeginPutObjectRetention(PutObjectRetentionRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = PutObjectRetentionRequestMarshaller.Instance;
+            var unmarshaller = PutObjectRetentionResponseUnmarshaller.Instance;
+
+            return BeginInvoke<PutObjectRetentionRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  PutObjectRetention operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginPutObjectRetention.</param>
+        /// 
+        /// <returns>Returns a  PutObjectRetentionResult from S3.</returns>
+        public virtual PutObjectRetentionResponse EndPutObjectRetention(IAsyncResult asyncResult)
+        {
+            return EndInvoke<PutObjectRetentionResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  PutObjectTagging
 
         /// <summary>
@@ -4493,6 +4950,57 @@ namespace Amazon.S3
         public virtual PutObjectTaggingResponse EndPutObjectTagging(IAsyncResult asyncResult)
         {
             return EndInvoke<PutObjectTaggingResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  PutPublicAccessBlock
+
+        /// <summary>
+        /// Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon
+        /// S3 bucket.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the PutPublicAccessBlock service method.</param>
+        /// 
+        /// <returns>The response from the PutPublicAccessBlock service method, as returned by S3.</returns>
+        public virtual PutPublicAccessBlockResponse PutPublicAccessBlock(PutPublicAccessBlockRequest request)
+        {
+            var marshaller = PutPublicAccessBlockRequestMarshaller.Instance;
+            var unmarshaller = PutPublicAccessBlockResponseUnmarshaller.Instance;
+
+            return Invoke<PutPublicAccessBlockRequest,PutPublicAccessBlockResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the PutPublicAccessBlock operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the PutPublicAccessBlock operation on AmazonS3Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPutPublicAccessBlock
+        ///         operation.</returns>
+        public virtual IAsyncResult BeginPutPublicAccessBlock(PutPublicAccessBlockRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = PutPublicAccessBlockRequestMarshaller.Instance;
+            var unmarshaller = PutPublicAccessBlockResponseUnmarshaller.Instance;
+
+            return BeginInvoke<PutPublicAccessBlockRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  PutPublicAccessBlock operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginPutPublicAccessBlock.</param>
+        /// 
+        /// <returns>Returns a  PutPublicAccessBlockResult from S3.</returns>
+        public virtual PutPublicAccessBlockResponse EndPutPublicAccessBlock(IAsyncResult asyncResult)
+        {
+            return EndInvoke<PutPublicAccessBlockResponse>(asyncResult);
         }
 
         #endregion

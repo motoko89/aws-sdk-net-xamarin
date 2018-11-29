@@ -69,8 +69,8 @@ namespace Amazon.Redshift.Model
         /// <summary>
         /// Gets and sets the property Enabled. 
         /// <para>
-        /// A Boolean value; set to <code>true</code> to activate the subscription, set to <code>false</code>
-        /// to create the subscription but not active it. 
+        /// A boolean value; set to <code>true</code> to activate the subscription, and set to
+        /// <code>false</code> to create the subscription but not activate it. 
         /// </para>
         /// </summary>
         public bool Enabled
@@ -93,7 +93,7 @@ namespace Amazon.Redshift.Model
         /// </para>
         ///  
         /// <para>
-        /// Values: Configuration, Management, Monitoring, Security
+        /// Values: configuration, management, monitoring, security
         /// </para>
         /// </summary>
         public List<string> EventCategories

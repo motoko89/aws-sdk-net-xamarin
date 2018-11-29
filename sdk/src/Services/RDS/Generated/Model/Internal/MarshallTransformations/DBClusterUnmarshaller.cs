@@ -116,6 +116,13 @@ namespace Amazon.RDS.Model.Internal.MarshallTransformations
                         unmarshalledObject.ClusterCreateTime = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("CustomEndpoints/member", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        var item = unmarshaller.Unmarshall(context);
+                        unmarshalledObject.CustomEndpoints.Add(item);
+                        continue;
+                    }
                     if (context.TestExpression("DatabaseName", targetDepth))
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
@@ -219,6 +226,12 @@ namespace Amazon.RDS.Model.Internal.MarshallTransformations
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
                         unmarshalledObject.HostedZoneId = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("HttpEndpointEnabled", targetDepth))
+                    {
+                        var unmarshaller = BoolUnmarshaller.Instance;
+                        unmarshalledObject.HttpEndpointEnabled = unmarshaller.Unmarshall(context);
                         continue;
                     }
                     if (context.TestExpression("IAMDatabaseAuthenticationEnabled", targetDepth))

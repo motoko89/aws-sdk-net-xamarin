@@ -60,13 +60,16 @@ namespace Amazon.Chime.Model.Internal.MarshallTransformations
             string uriResourcePath = "/console/accounts/{accountId}/users";
             if (!publicRequest.IsSetAccountId())
                 throw new AmazonChimeException("Request object does not have required field AccountId set");
-            uriResourcePath = uriResourcePath.Replace("{accountId}", StringUtils.FromString(publicRequest.AccountId));
+            uriResourcePath = uriResourcePath.Replace("{accountId}", StringUtils.FromStringWithSlashEncoding(publicRequest.AccountId));
             
             if (publicRequest.IsSetMaxResults())
                 request.Parameters.Add("max-results", StringUtils.FromInt(publicRequest.MaxResults));
             
             if (publicRequest.IsSetNextToken())
                 request.Parameters.Add("next-token", StringUtils.FromString(publicRequest.NextToken));
+            
+            if (publicRequest.IsSetUserEmail())
+                request.Parameters.Add("user-email", StringUtils.FromString(publicRequest.UserEmail));
             request.ResourcePath = uriResourcePath;
             request.UseQueryString = true;
 

@@ -70,6 +70,12 @@ namespace Amazon.Budgets.Model.Internal.MarshallTransformations
                     unmarshalledObject.ComparisonOperator = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("NotificationState", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.NotificationState = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("NotificationType", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

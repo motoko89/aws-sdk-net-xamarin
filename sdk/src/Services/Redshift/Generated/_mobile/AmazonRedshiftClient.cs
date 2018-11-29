@@ -372,6 +372,102 @@ namespace Amazon.Redshift
 
         #endregion
         
+        #region  BatchDeleteClusterSnapshots
+
+        internal virtual BatchDeleteClusterSnapshotsResponse BatchDeleteClusterSnapshots(BatchDeleteClusterSnapshotsRequest request)
+        {
+            var marshaller = BatchDeleteClusterSnapshotsRequestMarshaller.Instance;
+            var unmarshaller = BatchDeleteClusterSnapshotsResponseUnmarshaller.Instance;
+
+            return Invoke<BatchDeleteClusterSnapshotsRequest,BatchDeleteClusterSnapshotsResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the BatchDeleteClusterSnapshots operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the BatchDeleteClusterSnapshots operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/BatchDeleteClusterSnapshots">REST API Reference for BatchDeleteClusterSnapshots Operation</seealso>
+        public virtual Task<BatchDeleteClusterSnapshotsResponse> BatchDeleteClusterSnapshotsAsync(BatchDeleteClusterSnapshotsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = BatchDeleteClusterSnapshotsRequestMarshaller.Instance;
+            var unmarshaller = BatchDeleteClusterSnapshotsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<BatchDeleteClusterSnapshotsRequest,BatchDeleteClusterSnapshotsResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  BatchModifyClusterSnapshots
+
+        internal virtual BatchModifyClusterSnapshotsResponse BatchModifyClusterSnapshots(BatchModifyClusterSnapshotsRequest request)
+        {
+            var marshaller = BatchModifyClusterSnapshotsRequestMarshaller.Instance;
+            var unmarshaller = BatchModifyClusterSnapshotsResponseUnmarshaller.Instance;
+
+            return Invoke<BatchModifyClusterSnapshotsRequest,BatchModifyClusterSnapshotsResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the BatchModifyClusterSnapshots operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the BatchModifyClusterSnapshots operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/BatchModifyClusterSnapshots">REST API Reference for BatchModifyClusterSnapshots Operation</seealso>
+        public virtual Task<BatchModifyClusterSnapshotsResponse> BatchModifyClusterSnapshotsAsync(BatchModifyClusterSnapshotsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = BatchModifyClusterSnapshotsRequestMarshaller.Instance;
+            var unmarshaller = BatchModifyClusterSnapshotsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<BatchModifyClusterSnapshotsRequest,BatchModifyClusterSnapshotsResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CancelResize
+
+        internal virtual CancelResizeResponse CancelResize(CancelResizeRequest request)
+        {
+            var marshaller = CancelResizeRequestMarshaller.Instance;
+            var unmarshaller = CancelResizeResponseUnmarshaller.Instance;
+
+            return Invoke<CancelResizeRequest,CancelResizeResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CancelResize operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CancelResize operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CancelResize">REST API Reference for CancelResize Operation</seealso>
+        public virtual Task<CancelResizeResponse> CancelResizeAsync(CancelResizeRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = CancelResizeRequestMarshaller.Instance;
+            var unmarshaller = CancelResizeResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CancelResizeRequest,CancelResizeResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CopyClusterSnapshot
 
         internal virtual CopyClusterSnapshotResponse CopyClusterSnapshot(CopyClusterSnapshotRequest request)
@@ -687,6 +783,38 @@ namespace Amazon.Redshift
             var unmarshaller = CreateSnapshotCopyGrantResponseUnmarshaller.Instance;
 
             return InvokeAsync<CreateSnapshotCopyGrantRequest,CreateSnapshotCopyGrantResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateSnapshotSchedule
+
+        internal virtual CreateSnapshotScheduleResponse CreateSnapshotSchedule(CreateSnapshotScheduleRequest request)
+        {
+            var marshaller = CreateSnapshotScheduleRequestMarshaller.Instance;
+            var unmarshaller = CreateSnapshotScheduleResponseUnmarshaller.Instance;
+
+            return Invoke<CreateSnapshotScheduleRequest,CreateSnapshotScheduleResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateSnapshotSchedule operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateSnapshotSchedule operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateSnapshotSchedule">REST API Reference for CreateSnapshotSchedule Operation</seealso>
+        public virtual Task<CreateSnapshotScheduleResponse> CreateSnapshotScheduleAsync(CreateSnapshotScheduleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = CreateSnapshotScheduleRequestMarshaller.Instance;
+            var unmarshaller = CreateSnapshotScheduleResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateSnapshotScheduleRequest,CreateSnapshotScheduleResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -1012,6 +1140,38 @@ namespace Amazon.Redshift
 
         #endregion
         
+        #region  DeleteSnapshotSchedule
+
+        internal virtual DeleteSnapshotScheduleResponse DeleteSnapshotSchedule(DeleteSnapshotScheduleRequest request)
+        {
+            var marshaller = DeleteSnapshotScheduleRequestMarshaller.Instance;
+            var unmarshaller = DeleteSnapshotScheduleResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteSnapshotScheduleRequest,DeleteSnapshotScheduleResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteSnapshotSchedule operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteSnapshotSchedule operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteSnapshotSchedule">REST API Reference for DeleteSnapshotSchedule Operation</seealso>
+        public virtual Task<DeleteSnapshotScheduleResponse> DeleteSnapshotScheduleAsync(DeleteSnapshotScheduleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = DeleteSnapshotScheduleRequestMarshaller.Instance;
+            var unmarshaller = DeleteSnapshotScheduleResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteSnapshotScheduleRequest,DeleteSnapshotScheduleResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteTags
 
         internal virtual DeleteTagsResponse DeleteTags(DeleteTagsRequest request)
@@ -1039,6 +1199,38 @@ namespace Amazon.Redshift
             var unmarshaller = DeleteTagsResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteTagsRequest,DeleteTagsResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeAccountAttributes
+
+        internal virtual DescribeAccountAttributesResponse DescribeAccountAttributes(DescribeAccountAttributesRequest request)
+        {
+            var marshaller = DescribeAccountAttributesRequestMarshaller.Instance;
+            var unmarshaller = DescribeAccountAttributesResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeAccountAttributesRequest,DescribeAccountAttributesResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeAccountAttributes operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeAccountAttributes operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeAccountAttributes">REST API Reference for DescribeAccountAttributes Operation</seealso>
+        public virtual Task<DescribeAccountAttributesResponse> DescribeAccountAttributesAsync(DescribeAccountAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = DescribeAccountAttributesRequestMarshaller.Instance;
+            var unmarshaller = DescribeAccountAttributesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeAccountAttributesRequest,DescribeAccountAttributesResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -1987,7 +2179,7 @@ namespace Amazon.Redshift
         /// <summary>
         /// Returns a list of orderable cluster options. Before you create a new cluster you can
         /// use this operation to find what options are available, such as the EC2 Availability
-        /// Zones (AZ) in the specific AWS region that you can specify, and the node types you
+        /// Zones (AZ) in the specific AWS Region that you can specify, and the node types you
         /// can request. The node types differ by available storage, memory, CPU and price. With
         /// the cost involved you might want to obtain a list of cluster options in the specific
         /// region and specify values when creating a cluster. For more information about managing
@@ -2216,6 +2408,70 @@ namespace Amazon.Redshift
             var unmarshaller = DescribeSnapshotCopyGrantsResponseUnmarshaller.Instance;
 
             return InvokeAsync<DescribeSnapshotCopyGrantsRequest,DescribeSnapshotCopyGrantsResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeSnapshotSchedules
+
+        internal virtual DescribeSnapshotSchedulesResponse DescribeSnapshotSchedules(DescribeSnapshotSchedulesRequest request)
+        {
+            var marshaller = DescribeSnapshotSchedulesRequestMarshaller.Instance;
+            var unmarshaller = DescribeSnapshotSchedulesResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeSnapshotSchedulesRequest,DescribeSnapshotSchedulesResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeSnapshotSchedules operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeSnapshotSchedules operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeSnapshotSchedules">REST API Reference for DescribeSnapshotSchedules Operation</seealso>
+        public virtual Task<DescribeSnapshotSchedulesResponse> DescribeSnapshotSchedulesAsync(DescribeSnapshotSchedulesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = DescribeSnapshotSchedulesRequestMarshaller.Instance;
+            var unmarshaller = DescribeSnapshotSchedulesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeSnapshotSchedulesRequest,DescribeSnapshotSchedulesResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeStorage
+
+        internal virtual DescribeStorageResponse DescribeStorage(DescribeStorageRequest request)
+        {
+            var marshaller = DescribeStorageRequestMarshaller.Instance;
+            var unmarshaller = DescribeStorageResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeStorageRequest,DescribeStorageResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeStorage operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeStorage operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeStorage">REST API Reference for DescribeStorage Operation</seealso>
+        public virtual Task<DescribeStorageResponse> DescribeStorageAsync(DescribeStorageRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = DescribeStorageRequestMarshaller.Instance;
+            var unmarshaller = DescribeStorageResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeStorageRequest,DescribeStorageResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -2573,6 +2829,38 @@ namespace Amazon.Redshift
 
         #endregion
         
+        #region  ModifyClusterMaintenance
+
+        internal virtual ModifyClusterMaintenanceResponse ModifyClusterMaintenance(ModifyClusterMaintenanceRequest request)
+        {
+            var marshaller = ModifyClusterMaintenanceRequestMarshaller.Instance;
+            var unmarshaller = ModifyClusterMaintenanceResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyClusterMaintenanceRequest,ModifyClusterMaintenanceResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyClusterMaintenance operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyClusterMaintenance operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyClusterMaintenance">REST API Reference for ModifyClusterMaintenance Operation</seealso>
+        public virtual Task<ModifyClusterMaintenanceResponse> ModifyClusterMaintenanceAsync(ModifyClusterMaintenanceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = ModifyClusterMaintenanceRequestMarshaller.Instance;
+            var unmarshaller = ModifyClusterMaintenanceResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyClusterMaintenanceRequest,ModifyClusterMaintenanceResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ModifyClusterParameterGroup
 
         internal virtual ModifyClusterParameterGroupResponse ModifyClusterParameterGroup(ModifyClusterParameterGroupRequest request)
@@ -2600,6 +2888,70 @@ namespace Amazon.Redshift
             var unmarshaller = ModifyClusterParameterGroupResponseUnmarshaller.Instance;
 
             return InvokeAsync<ModifyClusterParameterGroupRequest,ModifyClusterParameterGroupResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ModifyClusterSnapshot
+
+        internal virtual ModifyClusterSnapshotResponse ModifyClusterSnapshot(ModifyClusterSnapshotRequest request)
+        {
+            var marshaller = ModifyClusterSnapshotRequestMarshaller.Instance;
+            var unmarshaller = ModifyClusterSnapshotResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyClusterSnapshotRequest,ModifyClusterSnapshotResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyClusterSnapshot operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyClusterSnapshot operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyClusterSnapshot">REST API Reference for ModifyClusterSnapshot Operation</seealso>
+        public virtual Task<ModifyClusterSnapshotResponse> ModifyClusterSnapshotAsync(ModifyClusterSnapshotRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = ModifyClusterSnapshotRequestMarshaller.Instance;
+            var unmarshaller = ModifyClusterSnapshotResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyClusterSnapshotRequest,ModifyClusterSnapshotResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ModifyClusterSnapshotSchedule
+
+        internal virtual ModifyClusterSnapshotScheduleResponse ModifyClusterSnapshotSchedule(ModifyClusterSnapshotScheduleRequest request)
+        {
+            var marshaller = ModifyClusterSnapshotScheduleRequestMarshaller.Instance;
+            var unmarshaller = ModifyClusterSnapshotScheduleResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyClusterSnapshotScheduleRequest,ModifyClusterSnapshotScheduleResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyClusterSnapshotSchedule operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyClusterSnapshotSchedule operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyClusterSnapshotSchedule">REST API Reference for ModifyClusterSnapshotSchedule Operation</seealso>
+        public virtual Task<ModifyClusterSnapshotScheduleResponse> ModifyClusterSnapshotScheduleAsync(ModifyClusterSnapshotScheduleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = ModifyClusterSnapshotScheduleRequestMarshaller.Instance;
+            var unmarshaller = ModifyClusterSnapshotScheduleResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyClusterSnapshotScheduleRequest,ModifyClusterSnapshotScheduleResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -2696,6 +3048,38 @@ namespace Amazon.Redshift
             var unmarshaller = ModifySnapshotCopyRetentionPeriodResponseUnmarshaller.Instance;
 
             return InvokeAsync<ModifySnapshotCopyRetentionPeriodRequest,ModifySnapshotCopyRetentionPeriodResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ModifySnapshotSchedule
+
+        internal virtual ModifySnapshotScheduleResponse ModifySnapshotSchedule(ModifySnapshotScheduleRequest request)
+        {
+            var marshaller = ModifySnapshotScheduleRequestMarshaller.Instance;
+            var unmarshaller = ModifySnapshotScheduleResponseUnmarshaller.Instance;
+
+            return Invoke<ModifySnapshotScheduleRequest,ModifySnapshotScheduleResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifySnapshotSchedule operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifySnapshotSchedule operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifySnapshotSchedule">REST API Reference for ModifySnapshotSchedule Operation</seealso>
+        public virtual Task<ModifySnapshotScheduleResponse> ModifySnapshotScheduleAsync(ModifySnapshotScheduleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = ModifySnapshotScheduleRequestMarshaller.Instance;
+            var unmarshaller = ModifySnapshotScheduleResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifySnapshotScheduleRequest,ModifySnapshotScheduleResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 

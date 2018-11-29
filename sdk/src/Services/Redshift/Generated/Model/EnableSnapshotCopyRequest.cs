@@ -36,6 +36,7 @@ namespace Amazon.Redshift.Model
     {
         private string _clusterIdentifier;
         private string _destinationRegion;
+        private int? _manualSnapshotRetentionPeriod;
         private int? _retentionPeriod;
         private string _snapshotCopyGrantName;
 
@@ -65,11 +66,12 @@ namespace Amazon.Redshift.Model
         /// <summary>
         /// Gets and sets the property DestinationRegion. 
         /// <para>
-        /// The destination region that you want to copy snapshots to.
+        /// The destination AWS Region that you want to copy snapshots to.
         /// </para>
         ///  
         /// <para>
-        /// Constraints: Must be the name of a valid region. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
+        /// Constraints: Must be the name of a valid AWS Region. For more information, see <a
+        /// href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
         /// and Endpoints</a> in the Amazon Web Services General Reference. 
         /// </para>
         /// </summary>
@@ -83,6 +85,30 @@ namespace Amazon.Redshift.Model
         internal bool IsSetDestinationRegion()
         {
             return this._destinationRegion != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ManualSnapshotRetentionPeriod. 
+        /// <para>
+        /// The number of days to retain newly copied snapshots in the destination AWS Region
+        /// after they are copied from the source AWS Region. If the value is -1, the manual snapshot
+        /// is retained indefinitely. 
+        /// </para>
+        ///  
+        /// <para>
+        /// The value must be either -1 or an integer between 1 and 3,653.
+        /// </para>
+        /// </summary>
+        public int ManualSnapshotRetentionPeriod
+        {
+            get { return this._manualSnapshotRetentionPeriod.GetValueOrDefault(); }
+            set { this._manualSnapshotRetentionPeriod = value; }
+        }
+
+        // Check to see if ManualSnapshotRetentionPeriod property is set
+        internal bool IsSetManualSnapshotRetentionPeriod()
+        {
+            return this._manualSnapshotRetentionPeriod.HasValue; 
         }
 
         /// <summary>

@@ -56,7 +56,7 @@ namespace Amazon.Batch.Model
         /// <summary>
         /// Gets and sets the property ComputeEnvironmentName. 
         /// <para>
-        /// The name of compute environment.
+        /// The name of the compute environment.
         /// </para>
         /// </summary>
         public string ComputeEnvironmentName

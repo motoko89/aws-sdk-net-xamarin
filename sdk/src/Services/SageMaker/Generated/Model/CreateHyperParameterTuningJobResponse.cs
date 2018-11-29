@@ -37,7 +37,8 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property HyperParameterTuningJobArn. 
         /// <para>
-        /// The Amazon Resource Name (ARN) of the tuning job.
+        /// The Amazon Resource Name (ARN) of the tuning job. Amazon SageMaker assigns an ARN
+        /// to a hyperparameter tuning job when you create it.
         /// </para>
         /// </summary>
         public string HyperParameterTuningJobArn

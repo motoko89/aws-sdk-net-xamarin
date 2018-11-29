@@ -70,6 +70,12 @@ namespace Amazon.Pinpoint.Model.Internal.MarshallTransformations
                     unmarshalledObject.EndTime = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("EventFilter", targetDepth))
+                {
+                    var unmarshaller = CampaignEventFilterUnmarshaller.Instance;
+                    unmarshalledObject.EventFilter = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Frequency", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

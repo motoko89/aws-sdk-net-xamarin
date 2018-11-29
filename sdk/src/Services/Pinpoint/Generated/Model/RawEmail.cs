@@ -35,7 +35,8 @@ namespace Amazon.Pinpoint.Model
         private MemoryStream _data;
 
         /// <summary>
-        /// Gets and sets the property Data. The raw data of the email.
+        /// Gets and sets the property Data. The raw email message itself. Then entire message
+        /// must be base64-encoded.
         /// </summary>
         public MemoryStream Data
         {

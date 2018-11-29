@@ -53,7 +53,7 @@ namespace Amazon.Pinpoint.Model
         }
 
         /// <summary>
-        /// Gets and sets the property Value. Value to be compared.
+        /// Gets and sets the property Value. The value to be compared.
         /// </summary>
         public double Value
         {

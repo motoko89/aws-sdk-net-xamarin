@@ -41,6 +41,7 @@ namespace Amazon.RDS.Model
         private int? _allocatedStorage;
         private string _availabilityZone;
         private string _dbInstanceIdentifier;
+        private string _dbiResourceId;
         private string _dbSnapshotArn;
         private string _dbSnapshotIdentifier;
         private bool? _encrypted;
@@ -120,6 +121,25 @@ namespace Amazon.RDS.Model
         internal bool IsSetDBInstanceIdentifier()
         {
             return this._dbInstanceIdentifier != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property DbiResourceId. 
+        /// <para>
+        /// The identifier for the source DB instance, which can't be changed and which is unique
+        /// to an AWS Region.
+        /// </para>
+        /// </summary>
+        public string DbiResourceId
+        {
+            get { return this._dbiResourceId; }
+            set { this._dbiResourceId = value; }
+        }
+
+        // Check to see if DbiResourceId property is set
+        internal bool IsSetDbiResourceId()
+        {
+            return this._dbiResourceId != null;
         }
 
         /// <summary>

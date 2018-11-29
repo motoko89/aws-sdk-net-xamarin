@@ -76,10 +76,22 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                     unmarshalledObject.CreatedAt = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("createdBy", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.CreatedBy = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("deploymentConfiguration", targetDepth))
                 {
                     var unmarshaller = DeploymentConfigurationUnmarshaller.Instance;
                     unmarshalledObject.DeploymentConfiguration = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("deploymentController", targetDepth))
+                {
+                    var unmarshaller = DeploymentControllerUnmarshaller.Instance;
+                    unmarshalledObject.DeploymentController = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("deployments", targetDepth))
@@ -92,6 +104,12 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = IntUnmarshaller.Instance;
                     unmarshalledObject.DesiredCount = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("enableECSManagedTags", targetDepth))
+                {
+                    var unmarshaller = BoolUnmarshaller.Instance;
+                    unmarshalledObject.EnableECSManagedTags = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("events", targetDepth))
@@ -148,6 +166,12 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                     unmarshalledObject.PlatformVersion = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("propagateTags", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.PropagateTags = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("roleArn", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -190,10 +214,22 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                     unmarshalledObject.Status = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("tags", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<Tag, TagUnmarshaller>(TagUnmarshaller.Instance);
+                    unmarshalledObject.Tags = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("taskDefinition", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.TaskDefinition = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("taskSets", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<TaskSet, TaskSetUnmarshaller>(TaskSetUnmarshaller.Instance);
+                    unmarshalledObject.TaskSets = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

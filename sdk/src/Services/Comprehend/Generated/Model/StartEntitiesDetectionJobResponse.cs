@@ -75,6 +75,15 @@ namespace Amazon.Comprehend.Model
         /// <para>
         /// FAILED - The job did not complete. To get details, use the operation.
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// STOP_REQUESTED - Amazon Comprehend has received a stop request for the job and is
+        /// processing the request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// STOPPED - The job was successfully stopped without completing.
+        /// </para>
         ///  </li> </ul>
         /// </summary>
         public JobStatus JobStatus

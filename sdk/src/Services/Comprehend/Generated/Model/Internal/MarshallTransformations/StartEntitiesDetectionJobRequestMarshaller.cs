@@ -84,6 +84,12 @@ namespace Amazon.Comprehend.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.DataAccessRoleArn);
                 }
 
+                if(publicRequest.IsSetEntityRecognizerArn())
+                {
+                    context.Writer.WritePropertyName("EntityRecognizerArn");
+                    context.Writer.Write(publicRequest.EntityRecognizerArn);
+                }
+
                 if(publicRequest.IsSetInputDataConfig())
                 {
                     context.Writer.WritePropertyName("InputDataConfig");

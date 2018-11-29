@@ -322,6 +322,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("RDS")]
+        public void CreateDBClusterEndpointMarshallTest()
+        {
+            var operation = service_model.FindOperation("CreateDBClusterEndpoint");
+
+            var request = InstantiateClassGenerator.Execute<CreateDBClusterEndpointRequest>();
+            var marshaller = new CreateDBClusterEndpointRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = CreateDBClusterEndpointResponseUnmarshaller.Instance.Unmarshall(context)
+                as CreateDBClusterEndpointResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("RDS")]
         public void CreateDBClusterParameterGroupMarshallTest()
         {
             var operation = service_model.FindOperation("CreateDBClusterParameterGroup");
@@ -538,6 +562,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("RDS")]
+        public void CreateGlobalClusterMarshallTest()
+        {
+            var operation = service_model.FindOperation("CreateGlobalCluster");
+
+            var request = InstantiateClassGenerator.Execute<CreateGlobalClusterRequest>();
+            var marshaller = new CreateGlobalClusterRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = CreateGlobalClusterResponseUnmarshaller.Instance.Unmarshall(context)
+                as CreateGlobalClusterResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("RDS")]
         public void CreateOptionGroupMarshallTest()
         {
             var operation = service_model.FindOperation("CreateOptionGroup");
@@ -577,6 +625,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
             var response = DeleteDBClusterResponseUnmarshaller.Instance.Unmarshall(context)
                 as DeleteDBClusterResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("RDS")]
+        public void DeleteDBClusterEndpointMarshallTest()
+        {
+            var operation = service_model.FindOperation("DeleteDBClusterEndpoint");
+
+            var request = InstantiateClassGenerator.Execute<DeleteDBClusterEndpointRequest>();
+            var marshaller = new DeleteDBClusterEndpointRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = DeleteDBClusterEndpointResponseUnmarshaller.Instance.Unmarshall(context)
+                as DeleteDBClusterEndpointResponse;   
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
         }
 
@@ -644,6 +716,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
             var response = DeleteDBInstanceResponseUnmarshaller.Instance.Unmarshall(context)
                 as DeleteDBInstanceResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("RDS")]
+        public void DeleteDBInstanceAutomatedBackupMarshallTest()
+        {
+            var operation = service_model.FindOperation("DeleteDBInstanceAutomatedBackup");
+
+            var request = InstantiateClassGenerator.Execute<DeleteDBInstanceAutomatedBackupRequest>();
+            var marshaller = new DeleteDBInstanceAutomatedBackupRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = DeleteDBInstanceAutomatedBackupResponseUnmarshaller.Instance.Unmarshall(context)
+                as DeleteDBInstanceAutomatedBackupResponse;   
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
         }
 
@@ -758,6 +854,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("RDS")]
+        public void DeleteGlobalClusterMarshallTest()
+        {
+            var operation = service_model.FindOperation("DeleteGlobalCluster");
+
+            var request = InstantiateClassGenerator.Execute<DeleteGlobalClusterRequest>();
+            var marshaller = new DeleteGlobalClusterRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = DeleteGlobalClusterResponseUnmarshaller.Instance.Unmarshall(context)
+                as DeleteGlobalClusterResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("RDS")]
         public void DeleteOptionGroupMarshallTest()
         {
             var operation = service_model.FindOperation("DeleteOptionGroup");
@@ -840,6 +960,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
             var response = DescribeDBClusterBacktracksResponseUnmarshaller.Instance.Unmarshall(context)
                 as DescribeDBClusterBacktracksResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("RDS")]
+        public void DescribeDBClusterEndpointsMarshallTest()
+        {
+            var operation = service_model.FindOperation("DescribeDBClusterEndpoints");
+
+            var request = InstantiateClassGenerator.Execute<DescribeDBClusterEndpointsRequest>();
+            var marshaller = new DescribeDBClusterEndpointsRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = DescribeDBClusterEndpointsResponseUnmarshaller.Instance.Unmarshall(context)
+                as DescribeDBClusterEndpointsResponse;   
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
         }
 
@@ -984,6 +1128,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
             var response = DescribeDBEngineVersionsResponseUnmarshaller.Instance.Unmarshall(context)
                 as DescribeDBEngineVersionsResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("RDS")]
+        public void DescribeDBInstanceAutomatedBackupsMarshallTest()
+        {
+            var operation = service_model.FindOperation("DescribeDBInstanceAutomatedBackups");
+
+            var request = InstantiateClassGenerator.Execute<DescribeDBInstanceAutomatedBackupsRequest>();
+            var marshaller = new DescribeDBInstanceAutomatedBackupsRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = DescribeDBInstanceAutomatedBackupsResponseUnmarshaller.Instance.Unmarshall(context)
+                as DescribeDBInstanceAutomatedBackupsResponse;   
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
         }
 
@@ -1305,6 +1473,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("RDS")]
+        public void DescribeGlobalClustersMarshallTest()
+        {
+            var operation = service_model.FindOperation("DescribeGlobalClusters");
+
+            var request = InstantiateClassGenerator.Execute<DescribeGlobalClustersRequest>();
+            var marshaller = new DescribeGlobalClustersRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = DescribeGlobalClustersResponseUnmarshaller.Instance.Unmarshall(context)
+                as DescribeGlobalClustersResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("RDS")]
         public void DescribeOptionGroupOptionsMarshallTest()
         {
             var operation = service_model.FindOperation("DescribeOptionGroupOptions");
@@ -1617,6 +1809,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("RDS")]
+        public void ModifyDBClusterEndpointMarshallTest()
+        {
+            var operation = service_model.FindOperation("ModifyDBClusterEndpoint");
+
+            var request = InstantiateClassGenerator.Execute<ModifyDBClusterEndpointRequest>();
+            var marshaller = new ModifyDBClusterEndpointRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = ModifyDBClusterEndpointResponseUnmarshaller.Instance.Unmarshall(context)
+                as ModifyDBClusterEndpointResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("RDS")]
         public void ModifyDBClusterParameterGroupMarshallTest()
         {
             var operation = service_model.FindOperation("ModifyDBClusterParameterGroup");
@@ -1809,6 +2025,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("RDS")]
+        public void ModifyGlobalClusterMarshallTest()
+        {
+            var operation = service_model.FindOperation("ModifyGlobalCluster");
+
+            var request = InstantiateClassGenerator.Execute<ModifyGlobalClusterRequest>();
+            var marshaller = new ModifyGlobalClusterRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = ModifyGlobalClusterResponseUnmarshaller.Instance.Unmarshall(context)
+                as ModifyGlobalClusterResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("RDS")]
         public void ModifyOptionGroupMarshallTest()
         {
             var operation = service_model.FindOperation("ModifyOptionGroup");
@@ -1920,6 +2160,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
             var response = RebootDBInstanceResponseUnmarshaller.Instance.Unmarshall(context)
                 as RebootDBInstanceResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("RDS")]
+        public void RemoveFromGlobalClusterMarshallTest()
+        {
+            var operation = service_model.FindOperation("RemoveFromGlobalCluster");
+
+            var request = InstantiateClassGenerator.Execute<RemoveFromGlobalClusterRequest>();
+            var marshaller = new RemoveFromGlobalClusterRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = RemoveFromGlobalClusterResponseUnmarshaller.Instance.Unmarshall(context)
+                as RemoveFromGlobalClusterResponse;   
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
         }
 

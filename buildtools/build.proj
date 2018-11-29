@@ -7,6 +7,7 @@
         <DisableUnitySupport Condition="'$(DisableUnitySupport)'==''">false</DisableUnitySupport>
         <DisableValidateRepo Condition="'$(DisableValidateRepo)'==''">false</DisableValidateRepo>
         <RunCognitoAuthExtensionTests Condition="'$(RunCognitoAuthExtensionTests)'==''">false</RunCognitoAuthExtensionTests>
+        <TestBackwardCompatibility Condition="'$(TestBackwardCompatibility)'==''">false</TestBackwardCompatibility>
         <PartialBuildList Condition="'$(PartialBuildList)'==''"></PartialBuildList>
         <ServiceList>Core</ServiceList>
 
@@ -161,6 +162,8 @@
     </Target>
 
     <Target Name="run-generator">
+        <CallTarget Targets="clean-old-models" Condition="Exists('$(InternalBuildTools)\references.targets')" />
+    
         <Message Text="Build and run code generator"/>
         <Exec Command="dotnet restore -f  AWSSDKGenerator.sln" WorkingDirectory="..\generator" />
         <Exec Command="dotnet clean -c $(Configuration) AWSSDKGenerator.sln" WorkingDirectory="..\generator"/>
@@ -227,7 +230,7 @@
 			Properties="Configuration=$(Configuration);AWSKeyFile=$(CustomSnkFileLocation);ResolveNuGetPackages=false" />
 	</Target>
 
-    <Target Name="test-sdk" DependsOnTargets="init;build-sdk;fxcop;run-smoke-tests;run-unit-tests;run-integ-tests;run-CSM-tests" />
+    <Target Name="test-sdk" DependsOnTargets="init;build-sdk;fxcop;run-smoke-tests;run-unit-tests;run-integ-tests;run-CSM-tests;test-backward-compatibility" />
 
     <Target Name="test-sdk-service" DependsOnTargets="init;build-sdk-desktop-service;run-unit-tests-service;run-integ-tests-service" />
 
@@ -261,19 +264,22 @@
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\test\UnitTests\$(Net35UnitTestProject)"
             Configuration="$(Configuration)"
-            Categories="$(BCLUnitTestCategories)"/>
+            Categories="$(BCLUnitTestCategories)"
+            TestExecutionProfile="test-runner"/>
 
         <MsTestWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\test\UnitTests\$(Net45UnitTestProject)"
             Configuration="$(Configuration)"
-            Categories="$(BCLUnitTestCategories)"/>
+            Categories="$(BCLUnitTestCategories)"
+            TestExecutionProfile="test-runner"/>
 
         <XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\test\CoreCLR\UnitTests\UnitTests.CoreCLR.csproj"
             Configuration="$(Configuration)"
-            Categories="$(CoreCLRTestCategories)"/>
+            Categories="$(CoreCLRTestCategories)"
+            TestExecutionProfile="test-runner"/>
     </Target>
 
     <Target Name="build-tests-service">
@@ -292,14 +298,16 @@
             TestContainer="..\sdk\src\Services\%(ServiceName.FileName)\Test\UnitTests\AWSSDK.UnitTests.%(ServiceName.FileName).Net35.csproj"
             Configuration="$(Configuration)"
             Categories="$(BCLUnitTestCategories)"
-            Condition="Exists('..\sdk\src\Services\%(ServiceName.FileName)\Test\UnitTests\Generated') Or Exists('..\sdk\src\Services\%(ServiceName.FileName)\Test\UnitTests\Custom')"/>
+            Condition="Exists('..\sdk\src\Services\%(ServiceName.FileName)\Test\UnitTests\Generated') Or Exists('..\sdk\src\Services\%(ServiceName.FileName)\Test\UnitTests\Custom')"
+            TestExecutionProfile="test-runner"/>
 
         <MsTestWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\src\Services\%(ServiceName.FileName)\Test\UnitTests\AWSSDK.UnitTests.%(ServiceName.FileName).Net45.csproj"
             Configuration="$(Configuration)"
             Categories="$(BCLUnitTestCategories)"
-            Condition="Exists('..\sdk\src\Services\%(ServiceName.FileName)\Test\UnitTests\Generated') Or Exists('..\sdk\src\Services\%(ServiceName.FileName)\Test\UnitTests\Custom')"/>
+            Condition="Exists('..\sdk\src\Services\%(ServiceName.FileName)\Test\UnitTests\Generated') Or Exists('..\sdk\src\Services\%(ServiceName.FileName)\Test\UnitTests\Custom')"
+            TestExecutionProfile="test-runner"/>
     </Target>
 
     <Target Name="build-integ-tests-service">
@@ -319,7 +327,8 @@
             TestContainer="..\sdk\src\Services\%(ServiceName.FileName)\Test\IntegrationTests\AWSSDK.IntegrationTests.%(ServiceName.FileName).Net45.csproj"
             Configuration="$(Configuration)"
             Categories="$(IntegCategoriesToTest)"
-            Condition="Exists('..\sdk\src\Services\%(ServiceName.FileName)\Test\IntegrationTests')"/>
+            Condition="Exists('..\sdk\src\Services\%(ServiceName.FileName)\Test\IntegrationTests')"
+            TestExecutionProfile="test-runner"/>
 
         <MsTestWrapperTask
             TestSuiteRunner="dotnet"
@@ -327,7 +336,7 @@
             Configuration="$(Configuration)"
             Categories="$(IntegCategoriesToTest)"
             Condition="Exists('..\sdk\src\Services\%(ServiceName.FileName)\Test\IntegrationTests')"
-            />
+            TestExecutionProfile="test-runner"/>
     </Target>
 
     <Target Name="run-integ-tests" Condition="'$(RunIntegTests)' != '' And '$(RunIntegTests)' != 'false'" DependsOnTargets="init;build-sdk;validate-integ-tests">
@@ -335,14 +344,15 @@
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\test\IntegrationTests\AWSSDK.IntegrationTests.Net45.csproj"
             Configuration="$(Configuration)"
-            Categories="$(IntegCategoriesToTest)"/>
+            Categories="$(IntegCategoriesToTest)"
+            TestExecutionProfile="test-runner"/>
 
         <XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\test\CoreCLR\IntegrationTests\IntegrationTests.CoreCLR.csproj"
             Configuration="$(Configuration)"
             Categories="$(IntegCategoriesToTest)"
-            />
+            TestExecutionProfile="test-runner"/>
     </Target>
 
     <Target Name="build-CSM">
@@ -355,15 +365,18 @@
         <XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\test\SmokeTests\AWSSDK.SmokeTests.Net35.csproj"
-            Configuration="$(Configuration)"/>
+            Configuration="$(Configuration)"
+            TestExecutionProfile="test-runner"/>
         <XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\test\SmokeTests\AWSSDK.SmokeTests.Net45.csproj"
-            Configuration="$(Configuration)"/>
+            Configuration="$(Configuration)"
+            TestExecutionProfile="test-runner"/>
         <XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\test\SmokeTests\AWSSDK.SmokeTests.CoreCLR.csproj"
-            Configuration="$(Configuration)"/>
+            Configuration="$(Configuration)"
+            TestExecutionProfile="test-runner"/>
     </Target>
     <Target Name="run-CSM-tests" DependsOnTargets="build-CSM;build-test-wrapper;run-CSM-integration-tests;run-CSM-unit-tests"/>
     <Target Name="run-CSM-integration-tests" Condition="'$(RunIntegTests)' != '' And '$(RunIntegTests)' != 'false'">
@@ -371,40 +384,48 @@
         <XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\test\CSMTest\Tests\IntegrationTests\AWSSDK.CSM.IntegrationTests.CoreCLR.csproj"
-            Configuration="$(Configuration)"/>
+            Configuration="$(Configuration)"
+            TestExecutionProfile="test-runner"/>
         <Message Text="CSM 45"/>
         <XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\test\CSMTest\Tests\IntegrationTests\AWSSDK.CSM.IntegrationTests.Net45.csproj"
-            Configuration="$(Configuration)"/>
+            Configuration="$(Configuration)"
+            TestExecutionProfile="test-runner"/>
         <Message Text="CSM 35"/>
         <XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\test\CSMTest\Tests\IntegrationTests\AWSSDK.CSM.IntegrationTests.Net35.csproj"
-            Configuration="$(Configuration)"/>
+            Configuration="$(Configuration)"
+            TestExecutionProfile="test-runner"/>
     </Target>
 
     <Target Name="run-CSM-unit-tests">
         <XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\test\CSMTest\Tests\UnitTests\FallBackConfigTests\AWSSDK.AppConfigTests.Net45.csproj"
-            Configuration="$(Configuration)"/>
+            Configuration="$(Configuration)"
+            TestExecutionProfile="test-runner"/>
         <XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\test\CSMTest\Tests\UnitTests\FallBackConfigTests\AWSSDK.EnvFallBackTests.CoreCLR.csproj"
-            Configuration="$(Configuration)"/>
+            Configuration="$(Configuration)"
+            TestExecutionProfile="test-runner"/>
         <XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\test\CSMTest\Tests\UnitTests\FallBackConfigTests\AWSSDK.EnvFallBackTests.Net45.csproj"
-            Configuration="$(Configuration)"/>
+            Configuration="$(Configuration)"
+            TestExecutionProfile="test-runner"/>
         <XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\test\CSMTest\Tests\UnitTests\FallBackConfigTests\AWSSDK.SharedProfileTests.CoreCLR.csproj"
-            Configuration="$(Configuration)"/>
+            Configuration="$(Configuration)"
+            TestExecutionProfile="test-runner"/>
         <XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\sdk\test\CSMTest\Tests\UnitTests\FallBackConfigTests\AWSSDK.SharedProfileTests.Net45.csproj"
-            Configuration="$(Configuration)"/>
+            Configuration="$(Configuration)"
+            TestExecutionProfile="test-runner"/>
     </Target>
 
     <Target Name="nuget-pack" Condition="'$(Configuration)' == 'Release'">
@@ -520,19 +541,23 @@
             <XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\extensions\test\CognitoAuthentication.UnitTests\CognitoAuthentication.UnitTests.CoreCLR.csproj"
-            Configuration="$(Configuration)"/>
+            Configuration="$(Configuration)"
+            TestExecutionProfile="test-runner"/>
          <XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\extensions\test\CognitoAuthentication.IntegrationTests\CognitoAuthentication.IntegrationTests.CoreCLR.csproj"
-            Configuration="$(Configuration)"/> 
+            Configuration="$(Configuration)"
+            TestExecutionProfile="test-runner"/> 
         <!--<XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\extensions\test\CognitoAuthentication.UnitTests\CognitoAuthentication.UnitTests.NET45.csproj"
-            Configuration="$(Configuration)"/> 
+            Configuration="$(Configuration)"
+            TestExecutionProfile="test-runner"/> 
          <XUnitWrapperTask
             TestSuiteRunner="dotnet"
             TestContainer="..\extensions\test\CognitoAuthentication.IntegrationTests\CognitoAuthentication.IntegrationTests.NET45.csproj"
-            Configuration="$(Configuration)"/>
+            Configuration="$(Configuration)"
+            TestExecutionProfile="test-runner"/>
         -->
     </Target>
 
@@ -652,5 +677,10 @@
         <Copy
             SourceFiles="$(TestSettingsFile)"
             DestinationFolder="$(TestSettingsLocation)" />
+    </Target>
+    
+    <Target Name="test-backward-compatibility" Condition="Exists('$(InternalBuildTools)\references.targets') And '$(PartialBuildList)'=='' And $(TestBackwardCompatibility)">
+        <Exec Command="dotnet build -c Release --no-incremental AssemblyComparer.sln" WorkingDirectory="$(InternalBuildTools)\AssemblyComparer"/>
+        <Exec Command="$(InternalBuildTools)\AssemblyComparer\AssemblyComparer\bin\Release\net46\AssemblyComparer.exe package-comparer --package-name AWSSDK.Core --download-folder ..\NuGetDownloads\ --nuspec ..\sdk\src\Core\AWSSDK.Core.nuspec -cf BinaryIncompatibility -cf SourceIncompatibility -cf Warning"/>
     </Target>
 </Project>

@@ -72,6 +72,12 @@ namespace Amazon.RDS.Model.Internal.MarshallTransformations
                         unmarshalledObject.DBInstanceIdentifier = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("DbiResourceId", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.DbiResourceId = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("DBSnapshotArn", targetDepth))
                     {
                         var unmarshaller = StringUnmarshaller.Instance;

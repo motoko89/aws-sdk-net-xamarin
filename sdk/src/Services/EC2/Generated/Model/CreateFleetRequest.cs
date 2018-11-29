@@ -230,13 +230,14 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property Type. 
         /// <para>
-        /// The type of request. Indicates whether the EC2 Fleet only <code>requests</code> the
-        /// target capacity, or also attempts to <code>maintain</code> it. If you request a certain
-        /// target capacity, EC2 Fleet only places the required requests. It does not attempt
-        /// to replenish instances if capacity is diminished, and does not submit requests in
-        /// alternative capacity pools if capacity is unavailable. To maintain a certain target
-        /// capacity, EC2 Fleet places the required requests to meet this target capacity. It
-        /// also automatically replenishes any interrupted Spot Instances. Default: <code>maintain</code>.
+        /// The type of the request. By default, the EC2 Fleet places an asynchronous request
+        /// for your desired capacity, and maintains it by replenishing interrupted Spot Instances
+        /// (<code>maintain</code>). A value of <code>instant</code> places a synchronous one-time
+        /// request, and returns errors for any instances that could not be launched. A value
+        /// of <code>request</code> places an asynchronous one-time request without maintaining
+        /// capacity or submitting requests in alternative capacity pools if capacity is unavailable.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type">EC2
+        /// Fleet Request Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         public FleetType Type

@@ -101,6 +101,12 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.Family);
                 }
 
+                if(publicRequest.IsSetIpcMode())
+                {
+                    context.Writer.WritePropertyName("ipcMode");
+                    context.Writer.Write(publicRequest.IpcMode);
+                }
+
                 if(publicRequest.IsSetMemory())
                 {
                     context.Writer.WritePropertyName("memory");
@@ -111,6 +117,12 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("networkMode");
                     context.Writer.Write(publicRequest.NetworkMode);
+                }
+
+                if(publicRequest.IsSetPidMode())
+                {
+                    context.Writer.WritePropertyName("pidMode");
+                    context.Writer.Write(publicRequest.PidMode);
                 }
 
                 if(publicRequest.IsSetPlacementConstraints())
@@ -136,6 +148,22 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                     foreach(var publicRequestRequiresCompatibilitiesListValue in publicRequest.RequiresCompatibilities)
                     {
                             context.Writer.Write(publicRequestRequiresCompatibilitiesListValue);
+                    }
+                    context.Writer.WriteArrayEnd();
+                }
+
+                if(publicRequest.IsSetTags())
+                {
+                    context.Writer.WritePropertyName("tags");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestTagsListValue in publicRequest.Tags)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = TagMarshaller.Instance;
+                        marshaller.Marshall(publicRequestTagsListValue, context);
+
+                        context.Writer.WriteObjectEnd();
                     }
                     context.Writer.WriteArrayEnd();
                 }

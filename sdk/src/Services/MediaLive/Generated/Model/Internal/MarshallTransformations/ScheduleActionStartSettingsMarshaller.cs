@@ -56,6 +56,17 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetFollowModeScheduleActionStartSettings())
+            {
+                context.Writer.WritePropertyName("followModeScheduleActionStartSettings");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = FollowModeScheduleActionStartSettingsMarshaller.Instance;
+                marshaller.Marshall(requestObject.FollowModeScheduleActionStartSettings, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
         }
 
         /// <summary>

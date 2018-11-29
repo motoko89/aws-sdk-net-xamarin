@@ -71,6 +71,18 @@ namespace Amazon.XRay.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.EndTime);
                 }
 
+                if(publicRequest.IsSetGroupARN())
+                {
+                    context.Writer.WritePropertyName("GroupARN");
+                    context.Writer.Write(publicRequest.GroupARN);
+                }
+
+                if(publicRequest.IsSetGroupName())
+                {
+                    context.Writer.WritePropertyName("GroupName");
+                    context.Writer.Write(publicRequest.GroupName);
+                }
+
                 if(publicRequest.IsSetNextToken())
                 {
                     context.Writer.WritePropertyName("NextToken");

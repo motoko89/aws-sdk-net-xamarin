@@ -584,6 +584,16 @@ namespace Amazon.S3
         public static readonly S3StorageClass OneZoneInfrequentAccess = new S3StorageClass("ONEZONE_IA");
 
         /// <summary>
+        /// IntelligentTiering makes it easy to lower your overall cost of storage by automatically placing data in the storage
+        /// class that best matches the access patterns for the storage. With IntelligentTiering, you don’t need to define
+        /// and manage individual policies for lifecycle data management or write code to transition objects
+        /// between storage classes. Instead, you can use IntelligentTiering to manage transitions between Standard and
+        /// S-IA without writing any application code. IntelligentTiering also manages transitions automatically to
+        /// Glacier for long term archive in addition to S3 storage classes.
+        /// </summary>
+        public static readonly S3StorageClass IntelligentTiering = new S3StorageClass("INTELLIGENT_TIERING");
+
+        /// <summary>
         /// Construct an instance of S3StorageClass.
         /// </summary>
         /// <param name="value"></param>
@@ -913,7 +923,7 @@ namespace Amazon.S3
     }
 
     /// <summary>
-    /// A list of all event types that can configured with the bucket notification configuration.
+    /// The bucket event for which to send notifications.
     /// </summary>
     public sealed class EventType : ConstantClass
     {
@@ -956,11 +966,21 @@ namespace Amazon.S3
         /// Event for object removed, delete marker created operation.
         /// </summary>
         public static readonly EventType ObjectRemovedDeleteMarkerCreated = new EventType("s3:ObjectRemoved:DeleteMarkerCreated");
-		
+
         /// <summary>
         /// Event for objects stored in reduced redundancy and S3 detects the object is lost
         /// </summary>
         public static readonly EventType ReducedRedundancyLostObject = new EventType("s3:ReducedRedundancyLostObject");
+
+        /// <summary>
+        /// Event for restore post operations.
+        /// </summary>
+        public static readonly EventType ObjectRestorePost = new EventType("s3:ObjectRestore:Post");
+
+        /// <summary>
+        /// Event for when object restore is completed.
+        /// </summary>
+        public static readonly EventType ObjectRestoreCompleted = new EventType("s3:ObjectRestore:Completed");
 
         /// <summary>
         /// Constructs instance of EventType.
@@ -1206,6 +1226,22 @@ namespace Amazon.S3
         ///  InventoryOptionalField for EncryptionStatus
         /// </summary>
         public static readonly InventoryOptionalField EncryptionStatus = new InventoryOptionalField("EncryptionStatus");
+        
+        /// <summary>
+        ///  InventoryOptionalField for ObjectLockRetainUntilDate
+        /// </summary>
+        public static readonly InventoryOptionalField ObjectLockRetainUntilDate = new InventoryOptionalField("ObjectLockRetainUntilDate");
+
+        /// <summary>
+        ///  InventoryOptionalField for ObjectLockMode
+        /// </summary>
+        public static readonly InventoryOptionalField ObjectLockMode = new InventoryOptionalField("ObjectLockMode");
+
+        /// <summary>
+        ///  InventoryOptionalField for ObjectLockLegalHoldStatus
+        /// </summary>
+        public static readonly InventoryOptionalField ObjectLockLegalHoldStatus = new InventoryOptionalField("ObjectLockLegalHoldStatus");
+
         /// <summary>
         /// Construct instance of InventoryOptionalField.
         /// </summary>
@@ -1832,6 +1868,125 @@ namespace Amazon.S3
         /// Converts the string to CompressionType instance
         /// </summary>
         public static implicit operator CompressionType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+    /// <summary>
+    /// The type of ObjectLockEnabled
+    /// </summary>
+    public sealed class ObjectLockEnabled : ConstantClass
+    {        
+        public static readonly ObjectLockEnabled Enabled = new ObjectLockEnabled("Enabled");
+        
+        public ObjectLockEnabled(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the ObjectLockEnabled instance for the string value
+        /// </summary>
+        public static ObjectLockEnabled FindValue(string value)
+        {
+            return FindValue<ObjectLockEnabled>(value);
+        }
+
+        /// <summary>
+        /// Converts the string to ObjectLockEnabled instance
+        /// </summary>
+        public static implicit operator ObjectLockEnabled(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+    /// <summary>
+    /// The type of ObjectLockLegalHoldStatus
+    /// </summary>
+    public sealed class ObjectLockLegalHoldStatus : ConstantClass
+    {        
+        public static readonly ObjectLockLegalHoldStatus On = new ObjectLockLegalHoldStatus("ON");
+        public static readonly ObjectLockLegalHoldStatus Off = new ObjectLockLegalHoldStatus("OFF");
+        
+        public ObjectLockLegalHoldStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the ObjectLockLegalHoldStatus instance for the string value
+        /// </summary>
+        public static ObjectLockLegalHoldStatus FindValue(string value)
+        {
+            return FindValue<ObjectLockLegalHoldStatus>(value);
+        }
+
+        /// <summary>
+        /// Converts the string to ObjectLockLegalHoldStatus instance
+        /// </summary>
+        public static implicit operator ObjectLockLegalHoldStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+    /// <summary>
+    /// The type of ObjectLockRetentionMode
+    /// </summary>
+    public sealed class ObjectLockRetentionMode : ConstantClass
+    {        
+        public static readonly ObjectLockRetentionMode Governance = new ObjectLockRetentionMode("GOVERNANCE");
+        public static readonly ObjectLockRetentionMode Compliance = new ObjectLockRetentionMode("COMPLIANCE");
+        
+        public ObjectLockRetentionMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the ObjectLockRetentionMode instance for the string value
+        /// </summary>
+        public static ObjectLockRetentionMode FindValue(string value)
+        {
+            return FindValue<ObjectLockRetentionMode>(value);
+        }
+
+        /// <summary>
+        /// Converts the string to ObjectLockRetentionMode instance
+        /// </summary>
+        public static implicit operator ObjectLockRetentionMode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+    /// <summary>
+    /// The type of ObjectLockMode
+    /// </summary>
+    public sealed class ObjectLockMode : ConstantClass
+    {        
+        public static readonly ObjectLockMode Governance = new ObjectLockMode("GOVERNANCE");
+        public static readonly ObjectLockMode Compliance = new ObjectLockMode("COMPLIANCE");
+        
+        public ObjectLockMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the ObjectLockMode instance for the string value
+        /// </summary>
+        public static ObjectLockMode FindValue(string value)
+        {
+            return FindValue<ObjectLockMode>(value);
+        }
+
+        /// <summary>
+        /// Converts the string to ObjectLockMode instance
+        /// </summary>
+        public static implicit operator ObjectLockMode(string value)
         {
             return FindValue(value);
         }

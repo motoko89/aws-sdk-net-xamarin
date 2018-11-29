@@ -61,7 +61,7 @@ namespace Amazon.AppSync.Model.Internal.MarshallTransformations
             string uriResourcePath = "/v1/apis/{apiId}/datasources";
             if (!publicRequest.IsSetApiId())
                 throw new AmazonAppSyncException("Request object does not have required field ApiId set");
-            uriResourcePath = uriResourcePath.Replace("{apiId}", StringUtils.FromString(publicRequest.ApiId));
+            uriResourcePath = uriResourcePath.Replace("{apiId}", StringUtils.FromStringWithSlashEncoding(publicRequest.ApiId));
             request.ResourcePath = uriResourcePath;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
@@ -122,6 +122,17 @@ namespace Amazon.AppSync.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("name");
                     context.Writer.Write(publicRequest.Name);
+                }
+
+                if(publicRequest.IsSetRelationalDatabaseConfig())
+                {
+                    context.Writer.WritePropertyName("relationalDatabaseConfig");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = RelationalDatabaseDataSourceConfigMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.RelationalDatabaseConfig, context);
+
+                    context.Writer.WriteObjectEnd();
                 }
 
                 if(publicRequest.IsSetServiceRoleArn())

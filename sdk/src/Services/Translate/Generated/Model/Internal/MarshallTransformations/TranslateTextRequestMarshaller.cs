@@ -79,6 +79,17 @@ namespace Amazon.Translate.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.TargetLanguageCode);
                 }
 
+                if(publicRequest.IsSetTerminologyNames())
+                {
+                    context.Writer.WritePropertyName("TerminologyNames");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestTerminologyNamesListValue in publicRequest.TerminologyNames)
+                    {
+                            context.Writer.Write(publicRequestTerminologyNamesListValue);
+                    }
+                    context.Writer.WriteArrayEnd();
+                }
+
                 if(publicRequest.IsSetText())
                 {
                     context.Writer.WritePropertyName("Text");

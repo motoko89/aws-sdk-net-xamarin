@@ -61,7 +61,7 @@ namespace Amazon.IoT.Model.Internal.MarshallTransformations
             string uriResourcePath = "/jobs/{jobId}/cancel";
             if (!publicRequest.IsSetJobId())
                 throw new AmazonIoTException("Request object does not have required field JobId set");
-            uriResourcePath = uriResourcePath.Replace("{jobId}", StringUtils.FromString(publicRequest.JobId));
+            uriResourcePath = uriResourcePath.Replace("{jobId}", StringUtils.FromStringWithSlashEncoding(publicRequest.JobId));
             
             if (publicRequest.IsSetForce())
                 request.Parameters.Add("force", StringUtils.FromBool(publicRequest.Force));
@@ -75,6 +75,12 @@ namespace Amazon.IoT.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("comment");
                     context.Writer.Write(publicRequest.Comment);
+                }
+
+                if(publicRequest.IsSetReasonCode())
+                {
+                    context.Writer.WritePropertyName("reasonCode");
+                    context.Writer.Write(publicRequest.ReasonCode);
                 }
 
         

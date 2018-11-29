@@ -218,8 +218,8 @@ namespace Amazon.Redshift.Model
         /// <summary>
         /// Gets and sets the property ResizeType. 
         /// <para>
-        /// An enum with possible values of ClassicResize and ElasticResize. These values describe
-        /// the type of resize operation being performed. 
+        /// An enum with possible values of <code>ClassicResize</code> and <code>ElasticResize</code>.
+        /// These values describe the type of resize operation being performed. 
         /// </para>
         /// </summary>
         public string ResizeType
@@ -242,7 +242,7 @@ namespace Amazon.Redshift.Model
         ///  
         /// <para>
         /// Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> |
-        /// <code>SUCCEEDED</code> 
+        /// <code>SUCCEEDED</code> | <code>CANCELLING</code> 
         /// </para>
         /// </summary>
         public string Status

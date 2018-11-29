@@ -3121,6 +3121,56 @@ namespace Amazon.MediaLive
 
 
     /// <summary>
+    /// Constants used for properties of type FollowPoint.
+    /// </summary>
+    public class FollowPoint : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant END for FollowPoint
+        /// </summary>
+        public static readonly FollowPoint END = new FollowPoint("END");
+        /// <summary>
+        /// Constant START for FollowPoint
+        /// </summary>
+        public static readonly FollowPoint START = new FollowPoint("START");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public FollowPoint(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static FollowPoint FindValue(string value)
+        {
+            return FindValue<FollowPoint>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator FollowPoint(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type GlobalConfigurationInputEndAction.
     /// </summary>
     public class GlobalConfigurationInputEndAction : ConstantClass
@@ -5025,6 +5075,56 @@ namespace Amazon.MediaLive
 
 
     /// <summary>
+    /// Constants used for properties of type HlsRedundantManifest.
+    /// </summary>
+    public class HlsRedundantManifest : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DISABLED for HlsRedundantManifest
+        /// </summary>
+        public static readonly HlsRedundantManifest DISABLED = new HlsRedundantManifest("DISABLED");
+        /// <summary>
+        /// Constant ENABLED for HlsRedundantManifest
+        /// </summary>
+        public static readonly HlsRedundantManifest ENABLED = new HlsRedundantManifest("ENABLED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public HlsRedundantManifest(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static HlsRedundantManifest FindValue(string value)
+        {
+            return FindValue<HlsRedundantManifest>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator HlsRedundantManifest(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type HlsSegmentationMode.
     /// </summary>
     public class HlsSegmentationMode : ConstantClass
@@ -5587,6 +5687,56 @@ namespace Amazon.MediaLive
 
 
     /// <summary>
+    /// Constants used for properties of type InputLossActionForRtmpOut.
+    /// </summary>
+    public class InputLossActionForRtmpOut : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant EMIT_OUTPUT for InputLossActionForRtmpOut
+        /// </summary>
+        public static readonly InputLossActionForRtmpOut EMIT_OUTPUT = new InputLossActionForRtmpOut("EMIT_OUTPUT");
+        /// <summary>
+        /// Constant PAUSE_OUTPUT for InputLossActionForRtmpOut
+        /// </summary>
+        public static readonly InputLossActionForRtmpOut PAUSE_OUTPUT = new InputLossActionForRtmpOut("PAUSE_OUTPUT");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public InputLossActionForRtmpOut(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static InputLossActionForRtmpOut FindValue(string value)
+        {
+            return FindValue<InputLossActionForRtmpOut>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator InputLossActionForRtmpOut(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type InputLossActionForUdpOut.
     /// </summary>
     public class InputLossActionForUdpOut : ConstantClass
@@ -5974,6 +6124,10 @@ namespace Amazon.MediaLive
     public class InputType : ConstantClass
     {
 
+        /// <summary>
+        /// Constant MP4_FILE for InputType
+        /// </summary>
+        public static readonly InputType MP4_FILE = new InputType("MP4_FILE");
         /// <summary>
         /// Constant RTMP_PULL for InputType
         /// </summary>

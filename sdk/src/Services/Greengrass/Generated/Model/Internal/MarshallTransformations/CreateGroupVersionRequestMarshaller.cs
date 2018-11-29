@@ -61,13 +61,19 @@ namespace Amazon.Greengrass.Model.Internal.MarshallTransformations
             string uriResourcePath = "/greengrass/groups/{GroupId}/versions";
             if (!publicRequest.IsSetGroupId())
                 throw new AmazonGreengrassException("Request object does not have required field GroupId set");
-            uriResourcePath = uriResourcePath.Replace("{GroupId}", StringUtils.FromString(publicRequest.GroupId));
+            uriResourcePath = uriResourcePath.Replace("{GroupId}", StringUtils.FromStringWithSlashEncoding(publicRequest.GroupId));
             request.ResourcePath = uriResourcePath;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetConnectorDefinitionVersionArn())
+                {
+                    context.Writer.WritePropertyName("ConnectorDefinitionVersionArn");
+                    context.Writer.Write(publicRequest.ConnectorDefinitionVersionArn);
+                }
+
                 if(publicRequest.IsSetCoreDefinitionVersionArn())
                 {
                     context.Writer.WritePropertyName("CoreDefinitionVersionArn");

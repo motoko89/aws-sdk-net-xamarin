@@ -33,8 +33,8 @@ namespace Amazon.AutoScaling.Model
     /// 
     ///  
     /// <para>
-    /// Note that the <code>GroupStandbyInstances</code> metric is not returned by default.
-    /// You must explicitly request this metric when calling <a>EnableMetricsCollection</a>.
+    /// The <code>GroupStandbyInstances</code> metric is not returned by default. You must
+    /// explicitly request this metric when calling <a>EnableMetricsCollection</a>.
     /// </para>
     /// </summary>
     public partial class DescribeMetricCollectionTypesRequest : AmazonAutoScalingRequest

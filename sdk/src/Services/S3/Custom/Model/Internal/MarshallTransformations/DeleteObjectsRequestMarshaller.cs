@@ -44,6 +44,8 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
 
             request.HttpMethod = "POST";
 
+			if (deleteObjectsRequest.IsSetBypassGovernanceRetention())
+                request.Headers.Add("x-amz-bypass-governance-retention", S3Transforms.ToStringValue(deleteObjectsRequest.BypassGovernanceRetention));
             if (deleteObjectsRequest.IsSetMfaCodes())
                 request.Headers.Add(HeaderKeys.XAmzMfaHeader, deleteObjectsRequest.MfaCodes.FormattedMfaCodes);
             if (deleteObjectsRequest.IsSetRequestPayer())
@@ -80,7 +82,7 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
                 }
                 if (deleteObjectsRequest.IsSetQuiet())
                 {
-                    xmlWriter.WriteElementString("Quiet", "", deleteObjectsRequest.Quiet.ToString().ToLowerInvariant());
+                    xmlWriter.WriteElementString("Quiet", "", S3Transforms.ToXmlStringValue(deleteObjectsRequest.Quiet));
                 }
                 xmlWriter.WriteEndElement();
             }

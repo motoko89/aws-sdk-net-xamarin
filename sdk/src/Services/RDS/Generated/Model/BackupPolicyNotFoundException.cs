@@ -28,6 +28,7 @@ namespace Amazon.RDS.Model
 #if !PCL && !CORECLR
     [Serializable]
 #endif
+    [Obsolete("Please avoid using this fault")]
     public class BackupPolicyNotFoundException : AmazonRDSException 
     {
         /// <summary>
