@@ -70,6 +70,12 @@ namespace Amazon.ServiceDiscovery.Model.Internal.MarshallTransformations
                     unmarshalledObject.DnsProperties = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("HttpProperties", targetDepth))
+                {
+                    var unmarshaller = HttpPropertiesUnmarshaller.Instance;
+                    unmarshalledObject.HttpProperties = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

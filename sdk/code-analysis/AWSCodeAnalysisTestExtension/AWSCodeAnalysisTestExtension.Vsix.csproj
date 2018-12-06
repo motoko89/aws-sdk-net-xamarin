@@ -76,6 +76,10 @@
       <Project>{1707A0B9-C421-4504-A887-EF27A459B440}</Project>
       <Name>AWSSDK.ApplicationDiscoveryService.CodeAnalysis</Name>
     </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/AppMesh/AWSSDK.AppMesh.CodeAnalysis.csproj">
+      <Project>{51779681-17D6-43BF-B4E3-C57D3C22283E}</Project>
+      <Name>AWSSDK.AppMesh.CodeAnalysis</Name>
+    </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/AppStream/AWSSDK.AppStream.CodeAnalysis.csproj">
       <Project>{C8E84B00-7398-4F52-A7CA-B64E5EF6339F}</Project>
       <Name>AWSSDK.AppStream.CodeAnalysis</Name>
@@ -384,6 +388,10 @@
       <Project>{407F9CF3-E677-40D7-A8F0-28BA5643A666}</Project>
       <Name>AWSSDK.IoTJobsDataPlane.CodeAnalysis</Name>
     </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/Kafka/AWSSDK.Kafka.CodeAnalysis.csproj">
+      <Project>{DCF594AB-B311-4FFD-B089-CD4DCCD5E236}</Project>
+      <Name>AWSSDK.Kafka.CodeAnalysis</Name>
+    </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/KeyManagementService/AWSSDK.KeyManagementService.CodeAnalysis.csproj">
       <Project>{F7AE8373-8387-4003-8F53-795D127CF79F}</Project>
       <Name>AWSSDK.KeyManagementService.CodeAnalysis</Name>
@@ -427,6 +435,10 @@
     <ProjectReference Include="../ServiceAnalysis/LexModelBuildingService/AWSSDK.LexModelBuildingService.CodeAnalysis.csproj">
       <Project>{7A497D75-9C82-4CB9-B4FC-26D8C8B1F131}</Project>
       <Name>AWSSDK.LexModelBuildingService.CodeAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/LicenseManager/AWSSDK.LicenseManager.CodeAnalysis.csproj">
+      <Project>{3CC50055-0FDE-46A7-AA79-F0A75351F09F}</Project>
+      <Name>AWSSDK.LicenseManager.CodeAnalysis</Name>
     </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/Lightsail/AWSSDK.Lightsail.CodeAnalysis.csproj">
       <Project>{ABBB2FF8-E155-49A8-8EAB-44CF91B36B0E}</Project>

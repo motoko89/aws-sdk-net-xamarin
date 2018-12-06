@@ -33,6 +33,7 @@ namespace Amazon.MediaTailor.Model
     public partial class DashConfiguration
     {
         private string _manifestEndpointPrefix;
+        private string _mpdLocation;
 
         /// <summary>
         /// Gets and sets the property ManifestEndpointPrefix. 
@@ -51,6 +52,30 @@ namespace Amazon.MediaTailor.Model
         internal bool IsSetManifestEndpointPrefix()
         {
             return this._manifestEndpointPrefix != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property MpdLocation. 
+        /// <para>
+        /// The setting that controls whether MediaTailor includes the Location tag in DASH Manifests.
+        /// MediaTailor populates the Location tag with the URL for manifest update requests,
+        /// to be used by players that don't support sticky redirects. Disable this if you have
+        /// CDN routing rules set up for accessing MediaTailor manifests and you are either using
+        /// client-side reporting or your players support sticky HTTP redirects. Valid values
+        /// are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the
+        /// tag and is the default value.
+        /// </para>
+        /// </summary>
+        public string MpdLocation
+        {
+            get { return this._mpdLocation; }
+            set { this._mpdLocation = value; }
+        }
+
+        // Check to see if MpdLocation property is set
+        internal bool IsSetMpdLocation()
+        {
+            return this._mpdLocation != null;
         }
 
     }

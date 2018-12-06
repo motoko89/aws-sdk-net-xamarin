@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.CostExplorer.Model
 {
     /// <summary>
-    /// Represents a group when you specify a group by criteria, or in the response to a query
+    /// Represents a group when you specify a group by criteria or in the response to a query
     /// with a specific grouping.
     /// </summary>
     public partial class GroupDefinition

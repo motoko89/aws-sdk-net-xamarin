@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.EC2.Model
 {
     /// <summary>
-    /// Contains the output of the request.
+    /// This is the response object from the GetConsoleScreenshot operation.
     /// </summary>
     public partial class GetConsoleScreenshotResponse : AmazonWebServiceResponse
     {

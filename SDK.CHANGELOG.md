@@ -1,3 +1,64 @@
+### 3.3.422.0 (2018-12-05 21:23 UTC)
+* CostExplorer (3.3.9.0)
+	* Add normalized unit support for both GetReservationUtilization and GetReservationCoverage API.
+* MediaTailor (3.3.3.0)
+	* AWS Elemental MediaTailor SDK now includes a new parameter to control the Location tag of DASH manifests.
+* MQ (3.3.3.0)
+	* This release adds support for cost allocation tagging. You can now create, delete, and list tags for AmazonMQ resources. For more information about tagging, see AWS Tagging Strategies.
+
+### 3.3.421.0 (2018-12-04 20:24 UTC)
+* AWSHealth (3.3.2.0)
+	* AWS Health API DescribeAffectedEntities operation now includes a field that returns the URL of the affected entity.
+* S3 (3.3.31.0)
+	* S3 Inventory reports can now be generated in Parquet format by setting the Destination Format to be 'Parquet'.
+
+### 3.3.420.0 (2018-12-04 01:45 UTC)
+* DeviceFarm (3.3.11.0)
+	* Customers can now schedule runs without a need to create a Device Pool. They also get realtime information on public device availability.
+* MediaConvert (3.3.10.1)
+	* Documentation updates for mediaconvert
+* ServiceCatalog (3.3.13.3)
+	* Documentation updates for servicecatalog
+* StorageGateway (3.3.12.0)
+	* API list-local-disks returns a list of the gateway's local disks. This release adds a field DiskAttributeList to these disks.
+* Core 3.3.29.13
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.419.0 (2018-11-29 18:35 UTC)
+* CloudWatchEvents (3.3.8.0)
+	* Support for Managed Rules (rules that are created and maintained by the AWS services in your account) is added.
+* ElasticLoadBalancingV2 (3.3.11.0)
+	* This release allows Application Load Balancers to route traffic to Lambda functions, in addition to instances and IP addresses.
+* Kafka (3.3.0.0)
+	* This is the initial SDK release for Amazon Managed Streaming for Kafka (Amazon MSK). Amazon MSK is a service that you can use to easily build, monitor, and manage Apache Kafka clusters in the cloud.
+* Lambda (3.3.19.0)
+	* AWS Lambda now supports Lambda Layers and Ruby as a runtime. Lambda Layers are a new type of artifact that contains arbitrary code and data, and may be referenced by zero, one, or more functions at the same time.  You can also now develop your AWS Lambda function code using the Ruby programming language.
+* S3 (3.3.30.0)
+	* Fixed issue with ObjectLockRetainUntilDate in S3 PutObject
+* ServerlessApplicationRepository (3.3.4.0)
+	* AWS Serverless Application Repository now supports nested applications. You can nest individual applications as components of a larger application to make it easy to assemble and deploy new serverless architectures. 
+* StepFunctions (3.3.3.0)
+	* AWS Step Functions is now integrated with eight additional AWS services: Amazon ECS, AWS Fargate, Amazon DynamoDB, Amazon SNS, Amazon SQS, AWS Batch, AWS Glue, and Amazon SageMaker. To learn more, please see https://docs.aws.amazon.com/step-functions/index.html
+* XRay (3.3.5.0)
+	* GetTraceSummaries - Now provides additional information regarding your application traces such as Availability Zone, Instance ID, Resource ARN details, Revision, Entry Point, Root Cause Exceptions and Root Causes for Fault, Error and Response Time.
+
+### 3.3.418.0 (2018-11-29 01:09 UTC)
+* AppMesh (3.3.0.0)
+	* AWS App Mesh is a service mesh that makes it easy to monitor and control communications between microservices of an application. AWS App Mesh APIs are available for preview in eu-west-1, us-east-1, us-east-2, and us-west-2 regions.
+* EC2 (3.3.75.0)
+	* Adds the following updates: 1. You can now hibernate and resume Amazon-EBS backed instances using the StopInstances and StartInstances APIs. For more information about using this feature and supported instance types and operating systems, visit the user guide. 2. Amazon Elastic Inference accelerators are resources that you can attach to current generation EC2 instances to accelerate your deep learning inference workloads. With Amazon Elastic Inference, you can configure the right amount of inference acceleration to your deep learning application without being constrained by fixed hardware configurations and limited GPU selection. 3. AWS License Manager makes it easier to manage licenses in AWS and on premises when customers run applications using existing licenses from a variety of software vendors including Microsoft, SAP, Oracle, and IBM.
+* LicenseManager (3.3.0.0)
+	* AWS License Manager makes it easier to manage licenses in AWS and on premises when customers run applications using existing licenses from a variety of software vendors including Microsoft, SAP, Oracle, and IBM. AWS License Manager automatically tracks and controls license usage once administrators have created and enforced rules that emulate the terms of their licensing agreements. The capabilities of AWS License Manager are available through SDK and Tools, besides the management console and CLI.
+* Lightsail (3.3.8.0)
+	* This update adds the following features: 1. Copy instance and disk snapshots within the same AWS Region or from one region to another in Amazon Lightsail. 2. Export Lightsail instance and disk snapshots to Amazon Elastic Compute Cloud (Amazon EC2). 3. Create an Amazon EC2 instance from an exported Lightsail instance snapshot using AWS CloudFormation stacks. 4. Apply tags to filter your Lightsail resources, or organize your costs, or control access.
+* SageMaker (3.3.16.0)
+	* Amazon SageMaker now has Algorithm and Model Package entities that can be used to create Training Jobs, Hyperparameter Tuning Jobs and hosted Models. Subscribed Marketplace products can be used on SageMaker to create Training Jobs, Hyperparameter Tuning Jobs and Models. Notebook Instances and Endpoints can leverage Elastic Inference accelerator types for on-demand GPU computing. Model optimizations can be performed with Compilation Jobs. Labeling Jobs can be created and supported by a Workforce. Models can now contain up to 5 containers allowing for inference pipelines within Endpoints. Code Repositories (such as Git) can be linked with SageMaker and loaded into Notebook Instances. Network isolation is now possible on Models, Training Jobs, and Hyperparameter Tuning Jobs, which restricts inbound/outbound network calls for the container. However, containers can talk to their peers in distributed training mode within the same security group. A Public Beta Search API was added that currently supports Training Jobs.
+* ServiceDiscovery (3.3.3.0)
+	* AWS Cloud Map lets you define friendly names for your cloud resources so that your applications can quickly and dynamically discover them. When a resource becomes available (for example, an Amazon EC2 instance running a web server), you can register a Cloud Map service instance. Then your application can discover service instances by submitting DNS queries or API calls.
+
 ### 3.3.417.0 (2018-11-28 19:06 UTC)
 * DynamoDBv2 (3.3.15.0)
 	* Amazon DynamoDB now supports the following features: DynamoDB on-demand and transactions. DynamoDB on-demand is a flexible new billing option for DynamoDB capable of serving thousands of requests per second without capacity planning. DynamoDB on-demand offers simple pay-per-request pricing for read and write requests so that you only pay for what you use, making it easy to balance costs and performance. Transactions simplify the developer experience of making coordinated, all-or-nothing changes to multiple items both within and across tables. The new transactional APIs provide atomicity, consistency, isolation, and durability (ACID) in DynamoDB, helping developers support sophisticated workflows and business logic that requires adding, updating, or deleting multiple items using native, server-side transactions. For more information, see the Amazon DynamoDB Developer Guide.

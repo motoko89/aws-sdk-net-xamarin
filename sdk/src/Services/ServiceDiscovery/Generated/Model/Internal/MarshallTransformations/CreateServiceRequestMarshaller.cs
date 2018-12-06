@@ -123,6 +123,12 @@ namespace Amazon.ServiceDiscovery.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.Name);
                 }
 
+                if(publicRequest.IsSetNamespaceId())
+                {
+                    context.Writer.WritePropertyName("NamespaceId");
+                    context.Writer.Write(publicRequest.NamespaceId);
+                }
+
         
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
