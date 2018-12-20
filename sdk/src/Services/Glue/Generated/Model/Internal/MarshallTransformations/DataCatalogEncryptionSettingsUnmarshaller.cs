@@ -64,6 +64,12 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("ConnectionPasswordEncryption", targetDepth))
+                {
+                    var unmarshaller = ConnectionPasswordEncryptionUnmarshaller.Instance;
+                    unmarshalledObject.ConnectionPasswordEncryption = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("EncryptionAtRest", targetDepth))
                 {
                     var unmarshaller = EncryptionAtRestUnmarshaller.Instance;

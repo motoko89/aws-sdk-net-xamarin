@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.PinpointEmail.Model
 {
     /// <summary>
-    /// This is the response object from the PutDedicatedIpInPool operation.
+    /// An HTTP 200 response if the request succeeds, or an error message if the request fails.
     /// </summary>
     public partial class PutDedicatedIpInPoolResponse : AmazonWebServiceResponse
     {

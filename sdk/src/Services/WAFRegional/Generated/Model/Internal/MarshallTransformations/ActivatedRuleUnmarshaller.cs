@@ -70,6 +70,12 @@ namespace Amazon.WAFRegional.Model.Internal.MarshallTransformations
                     unmarshalledObject.Action = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("ExcludedRules", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<ExcludedRule, ExcludedRuleUnmarshaller>(ExcludedRuleUnmarshaller.Instance);
+                    unmarshalledObject.ExcludedRules = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("OverrideAction", targetDepth))
                 {
                     var unmarshaller = WafOverrideActionUnmarshaller.Instance;

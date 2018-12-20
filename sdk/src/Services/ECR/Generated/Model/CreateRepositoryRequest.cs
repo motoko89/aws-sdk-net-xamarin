@@ -34,6 +34,7 @@ namespace Amazon.ECR.Model
     public partial class CreateRepositoryRequest : AmazonECRRequest
     {
         private string _repositoryName;
+        private List<Tag> _tags = new List<Tag>();
 
         /// <summary>
         /// Gets and sets the property RepositoryName. 
@@ -53,6 +54,21 @@ namespace Amazon.ECR.Model
         internal bool IsSetRepositoryName()
         {
             return this._repositoryName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags.
+        /// </summary>
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
     }

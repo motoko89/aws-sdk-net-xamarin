@@ -36,6 +36,7 @@ namespace Amazon.SageMaker.Model
         private ParameterRanges _parameterRanges;
         private ResourceLimits _resourceLimits;
         private HyperParameterTuningJobStrategyType _strategy;
+        private TrainingJobEarlyStoppingType _trainingJobEarlyStoppingType;
 
         /// <summary>
         /// Gets and sets the property HyperParameterTuningJobObjective. 
@@ -111,6 +112,37 @@ namespace Amazon.SageMaker.Model
         internal bool IsSetStrategy()
         {
             return this._strategy != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property TrainingJobEarlyStoppingType. 
+        /// <para>
+        /// Specifies whether to use early stopping for training jobs launched by the hyperparameter
+        /// tuning job. This can be one of the following values (the default value is <code>OFF</code>):
+        /// </para>
+        ///  <dl> <dt>OFF</dt> <dd> 
+        /// <para>
+        /// Training jobs launched by the hyperparameter tuning job do not use early stopping.
+        /// </para>
+        ///  </dd> <dt>AUTO</dt> <dd> 
+        /// <para>
+        /// Amazon SageMaker stops training jobs launched by the hyperparameter tuning job when
+        /// they are unlikely to perform better than previously completed training jobs. For more
+        /// information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html">Stop
+        /// Training Jobs Early</a>.
+        /// </para>
+        ///  </dd> </dl>
+        /// </summary>
+        public TrainingJobEarlyStoppingType TrainingJobEarlyStoppingType
+        {
+            get { return this._trainingJobEarlyStoppingType; }
+            set { this._trainingJobEarlyStoppingType = value; }
+        }
+
+        // Check to see if TrainingJobEarlyStoppingType property is set
+        internal bool IsSetTrainingJobEarlyStoppingType()
+        {
+            return this._trainingJobEarlyStoppingType != null;
         }
 
     }

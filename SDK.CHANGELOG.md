@@ -1,3 +1,98 @@
+### 3.3.431.0 (2018-12-19 22:44 UTC)
+* EC2 (3.3.78.0)
+	* This release adds support for specifying partition as a strategy for EC2 Placement Groups. This new strategy allows one to launch instances into partitions that do not share certain underlying hardware between partitions, to assist with building and deploying highly available replicated applications. 
+* SageMaker (3.3.18.0)
+	* Batch Transform Jobs now supports TFRecord as a Split Type. ListCompilationJobs API action now supports SortOrder and SortBy inputs.
+* WAF (3.3.7.0)
+	* This release adds rule-level control for rule group. If a rule group contains a rule that blocks legitimate traffic, previously you had to override the entire rule group to COUNT in order to allow the traffic. You can now use the UpdateWebACL API to exclude specific rules within a rule group. Excluding rules changes the action for the individual rules to COUNT. Excluded rules will be recorded in the new "excludedRules" attribute of the WAF logs.
+* WAFRegional (3.3.7.0)
+	* This release adds rule-level control for rule group. If a rule group contains a rule that blocks legitimate traffic, previously you had to override the entire rule group to COUNT in order to allow the traffic. You can now use the UpdateWebACL API to exclude specific rules within a rule group. Excluding rules changes the action for the individual rules to COUNT. Excluded rules will be recorded in the new "excludedRules" attribute of the WAF logs.
+
+### 3.3.430.0 (2018-12-18 23:00 UTC)
+* ApiGatewayManagementApi (3.3.0.0)
+	* This is the initial SDK release for the Amazon API Gateway Management API, which allows you to directly manage runtime aspects of your APIs. This release makes it easy to send data directly to clients connected to your WebSocket-based APIs.
+* ApiGatewayV2 (3.3.0.0)
+	* This is the initial SDK release for the Amazon API Gateway v2 APIs. This SDK will allow you to manage and configure APIs in Amazon API Gateway; this first release provides the capabilities that allow you to programmatically setup and manage WebSocket APIs end to end. 
+* EC2 (3.3.77.0)
+	* Client VPN, is a client-based VPN service. With Client VPN, you can securely access resources in AWS as well as access resources in on-premises from any location using OpenVPN based devices. With Client VPN, you can set network based firewall rules that can restrict access to networks based on Active Directory groups.
+* ElasticBeanstalk (3.3.12.0)
+	* This release adds a new resource that Elastic Beanstalk will soon support, EC2 launch template, to environment resource descriptions.
+* GlobalAccelerator (3.3.0.5)
+	* Documentation updates for Ubiquity
+
+### 3.3.429.0 (2018-12-17 23:00 UTC)
+* ECR (3.3.4.0)
+	* This release adds support for ECR repository tagging.
+* QuickSight (3.3.1.0)
+	* Amazon QuickSight's RegisterUser API now generates a user invitation URL when registering a user with the QuickSight identity type. This URL can then be used by the registered QuickSight user to complete the user registration process. This release also corrects some HTTP return status codes.
+
+### 3.3.428.0 (2018-12-14 22:51 UTC)
+* AlexaForBusiness (3.3.8.0)
+	* Released new APIs for managing private skill access to Enrolled Users.  These API's are the equivalent of the A4B console for Private Skills checkbox "Available for Users".
+* CloudFormation (3.3.13.4)
+	* Documentation updates for cloudformation
+* Redshift (3.3.11.6)
+	* Documentation updates for Amazon Redshift
+* Core 3.3.29.16
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.427.0 (2018-12-13 22:22 UTC)
+* Organizations (3.3.9.22)
+	* Documentation updates for AWS Organizations
+* PinpointEmail (3.3.1.0)
+	* This release adds new operations for the Amazon Pinpoint Deliverability Dashboard. You can use the Deliverability Dashboard to view response and inbox placement metrics for the domains that you use to send email. You can also perform tests on individual email messages to determine how often your messages are delivered to the inbox on several major email providers.
+* Core 3.3.29.15
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.426.0 (2018-12-12 22:38 UTC)
+* EKS (3.3.3.0)
+	* Added support for updating kubernetes version of Amazon EKS clusters.
+* Glue (3.3.16.0)
+	* API Update for Glue: this update enables encryption of password inside connection objects stored in AWS Glue Data Catalog using DataCatalogEncryptionSettings.  In addition, a new "HidePassword" flag is added to GetConnection and GetConnections to return connections without passwords.
+* Route53 (3.3.18.0)
+	* You can now specify a new region, eu-north-1 (in Stockholm, Sweden), as a region for latency-based or geoproximity routing.
+* SageMaker (3.3.17.0)
+	* Amazon SageMaker Automatic Model Tuning now supports early stopping of training jobs. With early stopping, training jobs that are unlikely to generate good models will be automatically stopped during a Hyperparameter Tuning Job.
+
+### 3.3.425.0 (2018-12-11 23:12 UTC)
+* Connect (3.3.4.0)
+	* This update adds the GetContactAttributes operation to retrieve the attributes associated with a contact.
+* ECS (3.3.21.2)
+	* Documentation updates for Amazon ECS.
+* MediaStore (3.3.2.0)
+	* This release adds Delete Object Lifecycling to AWS MediaStore Containers.
+* Core 3.3.29.14
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.424.0 (2018-12-07 19:57 UTC)
+* AlexaForBusiness (3.3.7.0)
+	* Alexa for Business now allows IT administrators to create ad-hoc or scheduled usage reports, which help customers understand how Alexa is used in their workplace. To learn how to create usage reports, see https://docs.aws.amazon.com/a4b/latest/ag/creating-reports.html
+* EC2 (3.3.76.0)
+	* You can now launch the larger-sized P3dn.24xlarge instance that features NVIDIA Tesla V100s with double the GPU memory, 100Gbps networking and local NVMe storage.
+* IdentityManagement (3.3.9.0)
+	* We are making it easier for you to manage your AWS Identity and Access Management (IAM) policy permissions by enabling you to retrieve the last timestamp when an IAM entity (e.g., user, role, or a group) accessed an AWS service. This feature also allows you to audit service access for your entities.
+* ServiceCatalog (3.3.13.4)
+	* Documentation updates for servicecatalog.
+
+### 3.3.423.0 (2018-12-06 20:15 UTC)
+* CodeBuild (3.3.19.0)
+	* Support personal access tokens for GitHub source and app passwords for Bitbucket source
+* ElasticLoadBalancingV2 (3.3.12.0)
+	* This release allows Application Load Balancers to route traffic to Lambda functions, in addition to instances and IP addresses.
+* MediaLive (3.3.13.0)
+	* This release enables the AWS Elemental MediaConnect input type in AWS Elemental MediaLive. This can then be used to automatically create and manage AWS Elemental MediaConnect Flow Outputs when you create a channel using those inputs.
+* RDS (3.3.37.2)
+	* Documentation updates for Amazon RDS
+
 ### 3.3.422.0 (2018-12-05 21:23 UTC)
 * CostExplorer (3.3.9.0)
 	* Add normalized unit support for both GetReservationUtilization and GetReservationCoverage API.
