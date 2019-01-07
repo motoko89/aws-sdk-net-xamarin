@@ -23,6 +23,7 @@ using System.Runtime.ExceptionServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Net;
 
 using Amazon.KinesisFirehose.Model;
 using Amazon.KinesisFirehose.Model.Internal.MarshallTransformations;
@@ -241,7 +242,7 @@ namespace Amazon.KinesisFirehose
 
         #endregion
 
-        
+
         #region  CreateDeliveryStream
 
 
@@ -273,21 +274,21 @@ namespace Amazon.KinesisFirehose
         /// <para>
         /// A delivery stream is configured with a single destination: Amazon S3, Amazon ES, Amazon
         /// Redshift, or Splunk. You must specify only one of the following destination configuration
-        /// parameters: <b>ExtendedS3DestinationConfiguration</b>, <b>S3DestinationConfiguration</b>,
-        /// <b>ElasticsearchDestinationConfiguration</b>, <b>RedshiftDestinationConfiguration</b>,
-        /// or <b>SplunkDestinationConfiguration</b>.
+        /// parameters: <code>ExtendedS3DestinationConfiguration</code>, <code>S3DestinationConfiguration</code>,
+        /// <code>ElasticsearchDestinationConfiguration</code>, <code>RedshiftDestinationConfiguration</code>,
+        /// or <code>SplunkDestinationConfiguration</code>.
         /// </para>
         ///  
         /// <para>
-        /// When you specify <b>S3DestinationConfiguration</b>, you can also provide the following
-        /// optional values: <b>BufferingHints</b>, <b>EncryptionConfiguration</b>, and <b>CompressionFormat</b>.
-        /// By default, if no <b>BufferingHints</b> value is provided, Kinesis Data Firehose buffers
-        /// data up to 5 MB or for 5 minutes, whichever condition is satisfied first. <b>BufferingHints</b>
-        /// is a hint, so there are some cases where the service cannot adhere to these conditions
-        /// strictly. For example, record boundaries might be such that the size is a little over
-        /// or under the configured buffering size. By default, no encryption is performed. We
-        /// strongly recommend that you enable encryption to ensure secure data storage in Amazon
-        /// S3.
+        /// When you specify <code>S3DestinationConfiguration</code>, you can also provide the
+        /// following optional values: BufferingHints, <code>EncryptionConfiguration</code>, and
+        /// <code>CompressionFormat</code>. By default, if no <code>BufferingHints</code> value
+        /// is provided, Kinesis Data Firehose buffers data up to 5 MB or for 5 minutes, whichever
+        /// condition is satisfied first. <code>BufferingHints</code> is a hint, so there are
+        /// some cases where the service cannot adhere to these conditions strictly. For example,
+        /// record boundaries might be such that the size is a little over or under the configured
+        /// buffering size. By default, no encryption is performed. We strongly recommend that
+        /// you enable encryption to ensure secure data storage in Amazon S3.
         /// </para>
         ///  
         /// <para>
@@ -297,7 +298,7 @@ namespace Amazon.KinesisFirehose
         /// <para>
         /// An Amazon Redshift destination requires an S3 bucket as intermediate location. Kinesis
         /// Data Firehose first delivers data to Amazon S3 and then uses <code>COPY</code> syntax
-        /// to load data into an Amazon Redshift table. This is specified in the <b>RedshiftDestinationConfiguration.S3Configuration</b>
+        /// to load data into an Amazon Redshift table. This is specified in the <code>RedshiftDestinationConfiguration.S3Configuration</code>
         /// parameter.
         /// </para>
         ///  </li> <li> 
@@ -338,10 +339,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/CreateDeliveryStream">REST API Reference for CreateDeliveryStream Operation</seealso>
         public virtual CreateDeliveryStreamResponse CreateDeliveryStream(CreateDeliveryStreamRequest request)
         {
-            var marshaller = CreateDeliveryStreamRequestMarshaller.Instance;
-            var unmarshaller = CreateDeliveryStreamResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateDeliveryStreamRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateDeliveryStreamResponseUnmarshaller.Instance;
 
-            return Invoke<CreateDeliveryStreamRequest,CreateDeliveryStreamResponse>(request, marshaller, unmarshaller);
+            return Invoke<CreateDeliveryStreamResponse>(request, options);
         }
 
         /// <summary>
@@ -356,11 +358,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/CreateDeliveryStream">REST API Reference for CreateDeliveryStream Operation</seealso>
         public virtual Task<CreateDeliveryStreamResponse> CreateDeliveryStreamAsync(CreateDeliveryStreamRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = CreateDeliveryStreamRequestMarshaller.Instance;
-            var unmarshaller = CreateDeliveryStreamResponseUnmarshaller.Instance;
-
-            return InvokeAsync<CreateDeliveryStreamRequest,CreateDeliveryStreamResponse>(request, marshaller, 
-                unmarshaller, cancellationToken);
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateDeliveryStreamRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateDeliveryStreamResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<CreateDeliveryStreamResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -440,10 +442,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/DeleteDeliveryStream">REST API Reference for DeleteDeliveryStream Operation</seealso>
         public virtual DeleteDeliveryStreamResponse DeleteDeliveryStream(DeleteDeliveryStreamRequest request)
         {
-            var marshaller = DeleteDeliveryStreamRequestMarshaller.Instance;
-            var unmarshaller = DeleteDeliveryStreamResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteDeliveryStreamRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteDeliveryStreamResponseUnmarshaller.Instance;
 
-            return Invoke<DeleteDeliveryStreamRequest,DeleteDeliveryStreamResponse>(request, marshaller, unmarshaller);
+            return Invoke<DeleteDeliveryStreamResponse>(request, options);
         }
 
 
@@ -500,11 +503,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/DeleteDeliveryStream">REST API Reference for DeleteDeliveryStream Operation</seealso>
         public virtual Task<DeleteDeliveryStreamResponse> DeleteDeliveryStreamAsync(DeleteDeliveryStreamRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = DeleteDeliveryStreamRequestMarshaller.Instance;
-            var unmarshaller = DeleteDeliveryStreamResponseUnmarshaller.Instance;
-
-            return InvokeAsync<DeleteDeliveryStreamRequest,DeleteDeliveryStreamResponse>(request, marshaller, 
-                unmarshaller, cancellationToken);
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteDeliveryStreamRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteDeliveryStreamResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DeleteDeliveryStreamResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -527,10 +530,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/DescribeDeliveryStream">REST API Reference for DescribeDeliveryStream Operation</seealso>
         public virtual DescribeDeliveryStreamResponse DescribeDeliveryStream(DescribeDeliveryStreamRequest request)
         {
-            var marshaller = DescribeDeliveryStreamRequestMarshaller.Instance;
-            var unmarshaller = DescribeDeliveryStreamResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeDeliveryStreamRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeDeliveryStreamResponseUnmarshaller.Instance;
 
-            return Invoke<DescribeDeliveryStreamRequest,DescribeDeliveryStreamResponse>(request, marshaller, unmarshaller);
+            return Invoke<DescribeDeliveryStreamResponse>(request, options);
         }
 
         /// <summary>
@@ -545,11 +549,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/DescribeDeliveryStream">REST API Reference for DescribeDeliveryStream Operation</seealso>
         public virtual Task<DescribeDeliveryStreamResponse> DescribeDeliveryStreamAsync(DescribeDeliveryStreamRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = DescribeDeliveryStreamRequestMarshaller.Instance;
-            var unmarshaller = DescribeDeliveryStreamResponseUnmarshaller.Instance;
-
-            return InvokeAsync<DescribeDeliveryStreamRequest,DescribeDeliveryStreamResponse>(request, marshaller, 
-                unmarshaller, cancellationToken);
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeDeliveryStreamRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeDeliveryStreamResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DescribeDeliveryStreamResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -564,9 +568,9 @@ namespace Amazon.KinesisFirehose
         /// <para>
         /// The number of delivery streams might be too large to return using a single call to
         /// <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned,
-        /// using the <b>Limit</b> parameter. To determine whether there are more delivery streams
-        /// to list, check the value of <code>HasMoreDeliveryStreams</code> in the output. If
-        /// there are more delivery streams to list, you can request them by calling this operation
+        /// using the <code>Limit</code> parameter. To determine whether there are more delivery
+        /// streams to list, check the value of <code>HasMoreDeliveryStreams</code> in the output.
+        /// If there are more delivery streams to list, you can request them by calling this operation
         /// again and setting the <code>ExclusiveStartDeliveryStreamName</code> parameter to the
         /// name of the last delivery stream returned in the last call.
         /// </para>
@@ -587,9 +591,9 @@ namespace Amazon.KinesisFirehose
         /// <para>
         /// The number of delivery streams might be too large to return using a single call to
         /// <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned,
-        /// using the <b>Limit</b> parameter. To determine whether there are more delivery streams
-        /// to list, check the value of <code>HasMoreDeliveryStreams</code> in the output. If
-        /// there are more delivery streams to list, you can request them by calling this operation
+        /// using the <code>Limit</code> parameter. To determine whether there are more delivery
+        /// streams to list, check the value of <code>HasMoreDeliveryStreams</code> in the output.
+        /// If there are more delivery streams to list, you can request them by calling this operation
         /// again and setting the <code>ExclusiveStartDeliveryStreamName</code> parameter to the
         /// name of the last delivery stream returned in the last call.
         /// </para>
@@ -600,10 +604,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/ListDeliveryStreams">REST API Reference for ListDeliveryStreams Operation</seealso>
         public virtual ListDeliveryStreamsResponse ListDeliveryStreams(ListDeliveryStreamsRequest request)
         {
-            var marshaller = ListDeliveryStreamsRequestMarshaller.Instance;
-            var unmarshaller = ListDeliveryStreamsResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListDeliveryStreamsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListDeliveryStreamsResponseUnmarshaller.Instance;
 
-            return Invoke<ListDeliveryStreamsRequest,ListDeliveryStreamsResponse>(request, marshaller, unmarshaller);
+            return Invoke<ListDeliveryStreamsResponse>(request, options);
         }
 
 
@@ -614,9 +619,9 @@ namespace Amazon.KinesisFirehose
         /// <para>
         /// The number of delivery streams might be too large to return using a single call to
         /// <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned,
-        /// using the <b>Limit</b> parameter. To determine whether there are more delivery streams
-        /// to list, check the value of <code>HasMoreDeliveryStreams</code> in the output. If
-        /// there are more delivery streams to list, you can request them by calling this operation
+        /// using the <code>Limit</code> parameter. To determine whether there are more delivery
+        /// streams to list, check the value of <code>HasMoreDeliveryStreams</code> in the output.
+        /// If there are more delivery streams to list, you can request them by calling this operation
         /// again and setting the <code>ExclusiveStartDeliveryStreamName</code> parameter to the
         /// name of the last delivery stream returned in the last call.
         /// </para>
@@ -643,11 +648,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/ListDeliveryStreams">REST API Reference for ListDeliveryStreams Operation</seealso>
         public virtual Task<ListDeliveryStreamsResponse> ListDeliveryStreamsAsync(ListDeliveryStreamsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = ListDeliveryStreamsRequestMarshaller.Instance;
-            var unmarshaller = ListDeliveryStreamsResponseUnmarshaller.Instance;
-
-            return InvokeAsync<ListDeliveryStreamsRequest,ListDeliveryStreamsResponse>(request, marshaller, 
-                unmarshaller, cancellationToken);
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListDeliveryStreamsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListDeliveryStreamsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ListDeliveryStreamsResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -674,10 +679,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/ListTagsForDeliveryStream">REST API Reference for ListTagsForDeliveryStream Operation</seealso>
         public virtual ListTagsForDeliveryStreamResponse ListTagsForDeliveryStream(ListTagsForDeliveryStreamRequest request)
         {
-            var marshaller = ListTagsForDeliveryStreamRequestMarshaller.Instance;
-            var unmarshaller = ListTagsForDeliveryStreamResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTagsForDeliveryStreamRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTagsForDeliveryStreamResponseUnmarshaller.Instance;
 
-            return Invoke<ListTagsForDeliveryStreamRequest,ListTagsForDeliveryStreamResponse>(request, marshaller, unmarshaller);
+            return Invoke<ListTagsForDeliveryStreamResponse>(request, options);
         }
 
         /// <summary>
@@ -692,11 +698,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/ListTagsForDeliveryStream">REST API Reference for ListTagsForDeliveryStream Operation</seealso>
         public virtual Task<ListTagsForDeliveryStreamResponse> ListTagsForDeliveryStreamAsync(ListTagsForDeliveryStreamRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = ListTagsForDeliveryStreamRequestMarshaller.Instance;
-            var unmarshaller = ListTagsForDeliveryStreamResponseUnmarshaller.Instance;
-
-            return InvokeAsync<ListTagsForDeliveryStreamRequest,ListTagsForDeliveryStreamResponse>(request, marshaller, 
-                unmarshaller, cancellationToken);
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTagsForDeliveryStreamRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTagsForDeliveryStreamResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ListTagsForDeliveryStreamResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -854,10 +860,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/PutRecord">REST API Reference for PutRecord Operation</seealso>
         public virtual PutRecordResponse PutRecord(PutRecordRequest request)
         {
-            var marshaller = PutRecordRequestMarshaller.Instance;
-            var unmarshaller = PutRecordResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutRecordRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutRecordResponseUnmarshaller.Instance;
 
-            return Invoke<PutRecordRequest,PutRecordResponse>(request, marshaller, unmarshaller);
+            return Invoke<PutRecordResponse>(request, options);
         }
 
 
@@ -954,11 +961,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/PutRecord">REST API Reference for PutRecord Operation</seealso>
         public virtual Task<PutRecordResponse> PutRecordAsync(PutRecordRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = PutRecordRequestMarshaller.Instance;
-            var unmarshaller = PutRecordResponseUnmarshaller.Instance;
-
-            return InvokeAsync<PutRecordRequest,PutRecordResponse>(request, marshaller, 
-                unmarshaller, cancellationToken);
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutRecordRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutRecordResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<PutRecordResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1003,38 +1010,40 @@ namespace Amazon.KinesisFirehose
         /// </para>
         ///  
         /// <para>
-        /// The <a>PutRecordBatch</a> response includes a count of failed records, <b>FailedPutCount</b>,
-        /// and an array of responses, <b>RequestResponses</b>. Even if the <a>PutRecordBatch</a>
-        /// call succeeds, the value of <b>FailedPutCount</b> may be greater than 0, indicating
-        /// that there are records for which the operation didn't succeed. Each entry in the <b>RequestResponses</b>
+        /// The <a>PutRecordBatch</a> response includes a count of failed records, <code>FailedPutCount</code>,
+        /// and an array of responses, <code>RequestResponses</code>. Even if the <a>PutRecordBatch</a>
+        /// call succeeds, the value of <code>FailedPutCount</code> may be greater than 0, indicating
+        /// that there are records for which the operation didn't succeed. Each entry in the <code>RequestResponses</code>
         /// array provides additional information about the processed record. It directly correlates
         /// with a record in the request array using the same ordering, from the top to the bottom.
         /// The response array always includes the same number of records as the request array.
-        /// <b>RequestResponses</b> includes both successfully and unsuccessfully processed records.
-        /// Kinesis Data Firehose tries to process all records in each <a>PutRecordBatch</a> request.
-        /// A single record failure does not stop the processing of subsequent records. 
+        /// <code>RequestResponses</code> includes both successfully and unsuccessfully processed
+        /// records. Kinesis Data Firehose tries to process all records in each <a>PutRecordBatch</a>
+        /// request. A single record failure does not stop the processing of subsequent records.
+        /// 
         /// </para>
         ///  
         /// <para>
-        /// A successfully processed record includes a <b>RecordId</b> value, which is unique
-        /// for the record. An unsuccessfully processed record includes <b>ErrorCode</b> and <b>ErrorMessage</b>
-        /// values. <b>ErrorCode</b> reflects the type of error, and is one of the following values:
-        /// <code>ServiceUnavailableException</code> or <code>InternalFailure</code>. <b>ErrorMessage</b>
-        /// provides more detailed information about the error.
+        /// A successfully processed record includes a <code>RecordId</code> value, which is unique
+        /// for the record. An unsuccessfully processed record includes <code>ErrorCode</code>
+        /// and <code>ErrorMessage</code> values. <code>ErrorCode</code> reflects the type of
+        /// error, and is one of the following values: <code>ServiceUnavailableException</code>
+        /// or <code>InternalFailure</code>. <code>ErrorMessage</code> provides more detailed
+        /// information about the error.
         /// </para>
         ///  
         /// <para>
         /// If there is an internal server error or a timeout, the write might have completed
-        /// or it might have failed. If <b>FailedPutCount</b> is greater than 0, retry the request,
-        /// resending only those records that might have failed processing. This minimizes the
-        /// possible duplicate records and also reduces the total bytes sent (and corresponding
+        /// or it might have failed. If <code>FailedPutCount</code> is greater than 0, retry the
+        /// request, resending only those records that might have failed processing. This minimizes
+        /// the possible duplicate records and also reduces the total bytes sent (and corresponding
         /// charges). We recommend that you handle any duplicates at the destination.
         /// </para>
         ///  
         /// <para>
-        /// If <a>PutRecordBatch</a> throws <b>ServiceUnavailableException</b>, back off and retry.
-        /// If the exception persists, it is possible that the throughput limits have been exceeded
-        /// for the delivery stream.
+        /// If <a>PutRecordBatch</a> throws <code>ServiceUnavailableException</code>, back off
+        /// and retry. If the exception persists, it is possible that the throughput limits have
+        /// been exceeded for the delivery stream.
         /// </para>
         ///  
         /// <para>
@@ -1112,38 +1121,40 @@ namespace Amazon.KinesisFirehose
         /// </para>
         ///  
         /// <para>
-        /// The <a>PutRecordBatch</a> response includes a count of failed records, <b>FailedPutCount</b>,
-        /// and an array of responses, <b>RequestResponses</b>. Even if the <a>PutRecordBatch</a>
-        /// call succeeds, the value of <b>FailedPutCount</b> may be greater than 0, indicating
-        /// that there are records for which the operation didn't succeed. Each entry in the <b>RequestResponses</b>
+        /// The <a>PutRecordBatch</a> response includes a count of failed records, <code>FailedPutCount</code>,
+        /// and an array of responses, <code>RequestResponses</code>. Even if the <a>PutRecordBatch</a>
+        /// call succeeds, the value of <code>FailedPutCount</code> may be greater than 0, indicating
+        /// that there are records for which the operation didn't succeed. Each entry in the <code>RequestResponses</code>
         /// array provides additional information about the processed record. It directly correlates
         /// with a record in the request array using the same ordering, from the top to the bottom.
         /// The response array always includes the same number of records as the request array.
-        /// <b>RequestResponses</b> includes both successfully and unsuccessfully processed records.
-        /// Kinesis Data Firehose tries to process all records in each <a>PutRecordBatch</a> request.
-        /// A single record failure does not stop the processing of subsequent records. 
+        /// <code>RequestResponses</code> includes both successfully and unsuccessfully processed
+        /// records. Kinesis Data Firehose tries to process all records in each <a>PutRecordBatch</a>
+        /// request. A single record failure does not stop the processing of subsequent records.
+        /// 
         /// </para>
         ///  
         /// <para>
-        /// A successfully processed record includes a <b>RecordId</b> value, which is unique
-        /// for the record. An unsuccessfully processed record includes <b>ErrorCode</b> and <b>ErrorMessage</b>
-        /// values. <b>ErrorCode</b> reflects the type of error, and is one of the following values:
-        /// <code>ServiceUnavailableException</code> or <code>InternalFailure</code>. <b>ErrorMessage</b>
-        /// provides more detailed information about the error.
+        /// A successfully processed record includes a <code>RecordId</code> value, which is unique
+        /// for the record. An unsuccessfully processed record includes <code>ErrorCode</code>
+        /// and <code>ErrorMessage</code> values. <code>ErrorCode</code> reflects the type of
+        /// error, and is one of the following values: <code>ServiceUnavailableException</code>
+        /// or <code>InternalFailure</code>. <code>ErrorMessage</code> provides more detailed
+        /// information about the error.
         /// </para>
         ///  
         /// <para>
         /// If there is an internal server error or a timeout, the write might have completed
-        /// or it might have failed. If <b>FailedPutCount</b> is greater than 0, retry the request,
-        /// resending only those records that might have failed processing. This minimizes the
-        /// possible duplicate records and also reduces the total bytes sent (and corresponding
+        /// or it might have failed. If <code>FailedPutCount</code> is greater than 0, retry the
+        /// request, resending only those records that might have failed processing. This minimizes
+        /// the possible duplicate records and also reduces the total bytes sent (and corresponding
         /// charges). We recommend that you handle any duplicates at the destination.
         /// </para>
         ///  
         /// <para>
-        /// If <a>PutRecordBatch</a> throws <b>ServiceUnavailableException</b>, back off and retry.
-        /// If the exception persists, it is possible that the throughput limits have been exceeded
-        /// for the delivery stream.
+        /// If <a>PutRecordBatch</a> throws <code>ServiceUnavailableException</code>, back off
+        /// and retry. If the exception persists, it is possible that the throughput limits have
+        /// been exceeded for the delivery stream.
         /// </para>
         ///  
         /// <para>
@@ -1176,10 +1187,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/PutRecordBatch">REST API Reference for PutRecordBatch Operation</seealso>
         public virtual PutRecordBatchResponse PutRecordBatch(PutRecordBatchRequest request)
         {
-            var marshaller = PutRecordBatchRequestMarshaller.Instance;
-            var unmarshaller = PutRecordBatchResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutRecordBatchRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutRecordBatchResponseUnmarshaller.Instance;
 
-            return Invoke<PutRecordBatchRequest,PutRecordBatchResponse>(request, marshaller, unmarshaller);
+            return Invoke<PutRecordBatchResponse>(request, options);
         }
 
 
@@ -1220,38 +1232,40 @@ namespace Amazon.KinesisFirehose
         /// </para>
         ///  
         /// <para>
-        /// The <a>PutRecordBatch</a> response includes a count of failed records, <b>FailedPutCount</b>,
-        /// and an array of responses, <b>RequestResponses</b>. Even if the <a>PutRecordBatch</a>
-        /// call succeeds, the value of <b>FailedPutCount</b> may be greater than 0, indicating
-        /// that there are records for which the operation didn't succeed. Each entry in the <b>RequestResponses</b>
+        /// The <a>PutRecordBatch</a> response includes a count of failed records, <code>FailedPutCount</code>,
+        /// and an array of responses, <code>RequestResponses</code>. Even if the <a>PutRecordBatch</a>
+        /// call succeeds, the value of <code>FailedPutCount</code> may be greater than 0, indicating
+        /// that there are records for which the operation didn't succeed. Each entry in the <code>RequestResponses</code>
         /// array provides additional information about the processed record. It directly correlates
         /// with a record in the request array using the same ordering, from the top to the bottom.
         /// The response array always includes the same number of records as the request array.
-        /// <b>RequestResponses</b> includes both successfully and unsuccessfully processed records.
-        /// Kinesis Data Firehose tries to process all records in each <a>PutRecordBatch</a> request.
-        /// A single record failure does not stop the processing of subsequent records. 
+        /// <code>RequestResponses</code> includes both successfully and unsuccessfully processed
+        /// records. Kinesis Data Firehose tries to process all records in each <a>PutRecordBatch</a>
+        /// request. A single record failure does not stop the processing of subsequent records.
+        /// 
         /// </para>
         ///  
         /// <para>
-        /// A successfully processed record includes a <b>RecordId</b> value, which is unique
-        /// for the record. An unsuccessfully processed record includes <b>ErrorCode</b> and <b>ErrorMessage</b>
-        /// values. <b>ErrorCode</b> reflects the type of error, and is one of the following values:
-        /// <code>ServiceUnavailableException</code> or <code>InternalFailure</code>. <b>ErrorMessage</b>
-        /// provides more detailed information about the error.
+        /// A successfully processed record includes a <code>RecordId</code> value, which is unique
+        /// for the record. An unsuccessfully processed record includes <code>ErrorCode</code>
+        /// and <code>ErrorMessage</code> values. <code>ErrorCode</code> reflects the type of
+        /// error, and is one of the following values: <code>ServiceUnavailableException</code>
+        /// or <code>InternalFailure</code>. <code>ErrorMessage</code> provides more detailed
+        /// information about the error.
         /// </para>
         ///  
         /// <para>
         /// If there is an internal server error or a timeout, the write might have completed
-        /// or it might have failed. If <b>FailedPutCount</b> is greater than 0, retry the request,
-        /// resending only those records that might have failed processing. This minimizes the
-        /// possible duplicate records and also reduces the total bytes sent (and corresponding
+        /// or it might have failed. If <code>FailedPutCount</code> is greater than 0, retry the
+        /// request, resending only those records that might have failed processing. This minimizes
+        /// the possible duplicate records and also reduces the total bytes sent (and corresponding
         /// charges). We recommend that you handle any duplicates at the destination.
         /// </para>
         ///  
         /// <para>
-        /// If <a>PutRecordBatch</a> throws <b>ServiceUnavailableException</b>, back off and retry.
-        /// If the exception persists, it is possible that the throughput limits have been exceeded
-        /// for the delivery stream.
+        /// If <a>PutRecordBatch</a> throws <code>ServiceUnavailableException</code>, back off
+        /// and retry. If the exception persists, it is possible that the throughput limits have
+        /// been exceeded for the delivery stream.
         /// </para>
         ///  
         /// <para>
@@ -1306,11 +1320,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/PutRecordBatch">REST API Reference for PutRecordBatch Operation</seealso>
         public virtual Task<PutRecordBatchResponse> PutRecordBatchAsync(PutRecordBatchRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = PutRecordBatchRequestMarshaller.Instance;
-            var unmarshaller = PutRecordBatchResponseUnmarshaller.Instance;
-
-            return InvokeAsync<PutRecordBatchRequest,PutRecordBatchResponse>(request, marshaller, 
-                unmarshaller, cancellationToken);
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutRecordBatchRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutRecordBatchResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<PutRecordBatchResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1319,18 +1333,22 @@ namespace Amazon.KinesisFirehose
 
 
         /// <summary>
-        /// Enables server-side encryption (SSE) for the delivery stream. This operation is asynchronous.
-        /// It returns immediately. When you invoke it, Kinesis Firehose first sets the status
-        /// of the stream to <code>ENABLING</code> then to <code>ENABLED</code>. You can continue
-        /// to read and write data to your stream while its status is <code>ENABLING</code> but
-        /// they won't get encrypted. It can take up to 5 seconds after the encryption status
-        /// changes to <code>ENABLED</code> before all records written to the delivery stream
-        /// are encrypted.
+        /// Enables server-side encryption (SSE) for the delivery stream. 
         /// 
         ///  
         /// <para>
+        /// This operation is asynchronous. It returns immediately. When you invoke it, Kinesis
+        /// Data Firehose first sets the status of the stream to <code>ENABLING</code>, and then
+        /// to <code>ENABLED</code>. You can continue to read and write data to your stream while
+        /// its status is <code>ENABLING</code>, but the data is not encrypted. It can take up
+        /// to 5 seconds after the encryption status changes to <code>ENABLED</code> before all
+        /// records written to the delivery stream are encrypted. To find out whether a record
+        /// or a batch of records was encrypted, check the response elements <a>PutRecordOutput$Encrypted</a>
+        /// and <a>PutRecordBatchOutput$Encrypted</a>, respectively.
+        /// </para>
+        ///  
+        /// <para>
         /// To check the encryption state of a delivery stream, use <a>DescribeDeliveryStream</a>.
-        /// 
         /// </para>
         ///  
         /// <para>
@@ -1342,8 +1360,8 @@ namespace Amazon.KinesisFirehose
         /// The <code>StartDeliveryStreamEncryption</code> and <code>StopDeliveryStreamEncryption</code>
         /// operations have a combined limit of 25 calls per delivery stream per 24 hours. For
         /// example, you reach the limit if you call <code>StartDeliveryStreamEncryption</code>
-        /// thirteen times and <code>StopDeliveryStreamEncryption</code> twelve times for the
-        /// same stream in a 24-hour period.
+        /// 13 times and <code>StopDeliveryStreamEncryption</code> 12 times for the same delivery
+        /// stream in a 24-hour period.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartDeliveryStreamEncryption service method.</param>
@@ -1364,10 +1382,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/StartDeliveryStreamEncryption">REST API Reference for StartDeliveryStreamEncryption Operation</seealso>
         public virtual StartDeliveryStreamEncryptionResponse StartDeliveryStreamEncryption(StartDeliveryStreamEncryptionRequest request)
         {
-            var marshaller = StartDeliveryStreamEncryptionRequestMarshaller.Instance;
-            var unmarshaller = StartDeliveryStreamEncryptionResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartDeliveryStreamEncryptionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartDeliveryStreamEncryptionResponseUnmarshaller.Instance;
 
-            return Invoke<StartDeliveryStreamEncryptionRequest,StartDeliveryStreamEncryptionResponse>(request, marshaller, unmarshaller);
+            return Invoke<StartDeliveryStreamEncryptionResponse>(request, options);
         }
 
         /// <summary>
@@ -1382,11 +1401,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/StartDeliveryStreamEncryption">REST API Reference for StartDeliveryStreamEncryption Operation</seealso>
         public virtual Task<StartDeliveryStreamEncryptionResponse> StartDeliveryStreamEncryptionAsync(StartDeliveryStreamEncryptionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = StartDeliveryStreamEncryptionRequestMarshaller.Instance;
-            var unmarshaller = StartDeliveryStreamEncryptionResponseUnmarshaller.Instance;
-
-            return InvokeAsync<StartDeliveryStreamEncryptionRequest,StartDeliveryStreamEncryptionResponse>(request, marshaller, 
-                unmarshaller, cancellationToken);
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartDeliveryStreamEncryptionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartDeliveryStreamEncryptionResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<StartDeliveryStreamEncryptionResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1395,13 +1414,19 @@ namespace Amazon.KinesisFirehose
 
 
         /// <summary>
-        /// Disables server-side encryption (SSE) for the delivery stream. This operation is asynchronous.
-        /// It returns immediately. When you invoke it, Kinesis Firehose first sets the status
-        /// of the stream to <code>DISABLING</code> then to <code>DISABLED</code>. You can continue
-        /// to read and write data to your stream while its status is <code>DISABLING</code>.
-        /// It can take up to 5 seconds after the encryption status changes to <code>DISABLED</code>
-        /// before all records written to the delivery stream are no longer subject to encryption.
+        /// Disables server-side encryption (SSE) for the delivery stream. 
         /// 
+        ///  
+        /// <para>
+        /// This operation is asynchronous. It returns immediately. When you invoke it, Kinesis
+        /// Data Firehose first sets the status of the stream to <code>DISABLING</code>, and then
+        /// to <code>DISABLED</code>. You can continue to read and write data to your stream while
+        /// its status is <code>DISABLING</code>. It can take up to 5 seconds after the encryption
+        /// status changes to <code>DISABLED</code> before all records written to the delivery
+        /// stream are no longer subject to encryption. To find out whether a record or a batch
+        /// of records was encrypted, check the response elements <a>PutRecordOutput$Encrypted</a>
+        /// and <a>PutRecordBatchOutput$Encrypted</a>, respectively.
+        /// </para>
         ///  
         /// <para>
         /// To check the encryption state of a delivery stream, use <a>DescribeDeliveryStream</a>.
@@ -1412,8 +1437,8 @@ namespace Amazon.KinesisFirehose
         /// The <code>StartDeliveryStreamEncryption</code> and <code>StopDeliveryStreamEncryption</code>
         /// operations have a combined limit of 25 calls per delivery stream per 24 hours. For
         /// example, you reach the limit if you call <code>StartDeliveryStreamEncryption</code>
-        /// thirteen times and <code>StopDeliveryStreamEncryption</code> twelve times for the
-        /// same stream in a 24-hour period.
+        /// 13 times and <code>StopDeliveryStreamEncryption</code> 12 times for the same delivery
+        /// stream in a 24-hour period.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StopDeliveryStreamEncryption service method.</param>
@@ -1434,10 +1459,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/StopDeliveryStreamEncryption">REST API Reference for StopDeliveryStreamEncryption Operation</seealso>
         public virtual StopDeliveryStreamEncryptionResponse StopDeliveryStreamEncryption(StopDeliveryStreamEncryptionRequest request)
         {
-            var marshaller = StopDeliveryStreamEncryptionRequestMarshaller.Instance;
-            var unmarshaller = StopDeliveryStreamEncryptionResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StopDeliveryStreamEncryptionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StopDeliveryStreamEncryptionResponseUnmarshaller.Instance;
 
-            return Invoke<StopDeliveryStreamEncryptionRequest,StopDeliveryStreamEncryptionResponse>(request, marshaller, unmarshaller);
+            return Invoke<StopDeliveryStreamEncryptionResponse>(request, options);
         }
 
         /// <summary>
@@ -1452,11 +1478,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/StopDeliveryStreamEncryption">REST API Reference for StopDeliveryStreamEncryption Operation</seealso>
         public virtual Task<StopDeliveryStreamEncryptionResponse> StopDeliveryStreamEncryptionAsync(StopDeliveryStreamEncryptionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = StopDeliveryStreamEncryptionRequestMarshaller.Instance;
-            var unmarshaller = StopDeliveryStreamEncryptionResponseUnmarshaller.Instance;
-
-            return InvokeAsync<StopDeliveryStreamEncryptionRequest,StopDeliveryStreamEncryptionResponse>(request, marshaller, 
-                unmarshaller, cancellationToken);
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StopDeliveryStreamEncryptionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StopDeliveryStreamEncryptionResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<StopDeliveryStreamEncryptionResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1466,21 +1492,21 @@ namespace Amazon.KinesisFirehose
 
         /// <summary>
         /// Adds or updates tags for the specified delivery stream. A tag is a key-value pair
-        /// (the value is optional) that you can define and assign to AWS resources. If you specify
-        /// a tag that already exists, the tag value is replaced with the value that you specify
-        /// in the request. Tags are metadata. For example, you can add friendly names and descriptions
-        /// or other types of information that can help you distinguish the delivery stream. For
-        /// more information about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
+        /// that you can define and assign to AWS resources. If you specify a tag that already
+        /// exists, the tag value is replaced with the value that you specify in the request.
+        /// Tags are metadata. For example, you can add friendly names and descriptions or other
+        /// types of information that can help you distinguish the delivery stream. For more information
+        /// about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
         /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
         /// 
         /// 
         ///  
         /// <para>
-        ///  Each delivery stream can have up to 50 tags. 
+        /// Each delivery stream can have up to 50 tags. 
         /// </para>
         ///  
         /// <para>
-        ///  This operation has a limit of five transactions per second per account. 
+        /// This operation has a limit of five transactions per second per account. 
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagDeliveryStream service method.</param>
@@ -1501,10 +1527,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/TagDeliveryStream">REST API Reference for TagDeliveryStream Operation</seealso>
         public virtual TagDeliveryStreamResponse TagDeliveryStream(TagDeliveryStreamRequest request)
         {
-            var marshaller = TagDeliveryStreamRequestMarshaller.Instance;
-            var unmarshaller = TagDeliveryStreamResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = TagDeliveryStreamRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = TagDeliveryStreamResponseUnmarshaller.Instance;
 
-            return Invoke<TagDeliveryStreamRequest,TagDeliveryStreamResponse>(request, marshaller, unmarshaller);
+            return Invoke<TagDeliveryStreamResponse>(request, options);
         }
 
         /// <summary>
@@ -1519,11 +1546,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/TagDeliveryStream">REST API Reference for TagDeliveryStream Operation</seealso>
         public virtual Task<TagDeliveryStreamResponse> TagDeliveryStreamAsync(TagDeliveryStreamRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = TagDeliveryStreamRequestMarshaller.Instance;
-            var unmarshaller = TagDeliveryStreamResponseUnmarshaller.Instance;
-
-            return InvokeAsync<TagDeliveryStreamRequest,TagDeliveryStreamResponse>(request, marshaller, 
-                unmarshaller, cancellationToken);
+            var options = new InvokeOptions();
+            options.RequestMarshaller = TagDeliveryStreamRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = TagDeliveryStreamResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<TagDeliveryStreamResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1562,10 +1589,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/UntagDeliveryStream">REST API Reference for UntagDeliveryStream Operation</seealso>
         public virtual UntagDeliveryStreamResponse UntagDeliveryStream(UntagDeliveryStreamRequest request)
         {
-            var marshaller = UntagDeliveryStreamRequestMarshaller.Instance;
-            var unmarshaller = UntagDeliveryStreamResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UntagDeliveryStreamRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UntagDeliveryStreamResponseUnmarshaller.Instance;
 
-            return Invoke<UntagDeliveryStreamRequest,UntagDeliveryStreamResponse>(request, marshaller, unmarshaller);
+            return Invoke<UntagDeliveryStreamResponse>(request, options);
         }
 
         /// <summary>
@@ -1580,11 +1608,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/UntagDeliveryStream">REST API Reference for UntagDeliveryStream Operation</seealso>
         public virtual Task<UntagDeliveryStreamResponse> UntagDeliveryStreamAsync(UntagDeliveryStreamRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = UntagDeliveryStreamRequestMarshaller.Instance;
-            var unmarshaller = UntagDeliveryStreamResponseUnmarshaller.Instance;
-
-            return InvokeAsync<UntagDeliveryStreamRequest,UntagDeliveryStreamResponse>(request, marshaller, 
-                unmarshaller, cancellationToken);
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UntagDeliveryStreamRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UntagDeliveryStreamResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<UntagDeliveryStreamResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1626,19 +1654,20 @@ namespace Amazon.KinesisFirehose
         /// </para>
         ///  
         /// <para>
-        /// Kinesis Data Firehose uses <b>CurrentDeliveryStreamVersionId</b> to avoid race conditions
-        /// and conflicting merges. This is a required field, and the service updates the configuration
-        /// only if the existing configuration has a version ID that matches. After the update
-        /// is applied successfully, the version ID is updated, and can be retrieved using <a>DescribeDeliveryStream</a>.
-        /// Use the new version ID to set <b>CurrentDeliveryStreamVersionId</b> in the next call.
+        /// Kinesis Data Firehose uses <code>CurrentDeliveryStreamVersionId</code> to avoid race
+        /// conditions and conflicting merges. This is a required field, and the service updates
+        /// the configuration only if the existing configuration has a version ID that matches.
+        /// After the update is applied successfully, the version ID is updated, and can be retrieved
+        /// using <a>DescribeDeliveryStream</a>. Use the new version ID to set <code>CurrentDeliveryStreamVersionId</code>
+        /// in the next call.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateDestination service method.</param>
         /// 
         /// <returns>The response from the UpdateDestination service method, as returned by KinesisFirehose.</returns>
         /// <exception cref="Amazon.KinesisFirehose.Model.ConcurrentModificationException">
-        /// Another modification has already happened. Fetch <b>VersionId</b> again and use it
-        /// to update the destination.
+        /// Another modification has already happened. Fetch <code>VersionId</code> again and
+        /// use it to update the destination.
         /// </exception>
         /// <exception cref="Amazon.KinesisFirehose.Model.InvalidArgumentException">
         /// The specified input parameter has a value that is not valid.
@@ -1652,10 +1681,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/UpdateDestination">REST API Reference for UpdateDestination Operation</seealso>
         public virtual UpdateDestinationResponse UpdateDestination(UpdateDestinationRequest request)
         {
-            var marshaller = UpdateDestinationRequestMarshaller.Instance;
-            var unmarshaller = UpdateDestinationResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateDestinationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateDestinationResponseUnmarshaller.Instance;
 
-            return Invoke<UpdateDestinationRequest,UpdateDestinationResponse>(request, marshaller, unmarshaller);
+            return Invoke<UpdateDestinationResponse>(request, options);
         }
 
         /// <summary>
@@ -1670,11 +1700,11 @@ namespace Amazon.KinesisFirehose
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/firehose-2015-08-04/UpdateDestination">REST API Reference for UpdateDestination Operation</seealso>
         public virtual Task<UpdateDestinationResponse> UpdateDestinationAsync(UpdateDestinationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = UpdateDestinationRequestMarshaller.Instance;
-            var unmarshaller = UpdateDestinationResponseUnmarshaller.Instance;
-
-            return InvokeAsync<UpdateDestinationRequest,UpdateDestinationResponse>(request, marshaller, 
-                unmarshaller, cancellationToken);
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateDestinationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateDestinationResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<UpdateDestinationResponse>(request, options, cancellationToken);
         }
 
         #endregion

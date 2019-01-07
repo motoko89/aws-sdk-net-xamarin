@@ -1,3 +1,59 @@
+### 3.3.436.0 (2019-01-04 23:00 UTC)
+* DeviceFarm (3.3.12.0)
+	* "This release provides support for running Appium Node.js and Appium Ruby tests on AWS Device Farm.
+* ECS (3.3.21.8)
+	* Documentation updates for Amazon ECS tagging feature.
+
+### 3.3.435.0 (2019-01-03 22:55 UTC)
+* IoTAnalytics (3.3.7.0)
+	* ListDatasetContents now has a filter to limit results by date scheduled.
+* Core 3.3.30.3
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.434.1 (2019-01-03 03:19 UTC)
+* OpsWorksCM (3.3.6.25)
+	* Documentation updates for opsworkscm
+
+### 3.3.434.0 (2018-12-21 22:22 UTC)
+* ACMPCA (3.3.2.0)
+	* This release marks the introduction of waiters in ACM PCA, which allow you to control the progression of your code based on the presence or state of certain resources. Waiters can be implemented in the DescribeCertificateAuthorityAuditReport, GetCertificate, and GetCertificateAuthorityCsr API operations.
+* DynamoDBv2 (3.3.16.0)
+	* Added provisionedThroughPut exception on the request level for transaction APIs.
+* PinpointSMSVoice (3.3.1.0)
+	* Configuration sets can now use Amazon SNS as an event destination.
+* StepFunctions (3.3.4.0)
+	* This release adds support for cost allocation tagging. You can now create, delete, and list tags for AWS Step Functions activity and state machine resources. For more information about tagging, see AWS Tagging Strategies.
+* Core 3.3.30.2
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.433.1 (2018-12-21 09:12 UTC)
+* Core 3.3.30.1
+	* Fix Regex for matching profile names in the ~/.aws/config file. Fixes bug where partial profile name would match a profile in the ~/.aws/config file.
+
+
+### 3.3.433.0 (2018-12-21 05:51 UTC)
+* Core 3.3.30.0
+	* Added support for endpoint discovery.
+	* All services packages updated to require new Core
+
+### 3.3.432.0 (2018-12-21 01:24 UTC)
+* CognitoIdentityProvider (3.3.12.0)
+	* Amazon Cognito now has API support for updating the Secure Sockets Layer (SSL) certificate for the custom domain for your user pool.
+* Comprehend (3.3.6.0)
+	* This SDK release adds functionality to stop training Custom Document Classifier or Custom Entity Recognizer in Amazon Comprehend.
+* KinesisFirehose (3.3.8.0)
+	* Support for specifying customized s3 keys and supplying a separate prefix for failed-records
+* MediaLive (3.3.14.0)
+	* This release provides support for ID3 tags and video quality setting for subgop_length.
+* TranscribeService (3.3.7.0)
+	* With this release, Amazon Transcribe now supports transcriptions from audio sources in Italian (it-IT).
+
 ### 3.3.431.0 (2018-12-19 22:44 UTC)
 * EC2 (3.3.78.0)
 	* This release adds support for specifying partition as a strategy for EC2 Placement Groups. This new strategy allows one to launch instances into partitions that do not share certain underlying hardware between partitions, to assist with building and deploying highly available replicated applications. 

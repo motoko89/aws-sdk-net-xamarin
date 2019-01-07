@@ -20,6 +20,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Net;
 
 using Amazon.TranscribeService.Model;
 using Amazon.TranscribeService.Model.Internal.MarshallTransformations;
@@ -234,14 +235,12 @@ namespace Amazon.TranscribeService
 
         #endregion
 
-        
+
         #region  CreateVocabulary
 
         /// <summary>
         /// Creates a new custom vocabulary that you can use to change the way Amazon Transcribe
-        /// handles transcription of an audio file. Note that vocabularies for en-AU, en-UK, and
-        /// fr-CA languages that are in preview are not available. In the console, the vocabulary
-        /// section will be greyed-out and SDK will return error message.
+        /// handles transcription of an audio file.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVocabulary service method.</param>
         /// 
@@ -272,10 +271,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/CreateVocabulary">REST API Reference for CreateVocabulary Operation</seealso>
         public virtual CreateVocabularyResponse CreateVocabulary(CreateVocabularyRequest request)
         {
-            var marshaller = CreateVocabularyRequestMarshaller.Instance;
-            var unmarshaller = CreateVocabularyResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateVocabularyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateVocabularyResponseUnmarshaller.Instance;
 
-            return Invoke<CreateVocabularyRequest,CreateVocabularyResponse>(request, marshaller, unmarshaller);
+            return Invoke<CreateVocabularyResponse>(request, options);
         }
 
         /// <summary>
@@ -292,11 +292,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/CreateVocabulary">REST API Reference for CreateVocabulary Operation</seealso>
         public virtual IAsyncResult BeginCreateVocabulary(CreateVocabularyRequest request, AsyncCallback callback, object state)
         {
-            var marshaller = CreateVocabularyRequestMarshaller.Instance;
-            var unmarshaller = CreateVocabularyResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateVocabularyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateVocabularyResponseUnmarshaller.Instance;
 
-            return BeginInvoke<CreateVocabularyRequest>(request, marshaller, unmarshaller,
-                callback, state);
+            return BeginInvoke(request, options, callback, state);
         }
 
         /// <summary>
@@ -338,10 +338,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/DeleteTranscriptionJob">REST API Reference for DeleteTranscriptionJob Operation</seealso>
         public virtual DeleteTranscriptionJobResponse DeleteTranscriptionJob(DeleteTranscriptionJobRequest request)
         {
-            var marshaller = DeleteTranscriptionJobRequestMarshaller.Instance;
-            var unmarshaller = DeleteTranscriptionJobResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteTranscriptionJobRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteTranscriptionJobResponseUnmarshaller.Instance;
 
-            return Invoke<DeleteTranscriptionJobRequest,DeleteTranscriptionJobResponse>(request, marshaller, unmarshaller);
+            return Invoke<DeleteTranscriptionJobResponse>(request, options);
         }
 
         /// <summary>
@@ -358,11 +359,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/DeleteTranscriptionJob">REST API Reference for DeleteTranscriptionJob Operation</seealso>
         public virtual IAsyncResult BeginDeleteTranscriptionJob(DeleteTranscriptionJobRequest request, AsyncCallback callback, object state)
         {
-            var marshaller = DeleteTranscriptionJobRequestMarshaller.Instance;
-            var unmarshaller = DeleteTranscriptionJobResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteTranscriptionJobRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteTranscriptionJobResponseUnmarshaller.Instance;
 
-            return BeginInvoke<DeleteTranscriptionJobRequest>(request, marshaller, unmarshaller,
-                callback, state);
+            return BeginInvoke(request, options, callback, state);
         }
 
         /// <summary>
@@ -406,10 +407,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/DeleteVocabulary">REST API Reference for DeleteVocabulary Operation</seealso>
         public virtual DeleteVocabularyResponse DeleteVocabulary(DeleteVocabularyRequest request)
         {
-            var marshaller = DeleteVocabularyRequestMarshaller.Instance;
-            var unmarshaller = DeleteVocabularyResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteVocabularyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteVocabularyResponseUnmarshaller.Instance;
 
-            return Invoke<DeleteVocabularyRequest,DeleteVocabularyResponse>(request, marshaller, unmarshaller);
+            return Invoke<DeleteVocabularyResponse>(request, options);
         }
 
         /// <summary>
@@ -426,11 +428,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/DeleteVocabulary">REST API Reference for DeleteVocabulary Operation</seealso>
         public virtual IAsyncResult BeginDeleteVocabulary(DeleteVocabularyRequest request, AsyncCallback callback, object state)
         {
-            var marshaller = DeleteVocabularyRequestMarshaller.Instance;
-            var unmarshaller = DeleteVocabularyResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteVocabularyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteVocabularyResponseUnmarshaller.Instance;
 
-            return BeginInvoke<DeleteVocabularyRequest>(request, marshaller, unmarshaller,
-                callback, state);
+            return BeginInvoke(request, options, callback, state);
         }
 
         /// <summary>
@@ -477,10 +479,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/GetTranscriptionJob">REST API Reference for GetTranscriptionJob Operation</seealso>
         public virtual GetTranscriptionJobResponse GetTranscriptionJob(GetTranscriptionJobRequest request)
         {
-            var marshaller = GetTranscriptionJobRequestMarshaller.Instance;
-            var unmarshaller = GetTranscriptionJobResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetTranscriptionJobRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetTranscriptionJobResponseUnmarshaller.Instance;
 
-            return Invoke<GetTranscriptionJobRequest,GetTranscriptionJobResponse>(request, marshaller, unmarshaller);
+            return Invoke<GetTranscriptionJobResponse>(request, options);
         }
 
         /// <summary>
@@ -497,11 +500,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/GetTranscriptionJob">REST API Reference for GetTranscriptionJob Operation</seealso>
         public virtual IAsyncResult BeginGetTranscriptionJob(GetTranscriptionJobRequest request, AsyncCallback callback, object state)
         {
-            var marshaller = GetTranscriptionJobRequestMarshaller.Instance;
-            var unmarshaller = GetTranscriptionJobResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetTranscriptionJobRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetTranscriptionJobResponseUnmarshaller.Instance;
 
-            return BeginInvoke<GetTranscriptionJobRequest>(request, marshaller, unmarshaller,
-                callback, state);
+            return BeginInvoke(request, options, callback, state);
         }
 
         /// <summary>
@@ -522,9 +525,7 @@ namespace Amazon.TranscribeService
         #region  GetVocabulary
 
         /// <summary>
-        /// Gets information about a vocabulary. Note that vocabularies for en-AU, en-UK, and
-        /// fr-CA languages that are in preview are not available. In the console, the vocabulary
-        /// section will be greyed-out and SDK will return error message.
+        /// Gets information about a vocabulary.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVocabulary service method.</param>
         /// 
@@ -547,10 +548,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/GetVocabulary">REST API Reference for GetVocabulary Operation</seealso>
         public virtual GetVocabularyResponse GetVocabulary(GetVocabularyRequest request)
         {
-            var marshaller = GetVocabularyRequestMarshaller.Instance;
-            var unmarshaller = GetVocabularyResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetVocabularyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetVocabularyResponseUnmarshaller.Instance;
 
-            return Invoke<GetVocabularyRequest,GetVocabularyResponse>(request, marshaller, unmarshaller);
+            return Invoke<GetVocabularyResponse>(request, options);
         }
 
         /// <summary>
@@ -567,11 +569,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/GetVocabulary">REST API Reference for GetVocabulary Operation</seealso>
         public virtual IAsyncResult BeginGetVocabulary(GetVocabularyRequest request, AsyncCallback callback, object state)
         {
-            var marshaller = GetVocabularyRequestMarshaller.Instance;
-            var unmarshaller = GetVocabularyResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetVocabularyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetVocabularyResponseUnmarshaller.Instance;
 
-            return BeginInvoke<GetVocabularyRequest>(request, marshaller, unmarshaller,
-                callback, state);
+            return BeginInvoke(request, options, callback, state);
         }
 
         /// <summary>
@@ -612,10 +614,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/ListTranscriptionJobs">REST API Reference for ListTranscriptionJobs Operation</seealso>
         public virtual ListTranscriptionJobsResponse ListTranscriptionJobs(ListTranscriptionJobsRequest request)
         {
-            var marshaller = ListTranscriptionJobsRequestMarshaller.Instance;
-            var unmarshaller = ListTranscriptionJobsResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTranscriptionJobsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTranscriptionJobsResponseUnmarshaller.Instance;
 
-            return Invoke<ListTranscriptionJobsRequest,ListTranscriptionJobsResponse>(request, marshaller, unmarshaller);
+            return Invoke<ListTranscriptionJobsResponse>(request, options);
         }
 
         /// <summary>
@@ -632,11 +635,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/ListTranscriptionJobs">REST API Reference for ListTranscriptionJobs Operation</seealso>
         public virtual IAsyncResult BeginListTranscriptionJobs(ListTranscriptionJobsRequest request, AsyncCallback callback, object state)
         {
-            var marshaller = ListTranscriptionJobsRequestMarshaller.Instance;
-            var unmarshaller = ListTranscriptionJobsResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTranscriptionJobsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTranscriptionJobsResponseUnmarshaller.Instance;
 
-            return BeginInvoke<ListTranscriptionJobsRequest>(request, marshaller, unmarshaller,
-                callback, state);
+            return BeginInvoke(request, options, callback, state);
         }
 
         /// <summary>
@@ -678,10 +681,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/ListVocabularies">REST API Reference for ListVocabularies Operation</seealso>
         public virtual ListVocabulariesResponse ListVocabularies(ListVocabulariesRequest request)
         {
-            var marshaller = ListVocabulariesRequestMarshaller.Instance;
-            var unmarshaller = ListVocabulariesResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListVocabulariesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListVocabulariesResponseUnmarshaller.Instance;
 
-            return Invoke<ListVocabulariesRequest,ListVocabulariesResponse>(request, marshaller, unmarshaller);
+            return Invoke<ListVocabulariesResponse>(request, options);
         }
 
         /// <summary>
@@ -698,11 +702,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/ListVocabularies">REST API Reference for ListVocabularies Operation</seealso>
         public virtual IAsyncResult BeginListVocabularies(ListVocabulariesRequest request, AsyncCallback callback, object state)
         {
-            var marshaller = ListVocabulariesRequestMarshaller.Instance;
-            var unmarshaller = ListVocabulariesResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListVocabulariesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListVocabulariesResponseUnmarshaller.Instance;
 
-            return BeginInvoke<ListVocabulariesRequest>(request, marshaller, unmarshaller,
-                callback, state);
+            return BeginInvoke(request, options, callback, state);
         }
 
         /// <summary>
@@ -723,8 +727,7 @@ namespace Amazon.TranscribeService
         #region  StartTranscriptionJob
 
         /// <summary>
-        /// Starts an asynchronous job to transcribe speech to text. Note that en-AU, en-UK, and
-        /// fr-CA languages are in preview and are only available to whitelisted customers.
+        /// Starts an asynchronous job to transcribe speech to text.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartTranscriptionJob service method.</param>
         /// 
@@ -755,10 +758,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/StartTranscriptionJob">REST API Reference for StartTranscriptionJob Operation</seealso>
         public virtual StartTranscriptionJobResponse StartTranscriptionJob(StartTranscriptionJobRequest request)
         {
-            var marshaller = StartTranscriptionJobRequestMarshaller.Instance;
-            var unmarshaller = StartTranscriptionJobResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartTranscriptionJobRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartTranscriptionJobResponseUnmarshaller.Instance;
 
-            return Invoke<StartTranscriptionJobRequest,StartTranscriptionJobResponse>(request, marshaller, unmarshaller);
+            return Invoke<StartTranscriptionJobResponse>(request, options);
         }
 
         /// <summary>
@@ -775,11 +779,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/StartTranscriptionJob">REST API Reference for StartTranscriptionJob Operation</seealso>
         public virtual IAsyncResult BeginStartTranscriptionJob(StartTranscriptionJobRequest request, AsyncCallback callback, object state)
         {
-            var marshaller = StartTranscriptionJobRequestMarshaller.Instance;
-            var unmarshaller = StartTranscriptionJobResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartTranscriptionJobRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartTranscriptionJobResponseUnmarshaller.Instance;
 
-            return BeginInvoke<StartTranscriptionJobRequest>(request, marshaller, unmarshaller,
-                callback, state);
+            return BeginInvoke(request, options, callback, state);
         }
 
         /// <summary>
@@ -802,9 +806,7 @@ namespace Amazon.TranscribeService
         /// <summary>
         /// Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code>
         /// operation overwrites all of the existing information with the values that you provide
-        /// in the request. Note that vocabularies for en-AU, en-UK, and fr-CA languages that
-        /// are in preview are not available. In the console, the vocabulary section will be greyed-out
-        /// and SDK will return error message.
+        /// in the request.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateVocabulary service method.</param>
         /// 
@@ -838,10 +840,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/UpdateVocabulary">REST API Reference for UpdateVocabulary Operation</seealso>
         public virtual UpdateVocabularyResponse UpdateVocabulary(UpdateVocabularyRequest request)
         {
-            var marshaller = UpdateVocabularyRequestMarshaller.Instance;
-            var unmarshaller = UpdateVocabularyResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateVocabularyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateVocabularyResponseUnmarshaller.Instance;
 
-            return Invoke<UpdateVocabularyRequest,UpdateVocabularyResponse>(request, marshaller, unmarshaller);
+            return Invoke<UpdateVocabularyResponse>(request, options);
         }
 
         /// <summary>
@@ -858,11 +861,11 @@ namespace Amazon.TranscribeService
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/UpdateVocabulary">REST API Reference for UpdateVocabulary Operation</seealso>
         public virtual IAsyncResult BeginUpdateVocabulary(UpdateVocabularyRequest request, AsyncCallback callback, object state)
         {
-            var marshaller = UpdateVocabularyRequestMarshaller.Instance;
-            var unmarshaller = UpdateVocabularyResponseUnmarshaller.Instance;
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateVocabularyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateVocabularyResponseUnmarshaller.Instance;
 
-            return BeginInvoke<UpdateVocabularyRequest>(request, marshaller, unmarshaller,
-                callback, state);
+            return BeginInvoke(request, options, callback, state);
         }
 
         /// <summary>
