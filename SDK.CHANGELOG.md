@@ -1,3 +1,33 @@
+### 3.3.438.0 (2019-01-09 22:23 UTC)
+* DocDB (3.3.0.0)
+	* Amazon DocumentDB (with MongoDB compatibility) is a fast, reliable, and fully-managed database service. Amazon DocumentDB makes it easy for developers to set up, run, and scale MongoDB-compatible databases in the cloud.
+* Redshift (3.3.12.0)
+	* DescribeSnapshotSchedules returns a list of snapshot schedules. With this release, this API will have a list of clusters and number of clusters associated with the schedule.
+* Core 3.3.31.1
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.437.0 (2019-01-08 02:56 UTC)
+* S3 (3.3.31.8)
+	* Added missing header for S3 CopyPart request.
+Updated event notification object to include the sequencer and glacier event data.
+* Core 3.3.31.0
+	* Code for future SDK instrumentation and telemetry.
+Add support for us-gov-east-1 region.
+Fix for endpoint discovery handler async exception handling logic that could cause a .NET 3.5 async call to hang.
+	* All services packages updated to require new Core
+
+### 3.3.436.1 (2019-01-07 22:00 UTC)
+* AppMesh (3.3.0.8)
+	* AWS App Mesh now supports active health checks. You can specify TCP or HTTP health checks with custom thresholds and intervals on your VirtualNode definitions. See the AWS App Mesh HealthCheckPolicy documentation for more information.
+* Core 3.3.30.4
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
 ### 3.3.436.0 (2019-01-04 23:00 UTC)
 * DeviceFarm (3.3.12.0)
 	* "This release provides support for running Appium Node.js and Appium Ruby tests on AWS Device Farm.
