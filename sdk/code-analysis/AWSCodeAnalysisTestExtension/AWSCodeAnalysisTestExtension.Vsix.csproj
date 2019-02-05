@@ -124,6 +124,10 @@
       <Project>{CF64C0A4-25F7-42E9-9B3D-632CB520B666}</Project>
       <Name>AWSSDK.AWSSupport.CodeAnalysis</Name>
     </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/Backup/AWSSDK.Backup.CodeAnalysis.csproj">
+      <Project>{FBBC4619-69F8-4F7B-9B68-ED6FC71572A9}</Project>
+      <Name>AWSSDK.Backup.CodeAnalysis</Name>
+    </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/Batch/AWSSDK.Batch.CodeAnalysis.csproj">
       <Project>{766DB0E1-0CBD-4AED-961A-A895900EC931}</Project>
       <Name>AWSSDK.Batch.CodeAnalysis</Name>
@@ -715,6 +719,10 @@
     <ProjectReference Include="../ServiceAnalysis/WorkDocs/AWSSDK.WorkDocs.CodeAnalysis.csproj">
       <Project>{386E816F-4EA7-413F-BA4B-4D02226A2856}</Project>
       <Name>AWSSDK.WorkDocs.CodeAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/WorkLink/AWSSDK.WorkLink.CodeAnalysis.csproj">
+      <Project>{7B81A6D8-C532-4A91-8EA5-D0F19CCF0BFD}</Project>
+      <Name>AWSSDK.WorkLink.CodeAnalysis</Name>
     </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/WorkMail/AWSSDK.WorkMail.CodeAnalysis.csproj">
       <Project>{6E634EA7-4131-4B58-B2C6-E52669D9AE2A}</Project>

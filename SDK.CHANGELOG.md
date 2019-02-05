@@ -1,3 +1,145 @@
+### 3.3.449.0 (2019-02-04 22:36 UTC)
+* ApplicationAutoScaling (3.3.10.45)
+	* Documentation updates for application-autoscaling
+* CodeCommit (3.3.8.0)
+	* This release supports a more graceful handling of the error case when a repository is not associated with a pull request ID in a merge request in AWS CodeCommit.
+* ECS (3.3.22.0)
+	* This release of Amazon Elastic Container Service (Amazon ECS) introduces support for GPU workloads by enabling you to create clusters with GPU-enabled container instances.
+* WorkSpaces (3.3.6.0)
+	* This release sets ClientProperties as a required parameter.
+
+### 3.3.448.1 (2019-02-04 17:02 UTC)
+* S3 (3.3.31.15)
+	* Update region constants.
+* SecurityToken (3.3.4.50)
+	* Fix to support documented role,saml-provider format.
+* SimpleNotificationService (3.3.3.18)
+	* Parse SNS subscription message correctly.
+* Core 3.3.31.7
+	* Fix clock skew caching when the ClientConfig endpoint is different from the request endpoint.
+Update region constants.
+	* All services packages updated to require new Core
+
+### 3.3.448.0 (2019-01-25 22:30 UTC)
+* CodeCommit (3.3.7.0)
+	* The PutFile API will now throw new exception FilePathConflictsWithSubmodulePathException when a submodule exists at the input file path; PutFile API will also throw FolderContentSizeLimitExceededException when the total size of any folder on the path exceeds the limit as a result of the operation.
+* DeviceFarm (3.3.13.0)
+	* Introduces a new rule in Device Pools - "Availability". Customers can now ensure they pick devices that are available (i.e., not being used by other customers).
+* MediaConnect (3.3.1.0)
+	* This release adds support for tagging, untagging, and listing tags for existing AWS Elemental MediaConnect resources.
+* MediaLive (3.3.15.0)
+	* This release adds support for Frame Capture output groups and for I-frame only manifests (playlists) in HLS output groups.
+* Core 3.3.31.6
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.447.0 (2019-01-24 23:03 UTC)
+* CloudWatchLogs (3.3.7.14)
+	* Documentation updates for CloudWatch Logs
+* CodeBuild (3.3.20.0)
+	* This release adds support for cross-account ECR images and private registry authentication. 
+* ECR (3.3.5.0)
+	* Amazon ECR updated the default endpoint URL to support AWS Private Link.
+* ElasticLoadBalancingV2 (3.3.13.0)
+	* Elastic Load Balancing now supports TLS termination on Network Load Balancers. With this launch, you can offload the decryption/encryption of TLS traffic from your application servers to the Network Load Balancer. This enables you to run your backend servers optimally and keep your workloads secure. Additionally, Network Load Balancers preserve the source IP of the clients to the back-end applications, while terminating TLS on the load balancer.  When TLS is enabled on an NLB, Access Logs can be enabled for the load balancer, and log entries will be emitted for all TLS connections.
+* PinpointSMSVoice (3.3.2.0)
+	* Added the ListConfigurationSets operation, which returns a list of the configuration sets that are associated with your account.
+* RDS (3.3.38.0)
+	* The Amazon RDS API allows you to add or remove Identity and Access Management (IAM) role associated with a specific feature name with an RDS database instance. This helps with capabilities such as invoking Lambda functions from within a trigger in the database, load data from Amazon S3 and so on
+* Core 3.3.31.5
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.446.0 (2019-01-23 23:45 UTC)
+* ACMPCA (3.3.3.0)
+	* Added TagOnCreate parameter to the CreateCertificateAuthority operation, updated the Tag regex pattern to align with AWS tagging APIs, and added RevokeCertificate limit.
+* ApiGatewayManagementApi (3.3.1.0)
+	* Fixes a typo in the 'max' constraint.
+* WorkLink (3.3.0.0)
+	* This is the initial SDK release for Amazon WorkLink. Amazon WorkLink is a fully managed, cloud-based service that enables secure, one-click access to internal websites and web apps from mobile phones. With Amazon WorkLink, employees can access internal websites as seamlessly as they access any other website. IT administrators can manage users, devices, and domains by enforcing their own security and access policies via the AWS Console or the AWS SDK.
+* Core 3.3.31.4
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.445.0 (2019-01-21 22:53 UTC)
+* ApplicationDiscoveryService (3.3.6.0)
+	* The Application Discovery Service's import APIs allow you to import information about your on-premises servers and applications into ADS so that you can track the status of your migrations through the Migration Hub console.
+* AppStream (3.3.20.0)
+	* This API update includes support for tagging Stack, Fleet, and ImageBuilder resources at creation time.
+* DatabaseMigrationService (3.3.13.0)
+	* Update for DMS TestConnectionSucceeds waiter
+* FMS (3.3.2.0)
+	* This release provides support for cleaning up web ACLs during Firewall Management policy deletion. You can now enable the DeleteAllPolicyResources flag and it will delete all system-generated web ACLs.
+* SimpleSystemsManagement (3.3.38.0)
+	* AWS Systems Manager State Manager now supports configuration management of all AWS resources through integration with Automation. 
+
+### 3.3.444.0 (2019-01-18 21:13 UTC)
+* EC2 (3.3.80.0)
+	* Adjust EC2's available instance types.
+* Glue (3.3.17.0)
+	* AllocatedCapacity field is being deprecated and replaced with MaxCapacity field
+
+### 3.3.443.1 (2019-01-18 01:29 UTC)
+* Signer (3.3.0.34)
+	* Updated to use new Core, version 3.3.31.3
+	* Updating package to use latest Core.
+
+### 3.3.443.0 (2019-01-17 23:11 UTC)
+* Lambda (3.3.19.12)
+	* Documentation updates for AWS Lambda
+* Lightsail (3.3.9.0)
+	* This release adds functionality to the CreateDiskSnapshot API that allows users to snapshot instance root volumes. It also adds various documentation updates.
+* Pinpoint (3.3.12.0)
+	* This release updates the PutEvents operation. AppPackageName, AppTitle, AppVersionCode, SdkName fields will now be accepted as a part of the event when submitting events.
+* Rekognition (3.3.14.0)
+	* GetLabelDetection now returns bounding box information for common objects and a hierarchical taxonomy of detected labels. The version of the model used for video label detection is also returned. DetectModerationLabels now returns the version of the model used for detecting unsafe content.
+* Core 3.3.31.3
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.442.0 (2019-01-16 18:53 UTC)
+* Backup (3.3.0.0)
+	* AWS Backup is a unified backup service designed to protect AWS services and their associated data. AWS Backup simplifies the creation, migration, restoration, and deletion of backups, while also providing reporting and auditing
+* CostExplorer (3.3.9.11)
+	* Removed Tags from the list of GroupBy dimensions available for GetReservationCoverage.
+* DynamoDBv2 (3.3.17.0)
+	* Amazon DynamoDB now integrates with AWS Backup, a centralized backup service that makes it easy for customers to configure and audit the AWS resources they want to backup, automate backup scheduling, set retention policies, and monitor all recent backup and restore activity. AWS Backup provides a fully managed, policy-based backup solution, simplifying your backup management, and helping you meet your business and regulatory backup compliance requirements. For more information, see the Amazon DynamoDB Developer Guide.
+
+### 3.3.441.0 (2019-01-14 23:08 UTC)
+* MediaConvert (3.3.11.0)
+	* IMF decode from a Composition Playlist for IMF specializations App #2 and App #2e; up to 99 input clippings; caption channel selection for MXF; and updated rate control for CBR jobs. Added support for acceleration in preview
+* StorageGateway (3.3.13.0)
+	* JoinDomain API supports two more  parameters: organizational unit(OU) and domain controllers.  Two new APIs are introduced: DetachVolume and AttachVolume.
+
+### 3.3.440.0 (2019-01-11 19:21 UTC)
+* ElasticMapReduce (3.3.6.33)
+	* Documentation updates for Amazon EMR
+* RDSDataService (3.3.1.0)
+	* Documentation updates for RDS Data API.
+
+### 3.3.439.0 (2019-01-10 22:50 UTC)
+* CodeDeploy (3.3.12.11)
+	* Documentation updates for codedeploy
+* EC2 (3.3.79.0)
+	* EC2 Spot: a) CreateFleet support for Single AvailabilityZone requests and b) support for paginated DescribeSpotInstanceRequests.
+* IoT (3.3.23.0)
+	* This release adds tagging support for rules of AWS IoT Rules Engine. Tags enable you to categorize your rules in different ways, for example, by purpose, owner, or environment. For more information about tagging, see AWS Tagging Strategies (https://aws.amazon.com/answers/account-management/aws-tagging-strategies/). For technical documentation, look for the tagging operations in the AWS IoT Core API reference or User Guide (https://docs.aws.amazon.com/iot/latest/developerguide/tagging-iot.html).
+* SageMaker (3.3.19.0)
+	* SageMaker Training Jobs now support Inter-Container traffic encryption.
+* Core 3.3.31.2
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
 ### 3.3.438.0 (2019-01-09 22:23 UTC)
 * DocDB (3.3.0.0)
 	* Amazon DocumentDB (with MongoDB compatibility) is a fast, reliable, and fully-managed database service. Amazon DocumentDB makes it easy for developers to set up, run, and scale MongoDB-compatible databases in the cloud.

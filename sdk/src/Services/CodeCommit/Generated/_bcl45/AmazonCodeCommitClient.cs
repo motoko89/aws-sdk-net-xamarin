@@ -2661,6 +2661,10 @@ namespace Amazon.CodeCommit
         /// <exception cref="Amazon.CodeCommit.Model.RepositoryNameRequiredException">
         /// A repository name is required but was not specified.
         /// </exception>
+        /// <exception cref="Amazon.CodeCommit.Model.RepositoryNotAssociatedWithPullRequestException">
+        /// The repository does not contain any pull requests with that pull request ID. Check
+        /// to make sure you have provided the correct repository name for the pull request.
+        /// </exception>
         /// <exception cref="Amazon.CodeCommit.Model.TipOfSourceReferenceIsDifferentException">
         /// The tip of the source branch in the destination repository does not match the tip
         /// of the source branch specified in your request. The pull request might have been updated.
@@ -3100,6 +3104,18 @@ namespace Amazon.CodeCommit
         /// A file cannot be added to the repository because the specified file name has the same
         /// name as a directory in this repository. Either provide another name for the file,
         /// or add the file in a directory that does not match the file name.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCommit.Model.FilePathConflictsWithSubmodulePathException">
+        /// The specified file path or folder has the same path as a submodule in this repository.
+        /// Either provide a different name for the file, or save the file in a directory that
+        /// does not conflict with the submodule path.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCommit.Model.FolderContentSizeLimitExceededException">
+        /// The specified file is in a folder that exceeds the folder content size limit. Either
+        /// save the file in a folder that has less content, or remove files or subfolders from
+        /// the folder so it does not exceed the size limit. For more information about limits
+        /// in AWS CodeCommit, see <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
+        /// CodeCommit User Guide</a>.
         /// </exception>
         /// <exception cref="Amazon.CodeCommit.Model.InvalidBranchNameException">
         /// The specified reference name is not valid.

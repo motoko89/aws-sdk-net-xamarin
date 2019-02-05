@@ -61,6 +61,11 @@ namespace Amazon
         public static readonly RegionEndpoint USWest2 = NewEndpoint("us-west-2", "US West (Oregon)");
 
         /// <summary>
+        /// The EU North (Stockholm) endpoint.
+        /// </summary>
+        public static readonly RegionEndpoint EUNorth1 = NewEndpoint("eu-north-1", "EU North (Stockholm)");
+
+        /// <summary>
         /// The EU West (Ireland) endpoint.
         /// </summary>
         public static readonly RegionEndpoint EUWest1 = NewEndpoint("eu-west-1", "EU West (Ireland)");
@@ -89,6 +94,11 @@ namespace Amazon
         /// The Asia Pacific (Seoul) endpoint.
         /// </summary>
         public static readonly RegionEndpoint APNortheast2 = NewEndpoint("ap-northeast-2", "Asia Pacific (Seoul)");
+
+        /// <summary>
+        /// The Asia Pacific (Osaka-Local) endpoint.
+        /// </summary>
+        public static readonly RegionEndpoint APNortheast3 = NewEndpoint("ap-northeast-3", "Asia Pacific (Osaka-Local)");
 
         /// <summary>
         /// The Asia Pacific (Mumbai) endpoint.
@@ -256,7 +266,11 @@ namespace Amazon
         /// The services system name. Service system names can be obtained from the
         /// RegionEndpointServiceName member of the ClientConfig-derived class for the service.
         /// </param>
-        /// <exception cref="System.ArgumentException">Thrown when the request service does not have a valid endpoint in the region.</exception>
+        /// <param>
+        /// For forwards compatibility, if the service being requested for isn't known in the region, this method 
+        /// will generate an endpoint using the AWS endpoint heuristics. In this case, it is not guaranteed the
+        /// endpoint will point to a valid service endpoint.
+        /// </param>
         /// <returns></returns>
         public Endpoint GetEndpointForService(string serviceName)
         {
@@ -274,7 +288,11 @@ namespace Amazon
         /// If true a dualstack endpoint is returned. It is the user's responsibility to verify that the given service
         /// supports a dualstack endpoint for the region.
         /// </param>
-        /// <exception cref="System.ArgumentException">Thrown when the request service does not have a valid endpoint in the region.</exception>
+        /// <param>
+        /// For forwards compatibility, if the service being requested for isn't known in the region, this method 
+        /// will generate an endpoint using the AWS endpoint heuristics. In this case, it is not guaranteed the
+        /// endpoint will point to a valid service endpoint.
+        /// </param>
         /// <returns></returns>
         public Endpoint GetEndpointForService(string serviceName, bool dualStack)
         {

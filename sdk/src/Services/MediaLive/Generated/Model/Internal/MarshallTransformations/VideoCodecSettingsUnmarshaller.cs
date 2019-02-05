@@ -64,6 +64,12 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("frameCaptureSettings", targetDepth))
+                {
+                    var unmarshaller = FrameCaptureSettingsUnmarshaller.Instance;
+                    unmarshalledObject.FrameCaptureSettings = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("h264Settings", targetDepth))
                 {
                     var unmarshaller = H264SettingsUnmarshaller.Instance;

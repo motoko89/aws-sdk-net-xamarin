@@ -28,9 +28,9 @@ using Amazon.Runtime.Internal;
 namespace Amazon.MediaConvert.Model
 {
     /// <summary>
-    /// Enable the Image inserter (ImageInserter) feature to include a graphic overlay on
-    /// your video. Enable or disable this feature for each input or output individually.
-    /// This setting is disabled by default.
+    /// Enable the image inserter feature to include a graphic overlay on your video. Enable
+    /// or disable this feature for each input or output individually. This setting is disabled
+    /// by default.
     /// </summary>
     public partial class ImageInserter
     {

@@ -9587,7 +9587,9 @@
         "SpotInstanceRequestIds":{
           "shape":"SpotInstanceRequestIdList",
           "locationName":"SpotInstanceRequestId"
-        }
+        },
+        "NextToken":{"shape":"String"},
+        "MaxResults":{"shape":"Integer"}
       }
     },
     "DescribeSpotInstanceRequestsResult":{
@@ -9596,6 +9598,10 @@
         "SpotInstanceRequests":{
           "shape":"SpotInstanceRequestList",
           "locationName":"spotInstanceRequestSet"
+        },
+        "NextToken":{
+          "shape":"String",
+          "locationName":"nextToken"
         }
       }
     },
@@ -14195,9 +14201,7 @@
         "r5.xlarge",
         "r5.2xlarge",
         "r5.4xlarge",
-        "r5.8xlarge",
         "r5.12xlarge",
-        "r5.16xlarge",
         "r5.24xlarge",
         "r5.metal",
         "r5a.large",
@@ -14210,9 +14214,7 @@
         "r5d.xlarge",
         "r5d.2xlarge",
         "r5d.4xlarge",
-        "r5d.8xlarge",
         "r5d.12xlarge",
-        "r5d.16xlarge",
         "r5d.24xlarge",
         "r5d.metal",
         "x1.16xlarge",
@@ -16782,6 +16784,10 @@
           "shape":"Boolean",
           "locationName":"singleInstanceType"
         },
+        "SingleAvailabilityZone":{
+          "shape":"Boolean",
+          "locationName":"singleAvailabilityZone"
+        },
         "MinTargetCapacity":{
           "shape":"Integer",
           "locationName":"minTargetCapacity"
@@ -16793,6 +16799,7 @@
       "members":{
         "AllocationStrategy":{"shape":"FleetOnDemandAllocationStrategy"},
         "SingleInstanceType":{"shape":"Boolean"},
+        "SingleAvailabilityZone":{"shape":"Boolean"},
         "MinTargetCapacity":{"shape":"Integer"}
       }
     },
@@ -20569,6 +20576,10 @@
           "shape":"Boolean",
           "locationName":"singleInstanceType"
         },
+        "SingleAvailabilityZone":{
+          "shape":"Boolean",
+          "locationName":"singleAvailabilityZone"
+        },
         "MinTargetCapacity":{
           "shape":"Integer",
           "locationName":"minTargetCapacity"
@@ -20582,6 +20593,7 @@
         "InstanceInterruptionBehavior":{"shape":"SpotInstanceInterruptionBehavior"},
         "InstancePoolsToUseCount":{"shape":"Integer"},
         "SingleInstanceType":{"shape":"Boolean"},
+        "SingleAvailabilityZone":{"shape":"Boolean"},
         "MinTargetCapacity":{"shape":"Integer"}
       }
     },

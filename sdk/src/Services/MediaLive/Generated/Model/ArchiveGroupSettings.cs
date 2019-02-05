@@ -37,8 +37,7 @@ namespace Amazon.MediaLive.Model
 
         /// <summary>
         /// Gets and sets the property Destination. A directory and base filename where archive
-        /// files should be written.  If the base filename portion of the URI is left blank, the
-        /// base filename of the first input will be automatically inserted.
+        /// files should be written.
         /// </summary>
         public OutputLocationRef Destination
         {

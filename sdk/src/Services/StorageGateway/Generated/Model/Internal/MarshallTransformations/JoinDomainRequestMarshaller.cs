@@ -68,6 +68,17 @@ namespace Amazon.StorageGateway.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetDomainControllers())
+                {
+                    context.Writer.WritePropertyName("DomainControllers");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestDomainControllersListValue in publicRequest.DomainControllers)
+                    {
+                            context.Writer.Write(publicRequestDomainControllersListValue);
+                    }
+                    context.Writer.WriteArrayEnd();
+                }
+
                 if(publicRequest.IsSetDomainName())
                 {
                     context.Writer.WritePropertyName("DomainName");
@@ -78,6 +89,12 @@ namespace Amazon.StorageGateway.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("GatewayARN");
                     context.Writer.Write(publicRequest.GatewayARN);
+                }
+
+                if(publicRequest.IsSetOrganizationalUnit())
+                {
+                    context.Writer.WritePropertyName("OrganizationalUnit");
+                    context.Writer.Write(publicRequest.OrganizationalUnit);
                 }
 
                 if(publicRequest.IsSetPassword())
