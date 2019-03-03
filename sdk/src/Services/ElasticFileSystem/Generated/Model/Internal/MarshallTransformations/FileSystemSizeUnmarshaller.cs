@@ -76,6 +76,18 @@ namespace Amazon.ElasticFileSystem.Model.Internal.MarshallTransformations
                     unmarshalledObject.Value = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("ValueInIA", targetDepth))
+                {
+                    var unmarshaller = LongUnmarshaller.Instance;
+                    unmarshalledObject.ValueInIA = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("ValueInStandard", targetDepth))
+                {
+                    var unmarshaller = LongUnmarshaller.Instance;
+                    unmarshalledObject.ValueInStandard = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

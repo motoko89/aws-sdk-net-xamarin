@@ -29,8 +29,7 @@ namespace Amazon.MediaConvert.Model
 {
     /// <summary>
     /// Container for the parameters to the CancelJob operation.
-    /// Permanently remove a job from a queue. Once you have canceled a job, you can't start
-    /// it again. You can't delete a running job.
+    /// Permanently cancel a job. Once you have canceled a job, you can't start it again.
     /// </summary>
     public partial class CancelJobRequest : AmazonMediaConvertRequest
     {

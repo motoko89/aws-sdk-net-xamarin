@@ -33,10 +33,6 @@ namespace Amazon.GameLift.Model
     /// requests that reference this queue will fail. To delete a queue, specify the queue
     /// name.
     /// 
-    ///  
-    /// <para>
-    /// Queue-related operations include:
-    /// </para>
     ///  <ul> <li> 
     /// <para>
     ///  <a>CreateGameSessionQueue</a> 

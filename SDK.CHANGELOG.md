@@ -1,3 +1,216 @@
+### 3.3.466.0 (2019-03-01 19:41 UTC)
+* AutoScalingPlans (3.3.2.22)
+	* Documentation updates for autoscaling-plans
+* EC2 (3.3.84.0)
+	* This release adds support for modifying instance event start time which allows users to reschedule EC2 events.
+
+### 3.3.465.0 (2019-02-28 20:48 UTC)
+* AlexaForBusiness (3.3.9.0)
+	* This release adds the PutInvitationConfiguration API to configure the user invitation email template with custom attributes, and the GetInvitationConfiguration API to retrieve the configured values.
+* ApiGatewayV2 (3.3.1.0)
+	* Marking certain properties as explicitly required and fixing an issue with the GetApiMappings operation for ApiMapping resources.
+* ApplicationAutoScaling (3.3.11.3)
+	* Documentation updates for application-autoscaling
+* SimpleSystemsManagement (3.3.40.0)
+	* AWS Systems Manager State Manager now supports associations using documents shared by other AWS accounts.
+
+### 3.3.464.1 (2019-02-27 19:08 UTC)
+* WAF (3.3.7.18)
+	* Documentation updates for waf
+* WAFRegional (3.3.7.18)
+	* Documentation updates for waf-regional
+
+### 3.3.464.0 (2019-02-26 19:09 UTC)
+* ApplicationDiscoveryService (3.3.6.10)
+	* Documentation updates for discovery
+* CostAndUsageReport (3.3.1.0)
+	* Adding support for Athena and new report preferences to the Cost and Usage Report API.
+* MediaConvert (3.3.12.0)
+	* AWS Elemental MediaConvert SDK has added several features including support for: auto-rotation or user-specified rotation of 0, 90, 180, or 270 degrees; multiple output groups with DRM; ESAM XML documents to specify ad insertion points; Offline Apple HLS FairPlay content protection. 
+* OpsWorksCM (3.3.6.40)
+	* Documentation updates for opsworkscm
+* Organizations (3.3.9.41)
+	* Documentation updates for AWS Organizations
+* Pinpoint (3.3.13.0)
+	* This release adds support for the Amazon Resource Groups Tagging API to Amazon Pinpoint, which means that you can now add and manage tags for Amazon Pinpoint projects (apps), campaigns, and segments. A tag is a label that you optionally define and associate with Amazon Pinpoint resource. Tags can help you categorize and manage these types of resources in different ways, such as by purpose, owner, environment, or other criteria. For example, you can use tags to apply policies or automation, or to identify resources that are subject to certain compliance requirements. A project, campaign, or segment can have as many as 50 tags. For more information about using and managing tags in Amazon Pinpoint, see the Amazon Pinpoint Developer Guide at https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html. For more information about the Amazon Resource Group Tagging API, see the Amazon Resource Group Tagging API Reference at https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html.
+* ResourceGroups (3.3.3.23)
+	* Documentation updates for Resource Groups API; updating description of Tag API.
+* Core 3.3.31.12
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.463.0 (2019-02-25 19:10 UTC)
+* AutoScaling (3.3.9.0)
+	* Added support for passing an empty SpotMaxPrice parameter to remove a value previously set when updating an Amazon EC2 Auto Scaling group.
+* CostExplorer (3.3.10.0)
+	* Added metrics to normalized units.
+* ElasticLoadBalancingV2 (3.3.14.0)
+	* This release enables you to use the existing client secret when modifying a rule with an action of type authenticate-oidc.
+* MediaStore (3.3.3.0)
+	* This release adds support for access logging, which provides detailed records for the requests that are made to objects in a container.
+
+### 3.3.462.0 (2019-02-22 19:10 UTC)
+* Athena (3.3.3.0)
+	* This release adds tagging support for Workgroups to Amazon Athena. Use these APIs to add, remove, or list tags on Workgroups, and leverage the tags for various authorization and billing scenarios.
+* Cloud9 (3.3.1.0)
+	* Adding EnvironmentLifecycle to the Environment data type.
+* Glue (3.3.18.0)
+	* AWS Glue adds support for assigning AWS resource tags to jobs, triggers, development endpoints, and crawlers. Each tag consists of a key and an optional value, both of which you define. With this capacity, customers can use tags in AWS Glue to easily organize and identify your resources, create cost allocation reports, and control access to resources. 
+* StepFunctions (3.3.5.0)
+	* This release adds support for tag-on-create. You can now add tags when you create AWS Step Functions activity and state machine resources. For more information about tagging, see AWS Tagging Strategies.
+
+### 3.3.461.0 (2019-02-21 19:19 UTC)
+* CloudWatch (3.3.10.21)
+	* Documentation updates for monitoring
+* CodeBuild (3.3.22.0)
+	* Add support for CodeBuild local caching feature
+* KinesisVideo (3.3.2.3)
+	* Documentation updates for Kinesis Video Streams
+* KinesisVideoArchivedMedia (3.3.2.0)
+	* In this release, HLS playback of KVS streams can be configured to output MPEG TS fragments using the ContainerFormat parameter. HLS playback of KVS streams can also be configured to include the EXT-X-PROGRAM-DATE-TIME field using the DisplayFragmentTimestamp parameter.
+* KinesisVideoMedia (3.3.0.57)
+	* Documentation updates for Kinesis Video Streams
+* Organizations (3.3.9.40)
+	* Documentation updates for organizations
+* Transfer (3.3.1.0)
+	* Bug fix: increased the max length allowed for request parameter NextToken when paginating List operations
+* WorkDocs (3.3.7.21)
+	* Documentation updates for workdocs
+
+### 3.3.460.0 (2019-02-20 19:09 UTC)
+* CodeCommit (3.3.9.0)
+	* This release adds an API for adding / updating / deleting / copying / moving / setting file modes for one or more files directly to an AWS CodeCommit repository without requiring a Git client.
+* DirectConnect (3.3.10.0)
+	* Documentation updates for AWS Direct Connect
+* MediaLive (3.3.17.0)
+	* This release adds support for VPC inputs, allowing you to push content from your Amazon VPC directly to MediaLive.
+* Core 3.3.31.11
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.459.0 (2019-02-19 19:08 UTC)
+* DirectoryService (3.3.9.0)
+	* This release adds support for tags during directory creation (CreateDirectory, CreateMicrosoftAd, ConnectDirectory).
+* ElasticFileSystem (3.3.4.0)
+	* Amazon EFS now supports adding tags to file system resources as part of the CreateFileSystem API . Using this capability, customers can now more easily enforce tag-based authorization for EFS file system resources.
+* IoT (3.3.25.0)
+	* AWS IoT - AWS IoT Device Defender adds support for configuring behaviors in a security profile with statistical thresholds. Device Defender also adds support for configuring multiple data-point evaluations before a violation is either created or cleared.
+* SimpleSystemsManagement (3.3.39.0)
+	* AWS Systems Manager now supports adding tags when creating Activations, Patch Baselines, Documents, Parameters, and Maintenance Windows
+
+### 3.3.458.0 (2019-02-18 19:04 UTC)
+* Athena (3.3.2.0)
+	* This release adds support for Workgroups to Amazon Athena. Use Workgroups to isolate users, teams, applications or workloads in the same account, control costs by setting up query limits and creating Amazon SNS alarms, and publish query-related metrics to Amazon CloudWatch. 
+* SecretsManager (3.3.3.0)
+	* This release increases the maximum allowed size of SecretString or SecretBinary from 4KB to 7KB in the CreateSecret, UpdateSecret, PutSecretValue and GetSecretValue APIs.
+
+### 3.3.457.0 (2019-02-15 19:19 UTC)
+* ApplicationAutoScaling (3.3.11.0)
+	* Documentation updates for Application Auto Scaling
+* Chime (3.3.1.23)
+	* Documentation updates for Amazon Chime
+* IoT (3.3.24.0)
+	* In this release, IoT Device Defender introduces support for tagging Scheduled Audit resources.
+* Core 3.3.31.10
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.456.1 (2019-02-15 03:41 UTC)
+* Chime (3.3.1.22)
+	* Package description update.
+* Connect (3.3.4.17)
+	* Package description update.
+* DLM (3.3.2.3)
+	* Package description update.
+* DocDB (3.3.0.9)
+	* Package description update.
+* IoT1ClickProjects (3.3.0.50)
+	* Package description update.
+* IoTAnalytics (3.3.7.12)
+	* Package description update.
+* RAM (3.3.0.20)
+	* Package description update.
+* S3Control (3.3.0.20)
+	* Package description update.
+* ServiceDiscovery (3.3.3.19)
+	* Package description update.
+* Signer (3.3.0.41)
+	* Package description update.
+
+### 3.3.456.0 (2019-02-14 19:14 UTC)
+* EC2 (3.3.83.0)
+	* This release adds tagging and ARN support for AWS Client VPN Endpoints.You can now run bare metal workloads on EC2 M5 and M5d instances. m5.metal and m5d.metal instances are powered by custom Intel Xeon Scalable Processors with a sustained all core frequency of up to 3.1 GHz. m5.metal and m5d.metal offer 96 vCPUs and 384 GiB of memory. With m5d.metal, you also have access to 3.6 TB of NVMe SSD-backed instance storage. m5.metal and m5d.metal instances deliver 25 Gbps of aggregate network bandwidth using Elastic Network Adapter (ENA)-based Enhanced Networking, as well as 14 Gbps of bandwidth to EBS.You can now run bare metal workloads on EC2 z1d instances. z1d.metal instances are powered by custom Intel Xeon Scalable Processors with a sustained all core frequency of up to 4.0 GHz. z1d.metal offers 48 vCPUs, 384 GiB of memory, and 1.8 TB of NVMe SSD-backed instance storage. z1d.metal instances deliver 25 Gbps of aggregate network bandwidth using Elastic Network Adapter (ENA)-based Enhanced Networking, as well as 14 Gbps of bandwidth to EBS.
+* KinesisVideo (3.3.2.0)
+	* Adds support for Tag-On-Create for Kinesis Video Streams. A list of tags associated with the stream can be created at the same time as the stream creation.
+
+### 3.3.455.0 (2019-02-13 23:09 UTC)
+* ElasticFileSystem (3.3.3.0)
+	* Customers can now use the EFS Infrequent Access (IA) storage class to more cost-effectively store larger amounts of data in their file systems. EFS IA is cost-optimized storage for files that are not accessed every day. You can create a new file system and enable Lifecycle Management to automatically move files that have not been accessed for 30 days from the Standard storage class to the IA storage class.
+* MediaTailor (3.3.4.0)
+	* This release adds support for tagging AWS Elemental MediaTailor resources.
+* Rekognition (3.3.15.0)
+	* GetContentModeration now returns the version of the moderation detection model used to detect unsafe content.
+* Core 3.3.31.9
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.454.1 (2019-02-12 23:14 UTC)
+* Lambda (3.3.19.17)
+	* Documentation updates for AWS Lambda
+* Core 3.3.31.8
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.454.0 (2019-02-11 23:08 UTC)
+* AppStream (3.3.21.0)
+	* This update enables customers to find the start time, max expiration time, and connection status associated with AppStream streaming session.
+* CodeBuild (3.3.21.0)
+	* Add customized webhook filter support
+* MediaPackage (3.3.6.0)
+	* Adds optional configuration for DASH to compact the manifest by combining duplicate SegmentTemplate tags. Adds optional configuration for DASH SegmentTemplate format to refer to segments by "Number" (default) or by "Time".
+
+### 3.3.453.0 (2019-02-08 22:10 UTC)
+* ApplicationDiscoveryService (3.3.6.5)
+	* Documentation updates for the AWS Application Discovery Service.
+* DLM (3.3.2.0)
+	* This release is to correct the timestamp format to ISO8601 for the DateCreated and DateModified files in the GetLifecyclePolicy response object.
+* ECS (3.3.23.0)
+	* Amazon ECS introduces the PutAccountSettingDefault API, an API that allows a user to set the default ARN/ID format opt-in status for all the roles and users in the account. Previously, setting the account's default opt-in status required the use of the root user with the PutAccountSetting API.
+
+### 3.3.452.0 (2019-02-07 21:38 UTC)
+* Elasticsearch (3.3.11.0)
+	* Feature: Support for three Availability Zone deployments
+* GameLift (3.3.13.0)
+	* This release delivers a new API action for deleting unused matchmaking rule sets. More details are available at https://aws.amazon.com/releasenotes/?tag=releasenotes%23keywords%23amazon-gamelift.
+* MediaLive (3.3.16.0)
+	* This release adds tagging of channels, inputs, and input security groups.
+* RoboMaker (3.3.1.0)
+	* Added support for tagging and tag-based access control for AWS RoboMaker resources. Also, DescribeSimulationJob now includes a new failureReason field to help debug simulation job failures
+
+### 3.3.451.0 (2019-02-06 23:18 UTC)
+* EC2 (3.3.82.0)
+	* Add Linux with SQL Server Standard, Linux with SQL Server Web, and Linux with SQL Server Enterprise to the list of allowed instance platforms for On-Demand Capacity Reservations.
+* FSx (3.3.1.0)
+	* New optional ExportPath parameter added to the CreateFileSystemLustreConfiguration object for user-defined export paths. Used with the CreateFileSystem action when creating an Amazon FSx for Lustre file system.
+
+### 3.3.450.0 (2019-02-05 22:07 UTC)
+* EC2 (3.3.81.0)
+	* ec2.DescribeVpcPeeringConnections pagination support
+* ServiceCatalog (3.3.13.20)
+	* Service Catalog Documentation Update for ProvisionedProductDetail
+* Shield (3.3.5.0)
+	* The DescribeProtection request now accepts resource ARN as valid parameter.
+
 ### 3.3.449.0 (2019-02-04 22:36 UTC)
 * ApplicationAutoScaling (3.3.10.45)
 	* Documentation updates for application-autoscaling

@@ -38,7 +38,7 @@ namespace Amazon.EC2.Model
     /// </para>
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">Launching
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">Launching
     /// an EC2 Fleet</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -61,7 +61,7 @@ namespace Amazon.EC2.Model
         /// Gets and sets the property ClientToken. 
         /// <para>
         /// Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
-        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// Idempotency</a>.
         /// </para>
         /// </summary>
@@ -173,8 +173,8 @@ namespace Amazon.EC2.Model
         /// <para>
         /// The key-value pair for tagging the EC2 Fleet request on creation. The value for <code>ResourceType</code>
         /// must be <code>fleet</code>, otherwise the fleet request fails. To tag instances at
-        /// launch, specify the tags in the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
-        /// template</a>. For information about tagging after launch, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging
+        /// launch, specify the tags in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
+        /// template</a>. For information about tagging after launch, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging
         /// Your Resources</a>. 
         /// </para>
         /// </summary>
@@ -236,7 +236,7 @@ namespace Amazon.EC2.Model
         /// request, and returns errors for any instances that could not be launched. A value
         /// of <code>request</code> places an asynchronous one-time request without maintaining
         /// capacity or submitting requests in alternative capacity pools if capacity is unavailable.
-        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type">EC2
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type">EC2
         /// Fleet Request Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
@@ -276,7 +276,7 @@ namespace Amazon.EC2.Model
         /// <para>
         /// The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
         /// At this point, no new EC2 Fleet requests are placed or able to fulfill the request.
-        /// The default end date is 7 days from the current date.
+        /// If no value is specified, the request remains until you cancel it.
         /// </para>
         /// </summary>
         public DateTime ValidUntilUtc
@@ -339,7 +339,7 @@ namespace Amazon.EC2.Model
         /// <para>
         /// The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
         /// At this point, no new EC2 Fleet requests are placed or able to fulfill the request.
-        /// The default end date is 7 days from the current date.
+        /// If no value is specified, the request remains until you cancel it.
         /// </para>
         /// </summary>
         [Obsolete("Setting this property results in non-UTC DateTimes not being marshalled correctly. " +

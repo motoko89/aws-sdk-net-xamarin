@@ -37,7 +37,7 @@ namespace Amazon.ElasticFileSystem
     /// use with Amazon EC2 instances in the AWS Cloud. With Amazon EFS, storage capacity
     /// is elastic, growing and shrinking automatically as you add and remove files, so your
     /// applications have the storage they need, when they need it. For more information,
-    /// see the <a href="http://docs.aws.amazon.com/efs/latest/ug/api-reference.html">User
+    /// see the <a href="https://docs.aws.amazon.com/efs/latest/ug/api-reference.html">User
     /// Guide</a>.
     /// </para>
     /// </summary>
@@ -97,7 +97,7 @@ namespace Amazon.ElasticFileSystem
         /// mode can scale to higher levels of aggregate throughput and operations per second
         /// with a tradeoff of slightly higher latencies for most file operations. The performance
         /// mode can't be changed after the file system has been created. For more information,
-        /// see <a href="http://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon
+        /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon
         /// EFS: Performance Modes</a>.
         /// </para>
         ///  
@@ -105,8 +105,8 @@ namespace Amazon.ElasticFileSystem
         /// After the file system is fully created, Amazon EFS sets its lifecycle state to <code>available</code>,
         /// at which point you can create one or more mount targets for the file system in your
         /// VPC. For more information, see <a>CreateMountTarget</a>. You mount your Amazon EFS
-        /// file system on an EC2 instances in your VPC via the mount target. For more information,
-        /// see <a href="http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS:
+        /// file system on an EC2 instances in your VPC by using the mount target. For more information,
+        /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS:
         /// How it Works</a>. 
         /// </para>
         ///  
@@ -115,7 +115,7 @@ namespace Amazon.ElasticFileSystem
         /// action. 
         /// </para>
         /// </summary>
-        /// <param name="creationToken">String of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.</param>
+        /// <param name="creationToken">A string of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -226,7 +226,7 @@ namespace Amazon.ElasticFileSystem
         /// action.
         /// </para>
         /// </summary>
-        /// <param name="fileSystemId">ID of the file system you want to delete.</param>
+        /// <param name="fileSystemId">The ID of the file system you want to delete.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -271,13 +271,13 @@ namespace Amazon.ElasticFileSystem
         /// 
         ///  
         /// <para>
-        /// This operation forcibly breaks any mounts of the file system via the mount target
+        /// This operation forcibly breaks any mounts of the file system by using the mount target
         /// that is being deleted, which might disrupt instances or applications using those mounts.
         /// To avoid applications getting cut off abruptly, you might consider unmounting any
         /// mounts of the mount target, if feasible. The operation also deletes the associated
-        /// network interface. Uncommitted writes may be lost, but breaking a mount target using
+        /// network interface. Uncommitted writes might be lost, but breaking a mount target using
         /// this operation does not corrupt the file system itself. The file system you created
-        /// remains. You can mount an EC2 instance in your VPC via another mount target.
+        /// remains. You can mount an EC2 instance in your VPC by using another mount target.
         /// </para>
         ///  
         /// <para>
@@ -305,7 +305,7 @@ namespace Amazon.ElasticFileSystem
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="mountTargetId">ID of the mount target to delete (String).</param>
+        /// <param name="mountTargetId">The ID of the mount target to delete (String).</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -373,6 +373,23 @@ namespace Amazon.ElasticFileSystem
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/DescribeFileSystems">REST API Reference for DescribeFileSystems Operation</seealso>
         Task<DescribeFileSystemsResponse> DescribeFileSystemsAsync(DescribeFileSystemsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DescribeLifecycleConfiguration
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeLifecycleConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeLifecycleConfiguration operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/DescribeLifecycleConfiguration">REST API Reference for DescribeLifecycleConfiguration Operation</seealso>
+        Task<DescribeLifecycleConfigurationResponse> DescribeLifecycleConfigurationAsync(DescribeLifecycleConfigurationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -452,7 +469,7 @@ namespace Amazon.ElasticFileSystem
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="mountTargetId">ID of the mount target whose security groups you want to retrieve.</param>
+        /// <param name="mountTargetId">The ID of the mount target whose security groups you want to retrieve.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -494,7 +511,8 @@ namespace Amazon.ElasticFileSystem
         /// <summary>
         /// Returns the tags associated with a file system. The order of tags returned in the
         /// response of one <code>DescribeTags</code> call and the order of tags returned across
-        /// the responses of a multi-call iteration (when using pagination) is unspecified. 
+        /// the responses of a multiple-call iteration (when using pagination) is unspecified.
+        /// 
         /// 
         ///  
         /// <para>
@@ -502,7 +520,7 @@ namespace Amazon.ElasticFileSystem
         /// action. 
         /// </para>
         /// </summary>
-        /// <param name="fileSystemId">ID of the file system whose tag set you want to retrieve.</param>
+        /// <param name="fileSystemId">The ID of the file system whose tag set you want to retrieve.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -550,6 +568,23 @@ namespace Amazon.ElasticFileSystem
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/ModifyMountTargetSecurityGroups">REST API Reference for ModifyMountTargetSecurityGroups Operation</seealso>
         Task<ModifyMountTargetSecurityGroupsResponse> ModifyMountTargetSecurityGroupsAsync(ModifyMountTargetSecurityGroupsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  PutLifecycleConfiguration
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the PutLifecycleConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the PutLifecycleConfiguration operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/PutLifecycleConfiguration">REST API Reference for PutLifecycleConfiguration Operation</seealso>
+        Task<PutLifecycleConfigurationResponse> PutLifecycleConfigurationAsync(PutLifecycleConfigurationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 

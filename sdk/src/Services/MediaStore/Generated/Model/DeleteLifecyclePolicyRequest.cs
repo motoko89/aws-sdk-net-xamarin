@@ -29,7 +29,8 @@ namespace Amazon.MediaStore.Model
 {
     /// <summary>
     /// Container for the parameters to the DeleteLifecyclePolicy operation.
-    /// Removes an object lifecycle policy from a container.
+    /// Removes an object lifecycle policy from a container. It takes up to 20 minutes for
+    /// the change to take effect.
     /// </summary>
     public partial class DeleteLifecyclePolicyRequest : AmazonMediaStoreRequest
     {

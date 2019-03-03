@@ -34,7 +34,7 @@ namespace Amazon.EC2.Model
     ///  
     /// <para>
     /// An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For
-    /// more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
+    /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
     /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -137,7 +137,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property PublicIps. 
         /// <para>
-        /// [EC2-Classic] One or more Elastic IP addresses.
+        /// One or more Elastic IP addresses.
         /// </para>
         ///  
         /// <para>

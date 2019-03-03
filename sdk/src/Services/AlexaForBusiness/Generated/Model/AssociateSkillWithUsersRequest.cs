@@ -33,31 +33,12 @@ namespace Amazon.AlexaForBusiness.Model
     /// </summary>
     public partial class AssociateSkillWithUsersRequest : AmazonAlexaForBusinessRequest
     {
-        private string _organizationArn;
         private string _skillId;
-
-        /// <summary>
-        /// Gets and sets the property OrganizationArn. 
-        /// <para>
-        /// The ARN of the organization.
-        /// </para>
-        /// </summary>
-        public string OrganizationArn
-        {
-            get { return this._organizationArn; }
-            set { this._organizationArn = value; }
-        }
-
-        // Check to see if OrganizationArn property is set
-        internal bool IsSetOrganizationArn()
-        {
-            return this._organizationArn != null;
-        }
 
         /// <summary>
         /// Gets and sets the property SkillId. 
         /// <para>
-        /// The private skill ID you want to make available to enrolled users.&gt;
+        /// The private skill ID you want to make available to enrolled users.
         /// </para>
         /// </summary>
         public string SkillId

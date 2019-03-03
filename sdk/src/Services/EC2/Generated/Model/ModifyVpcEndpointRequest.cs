@@ -31,7 +31,7 @@ namespace Amazon.EC2.Model
     /// Container for the parameters to the ModifyVpcEndpoint operation.
     /// Modifies attributes of a specified VPC endpoint. The attributes that you can modify
     /// depend on the type of VPC endpoint (interface or gateway). For more information, see
-    /// <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html">VPC
+    /// <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html">VPC
     /// Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </summary>
     public partial class ModifyVpcEndpointRequest : AmazonEC2Request
@@ -105,8 +105,9 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property PolicyDocument. 
         /// <para>
-        /// (Gateway endpoint) A policy document to attach to the endpoint. The policy must be
-        /// in valid JSON format.
+        /// A policy to attach to the endpoint that controls access to the service. The policy
+        /// must be in valid JSON format. If this parameter is not specified, we attach a default
+        /// policy that allows full access to the service.
         /// </para>
         /// </summary>
         public string PolicyDocument

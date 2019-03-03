@@ -75,6 +75,12 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
                     response.State = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("tags", targetDepth))
+                {
+                    var unmarshaller = new DictionaryUnmarshaller<string, string, StringUnmarshaller, StringUnmarshaller>(StringUnmarshaller.Instance, StringUnmarshaller.Instance);
+                    response.Tags = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("whitelistRules", targetDepth))
                 {
                     var unmarshaller = new ListUnmarshaller<InputWhitelistRule, InputWhitelistRuleUnmarshaller>(InputWhitelistRuleUnmarshaller.Instance);

@@ -31,7 +31,7 @@ namespace Amazon.EC2.Model
     /// Container for the parameters to the CreateVolume operation.
     /// Creates an EBS volume that can be attached to an instance in the same Availability
     /// Zone. The volume is created in the regional endpoint that you send the HTTP request
-    /// to. For more information see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html">Regions
+    /// to. For more information see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions
     /// and Endpoints</a>.
     /// 
     ///  
@@ -44,17 +44,17 @@ namespace Amazon.EC2.Model
     /// You can create encrypted volumes with the <code>Encrypted</code> parameter. Encrypted
     /// volumes may only be attached to instances that support Amazon EBS encryption. Volumes
     /// that are created from encrypted snapshots are also automatically encrypted. For more
-    /// information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
     /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     ///  
     /// <para>
-    /// You can tag your volumes during creation. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
+    /// You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
     /// Your Amazon EC2 Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating
     /// an Amazon EBS Volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -78,7 +78,7 @@ namespace Amazon.EC2.Model
         /// Instantiates CreateVolumeRequest with the parameterized properties
         /// </summary>
         /// <param name="availabilityZone">The Availability Zone in which to create the volume. Use <a>DescribeAvailabilityZones</a> to list the Availability Zones that are currently available to you.</param>
-        /// <param name="size">The size of the volume, in GiBs. Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for <code>st1</code>, 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.</param>
+        /// <param name="size">The size of the volume, in GiBs. Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for <code>st1</code>, 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size. <note> At least one of Size or SnapshotId are required. </note></param>
         public CreateVolumeRequest(string availabilityZone, int size)
         {
             _availabilityZone = availabilityZone;
@@ -89,7 +89,7 @@ namespace Amazon.EC2.Model
         /// Instantiates CreateVolumeRequest with the parameterized properties
         /// </summary>
         /// <param name="availabilityZone">The Availability Zone in which to create the volume. Use <a>DescribeAvailabilityZones</a> to list the Availability Zones that are currently available to you.</param>
-        /// <param name="snapshotId">The snapshot from which to create the volume.</param>
+        /// <param name="snapshotId">The snapshot from which to create the volume. <note> At least one of Size or SnapshotId are required. </note></param>
         public CreateVolumeRequest(string availabilityZone, string snapshotId)
         {
             _availabilityZone = availabilityZone;
@@ -123,7 +123,7 @@ namespace Amazon.EC2.Model
         /// created from encrypted snapshots are automatically encrypted. There is no way to create
         /// an encrypted volume from an unencrypted snapshot or vice versa. If your AMI uses encrypted
         /// volumes, you can only launch it on supported instance types. For more information,
-        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
         /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
@@ -143,10 +143,10 @@ namespace Amazon.EC2.Model
         /// Gets and sets the property Iops. 
         /// <para>
         /// The number of I/O operations per second (IOPS) to provision for the volume, with a
-        /// maximum ratio of 50 IOPS/GiB. Range is 100 to 64,000 IOPS for volumes in most regions.
-        /// Maximum IOPS of 64,000 is guaranteed only on <a href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+        /// maximum ratio of 50 IOPS/GiB. Range is 100 to 64,000 IOPS for volumes in most Regions.
+        /// Maximum IOPS of 64,000 is guaranteed only on <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
         /// instances</a>. Other instance families guarantee performance up to 32,000 IOPS. For
-        /// more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
         /// EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
@@ -237,6 +237,11 @@ namespace Amazon.EC2.Model
         /// Default: If you're creating the volume from a snapshot and don't specify a volume
         /// size, the default is the snapshot size.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// At least one of Size or SnapshotId are required.
+        /// </para>
+        ///  </note>
         /// </summary>
         public int Size
         {
@@ -255,6 +260,11 @@ namespace Amazon.EC2.Model
         /// <para>
         /// The snapshot from which to create the volume.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// At least one of Size or SnapshotId are required.
+        /// </para>
+        ///  </note>
         /// </summary>
         public string SnapshotId
         {
@@ -298,7 +308,7 @@ namespace Amazon.EC2.Model
         /// Defaults: If no volume type is specified, the default is <code>standard</code> in
         /// us-east-1, eu-west-1, eu-central-1, us-west-2, us-west-1, sa-east-1, ap-northeast-1,
         /// ap-northeast-2, ap-southeast-1, ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1.
-        /// In all other regions, EBS defaults to <code>gp2</code>.
+        /// In all other Regions, EBS defaults to <code>gp2</code>.
         /// </para>
         /// </summary>
         public VolumeType VolumeType

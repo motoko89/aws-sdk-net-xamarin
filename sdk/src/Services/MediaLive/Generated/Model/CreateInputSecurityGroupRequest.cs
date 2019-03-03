@@ -33,7 +33,23 @@ namespace Amazon.MediaLive.Model
     /// </summary>
     public partial class CreateInputSecurityGroupRequest : AmazonMediaLiveRequest
     {
+        private Dictionary<string, string> _tags = new Dictionary<string, string>();
         private List<InputWhitelistRuleCidr> _whitelistRules = new List<InputWhitelistRuleCidr>();
+
+        /// <summary>
+        /// Gets and sets the property Tags. A collection of key-value pairs.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
+        }
 
         /// <summary>
         /// Gets and sets the property WhitelistRules. List of IPv4 CIDR addresses to whitelist

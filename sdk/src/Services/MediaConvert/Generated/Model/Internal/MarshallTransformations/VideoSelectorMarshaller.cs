@@ -80,6 +80,12 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.ProgramNumber);
             }
 
+            if(requestObject.IsSetRotate())
+            {
+                context.Writer.WritePropertyName("rotate");
+                context.Writer.Write(requestObject.Rotate);
+            }
+
         }
 
         /// <summary>

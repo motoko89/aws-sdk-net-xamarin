@@ -259,12 +259,13 @@ namespace Amazon.Athena
 
         /// <summary>
         /// Returns the details of a single named query or a list of up to 50 queries, which you
-        /// provide as an array of query ID strings. Use <a>ListNamedQueries</a> to get the list
-        /// of named query IDs. If information could not be retrieved for a submitted query ID,
-        /// information about the query ID submitted is listed under <a>UnprocessedNamedQueryId</a>.
-        /// Named queries are different from executed queries. Use <a>BatchGetQueryExecution</a>
-        /// to get details about each unique query execution, and <a>ListQueryExecutions</a> to
-        /// get a list of query execution IDs.
+        /// provide as an array of query ID strings. Requires you to have access to the workgroup
+        /// in which the queries were saved. Use <a>ListNamedQueriesInput</a> to get the list
+        /// of named query IDs in the specified workgroup. If information could not be retrieved
+        /// for a submitted query ID, information about the query ID submitted is listed under
+        /// <a>UnprocessedNamedQueryId</a>. Named queries differ from executed queries. Use <a>BatchGetQueryExecutionInput</a>
+        /// to get details about each unique query execution, and <a>ListQueryExecutionsInput</a>
+        /// to get a list of query execution IDs.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchGetNamedQuery service method.</param>
         /// 
@@ -326,9 +327,10 @@ namespace Amazon.Athena
 
         /// <summary>
         /// Returns the details of a single query execution or a list of up to 50 query executions,
-        /// which you provide as an array of query execution ID strings. To get a list of query
-        /// execution IDs, use <a>ListQueryExecutions</a>. Query executions are different from
-        /// named (saved) queries. Use <a>BatchGetNamedQuery</a> to get details about named queries.
+        /// which you provide as an array of query execution ID strings. Requires you to have
+        /// access to the workgroup in which the queries ran. To get a list of query execution
+        /// IDs, use <a>ListQueryExecutionsInput$WorkGroup</a>. Query executions differ from named
+        /// (saved) queries. Use <a>BatchGetNamedQueryInput</a> to get details about named queries.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchGetQueryExecution service method.</param>
         /// 
@@ -389,7 +391,8 @@ namespace Amazon.Athena
         #region  CreateNamedQuery
 
         /// <summary>
-        /// Creates a named query.
+        /// Creates a named query in the specified workgroup. Requires that you have access to
+        /// the workgroup.
         /// 
         ///  
         /// <para>
@@ -453,10 +456,72 @@ namespace Amazon.Athena
 
         #endregion
         
+        #region  CreateWorkGroup
+
+        /// <summary>
+        /// Creates a workgroup with the specified name.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateWorkGroup service method.</param>
+        /// 
+        /// <returns>The response from the CreateWorkGroup service method, as returned by Athena.</returns>
+        /// <exception cref="Amazon.Athena.Model.InternalServerException">
+        /// Indicates a platform issue, which may be due to a transient condition or outage.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.InvalidRequestException">
+        /// Indicates that something is wrong with the input to the request. For example, a required
+        /// parameter may be missing or out of range.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/CreateWorkGroup">REST API Reference for CreateWorkGroup Operation</seealso>
+        public virtual CreateWorkGroupResponse CreateWorkGroup(CreateWorkGroupRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateWorkGroupRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateWorkGroupResponseUnmarshaller.Instance;
+
+            return Invoke<CreateWorkGroupResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateWorkGroup operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateWorkGroup operation on AmazonAthenaClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateWorkGroup
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/CreateWorkGroup">REST API Reference for CreateWorkGroup Operation</seealso>
+        public virtual IAsyncResult BeginCreateWorkGroup(CreateWorkGroupRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateWorkGroupRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateWorkGroupResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CreateWorkGroup operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCreateWorkGroup.</param>
+        /// 
+        /// <returns>Returns a  CreateWorkGroupResult from Athena.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/CreateWorkGroup">REST API Reference for CreateWorkGroup Operation</seealso>
+        public virtual CreateWorkGroupResponse EndCreateWorkGroup(IAsyncResult asyncResult)
+        {
+            return EndInvoke<CreateWorkGroupResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  DeleteNamedQuery
 
         /// <summary>
-        /// Deletes a named query.
+        /// Deletes the named query if you have access to the workgroup in which the query was
+        /// saved.
         /// 
         ///  
         /// <para>
@@ -520,10 +585,72 @@ namespace Amazon.Athena
 
         #endregion
         
+        #region  DeleteWorkGroup
+
+        /// <summary>
+        /// Deletes the workgroup with the specified name. The primary workgroup cannot be deleted.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteWorkGroup service method.</param>
+        /// 
+        /// <returns>The response from the DeleteWorkGroup service method, as returned by Athena.</returns>
+        /// <exception cref="Amazon.Athena.Model.InternalServerException">
+        /// Indicates a platform issue, which may be due to a transient condition or outage.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.InvalidRequestException">
+        /// Indicates that something is wrong with the input to the request. For example, a required
+        /// parameter may be missing or out of range.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/DeleteWorkGroup">REST API Reference for DeleteWorkGroup Operation</seealso>
+        public virtual DeleteWorkGroupResponse DeleteWorkGroup(DeleteWorkGroupRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteWorkGroupRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteWorkGroupResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteWorkGroupResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteWorkGroup operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteWorkGroup operation on AmazonAthenaClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteWorkGroup
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/DeleteWorkGroup">REST API Reference for DeleteWorkGroup Operation</seealso>
+        public virtual IAsyncResult BeginDeleteWorkGroup(DeleteWorkGroupRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteWorkGroupRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteWorkGroupResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteWorkGroup operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteWorkGroup.</param>
+        /// 
+        /// <returns>Returns a  DeleteWorkGroupResult from Athena.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/DeleteWorkGroup">REST API Reference for DeleteWorkGroup Operation</seealso>
+        public virtual DeleteWorkGroupResponse EndDeleteWorkGroup(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DeleteWorkGroupResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  GetNamedQuery
 
         /// <summary>
-        /// Returns information about a single query.
+        /// Returns information about a single query. Requires that you have access to the workgroup
+        /// in which the query was saved.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetNamedQuery service method.</param>
         /// 
@@ -584,8 +711,9 @@ namespace Amazon.Athena
         #region  GetQueryExecution
 
         /// <summary>
-        /// Returns information about a single execution of a query. Each time a query executes,
-        /// information about the query execution is saved with a unique ID.
+        /// Returns information about a single execution of a query if you have access to the
+        /// workgroup in which the query ran. Each time a query executes, information about the
+        /// query execution is saved with a unique ID.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetQueryExecution service method.</param>
         /// 
@@ -646,9 +774,9 @@ namespace Amazon.Athena
         #region  GetQueryResults
 
         /// <summary>
-        /// Returns the results of a single query execution specified by <code>QueryExecutionId</code>.
-        /// This request does not execute the query but returns results. Use <a>StartQueryExecution</a>
-        /// to run a query.
+        /// Returns the results of a single query execution specified by <code>QueryExecutionId</code>
+        /// if you have access to the workgroup in which the query ran. This request does not
+        /// execute the query but returns results. Use <a>StartQueryExecution</a> to run a query.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetQueryResults service method.</param>
         /// 
@@ -706,10 +834,72 @@ namespace Amazon.Athena
 
         #endregion
         
+        #region  GetWorkGroup
+
+        /// <summary>
+        /// Returns information about the workgroup with the specified name.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetWorkGroup service method.</param>
+        /// 
+        /// <returns>The response from the GetWorkGroup service method, as returned by Athena.</returns>
+        /// <exception cref="Amazon.Athena.Model.InternalServerException">
+        /// Indicates a platform issue, which may be due to a transient condition or outage.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.InvalidRequestException">
+        /// Indicates that something is wrong with the input to the request. For example, a required
+        /// parameter may be missing or out of range.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/GetWorkGroup">REST API Reference for GetWorkGroup Operation</seealso>
+        public virtual GetWorkGroupResponse GetWorkGroup(GetWorkGroupRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetWorkGroupRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetWorkGroupResponseUnmarshaller.Instance;
+
+            return Invoke<GetWorkGroupResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetWorkGroup operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetWorkGroup operation on AmazonAthenaClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetWorkGroup
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/GetWorkGroup">REST API Reference for GetWorkGroup Operation</seealso>
+        public virtual IAsyncResult BeginGetWorkGroup(GetWorkGroupRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetWorkGroupRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetWorkGroupResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetWorkGroup operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetWorkGroup.</param>
+        /// 
+        /// <returns>Returns a  GetWorkGroupResult from Athena.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/GetWorkGroup">REST API Reference for GetWorkGroup Operation</seealso>
+        public virtual GetWorkGroupResponse EndGetWorkGroup(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetWorkGroupResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  ListNamedQueries
 
         /// <summary>
-        /// Provides a list of all available query IDs.
+        /// Provides a list of available query IDs only for queries saved in the specified workgroup.
+        /// Requires that you have access to the workgroup.
         /// 
         ///  
         /// <para>
@@ -776,7 +966,8 @@ namespace Amazon.Athena
         #region  ListQueryExecutions
 
         /// <summary>
-        /// Provides a list of all available query execution IDs.
+        /// Provides a list of available query execution IDs for the queries in the specified
+        /// workgroup. Requires you to have access to the workgroup in which the queries ran.
         /// 
         ///  
         /// <para>
@@ -840,10 +1031,136 @@ namespace Amazon.Athena
 
         #endregion
         
+        #region  ListTagsForResource
+
+        /// <summary>
+        /// Lists the tags associated with this workgroup.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource service method.</param>
+        /// 
+        /// <returns>The response from the ListTagsForResource service method, as returned by Athena.</returns>
+        /// <exception cref="Amazon.Athena.Model.InternalServerException">
+        /// Indicates a platform issue, which may be due to a transient condition or outage.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.InvalidRequestException">
+        /// Indicates that something is wrong with the input to the request. For example, a required
+        /// parameter may be missing or out of range.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.ResourceNotFoundException">
+        /// A resource, such as a workgroup, was not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
+        public virtual ListTagsForResourceResponse ListTagsForResource(ListTagsForResourceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTagsForResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTagsForResourceResponseUnmarshaller.Instance;
+
+            return Invoke<ListTagsForResourceResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListTagsForResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource operation on AmazonAthenaClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListTagsForResource
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
+        public virtual IAsyncResult BeginListTagsForResource(ListTagsForResourceRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTagsForResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTagsForResourceResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListTagsForResource operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListTagsForResource.</param>
+        /// 
+        /// <returns>Returns a  ListTagsForResourceResult from Athena.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
+        public virtual ListTagsForResourceResponse EndListTagsForResource(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListTagsForResourceResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  ListWorkGroups
+
+        /// <summary>
+        /// Lists available workgroups for the account.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListWorkGroups service method.</param>
+        /// 
+        /// <returns>The response from the ListWorkGroups service method, as returned by Athena.</returns>
+        /// <exception cref="Amazon.Athena.Model.InternalServerException">
+        /// Indicates a platform issue, which may be due to a transient condition or outage.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.InvalidRequestException">
+        /// Indicates that something is wrong with the input to the request. For example, a required
+        /// parameter may be missing or out of range.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/ListWorkGroups">REST API Reference for ListWorkGroups Operation</seealso>
+        public virtual ListWorkGroupsResponse ListWorkGroups(ListWorkGroupsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListWorkGroupsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListWorkGroupsResponseUnmarshaller.Instance;
+
+            return Invoke<ListWorkGroupsResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListWorkGroups operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListWorkGroups operation on AmazonAthenaClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListWorkGroups
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/ListWorkGroups">REST API Reference for ListWorkGroups Operation</seealso>
+        public virtual IAsyncResult BeginListWorkGroups(ListWorkGroupsRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListWorkGroupsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListWorkGroupsResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListWorkGroups operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListWorkGroups.</param>
+        /// 
+        /// <returns>Returns a  ListWorkGroupsResult from Athena.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/ListWorkGroups">REST API Reference for ListWorkGroups Operation</seealso>
+        public virtual ListWorkGroupsResponse EndListWorkGroups(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListWorkGroupsResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  StartQueryExecution
 
         /// <summary>
-        /// Runs (executes) the SQL query statements contained in the <code>Query</code> string.
+        /// Runs the SQL query statements contained in the <code>Query</code>. Requires you to
+        /// have access to the workgroup in which the query ran.
         /// 
         ///  
         /// <para>
@@ -862,8 +1179,7 @@ namespace Amazon.Athena
         /// parameter may be missing or out of range.
         /// </exception>
         /// <exception cref="Amazon.Athena.Model.TooManyRequestsException">
-        /// Indicates that the request was throttled and includes the reason for throttling, for
-        /// example, the limit of concurrent queries has been exceeded.
+        /// Indicates that the request was throttled.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/StartQueryExecution">REST API Reference for StartQueryExecution Operation</seealso>
         public virtual StartQueryExecutionResponse StartQueryExecution(StartQueryExecutionRequest request)
@@ -914,7 +1230,8 @@ namespace Amazon.Athena
         #region  StopQueryExecution
 
         /// <summary>
-        /// Stops a query execution.
+        /// Stops a query execution. Requires you to have access to the workgroup in which the
+        /// query ran.
         /// 
         ///  
         /// <para>
@@ -974,6 +1291,206 @@ namespace Amazon.Athena
         public virtual StopQueryExecutionResponse EndStopQueryExecution(IAsyncResult asyncResult)
         {
             return EndInvoke<StopQueryExecutionResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  TagResource
+
+        /// <summary>
+        /// Adds one or more tags to the resource, such as a workgroup. A tag is a label that
+        /// you assign to an AWS Athena resource (a workgroup). Each tag consists of a key and
+        /// an optional value, both of which you define. Tags enable you to categorize resources
+        /// (workgroups) in Athena, for example, by purpose, owner, or environment. Use a consistent
+        /// set of tag keys to make it easier to search and filter workgroups in your account.
+        /// For best practices, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
+        /// Tagging Strategies</a>. The key length is from 1 (minimum) to 128 (maximum) Unicode
+        /// characters in UTF-8. The tag value length is from 0 (minimum) to 256 (maximum) Unicode
+        /// characters in UTF-8. You can use letters and numbers representable in UTF-8, and the
+        /// following characters: + - = . _ : / @. Tag keys and values are case-sensitive. Tag
+        /// keys must be unique per resource. If you specify more than one, separate them by commas.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
+        /// 
+        /// <returns>The response from the TagResource service method, as returned by Athena.</returns>
+        /// <exception cref="Amazon.Athena.Model.InternalServerException">
+        /// Indicates a platform issue, which may be due to a transient condition or outage.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.InvalidRequestException">
+        /// Indicates that something is wrong with the input to the request. For example, a required
+        /// parameter may be missing or out of range.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.ResourceNotFoundException">
+        /// A resource, such as a workgroup, was not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/TagResource">REST API Reference for TagResource Operation</seealso>
+        public virtual TagResourceResponse TagResource(TagResourceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = TagResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = TagResourceResponseUnmarshaller.Instance;
+
+            return Invoke<TagResourceResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the TagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the TagResource operation on AmazonAthenaClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndTagResource
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/TagResource">REST API Reference for TagResource Operation</seealso>
+        public virtual IAsyncResult BeginTagResource(TagResourceRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = TagResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = TagResourceResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  TagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginTagResource.</param>
+        /// 
+        /// <returns>Returns a  TagResourceResult from Athena.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/TagResource">REST API Reference for TagResource Operation</seealso>
+        public virtual TagResourceResponse EndTagResource(IAsyncResult asyncResult)
+        {
+            return EndInvoke<TagResourceResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  UntagResource
+
+        /// <summary>
+        /// Removes one or more tags from the workgroup resource. Takes as an input a list of
+        /// TagKey Strings separated by commas, and removes their tags at the same time.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UntagResource service method.</param>
+        /// 
+        /// <returns>The response from the UntagResource service method, as returned by Athena.</returns>
+        /// <exception cref="Amazon.Athena.Model.InternalServerException">
+        /// Indicates a platform issue, which may be due to a transient condition or outage.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.InvalidRequestException">
+        /// Indicates that something is wrong with the input to the request. For example, a required
+        /// parameter may be missing or out of range.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.ResourceNotFoundException">
+        /// A resource, such as a workgroup, was not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/UntagResource">REST API Reference for UntagResource Operation</seealso>
+        public virtual UntagResourceResponse UntagResource(UntagResourceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UntagResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UntagResourceResponseUnmarshaller.Instance;
+
+            return Invoke<UntagResourceResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UntagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UntagResource operation on AmazonAthenaClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUntagResource
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/UntagResource">REST API Reference for UntagResource Operation</seealso>
+        public virtual IAsyncResult BeginUntagResource(UntagResourceRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UntagResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UntagResourceResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UntagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUntagResource.</param>
+        /// 
+        /// <returns>Returns a  UntagResourceResult from Athena.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/UntagResource">REST API Reference for UntagResource Operation</seealso>
+        public virtual UntagResourceResponse EndUntagResource(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UntagResourceResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  UpdateWorkGroup
+
+        /// <summary>
+        /// Updates the workgroup with the specified name. The workgroup's name cannot be changed.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateWorkGroup service method.</param>
+        /// 
+        /// <returns>The response from the UpdateWorkGroup service method, as returned by Athena.</returns>
+        /// <exception cref="Amazon.Athena.Model.InternalServerException">
+        /// Indicates a platform issue, which may be due to a transient condition or outage.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.InvalidRequestException">
+        /// Indicates that something is wrong with the input to the request. For example, a required
+        /// parameter may be missing or out of range.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/UpdateWorkGroup">REST API Reference for UpdateWorkGroup Operation</seealso>
+        public virtual UpdateWorkGroupResponse UpdateWorkGroup(UpdateWorkGroupRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateWorkGroupRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateWorkGroupResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateWorkGroupResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateWorkGroup operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateWorkGroup operation on AmazonAthenaClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateWorkGroup
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/UpdateWorkGroup">REST API Reference for UpdateWorkGroup Operation</seealso>
+        public virtual IAsyncResult BeginUpdateWorkGroup(UpdateWorkGroupRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateWorkGroupRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateWorkGroupResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateWorkGroup operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateWorkGroup.</param>
+        /// 
+        /// <returns>Returns a  UpdateWorkGroupResult from Athena.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/UpdateWorkGroup">REST API Reference for UpdateWorkGroup Operation</seealso>
+        public virtual UpdateWorkGroupResponse EndUpdateWorkGroup(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateWorkGroupResponse>(asyncResult);
         }
 
         #endregion

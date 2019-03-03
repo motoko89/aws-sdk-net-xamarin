@@ -41,7 +41,7 @@ namespace Amazon.ElasticFileSystem
     /// use with Amazon EC2 instances in the AWS Cloud. With Amazon EFS, storage capacity
     /// is elastic, growing and shrinking automatically as you add and remove files, so your
     /// applications have the storage they need, when they need it. For more information,
-    /// see the <a href="http://docs.aws.amazon.com/efs/latest/ug/api-reference.html">User
+    /// see the <a href="https://docs.aws.amazon.com/efs/latest/ug/api-reference.html">User
     /// Guide</a>.
     /// </para>
     /// </summary>
@@ -304,7 +304,7 @@ namespace Amazon.ElasticFileSystem
         /// mode can scale to higher levels of aggregate throughput and operations per second
         /// with a tradeoff of slightly higher latencies for most file operations. The performance
         /// mode can't be changed after the file system has been created. For more information,
-        /// see <a href="http://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon
+        /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon
         /// EFS: Performance Modes</a>.
         /// </para>
         ///  
@@ -312,8 +312,8 @@ namespace Amazon.ElasticFileSystem
         /// After the file system is fully created, Amazon EFS sets its lifecycle state to <code>available</code>,
         /// at which point you can create one or more mount targets for the file system in your
         /// VPC. For more information, see <a>CreateMountTarget</a>. You mount your Amazon EFS
-        /// file system on an EC2 instances in your VPC via the mount target. For more information,
-        /// see <a href="http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS:
+        /// file system on an EC2 instances in your VPC by using the mount target. For more information,
+        /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS:
         /// How it Works</a>. 
         /// </para>
         ///  
@@ -322,7 +322,7 @@ namespace Amazon.ElasticFileSystem
         /// action. 
         /// </para>
         /// </summary>
-        /// <param name="creationToken">String of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.</param>
+        /// <param name="creationToken">A string of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.</param>
         /// 
         /// <returns>The response from the CreateFileSystem service method, as returned by ElasticFileSystem.</returns>
         /// <exception cref="Amazon.ElasticFileSystem.Model.BadRequestException">
@@ -410,7 +410,7 @@ namespace Amazon.ElasticFileSystem
         /// mode can scale to higher levels of aggregate throughput and operations per second
         /// with a tradeoff of slightly higher latencies for most file operations. The performance
         /// mode can't be changed after the file system has been created. For more information,
-        /// see <a href="http://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon
+        /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon
         /// EFS: Performance Modes</a>.
         /// </para>
         ///  
@@ -418,8 +418,8 @@ namespace Amazon.ElasticFileSystem
         /// After the file system is fully created, Amazon EFS sets its lifecycle state to <code>available</code>,
         /// at which point you can create one or more mount targets for the file system in your
         /// VPC. For more information, see <a>CreateMountTarget</a>. You mount your Amazon EFS
-        /// file system on an EC2 instances in your VPC via the mount target. For more information,
-        /// see <a href="http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS:
+        /// file system on an EC2 instances in your VPC by using the mount target. For more information,
+        /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS:
         /// How it Works</a>. 
         /// </para>
         ///  
@@ -507,7 +507,7 @@ namespace Amazon.ElasticFileSystem
 
         /// <summary>
         /// Creates a mount target for a file system. You can then mount the file system on EC2
-        /// instances via the mount target.
+        /// instances by using the mount target.
         /// 
         ///  
         /// <para>
@@ -516,7 +516,7 @@ namespace Amazon.ElasticFileSystem
         /// file system. If you have multiple subnets in an Availability Zone, you create a mount
         /// target in one of the subnets. EC2 instances do not need to be in the same subnet as
         /// the mount target in order to access their file system. For more information, see <a
-        /// href="http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS: How
+        /// href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS: How
         /// it Works</a>. 
         /// </para>
         ///  
@@ -547,9 +547,9 @@ namespace Amazon.ElasticFileSystem
         /// After creating the mount target, Amazon EFS returns a response that includes, a <code>MountTargetId</code>
         /// and an <code>IpAddress</code>. You use this IP address when mounting the file system
         /// in an EC2 instance. You can also use the mount target's DNS name when mounting the
-        /// file system. The EC2 instance on which you mount the file system via the mount target
-        /// can resolve the mount target's DNS name to its IP address. For more information, see
-        /// <a href="http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html#how-it-works-implementation">How
+        /// file system. The EC2 instance on which you mount the file system by using the mount
+        /// target can resolve the mount target's DNS name to its IP address. For more information,
+        /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html#how-it-works-implementation">How
         /// it Works: Implementation Overview</a>. 
         /// </para>
         ///  
@@ -621,13 +621,13 @@ namespace Amazon.ElasticFileSystem
         /// </para>
         ///  </note> 
         /// <para>
-        /// We recommend you create a mount target in each of the Availability Zones. There are
-        /// cost considerations for using a file system in an Availability Zone through a mount
-        /// target created in another Availability Zone. For more information, see <a href="http://aws.amazon.com/efs/">Amazon
+        /// We recommend that you create a mount target in each of the Availability Zones. There
+        /// are cost considerations for using a file system in an Availability Zone through a
+        /// mount target created in another Availability Zone. For more information, see <a href="http://aws.amazon.com/efs/">Amazon
         /// EFS</a>. In addition, by always using a mount target local to the instance's Availability
         /// Zone, you eliminate a partial failure scenario. If the Availability Zone in which
-        /// your mount target is created goes down, then you won't be able to access your file
-        /// system through that mount target. 
+        /// your mount target is created goes down, then you can't access your file system through
+        /// that mount target. 
         /// </para>
         ///  
         /// <para>
@@ -683,7 +683,7 @@ namespace Amazon.ElasticFileSystem
         /// <exception cref="Amazon.ElasticFileSystem.Model.NetworkInterfaceLimitExceededException">
         /// The calling account has reached the limit for elastic network interfaces for the specific
         /// AWS Region. The client should try to delete some elastic network interfaces or get
-        /// the account limit raised. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon
+        /// the account limit raised. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon
         /// VPC Limits</a> in the <i>Amazon VPC User Guide </i> (see the Network interfaces per
         /// VPC entry in the table).
         /// </exception>
@@ -852,7 +852,7 @@ namespace Amazon.ElasticFileSystem
         /// action.
         /// </para>
         /// </summary>
-        /// <param name="fileSystemId">ID of the file system you want to delete.</param>
+        /// <param name="fileSystemId">The ID of the file system you want to delete.</param>
         /// 
         /// <returns>The response from the DeleteFileSystem service method, as returned by ElasticFileSystem.</returns>
         /// <exception cref="Amazon.ElasticFileSystem.Model.BadRequestException">
@@ -973,13 +973,13 @@ namespace Amazon.ElasticFileSystem
         /// 
         ///  
         /// <para>
-        /// This operation forcibly breaks any mounts of the file system via the mount target
+        /// This operation forcibly breaks any mounts of the file system by using the mount target
         /// that is being deleted, which might disrupt instances or applications using those mounts.
         /// To avoid applications getting cut off abruptly, you might consider unmounting any
         /// mounts of the mount target, if feasible. The operation also deletes the associated
-        /// network interface. Uncommitted writes may be lost, but breaking a mount target using
+        /// network interface. Uncommitted writes might be lost, but breaking a mount target using
         /// this operation does not corrupt the file system itself. The file system you created
-        /// remains. You can mount an EC2 instance in your VPC via another mount target.
+        /// remains. You can mount an EC2 instance in your VPC by using another mount target.
         /// </para>
         ///  
         /// <para>
@@ -1007,7 +1007,7 @@ namespace Amazon.ElasticFileSystem
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="mountTargetId">ID of the mount target to delete (String).</param>
+        /// <param name="mountTargetId">The ID of the mount target to delete (String).</param>
         /// 
         /// <returns>The response from the DeleteMountTarget service method, as returned by ElasticFileSystem.</returns>
         /// <exception cref="Amazon.ElasticFileSystem.Model.BadRequestException">
@@ -1038,13 +1038,13 @@ namespace Amazon.ElasticFileSystem
         /// 
         ///  
         /// <para>
-        /// This operation forcibly breaks any mounts of the file system via the mount target
+        /// This operation forcibly breaks any mounts of the file system by using the mount target
         /// that is being deleted, which might disrupt instances or applications using those mounts.
         /// To avoid applications getting cut off abruptly, you might consider unmounting any
         /// mounts of the mount target, if feasible. The operation also deletes the associated
-        /// network interface. Uncommitted writes may be lost, but breaking a mount target using
+        /// network interface. Uncommitted writes might be lost, but breaking a mount target using
         /// this operation does not corrupt the file system itself. The file system you created
-        /// remains. You can mount an EC2 instance in your VPC via another mount target.
+        /// remains. You can mount an EC2 instance in your VPC by using another mount target.
         /// </para>
         ///  
         /// <para>
@@ -1139,8 +1139,8 @@ namespace Amazon.ElasticFileSystem
 
         /// <summary>
         /// Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
-        /// includes a tag key that does not exist, Amazon EFS ignores it and doesn't cause an
-        /// error. For more information about tags and related restrictions, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag
+        /// includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an
+        /// error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag
         /// Restrictions</a> in the <i>AWS Billing and Cost Management User Guide</i>.
         /// 
         ///  
@@ -1219,11 +1219,12 @@ namespace Amazon.ElasticFileSystem
         /// 
         ///  
         /// <para>
-        ///  When retrieving all file system descriptions, you can optionally specify the <code>MaxItems</code>
-        /// parameter to limit the number of descriptions in a response. If more file system descriptions
-        /// remain, Amazon EFS returns a <code>NextMarker</code>, an opaque token, in the response.
-        /// In this case, you should send a subsequent request with the <code>Marker</code> request
-        /// parameter set to the value of <code>NextMarker</code>. 
+        /// When retrieving all file system descriptions, you can optionally specify the <code>MaxItems</code>
+        /// parameter to limit the number of descriptions in a response. Currently, this number
+        /// is automatically set to 10. If more file system descriptions remain, Amazon EFS returns
+        /// a <code>NextMarker</code>, an opaque token, in the response. In this case, you should
+        /// send a subsequent request with the <code>Marker</code> request parameter set to the
+        /// value of <code>NextMarker</code>. 
         /// </para>
         ///  
         /// <para>
@@ -1232,11 +1233,6 @@ namespace Amazon.ElasticFileSystem
         /// the <code>Marker</code> and then the operation continues to call it with the <code>Marker</code>
         /// parameter set to the value of the <code>NextMarker</code> from the previous response
         /// until the response has no <code>NextMarker</code>. 
-        /// </para>
-        ///  
-        /// <para>
-        /// The implementation may return fewer than <code>MaxItems</code> file system descriptions
-        /// while still including a <code>NextMarker</code> value. 
         /// </para>
         ///  
         /// <para>
@@ -1306,6 +1302,81 @@ namespace Amazon.ElasticFileSystem
         public virtual DescribeFileSystemsResponse EndDescribeFileSystems(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeFileSystemsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  DescribeLifecycleConfiguration
+
+        /// <summary>
+        /// Returns the current <code>LifecycleConfiguration</code> object for the specified Amazon
+        /// EFS file system. EFS lifecycle management uses the <code>LifecycleConfiguration</code>
+        /// object to identify which files to move to the EFS Infrequent Access (IA) storage class.
+        /// For a file system without a <code>LifecycleConfiguration</code> object, the call returns
+        /// an empty array in the response.
+        /// 
+        ///  
+        /// <para>
+        /// This operation requires permissions for the <code>elasticfilesystem:DescribeLifecycleConfiguration</code>
+        /// operation.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeLifecycleConfiguration service method.</param>
+        /// 
+        /// <returns>The response from the DescribeLifecycleConfiguration service method, as returned by ElasticFileSystem.</returns>
+        /// <exception cref="Amazon.ElasticFileSystem.Model.BadRequestException">
+        /// Returned if the request is malformed or contains an error such as an invalid parameter
+        /// value or a missing required parameter.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticFileSystem.Model.FileSystemNotFoundException">
+        /// Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's
+        /// AWS account.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticFileSystem.Model.InternalServerErrorException">
+        /// Returned if an error occurred on the server side.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/DescribeLifecycleConfiguration">REST API Reference for DescribeLifecycleConfiguration Operation</seealso>
+        public virtual DescribeLifecycleConfigurationResponse DescribeLifecycleConfiguration(DescribeLifecycleConfigurationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeLifecycleConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeLifecycleConfigurationResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeLifecycleConfigurationResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeLifecycleConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeLifecycleConfiguration operation on AmazonElasticFileSystemClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeLifecycleConfiguration
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/DescribeLifecycleConfiguration">REST API Reference for DescribeLifecycleConfiguration Operation</seealso>
+        public virtual IAsyncResult BeginDescribeLifecycleConfiguration(DescribeLifecycleConfigurationRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeLifecycleConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeLifecycleConfigurationResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeLifecycleConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeLifecycleConfiguration.</param>
+        /// 
+        /// <returns>Returns a  DescribeLifecycleConfigurationResult from ElasticFileSystem.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/DescribeLifecycleConfiguration">REST API Reference for DescribeLifecycleConfiguration Operation</seealso>
+        public virtual DescribeLifecycleConfigurationResponse EndDescribeLifecycleConfiguration(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DescribeLifecycleConfigurationResponse>(asyncResult);
         }
 
         #endregion
@@ -1448,7 +1519,7 @@ namespace Amazon.ElasticFileSystem
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="mountTargetId">ID of the mount target whose security groups you want to retrieve.</param>
+        /// <param name="mountTargetId">The ID of the mount target whose security groups you want to retrieve.</param>
         /// 
         /// <returns>The response from the DescribeMountTargetSecurityGroups service method, as returned by ElasticFileSystem.</returns>
         /// <exception cref="Amazon.ElasticFileSystem.Model.BadRequestException">
@@ -1561,7 +1632,8 @@ namespace Amazon.ElasticFileSystem
         /// <summary>
         /// Returns the tags associated with a file system. The order of tags returned in the
         /// response of one <code>DescribeTags</code> call and the order of tags returned across
-        /// the responses of a multi-call iteration (when using pagination) is unspecified. 
+        /// the responses of a multiple-call iteration (when using pagination) is unspecified.
+        /// 
         /// 
         ///  
         /// <para>
@@ -1569,7 +1641,7 @@ namespace Amazon.ElasticFileSystem
         /// action. 
         /// </para>
         /// </summary>
-        /// <param name="fileSystemId">ID of the file system whose tag set you want to retrieve.</param>
+        /// <param name="fileSystemId">The ID of the file system whose tag set you want to retrieve.</param>
         /// 
         /// <returns>The response from the DescribeTags service method, as returned by ElasticFileSystem.</returns>
         /// <exception cref="Amazon.ElasticFileSystem.Model.BadRequestException">
@@ -1595,7 +1667,8 @@ namespace Amazon.ElasticFileSystem
         /// <summary>
         /// Returns the tags associated with a file system. The order of tags returned in the
         /// response of one <code>DescribeTags</code> call and the order of tags returned across
-        /// the responses of a multi-call iteration (when using pagination) is unspecified. 
+        /// the responses of a multiple-call iteration (when using pagination) is unspecified.
+        /// 
         /// 
         ///  
         /// <para>
@@ -1758,6 +1831,118 @@ namespace Amazon.ElasticFileSystem
         public virtual ModifyMountTargetSecurityGroupsResponse EndModifyMountTargetSecurityGroups(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyMountTargetSecurityGroupsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  PutLifecycleConfiguration
+
+        /// <summary>
+        /// Enables lifecycle management by creating a new <code>LifecycleConfiguration</code>
+        /// object. A <code>LifecycleConfiguration</code> object defines when files in an Amazon
+        /// EFS file system are automatically transitioned to the lower-cost EFS Infrequent Access
+        /// (IA) storage class. A <code>LifecycleConfiguration</code> applies to all files in
+        /// a file system.
+        /// 
+        ///  
+        /// <para>
+        /// Each Amazon EFS file system supports one lifecycle configuration, which applies to
+        /// all files in the file system. If a <code>LifecycleConfiguration</code> object already
+        /// exists for the specified file system, a <code>PutLifecycleConfiguration</code> call
+        /// modifies the existing configuration. A <code>PutLifecycleConfiguration</code> call
+        /// with an empty <code>LifecyclePolicies</code> array in the request body deletes any
+        /// existing <code>LifecycleConfiguration</code> and disables lifecycle management.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// You can enable lifecycle management only for EFS file systems created after the release
+        /// of EFS infrequent access.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// In the request, specify the following: 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// The ID for the file system for which you are creating a lifecycle management configuration.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// A <code>LifecyclePolicies</code> array of <code>LifecyclePolicy</code> objects that
+        /// define when files are moved to the IA storage class. The array can contain only one
+        /// <code>"TransitionToIA": "AFTER_30_DAYS"</code> <code>LifecyclePolicy</code> item.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// This operation requires permissions for the <code>elasticfilesystem:PutLifecycleConfiguration</code>
+        /// operation.
+        /// </para>
+        ///  
+        /// <para>
+        /// To apply a <code>LifecycleConfiguration</code> object to an encrypted file system,
+        /// you need the same AWS Key Management Service (AWS KMS) permissions as when you created
+        /// the encrypted file system. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the PutLifecycleConfiguration service method.</param>
+        /// 
+        /// <returns>The response from the PutLifecycleConfiguration service method, as returned by ElasticFileSystem.</returns>
+        /// <exception cref="Amazon.ElasticFileSystem.Model.BadRequestException">
+        /// Returned if the request is malformed or contains an error such as an invalid parameter
+        /// value or a missing required parameter.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticFileSystem.Model.FileSystemNotFoundException">
+        /// Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's
+        /// AWS account.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticFileSystem.Model.IncorrectFileSystemLifeCycleStateException">
+        /// Returned if the file system's lifecycle state is not "available".
+        /// </exception>
+        /// <exception cref="Amazon.ElasticFileSystem.Model.InternalServerErrorException">
+        /// Returned if an error occurred on the server side.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/PutLifecycleConfiguration">REST API Reference for PutLifecycleConfiguration Operation</seealso>
+        public virtual PutLifecycleConfigurationResponse PutLifecycleConfiguration(PutLifecycleConfigurationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutLifecycleConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutLifecycleConfigurationResponseUnmarshaller.Instance;
+
+            return Invoke<PutLifecycleConfigurationResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the PutLifecycleConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the PutLifecycleConfiguration operation on AmazonElasticFileSystemClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPutLifecycleConfiguration
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/PutLifecycleConfiguration">REST API Reference for PutLifecycleConfiguration Operation</seealso>
+        public virtual IAsyncResult BeginPutLifecycleConfiguration(PutLifecycleConfigurationRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutLifecycleConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutLifecycleConfigurationResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  PutLifecycleConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginPutLifecycleConfiguration.</param>
+        /// 
+        /// <returns>Returns a  PutLifecycleConfigurationResult from ElasticFileSystem.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/PutLifecycleConfiguration">REST API Reference for PutLifecycleConfiguration Operation</seealso>
+        public virtual PutLifecycleConfigurationResponse EndPutLifecycleConfiguration(IAsyncResult asyncResult)
+        {
+            return EndInvoke<PutLifecycleConfigurationResponse>(asyncResult);
         }
 
         #endregion

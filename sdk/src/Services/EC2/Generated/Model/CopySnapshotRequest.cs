@@ -30,7 +30,7 @@ namespace Amazon.EC2.Model
     /// <summary>
     /// Container for the parameters to the CopySnapshot operation.
     /// Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can
-    /// copy the snapshot within the same region or from one region to another. You can use
+    /// copy the snapshot within the same Region or from one Region to another. You can use
     /// the snapshot to create EBS volumes or Amazon Machine Images (AMIs). The snapshot is
     /// copied to the regional endpoint that you send the HTTP request to.
     /// 
@@ -54,7 +54,7 @@ namespace Amazon.EC2.Model
     /// </para>
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying
     /// an Amazon EBS Snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -89,15 +89,15 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property DestinationRegion. 
         /// <para>
-        /// The destination region to use in the <code>PresignedUrl</code> parameter of a snapshot
-        /// copy operation. This parameter is only valid for specifying the destination region
+        /// The destination Region to use in the <code>PresignedUrl</code> parameter of a snapshot
+        /// copy operation. This parameter is only valid for specifying the destination Region
         /// in a <code>PresignedUrl</code> parameter, where it is required.
         /// </para>
         ///  
         /// <para>
         /// The snapshot copy is sent to the regional endpoint that you sent the HTTP request
         /// to (for example, <code>ec2.us-east-1.amazonaws.com</code>). With the AWS CLI, this
-        /// is specified using the <code>--region</code> parameter or the default region in your
+        /// is specified using the <code>--region</code> parameter or the default Region in your
         /// AWS configuration file.
         /// </para>
         /// </summary>
@@ -120,7 +120,7 @@ namespace Amazon.EC2.Model
         /// copy of an unencrypted snapshot, but you cannot use it to create an unencrypted copy
         /// of an encrypted snapshot. Your default CMK for EBS is used unless you specify a non-default
         /// AWS Key Management Service (AWS KMS) CMK using <code>KmsKeyId</code>. For more information,
-        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
         /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
@@ -195,7 +195,7 @@ namespace Amazon.EC2.Model
         /// <para>
         /// When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must
         /// supply a pre-signed URL. This parameter is optional for unencrypted snapshots. For
-        /// more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
+        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
         /// Requests</a>.
         /// </para>
         ///  
@@ -205,7 +205,7 @@ namespace Amazon.EC2.Model
         /// and <code>DestinationRegion</code> parameters. The <code>PresignedUrl</code> must
         /// be signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon
         /// S3, the signing algorithm for this parameter uses the same logic that is described
-        /// in <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
+        /// in <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
         /// Requests by Using Query Parameters (AWS Signature Version 4)</a> in the <i>Amazon
         /// Simple Storage Service API Reference</i>. An invalid or improperly signed <code>PresignedUrl</code>
         /// will cause the copy operation to fail asynchronously, and the snapshot will move to
@@ -227,7 +227,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property SourceRegion. 
         /// <para>
-        /// The ID of the region that contains the snapshot to be copied.
+        /// The ID of the Region that contains the snapshot to be copied.
         /// </para>
         /// </summary>
         public string SourceRegion

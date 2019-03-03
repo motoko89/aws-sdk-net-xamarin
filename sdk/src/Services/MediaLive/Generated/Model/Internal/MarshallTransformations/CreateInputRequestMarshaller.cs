@@ -148,10 +148,35 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
                     context.Writer.WriteArrayEnd();
                 }
 
+                if(publicRequest.IsSetTags())
+                {
+                    context.Writer.WritePropertyName("tags");
+                    context.Writer.WriteObjectStart();
+                    foreach (var publicRequestTagsKvp in publicRequest.Tags)
+                    {
+                        context.Writer.WritePropertyName(publicRequestTagsKvp.Key);
+                        var publicRequestTagsValue = publicRequestTagsKvp.Value;
+
+                            context.Writer.Write(publicRequestTagsValue);
+                    }
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetType())
                 {
                     context.Writer.WritePropertyName("type");
                     context.Writer.Write(publicRequest.Type);
+                }
+
+                if(publicRequest.IsSetVpc())
+                {
+                    context.Writer.WritePropertyName("vpc");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = InputVpcRequestMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.Vpc, context);
+
+                    context.Writer.WriteObjectEnd();
                 }
 
         

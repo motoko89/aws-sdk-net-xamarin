@@ -1013,6 +1013,18 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly CapacityReservationInstancePlatform LinuxUNIX = new CapacityReservationInstancePlatform("Linux/UNIX");
         /// <summary>
+        /// Constant LinuxWithSQLServerEnterprise for CapacityReservationInstancePlatform
+        /// </summary>
+        public static readonly CapacityReservationInstancePlatform LinuxWithSQLServerEnterprise = new CapacityReservationInstancePlatform("Linux with SQL Server Enterprise");
+        /// <summary>
+        /// Constant LinuxWithSQLServerStandard for CapacityReservationInstancePlatform
+        /// </summary>
+        public static readonly CapacityReservationInstancePlatform LinuxWithSQLServerStandard = new CapacityReservationInstancePlatform("Linux with SQL Server Standard");
+        /// <summary>
+        /// Constant LinuxWithSQLServerWeb for CapacityReservationInstancePlatform
+        /// </summary>
+        public static readonly CapacityReservationInstancePlatform LinuxWithSQLServerWeb = new CapacityReservationInstancePlatform("Linux with SQL Server Web");
+        /// <summary>
         /// Constant RedHatEnterpriseLinux for CapacityReservationInstancePlatform
         /// </summary>
         public static readonly CapacityReservationInstancePlatform RedHatEnterpriseLinux = new CapacityReservationInstancePlatform("Red Hat Enterprise Linux");
@@ -4435,6 +4447,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType M5dLarge = new InstanceType("m5d.large");
         /// <summary>
+        /// Constant M5dMetal for InstanceType
+        /// </summary>
+        public static readonly InstanceType M5dMetal = new InstanceType("m5d.metal");
+        /// <summary>
         /// Constant M5dXlarge for InstanceType
         /// </summary>
         public static readonly InstanceType M5dXlarge = new InstanceType("m5d.xlarge");
@@ -4442,6 +4458,10 @@ namespace Amazon.EC2
         /// Constant M5Large for InstanceType
         /// </summary>
         public static readonly InstanceType M5Large = new InstanceType("m5.large");
+        /// <summary>
+        /// Constant M5Metal for InstanceType
+        /// </summary>
+        public static readonly InstanceType M5Metal = new InstanceType("m5.metal");
         /// <summary>
         /// Constant M5Xlarge for InstanceType
         /// </summary>
@@ -4722,6 +4742,10 @@ namespace Amazon.EC2
         /// Constant Z1dLarge for InstanceType
         /// </summary>
         public static readonly InstanceType Z1dLarge = new InstanceType("z1d.large");
+        /// <summary>
+        /// Constant Z1dMetal for InstanceType
+        /// </summary>
+        public static readonly InstanceType Z1dMetal = new InstanceType("z1d.metal");
         /// <summary>
         /// Constant Z1dXlarge for InstanceType
         /// </summary>
@@ -6516,6 +6540,10 @@ namespace Amazon.EC2
     public class ResourceType : ConstantClass
     {
 
+        /// <summary>
+        /// Constant ClientVpnEndpoint for ResourceType
+        /// </summary>
+        public static readonly ResourceType ClientVpnEndpoint = new ResourceType("client-vpn-endpoint");
         /// <summary>
         /// Constant CustomerGateway for ResourceType
         /// </summary>

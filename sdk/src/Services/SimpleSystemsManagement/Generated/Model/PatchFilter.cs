@@ -107,6 +107,10 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// </para>
     ///  </li> <li> 
     /// <para>
+    ///  <code>WindowsServer2019</code> 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
     ///  <code>*</code> 
     /// </para>
     ///  
@@ -536,6 +540,14 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// </para>
     ///  </li> <li> 
     /// <para>
+    ///  <code>RedhatEnterpriseLinux7.5</code> 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <code>RedhatEnterpriseLinux7.6</code> 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
     ///  <code>*</code> 
     /// </para>
     ///  
@@ -775,6 +787,14 @@ namespace Amazon.SimpleSystemsManagement.Model
     ///  </li> <li> 
     /// <para>
     ///  <code>CentOS7.4</code> 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <code>CentOS7.5</code> 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <code>CentOS7.6</code> 
     /// </para>
     ///  </li> <li> 
     /// <para>

@@ -29,7 +29,8 @@ namespace Amazon.ECS.Model
 {
     /// <summary>
     /// The type and amount of a resource to assign to a container. The only supported resource
-    /// is a GPU.
+    /// is a GPU. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html">Working
+    /// with GPUs on Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>
     /// </summary>
     public partial class ResourceRequirement
     {
@@ -39,7 +40,7 @@ namespace Amazon.ECS.Model
         /// <summary>
         /// Gets and sets the property Type. 
         /// <para>
-        /// The type of resource a container desires. The only supported value is <code>GPU</code>.
+        /// The type of resource to assign to a container. The only supported value is <code>GPU</code>.
         /// </para>
         /// </summary>
         public ResourceType Type
@@ -57,7 +58,10 @@ namespace Amazon.ECS.Model
         /// <summary>
         /// Gets and sets the property Value. 
         /// <para>
-        /// The number of GPUs to assign to a container.
+        /// The number of physical <code>GPUs</code> the Amazon ECS container agent will reserve
+        /// for the container. The number of GPUs reserved for all containers in a task should
+        /// not exceed the number of available GPUs on the container instance the task is launched
+        /// on.
         /// </para>
         /// </summary>
         public string Value

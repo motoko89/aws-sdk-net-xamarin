@@ -82,6 +82,12 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
                     unmarshalledObject.Url = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("vpc", targetDepth))
+                {
+                    var unmarshaller = InputDestinationVpcUnmarshaller.Instance;
+                    unmarshalledObject.Vpc = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

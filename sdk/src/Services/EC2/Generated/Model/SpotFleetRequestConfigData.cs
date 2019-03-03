@@ -77,7 +77,7 @@ namespace Amazon.EC2.Model
         /// <para>
         /// A unique, case-sensitive identifier that you provide to ensure the idempotency of
         /// your listings. This helps to avoid duplicate listings. For more information, see <a
-        /// href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// Idempotency</a>.
         /// </para>
         /// </summary>
@@ -441,7 +441,7 @@ namespace Amazon.EC2.Model
         /// <para>
         /// The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
         /// At this point, no new Spot Instance requests are placed or able to fulfill the request.
-        /// The default end date is 7 days from the current date.
+        /// If no value is specified, the Spot Fleet request remains until you cancel it.
         /// </para>
         /// </summary>
         public DateTime ValidUntilUtc
@@ -504,7 +504,7 @@ namespace Amazon.EC2.Model
         /// <para>
         /// The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
         /// At this point, no new Spot Instance requests are placed or able to fulfill the request.
-        /// The default end date is 7 days from the current date.
+        /// If no value is specified, the Spot Fleet request remains until you cancel it.
         /// </para>
         /// </summary>
         [Obsolete("Setting this property results in non-UTC DateTimes not being marshalled correctly. " +

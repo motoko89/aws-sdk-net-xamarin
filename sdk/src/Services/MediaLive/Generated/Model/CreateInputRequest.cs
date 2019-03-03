@@ -40,7 +40,9 @@ namespace Amazon.MediaLive.Model
         private string _requestId;
         private string _roleArn;
         private List<InputSourceRequest> _sources = new List<InputSourceRequest>();
+        private Dictionary<string, string> _tags = new Dictionary<string, string>();
         private InputType _type;
+        private InputVpcRequest _vpc;
 
         /// <summary>
         /// Gets and sets the property Destinations. Destination settings for PUSH type inputs.
@@ -157,6 +159,21 @@ namespace Amazon.MediaLive.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Tags. A collection of key-value pairs.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property Type.
         /// </summary>
         public InputType Type
@@ -169,6 +186,21 @@ namespace Amazon.MediaLive.Model
         internal bool IsSetType()
         {
             return this._type != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Vpc.
+        /// </summary>
+        public InputVpcRequest Vpc
+        {
+            get { return this._vpc; }
+            set { this._vpc = value; }
+        }
+
+        // Check to see if Vpc property is set
+        internal bool IsSetVpc()
+        {
+            return this._vpc != null;
         }
 
     }

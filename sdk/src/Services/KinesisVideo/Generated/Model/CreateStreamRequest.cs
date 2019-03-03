@@ -42,7 +42,7 @@ namespace Amazon.KinesisVideo.Model
     /// </para>
     ///  
     /// <para>
-    /// For information about how the service works, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How
+    /// For information about how the service works, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How
     /// it Works</a>. 
     /// </para>
     ///  
@@ -57,6 +57,7 @@ namespace Amazon.KinesisVideo.Model
         private string _kmsKeyId;
         private string _mediaType;
         private string _streamName;
+        private Dictionary<string, string> _tags = new Dictionary<string, string>();
 
         /// <summary>
         /// Gets and sets the property DataRetentionInHours. 
@@ -124,7 +125,7 @@ namespace Amazon.KinesisVideo.Model
         /// </para>
         ///  
         /// <para>
-        ///  For more information, see <a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>.
+        ///  For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>.
         /// 
         /// </para>
         /// </summary>
@@ -147,11 +148,6 @@ namespace Amazon.KinesisVideo.Model
         /// processing the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media
         /// Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming
         /// Requirements</a> for guidelines.
-        /// </para>
-        ///  
-        /// <para>
-        /// To play video on the console, the media must be H.264 encoded, and you need to specify
-        /// this video type in this parameter as <code>video/h264</code>. 
         /// </para>
         ///  
         /// <para>
@@ -191,6 +187,25 @@ namespace Amazon.KinesisVideo.Model
         internal bool IsSetStreamName()
         {
             return this._streamName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// A list of tags to associate with the specified stream. Each tag is a key-value pair
+        /// (the value is optional).
+        /// </para>
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
     }

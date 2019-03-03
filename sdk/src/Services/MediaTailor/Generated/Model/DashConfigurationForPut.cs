@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.MediaTailor.Model
 {
     /// <summary>
-    /// The configuration object for DASH content.
+    /// The configuration for DASH PUT operations.
     /// </summary>
     public partial class DashConfigurationForPut
     {
@@ -37,13 +37,13 @@ namespace Amazon.MediaTailor.Model
         /// <summary>
         /// Gets and sets the property MpdLocation. 
         /// <para>
-        /// The setting that controls whether MediaTailor includes the Location tag in DASH Manifests.
+        /// The setting that controls whether MediaTailor includes the Location tag in DASH manifests.
         /// MediaTailor populates the Location tag with the URL for manifest update requests,
         /// to be used by players that don't support sticky redirects. Disable this if you have
         /// CDN routing rules set up for accessing MediaTailor manifests and you are either using
         /// client-side reporting or your players support sticky HTTP redirects. Valid values
         /// are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the
-        /// tag and is the default value.
+        /// tag and is the default value. 
         /// </para>
         /// </summary>
         public string MpdLocation

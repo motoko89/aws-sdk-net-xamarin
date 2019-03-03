@@ -196,6 +196,36 @@
       ],
       "documentation": "Creates a Input Security Group"
     },
+    "CreateTags": {
+      "name": "CreateTags",
+      "http": {
+        "method": "POST",
+        "requestUri": "/prod/tags/{resource-arn}",
+        "responseCode": 204
+      },
+      "input": {
+        "shape": "CreateTagsRequest"
+      },
+      "errors": [
+        {
+          "shape": "NotFoundException",
+          "documentation": "The arn was not found."
+        },
+        {
+          "shape": "BadRequestException",
+          "documentation": "This request was invalid"
+        },
+        {
+          "shape": "InternalServerErrorException",
+          "documentation": "Internal Service Error"
+        },
+        {
+          "shape": "ForbiddenException",
+          "documentation": "Access was denied"
+        }
+      ],
+      "documentation": "Create tags for a resource"
+    },
     "DeleteChannel": {
       "name": "DeleteChannel",
       "http": {
@@ -391,6 +421,36 @@
         }
       ],
       "documentation": "Delete an expired reservation."
+    },
+    "DeleteTags": {
+      "name": "DeleteTags",
+      "http": {
+        "method": "DELETE",
+        "requestUri": "/prod/tags/{resource-arn}",
+        "responseCode": 204
+      },
+      "input": {
+        "shape": "DeleteTagsRequest"
+      },
+      "errors": [
+        {
+          "shape": "NotFoundException",
+          "documentation": "The arn was not found."
+        },
+        {
+          "shape": "BadRequestException",
+          "documentation": "This request was invalid"
+        },
+        {
+          "shape": "InternalServerErrorException",
+          "documentation": "Internal Service Error"
+        },
+        {
+          "shape": "ForbiddenException",
+          "documentation": "Access was denied"
+        }
+      ],
+      "documentation": "Removes tags for a resource"
     },
     "DescribeChannel": {
       "name": "DescribeChannel",
@@ -877,6 +937,40 @@
         }
       ],
       "documentation": "List purchased reservations."
+    },
+    "ListTagsForResource": {
+      "name": "ListTagsForResource",
+      "http": {
+        "method": "GET",
+        "requestUri": "/prod/tags/{resource-arn}",
+        "responseCode": 200
+      },
+      "input": {
+        "shape": "ListTagsForResourceRequest"
+      },
+      "output": {
+        "shape": "ListTagsForResourceResponse",
+        "documentation": "An array of tags"
+      },
+      "errors": [
+        {
+          "shape": "NotFoundException",
+          "documentation": "The arn was not found"
+        },
+        {
+          "shape": "BadRequestException",
+          "documentation": "This request was invalid"
+        },
+        {
+          "shape": "InternalServerErrorException",
+          "documentation": "Internal Service Error"
+        },
+        {
+          "shape": "ForbiddenException",
+          "documentation": "Access was denied"
+        }
+      ],
+      "documentation": "Produces list of tags that have been created for a resource"
     },
     "PurchaseOffering": {
       "name": "PurchaseOffering",
@@ -2350,6 +2444,11 @@
         "State": {
           "shape": "ChannelState",
           "locationName": "state"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "Placeholder documentation for Channel"
@@ -2515,6 +2614,11 @@
           "shape": "__string",
           "locationName": "roleArn",
           "documentation": "An optional Amazon Resource Name (ARN) of the role to assume when running the Channel."
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "Placeholder documentation for CreateChannel"
@@ -2566,6 +2670,11 @@
           "shape": "__string",
           "locationName": "roleArn",
           "documentation": "An optional Amazon Resource Name (ARN) of the role to assume when running the Channel."
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "A request to create a channel"
@@ -2629,9 +2738,18 @@
           "locationName": "sources",
           "documentation": "The source URLs for a PULL-type input. Every PULL type input needs\nexactly two source URLs for redundancy.\nOnly specify sources for PULL type Inputs. Leave Destinations empty.\n"
         },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
+        },
         "Type": {
           "shape": "InputType",
           "locationName": "type"
+        },
+        "Vpc": {
+          "shape": "InputVpcRequest",
+          "locationName": "vpc"
         }
       },
       "documentation": "Placeholder documentation for CreateInput"
@@ -2675,9 +2793,18 @@
           "locationName": "sources",
           "documentation": "The source URLs for a PULL-type input. Every PULL type input needs\nexactly two source URLs for redundancy.\nOnly specify sources for PULL type Inputs. Leave Destinations empty.\n"
         },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
+        },
         "Type": {
           "shape": "InputType",
           "locationName": "type"
+        },
+        "Vpc": {
+          "shape": "InputVpcRequest",
+          "locationName": "vpc"
         }
       },
       "documentation": "The name of the input"
@@ -2705,6 +2832,11 @@
     "CreateInputSecurityGroupRequest": {
       "type": "structure",
       "members": {
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
+        },
         "WhitelistRules": {
           "shape": "__listOfInputWhitelistRuleCidr",
           "locationName": "whitelistRules",
@@ -2732,6 +2864,24 @@
         }
       },
       "documentation": "Placeholder documentation for CreateInputSecurityGroupResultModel"
+    },
+    "CreateTagsRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "shape": "__string",
+          "location": "uri",
+          "locationName": "resource-arn"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags"
+        }
+      },
+      "required": [
+        "ResourceArn"
+      ],
+      "documentation": "Placeholder documentation for CreateTagsRequest"
     },
     "DeleteChannelRequest": {
       "type": "structure",
@@ -2807,6 +2957,11 @@
         "State": {
           "shape": "ChannelState",
           "locationName": "state"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "Placeholder documentation for DeleteChannelResponse"
@@ -2959,6 +3114,27 @@
       },
       "documentation": "Placeholder documentation for DeleteReservationResponse"
     },
+    "DeleteTagsRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "shape": "__string",
+          "location": "uri",
+          "locationName": "resource-arn"
+        },
+        "TagKeys": {
+          "shape": "__listOf__string",
+          "location": "querystring",
+          "locationName": "tagKeys",
+          "documentation": "An array of tag keys to delete"
+        }
+      },
+      "required": [
+        "TagKeys",
+        "ResourceArn"
+      ],
+      "documentation": "Placeholder documentation for DeleteTagsRequest"
+    },
     "DescribeChannelRequest": {
       "type": "structure",
       "members": {
@@ -3033,6 +3209,11 @@
         "State": {
           "shape": "ChannelState",
           "locationName": "state"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "Placeholder documentation for DescribeChannelResponse"
@@ -3093,7 +3274,7 @@
         "SecurityGroups": {
           "shape": "__listOf__string",
           "locationName": "securityGroups",
-          "documentation": "A list of IDs for all the security groups attached to the input."
+          "documentation": "A list of IDs for all the Input Security Groups attached to the input."
         },
         "Sources": {
           "shape": "__listOfInputSource",
@@ -3103,6 +3284,11 @@
         "State": {
           "shape": "InputState",
           "locationName": "state"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         },
         "Type": {
           "shape": "InputType",
@@ -3148,6 +3334,11 @@
           "shape": "InputSecurityGroupState",
           "locationName": "state",
           "documentation": "The current state of the Input Security Group."
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         },
         "WhitelistRules": {
           "shape": "__listOfInputWhitelistRule",
@@ -5181,7 +5372,7 @@
         "SecurityGroups": {
           "shape": "__listOf__string",
           "locationName": "securityGroups",
-          "documentation": "A list of IDs for all the security groups attached to the input."
+          "documentation": "A list of IDs for all the Input Security Groups attached to the input."
         },
         "Sources": {
           "shape": "__listOfInputSource",
@@ -5191,6 +5382,11 @@
         "State": {
           "shape": "InputState",
           "locationName": "state"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         },
         "Type": {
           "shape": "InputType",
@@ -5282,6 +5478,10 @@
           "shape": "__string",
           "locationName": "url",
           "documentation": "This represents the endpoint that the customer stream will be\npushed to.\n"
+        },
+        "Vpc": {
+          "shape": "InputDestinationVpc",
+          "locationName": "vpc"
         }
       },
       "documentation": "The settings for a PUSH type input."
@@ -5296,6 +5496,22 @@
         }
       },
       "documentation": "Endpoint settings for a PUSH type input."
+    },
+    "InputDestinationVpc": {
+      "type": "structure",
+      "members": {
+        "AvailabilityZone": {
+          "shape": "__string",
+          "locationName": "availabilityZone",
+          "documentation": "The availability zone of the Input destination.\n"
+        },
+        "NetworkInterfaceId": {
+          "shape": "__string",
+          "locationName": "networkInterfaceId",
+          "documentation": "The network interface ID of the Input destination in the VPC.\n"
+        }
+      },
+      "documentation": "The properties for a VPC type input destination."
     },
     "InputFilter": {
       "type": "string",
@@ -5443,6 +5659,11 @@
           "locationName": "state",
           "documentation": "The current state of the Input Security Group."
         },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
+        },
         "WhitelistRules": {
           "shape": "__listOfInputWhitelistRule",
           "locationName": "whitelistRules",
@@ -5464,6 +5685,11 @@
     "InputSecurityGroupWhitelistRequest": {
       "type": "structure",
       "members": {
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
+        },
         "WhitelistRules": {
           "shape": "__listOfInputWhitelistRuleCidr",
           "locationName": "whitelistRules",
@@ -5631,6 +5857,25 @@
         "MEDIACONNECT"
       ],
       "documentation": "Placeholder documentation for InputType"
+    },
+    "InputVpcRequest": {
+      "type": "structure",
+      "members": {
+        "SecurityGroupIds": {
+          "shape": "__listOf__string",
+          "locationName": "securityGroupIds",
+          "documentation": "A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.\nRequires subnetIds. If none are specified then the VPC default security group will be used.\n"
+        },
+        "SubnetIds": {
+          "shape": "__listOf__string",
+          "locationName": "subnetIds",
+          "documentation": "A list of 2 VPC subnet IDs from the same VPC.\nSubnet IDs must be mapped to two unique availability zones (AZ).\n"
+        }
+      },
+      "documentation": "Settings for a private VPC Input.\nWhen this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.\nThis property requires setting the roleArn property on Input creation.\nNot compatible with the inputSecurityGroups property.\n",
+      "required": [
+        "SubnetIds"
+      ]
     },
     "InputWhitelistRule": {
       "type": "structure",
@@ -6027,6 +6272,30 @@
         }
       },
       "documentation": "ListReservations response"
+    },
+    "ListTagsForResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "shape": "__string",
+          "location": "uri",
+          "locationName": "resource-arn"
+        }
+      },
+      "required": [
+        "ResourceArn"
+      ],
+      "documentation": "Placeholder documentation for ListTagsForResourceRequest"
+    },
+    "ListTagsForResourceResponse": {
+      "type": "structure",
+      "members": {
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags"
+        }
+      },
+      "documentation": "Placeholder documentation for ListTagsForResourceResponse"
     },
     "LogLevel": {
       "type": "string",
@@ -8025,6 +8294,11 @@
         "State": {
           "shape": "ChannelState",
           "locationName": "state"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "Placeholder documentation for StartChannelResponse"
@@ -8197,9 +8471,34 @@
         "State": {
           "shape": "ChannelState",
           "locationName": "state"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "Placeholder documentation for StopChannelResponse"
+    },
+    "Tags": {
+      "type": "map",
+      "key": {
+        "shape": "__string"
+      },
+      "value": {
+        "shape": "__string"
+      },
+      "documentation": "Placeholder documentation for Tags"
+    },
+    "TagsModel": {
+      "type": "structure",
+      "members": {
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags"
+        }
+      },
+      "documentation": "Placeholder documentation for TagsModel"
     },
     "TeletextDestinationSettings": {
       "type": "structure",
@@ -8585,6 +8884,11 @@
           "location": "uri",
           "locationName": "inputSecurityGroupId",
           "documentation": "The id of the Input Security Group to update."
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         },
         "WhitelistRules": {
           "shape": "__listOfInputWhitelistRuleCidr",

@@ -42,6 +42,7 @@ namespace Amazon.EC2.Model
         private string _description;
         private List<string> _dnsServers = new List<string>();
         private string _serverCertificateArn;
+        private List<TagSpecification> _tagSpecifications = new List<TagSpecification>();
         private TransportProtocol _transportProtocol;
 
         /// <summary>
@@ -88,7 +89,7 @@ namespace Amazon.EC2.Model
         /// Gets and sets the property ClientToken. 
         /// <para>
         /// Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
-        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
         /// How to Ensure Idempotency</a>.
         /// </para>
         /// </summary>
@@ -185,8 +186,8 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property ServerCertificateArn. 
         /// <para>
-        /// The ARN of the server certificate. For more information, see the <a href="acm/latest/userguide/acm-overview.html">AWS
-        /// Certificate Manager User Guide</a> .
+        /// The ARN of the server certificate. For more information, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS
+        /// Certificate Manager User Guide</a>.
         /// </para>
         /// </summary>
         public string ServerCertificateArn
@@ -199,6 +200,24 @@ namespace Amazon.EC2.Model
         internal bool IsSetServerCertificateArn()
         {
             return this._serverCertificateArn != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property TagSpecifications. 
+        /// <para>
+        /// The tags to apply to the Client VPN endpoint during creation.
+        /// </para>
+        /// </summary>
+        public List<TagSpecification> TagSpecifications
+        {
+            get { return this._tagSpecifications; }
+            set { this._tagSpecifications = value; }
+        }
+
+        // Check to see if TagSpecifications property is set
+        internal bool IsSetTagSpecifications()
+        {
+            return this._tagSpecifications != null && this._tagSpecifications.Count > 0; 
         }
 
         /// <summary>

@@ -49,6 +49,11 @@ namespace Amazon.ApplicationAutoScaling.Model
     /// You can view the scheduled actions using <a>DescribeScheduledActions</a>. If you are
     /// no longer using a scheduled action, you can delete it using <a>DeleteScheduledAction</a>.
     /// </para>
+    ///  
+    /// <para>
+    /// Learn more about how to work with scheduled actions in the <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html">Application
+    /// Auto Scaling User Guide</a>.
+    /// </para>
     /// </summary>
     public partial class PutScheduledActionRequest : AmazonApplicationAutoScalingRequest
     {
@@ -150,9 +155,8 @@ namespace Amazon.ApplicationAutoScaling.Model
         /// <summary>
         /// Gets and sets the property ScalableDimension. 
         /// <para>
-        /// The scalable dimension. This parameter is required if you are creating a scheduled
-        /// action. This string consists of the service namespace, resource type, and scaling
-        /// property.
+        /// The scalable dimension. This string consists of the service namespace, resource type,
+        /// and scaling property.
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -312,7 +316,7 @@ namespace Amazon.ApplicationAutoScaling.Model
         /// <para>
         /// The namespace of the AWS service that provides the resource or <code>custom-resource</code>
         /// for a resource provided by your own application or service. For more information,
-        /// see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
+        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
         /// Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.
         /// </para>
         /// </summary>

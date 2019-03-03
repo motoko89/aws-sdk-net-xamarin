@@ -34,6 +34,7 @@ namespace Amazon.MediaLive.Model
     public partial class UpdateInputSecurityGroupRequest : AmazonMediaLiveRequest
     {
         private string _inputSecurityGroupId;
+        private Dictionary<string, string> _tags = new Dictionary<string, string>();
         private List<InputWhitelistRuleCidr> _whitelistRules = new List<InputWhitelistRuleCidr>();
 
         /// <summary>
@@ -50,6 +51,21 @@ namespace Amazon.MediaLive.Model
         internal bool IsSetInputSecurityGroupId()
         {
             return this._inputSecurityGroupId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. A collection of key-value pairs.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
         /// <summary>
