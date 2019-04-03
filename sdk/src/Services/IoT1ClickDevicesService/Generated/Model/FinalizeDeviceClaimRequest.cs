@@ -42,6 +42,7 @@ namespace Amazon.IoT1ClickDevicesService.Model
     public partial class FinalizeDeviceClaimRequest : AmazonIoT1ClickDevicesServiceRequest
     {
         private string _deviceId;
+        private Dictionary<string, string> _tags = new Dictionary<string, string>();
 
         /// <summary>
         /// Gets and sets the property DeviceId. 
@@ -49,6 +50,7 @@ namespace Amazon.IoT1ClickDevicesService.Model
         /// The unique identifier of the device.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string DeviceId
         {
             get { return this._deviceId; }
@@ -59,6 +61,24 @@ namespace Amazon.IoT1ClickDevicesService.Model
         internal bool IsSetDeviceId()
         {
             return this._deviceId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// The tags to be assigned to the AWS IoT 1-Click device.
+        /// </para>
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
     }

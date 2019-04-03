@@ -30,7 +30,7 @@ namespace Amazon.CognitoIdentity.Model
     /// <summary>
     /// Container for the parameters to the LookupDeveloperIdentity operation.
     /// Retrieves the <code>IdentityID</code> associated with a <code>DeveloperUserIdentifier</code>
-    /// or the list of <code>DeveloperUserIdentifier</code>s associated with an <code>IdentityId</code>
+    /// or the list of <code>DeveloperUserIdentifier</code> values associated with an <code>IdentityId</code>
     /// for an existing identity. Either <code>IdentityID</code> or <code>DeveloperUserIdentifier</code>
     /// must not be null. If you supply only one of these values, the other value will be
     /// searched in the database and returned as a part of the response. If you supply both,
@@ -39,6 +39,14 @@ namespace Amazon.CognitoIdentity.Model
     /// and is the same as the request. Otherwise a <code>ResourceConflictException</code>
     /// is thrown.
     /// 
+    ///  
+    /// <para>
+    ///  <code>LookupDeveloperIdentity</code> is intended for low-throughput control plane
+    /// operations: for example, to enable customer service to locate an identity ID by username.
+    /// If you are using it for higher-volume operations such as user authentication, your
+    /// requests are likely to be throttled. <a>GetOpenIdTokenForDeveloperIdentity</a> is
+    /// a better option for higher-volume operations for user authentication.
+    /// </para>
     ///  
     /// <para>
     /// You must use AWS Developer credentials to call this API.
@@ -60,6 +68,7 @@ namespace Amazon.CognitoIdentity.Model
         /// with the number of users.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string DeveloperUserIdentifier
         {
             get { return this._developerUserIdentifier; }
@@ -78,6 +87,7 @@ namespace Amazon.CognitoIdentity.Model
         /// A unique identifier in the format REGION:GUID.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=55)]
         public string IdentityId
         {
             get { return this._identityId; }
@@ -96,6 +106,7 @@ namespace Amazon.CognitoIdentity.Model
         /// An identity pool ID in the format REGION:GUID.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=55)]
         public string IdentityPoolId
         {
             get { return this._identityPoolId; }
@@ -114,6 +125,7 @@ namespace Amazon.CognitoIdentity.Model
         /// The maximum number of identities to return.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=60)]
         public int MaxResults
         {
             get { return this._maxResults.GetValueOrDefault(); }
@@ -137,6 +149,7 @@ namespace Amazon.CognitoIdentity.Model
         /// starting from the 11th match.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1)]
         public string NextToken
         {
             get { return this._nextToken; }

@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.MediaLive.Model
 {
     /// <summary>
-    /// Placeholder documentation for UdpGroupSettings
+    /// Udp Group Settings
     /// </summary>
     public partial class UdpGroupSettings
     {
@@ -76,6 +76,7 @@ namespace Amazon.MediaLive.Model
         /// <summary>
         /// Gets and sets the property TimedMetadataId3Period. Timed Metadata interval in seconds.
         /// </summary>
+        [AWSProperty(Min=0)]
         public int TimedMetadataId3Period
         {
             get { return this._timedMetadataId3Period.GetValueOrDefault(); }

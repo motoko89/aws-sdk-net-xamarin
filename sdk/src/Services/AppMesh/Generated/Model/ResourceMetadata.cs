@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 using System;
 using System.Collections.Generic;
@@ -43,23 +43,8 @@ namespace Amazon.AppMesh.Model
         /// <para>
         /// The full Amazon Resource Name (ARN) for the resource.
         /// </para>
-        ///          <note>            
-        /// <para>
-        /// After you create a virtual node, set this value (either the full ARN or the      
-        ///      truncated resource name, for example, <code>mesh/default/virtualNode/simpleapp</code>,
-        ///            as the <code>APPMESH_VIRTUAL_NODE_NAME</code> environment variable for
-        /// your task group's            Envoy proxy container in your task definition or pod
-        /// spec. This is then mapped to the               <code>node.id</code> and <code>node.cluster</code>
-        /// Envoy parameters.
-        /// </para>
-        ///             
-        /// <para>
-        /// If you require your Envoy stats or tracing to use a different name, you can override
-        ///            the <code>node.cluster</code> value that is set by               <code>APPMESH_VIRTUAL_NODE_NAME</code>
-        /// with the               <code>APPMESH_VIRTUAL_NODE_CLUSTER</code> environment variable.
-        /// </para>
-        ///          </note>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Arn
         {
             get { return this._arn; }
@@ -78,6 +63,7 @@ namespace Amazon.AppMesh.Model
         /// The Unix epoch timestamp in seconds for when the resource was created.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public DateTime CreatedAt
         {
             get { return this._createdAt.GetValueOrDefault(); }
@@ -96,6 +82,7 @@ namespace Amazon.AppMesh.Model
         /// The Unix epoch timestamp in seconds for when the resource was last updated.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public DateTime LastUpdatedAt
         {
             get { return this._lastUpdatedAt.GetValueOrDefault(); }
@@ -114,6 +101,7 @@ namespace Amazon.AppMesh.Model
         /// The unique identifier for the resource.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Uid
         {
             get { return this._uid; }
@@ -130,9 +118,10 @@ namespace Amazon.AppMesh.Model
         /// Gets and sets the property Version. 
         /// <para>
         /// The version of the resource. Resources are created at version 1, and this version
-        /// is         incremented each time they are updated.
+        /// is         incremented each time that they're updated.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public long Version
         {
             get { return this._version.GetValueOrDefault(); }

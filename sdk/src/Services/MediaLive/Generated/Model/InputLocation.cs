@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.MediaLive.Model
 {
     /// <summary>
-    /// Placeholder documentation for InputLocation
+    /// Input Location
     /// </summary>
     public partial class InputLocation
     {
@@ -57,6 +57,7 @@ namespace Amazon.MediaLive.Model
         /// to a file accessible to the Live system (eg. a http:// URI) depending on the output
         /// type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Uri
         {
             get { return this._uri; }

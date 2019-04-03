@@ -231,7 +231,7 @@ namespace Amazon.Runtime.Internal
         
         private void LogForRetry(IRequestContext requestContext, Exception exception)
         {
-#if !CORECLR
+#if !NETSTANDARD
             var webException = exception as WebException;
             if (webException != null)
             {
@@ -251,7 +251,7 @@ namespace Amazon.Runtime.Internal
                           requestContext.Request.Endpoint.ToString(),
                           requestContext.Retries,
                           this.RetryPolicy.MaxRetries);
-#if !CORECLR
+#if !NETSTANDARD
             }
 #endif
         }

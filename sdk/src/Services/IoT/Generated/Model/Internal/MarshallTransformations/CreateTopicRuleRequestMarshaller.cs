@@ -55,7 +55,7 @@ namespace Amazon.IoT.Model.Internal.MarshallTransformations
         public IRequest Marshall(CreateTopicRuleRequest publicRequest)
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.IoT");
-            request.Headers["Content-Type"] = "application/x-amz-json-";
+            request.Headers["Content-Type"] = "application/json";
             request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2015-05-28";            
             request.HttpMethod = "POST";
 
@@ -67,13 +67,13 @@ namespace Amazon.IoT.Model.Internal.MarshallTransformations
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
-                writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                context.Writer.WriteObjectStart();
 
                 var marshaller = TopicRulePayloadMarshaller.Instance;
                 marshaller.Marshall(publicRequest.TopicRulePayload, context);
-        
-                writer.WriteObjectEnd();
+
+                context.Writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);
             }

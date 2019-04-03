@@ -66,8 +66,7 @@ namespace Amazon.CloudWatch.Model
     /// </para>
     ///  </li> <li> 
     /// <para>
-    ///  <code>ec2:DescribeInstanceRecoveryAttribute</code> and <code>ec2:RecoverInstances</code>
-    /// for alarms with recover actions
+    /// No specific permissions are needed for alarms with recover actions
     /// </para>
     ///  </li> </ul> 
     /// <para>
@@ -116,6 +115,7 @@ namespace Amazon.CloudWatch.Model
         private List<string> _okActions = new List<string>();
         private int? _period;
         private Statistic _statistic;
+        private List<Tag> _tags = new List<Tag>();
         private double? _threshold;
         private string _treatMissingData;
         private StandardUnit _unit;
@@ -161,6 +161,7 @@ namespace Amazon.CloudWatch.Model
         /// 
         /// </para>
         /// </summary>
+        [AWSProperty(Max=5)]
         public List<string> AlarmActions
         {
             get { return this._alarmActions; }
@@ -179,6 +180,7 @@ namespace Amazon.CloudWatch.Model
         /// The description for the alarm.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=1024)]
         public string AlarmDescription
         {
             get { return this._alarmDescription; }
@@ -197,6 +199,7 @@ namespace Amazon.CloudWatch.Model
         /// The name for the alarm. This name must be unique within your AWS account.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string AlarmName
         {
             get { return this._alarmName; }
@@ -216,6 +219,7 @@ namespace Amazon.CloudWatch.Model
         /// The specified statistic value is used as the first operand.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public ComparisonOperator ComparisonOperator
         {
             get { return this._comparisonOperator; }
@@ -237,6 +241,7 @@ namespace Amazon.CloudWatch.Model
         /// an Alarm</a> in the <i>Amazon CloudWatch User Guide</i>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1)]
         public int DatapointsToAlarm
         {
             get { return this._datapointsToAlarm.GetValueOrDefault(); }
@@ -255,6 +260,7 @@ namespace Amazon.CloudWatch.Model
         /// The dimensions for the metric specified in <code>MetricName</code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=10)]
         public List<Dimension> Dimensions
         {
             get { return this._dimensions; }
@@ -282,6 +288,7 @@ namespace Amazon.CloudWatch.Model
         /// Valid Values: <code>evaluate | ignore</code> 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string EvaluateLowSampleCountPercentile
         {
             get { return this._evaluateLowSampleCountPercentile; }
@@ -308,6 +315,7 @@ namespace Amazon.CloudWatch.Model
         /// number multiplied by <code>Period</code> cannot be more than 86,400 seconds.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1)]
         public int EvaluationPeriods
         {
             get { return this._evaluationPeriods.GetValueOrDefault(); }
@@ -363,6 +371,7 @@ namespace Amazon.CloudWatch.Model
         /// 
         /// </para>
         /// </summary>
+        [AWSProperty(Max=5)]
         public List<string> InsufficientDataActions
         {
             get { return this._insufficientDataActions; }
@@ -388,6 +397,7 @@ namespace Amazon.CloudWatch.Model
         /// specify all this information in the <code>Metrics</code> array.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string MetricName
         {
             get { return this._metricName; }
@@ -440,6 +450,7 @@ namespace Amazon.CloudWatch.Model
         /// The namespace for the metric associated specified in <code>MetricName</code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string Namespace
         {
             get { return this._awsNamespace; }
@@ -474,6 +485,7 @@ namespace Amazon.CloudWatch.Model
         /// 
         /// </para>
         /// </summary>
+        [AWSProperty(Max=5)]
         public List<string> OKActions
         {
             get { return this._okActions; }
@@ -510,6 +522,7 @@ namespace Amazon.CloudWatch.Model
         /// multiplied by <code>EvaluationPeriods</code> cannot be more than 86,400 seconds.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1)]
         public int Period
         {
             get { return this._period.GetValueOrDefault(); }
@@ -544,11 +557,37 @@ namespace Amazon.CloudWatch.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// A list of key-value pairs to associate with the alarm or dashboard. You can associate
+        /// as many as 50 tags with an alarm.
+        /// </para>
+        ///  
+        /// <para>
+        /// Tags can help you organize and categorize your resources. You can also use them to
+        /// scope user permissions, by granting a user permission to access or change only resources
+        /// with certain tag values.
+        /// </para>
+        /// </summary>
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property Threshold. 
         /// <para>
         /// The value against which the specified statistic is compared.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public double Threshold
         {
             get { return this._threshold.GetValueOrDefault(); }
@@ -574,6 +613,7 @@ namespace Amazon.CloudWatch.Model
         /// Valid Values: <code>breaching | notBreaching | ignore | missing</code> 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string TreatMissingData
         {
             get { return this._treatMissingData; }

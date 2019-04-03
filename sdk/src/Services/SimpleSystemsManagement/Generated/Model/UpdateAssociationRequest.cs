@@ -31,6 +31,13 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// Container for the parameters to the UpdateAssociation operation.
     /// Updates an association. You can update the association name and version, the document
     /// version, schedule, parameters, and Amazon S3 output.
+    /// 
+    ///  <important> 
+    /// <para>
+    /// When you update an association, the association immediately runs against the specified
+    /// targets.
+    /// </para>
+    ///  </important>
     /// </summary>
     public partial class UpdateAssociationRequest : AmazonSimpleSystemsManagementRequest
     {
@@ -54,6 +61,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The ID of the association you want to update. 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string AssociationId
         {
             get { return this._associationId; }
@@ -111,6 +119,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// use an Automation document and target resources by using rate controls.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=50)]
         public string AutomationTargetParameterName
         {
             get { return this._automationTargetParameterName; }
@@ -169,12 +178,13 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// </para>
         ///  
         /// <para>
-        /// If a new instance starts and attempts to execute an association while Systems Manager
-        /// is executing MaxConcurrency associations, the association is allowed to run. During
+        /// If a new instance starts and attempts to run an association while Systems Manager
+        /// is running MaxConcurrency associations, the association is allowed to run. During
         /// the next association interval, the new instance will process its association within
         /// the limit specified for MaxConcurrency.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=7)]
         public string MaxConcurrency
         {
             get { return this._maxConcurrency; }
@@ -206,6 +216,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// 1 so that executions proceed one at a time.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=7)]
         public string MaxErrors
         {
             get { return this._maxErrors; }
@@ -222,7 +233,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Gets and sets the property Name. 
         /// <para>
         /// The name of the SSM document that contains the configuration information for the instance.
-        /// You can specify Command, Policy, or Automation documents.
+        /// You can specify Command or Automation documents.
         /// </para>
         ///  
         /// <para>
@@ -309,6 +320,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The cron expression used to schedule the association that you want to update.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=256)]
         public string ScheduleExpression
         {
             get { return this._scheduleExpression; }
@@ -327,6 +339,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The targets of the association.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=5)]
         public List<Target> Targets
         {
             get { return this._targets; }

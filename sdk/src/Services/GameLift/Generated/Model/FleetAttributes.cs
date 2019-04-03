@@ -116,6 +116,7 @@ namespace Amazon.GameLift.Model
         private string _fleetArn;
         private string _fleetId;
         private FleetType _fleetType;
+        private string _instanceRoleArn;
         private EC2InstanceType _instanceType;
         private List<string> _logPaths = new List<string>();
         private List<string> _metricGroups = new List<string>();
@@ -172,6 +173,7 @@ namespace Amazon.GameLift.Model
         /// Human-readable description of the fleet.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string Description
         {
             get { return this._description; }
@@ -190,6 +192,7 @@ namespace Amazon.GameLift.Model
         /// Identifier for a fleet that is unique across all regions.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=256)]
         public string FleetArn
         {
             get { return this._fleetArn; }
@@ -237,6 +240,31 @@ namespace Amazon.GameLift.Model
         internal bool IsSetFleetType()
         {
             return this._fleetType != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property InstanceRoleArn. 
+        /// <para>
+        /// Unique identifier for an AWS IAM role that manages access to your AWS services. Any
+        /// application that runs on an instance in this fleet can assume the role, including
+        /// install scripts, server processs, daemons (background processes). Create a role or
+        /// look up a role's ARN using the <a href="https://console.aws.amazon.com/iam/">IAM dashboard</a>
+        /// in the AWS Management Console. Learn more about using on-box credentials for your
+        /// game servers at <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
+        /// Access external resources from a game server</a>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1)]
+        public string InstanceRoleArn
+        {
+            get { return this._instanceRoleArn; }
+            set { this._instanceRoleArn = value; }
+        }
+
+        // Check to see if InstanceRoleArn property is set
+        internal bool IsSetInstanceRoleArn()
+        {
+            return this._instanceRoleArn != null;
         }
 
         /// <summary>
@@ -291,6 +319,7 @@ namespace Amazon.GameLift.Model
         /// a fleet metric group. A fleet can be included in only one metric group at a time.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=1)]
         public List<string> MetricGroups
         {
             get { return this._metricGroups; }
@@ -309,6 +338,7 @@ namespace Amazon.GameLift.Model
         /// Descriptive label that is associated with a fleet. Fleet names do not need to be unique.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string Name
         {
             get { return this._name; }
@@ -395,6 +425,7 @@ namespace Amazon.GameLift.Model
         /// in the fleet's <a>RuntimeConfiguration</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string ServerLaunchParameters
         {
             get { return this._serverLaunchParameters; }
@@ -415,6 +446,7 @@ namespace Amazon.GameLift.Model
         /// after this date are specified in the fleet's <a>RuntimeConfiguration</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string ServerLaunchPath
         {
             get { return this._serverLaunchPath; }
@@ -483,6 +515,7 @@ namespace Amazon.GameLift.Model
         /// includes auto-scaling.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1)]
         public List<string> StoppedActions
         {
             get { return this._stoppedActions; }

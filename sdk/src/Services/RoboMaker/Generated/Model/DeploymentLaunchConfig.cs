@@ -44,6 +44,7 @@ namespace Amazon.RoboMaker.Model
         /// An array of key/value pairs specifying environment variables for the robot application
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=16)]
         public Dictionary<string, string> EnvironmentVariables
         {
             get { return this._environmentVariables; }
@@ -62,6 +63,7 @@ namespace Amazon.RoboMaker.Model
         /// The launch file name.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=1024)]
         public string LaunchFile
         {
             get { return this._launchFile; }
@@ -80,6 +82,7 @@ namespace Amazon.RoboMaker.Model
         /// The package name.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=1024)]
         public string PackageName
         {
             get { return this._packageName; }
@@ -98,6 +101,7 @@ namespace Amazon.RoboMaker.Model
         /// The deployment post-launch file. This file will be executed after the launch file.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string PostLaunchFile
         {
             get { return this._postLaunchFile; }
@@ -116,6 +120,7 @@ namespace Amazon.RoboMaker.Model
         /// The deployment pre-launch file. This file will be executed prior to the launch file.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string PreLaunchFile
         {
             get { return this._preLaunchFile; }

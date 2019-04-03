@@ -50,6 +50,19 @@ namespace Amazon.GameLift.Model
     /// If the desired instance count is higher than the instance type's limit, the "Limit
     /// Exceeded" exception occurs.
     /// </para>
+    ///  
+    /// <para>
+    ///  <b>Learn more</b> 
+    /// </para>
+    ///  
+    /// <para>
+    ///  <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
+    /// Working with Fleets</a>.
+    /// </para>
+    ///  
+    /// <para>
+    ///  <b>Related operations</b> 
+    /// </para>
     ///  <ul> <li> 
     /// <para>
     ///  <a>CreateFleet</a> 
@@ -141,6 +154,7 @@ namespace Amazon.GameLift.Model
         /// Number of EC2 instances you want this fleet to host.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0)]
         public int DesiredInstances
         {
             get { return this._desiredInstances.GetValueOrDefault(); }
@@ -159,6 +173,7 @@ namespace Amazon.GameLift.Model
         /// Unique identifier for a fleet to update capacity for.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string FleetId
         {
             get { return this._fleetId; }
@@ -177,6 +192,7 @@ namespace Amazon.GameLift.Model
         /// Maximum value allowed for the fleet's instance count. Default if not set is 1.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0)]
         public int MaxSize
         {
             get { return this._maxSize.GetValueOrDefault(); }
@@ -195,6 +211,7 @@ namespace Amazon.GameLift.Model
         /// Minimum value allowed for the fleet's instance count. Default if not set is 0.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0)]
         public int MinSize
         {
             get { return this._minSize.GetValueOrDefault(); }

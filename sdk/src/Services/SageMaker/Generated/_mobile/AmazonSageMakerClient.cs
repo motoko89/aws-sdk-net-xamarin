@@ -38,7 +38,7 @@ namespace Amazon.SageMaker
     /// <summary>
     /// Implementation for accessing SageMaker
     ///
-    /// Definition of the public APIs exposed by SageMaker
+    /// Provides APIs for creating and managing Amazon SageMaker resources.
     /// </summary>
     public partial class AmazonSageMakerClient : AmazonServiceClient, IAmazonSageMaker
     {
@@ -46,7 +46,7 @@ namespace Amazon.SageMaker
         
         #region Constructors
 
-#if CORECLR
+#if NETSTANDARD
     
         /// <summary>
         /// Constructs AmazonSageMakerClient with the credentials loaded from the application's

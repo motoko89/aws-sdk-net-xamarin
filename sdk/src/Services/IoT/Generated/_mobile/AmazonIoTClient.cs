@@ -64,7 +64,7 @@ namespace Amazon.IoT
         
         #region Constructors
 
-#if CORECLR
+#if NETSTANDARD
     
         /// <summary>
         /// Constructs AmazonIoTClient with the credentials loaded from the application's
@@ -4165,6 +4165,39 @@ namespace Amazon.IoT
             options.ResponseUnmarshaller = GetRegistrationCodeResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetRegistrationCodeResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetStatistics
+
+        internal virtual GetStatisticsResponse GetStatistics(GetStatisticsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetStatisticsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetStatisticsResponseUnmarshaller.Instance;
+
+            return Invoke<GetStatisticsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetStatistics operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetStatistics operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/GetStatistics">REST API Reference for GetStatistics Operation</seealso>
+        public virtual Task<GetStatisticsResponse> GetStatisticsAsync(GetStatisticsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetStatisticsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetStatisticsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetStatisticsResponse>(request, options, cancellationToken);
         }
 
         #endregion

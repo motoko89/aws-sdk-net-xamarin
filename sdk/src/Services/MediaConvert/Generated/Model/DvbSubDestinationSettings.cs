@@ -51,7 +51,14 @@ namespace Amazon.MediaConvert.Model
         private int? _yPosition;
 
         /// <summary>
-        /// Gets and sets the property Alignment.
+        /// Gets and sets the property Alignment. If no explicit x_position or y_position is provided,
+        /// setting alignment to centered will place the captions at the bottom center of the
+        /// output. Similarly, setting a left alignment will align captions to the bottom left
+        /// of the output. If x and y positions are given in conjunction with the alignment parameter,
+        /// the font will be justified (either left or centered) relative to those coordinates.
+        /// This option is not valid for source captions that are STL, 608/embedded or teletext.
+        /// These source settings are already pre-defined by the caption stream. All burn-in and
+        /// DVB-Sub font settings must match.
         /// </summary>
         public DvbSubtitleAlignment Alignment
         {
@@ -66,7 +73,8 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property BackgroundColor.
+        /// Gets and sets the property BackgroundColor. Specifies the color of the rectangle behind
+        /// the captions.All burn-in and DVB-Sub font settings must match.
         /// </summary>
         public DvbSubtitleBackgroundColor BackgroundColor
         {
@@ -85,6 +93,7 @@ namespace Amazon.MediaConvert.Model
         /// rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent
         /// to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
         /// </summary>
+        [AWSProperty(Min=0, Max=255)]
         public int BackgroundOpacity
         {
             get { return this._backgroundOpacity.GetValueOrDefault(); }
@@ -98,7 +107,10 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property FontColor.
+        /// Gets and sets the property FontColor. Specifies the color of the burned-in captions.
+        /// This option is not valid for source captions that are STL, 608/embedded or teletext.
+        /// These source settings are already pre-defined by the caption stream. All burn-in and
+        /// DVB-Sub font settings must match.
         /// </summary>
         public DvbSubtitleFontColor FontColor
         {
@@ -116,6 +128,7 @@ namespace Amazon.MediaConvert.Model
         /// Gets and sets the property FontOpacity. Specifies the opacity of the burned-in captions.
         /// 255 is opaque; 0 is transparent.All burn-in and DVB-Sub font settings must match.
         /// </summary>
+        [AWSProperty(Min=0, Max=255)]
         public int FontOpacity
         {
             get { return this._fontOpacity.GetValueOrDefault(); }
@@ -132,6 +145,7 @@ namespace Amazon.MediaConvert.Model
         /// Gets and sets the property FontResolution. Font resolution in DPI (dots per inch);
         /// default is 96 dpi.All burn-in and DVB-Sub font settings must match.
         /// </summary>
+        [AWSProperty(Min=96, Max=600)]
         public int FontResolution
         {
             get { return this._fontResolution.GetValueOrDefault(); }
@@ -167,6 +181,7 @@ namespace Amazon.MediaConvert.Model
         /// in points. Set to 0 for automatic font size selection. All burn-in and DVB-Sub font
         /// settings must match.
         /// </summary>
+        [AWSProperty(Min=0, Max=96)]
         public int FontSize
         {
             get { return this._fontSize.GetValueOrDefault(); }
@@ -180,7 +195,10 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property OutlineColor.
+        /// Gets and sets the property OutlineColor. Specifies font outline color. This option
+        /// is not valid for source captions that are either 608/embedded or teletext. These source
+        /// settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font
+        /// settings must match.
         /// </summary>
         public DvbSubtitleOutlineColor OutlineColor
         {
@@ -200,6 +218,7 @@ namespace Amazon.MediaConvert.Model
         /// These source settings are already pre-defined by the caption stream. All burn-in and
         /// DVB-Sub font settings must match.
         /// </summary>
+        [AWSProperty(Min=0, Max=10)]
         public int OutlineSize
         {
             get { return this._outlineSize.GetValueOrDefault(); }
@@ -213,7 +232,8 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property ShadowColor.
+        /// Gets and sets the property ShadowColor. Specifies the color of the shadow cast by
+        /// the captions.All burn-in and DVB-Sub font settings must match.
         /// </summary>
         public DvbSubtitleShadowColor ShadowColor
         {
@@ -232,6 +252,7 @@ namespace Amazon.MediaConvert.Model
         /// is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting
         /// it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
         /// </summary>
+        [AWSProperty(Min=0, Max=255)]
         public int ShadowOpacity
         {
             get { return this._shadowOpacity.GetValueOrDefault(); }
@@ -249,6 +270,7 @@ namespace Amazon.MediaConvert.Model
         /// relative to the captions in pixels. A value of -2 would result in a shadow offset
         /// 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
         /// </summary>
+        [AWSProperty(Min=-2147483648, Max=2147483647)]
         public int ShadowXOffset
         {
             get { return this._shadowXOffset.GetValueOrDefault(); }
@@ -266,6 +288,7 @@ namespace Amazon.MediaConvert.Model
         /// relative to the captions in pixels. A value of -2 would result in a shadow offset
         /// 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
         /// </summary>
+        [AWSProperty(Min=-2147483648, Max=2147483647)]
         public int ShadowYOffset
         {
             get { return this._shadowYOffset.GetValueOrDefault(); }
@@ -279,7 +302,11 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property TeletextSpacing.
+        /// Gets and sets the property TeletextSpacing. Only applies to jobs with input captions
+        /// in Teletext or STL formats. Specify whether the spacing between letters in your captions
+        /// is set by the captions grid or varies depending on letter width. Choose fixed grid
+        /// to conform to the spacing specified in the captions file more accurately. Choose proportional
+        /// to make the text easier to read if the captions are closed caption.
         /// </summary>
         public DvbSubtitleTeletextSpacing TeletextSpacing
         {
@@ -302,6 +329,7 @@ namespace Amazon.MediaConvert.Model
         /// These source settings are already pre-defined by the caption stream. All burn-in and
         /// DVB-Sub font settings must match.
         /// </summary>
+        [AWSProperty(Min=0, Max=2147483647)]
         public int XPosition
         {
             get { return this._xPosition.GetValueOrDefault(); }
@@ -323,6 +351,7 @@ namespace Amazon.MediaConvert.Model
         /// are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings
         /// must match.
         /// </summary>
+        [AWSProperty(Min=0, Max=2147483647)]
         public int YPosition
         {
             get { return this._yPosition.GetValueOrDefault(); }

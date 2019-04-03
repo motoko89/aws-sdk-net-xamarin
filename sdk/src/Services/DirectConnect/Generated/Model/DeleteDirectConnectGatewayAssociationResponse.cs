@@ -37,7 +37,7 @@ namespace Amazon.DirectConnect.Model
         /// <summary>
         /// Gets and sets the property DirectConnectGatewayAssociation. 
         /// <para>
-        /// The association to be deleted.
+        /// Information about the deleted association.
         /// </para>
         /// </summary>
         public DirectConnectGatewayAssociation DirectConnectGatewayAssociation

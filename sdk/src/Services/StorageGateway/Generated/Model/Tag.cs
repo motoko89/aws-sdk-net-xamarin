@@ -28,7 +28,9 @@ using Amazon.Runtime.Internal;
 namespace Amazon.StorageGateway.Model
 {
     /// <summary>
-    /// 
+    /// A key-value pair that helps you manage, filter, and search for your resource. Allowed
+    /// characters: letters, white space, and numbers, representable in UTF-8, and the following
+    /// characters: + - = . _ : /
     /// </summary>
     public partial class Tag
     {
@@ -36,8 +38,12 @@ namespace Amazon.StorageGateway.Model
         private string _value;
 
         /// <summary>
-        /// Gets and sets the property Key.
+        /// Gets and sets the property Key. 
+        /// <para>
+        /// Tag key (String). The key can't start with aws:. 
+        /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=128)]
         public string Key
         {
             get { return this._key; }
@@ -51,8 +57,12 @@ namespace Amazon.StorageGateway.Model
         }
 
         /// <summary>
-        /// Gets and sets the property Value.
+        /// Gets and sets the property Value. 
+        /// <para>
+        /// Value of the tag key.
+        /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Max=256)]
         public string Value
         {
             get { return this._value; }

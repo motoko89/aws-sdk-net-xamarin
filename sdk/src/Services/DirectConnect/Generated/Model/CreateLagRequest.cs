@@ -57,7 +57,7 @@ namespace Amazon.DirectConnect.Model
     /// </para>
     ///  
     /// <para>
-    /// If the AWS account used to create a LAG is a registered AWS Direct Connect partner,
+    /// If the AWS account used to create a LAG is a registered AWS Direct Connect Partner,
     /// the LAG is automatically enabled to host sub-connections. For a LAG owned by a partner,
     /// any associated virtual interfaces cannot be directly configured.
     /// </para>
@@ -92,9 +92,11 @@ namespace Amazon.DirectConnect.Model
         /// Gets and sets the property ConnectionsBandwidth. 
         /// <para>
         /// The bandwidth of the individual physical connections bundled by the LAG. The possible
-        /// values are 1Gbps and 10Gbps.
+        /// values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps,
+        /// and 10Gbps. 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ConnectionsBandwidth
         {
             get { return this._connectionsBandwidth; }
@@ -113,6 +115,7 @@ namespace Amazon.DirectConnect.Model
         /// The name of the LAG.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string LagName
         {
             get { return this._lagName; }
@@ -131,6 +134,7 @@ namespace Amazon.DirectConnect.Model
         /// The location for the LAG.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Location
         {
             get { return this._location; }
@@ -149,6 +153,7 @@ namespace Amazon.DirectConnect.Model
         /// The number of physical connections initially provisioned and bundled by the LAG.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public int NumberOfConnections
         {
             get { return this._numberOfConnections.GetValueOrDefault(); }

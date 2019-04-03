@@ -34,12 +34,15 @@ namespace Amazon.MediaConvert.Model
     {
         private MsSmoothAudioDeduplication _audioDeduplication;
         private string _destination;
+        private DestinationSettings _destinationSettings;
         private MsSmoothEncryptionSettings _encryption;
         private int? _fragmentLength;
         private MsSmoothManifestEncoding _manifestEncoding;
 
         /// <summary>
-        /// Gets and sets the property AudioDeduplication.
+        /// Gets and sets the property AudioDeduplication. COMBINE_DUPLICATE_STREAMS combines
+        /// identical audio encoding settings across a Microsoft Smooth output group into a single
+        /// audio stream.
         /// </summary>
         public MsSmoothAudioDeduplication AudioDeduplication
         {
@@ -73,7 +76,24 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property Encryption.
+        /// Gets and sets the property DestinationSettings. Settings associated with the destination.
+        /// Will vary based on the type of destination
+        /// </summary>
+        public DestinationSettings DestinationSettings
+        {
+            get { return this._destinationSettings; }
+            set { this._destinationSettings = value; }
+        }
+
+        // Check to see if DestinationSettings property is set
+        internal bool IsSetDestinationSettings()
+        {
+            return this._destinationSettings != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Encryption. If you are using DRM, set DRM System (MsSmoothEncryptionSettings)
+        /// to specify the value SpekeKeyProvider.
         /// </summary>
         public MsSmoothEncryptionSettings Encryption
         {
@@ -92,6 +112,7 @@ namespace Amazon.MediaConvert.Model
         /// specify the mp4 fragment sizes in seconds. Fragment length must be compatible with
         /// GOP size and frame rate.
         /// </summary>
+        [AWSProperty(Min=1, Max=2147483647)]
         public int FragmentLength
         {
             get { return this._fragmentLength.GetValueOrDefault(); }
@@ -105,7 +126,9 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property ManifestEncoding.
+        /// Gets and sets the property ManifestEncoding. Use Manifest encoding (MsSmoothManifestEncoding)
+        /// to specify the encoding format for the server and client manifest. Valid options are
+        /// utf8 and utf16.
         /// </summary>
         public MsSmoothManifestEncoding ManifestEncoding
         {

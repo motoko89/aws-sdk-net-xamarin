@@ -41,9 +41,10 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property ContainerHostname. 
         /// <para>
-        /// The DNS host name for the container after Amazon SageMaker deploys it.
+        /// This parameter is ignored.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=63)]
         public string ContainerHostname
         {
             get { return this._containerHostname; }
@@ -64,6 +65,7 @@ namespace Amazon.SageMaker.Model
         /// up to 16 entries in the map. 
         /// </para>
         /// </summary>
+        [AWSProperty(Max=16)]
         public Dictionary<string, string> Environment
         {
             get { return this._environment; }
@@ -83,10 +85,11 @@ namespace Amazon.SageMaker.Model
         /// If you are using your own custom algorithm instead of an algorithm provided by Amazon
         /// SageMaker, the inference code must meet Amazon SageMaker requirements. Amazon SageMaker
         /// supports both <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
-        /// image path formats. For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using
+        /// image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using
         /// Your Own Algorithms with Amazon SageMaker</a> 
         /// </para>
         /// </summary>
+        [AWSProperty(Max=255)]
         public string Image
         {
             get { return this._image; }
@@ -115,6 +118,7 @@ namespace Amazon.SageMaker.Model
         /// User Guide</i>.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=1024)]
         public string ModelDataUrl
         {
             get { return this._modelDataUrl; }
@@ -133,6 +137,7 @@ namespace Amazon.SageMaker.Model
         /// The name of the model package to use to create the model.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=170)]
         public string ModelPackageName
         {
             get { return this._modelPackageName; }

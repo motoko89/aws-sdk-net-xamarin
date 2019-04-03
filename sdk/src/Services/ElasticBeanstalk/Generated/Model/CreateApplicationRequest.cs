@@ -37,6 +37,7 @@ namespace Amazon.ElasticBeanstalk.Model
         private string _applicationName;
         private string _description;
         private ApplicationResourceLifecycleConfig _resourceLifecycleConfig;
+        private List<Tag> _tags = new List<Tag>();
 
         /// <summary>
         /// Empty constructor used to set  properties independently even when a simple constructor is available
@@ -63,6 +64,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// exists, the action returns an <code>InvalidParameterValue</code> error.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=100)]
         public string ApplicationName
         {
             get { return this._applicationName; }
@@ -81,6 +83,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// Describes the application.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=200)]
         public string Description
         {
             get { return this._description; }
@@ -110,6 +113,29 @@ namespace Amazon.ElasticBeanstalk.Model
         internal bool IsSetResourceLifecycleConfig()
         {
             return this._resourceLifecycleConfig != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// Specifies the tags applied to the application.
+        /// </para>
+        ///  
+        /// <para>
+        /// Elastic Beanstalk applies these tags only to the application. Environments that you
+        /// create in the application don't inherit the tags.
+        /// </para>
+        /// </summary>
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
     }

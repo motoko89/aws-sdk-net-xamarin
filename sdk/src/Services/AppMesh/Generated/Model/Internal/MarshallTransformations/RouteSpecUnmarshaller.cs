@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 using System;
 using System.Collections.Generic;
@@ -68,6 +68,12 @@ namespace Amazon.AppMesh.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = HttpRouteUnmarshaller.Instance;
                     unmarshalledObject.HttpRoute = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("tcpRoute", targetDepth))
+                {
+                    var unmarshaller = TcpRouteUnmarshaller.Instance;
+                    unmarshalledObject.TcpRoute = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

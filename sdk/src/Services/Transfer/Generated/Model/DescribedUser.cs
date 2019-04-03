@@ -47,6 +47,7 @@ namespace Amazon.Transfer.Model
         /// requested to be described.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=20, Max=1600)]
         public string Arn
         {
             get { return this._arn; }
@@ -67,6 +68,7 @@ namespace Amazon.Transfer.Model
         /// example would be: <code>/<i>bucket_name</i>/home/<i>username</i> </code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=1024)]
         public string HomeDirectory
         {
             get { return this._homeDirectory; }
@@ -100,11 +102,11 @@ namespace Amazon.Transfer.Model
         /// <summary>
         /// Gets and sets the property Role. 
         /// <para>
-        /// This property specifies the IAM role that controls your user’s access to your Amazon
+        /// This property specifies the IAM role that controls your user's access to your Amazon
         /// S3 bucket. The policies attached to this role will determine the level of access you
         /// want to provide your users when transferring files into and out of your Amazon S3
         /// bucket or buckets. The IAM role should also contain a trust relationship that allows
-        /// the SFTP server to access your resources when servicing your SFTP user’s transfer
+        /// the SFTP server to access your resources when servicing your SFTP user's transfer
         /// requests.
         /// </para>
         /// </summary>
@@ -127,6 +129,7 @@ namespace Amazon.Transfer.Model
         /// for the described user.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=5)]
         public List<SshPublicKey> SshPublicKeys
         {
             get { return this._sshPublicKeys; }
@@ -146,6 +149,7 @@ namespace Amazon.Transfer.Model
         /// to search for and group users for a variety of purposes.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=50)]
         public List<Tag> Tags
         {
             get { return this._tags; }

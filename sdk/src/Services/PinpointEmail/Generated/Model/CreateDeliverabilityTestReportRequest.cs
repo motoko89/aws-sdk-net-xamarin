@@ -43,6 +43,7 @@ namespace Amazon.PinpointEmail.Model
         private EmailContent _content;
         private string _fromEmailAddress;
         private string _reportName;
+        private List<Tag> _tags = new List<Tag>();
 
         /// <summary>
         /// Gets and sets the property Content. 
@@ -51,6 +52,7 @@ namespace Amazon.PinpointEmail.Model
         /// placement test.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public EmailContent Content
         {
             get { return this._content; }
@@ -69,6 +71,7 @@ namespace Amazon.PinpointEmail.Model
         /// The email address that the predictive inbox placement test email was sent from.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string FromEmailAddress
         {
             get { return this._fromEmailAddress; }
@@ -98,6 +101,25 @@ namespace Amazon.PinpointEmail.Model
         internal bool IsSetReportName()
         {
             return this._reportName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// An object that defines the tags (keys and values) that you want to associate with
+        /// the predictive inbox placement test.
+        /// </para>
+        /// </summary>
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
     }

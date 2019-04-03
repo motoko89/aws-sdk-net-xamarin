@@ -49,6 +49,7 @@ namespace Amazon.AutoScaling.Model
         /// The name of the Auto Scaling group.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string AutoScalingGroupName
         {
             get { return this._autoScalingGroupName; }
@@ -82,8 +83,7 @@ namespace Amazon.AutoScaling.Model
         /// <summary>
         /// Gets and sets the property EndTime. 
         /// <para>
-        /// The date and time that the action is scheduled to end. This date and time can be up
-        /// to one month in the future.
+        /// The date and time that the action is scheduled to end. 
         /// </para>
         /// </summary>
         public DateTime EndTime
@@ -140,6 +140,7 @@ namespace Amazon.AutoScaling.Model
         /// The recurring schedule for the action.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string Recurrence
         {
             get { return this._recurrence; }
@@ -158,6 +159,7 @@ namespace Amazon.AutoScaling.Model
         /// The Amazon Resource Name (ARN) of the scheduled action.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1600)]
         public string ScheduledActionARN
         {
             get { return this._scheduledActionARN; }
@@ -176,6 +178,7 @@ namespace Amazon.AutoScaling.Model
         /// The name of the scheduled action.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string ScheduledActionName
         {
             get { return this._scheduledActionName; }
@@ -191,8 +194,7 @@ namespace Amazon.AutoScaling.Model
         /// <summary>
         /// Gets and sets the property StartTime. 
         /// <para>
-        /// The date and time that the action is scheduled to begin. This date and time can be
-        /// up to one month in the future.
+        /// The date and time that the action is scheduled to begin. 
         /// </para>
         ///  
         /// <para>

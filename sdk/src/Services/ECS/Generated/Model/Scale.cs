@@ -29,8 +29,7 @@ namespace Amazon.ECS.Model
 {
     /// <summary>
     /// A floating-point percentage of the desired number of tasks to place and keep running
-    /// in the service. This is used when a service uses the <code>CODE_DEPLOY</code> deployment
-    /// controller type.
+    /// in the task set.
     /// </summary>
     public partial class Scale
     {
@@ -59,7 +58,7 @@ namespace Amazon.ECS.Model
         /// Gets and sets the property Value. 
         /// <para>
         /// The value, specified as a percent total of a service's <code>desiredCount</code>,
-        /// to scale the task set.
+        /// to scale the task set. Accepted values are numbers between 0 and 100.
         /// </para>
         /// </summary>
         public double Value

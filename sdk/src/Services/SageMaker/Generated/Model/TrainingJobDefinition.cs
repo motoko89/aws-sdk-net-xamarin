@@ -45,6 +45,7 @@ namespace Amazon.SageMaker.Model
         /// The hyperparameters used for the training job.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=100)]
         public Dictionary<string, string> HyperParameters
         {
             get { return this._hyperParameters; }
@@ -63,6 +64,7 @@ namespace Amazon.SageMaker.Model
         /// An array of <code>Channel</code> objects, each of which specifies an input source.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=8)]
         public List<Channel> InputDataConfig
         {
             get { return this._inputDataConfig; }
@@ -82,6 +84,7 @@ namespace Amazon.SageMaker.Model
         /// creates subfolders for the artifacts.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public OutputDataConfig OutputDataConfig
         {
             get { return this._outputDataConfig; }
@@ -101,6 +104,7 @@ namespace Amazon.SageMaker.Model
         /// model training.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public ResourceConfig ResourceConfig
         {
             get { return this._resourceConfig; }
@@ -125,6 +129,7 @@ namespace Amazon.SageMaker.Model
         /// the model artifacts.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public StoppingCondition StoppingCondition
         {
             get { return this._stoppingCondition; }
@@ -141,7 +146,7 @@ namespace Amazon.SageMaker.Model
         /// Gets and sets the property TrainingInputMode. 
         /// <para>
         /// The input mode used by the algorithm for the training job. For the input modes that
-        /// Amazon SageMaker algorithms support, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
+        /// Amazon SageMaker algorithms support, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
         /// </para>
         ///  
         /// <para>
@@ -151,6 +156,7 @@ namespace Amazon.SageMaker.Model
         /// input mode, Amazon SageMaker streams data directly from S3 to the container.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public TrainingInputMode TrainingInputMode
         {
             get { return this._trainingInputMode; }

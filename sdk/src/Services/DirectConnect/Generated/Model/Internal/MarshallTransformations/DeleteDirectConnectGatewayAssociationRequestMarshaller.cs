@@ -68,6 +68,12 @@ namespace Amazon.DirectConnect.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetAssociationId())
+                {
+                    context.Writer.WritePropertyName("associationId");
+                    context.Writer.Write(publicRequest.AssociationId);
+                }
+
                 if(publicRequest.IsSetDirectConnectGatewayId())
                 {
                     context.Writer.WritePropertyName("directConnectGatewayId");

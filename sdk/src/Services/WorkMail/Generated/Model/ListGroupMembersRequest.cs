@@ -29,7 +29,8 @@ namespace Amazon.WorkMail.Model
 {
     /// <summary>
     /// Container for the parameters to the ListGroupMembers operation.
-    /// Returns an overview of the members of a group.
+    /// Returns an overview of the members of a group. Users and groups can be members of
+    /// a group.
     /// </summary>
     public partial class ListGroupMembersRequest : AmazonWorkMailRequest
     {
@@ -41,9 +42,10 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property GroupId. 
         /// <para>
-        /// The identifier for the group to which the members are associated.
+        /// The identifier for the group to which the members (users or groups) are associated.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=12, Max=256)]
         public string GroupId
         {
             get { return this._groupId; }
@@ -62,6 +64,7 @@ namespace Amazon.WorkMail.Model
         /// The maximum number of results to return in a single call.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public int MaxResults
         {
             get { return this._maxResults.GetValueOrDefault(); }
@@ -81,6 +84,7 @@ namespace Amazon.WorkMail.Model
         /// any tokens.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string NextToken
         {
             get { return this._nextToken; }
@@ -99,6 +103,7 @@ namespace Amazon.WorkMail.Model
         /// The identifier for the organization under which the group exists.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string OrganizationId
         {
             get { return this._organizationId; }

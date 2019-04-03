@@ -55,7 +55,7 @@ namespace Amazon.ServerlessApplicationRepository.Model.Internal.MarshallTransfor
         public IRequest Marshall(CreateApplicationVersionRequest publicRequest)
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.ServerlessApplicationRepository");
-            request.Headers["Content-Type"] = "application/x-amz-json-1.1";
+            request.Headers["Content-Type"] = "application/json";
             request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2017-09-08";            
             request.HttpMethod = "PUT";
 
@@ -72,6 +72,12 @@ namespace Amazon.ServerlessApplicationRepository.Model.Internal.MarshallTransfor
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetSourceCodeArchiveUrl())
+                {
+                    context.Writer.WritePropertyName("sourceCodeArchiveUrl");
+                    context.Writer.Write(publicRequest.SourceCodeArchiveUrl);
+                }
+
                 if(publicRequest.IsSetSourceCodeUrl())
                 {
                     context.Writer.WritePropertyName("sourceCodeUrl");

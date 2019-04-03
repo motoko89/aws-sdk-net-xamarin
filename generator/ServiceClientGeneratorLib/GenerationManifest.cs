@@ -28,7 +28,7 @@ namespace ServiceClientGenerator
             public const string CustomizationFileKey = "customization-file";
             public const string MaxRetriesKey = "max-retries";
             public const string SynopsisKey = "synopsis";
-            public const string CoreCLRSupportKey = "coreclr-support";
+            public const string NetStandardSupportKey = "netstandard-support";
             public const string DependenciesKey = "dependencies";
             public const string PlatformsKey = "platforms";
             public const string ReferenceDependenciesKey = "reference-dependencies";
@@ -50,7 +50,7 @@ namespace ServiceClientGenerator
             public const string ProjectsKey = "projects";
             public const string NameKey = "name";
             public const string ConfigurationsKey = "configurations";
-            public const string TargetFrameworkKey = "targetFramework";
+            public const string TargetFrameworksKey = "targetFrameworks";
             public const string DefineConstantsKey = "defineConstants";
             public const string BinSubFolderKey = "binSubFolder";
             public const string TemplateKey = "template";
@@ -110,6 +110,9 @@ namespace ServiceClientGenerator
             get;
             private set;
         }
+
+        //This should be the same version number as SdkVersioning.DefaultAssemblyVersion in BuildTasks
+        private const string DefaultAssemblyVersion = "3.3.100.0";
  
         /// <summary>
         /// Processes the control manifest to yield the set of services available to
@@ -325,10 +328,10 @@ namespace ServiceClientGenerator
             if (modelNode[ModelsSectionKeys.SynopsisKey] != null)
                 config.Synopsis = (string)modelNode[ModelsSectionKeys.SynopsisKey];
 
-            if (modelNode[ModelsSectionKeys.CoreCLRSupportKey] != null)
-                config.CoreCLRSupport = (bool)modelNode[ModelsSectionKeys.CoreCLRSupportKey];
+            if (modelNode[ModelsSectionKeys.NetStandardSupportKey] != null)
+                config.NetStandardSupport = (bool)modelNode[ModelsSectionKeys.NetStandardSupportKey];
             else
-                config.CoreCLRSupport = true;
+                config.NetStandardSupport = true;
 
             config.ServiceDependencies = new Dictionary<string, string>(StringComparer.Ordinal);
             if (modelNode[ModelsSectionKeys.DependenciesKey] != null && modelNode[ModelsSectionKeys.DependenciesKey].IsArray)
@@ -381,9 +384,14 @@ namespace ServiceClientGenerator
             else
             {
                 config.ServiceDependencies["Core"] = CoreFileVersion;
-                var versionTokens = CoreVersion.Split('.');
-                config.ServiceFileVersion = string.Format("{0}.{1}.0.0", versionTokens[0], versionTokens[1]);
                 config.InPreview = this.DefaultToPreview;
+
+                config.ServiceFileVersion = DefaultAssemblyVersion;
+                var versionTokens = CoreVersion.Split('.');
+                if (!DefaultAssemblyVersion.StartsWith($"{versionTokens[0]}.{versionTokens[1]}."))
+                {
+                    throw new NotImplementedException($"{nameof(DefaultAssemblyVersion)} should be updated to match the AWSSDK.Core minor version number.");
+                }
             }
 
             return config;
@@ -419,8 +427,8 @@ namespace ServiceClientGenerator
         {
             return new ProjectFileConfiguration{
                 Name                            = node.SafeGetString(ProjectsSectionKeys.NameKey),
-                TargetFrameworkVersion          = node.SafeGetString(ProjectsSectionKeys.TargetFrameworkKey),
-                CompilationConstants            = node.SafeGetString(ProjectsSectionKeys.DefineConstantsKey),
+                TargetFrameworkVersions         = SafeGetStringList(node, ProjectsSectionKeys.TargetFrameworksKey),
+                CompilationConstants            = SafeGetStringList(node, ProjectsSectionKeys.DefineConstantsKey),
                 BinSubFolder                    = node.SafeGetString(ProjectsSectionKeys.BinSubFolderKey),
                 Template                        = node.SafeGetString(ProjectsSectionKeys.TemplateKey),
                 NuGetTargetPlatform             = node.SafeGetString(ProjectsSectionKeys.NuGetTargetFrameworkKey),
@@ -431,7 +439,7 @@ namespace ServiceClientGenerator
                 EmbeddedResources               = SafeGetStringList(node, ProjectsSectionKeys.EmbeddedResourcesKey),
                 PlatformCodeFolders             = SafeGetStringList(node, ProjectsSectionKeys.PlatformCodeFoldersKey),
                 PlatformExcludeFolders          = SafeGetStringList(node, ProjectsSectionKeys.PlatformExcludeFoldersKey),
-                FrameworkReferences             = SafeGetObjectList<ProjectFileCreator.FrameworkReference>(node, ProjectsSectionKeys.FrameworkRefernecesKey, ProjectFileCreator.FrameworkReference.ParseJson),
+                DllReferences                   = SafeGetObjectList<Dependency>(node, ProjectsSectionKeys.FrameworkRefernecesKey, Dependency.ParseJson),
                 PackageReferences               = SafeGetObjectList<ProjectFileCreator.PackageReference>(node, ProjectsSectionKeys.PackageReferences, ProjectFileCreator.PackageReference.ParseJson),
             };
         }

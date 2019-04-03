@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.MediaLive.Model
 {
     /// <summary>
-    /// Placeholder documentation for Eac3Settings
+    /// Eac3 Settings
     /// </summary>
     public partial class Eac3Settings
     {
@@ -137,6 +137,7 @@ namespace Amazon.MediaLive.Model
         /// Gets and sets the property Dialnorm. Sets the dialnorm for the output. If blank and
         /// input audio is Dolby Digital Plus, dialnorm will be passed through.
         /// </summary>
+        [AWSProperty(Min=1, Max=31)]
         public int Dialnorm
         {
             get { return this._dialnorm.GetValueOrDefault(); }

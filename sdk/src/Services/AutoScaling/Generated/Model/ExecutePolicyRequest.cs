@@ -45,6 +45,7 @@ namespace Amazon.AutoScaling.Model
         /// The name of the Auto Scaling group.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1600)]
         public string AutoScalingGroupName
         {
             get { return this._autoScalingGroupName; }
@@ -64,8 +65,8 @@ namespace Amazon.AutoScaling.Model
         /// </para>
         ///  
         /// <para>
-        /// This parameter is required if the policy type is <code>StepScaling</code> and not
-        /// supported otherwise.
+        /// Conditional: This parameter is required if the policy type is <code>StepScaling</code>
+        /// and not supported otherwise.
         /// </para>
         /// </summary>
         public double BreachThreshold
@@ -92,7 +93,7 @@ namespace Amazon.AutoScaling.Model
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
         /// Cooldowns</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
         /// </para>
         /// </summary>
@@ -123,8 +124,8 @@ namespace Amazon.AutoScaling.Model
         /// </para>
         ///  
         /// <para>
-        /// This parameter is required if the policy type is <code>StepScaling</code> and not
-        /// supported otherwise.
+        /// Conditional: This parameter is required if the policy type is <code>StepScaling</code>
+        /// and not supported otherwise.
         /// </para>
         /// </summary>
         public double MetricValue
@@ -145,6 +146,7 @@ namespace Amazon.AutoScaling.Model
         /// The name or ARN of the policy.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=1600)]
         public string PolicyName
         {
             get { return this._policyName; }

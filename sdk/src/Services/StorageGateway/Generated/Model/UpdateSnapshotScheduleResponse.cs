@@ -35,8 +35,13 @@ namespace Amazon.StorageGateway.Model
         private string _volumeARN;
 
         /// <summary>
-        /// Gets and sets the property VolumeARN.
+        /// Gets and sets the property VolumeARN. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation
+        /// to return a list of gateway volumes.
+        /// </para>
         /// </summary>
+        [AWSProperty(Min=50, Max=500)]
         public string VolumeARN
         {
             get { return this._volumeARN; }

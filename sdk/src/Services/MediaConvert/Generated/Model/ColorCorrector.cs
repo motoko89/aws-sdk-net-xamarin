@@ -42,6 +42,7 @@ namespace Amazon.MediaConvert.Model
         /// <summary>
         /// Gets and sets the property Brightness. Brightness level.
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public int Brightness
         {
             get { return this._brightness.GetValueOrDefault(); }
@@ -55,7 +56,11 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property ColorSpaceConversion.
+        /// Gets and sets the property ColorSpaceConversion. Determines if colorspace conversion
+        /// will be performed. If set to _None_, no conversion will be performed. If _Force 601_
+        /// or _Force 709_ are selected, conversion will be performed for inputs with differing
+        /// colorspaces. An input's colorspace can be specified explicitly in the "Video Selector":#inputs-video_selector
+        /// if necessary.
         /// </summary>
         public ColorSpaceConversion ColorSpaceConversion
         {
@@ -72,6 +77,7 @@ namespace Amazon.MediaConvert.Model
         /// <summary>
         /// Gets and sets the property Contrast. Contrast level.
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public int Contrast
         {
             get { return this._contrast.GetValueOrDefault(); }
@@ -104,6 +110,7 @@ namespace Amazon.MediaConvert.Model
         /// <summary>
         /// Gets and sets the property Hue. Hue in degrees.
         /// </summary>
+        [AWSProperty(Min=-180, Max=180)]
         public int Hue
         {
             get { return this._hue.GetValueOrDefault(); }
@@ -119,6 +126,7 @@ namespace Amazon.MediaConvert.Model
         /// <summary>
         /// Gets and sets the property Saturation. Saturation level.
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public int Saturation
         {
             get { return this._saturation.GetValueOrDefault(); }

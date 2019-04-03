@@ -37,6 +37,7 @@ namespace Amazon.TranscribeService.Model
     {
         private LanguageCode _languageCode;
         private List<string> _phrases = new List<string>();
+        private string _vocabularyFileUri;
         private string _vocabularyName;
 
         /// <summary>
@@ -45,6 +46,7 @@ namespace Amazon.TranscribeService.Model
         /// The language code of the vocabulary entries.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public LanguageCode LanguageCode
         {
             get { return this._languageCode; }
@@ -76,11 +78,56 @@ namespace Amazon.TranscribeService.Model
         }
 
         /// <summary>
+        /// Gets and sets the property VocabularyFileUri. 
+        /// <para>
+        /// The S3 location of the text file that contains the definition of the custom vocabulary.
+        /// The URI must be in the same region as the API endpoint that you are calling. The general
+        /// form is 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code> https://s3-&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;
+        /// </code> 
+        /// </para>
+        ///  
+        /// <para>
+        /// For example:
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>https://s3-us-east-1.amazonaws.com/examplebucket/vocab.txt</code> 
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about custom vocabularies, see <a href="http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary">Custom
+        /// Vocabularies</a>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=2000)]
+        public string VocabularyFileUri
+        {
+            get { return this._vocabularyFileUri; }
+            set { this._vocabularyFileUri = value; }
+        }
+
+        // Check to see if VocabularyFileUri property is set
+        internal bool IsSetVocabularyFileUri()
+        {
+            return this._vocabularyFileUri != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property VocabularyName. 
         /// <para>
         /// The name of the vocabulary to update. The name is case-sensitive.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=200)]
         public string VocabularyName
         {
             get { return this._vocabularyName; }

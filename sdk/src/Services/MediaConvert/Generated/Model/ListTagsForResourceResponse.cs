@@ -35,7 +35,8 @@ namespace Amazon.MediaConvert.Model
         private ResourceTags _resourceTags;
 
         /// <summary>
-        /// Gets and sets the property ResourceTags.
+        /// Gets and sets the property ResourceTags. The Amazon Resource Name (ARN) and tags for
+        /// an AWS Elemental MediaConvert resource.
         /// </summary>
         public ResourceTags ResourceTags
         {

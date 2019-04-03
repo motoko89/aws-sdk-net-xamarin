@@ -41,9 +41,11 @@ namespace Amazon.AutoScaling.Model
         /// Gets and sets the property DeviceName. 
         /// <para>
         /// The device name exposed to the EC2 instance (for example, <code>/dev/sdh</code> or
-        /// <code>xvdh</code>).
+        /// <code>xvdh</code>). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html">Device
+        /// Naming on Linux Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string DeviceName
         {
             get { return this._deviceName; }
@@ -103,6 +105,7 @@ namespace Amazon.AutoScaling.Model
         /// The name of the virtual device (for example, <code>ephemeral0</code>).
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string VirtualName
         {
             get { return this._virtualName; }

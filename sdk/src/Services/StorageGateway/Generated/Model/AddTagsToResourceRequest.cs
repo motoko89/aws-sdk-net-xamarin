@@ -38,13 +38,17 @@ namespace Amazon.StorageGateway.Model
     /// <para>
     /// Storage gateways of all types
     /// </para>
-    ///  </li> </ul> <ul> <li> 
+    ///  </li> <li> 
     /// <para>
-    /// Storage Volumes
+    /// Storage volumes
     /// </para>
-    ///  </li> </ul> <ul> <li> 
+    ///  </li> <li> 
     /// <para>
-    /// Virtual Tapes
+    /// Virtual tapes
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// NFS and SMB file shares
     /// </para>
     ///  </li> </ul> 
     /// <para>
@@ -63,6 +67,7 @@ namespace Amazon.StorageGateway.Model
         /// The Amazon Resource Name (ARN) of the resource you want to add tags to.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=50, Max=500)]
         public string ResourceARN
         {
             get { return this._resourceARN; }
@@ -84,10 +89,13 @@ namespace Amazon.StorageGateway.Model
         ///  <note> 
         /// <para>
         /// Valid characters for key and value are letters, spaces, and numbers representable
-        /// in UTF-8 format, and the following special characters: + - = . _ : / @.
+        /// in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
+        /// length of a tag's key is 128 characters, and the maximum length for a tag's value
+        /// is 256.
         /// </para>
         ///  </note>
         /// </summary>
+        [AWSProperty(Required=true)]
         public List<Tag> Tags
         {
             get { return this._tags; }

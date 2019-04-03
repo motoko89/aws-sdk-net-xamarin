@@ -28,7 +28,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.AutoScaling.Model
 {
     /// <summary>
-    /// Configures a predefined metric for a target tracking policy.
+    /// Represents a predefined metric for a target tracking scaling policy to use with Amazon
+    /// EC2 Auto Scaling.
     /// </summary>
     public partial class PredefinedMetricSpecification
     {
@@ -41,6 +42,7 @@ namespace Amazon.AutoScaling.Model
         /// The metric type.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public MetricType PredefinedMetricType
         {
             get { return this._predefinedMetricType; }
@@ -92,6 +94,7 @@ namespace Amazon.AutoScaling.Model
         /// to the Auto Scaling group.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1023)]
         public string ResourceLabel
         {
             get { return this._resourceLabel; }

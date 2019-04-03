@@ -47,6 +47,7 @@ namespace Amazon.RDS.Model
         /// Valid values: <code>system-update</code>, <code>db-upgrade</code> 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ApplyAction
         {
             get { return this._applyAction; }
@@ -85,6 +86,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  </li> </ul>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string OptInType
         {
             get { return this._optInType; }
@@ -101,10 +103,11 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property ResourceIdentifier. 
         /// <para>
         /// The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance action
-        /// applies to. For information about creating an ARN, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
+        /// applies to. For information about creating an ARN, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
         /// Constructing an RDS Amazon Resource Name (ARN)</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ResourceIdentifier
         {
             get { return this._resourceIdentifier; }

@@ -47,6 +47,7 @@ namespace Amazon.WorkMail.Model
         /// The alias for an organization.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=62)]
         public string Alias
         {
             get { return this._alias; }
@@ -62,8 +63,8 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property CompletedDate. 
         /// <para>
-        /// The date at which the organization became usable in the Amazon WorkMail context, in
-        /// UNIX epoch time format.
+        /// The date at which the organization became usable in the WorkMail context, in UNIX
+        /// epoch time format.
         /// </para>
         /// </summary>
         public DateTime CompletedDate
@@ -84,6 +85,7 @@ namespace Amazon.WorkMail.Model
         /// The default mail domain associated with the organization.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=256)]
         public string DefaultMailDomain
         {
             get { return this._defaultMailDomain; }
@@ -102,6 +104,7 @@ namespace Amazon.WorkMail.Model
         /// The identifier for the directory associated with an Amazon WorkMail organization.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=256)]
         public string DirectoryId
         {
             get { return this._directoryId; }
@@ -117,9 +120,10 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property DirectoryType. 
         /// <para>
-        /// The type of directory associated with the Amazon WorkMail organization.
+        /// The type of directory associated with the WorkMail organization.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=256)]
         public string DirectoryType
         {
             get { return this._directoryType; }
@@ -135,10 +139,11 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property ErrorMessage. 
         /// <para>
-        /// The (optional) error message indicating if unexpected behavior was encountered with
+        /// (Optional) The error message indicating if unexpected behavior was encountered with
         /// regards to the organization.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=256)]
         public string ErrorMessage
         {
             get { return this._errorMessage; }
@@ -175,6 +180,7 @@ namespace Amazon.WorkMail.Model
         /// The state of an organization.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=256)]
         public string State
         {
             get { return this._state; }

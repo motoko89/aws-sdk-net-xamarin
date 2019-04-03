@@ -28,8 +28,31 @@ using Amazon.Runtime.Internal;
 namespace Amazon.AutoScaling.Model
 {
     /// <summary>
-    /// Configures a customized metric for a target tracking policy to use with Amazon EC2
-    /// Auto Scaling.
+    /// Represents a CloudWatch metric of your choosing for a target tracking scaling policy
+    /// to use with Amazon EC2 Auto Scaling.
+    /// 
+    ///  
+    /// <para>
+    /// To create your customized metric specification:
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// Add values for each required parameter from CloudWatch. You can use an existing metric,
+    /// or a new metric that you create. To use your own metric, you must first publish the
+    /// metric to CloudWatch. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publish
+    /// Custom Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Choose a metric that changes proportionally with capacity. The value of the metric
+    /// should increase or decrease in inverse proportion to the number of capacity units.
+    /// That is, the value of the metric should decrease when capacity increases. 
+    /// </para>
+    ///  </li> </ul> 
+    /// <para>
+    /// For more information about CloudWatch, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon
+    /// CloudWatch Concepts</a>. 
+    /// </para>
     /// </summary>
     public partial class CustomizedMetricSpecification
     {
@@ -43,6 +66,11 @@ namespace Amazon.AutoScaling.Model
         /// Gets and sets the property Dimensions. 
         /// <para>
         /// The dimensions of the metric.
+        /// </para>
+        ///  
+        /// <para>
+        /// Conditional: If you published your metric with dimensions, you must specify the same
+        /// dimensions in your scaling policy.
         /// </para>
         /// </summary>
         public List<MetricDimension> Dimensions
@@ -63,6 +91,7 @@ namespace Amazon.AutoScaling.Model
         /// The name of the metric.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string MetricName
         {
             get { return this._metricName; }
@@ -81,6 +110,7 @@ namespace Amazon.AutoScaling.Model
         /// The namespace of the metric.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Namespace
         {
             get { return this._awsNamespace; }
@@ -99,6 +129,7 @@ namespace Amazon.AutoScaling.Model
         /// The statistic of the metric.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public MetricStatistic Statistic
         {
             get { return this._statistic; }

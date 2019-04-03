@@ -30,7 +30,7 @@ namespace Amazon.Comprehend.Model
     /// <summary>
     /// Container for the parameters to the BatchDetectDominantLanguage operation.
     /// Determines the dominant language of the input text for a batch of documents. For a
-    /// list of languages that Amazon Comprehend can detect, see <a href="http://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon
+    /// list of languages that Amazon Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon
     /// Comprehend Supported Languages</a>.
     /// </summary>
     public partial class BatchDetectDominantLanguageRequest : AmazonComprehendRequest
@@ -45,6 +45,7 @@ namespace Amazon.Comprehend.Model
         /// fewer than 5,000 bytes of UTF-8 encoded characters.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public List<string> TextList
         {
             get { return this._textList; }

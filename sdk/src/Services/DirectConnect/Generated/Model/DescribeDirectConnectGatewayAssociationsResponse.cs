@@ -38,7 +38,7 @@ namespace Amazon.DirectConnect.Model
         /// <summary>
         /// Gets and sets the property DirectConnectGatewayAssociations. 
         /// <para>
-        /// The associations.
+        /// Information about the associations.
         /// </para>
         /// </summary>
         public List<DirectConnectGatewayAssociation> DirectConnectGatewayAssociations

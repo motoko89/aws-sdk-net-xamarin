@@ -30,6 +30,13 @@ namespace Amazon.CodePipeline.Model
     /// <summary>
     /// Container for the parameters to the GetPipelineState operation.
     /// Returns information about the state of a pipeline, including the stages and actions.
+    /// 
+    ///  <note> 
+    /// <para>
+    /// Values returned in the revisionId and revisionUrl fields indicate the source revision
+    /// information, such as the commit ID, for the current state.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class GetPipelineStateRequest : AmazonCodePipelineRequest
     {
@@ -41,6 +48,7 @@ namespace Amazon.CodePipeline.Model
         /// The name of the pipeline about which you want to get information.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=100)]
         public string Name
         {
             get { return this._name; }

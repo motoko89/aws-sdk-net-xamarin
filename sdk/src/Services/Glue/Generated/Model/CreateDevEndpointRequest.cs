@@ -33,6 +33,7 @@ namespace Amazon.Glue.Model
     /// </summary>
     public partial class CreateDevEndpointRequest : AmazonGlueRequest
     {
+        private Dictionary<string, string> _arguments = new Dictionary<string, string>();
         private string _endpointName;
         private string _extraJarsS3Path;
         private string _extraPythonLibsS3Path;
@@ -46,11 +47,31 @@ namespace Amazon.Glue.Model
         private Dictionary<string, string> _tags = new Dictionary<string, string>();
 
         /// <summary>
+        /// Gets and sets the property Arguments. 
+        /// <para>
+        /// A map of arguments used to configure the DevEndpoint.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=100)]
+        public Dictionary<string, string> Arguments
+        {
+            get { return this._arguments; }
+            set { this._arguments = value; }
+        }
+
+        // Check to see if Arguments property is set
+        internal bool IsSetArguments()
+        {
+            return this._arguments != null && this._arguments.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property EndpointName. 
         /// <para>
         /// The name to be assigned to the new DevEndpoint.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string EndpointName
         {
             get { return this._endpointName; }
@@ -160,6 +181,7 @@ namespace Amazon.Glue.Model
         /// </para>
         ///  </note>
         /// </summary>
+        [AWSProperty(Max=5)]
         public List<string> PublicKeys
         {
             get { return this._publicKeys; }
@@ -178,6 +200,7 @@ namespace Amazon.Glue.Model
         /// The IAM role for the DevEndpoint.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string RoleArn
         {
             get { return this._roleArn; }
@@ -196,6 +219,7 @@ namespace Amazon.Glue.Model
         /// The name of the SecurityConfiguration structure to be used with this DevEndpoint.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string SecurityConfiguration
         {
             get { return this._securityConfiguration; }
@@ -252,6 +276,7 @@ namespace Amazon.Glue.Model
         /// Tags in AWS Glue</a> in the developer guide.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=50)]
         public Dictionary<string, string> Tags
         {
             get { return this._tags; }

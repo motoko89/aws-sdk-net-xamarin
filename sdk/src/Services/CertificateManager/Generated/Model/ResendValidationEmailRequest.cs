@@ -37,7 +37,7 @@ namespace Amazon.CertificateManager.Model
     /// the original mail, you can request that the mail be resent within 72 hours of requesting
     /// the ACM certificate. If more than 72 hours have elapsed since your original request
     /// or since your last attempt to resend validation mail, you must request a new certificate.
-    /// For more information about setting up your contact email addresses, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/setup-email.html">Configure
+    /// For more information about setting up your contact email addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/setup-email.html">Configure
     /// Email for your Domain</a>.
     /// </summary>
     public partial class ResendValidationEmailRequest : AmazonCertificateManagerRequest
@@ -60,6 +60,7 @@ namespace Amazon.CertificateManager.Model
         /// 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=20, Max=2048)]
         public string CertificateArn
         {
             get { return this._certificateArn; }
@@ -78,6 +79,7 @@ namespace Amazon.CertificateManager.Model
         /// The fully qualified domain name (FQDN) of the certificate that needs to be validated.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=253)]
         public string Domain
         {
             get { return this._domain; }
@@ -122,6 +124,7 @@ namespace Amazon.CertificateManager.Model
         /// </para>
         ///  </li> </ul>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=253)]
         public string ValidationDomain
         {
             get { return this._validationDomain; }

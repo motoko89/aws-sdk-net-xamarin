@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 using System;
 using System.Collections.Generic;
@@ -60,9 +60,10 @@ namespace Amazon.AppMesh.Model
         /// <summary>
         /// Gets and sets the property MeshName. 
         /// <para>
-        /// The name of the service mesh in which the virtual node resides.
+        /// The name of the service mesh that the virtual node resides in.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string MeshName
         {
             get { return this._meshName; }
@@ -81,6 +82,7 @@ namespace Amazon.AppMesh.Model
         /// The new virtual node specification to apply. This overwrites the existing data.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public VirtualNodeSpec Spec
         {
             get { return this._spec; }
@@ -99,6 +101,7 @@ namespace Amazon.AppMesh.Model
         /// The name of the virtual node to update.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string VirtualNodeName
         {
             get { return this._virtualNodeName; }

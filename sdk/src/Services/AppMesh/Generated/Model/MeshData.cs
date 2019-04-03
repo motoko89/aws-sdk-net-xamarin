@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 using System;
 using System.Collections.Generic;
@@ -34,6 +34,7 @@ namespace Amazon.AppMesh.Model
     {
         private string _meshName;
         private ResourceMetadata _metadata;
+        private MeshSpec _spec;
         private MeshStatus _status;
 
         /// <summary>
@@ -42,6 +43,7 @@ namespace Amazon.AppMesh.Model
         /// The name of the service mesh.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string MeshName
         {
             get { return this._meshName; }
@@ -60,6 +62,7 @@ namespace Amazon.AppMesh.Model
         /// The associated metadata for the service mesh.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public ResourceMetadata Metadata
         {
             get { return this._metadata; }
@@ -73,11 +76,31 @@ namespace Amazon.AppMesh.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Spec. 
+        /// <para>
+        /// The associated specification for the service mesh.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Required=true)]
+        public MeshSpec Spec
+        {
+            get { return this._spec; }
+            set { this._spec = value; }
+        }
+
+        // Check to see if Spec property is set
+        internal bool IsSetSpec()
+        {
+            return this._spec != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Status. 
         /// <para>
         /// The status of the service mesh.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public MeshStatus Status
         {
             get { return this._status; }

@@ -30,7 +30,13 @@ namespace Amazon.RoboMaker.Model
     /// <summary>
     /// Container for the parameters to the ListDeploymentJobs operation.
     /// Returns a list of deployment jobs for a fleet. You can optionally provide filters
-    /// to retrieve specific deployment jobs.
+    /// to retrieve specific deployment jobs. 
+    /// 
+    ///  <note> 
+    /// <para>
+    ///  
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class ListDeploymentJobsRequest : AmazonRoboMakerRequest
     {
@@ -43,7 +49,15 @@ namespace Amazon.RoboMaker.Model
         /// <para>
         /// Optional filters to limit results.
         /// </para>
+        ///  
+        /// <para>
+        /// The filter names <code>status</code> and <code>fleetName</code> are supported. When
+        /// filtering, you must use the complete value of the filtered item. You can use up to
+        /// three filters, but they must be for the same named item. For example, if you are looking
+        /// for items with the status <code>InProgress</code> or the status <code>Pending</code>.
+        /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1)]
         public List<Filter> Filters
         {
             get { return this._filters; }
@@ -95,6 +109,7 @@ namespace Amazon.RoboMaker.Model
         /// </para>
         ///  </note>
         /// </summary>
+        [AWSProperty(Min=1, Max=2048)]
         public string NextToken
         {
             get { return this._nextToken; }

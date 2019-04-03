@@ -43,6 +43,7 @@ namespace Amazon.StorageGateway.Model
         /// The Amazon Resource Name (ARN) of the virtual tape.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=50, Max=500)]
         public string TapeARN
         {
             get { return this._tapeARN; }
@@ -98,7 +99,10 @@ namespace Amazon.StorageGateway.Model
         }
 
         /// <summary>
-        /// Gets and sets the property TapeStatus.
+        /// Gets and sets the property TapeStatus. 
+        /// <para>
+        /// The status of the virtual tapes.
+        /// </para>
         /// </summary>
         public string TapeStatus
         {

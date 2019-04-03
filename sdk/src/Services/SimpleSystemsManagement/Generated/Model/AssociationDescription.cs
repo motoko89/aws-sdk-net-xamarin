@@ -114,6 +114,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// use an Automation document and target resources by using rate controls.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=50)]
         public string AutomationTargetParameterName
         {
             get { return this._automationTargetParameterName; }
@@ -262,12 +263,13 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// </para>
         ///  
         /// <para>
-        /// If a new instance starts and attempts to execute an association while Systems Manager
-        /// is executing MaxConcurrency associations, the association is allowed to run. During
+        /// If a new instance starts and attempts to run an association while Systems Manager
+        /// is running MaxConcurrency associations, the association is allowed to run. During
         /// the next association interval, the new instance will process its association within
         /// the limit specified for MaxConcurrency.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=7)]
         public string MaxConcurrency
         {
             get { return this._maxConcurrency; }
@@ -299,6 +301,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// 1 so that executions proceed one at a time.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=7)]
         public string MaxErrors
         {
             get { return this._maxErrors; }
@@ -389,6 +392,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// A cron expression that specifies a schedule when the association runs.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=256)]
         public string ScheduleExpression
         {
             get { return this._scheduleExpression; }
@@ -425,6 +429,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The instances targeted by the request. 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=5)]
         public List<Target> Targets
         {
             get { return this._targets; }

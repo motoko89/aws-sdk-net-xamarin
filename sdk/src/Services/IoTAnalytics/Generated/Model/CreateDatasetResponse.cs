@@ -60,6 +60,7 @@ namespace Amazon.IoTAnalytics.Model
         /// The name of the data set.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=128)]
         public string DatasetName
         {
             get { return this._datasetName; }
@@ -75,7 +76,7 @@ namespace Amazon.IoTAnalytics.Model
         /// <summary>
         /// Gets and sets the property RetentionPeriod. 
         /// <para>
-        /// How long, in days, message data is kept for the data set.
+        /// How long, in days, data set contents are kept for the data set.
         /// </para>
         /// </summary>
         public RetentionPeriod RetentionPeriod

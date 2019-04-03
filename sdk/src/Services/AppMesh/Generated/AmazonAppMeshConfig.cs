@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 
 
@@ -32,7 +32,7 @@ namespace Amazon.AppMesh
     public partial class AmazonAppMeshConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.3.0.21");
+            InternalSDKUtils.BuildUserAgentString("3.3.101.1");
 
         private string _userAgent = UserAgentString;
 
@@ -62,7 +62,7 @@ namespace Amazon.AppMesh
         {
             get
             {
-                return "2018-10-01";
+                return "2019-01-25";
             }
         }
 

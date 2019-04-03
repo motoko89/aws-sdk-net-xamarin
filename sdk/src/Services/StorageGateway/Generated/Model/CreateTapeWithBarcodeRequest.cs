@@ -46,6 +46,7 @@ namespace Amazon.StorageGateway.Model
         private string _gatewayARN;
         private bool? _kmsEncrypted;
         private string _kmsKey;
+        private string _poolId;
         private string _tapeBarcode;
         private long? _tapeSizeInBytes;
 
@@ -57,6 +58,7 @@ namespace Amazon.StorageGateway.Model
         /// for your account and region.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=50, Max=500)]
         public string GatewayARN
         {
             get { return this._gatewayARN; }
@@ -95,6 +97,7 @@ namespace Amazon.StorageGateway.Model
         /// This value can only be set when KMSEncrypted is true. Optional.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=7, Max=2048)]
         public string KMSKey
         {
             get { return this._kmsKey; }
@@ -108,6 +111,32 @@ namespace Amazon.StorageGateway.Model
         }
 
         /// <summary>
+        /// Gets and sets the property PoolId. 
+        /// <para>
+        /// The ID of the pool that you want to add your tape to for archiving. The tape in this
+        /// pool is archived in the S3 storage class that is associated with the pool. When you
+        /// use your backup application to eject the tape, the tape is archived directly into
+        /// the storage class (Glacier or Deep Archive) that corresponds to the pool.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid values: "GLACIER", "DEEP_ARCHIVE"
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=100)]
+        public string PoolId
+        {
+            get { return this._poolId; }
+            set { this._poolId = value; }
+        }
+
+        // Check to see if PoolId property is set
+        internal bool IsSetPoolId()
+        {
+            return this._poolId != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property TapeBarcode. 
         /// <para>
         /// The barcode that you want to assign to the tape.
@@ -118,6 +147,7 @@ namespace Amazon.StorageGateway.Model
         /// </para>
         ///  </note>
         /// </summary>
+        [AWSProperty(Required=true, Min=7, Max=16)]
         public string TapeBarcode
         {
             get { return this._tapeBarcode; }
@@ -141,6 +171,7 @@ namespace Amazon.StorageGateway.Model
         /// </para>
         ///  </note>
         /// </summary>
+        [AWSProperty(Required=true)]
         public long TapeSizeInBytes
         {
             get { return this._tapeSizeInBytes.GetValueOrDefault(); }

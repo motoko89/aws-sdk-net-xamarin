@@ -29,7 +29,7 @@ namespace Amazon.CognitoIdentity.Model
 {
     /// <summary>
     /// Container for the parameters to the DeleteIdentityPool operation.
-    /// Deletes a user pool. Once a pool is deleted, users will not be able to authenticate
+    /// Deletes an identity pool. Once a pool is deleted, users will not be able to authenticate
     /// with the pool.
     /// 
     ///  
@@ -47,6 +47,7 @@ namespace Amazon.CognitoIdentity.Model
         /// An identity pool ID in the format REGION:GUID.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=55)]
         public string IdentityPoolId
         {
             get { return this._identityPoolId; }

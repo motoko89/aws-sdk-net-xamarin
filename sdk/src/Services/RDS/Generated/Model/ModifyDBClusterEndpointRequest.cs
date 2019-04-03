@@ -30,6 +30,12 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// Container for the parameters to the ModifyDBClusterEndpoint operation.
     /// Modifies the properties of an endpoint in an Amazon Aurora DB cluster.
+    /// 
+    ///  <note> 
+    /// <para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class ModifyDBClusterEndpointRequest : AmazonRDSRequest
     {
@@ -45,6 +51,7 @@ namespace Amazon.RDS.Model
         /// string.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string DBClusterEndpointIdentifier
         {
             get { return this._dbClusterEndpointIdentifier; }

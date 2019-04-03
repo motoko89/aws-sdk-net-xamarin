@@ -35,7 +35,7 @@ namespace Amazon.ElasticBeanstalk.Model
     ///  
     /// <para>
     /// Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments.
-    /// For details about environment tagging, see <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging
+    /// For details about environment tagging, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging
     /// Resources in Your Elastic Beanstalk Environment</a>.
     /// </para>
     /// </summary>
@@ -53,6 +53,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// Must be the ARN of an Elastic Beanstalk environment.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ResourceArn
         {
             get { return this._resourceArn; }

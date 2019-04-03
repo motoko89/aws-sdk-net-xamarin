@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 using System;
 using System.Collections.Generic;
@@ -40,6 +40,7 @@ namespace Amazon.AppMesh.Model
         /// A full description of the virtual node that was updated.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public VirtualNodeData VirtualNode
         {
             get { return this._virtualNode; }

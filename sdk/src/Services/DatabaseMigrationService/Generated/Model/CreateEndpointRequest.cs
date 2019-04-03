@@ -48,6 +48,7 @@ namespace Amazon.DatabaseMigrationService.Model
         private MongoDbSettings _mongoDbSettings;
         private string _password;
         private int? _port;
+        private RedshiftSettings _redshiftSettings;
         private S3Settings _s3Settings;
         private string _serverName;
         private string _serviceAccessRoleArn;
@@ -142,7 +143,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// Gets and sets the property DynamoDbSettings. 
         /// <para>
         /// Settings in JSON format for the target Amazon DynamoDB endpoint. For more information
-        /// about the available settings, see <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html">Using
+        /// about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html">Using
         /// Object Mapping to Migrate Data to DynamoDB</a> in the <i>AWS Database Migration Service
         /// User Guide.</i> 
         /// </para>
@@ -163,7 +164,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// Gets and sets the property ElasticsearchSettings. 
         /// <para>
         /// Settings in JSON format for the target Elasticsearch endpoint. For more information
-        /// about the available settings, see <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration">Extra
+        /// about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration">Extra
         /// Connection Attributes When Using Elasticsearch as a Target for AWS DMS</a> in the
         /// <i>AWS Database Migration User Guide.</i> 
         /// </para>
@@ -188,6 +189,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// two consecutive hyphens.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string EndpointIdentifier
         {
             get { return this._endpointIdentifier; }
@@ -206,6 +208,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// The type of endpoint.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public ReplicationEndpointTypeValue EndpointType
         {
             get { return this._endpointType; }
@@ -228,6 +231,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// <code>mongodb</code>, and <code>sqlserver</code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string EngineName
         {
             get { return this._engineName; }
@@ -280,7 +284,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// Gets and sets the property KinesisSettings. 
         /// <para>
         /// Settings in JSON format for the target Amazon Kinesis Data Streams endpoint. For more
-        /// information about the available settings, see <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping
+        /// information about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping
         /// ">Using Object Mapping to Migrate Data to a Kinesis Data Stream</a> in the <i>AWS
         /// Database Migration User Guide.</i> 
         /// </para>
@@ -322,7 +326,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// Gets and sets the property MongoDbSettings. 
         /// <para>
         /// Settings in JSON format for the source MongoDB endpoint. For more information about
-        /// the available settings, see the configuration properties section in <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html">
+        /// the available settings, see the configuration properties section in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html">
         /// Using MongoDB as a Target for AWS Database Migration Service</a> in the <i>AWS Database
         /// Migration Service User Guide.</i> 
         /// </para>
@@ -376,10 +380,25 @@ namespace Amazon.DatabaseMigrationService.Model
         }
 
         /// <summary>
+        /// Gets and sets the property RedshiftSettings.
+        /// </summary>
+        public RedshiftSettings RedshiftSettings
+        {
+            get { return this._redshiftSettings; }
+            set { this._redshiftSettings = value; }
+        }
+
+        // Check to see if RedshiftSettings property is set
+        internal bool IsSetRedshiftSettings()
+        {
+            return this._redshiftSettings != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property S3Settings. 
         /// <para>
         /// Settings in JSON format for the target Amazon S3 endpoint. For more information about
-        /// the available settings, see <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring">Extra
+        /// the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring">Extra
         /// Connection Attributes When Using Amazon S3 as a Target for AWS DMS</a> in the <i>AWS
         /// Database Migration Service User Guide.</i> 
         /// </para>

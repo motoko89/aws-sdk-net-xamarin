@@ -61,7 +61,7 @@ namespace Amazon.IoT.Model
         /// <summary>
         /// Gets and sets the property Connectivity. 
         /// <para>
-        /// Indicates whether or not the thing is connected to the AWS IoT service.
+        /// Indicates whether the thing is connected to the AWS IoT service.
         /// </para>
         /// </summary>
         public ThingConnectivity Connectivity
@@ -136,6 +136,7 @@ namespace Amazon.IoT.Model
         /// The thing name.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=128)]
         public string ThingName
         {
             get { return this._thingName; }
@@ -154,6 +155,7 @@ namespace Amazon.IoT.Model
         /// The thing type name.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=128)]
         public string ThingTypeName
         {
             get { return this._thingTypeName; }

@@ -426,14 +426,6 @@ namespace ServiceClientGenerator
         }
 
         /// <summary>
-        /// Determines if the shape's type is a blob
-        /// </summary>
-        public bool IsBlob
-        {
-            get { return this.Type == "blob"; }
-        }
-
-        /// <summary>
         /// Determines if the shape's type is a map
         /// </summary>
         public bool IsMap
@@ -759,6 +751,19 @@ namespace ServiceClientGenerator
             }
             return timestampFormat;
         }
-        
+
+        public bool IsFieldRequired(string fieldName)
+        {
+            var requiredList = data[RequiredKey];
+            if (requiredList != null && requiredList.IsArray)
+            {
+                foreach (var name in requiredList)
+                {
+                    if (string.Equals(name.ToString(), fieldName))
+                        return true;
+                }
+            }
+            return false;
+        }
     }
 }

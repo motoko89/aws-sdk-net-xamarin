@@ -41,7 +41,20 @@ namespace Amazon.GameLift.Model
     /// Some API actions may limit the number of fleet IDs allowed in one request. If a request
     /// exceeds this limit, the request fails and the error message includes the maximum allowed.
     /// </para>
-    ///  </note> <ul> <li> 
+    ///  </note> 
+    /// <para>
+    ///  <b>Learn more</b> 
+    /// </para>
+    ///  
+    /// <para>
+    ///  <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
+    /// Working with Fleets</a>.
+    /// </para>
+    ///  
+    /// <para>
+    ///  <b>Related operations</b> 
+    /// </para>
+    ///  <ul> <li> 
     /// <para>
     ///  <a>CreateFleet</a> 
     /// </para>
@@ -132,6 +145,7 @@ namespace Amazon.GameLift.Model
         /// data for all fleets, leave this parameter empty.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1)]
         public List<string> FleetIds
         {
             get { return this._fleetIds; }
@@ -152,6 +166,7 @@ namespace Amazon.GameLift.Model
         /// specifies one or a list of fleet IDs.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1)]
         public int Limit
         {
             get { return this._limit.GetValueOrDefault(); }
@@ -173,6 +188,7 @@ namespace Amazon.GameLift.Model
         /// specifies one or a list of fleet IDs.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string NextToken
         {
             get { return this._nextToken; }

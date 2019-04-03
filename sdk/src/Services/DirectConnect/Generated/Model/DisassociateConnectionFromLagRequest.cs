@@ -33,7 +33,7 @@ namespace Amazon.DirectConnect.Model
     /// interrupted and re-established as a standalone connection (the connection is not deleted;
     /// to delete the connection, use the <a>DeleteConnection</a> request). If the LAG has
     /// associated virtual interfaces or hosted connections, they remain associated with the
-    /// LAG. A disassociated connection owned by an AWS Direct Connect partner is automatically
+    /// LAG. A disassociated connection owned by an AWS Direct Connect Partner is automatically
     /// converted to an interconnect.
     /// 
     ///  
@@ -52,9 +52,10 @@ namespace Amazon.DirectConnect.Model
         /// <summary>
         /// Gets and sets the property ConnectionId. 
         /// <para>
-        /// The ID of the connection. For example, dxcon-abc123.
+        /// The ID of the connection.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ConnectionId
         {
             get { return this._connectionId; }
@@ -70,9 +71,10 @@ namespace Amazon.DirectConnect.Model
         /// <summary>
         /// Gets and sets the property LagId. 
         /// <para>
-        /// The ID of the LAG. For example, dxlag-abc123.
+        /// The ID of the LAG.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string LagId
         {
             get { return this._lagId; }

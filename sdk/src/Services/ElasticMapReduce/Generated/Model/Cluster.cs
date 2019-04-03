@@ -84,6 +84,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// and terminate EC2 instances in an instance group.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=10280)]
         public string AutoScalingRole
         {
             get { return this._autoScalingRole; }
@@ -140,6 +141,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// Linux AMI if the cluster uses a custom AMI.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=256)]
         public string CustomAmiId
         {
             get { return this._customAmiId; }
@@ -237,7 +239,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// Gets and sets the property KerberosAttributes. 
         /// <para>
         /// Attributes for Kerberos configuration when Kerberos authentication is enabled using
-        /// a security configuration. For more information see <a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html">Use
+        /// a security configuration. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html">Use
         /// Kerberos Authentication</a> in the <i>EMR Management Guide</i>.
         /// </para>
         /// </summary>
@@ -337,7 +339,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// packages installed on the cluster. Release labels are in the form <code>emr-x.x.x</code>,
         /// where x.x.x is an Amazon EMR release version, for example, <code>emr-5.14.0</code>.
         /// For more information about Amazon EMR release versions and included application versions
-        /// and features, see <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/">http://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>.
+        /// and features, see <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>.
         /// The release label applies only to Amazon EMR releases versions 4.x and later. Earlier
         /// versions use <code>AmiVersion</code>.
         /// </para>
@@ -444,6 +446,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// The name of the security configuration applied to the cluster.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=10280)]
         public string SecurityConfiguration
         {
             get { return this._securityConfiguration; }

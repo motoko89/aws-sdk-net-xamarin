@@ -29,7 +29,7 @@ namespace Amazon.WorkMail.Model
 {
     /// <summary>
     /// Container for the parameters to the ListMailboxPermissions operation.
-    /// Lists the mailbox permissions associated with a mailbox.
+    /// Lists the mailbox permissions associated with a user, group, or resource mailbox.
     /// </summary>
     public partial class ListMailboxPermissionsRequest : AmazonWorkMailRequest
     {
@@ -41,9 +41,10 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property EntityId. 
         /// <para>
-        /// The identifier of the entity (user or group) for which to list mailbox permissions.
+        /// The identifier of the user, group, or resource for which to list mailbox permissions.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=12, Max=256)]
         public string EntityId
         {
             get { return this._entityId; }
@@ -62,6 +63,7 @@ namespace Amazon.WorkMail.Model
         /// The maximum number of results to return in a single call.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public int MaxResults
         {
             get { return this._maxResults.GetValueOrDefault(); }
@@ -81,6 +83,7 @@ namespace Amazon.WorkMail.Model
         /// any tokens.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string NextToken
         {
             get { return this._nextToken; }
@@ -96,9 +99,10 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property OrganizationId. 
         /// <para>
-        /// The identifier of the organization under which the entity (user or group) exists.
+        /// The identifier of the organization under which the user, group, or resource exists.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string OrganizationId
         {
             get { return this._organizationId; }

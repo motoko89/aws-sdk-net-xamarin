@@ -29,7 +29,7 @@ namespace Amazon.SimpleSystemsManagement.Model
 {
     /// <summary>
     /// Container for the parameters to the SendCommand operation.
-    /// Executes commands on one or more managed instances.
+    /// Runs commands on one or more managed instances.
     /// </summary>
     public partial class SendCommandRequest : AmazonSimpleSystemsManagementRequest
     {
@@ -59,8 +59,8 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Instantiates SendCommandRequest with the parameterized properties
         /// </summary>
-        /// <param name="documentName">Required. The name of the Systems Manager document to execute. This can be a public document or a custom document.</param>
-        /// <param name="instanceIds">The instance IDs where the command should execute. You can specify a maximum of 50 IDs. If you prefer not to list individual instance IDs, you can instead send commands to a fleet of instances using the Targets parameter, which accepts EC2 tags. For more information about how to use targets, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending Commands to a Fleet</a> in the <i>AWS Systems Manager User Guide</i>.</param>
+        /// <param name="documentName">Required. The name of the Systems Manager document to run. This can be a public document or a custom document.</param>
+        /// <param name="instanceIds">The instance IDs where the command should run. You can specify a maximum of 50 IDs. If you prefer not to list individual instance IDs, you can instead send commands to a fleet of instances using the Targets parameter, which accepts EC2 tags. For more information about how to use targets, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending Commands to a Fleet</a> in the <i>AWS Systems Manager User Guide</i>.</param>
         public SendCommandRequest(string documentName, List<string> instanceIds)
         {
             _documentName = documentName;
@@ -92,6 +92,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// the command should do.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=100)]
         public string Comment
         {
             get { return this._comment; }
@@ -115,6 +116,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// </para>
         ///  </note>
         /// </summary>
+        [AWSProperty(Max=256)]
         public string DocumentHash
         {
             get { return this._documentHash; }
@@ -153,10 +155,11 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property DocumentName. 
         /// <para>
-        /// Required. The name of the Systems Manager document to execute. This can be a public
-        /// document or a custom document.
+        /// Required. The name of the Systems Manager document to run. This can be a public document
+        /// or a custom document.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string DocumentName
         {
             get { return this._documentName; }
@@ -173,8 +176,8 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Gets and sets the property DocumentVersion. 
         /// <para>
         /// The SSM document version to use in the request. You can specify $DEFAULT, $LATEST,
-        /// or a specific version number. If you execute commands by using the AWS CLI, then you
-        /// must escape the first two options by using a backslash. If you specify a version number,
+        /// or a specific version number. If you run commands by using the AWS CLI, then you must
+        /// escape the first two options by using a backslash. If you specify a version number,
         /// then you don't need to use the backslash. For example:
         /// </para>
         ///  
@@ -205,13 +208,14 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property InstanceIds. 
         /// <para>
-        /// The instance IDs where the command should execute. You can specify a maximum of 50
-        /// IDs. If you prefer not to list individual instance IDs, you can instead send commands
-        /// to a fleet of instances using the Targets parameter, which accepts EC2 tags. For more
+        /// The instance IDs where the command should run. You can specify a maximum of 50 IDs.
+        /// If you prefer not to list individual instance IDs, you can instead send commands to
+        /// a fleet of instances using the Targets parameter, which accepts EC2 tags. For more
         /// information about how to use targets, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending
         /// Commands to a Fleet</a> in the <i>AWS Systems Manager User Guide</i>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=50)]
         public List<string> InstanceIds
         {
             get { return this._instanceIds; }
@@ -227,13 +231,14 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property MaxConcurrency. 
         /// <para>
-        /// (Optional) The maximum number of instances that are allowed to execute the command
-        /// at the same time. You can specify a number such as 10 or a percentage such as 10%.
-        /// The default value is 50. For more information about how to use MaxConcurrency, see
-        /// <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity">Using
+        /// (Optional) The maximum number of instances that are allowed to run the command at
+        /// the same time. You can specify a number such as 10 or a percentage such as 10%. The
+        /// default value is 50. For more information about how to use MaxConcurrency, see <a
+        /// href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity">Using
         /// Concurrency Controls</a> in the <i>AWS Systems Manager User Guide</i>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=7)]
         public string MaxConcurrency
         {
             get { return this._maxConcurrency; }
@@ -256,6 +261,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Error Controls</a> in the <i>AWS Systems Manager User Guide</i>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=7)]
         public string MaxErrors
         {
             get { return this._maxErrors; }
@@ -292,6 +298,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The name of the S3 bucket where command execution responses should be stored.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=3, Max=63)]
         public string OutputS3BucketName
         {
             get { return this._outputS3BucketName; }
@@ -310,6 +317,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The directory structure within the S3 bucket where the responses should be stored.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=500)]
         public string OutputS3KeyPrefix
         {
             get { return this._outputS3KeyPrefix; }
@@ -329,6 +337,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Systems Manager automatically determines the Amazon S3 bucket region.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=3, Max=20)]
         public string OutputS3Region
         {
             get { return this._outputS3Region; }
@@ -344,7 +353,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property Parameters. 
         /// <para>
-        /// The required and optional parameters specified in the document being executed.
+        /// The required and optional parameters specified in the document being run.
         /// </para>
         /// </summary>
         public Dictionary<string, List<string>> Parameters
@@ -386,6 +395,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Commands to a Fleet</a> in the <i>AWS Systems Manager User Guide</i>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=5)]
         public List<Target> Targets
         {
             get { return this._targets; }
@@ -401,10 +411,11 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property TimeoutSeconds. 
         /// <para>
-        /// If this time is reached and the command has not already started executing, it will
-        /// not run.
+        /// If this time is reached and the command has not already started running, it will not
+        /// run.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=30, Max=2592000)]
         public int TimeoutSeconds
         {
             get { return this._timeoutSeconds.GetValueOrDefault(); }

@@ -29,7 +29,7 @@ namespace Amazon.SimpleSystemsManagement.Model
 {
     /// <summary>
     /// Container for the parameters to the GetMaintenanceWindowExecutionTaskInvocation operation.
-    /// Retrieves a task invocation. A task invocation is a specific task executing on a specific
+    /// Retrieves a task invocation. A task invocation is a specific task running on a specific
     /// target. Maintenance Windows report status for all invocations.
     /// </summary>
     public partial class GetMaintenanceWindowExecutionTaskInvocationRequest : AmazonSimpleSystemsManagementRequest
@@ -44,6 +44,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The invocation ID to retrieve.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=36, Max=36)]
         public string InvocationId
         {
             get { return this._invocationId; }
@@ -63,6 +64,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=36, Max=36)]
         public string TaskId
         {
             get { return this._taskId; }
@@ -81,6 +83,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The ID of the Maintenance Window execution for which the task is a part.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=36, Max=36)]
         public string WindowExecutionId
         {
             get { return this._windowExecutionId; }

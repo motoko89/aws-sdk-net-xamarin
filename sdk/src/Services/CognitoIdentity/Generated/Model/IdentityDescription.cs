@@ -61,6 +61,7 @@ namespace Amazon.CognitoIdentity.Model
         /// A unique identifier in the format REGION:GUID.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=55)]
         public string IdentityId
         {
             get { return this._identityId; }
@@ -94,7 +95,7 @@ namespace Amazon.CognitoIdentity.Model
         /// <summary>
         /// Gets and sets the property Logins. 
         /// <para>
-        /// A set of optional name-value pairs that map provider names to provider tokens.
+        /// The provider names.
         /// </para>
         /// </summary>
         public List<string> Logins

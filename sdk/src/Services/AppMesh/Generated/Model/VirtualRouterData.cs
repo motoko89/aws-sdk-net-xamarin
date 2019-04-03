@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 using System;
 using System.Collections.Generic;
@@ -41,9 +41,10 @@ namespace Amazon.AppMesh.Model
         /// <summary>
         /// Gets and sets the property MeshName. 
         /// <para>
-        /// The name of the service mesh in which the virtual router resides.
+        /// The name of the service mesh that the virtual router resides in.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string MeshName
         {
             get { return this._meshName; }
@@ -62,6 +63,7 @@ namespace Amazon.AppMesh.Model
         /// The associated metadata for the virtual router.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public ResourceMetadata Metadata
         {
             get { return this._metadata; }
@@ -80,6 +82,7 @@ namespace Amazon.AppMesh.Model
         /// The specifications of the virtual router.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public VirtualRouterSpec Spec
         {
             get { return this._spec; }
@@ -98,6 +101,7 @@ namespace Amazon.AppMesh.Model
         /// The current status of the virtual router.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public VirtualRouterStatus Status
         {
             get { return this._status; }
@@ -116,6 +120,7 @@ namespace Amazon.AppMesh.Model
         /// The name of the virtual router.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string VirtualRouterName
         {
             get { return this._virtualRouterName; }

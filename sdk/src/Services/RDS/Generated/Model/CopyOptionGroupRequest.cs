@@ -42,7 +42,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property SourceOptionGroupIdentifier. 
         /// <para>
         /// The identifier or ARN for the source option group. For information about creating
-        /// an ARN, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
+        /// an ARN, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
         /// Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. 
         /// </para>
         ///  
@@ -65,6 +65,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  </li> </ul>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string SourceOptionGroupIdentifier
         {
             get { return this._sourceOptionGroupIdentifier; }
@@ -98,6 +99,7 @@ namespace Amazon.RDS.Model
         /// The description for the copied option group.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string TargetOptionGroupDescription
         {
             get { return this._targetOptionGroupDescription; }
@@ -140,6 +142,7 @@ namespace Amazon.RDS.Model
         /// Example: <code>my-option-group</code> 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string TargetOptionGroupIdentifier
         {
             get { return this._targetOptionGroupIdentifier; }

@@ -53,6 +53,7 @@ namespace Amazon.RoboMaker.Model
         /// The Amazon Resource Name (ARN) of the simulation job.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1224)]
         public string Arn
         {
             get { return this._arn; }
@@ -72,6 +73,7 @@ namespace Amazon.RoboMaker.Model
         /// request.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=64)]
         public string ClientRequestToken
         {
             get { return this._clientRequestToken; }
@@ -184,6 +186,7 @@ namespace Amazon.RoboMaker.Model
         /// in its associated policies on your behalf.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string IamRole
         {
             get { return this._iamRole; }
@@ -217,8 +220,7 @@ namespace Amazon.RoboMaker.Model
         /// <summary>
         /// Gets and sets the property MaxJobDurationInSeconds. 
         /// <para>
-        /// The maximum simulation job duration in seconds. The value must be 8 days (691,200
-        /// seconds) or less. 
+        /// The maximum simulation job duration in seconds. 
         /// </para>
         /// </summary>
         public long MaxJobDurationInSeconds
@@ -257,6 +259,7 @@ namespace Amazon.RoboMaker.Model
         /// The robot application used by the simulation job.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1)]
         public List<RobotApplicationConfig> RobotApplications
         {
             get { return this._robotApplications; }
@@ -275,6 +278,7 @@ namespace Amazon.RoboMaker.Model
         /// The simulation application used by the simulation job.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1)]
         public List<SimulationApplicationConfig> SimulationApplications
         {
             get { return this._simulationApplications; }
@@ -329,6 +333,7 @@ namespace Amazon.RoboMaker.Model
         /// The list of all tags added to the simulation job.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=50)]
         public Dictionary<string, string> Tags
         {
             get { return this._tags; }

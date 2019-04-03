@@ -49,6 +49,7 @@ namespace Amazon.Comprehend.Model
         private string _jobName;
         private LanguageCode _languageCode;
         private OutputDataConfig _outputDataConfig;
+        private string _volumeKmsKeyId;
 
         /// <summary>
         /// Gets and sets the property ClientRequestToken. 
@@ -57,6 +58,7 @@ namespace Amazon.Comprehend.Model
         /// Comprehend generates one.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=64)]
         public string ClientRequestToken
         {
             get { return this._clientRequestToken; }
@@ -77,6 +79,7 @@ namespace Amazon.Comprehend.Model
         /// see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=20, Max=2048)]
         public string DataAccessRoleArn
         {
             get { return this._dataAccessRoleArn; }
@@ -97,6 +100,7 @@ namespace Amazon.Comprehend.Model
         /// used for a custom entity recognition job.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=256)]
         public string EntityRecognizerArn
         {
             get { return this._entityRecognizerArn; }
@@ -115,6 +119,7 @@ namespace Amazon.Comprehend.Model
         /// Specifies the format and location of the input data for the job.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public InputDataConfig InputDataConfig
         {
             get { return this._inputDataConfig; }
@@ -133,6 +138,7 @@ namespace Amazon.Comprehend.Model
         /// The identifier of the job.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=256)]
         public string JobName
         {
             get { return this._jobName; }
@@ -155,6 +161,7 @@ namespace Amazon.Comprehend.Model
         /// training the model is used instead.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public LanguageCode LanguageCode
         {
             get { return this._languageCode; }
@@ -173,6 +180,7 @@ namespace Amazon.Comprehend.Model
         /// Specifies where to send the output files.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public OutputDataConfig OutputDataConfig
         {
             get { return this._outputDataConfig; }
@@ -183,6 +191,37 @@ namespace Amazon.Comprehend.Model
         internal bool IsSetOutputDataConfig()
         {
             return this._outputDataConfig != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property VolumeKmsKeyId. 
+        /// <para>
+        /// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
+        /// data on the storage volume attached to the ML compute instance(s) that process the
+        /// analysis job. The VolumeKmsKeyId can be either of the following formats:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+        /// 
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        [AWSProperty(Max=2048)]
+        public string VolumeKmsKeyId
+        {
+            get { return this._volumeKmsKeyId; }
+            set { this._volumeKmsKeyId = value; }
+        }
+
+        // Check to see if VolumeKmsKeyId property is set
+        internal bool IsSetVolumeKmsKeyId()
+        {
+            return this._volumeKmsKeyId != null;
         }
 
     }

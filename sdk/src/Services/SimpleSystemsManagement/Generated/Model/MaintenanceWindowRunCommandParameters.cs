@@ -73,9 +73,10 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property Comment. 
         /// <para>
-        /// Information about the command(s) to execute.
+        /// Information about the command(s) to run.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=100)]
         public string Comment
         {
             get { return this._comment; }
@@ -95,6 +96,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// hashes have been deprecated.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=256)]
         public string DocumentHash
         {
             get { return this._documentHash; }
@@ -150,6 +152,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The name of the Amazon S3 bucket.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=3, Max=63)]
         public string OutputS3BucketName
         {
             get { return this._outputS3BucketName; }
@@ -168,6 +171,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The Amazon S3 bucket subfolder.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=500)]
         public string OutputS3KeyPrefix
         {
             get { return this._outputS3KeyPrefix; }
@@ -219,10 +223,11 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property TimeoutSeconds. 
         /// <para>
-        /// If this time is reached and the command has not already started executing, it doesn't
+        /// If this time is reached and the command has not already started running, it doesn't
         /// run.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=30, Max=2592000)]
         public int TimeoutSeconds
         {
             get { return this._timeoutSeconds.GetValueOrDefault(); }

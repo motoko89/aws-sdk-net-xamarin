@@ -65,6 +65,7 @@ namespace Amazon.CodeBuild.Model
         /// The Amazon Resource Name (ARN) of the build.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1)]
         public string Arn
         {
             get { return this._arn; }
@@ -198,12 +199,18 @@ namespace Amazon.CodeBuild.Model
         /// The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for
         /// encrypting the build output artifacts.
         /// </para>
-        ///  
+        ///  <note> 
         /// <para>
-        /// This is expressed either as the Amazon Resource Name (ARN) of the CMK or, if specified,
+        ///  You can use a cross-account KMS key to encrypt the build output artifacts if your
+        /// service role has permission to that key. 
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// You can specify either the Amazon Resource Name (ARN) of the CMK or, if available,
         /// the CMK's alias (using the format <code>alias/<i>alias-name</i> </code>).
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1)]
         public string EncryptionKey
         {
             get { return this._encryptionKey; }
@@ -258,6 +265,7 @@ namespace Amazon.CodeBuild.Model
         /// The unique ID for the build.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1)]
         public string Id
         {
             get { return this._id; }
@@ -363,6 +371,7 @@ namespace Amazon.CodeBuild.Model
         /// The name of the AWS CodeBuild project.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1)]
         public string ProjectName
         {
             get { return this._projectName; }
@@ -412,6 +421,7 @@ namespace Amazon.CodeBuild.Model
         /// </para>
         ///  </li> </ul>
         /// </summary>
+        [AWSProperty(Min=1)]
         public string ResolvedSourceVersion
         {
             get { return this._resolvedSourceVersion; }
@@ -430,6 +440,7 @@ namespace Amazon.CodeBuild.Model
         ///  An array of <code>ProjectArtifacts</code> objects. 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=12)]
         public List<BuildArtifacts> SecondaryArtifacts
         {
             get { return this._secondaryArtifacts; }
@@ -448,6 +459,7 @@ namespace Amazon.CodeBuild.Model
         ///  An array of <code>ProjectSource</code> objects. 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=12)]
         public List<ProjectSource> SecondarySources
         {
             get { return this._secondarySources; }
@@ -491,6 +503,7 @@ namespace Amazon.CodeBuild.Model
         /// </para>
         ///  </li> </ul>
         /// </summary>
+        [AWSProperty(Min=0, Max=12)]
         public List<ProjectSourceVersion> SecondarySourceVersions
         {
             get { return this._secondarySourceVersions; }
@@ -509,6 +522,7 @@ namespace Amazon.CodeBuild.Model
         /// The name of a service role used for this build.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1)]
         public string ServiceRole
         {
             get { return this._serviceRole; }
@@ -545,6 +559,7 @@ namespace Amazon.CodeBuild.Model
         /// Any version identifier for the version of the source code to be built.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1)]
         public string SourceVersion
         {
             get { return this._sourceVersion; }

@@ -32,8 +32,36 @@ namespace Amazon.CloudWatch.Model
     /// </summary>
     public partial class GetMetricDataResponse : AmazonWebServiceResponse
     {
+        private List<MessageData> _messages = new List<MessageData>();
         private List<MetricDataResult> _metricDataResults = new List<MetricDataResult>();
         private string _nextToken;
+
+        /// <summary>
+        /// Gets and sets the property Messages. 
+        /// <para>
+        /// Contains a message about this <code>GetMetricData</code> operation, if the operation
+        /// results in such a message. An example of a message that may be returned is <code>Maximum
+        /// number of allowed metrics exceeded</code>. If there is a message, as much of the operation
+        /// as possible is still executed.
+        /// </para>
+        ///  
+        /// <para>
+        /// A message appears here only if it is related to the global <code>GetMetricData</code>
+        /// operation. Any message about a specific metric returned by the operation appears in
+        /// the <code>MetricDataResult</code> object returned for that metric.
+        /// </para>
+        /// </summary>
+        public List<MessageData> Messages
+        {
+            get { return this._messages; }
+            set { this._messages = value; }
+        }
+
+        // Check to see if Messages property is set
+        internal bool IsSetMessages()
+        {
+            return this._messages != null && this._messages.Count > 0; 
+        }
 
         /// <summary>
         /// Gets and sets the property MetricDataResults. 

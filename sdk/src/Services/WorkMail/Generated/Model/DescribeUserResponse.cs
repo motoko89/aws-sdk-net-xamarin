@@ -66,6 +66,7 @@ namespace Amazon.WorkMail.Model
         /// The display name of the user.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=256)]
         public string DisplayName
         {
             get { return this._displayName; }
@@ -84,6 +85,7 @@ namespace Amazon.WorkMail.Model
         /// The email of the user.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=254)]
         public string Email
         {
             get { return this._email; }
@@ -121,6 +123,7 @@ namespace Amazon.WorkMail.Model
         /// The name for the user.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=64)]
         public string Name
         {
             get { return this._name; }
@@ -137,7 +140,7 @@ namespace Amazon.WorkMail.Model
         /// Gets and sets the property State. 
         /// <para>
         /// The state of a user: enabled (registered to Amazon WorkMail) or disabled (deregistered
-        /// or never registered to Amazon WorkMail).
+        /// or never registered to WorkMail).
         /// </para>
         /// </summary>
         public EntityState State
@@ -158,6 +161,7 @@ namespace Amazon.WorkMail.Model
         /// The identifier for the described user.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=12, Max=256)]
         public string UserId
         {
             get { return this._userId; }
@@ -173,12 +177,11 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property UserRole. 
         /// <para>
-        /// In certain cases other entities are modeled as users. If interoperability is enabled,
-        /// resources are imported into Amazon WorkMail as users. Because different Amazon WorkMail
-        /// organizations rely on different directory types, administrators can distinguish between
-        /// a user that is not registered to Amazon WorkMail (is disabled and has a user role)
-        /// and the administrative users of the directory. The values are USER, RESOURCE, and
-        /// SYSTEM_USER.
+        /// In certain cases, other entities are modeled as users. If interoperability is enabled,
+        /// resources are imported into Amazon WorkMail as users. Because different WorkMail organizations
+        /// rely on different directory types, administrators can distinguish between an unregistered
+        /// user (account is disabled and has a user role) and the directory administrators. The
+        /// values are USER, RESOURCE, and SYSTEM_USER.
         /// </para>
         /// </summary>
         public UserRole UserRole

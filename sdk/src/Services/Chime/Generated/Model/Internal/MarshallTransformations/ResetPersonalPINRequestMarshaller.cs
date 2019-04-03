@@ -55,11 +55,11 @@ namespace Amazon.Chime.Model.Internal.MarshallTransformations
         public IRequest Marshall(ResetPersonalPINRequest publicRequest)
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.Chime");
-            request.Headers["Content-Type"] = "application/x-amz-json-";
+            request.Headers["Content-Type"] = "application/json";
             request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-05-01";            
             request.HttpMethod = "POST";
 
-            string uriResourcePath = "/console/accounts/{accountId}/users/{userId}";
+            string uriResourcePath = "/accounts/{accountId}/users/{userId}";
             request.AddSubResource("operation", "reset-personal-pin");
             if (!publicRequest.IsSetAccountId())
                 throw new AmazonChimeException("Request object does not have required field AccountId set");

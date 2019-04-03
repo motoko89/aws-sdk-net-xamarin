@@ -33,6 +33,7 @@ namespace Amazon.StorageGateway.Model
     public partial class TapeInfo
     {
         private string _gatewayARN;
+        private string _poolId;
         private string _tapeARN;
         private string _tapeBarcode;
         private long? _tapeSizeInBytes;
@@ -45,6 +46,7 @@ namespace Amazon.StorageGateway.Model
         /// to return a list of gateways for your account and region.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=50, Max=500)]
         public string GatewayARN
         {
             get { return this._gatewayARN; }
@@ -58,11 +60,38 @@ namespace Amazon.StorageGateway.Model
         }
 
         /// <summary>
+        /// Gets and sets the property PoolId. 
+        /// <para>
+        /// The ID of the pool that you want to add your tape to for archiving. The tape in this
+        /// pool is archived in the S3 storage class that is associated with the pool. When you
+        /// use your backup application to eject the tape, the tape is archived directly into
+        /// the storage class (Glacier or Deep Archive) that corresponds to the pool.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid values: "GLACIER", "DEEP_ARCHIVE"
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=100)]
+        public string PoolId
+        {
+            get { return this._poolId; }
+            set { this._poolId = value; }
+        }
+
+        // Check to see if PoolId property is set
+        internal bool IsSetPoolId()
+        {
+            return this._poolId != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property TapeARN. 
         /// <para>
         /// The Amazon Resource Name (ARN) of a virtual tape.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=50, Max=500)]
         public string TapeARN
         {
             get { return this._tapeARN; }
@@ -81,6 +110,7 @@ namespace Amazon.StorageGateway.Model
         /// The barcode that identifies a specific virtual tape.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=7, Max=16)]
         public string TapeBarcode
         {
             get { return this._tapeBarcode; }

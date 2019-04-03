@@ -38,6 +38,7 @@ namespace Amazon.Chime.Model
         private License _licenseType;
         private string _personalPIN;
         private string _primaryEmail;
+        private string _primaryProvisionedNumber;
         private DateTime? _registeredOn;
         private string _userId;
         private InviteStatus _userInvitationStatus;
@@ -152,6 +153,24 @@ namespace Amazon.Chime.Model
         }
 
         /// <summary>
+        /// Gets and sets the property PrimaryProvisionedNumber. 
+        /// <para>
+        /// The primary phone number associated with the user.
+        /// </para>
+        /// </summary>
+        public string PrimaryProvisionedNumber
+        {
+            get { return this._primaryProvisionedNumber; }
+            set { this._primaryProvisionedNumber = value; }
+        }
+
+        // Check to see if PrimaryProvisionedNumber property is set
+        internal bool IsSetPrimaryProvisionedNumber()
+        {
+            return this._primaryProvisionedNumber != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property RegisteredOn. 
         /// <para>
         /// Date and time when the user is registered, in ISO 8601 format.
@@ -175,6 +194,7 @@ namespace Amazon.Chime.Model
         /// The user ID.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string UserId
         {
             get { return this._userId; }

@@ -64,6 +64,24 @@ namespace Amazon.DirectConnect.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("allowedPrefixesToDirectConnectGateway", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<RouteFilterPrefix, RouteFilterPrefixUnmarshaller>(RouteFilterPrefixUnmarshaller.Instance);
+                    unmarshalledObject.AllowedPrefixesToDirectConnectGateway = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("associatedGateway", targetDepth))
+                {
+                    var unmarshaller = AssociatedGatewayUnmarshaller.Instance;
+                    unmarshalledObject.AssociatedGateway = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("associationId", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.AssociationId = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("associationState", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -74,6 +92,12 @@ namespace Amazon.DirectConnect.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.DirectConnectGatewayId = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("directConnectGatewayOwnerAccount", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.DirectConnectGatewayOwnerAccount = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("stateChangeError", targetDepth))

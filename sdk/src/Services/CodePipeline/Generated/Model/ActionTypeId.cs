@@ -44,6 +44,7 @@ namespace Amazon.CodePipeline.Model
         /// provider type for the action. Valid categories are limited to one of the values below.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public ActionCategory Category
         {
             get { return this._category; }
@@ -62,6 +63,7 @@ namespace Amazon.CodePipeline.Model
         /// The creator of the action being called.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public ActionOwner Owner
         {
             get { return this._owner; }
@@ -79,9 +81,12 @@ namespace Amazon.CodePipeline.Model
         /// <para>
         /// The provider of the service being called by the action. Valid providers are determined
         /// by the action category. For example, an action in the Deploy category type might have
-        /// a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+        /// a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference
+        /// a list of action providers by action type, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid
+        /// Action Types and Providers in CodePipeline</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=25)]
         public string Provider
         {
             get { return this._provider; }
@@ -100,6 +105,7 @@ namespace Amazon.CodePipeline.Model
         /// A string that describes the action version.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=9)]
         public string Version
         {
             get { return this._version; }

@@ -131,6 +131,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// The contents of the email verification message.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=6, Max=20000)]
         public string EmailVerificationMessage
         {
             get { return this._emailVerificationMessage; }
@@ -149,6 +150,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// The subject of the email verification message.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=140)]
         public string EmailVerificationSubject
         {
             get { return this._emailVerificationSubject; }
@@ -236,6 +238,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// The contents of the SMS authentication message.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=6, Max=140)]
         public string SmsAuthenticationMessage
         {
             get { return this._smsAuthenticationMessage; }
@@ -272,6 +275,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// A container with information about the SMS verification message.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=6, Max=140)]
         public string SmsVerificationMessage
         {
             get { return this._smsVerificationMessage; }
@@ -309,6 +313,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// The user pool ID for the user pool you want to update.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=55)]
         public string UserPoolId
         {
             get { return this._userPoolId; }
@@ -324,8 +329,9 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// <summary>
         /// Gets and sets the property UserPoolTags. 
         /// <para>
-        /// The cost allocation tags for the user pool. For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html">Adding
-        /// Cost Allocation Tags to Your User Pool</a> 
+        /// The tag keys and values to assign to the user pool. A tag is a label that you can
+        /// use to categorize and manage user pools in different ways, such as by purpose, owner,
+        /// environment, or other criteria.
         /// </para>
         /// </summary>
         public Dictionary<string, string> UserPoolTags

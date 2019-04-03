@@ -39,9 +39,10 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property Id. 
         /// <para>
-        /// The identifier for the user or group is associated as the resource's delegate.
+        /// The identifier for the user or group associated as the resource's delegate.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Max=256)]
         public string Id
         {
             get { return this._id; }
@@ -60,6 +61,7 @@ namespace Amazon.WorkMail.Model
         /// The type of the delegate: user or group.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public MemberType Type
         {
             get { return this._type; }

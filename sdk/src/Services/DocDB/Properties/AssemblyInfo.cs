@@ -15,8 +15,10 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyDescription("The Amazon Web Services SDK for .NET (PCL) -  Amazon DocumentDB with MongoDB compatibility. Amazon DocumentDB is a fast, reliable, and fully managed MongoDB compatible database service.")]
 #elif UNITY
 [assembly: AssemblyDescription("The Amazon Web Services SDK for .NET (Unity) - Amazon DocumentDB with MongoDB compatibility. Amazon DocumentDB is a fast, reliable, and fully managed MongoDB compatible database service.")]
-#elif CORECLR
-[assembly: AssemblyDescription("The Amazon Web Services SDK for .NET (CoreCLR)- Amazon DocumentDB with MongoDB compatibility. Amazon DocumentDB is a fast, reliable, and fully managed MongoDB compatible database service.")]
+#elif NETSTANDARD13
+[assembly: AssemblyDescription("The Amazon Web Services SDK for .NET (NetStandard 1.3)- Amazon DocumentDB with MongoDB compatibility. Amazon DocumentDB is a fast, reliable, and fully managed MongoDB compatible database service.")]
+#elif NETSTANDARD20
+[assembly: AssemblyDescription("The Amazon Web Services SDK for .NET (NetStandard 2.0)- Amazon DocumentDB with MongoDB compatibility. Amazon DocumentDB is a fast, reliable, and fully managed MongoDB compatible database service.")]
 #else
 #error Unknown platform constant - unable to set correct AssemblyDescription
 #endif
@@ -44,7 +46,7 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("3.3")]
-[assembly: AssemblyFileVersion("3.3.0.12")]
+[assembly: AssemblyFileVersion("3.3.100.3")]
 
 #if WINDOWS_PHONE || UNITY
 [assembly: System.CLSCompliant(false)]

@@ -29,9 +29,9 @@ namespace Amazon.WorkMail.Model
 {
     /// <summary>
     /// Container for the parameters to the UpdateResource operation.
-    /// Updates data for the resource. It must be preceded by a describe call in order to
-    /// have the latest information. The dataset in the request should be the one expected
-    /// when performing another describe call.
+    /// Updates data for the resource. To have the latest information, it must be preceded
+    /// by a <a>DescribeResource</a> call. The dataset in the request should be the one expected
+    /// when performing another <code>DescribeResource</code> call.
     /// </summary>
     public partial class UpdateResourceRequest : AmazonWorkMailRequest
     {
@@ -64,6 +64,7 @@ namespace Amazon.WorkMail.Model
         /// The name of the resource to be updated.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=20)]
         public string Name
         {
             get { return this._name; }
@@ -82,6 +83,7 @@ namespace Amazon.WorkMail.Model
         /// The identifier associated with the organization for which the resource is updated.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string OrganizationId
         {
             get { return this._organizationId; }
@@ -100,6 +102,7 @@ namespace Amazon.WorkMail.Model
         /// The identifier of the resource to be updated.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ResourceId
         {
             get { return this._resourceId; }

@@ -66,6 +66,7 @@ namespace Amazon.ECS.Model
         private NetworkMode _networkMode;
         private PidMode _pidMode;
         private List<TaskDefinitionPlacementConstraint> _placementConstraints = new List<TaskDefinitionPlacementConstraint>();
+        private ProxyConfiguration _proxyConfiguration;
         private List<string> _requiresCompatibilities = new List<string>();
         private List<Tag> _tags = new List<Tag>();
         private string _taskRoleArn;
@@ -78,6 +79,7 @@ namespace Amazon.ECS.Model
         /// that make up your task.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public List<ContainerDefinition> ContainerDefinitions
         {
             get { return this._containerDefinitions; }
@@ -182,6 +184,7 @@ namespace Amazon.ECS.Model
         /// hyphens, and underscores are allowed.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Family
         {
             get { return this._family; }
@@ -435,6 +438,21 @@ namespace Amazon.ECS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ProxyConfiguration.
+        /// </summary>
+        public ProxyConfiguration ProxyConfiguration
+        {
+            get { return this._proxyConfiguration; }
+            set { this._proxyConfiguration = value; }
+        }
+
+        // Check to see if ProxyConfiguration property is set
+        internal bool IsSetProxyConfiguration()
+        {
+            return this._proxyConfiguration != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property RequiresCompatibilities. 
         /// <para>
         /// The launch type required by the task. If no value is specified, it defaults to <code>EC2</code>.
@@ -461,6 +479,7 @@ namespace Amazon.ECS.Model
         /// have a maximum length of 256 characters.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=50)]
         public List<Tag> Tags
         {
             get { return this._tags; }

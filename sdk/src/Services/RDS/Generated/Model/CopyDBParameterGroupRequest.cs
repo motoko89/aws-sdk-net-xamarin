@@ -42,7 +42,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property SourceDBParameterGroupIdentifier. 
         /// <para>
         ///  The identifier or ARN for the source DB parameter group. For information about creating
-        /// an ARN, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
+        /// an ARN, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
         /// Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. 
         /// </para>
         ///  
@@ -60,6 +60,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  </li> </ul>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string SourceDBParameterGroupIdentifier
         {
             get { return this._sourceDBParameterGroupIdentifier; }
@@ -93,6 +94,7 @@ namespace Amazon.RDS.Model
         /// A description for the copied DB parameter group.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string TargetDBParameterGroupDescription
         {
             get { return this._targetDBParameterGroupDescription; }
@@ -135,6 +137,7 @@ namespace Amazon.RDS.Model
         /// Example: <code>my-db-parameter-group</code> 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string TargetDBParameterGroupIdentifier
         {
             get { return this._targetDBParameterGroupIdentifier; }

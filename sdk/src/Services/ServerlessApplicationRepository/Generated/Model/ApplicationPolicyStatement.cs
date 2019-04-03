@@ -43,6 +43,7 @@ namespace Amazon.ServerlessApplicationRepository.Model
         ///  Permissions</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public List<string> Actions
         {
             get { return this._actions; }
@@ -58,9 +59,10 @@ namespace Amazon.ServerlessApplicationRepository.Model
         /// <summary>
         /// Gets and sets the property Principals. 
         /// <para>
-        /// An AWS account ID, or * to make the application public.
+        /// An array of AWS account IDs, or * to make the application public.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public List<string> Principals
         {
             get { return this._principals; }

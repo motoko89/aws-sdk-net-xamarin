@@ -75,7 +75,7 @@ namespace Amazon.Runtime.Internal
 #endif
         };
 
-        private static readonly HashSet<string> _coreCLRRetryErrorMessages = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        private static readonly HashSet<string> _netStandardRetryErrorMessages = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
         {
             "The server returned an invalid or unrecognized response",
             "The connection with the server was terminated abnormally",
@@ -175,8 +175,7 @@ namespace Amazon.Runtime.Internal
         {
             return RetryForExceptionSync(exception, executionContext);
         }
-
-
+        
         /// <summary>
         /// Virtual method that gets called when a retry request is initiated. If retry throttling is
         /// enabled, the value returned is true if the required capacity is retured, false otherwise. 
@@ -186,9 +185,22 @@ namespace Amazon.Runtime.Internal
         /// requests and response context.</param>
         public override bool OnRetry(IExecutionContext executionContext)
         {
-            if (executionContext.RequestContext.ClientConfig.ThrottleRetries && _retryCapacity != null)
+            return OnRetry(executionContext, false);
+        }
+
+        /// <summary>
+        /// Virtual method that gets called when a retry request is initiated. If retry throttling is
+        /// enabled, the value returned is true if the required capacity is retured, false otherwise. 
+        /// If retry throttling is disabled, true is returned.
+        /// </summary>
+        /// <param name="executionContext">The execution context which contains both the
+        /// requests and response context.</param>
+        /// <param name="bypassAcquireCapacity">true to bypass any attempt to acquire capacity on a retry</param>
+        public override bool OnRetry(IExecutionContext executionContext, bool bypassAcquireCapacity)
+        {
+            if (!bypassAcquireCapacity && executionContext.RequestContext.ClientConfig.ThrottleRetries && _retryCapacity != null)
             {
-                return (_capacityManagerInstance.TryAcquireCapacity(_retryCapacity));
+                return _capacityManagerInstance.TryAcquireCapacity(_retryCapacity);                
             }
             else
             {
@@ -232,7 +244,7 @@ namespace Amazon.Runtime.Internal
             if (exception is IOException)
             {
 
-#if !PCL && !CORECLR  // ThreadAbortException is not PCL and CoreCLR
+#if !PCL && !NETSTANDARD  // ThreadAbortException is not PCL and NetStandard
 
                 // Don't retry IOExceptions that are caused by a ThreadAbortException
                 if (IsInnerException<ThreadAbortException>(exception))
@@ -243,7 +255,7 @@ namespace Amazon.Runtime.Internal
                 return true;
             }
 
-#if CORECLR
+#if NETSTANDARD
             // Version 7.35 libcurl which is the default version installed with Ubuntu 14.04 
             // has issues under high concurrency causing response streams being disposed
             // during unmarshalling. To work around this issue will add the ObjectDisposedException
@@ -361,7 +373,7 @@ namespace Amazon.Runtime.Internal
             if (exception == null)
                 return false;
 
-            if (_coreCLRRetryErrorMessages.Contains(exception.Message))
+            if (_netStandardRetryErrorMessages.Contains(exception.Message))
                 return true;
             return ContainErrorMessage(exception.InnerException);
         }

@@ -47,7 +47,7 @@ namespace Amazon.DatabaseMigrationService.Model
     /// </para>
     ///  
     /// <para>
-    /// For more information about AWS DMS events, see <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
+    /// For more information about AWS DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
     /// with Events and Notifications</a> in the <i>AWS Database Migration Service User Guide.</i>
     /// 
     /// </para>
@@ -86,7 +86,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// <para>
         ///  A list of event categories for a source type that you want to subscribe to. You can
         /// see a list of the categories for a given source type by calling the <code>DescribeEventCategories</code>
-        /// action or in the topic <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
+        /// action or in the topic <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
         /// with Events and Notifications</a> in the <i>AWS Database Migration Service User Guide.</i>
         /// 
         /// </para>
@@ -110,6 +110,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// The ARN is created by Amazon SNS when you create a topic and subscribe to it. 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string SnsTopicArn
         {
             get { return this._snsTopicArn; }
@@ -178,6 +179,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// Constraints: The name must be less than 255 characters. 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string SubscriptionName
         {
             get { return this._subscriptionName; }

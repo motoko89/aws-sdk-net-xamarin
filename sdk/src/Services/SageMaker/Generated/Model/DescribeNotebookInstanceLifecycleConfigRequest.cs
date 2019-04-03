@@ -33,7 +33,7 @@ namespace Amazon.SageMaker.Model
     /// 
     ///  
     /// <para>
-    /// For information about notebook instance lifestyle configurations, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+    /// For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
     /// 2.1: (Optional) Customize a Notebook Instance</a>.
     /// </para>
     /// </summary>
@@ -47,6 +47,7 @@ namespace Amazon.SageMaker.Model
         /// The name of the lifecycle configuration to describe.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Max=63)]
         public string NotebookInstanceLifecycleConfigName
         {
             get { return this._notebookInstanceLifecycleConfigName; }

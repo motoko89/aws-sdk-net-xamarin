@@ -41,6 +41,7 @@ namespace Amazon.FMS.Model
         private bool? _remediationEnabled;
         private List<ResourceTag> _resourceTags = new List<ResourceTag>();
         private string _resourceType;
+        private List<string> _resourceTypeList = new List<string>();
         private SecurityServicePolicyData _securityServicePolicyData;
 
         /// <summary>
@@ -78,6 +79,7 @@ namespace Amazon.FMS.Model
         /// policy.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public bool ExcludeResourceTags
         {
             get { return this._excludeResourceTags.GetValueOrDefault(); }
@@ -122,6 +124,7 @@ namespace Amazon.FMS.Model
         /// The ID of the AWS Firewall Manager policy.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=36, Max=36)]
         public string PolicyId
         {
             get { return this._policyId; }
@@ -140,6 +143,7 @@ namespace Amazon.FMS.Model
         /// The friendly name of the AWS Firewall Manager policy.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=128)]
         public string PolicyName
         {
             get { return this._policyName; }
@@ -161,6 +165,7 @@ namespace Amazon.FMS.Model
         /// policy version, use a <code>GetPolicy</code> request.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string PolicyUpdateToken
         {
             get { return this._policyUpdateToken; }
@@ -179,6 +184,7 @@ namespace Amazon.FMS.Model
         /// Indicates if the policy should be automatically applied to new resources.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public bool RemediationEnabled
         {
             get { return this._remediationEnabled.GetValueOrDefault(); }
@@ -197,6 +203,7 @@ namespace Amazon.FMS.Model
         /// An array of <code>ResourceTag</code> objects.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=8)]
         public List<ResourceTag> ResourceTags
         {
             get { return this._resourceTags; }
@@ -212,12 +219,13 @@ namespace Amazon.FMS.Model
         /// <summary>
         /// Gets and sets the property ResourceType. 
         /// <para>
-        /// The type of resource to protect with the policy, either an Application Load Balancer
-        /// or a CloudFront distribution. This is in the format shown in <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS
-        /// Resource Types Reference</a>. Valid values are <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>
+        /// The type of resource to protect with the policy. This is in the format shown in <a
+        /// href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS
+        /// Resource Types Reference</a>. For example: <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>
         /// or <code>AWS::CloudFront::Distribution</code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=128)]
         public string ResourceType
         {
             get { return this._resourceType; }
@@ -231,11 +239,30 @@ namespace Amazon.FMS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ResourceTypeList. 
+        /// <para>
+        /// An array of <code>ResourceType</code>.
+        /// </para>
+        /// </summary>
+        public List<string> ResourceTypeList
+        {
+            get { return this._resourceTypeList; }
+            set { this._resourceTypeList = value; }
+        }
+
+        // Check to see if ResourceTypeList property is set
+        internal bool IsSetResourceTypeList()
+        {
+            return this._resourceTypeList != null && this._resourceTypeList.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property SecurityServicePolicyData. 
         /// <para>
         /// Details about the security service that is being used to protect the resources.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public SecurityServicePolicyData SecurityServicePolicyData
         {
             get { return this._securityServicePolicyData; }

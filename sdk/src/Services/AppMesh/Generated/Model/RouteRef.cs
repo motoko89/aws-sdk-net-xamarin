@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 using System;
 using System.Collections.Generic;
@@ -43,6 +43,7 @@ namespace Amazon.AppMesh.Model
         /// The full Amazon Resource Name (ARN) for the route.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Arn
         {
             get { return this._arn; }
@@ -58,9 +59,10 @@ namespace Amazon.AppMesh.Model
         /// <summary>
         /// Gets and sets the property MeshName. 
         /// <para>
-        /// The name of the service mesh in which the route resides.
+        /// The name of the service mesh that the route resides in.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string MeshName
         {
             get { return this._meshName; }
@@ -79,6 +81,7 @@ namespace Amazon.AppMesh.Model
         /// The name of the route.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string RouteName
         {
             get { return this._routeName; }
@@ -94,9 +97,10 @@ namespace Amazon.AppMesh.Model
         /// <summary>
         /// Gets and sets the property VirtualRouterName. 
         /// <para>
-        /// The virtual router with which the route is associated.
+        /// The virtual router that the route is associated with.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string VirtualRouterName
         {
             get { return this._virtualRouterName; }

@@ -104,6 +104,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// The Amazon Resource Name (ARN) for the user pool.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=20, Max=2048)]
         public string Arn
         {
             get { return this._arn; }
@@ -153,8 +154,19 @@ namespace Amazon.CognitoIdentityProvider.Model
         }
 
         /// <summary>
-        /// Gets and sets the property CustomDomain.
+        /// Gets and sets the property CustomDomain. 
+        /// <para>
+        /// A custom domain name that you provide to Amazon Cognito. This parameter applies only
+        /// if you use a custom domain to host the sign-up and sign-in pages for your application.
+        /// For example: <code>auth.example.com</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about adding a custom domain to your user pool, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using
+        /// Your Own Domain for the Hosted UI</a>.
+        /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=63)]
         public string CustomDomain
         {
             get { return this._customDomain; }
@@ -191,6 +203,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// Holds the domain prefix if the user pool has a domain associated with it.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=63)]
         public string Domain
         {
             get { return this._domain; }
@@ -245,6 +258,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// The contents of the email verification message.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=6, Max=20000)]
         public string EmailVerificationMessage
         {
             get { return this._emailVerificationMessage; }
@@ -263,6 +277,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// The subject of the email verification message.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=140)]
         public string EmailVerificationSubject
         {
             get { return this._emailVerificationSubject; }
@@ -299,6 +314,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// The ID of the user pool.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=55)]
         public string Id
         {
             get { return this._id; }
@@ -386,6 +402,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// The name of the user pool.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=128)]
         public string Name
         {
             get { return this._name; }
@@ -422,6 +439,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// A container with the schema attributes of a user pool.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=50)]
         public List<SchemaAttributeType> SchemaAttributes
         {
             get { return this._schemaAttributes; }
@@ -440,6 +458,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// The contents of the SMS authentication message.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=6, Max=140)]
         public string SmsAuthenticationMessage
         {
             get { return this._smsAuthenticationMessage; }
@@ -494,6 +513,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// The contents of the SMS verification message.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=6, Max=140)]
         public string SmsVerificationMessage
         {
             get { return this._smsVerificationMessage; }
@@ -564,8 +584,9 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// <summary>
         /// Gets and sets the property UserPoolTags. 
         /// <para>
-        /// The cost allocation tags for the user pool. For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html">Adding
-        /// Cost Allocation Tags to Your User Pool</a> 
+        /// The tags that are assigned to the user pool. A tag is a label that you can apply to
+        /// user pools to categorize and manage them in different ways, such as by purpose, owner,
+        /// environment, or other criteria.
         /// </para>
         /// </summary>
         public Dictionary<string, string> UserPoolTags

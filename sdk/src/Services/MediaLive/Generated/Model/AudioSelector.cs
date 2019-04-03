@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.MediaLive.Model
 {
     /// <summary>
-    /// Placeholder documentation for AudioSelector
+    /// Audio Selector
     /// </summary>
     public partial class AudioSelector
     {
@@ -40,6 +40,7 @@ namespace Amazon.MediaLive.Model
         /// will use this name to uniquely identify this Selector.  Selector names should be unique
         /// per input.
         /// </summary>
+        [AWSProperty(Required=true, Min=1)]
         public string Name
         {
             get { return this._name; }

@@ -50,6 +50,7 @@ namespace Amazon.SageMaker.Model
         /// algorithm to use for the training jobs that the tuning job launches.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public HyperParameterAlgorithmSpecification AlgorithmSpecification
         {
             get { return this._algorithmSpecification; }
@@ -66,9 +67,10 @@ namespace Amazon.SageMaker.Model
         /// Gets and sets the property EnableInterContainerTrafficEncryption. 
         /// <para>
         /// To encrypt all communications between ML compute instances in distributed training,
-        /// specify <code>True</code>. Encryption provides greater security for distributed training,
-        /// but training take longer because of the additional communications between ML compute
-        /// instances.
+        /// choose <code>True</code>. Encryption provides greater security for distributed training,
+        /// but training might take longer. How long it takes depends on the amount of communication
+        /// between compute instances, especially if you use a deep learning algorithm in distributed
+        /// training.
         /// </para>
         /// </summary>
         public bool EnableInterContainerTrafficEncryption
@@ -117,6 +119,7 @@ namespace Amazon.SageMaker.Model
         /// the tuning job launches.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=8)]
         public List<Channel> InputDataConfig
         {
             get { return this._inputDataConfig; }
@@ -136,6 +139,7 @@ namespace Amazon.SageMaker.Model
         /// training jobs that the tuning job launches.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public OutputDataConfig OutputDataConfig
         {
             get { return this._outputDataConfig; }
@@ -163,6 +167,7 @@ namespace Amazon.SageMaker.Model
         /// algorithms, specify an instance count greater than 1.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public ResourceConfig ResourceConfig
         {
             get { return this._resourceConfig; }
@@ -182,6 +187,7 @@ namespace Amazon.SageMaker.Model
         /// the tuning job launches.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=20, Max=2048)]
         public string RoleArn
         {
             get { return this._roleArn; }
@@ -200,6 +206,7 @@ namespace Amazon.SageMaker.Model
         /// Specifies the values of hyperparameters that do not change for the tuning job.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=100)]
         public Dictionary<string, string> StaticHyperParameters
         {
             get { return this._staticHyperParameters; }
@@ -231,6 +238,7 @@ namespace Amazon.SageMaker.Model
         /// the job.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public StoppingCondition StoppingCondition
         {
             get { return this._stoppingCondition; }
@@ -249,7 +257,7 @@ namespace Amazon.SageMaker.Model
         /// The <a>VpcConfig</a> object that specifies the VPC that you want the training jobs
         /// that this hyperparameter tuning job launches to connect to. Control access to and
         /// from your training container by configuring the VPC. For more information, see <a
-        /// href="http://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training
+        /// href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training
         /// Jobs by Using an Amazon Virtual Private Cloud</a>.
         /// </para>
         /// </summary>

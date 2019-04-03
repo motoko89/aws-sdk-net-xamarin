@@ -29,7 +29,10 @@ namespace Amazon.EC2.Model
 {
     /// <summary>
     /// Provides authorization for Amazon to bring a specific IP address range to a specific
-    /// AWS account using bring your own IP addresses (BYOIP).
+    /// AWS account using bring your own IP addresses (BYOIP). For more information, see <a
+    /// href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip">Prepare
+    /// to Bring Your Address Range to Your AWS Account</a> in the <i>Amazon Elastic Compute
+    /// Cloud User Guide</i>.
     /// </summary>
     public partial class CidrAuthorizationContext
     {
@@ -42,6 +45,7 @@ namespace Amazon.EC2.Model
         /// The plain-text authorization message for the prefix and account.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Message
         {
             get { return this._message; }
@@ -60,6 +64,7 @@ namespace Amazon.EC2.Model
         /// The signed authorization message for the prefix and account.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Signature
         {
             get { return this._signature; }

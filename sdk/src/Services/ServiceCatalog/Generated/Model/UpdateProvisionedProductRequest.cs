@@ -52,6 +52,7 @@ namespace Amazon.ServiceCatalog.Model
         private string _provisioningArtifactId;
         private List<UpdateProvisioningParameter> _provisioningParameters = new List<UpdateProvisioningParameter>();
         private UpdateProvisioningPreferences _provisioningPreferences;
+        private List<Tag> _tags = new List<Tag>();
         private string _updateToken;
 
         /// <summary>
@@ -73,6 +74,7 @@ namespace Amazon.ServiceCatalog.Model
         /// </para>
         ///  </li> </ul>
         /// </summary>
+        [AWSProperty(Max=100)]
         public string AcceptLanguage
         {
             get { return this._acceptLanguage; }
@@ -92,6 +94,7 @@ namespace Amazon.ServiceCatalog.Model
         /// and required if the product has more than one path.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public string PathId
         {
             get { return this._pathId; }
@@ -110,6 +113,7 @@ namespace Amazon.ServiceCatalog.Model
         /// The identifier of the product.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public string ProductId
         {
             get { return this._productId; }
@@ -129,6 +133,7 @@ namespace Amazon.ServiceCatalog.Model
         /// and <code>ProvisionedProductId</code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public string ProvisionedProductId
         {
             get { return this._provisionedProductId; }
@@ -148,6 +153,7 @@ namespace Amazon.ServiceCatalog.Model
         /// and <code>ProvisionedProductId</code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1224)]
         public string ProvisionedProductName
         {
             get { return this._provisionedProductName; }
@@ -166,6 +172,7 @@ namespace Amazon.ServiceCatalog.Model
         /// The identifier of the provisioning artifact.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public string ProvisioningArtifactId
         {
             get { return this._provisioningArtifactId; }
@@ -216,11 +223,33 @@ namespace Amazon.ServiceCatalog.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// One or more tags. Requires the product to have <code>RESOURCE_UPDATE</code> constraint
+        /// with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code> to allow
+        /// tag updates.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Max=50)]
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property UpdateToken. 
         /// <para>
         /// The idempotency token that uniquely identifies the provisioning update request.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=128)]
         public string UpdateToken
         {
             get { return this._updateToken; }

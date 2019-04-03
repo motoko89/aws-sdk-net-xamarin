@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 using System;
 using System.Collections.Generic;
@@ -74,6 +74,12 @@ namespace Amazon.AppMesh.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = ResourceMetadataUnmarshaller.Instance;
                     unmarshalledObject.Metadata = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("spec", targetDepth))
+                {
+                    var unmarshaller = MeshSpecUnmarshaller.Instance;
+                    unmarshalledObject.Spec = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("status", targetDepth))

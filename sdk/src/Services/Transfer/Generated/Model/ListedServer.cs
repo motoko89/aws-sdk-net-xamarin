@@ -33,6 +33,7 @@ namespace Amazon.Transfer.Model
     public partial class ListedServer
     {
         private string _arn;
+        private EndpointType _endpointType;
         private IdentityProviderType _identityProviderType;
         private string _loggingRole;
         private string _serverId;
@@ -45,6 +46,7 @@ namespace Amazon.Transfer.Model
         /// The unique Amazon Resource Name (ARN) for the server to be listed.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=20, Max=1600)]
         public string Arn
         {
             get { return this._arn; }
@@ -55,6 +57,21 @@ namespace Amazon.Transfer.Model
         internal bool IsSetArn()
         {
             return this._arn != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property EndpointType.
+        /// </summary>
+        public EndpointType EndpointType
+        {
+            get { return this._endpointType; }
+            set { this._endpointType = value; }
+        }
+
+        // Check to see if EndpointType property is set
+        internal bool IsSetEndpointType()
+        {
+            return this._endpointType != null;
         }
 
         /// <summary>

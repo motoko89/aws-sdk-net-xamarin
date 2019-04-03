@@ -32,6 +32,7 @@ namespace Amazon.Glue.Model
     /// </summary>
     public partial class CreateDevEndpointResponse : AmazonWebServiceResponse
     {
+        private Dictionary<string, string> _arguments = new Dictionary<string, string>();
         private string _availabilityZone;
         private DateTime? _createdTimestamp;
         private string _endpointName;
@@ -47,6 +48,25 @@ namespace Amazon.Glue.Model
         private string _vpcId;
         private string _yarnEndpointAddress;
         private int? _zeppelinRemoteSparkInterpreterPort;
+
+        /// <summary>
+        /// Gets and sets the property Arguments. 
+        /// <para>
+        /// The map of arguments used to configure this DevEndpoint.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=100)]
+        public Dictionary<string, string> Arguments
+        {
+            get { return this._arguments; }
+            set { this._arguments = value; }
+        }
+
+        // Check to see if Arguments property is set
+        internal bool IsSetArguments()
+        {
+            return this._arguments != null && this._arguments.Count > 0; 
+        }
 
         /// <summary>
         /// Gets and sets the property AvailabilityZone. 
@@ -199,6 +219,7 @@ namespace Amazon.Glue.Model
         /// The name of the SecurityConfiguration structure being used with this DevEndpoint.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string SecurityConfiguration
         {
             get { return this._securityConfiguration; }

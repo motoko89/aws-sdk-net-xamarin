@@ -83,7 +83,7 @@ namespace Amazon.SageMaker.Model
     /// </para>
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
+    /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
     /// It Works</a>. 
     /// </para>
     /// </summary>
@@ -98,6 +98,7 @@ namespace Amazon.SageMaker.Model
         private string _lifecycleConfigName;
         private string _notebookInstanceName;
         private string _roleArn;
+        private RootAccess _rootAccess;
         private List<string> _securityGroupIds = new List<string>();
         private string _subnetId;
         private List<Tag> _tags = new List<Tag>();
@@ -136,6 +137,7 @@ namespace Amazon.SageMaker.Model
         /// Git Repositories with Amazon SageMaker Notebook Instances</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=3)]
         public List<string> AdditionalCodeRepositories
         {
             get { return this._additionalCodeRepositories; }
@@ -160,6 +162,7 @@ namespace Amazon.SageMaker.Model
         /// Git Repositories with Amazon SageMaker Notebook Instances</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string DefaultCodeRepository
         {
             get { return this._defaultCodeRepository; }
@@ -182,7 +185,7 @@ namespace Amazon.SageMaker.Model
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook
+        /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook
         /// Instances Are Internet-Enabled by Default</a>. You can set the value of this parameter
         /// to <code>Disabled</code> only if you set a value for the <code>SubnetId</code> parameter.
         /// </para>
@@ -205,6 +208,7 @@ namespace Amazon.SageMaker.Model
         /// The type of ML compute instance to launch for the notebook instance.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public InstanceType InstanceType
         {
             get { return this._instanceType; }
@@ -226,6 +230,7 @@ namespace Amazon.SageMaker.Model
         /// and Disabling Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=2048)]
         public string KmsKeyId
         {
             get { return this._kmsKeyId; }
@@ -242,10 +247,11 @@ namespace Amazon.SageMaker.Model
         /// Gets and sets the property LifecycleConfigName. 
         /// <para>
         /// The name of a lifecycle configuration to associate with the notebook instance. For
-        /// information about lifestyle configurations, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+        /// information about lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
         /// 2.1: (Optional) Customize a Notebook Instance</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=63)]
         public string LifecycleConfigName
         {
             get { return this._lifecycleConfigName; }
@@ -264,6 +270,7 @@ namespace Amazon.SageMaker.Model
         /// The name of the new notebook instance.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Max=63)]
         public string NotebookInstanceName
         {
             get { return this._notebookInstanceName; }
@@ -283,7 +290,7 @@ namespace Amazon.SageMaker.Model
         /// assumes this role to perform tasks on your behalf. You must grant this role necessary
         /// permissions so Amazon SageMaker can perform these tasks. The policy must allow the
         /// Amazon SageMaker service principal (sagemaker.amazonaws.com) permissions to assume
-        /// this role. For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
+        /// this role. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
         /// SageMaker Roles</a>. 
         /// </para>
         ///  <note> 
@@ -293,6 +300,7 @@ namespace Amazon.SageMaker.Model
         /// </para>
         ///  </note>
         /// </summary>
+        [AWSProperty(Required=true, Min=20, Max=2048)]
         public string RoleArn
         {
             get { return this._roleArn; }
@@ -306,12 +314,39 @@ namespace Amazon.SageMaker.Model
         }
 
         /// <summary>
+        /// Gets and sets the property RootAccess. 
+        /// <para>
+        /// Whether root access is enabled or disabled for users of the notebook instance. The
+        /// default value is <code>Enabled</code>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// Lifecycle configurations need root access to be able to set up a notebook instance.
+        /// Because of this, lifecycle configurations associated with a notebook instance always
+        /// run with root access even if you disable root access for users.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        public RootAccess RootAccess
+        {
+            get { return this._rootAccess; }
+            set { this._rootAccess = value; }
+        }
+
+        // Check to see if RootAccess property is set
+        internal bool IsSetRootAccess()
+        {
+            return this._rootAccess != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property SecurityGroupIds. 
         /// <para>
         /// The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for
         /// the same VPC as specified in the subnet. 
         /// </para>
         /// </summary>
+        [AWSProperty(Max=5)]
         public List<string> SecurityGroupIds
         {
             get { return this._securityGroupIds; }
@@ -331,6 +366,7 @@ namespace Amazon.SageMaker.Model
         /// your ML compute instance. 
         /// </para>
         /// </summary>
+        [AWSProperty(Max=32)]
         public string SubnetId
         {
             get { return this._subnetId; }
@@ -350,6 +386,7 @@ namespace Amazon.SageMaker.Model
         /// using the <code>CreateTags</code> API.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=50)]
         public List<Tag> Tags
         {
             get { return this._tags; }
@@ -369,6 +406,7 @@ namespace Amazon.SageMaker.Model
         /// default value is 5 GB.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=5, Max=16384)]
         public int VolumeSizeInGB
         {
             get { return this._volumeSizeInGB.GetValueOrDefault(); }

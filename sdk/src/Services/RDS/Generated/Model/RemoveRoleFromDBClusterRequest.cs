@@ -30,9 +30,15 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// Container for the parameters to the RemoveRoleFromDBCluster operation.
     /// Disassociates an AWS Identity and Access Management (IAM) role from an Amazon Aurora
-    /// DB cluster. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html">Authorizing
+    /// DB cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html">Authorizing
     /// Amazon Aurora MySQL to Access Other AWS Services on Your Behalf </a> in the <i>Amazon
     /// Aurora User Guide</i>.
+    /// 
+    ///  <note> 
+    /// <para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class RemoveRoleFromDBClusterRequest : AmazonRDSRequest
     {
@@ -45,6 +51,7 @@ namespace Amazon.RDS.Model
         /// The name of the DB cluster to disassociate the IAM role from.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string DBClusterIdentifier
         {
             get { return this._dbClusterIdentifier; }
@@ -64,6 +71,7 @@ namespace Amazon.RDS.Model
         /// cluster, for example <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string RoleArn
         {
             get { return this._roleArn; }

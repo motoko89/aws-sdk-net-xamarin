@@ -102,7 +102,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// Gets and sets the property Color. 
         /// <para>
         /// Represents the color indicator that gives you information about the health of the
-        /// EC2 instance. For more information, see <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">Health
+        /// EC2 instance. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">Health
         /// Colors and Statuses</a>.
         /// </para>
         /// </summary>
@@ -140,7 +140,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// Gets and sets the property HealthStatus. 
         /// <para>
         /// Returns the health status of the specified instance. For more information, see <a
-        /// href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">Health
+        /// href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">Health
         /// Colors and Statuses</a>.
         /// </para>
         /// </summary>
@@ -162,6 +162,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// The ID of the Amazon EC2 instance.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string InstanceId
         {
             get { return this._instanceId; }

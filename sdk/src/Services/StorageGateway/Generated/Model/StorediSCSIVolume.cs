@@ -70,6 +70,7 @@ namespace Amazon.StorageGateway.Model
         /// <summary>
         /// Gets and sets the property KMSKey.
         /// </summary>
+        [AWSProperty(Min=7, Max=2048)]
         public string KMSKey
         {
             get { return this._kmsKey; }
@@ -127,11 +128,18 @@ namespace Amazon.StorageGateway.Model
         /// <summary>
         /// Gets and sets the property TargetName. 
         /// <para>
-        /// The name of the iSCSI target that is used by an initiator to connect to a volume and
-        /// used as a suffix for the target ARN. For example, specifying <code>TargetName</code>
-        /// as <i>myvolume</i> results in the target ARN of <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</code>.
+        /// The name of the iSCSI target used by an initiator to connect to a volume and used
+        /// as a suffix for the target ARN. For example, specifying <code>TargetName</code> as
+        /// <i>myvolume</i> results in the target ARN of <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</code>.
+        /// The target name must be unique across all volumes on a gateway.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you don't specify a value, Storage Gateway uses the value that was previously used
+        /// for this volume as the new target name.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=200)]
         public string TargetName
         {
             get { return this._targetName; }
@@ -150,6 +158,7 @@ namespace Amazon.StorageGateway.Model
         /// The Amazon Resource Name (ARN) of the storage volume.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=50, Max=500)]
         public string VolumeARN
         {
             get { return this._volumeARN; }
@@ -166,9 +175,11 @@ namespace Amazon.StorageGateway.Model
         /// Gets and sets the property VolumeAttachmentStatus. 
         /// <para>
         /// A value that indicates whether a storage volume is attached to, detached from, or
-        /// is in the process of detaching from a gateway.
+        /// is in the process of detaching from a gateway. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume">Moving
+        /// Your Volumes to a Different Gateway</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=3, Max=50)]
         public string VolumeAttachmentStatus
         {
             get { return this._volumeAttachmentStatus; }
@@ -188,6 +199,7 @@ namespace Amazon.StorageGateway.Model
         /// operation.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=300)]
         public string VolumeDiskId
         {
             get { return this._volumeDiskId; }
@@ -206,6 +218,7 @@ namespace Amazon.StorageGateway.Model
         /// The unique identifier of the volume, e.g. vol-AE4B946D.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=12, Max=30)]
         public string VolumeId
         {
             get { return this._volumeId; }
@@ -281,6 +294,7 @@ namespace Amazon.StorageGateway.Model
         /// One of the VolumeStatus values that indicates the state of the storage volume.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=3, Max=50)]
         public string VolumeStatus
         {
             get { return this._volumeStatus; }
@@ -299,6 +313,7 @@ namespace Amazon.StorageGateway.Model
         /// One of the VolumeType enumeration values describing the type of the volume.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=3, Max=100)]
         public string VolumeType
         {
             get { return this._volumeType; }

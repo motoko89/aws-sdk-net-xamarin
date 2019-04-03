@@ -38,7 +38,12 @@ namespace Amazon.MediaConvert.Model
         private string _serviceProviderName;
 
         /// <summary>
-        /// Gets and sets the property OutputSdt.
+        /// Gets and sets the property OutputSdt. Selects method of inserting SDT information
+        /// into output stream.  "Follow input SDT" copies SDT information from input stream to
+        ///  output stream. "Follow input SDT if present" copies SDT information from  input stream
+        /// to output stream if SDT information is present in the input, otherwise it will fall
+        /// back on the user-defined values. Enter "SDT  Manually" means user will enter the SDT
+        /// information. "No SDT" means output  stream will not contain SDT information.
         /// </summary>
         public OutputSdt OutputSdt
         {
@@ -56,6 +61,7 @@ namespace Amazon.MediaConvert.Model
         /// Gets and sets the property SdtInterval. The number of milliseconds between instances
         /// of this table in the output transport stream.
         /// </summary>
+        [AWSProperty(Min=25, Max=2000)]
         public int SdtInterval
         {
             get { return this._sdtInterval.GetValueOrDefault(); }
@@ -72,6 +78,7 @@ namespace Amazon.MediaConvert.Model
         /// Gets and sets the property ServiceName. The service name placed in the service_descriptor
         /// in the Service Description Table. Maximum length is 256 characters.
         /// </summary>
+        [AWSProperty(Min=1, Max=256)]
         public string ServiceName
         {
             get { return this._serviceName; }
@@ -88,6 +95,7 @@ namespace Amazon.MediaConvert.Model
         /// Gets and sets the property ServiceProviderName. The service provider name placed in
         /// the service_descriptor in the Service Description Table. Maximum length is 256 characters.
         /// </summary>
+        [AWSProperty(Min=1, Max=256)]
         public string ServiceProviderName
         {
             get { return this._serviceProviderName; }

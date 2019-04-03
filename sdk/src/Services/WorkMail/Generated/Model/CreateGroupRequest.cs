@@ -29,7 +29,7 @@ namespace Amazon.WorkMail.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateGroup operation.
-    /// Creates a group that can be used in Amazon WorkMail by calling the RegisterToWorkMail
+    /// Creates a group that can be used in Amazon WorkMail by calling the <a>RegisterToWorkMail</a>
     /// operation.
     /// </summary>
     public partial class CreateGroupRequest : AmazonWorkMailRequest
@@ -43,6 +43,7 @@ namespace Amazon.WorkMail.Model
         /// The name of the group.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=256)]
         public string Name
         {
             get { return this._name; }
@@ -61,6 +62,7 @@ namespace Amazon.WorkMail.Model
         /// The organization under which the group is to be created.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string OrganizationId
         {
             get { return this._organizationId; }

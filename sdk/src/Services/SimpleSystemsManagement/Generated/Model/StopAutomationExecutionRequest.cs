@@ -29,7 +29,7 @@ namespace Amazon.SimpleSystemsManagement.Model
 {
     /// <summary>
     /// Container for the parameters to the StopAutomationExecution operation.
-    /// Stop an Automation that is currently executing.
+    /// Stop an Automation that is currently running.
     /// </summary>
     public partial class StopAutomationExecutionRequest : AmazonSimpleSystemsManagementRequest
     {
@@ -42,6 +42,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The execution ID of the Automation to stop.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=36, Max=36)]
         public string AutomationExecutionId
         {
             get { return this._automationExecutionId; }

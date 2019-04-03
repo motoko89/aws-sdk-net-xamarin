@@ -55,6 +55,7 @@ namespace Amazon.Transfer.Model
         /// </code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=1024)]
         public string HomeDirectory
         {
             get { return this._homeDirectory; }
@@ -92,11 +93,11 @@ namespace Amazon.Transfer.Model
         /// <summary>
         /// Gets and sets the property Role. 
         /// <para>
-        /// The IAM role that controls your user’s access to your Amazon S3 bucket. The policies
+        /// The IAM role that controls your user's access to your Amazon S3 bucket. The policies
         /// attached to this role will determine the level of access you want to provide your
         /// users when transferring files into and out of your Amazon S3 bucket or buckets. The
         /// IAM role should also contain a trust relationship that allows the Secure File Transfer
-        /// Protocol (SFTP) server to access your resources when servicing your SFTP user’s transfer
+        /// Protocol (SFTP) server to access your resources when servicing your SFTP user's transfer
         /// requests.
         /// </para>
         /// </summary>
@@ -119,6 +120,7 @@ namespace Amazon.Transfer.Model
         /// is assigned to.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ServerId
         {
             get { return this._serverId; }
@@ -139,6 +141,7 @@ namespace Amazon.Transfer.Model
         /// to your SFTP server.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string UserName
         {
             get { return this._userName; }

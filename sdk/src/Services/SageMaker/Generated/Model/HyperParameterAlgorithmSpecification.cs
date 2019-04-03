@@ -45,6 +45,7 @@ namespace Amazon.SageMaker.Model
         /// specify a value for this parameter, do not specify a value for <code>TrainingImage</code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=170)]
         public string AlgorithmName
         {
             get { return this._algorithmName; }
@@ -64,6 +65,7 @@ namespace Amazon.SageMaker.Model
         /// emits.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=20)]
         public List<MetricDefinition> MetricDefinitions
         {
             get { return this._metricDefinitions; }
@@ -80,10 +82,14 @@ namespace Amazon.SageMaker.Model
         /// Gets and sets the property TrainingImage. 
         /// <para>
         ///  The registry path of the Docker image that contains the training algorithm. For information
-        /// about Docker registry paths for built-in algorithms, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Algorithms
-        /// Provided by Amazon SageMaker: Common Parameters</a>.
+        /// about Docker registry paths for built-in algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Algorithms
+        /// Provided by Amazon SageMaker: Common Parameters</a>. Amazon SageMaker supports both
+        /// <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
+        /// image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using
+        /// Your Own Algorithms with Amazon SageMaker</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=255)]
         public string TrainingImage
         {
             get { return this._trainingImage; }
@@ -113,10 +119,11 @@ namespace Amazon.SageMaker.Model
         /// </para>
         ///   
         /// <para>
-        /// For more information about input modes, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
+        /// For more information about input modes, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
         /// 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public TrainingInputMode TrainingInputMode
         {
             get { return this._trainingInputMode; }

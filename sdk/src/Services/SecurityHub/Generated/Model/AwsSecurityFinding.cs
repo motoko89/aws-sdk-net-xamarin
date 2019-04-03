@@ -78,6 +78,7 @@ namespace Amazon.SecurityHub.Model
         /// The AWS account ID in which a finding is generated.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string AwsAccountId
         {
             get { return this._awsAccountId; }
@@ -138,6 +139,7 @@ namespace Amazon.SecurityHub.Model
         /// by a finding was created by the security findings provider.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string CreatedAt
         {
             get { return this._createdAt; }
@@ -175,6 +177,11 @@ namespace Amazon.SecurityHub.Model
         /// <para>
         /// A finding's description.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// In this release, Description is a required property.
+        /// </para>
+        ///  </note>
         /// </summary>
         public string Description
         {
@@ -215,6 +222,7 @@ namespace Amazon.SecurityHub.Model
         /// generator can be called a rule, a check, a detector, a plug-in, etc. 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string GeneratorId
         {
             get { return this._generatorId; }
@@ -233,6 +241,7 @@ namespace Amazon.SecurityHub.Model
         /// The security findings provider-specific identifier for a finding.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Id
         {
             get { return this._id; }
@@ -344,6 +353,7 @@ namespace Amazon.SecurityHub.Model
         /// is registered with Security Hub. 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ProductArn
         {
             get { return this._productArn; }
@@ -435,6 +445,7 @@ namespace Amazon.SecurityHub.Model
         /// A set of resource data types that describe the resources to which the finding refers.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public List<Resource> Resources
         {
             get { return this._resources; }
@@ -453,6 +464,7 @@ namespace Amazon.SecurityHub.Model
         /// The schema version for which a finding is formatted.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string SchemaVersion
         {
             get { return this._schemaVersion; }
@@ -471,6 +483,7 @@ namespace Amazon.SecurityHub.Model
         /// A finding's severity.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public Severity Severity
         {
             get { return this._severity; }
@@ -525,6 +538,11 @@ namespace Amazon.SecurityHub.Model
         /// <para>
         /// A finding's title.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// In this release, Title is a required property.
+        /// </para>
+        ///  </note>
         /// </summary>
         public string Title
         {
@@ -550,6 +568,7 @@ namespace Amazon.SecurityHub.Model
         /// Behaviors | Sensitive Data Identifications
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public List<string> Types
         {
             get { return this._types; }
@@ -569,6 +588,7 @@ namespace Amazon.SecurityHub.Model
         /// by the security findings provider. 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string UpdatedAt
         {
             get { return this._updatedAt; }

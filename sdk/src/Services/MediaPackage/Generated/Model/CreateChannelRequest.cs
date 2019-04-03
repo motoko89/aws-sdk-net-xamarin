@@ -35,6 +35,7 @@ namespace Amazon.MediaPackage.Model
     {
         private string _description;
         private string _id;
+        private Dictionary<string, string> _tags = new Dictionary<string, string>();
 
         /// <summary>
         /// Gets and sets the property Description. A short text description of the Channel.
@@ -55,6 +56,7 @@ namespace Amazon.MediaPackage.Model
         /// Gets and sets the property Id. The ID of the Channel. The ID must be unique within
         /// the region and itcannot be changed after a Channel is created.
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Id
         {
             get { return this._id; }
@@ -65,6 +67,21 @@ namespace Amazon.MediaPackage.Model
         internal bool IsSetId()
         {
             return this._id != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
     }

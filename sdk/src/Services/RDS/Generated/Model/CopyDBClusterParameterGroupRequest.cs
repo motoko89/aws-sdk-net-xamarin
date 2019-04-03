@@ -30,6 +30,12 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// Container for the parameters to the CopyDBClusterParameterGroup operation.
     /// Copies the specified DB cluster parameter group.
+    /// 
+    ///  <note> 
+    /// <para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class CopyDBClusterParameterGroupRequest : AmazonRDSRequest
     {
@@ -42,7 +48,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property SourceDBClusterParameterGroupIdentifier. 
         /// <para>
         /// The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group.
-        /// For information about creating an ARN, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
+        /// For information about creating an ARN, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
         /// Constructing an ARN for Amazon RDS</a> in the <i>Amazon Aurora User Guide</i>. 
         /// </para>
         ///  
@@ -66,6 +72,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  </li> </ul>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string SourceDBClusterParameterGroupIdentifier
         {
             get { return this._sourceDBClusterParameterGroupIdentifier; }
@@ -99,6 +106,7 @@ namespace Amazon.RDS.Model
         /// A description for the copied DB cluster parameter group.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string TargetDBClusterParameterGroupDescription
         {
             get { return this._targetDBClusterParameterGroupDescription; }
@@ -141,6 +149,7 @@ namespace Amazon.RDS.Model
         /// Example: <code>my-cluster-param-group1</code> 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string TargetDBClusterParameterGroupIdentifier
         {
             get { return this._targetDBClusterParameterGroupIdentifier; }

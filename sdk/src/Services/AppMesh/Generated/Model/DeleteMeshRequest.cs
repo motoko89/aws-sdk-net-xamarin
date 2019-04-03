@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 using System;
 using System.Collections.Generic;
@@ -33,8 +33,8 @@ namespace Amazon.AppMesh.Model
     /// 
     ///          
     /// <para>
-    /// You must delete all resources (routes, virtual routers, virtual nodes) in the service
-    ///         mesh before you can delete the mesh itself.
+    /// You must delete all resources (virtual services, routes, virtual routers, and virtual
+    /// nodes)         in the service mesh before you can delete the mesh itself.
     /// </para>
     /// </summary>
     public partial class DeleteMeshRequest : AmazonAppMeshRequest
@@ -47,6 +47,7 @@ namespace Amazon.AppMesh.Model
         /// The name of the service mesh to delete.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string MeshName
         {
             get { return this._meshName; }

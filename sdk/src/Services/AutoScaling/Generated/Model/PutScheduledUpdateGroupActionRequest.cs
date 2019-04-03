@@ -35,7 +35,7 @@ namespace Amazon.AutoScaling.Model
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled
     /// Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
@@ -57,6 +57,7 @@ namespace Amazon.AutoScaling.Model
         /// The name of the Auto Scaling group.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=1600)]
         public string AutoScalingGroupName
         {
             get { return this._autoScalingGroupName; }
@@ -147,9 +148,11 @@ namespace Amazon.AutoScaling.Model
         /// <para>
         /// The recurring schedule for this action, in Unix cron syntax format. This format consists
         /// of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year]
-        /// [Day_of_Week]. For more information about this format, see <a href="http://crontab.org">Crontab</a>.
+        /// [Day_of_Week]. The value must be in quotes (for example, <code>"30 0 1 1,6,12 *"</code>).
+        /// For more information about this format, see <a href="http://crontab.org">Crontab</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string Recurrence
         {
             get { return this._recurrence; }
@@ -168,6 +171,7 @@ namespace Amazon.AutoScaling.Model
         /// The name of this scaling action.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string ScheduledActionName
         {
             get { return this._scheduledActionName; }
@@ -183,8 +187,8 @@ namespace Amazon.AutoScaling.Model
         /// <summary>
         /// Gets and sets the property StartTimeUtc. 
         /// <para>
-        /// The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only
-        /// (for example, <code>2014-06-01T00:00:00Z</code>).
+        /// The time for this action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT only
+        /// and in quotes (for example, <code>"2019-06-01T00:00:00Z"</code>).
         /// </para>
         ///  
         /// <para>
@@ -275,8 +279,8 @@ namespace Amazon.AutoScaling.Model
         /// </para>
         ///  
         /// <para>
-        /// The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only
-        /// (for example, <code>2014-06-01T00:00:00Z</code>).
+        /// The time for this action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT only
+        /// and in quotes (for example, <code>"2019-06-01T00:00:00Z"</code>).
         /// </para>
         ///  
         /// <para>

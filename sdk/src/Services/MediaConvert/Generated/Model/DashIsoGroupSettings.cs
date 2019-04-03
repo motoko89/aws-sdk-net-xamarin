@@ -34,6 +34,7 @@ namespace Amazon.MediaConvert.Model
     {
         private string _baseUrl;
         private string _destination;
+        private DestinationSettings _destinationSettings;
         private DashIsoEncryptionSettings _encryption;
         private int? _fragmentLength;
         private DashIsoHbbtvCompliance _hbbtvCompliance;
@@ -79,6 +80,22 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
+        /// Gets and sets the property DestinationSettings. Settings associated with the destination.
+        /// Will vary based on the type of destination
+        /// </summary>
+        public DestinationSettings DestinationSettings
+        {
+            get { return this._destinationSettings; }
+            set { this._destinationSettings = value; }
+        }
+
+        // Check to see if DestinationSettings property is set
+        internal bool IsSetDestinationSettings()
+        {
+            return this._destinationSettings != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Encryption. DRM settings.
         /// </summary>
         public DashIsoEncryptionSettings Encryption
@@ -101,6 +118,7 @@ namespace Amazon.MediaConvert.Model
         /// a single output file and it does not cause the creation of many output files as in
         /// other output types.
         /// </summary>
+        [AWSProperty(Min=1, Max=2147483647)]
         public int FragmentLength
         {
             get { return this._fragmentLength.GetValueOrDefault(); }
@@ -114,7 +132,7 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property HbbtvCompliance.
+        /// Gets and sets the property HbbtvCompliance. Supports HbbTV specification as indicated
         /// </summary>
         public DashIsoHbbtvCompliance HbbtvCompliance
         {
@@ -132,6 +150,7 @@ namespace Amazon.MediaConvert.Model
         /// Gets and sets the property MinBufferTime. Minimum time of initially buffered media
         /// that is needed to ensure smooth playout.
         /// </summary>
+        [AWSProperty(Min=0, Max=2147483647)]
         public int MinBufferTime
         {
             get { return this._minBufferTime.GetValueOrDefault(); }
@@ -145,7 +164,9 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property SegmentControl.
+        /// Gets and sets the property SegmentControl. When set to SINGLE_FILE, a single output
+        /// file is generated, which is internally segmented using the Fragment Length and Segment
+        /// Length. When set to SEGMENTED_FILES, separate segment files will be created.
         /// </summary>
         public DashIsoSegmentControl SegmentControl
         {
@@ -166,6 +187,7 @@ namespace Amazon.MediaConvert.Model
         /// is internal to a single output file and it does not cause the creation of many output
         /// files as in other output types.
         /// </summary>
+        [AWSProperty(Min=1, Max=2147483647)]
         public int SegmentLength
         {
             get { return this._segmentLength.GetValueOrDefault(); }

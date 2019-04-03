@@ -68,7 +68,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Instantiates CreateAssociationRequest with the parameterized properties
         /// </summary>
         /// <param name="instanceId">The instance ID.</param>
-        /// <param name="name">The name of the SSM document that contains the configuration information for the instance. You can specify Command, Policy, or Automation documents. You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account. For SSM documents that are shared with you from other AWS accounts, you must specify the complete SSM document ARN, in the following format:  <code>arn:<i>partition</i>:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i> </code>  For example:  <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code>  For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, <code>AWS-ApplyPatchBaseline</code> or <code>My-Document</code>.</param>
+        /// <param name="name">The name of the SSM document that contains the configuration information for the instance. You can specify Command or Automation documents. You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account. For SSM documents that are shared with you from other AWS accounts, you must specify the complete SSM document ARN, in the following format:  <code>arn:<i>partition</i>:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i> </code>  For example:  <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code>  For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, <code>AWS-ApplyPatchBaseline</code> or <code>My-Document</code>.</param>
         public CreateAssociationRequest(string instanceId, string name)
         {
             _instanceId = instanceId;
@@ -100,6 +100,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// use an Automation document and target resources by using rate controls.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=50)]
         public string AutomationTargetParameterName
         {
             get { return this._automationTargetParameterName; }
@@ -177,12 +178,13 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// </para>
         ///  
         /// <para>
-        /// If a new instance starts and attempts to execute an association while Systems Manager
-        /// is executing MaxConcurrency associations, the association is allowed to run. During
+        /// If a new instance starts and attempts to run an association while Systems Manager
+        /// is running MaxConcurrency associations, the association is allowed to run. During
         /// the next association interval, the new instance will process its association within
         /// the limit specified for MaxConcurrency.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=7)]
         public string MaxConcurrency
         {
             get { return this._maxConcurrency; }
@@ -214,6 +216,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// 1 so that executions proceed one at a time.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=7)]
         public string MaxErrors
         {
             get { return this._maxErrors; }
@@ -230,7 +233,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Gets and sets the property Name. 
         /// <para>
         /// The name of the SSM document that contains the configuration information for the instance.
-        /// You can specify Command, Policy, or Automation documents.
+        /// You can specify Command or Automation documents.
         /// </para>
         ///  
         /// <para>
@@ -262,6 +265,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// or <code>My-Document</code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Name
         {
             get { return this._name; }
@@ -316,6 +320,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// A cron expression when the association will be applied to the target(s).
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=256)]
         public string ScheduleExpression
         {
             get { return this._scheduleExpression; }
@@ -334,6 +339,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The targets (either instances or tags) for the association.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=5)]
         public List<Target> Targets
         {
             get { return this._targets; }

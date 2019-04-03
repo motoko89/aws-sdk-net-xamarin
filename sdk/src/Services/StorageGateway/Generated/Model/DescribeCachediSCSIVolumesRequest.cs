@@ -44,8 +44,14 @@ namespace Amazon.StorageGateway.Model
         private List<string> _volumeARNs = new List<string>();
 
         /// <summary>
-        /// Gets and sets the property VolumeARNs.
+        /// Gets and sets the property VolumeARNs. 
+        /// <para>
+        /// An array of strings where each string represents the Amazon Resource Name (ARN) of
+        /// a cached volume. All of the specified cached volumes must from the same gateway. Use
+        /// <a>ListVolumes</a> to get volume ARNs for a gateway.
+        /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public List<string> VolumeARNs
         {
             get { return this._volumeARNs; }

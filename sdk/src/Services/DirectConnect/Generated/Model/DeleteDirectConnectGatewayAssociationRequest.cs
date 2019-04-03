@@ -34,8 +34,27 @@ namespace Amazon.DirectConnect.Model
     /// </summary>
     public partial class DeleteDirectConnectGatewayAssociationRequest : AmazonDirectConnectRequest
     {
+        private string _associationId;
         private string _directConnectGatewayId;
         private string _virtualGatewayId;
+
+        /// <summary>
+        /// Gets and sets the property AssociationId. 
+        /// <para>
+        /// The ID of the Direct Connect gateway association.
+        /// </para>
+        /// </summary>
+        public string AssociationId
+        {
+            get { return this._associationId; }
+            set { this._associationId = value; }
+        }
+
+        // Check to see if AssociationId property is set
+        internal bool IsSetAssociationId()
+        {
+            return this._associationId != null;
+        }
 
         /// <summary>
         /// Gets and sets the property DirectConnectGatewayId. 

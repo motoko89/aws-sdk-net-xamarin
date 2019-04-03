@@ -49,7 +49,7 @@ namespace Amazon.ElasticMapReduce.Model
     /// </para>
     ///  
     /// <para>
-    ///  For more information, see<a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html">Managing
+    ///  For more information, see<a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html">Managing
     /// Cluster Termination</a> in the <i>Amazon EMR Management Guide</i>. 
     /// </para>
     /// </summary>
@@ -66,6 +66,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// . 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public List<string> JobFlowIds
         {
             get { return this._jobFlowIds; }
@@ -86,6 +87,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// job-flow error.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public bool TerminationProtected
         {
             get { return this._terminationProtected.GetValueOrDefault(); }

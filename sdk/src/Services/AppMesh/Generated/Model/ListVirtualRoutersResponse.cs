@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 using System;
 using System.Collections.Generic;
@@ -40,7 +40,7 @@ namespace Amazon.AppMesh.Model
         /// <para>
         /// The <code>nextToken</code> value to include in a future <code>ListVirtualRouters</code>
         ///         request. When the results of a <code>ListVirtualRouters</code> request exceed
-        ///         <code>limit</code>, this value can be used to retrieve the next page of  
+        ///         <code>limit</code>, you can use this value to retrieve the next page of  
         ///       results. This value is <code>null</code> when there are no more results to 
         ///        return.
         /// </para>
@@ -63,6 +63,7 @@ namespace Amazon.AppMesh.Model
         /// The list of existing virtual routers for the specified service mesh.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public List<VirtualRouterRef> VirtualRouters
         {
             get { return this._virtualRouters; }

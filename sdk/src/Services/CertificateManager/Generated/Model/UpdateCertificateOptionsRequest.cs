@@ -31,7 +31,7 @@ namespace Amazon.CertificateManager.Model
     /// Container for the parameters to the UpdateCertificateOptions operation.
     /// Updates a certificate. Currently, you can use this function to specify whether to
     /// opt in to or out of recording your certificate in a certificate transparency log.
-    /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency">
+    /// For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency">
     /// Opting Out of Certificate Transparency Logging</a>.
     /// </summary>
     public partial class UpdateCertificateOptionsRequest : AmazonCertificateManagerRequest
@@ -50,6 +50,7 @@ namespace Amazon.CertificateManager.Model
         /// </code> 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=20, Max=2048)]
         public string CertificateArn
         {
             get { return this._certificateArn; }
@@ -71,6 +72,7 @@ namespace Amazon.CertificateManager.Model
         /// that have not been logged typically produce an error message in a browser. 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public CertificateOptions Options
         {
             get { return this._options; }

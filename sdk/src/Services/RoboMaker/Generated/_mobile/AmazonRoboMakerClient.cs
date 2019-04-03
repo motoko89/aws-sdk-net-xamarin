@@ -38,7 +38,7 @@ namespace Amazon.RoboMaker
     /// <summary>
     /// Implementation for accessing RoboMaker
     ///
-    /// his section provides documentation for the AWS RoboMaker API operations.
+    /// This section provides documentation for the AWS RoboMaker API operations.
     /// </summary>
     public partial class AmazonRoboMakerClient : AmazonServiceClient, IAmazonRoboMaker
     {
@@ -46,7 +46,7 @@ namespace Amazon.RoboMaker
         
         #region Constructors
 
-#if CORECLR
+#if NETSTANDARD
     
         /// <summary>
         /// Constructs AmazonRoboMakerClient with the credentials loaded from the application's

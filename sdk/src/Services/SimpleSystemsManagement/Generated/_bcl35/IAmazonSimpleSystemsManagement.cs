@@ -427,7 +427,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </para>
         /// </summary>
         /// <param name="instanceId">The instance ID.</param>
-        /// <param name="name">The name of the SSM document that contains the configuration information for the instance. You can specify Command, Policy, or Automation documents. You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account. For SSM documents that are shared with you from other AWS accounts, you must specify the complete SSM document ARN, in the following format:  <code>arn:<i>partition</i>:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i> </code>  For example:  <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code>  For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, <code>AWS-ApplyPatchBaseline</code> or <code>My-Document</code>.</param>
+        /// <param name="name">The name of the SSM document that contains the configuration information for the instance. You can specify Command or Automation documents. You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account. For SSM documents that are shared with you from other AWS accounts, you must specify the complete SSM document ARN, in the following format:  <code>arn:<i>partition</i>:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i> </code>  For example:  <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code>  For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, <code>AWS-ApplyPatchBaseline</code> or <code>My-Document</code>.</param>
         /// 
         /// <returns>The response from the CreateAssociation service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.AssociationAlreadyExistsException">
@@ -2956,7 +2956,7 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Retrieves the individual task executions (one per target) for a particular task executed
+        /// Retrieves the individual task executions (one per target) for a particular task run
         /// as part of a Maintenance Window execution.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeMaintenanceWindowExecutionTaskInvocations service method.</param>
@@ -3010,7 +3010,7 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// For a given Maintenance Window execution, lists the tasks that were executed.
+        /// For a given Maintenance Window execution, lists the tasks that were run.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeMaintenanceWindowExecutionTasks service method.</param>
         /// 
@@ -4058,7 +4058,7 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Retrieves details about a specific task executed as part of a Maintenance Window execution.
+        /// Retrieves details about a specific task run as part of a Maintenance Window execution.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMaintenanceWindowExecution service method.</param>
         /// 
@@ -4111,8 +4111,7 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Retrieves the details about a specific task executed as part of a Maintenance Window
-        /// execution.
+        /// Retrieves the details about a specific task run as part of a Maintenance Window execution.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMaintenanceWindowExecutionTask service method.</param>
         /// 
@@ -4165,7 +4164,7 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Retrieves a task invocation. A task invocation is a specific task executing on a specific
+        /// Retrieves a task invocation. A task invocation is a specific task running on a specific
         /// target. Maintenance Windows report status for all invocations.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMaintenanceWindowExecutionTaskInvocation service method.</param>
@@ -4597,6 +4596,72 @@ namespace Amazon.SimpleSystemsManagement
 
         #endregion
         
+        #region  GetServiceSetting
+
+
+        /// <summary>
+        /// <code>ServiceSetting</code> is an account-level setting for an AWS service. This
+        /// setting defines how a user interacts with or uses a service or a feature of a service.
+        /// For example, if an AWS service charges money to the account based on feature or service
+        /// usage, then the AWS service team might create a default setting of "false". This means
+        /// the user can't use this feature unless they change the setting to "true" and intentionally
+        /// opt in for a paid feature.
+        /// 
+        ///  
+        /// <para>
+        /// Services map a <code>SettingId</code> object to a setting value. AWS services teams
+        /// define the default value for a <code>SettingId</code>. You can't create a new <code>SettingId</code>,
+        /// but you can overwrite the default value if you have the <code>ssm:UpdateServiceSetting</code>
+        /// permission for the setting. Use the <a>UpdateServiceSetting</a> API action to change
+        /// the default setting. Or use the <a>ResetServiceSetting</a> to change the value back
+        /// to the original value defined by the AWS service team.
+        /// </para>
+        ///  
+        /// <para>
+        /// Query the current service setting for the account. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetServiceSetting service method.</param>
+        /// 
+        /// <returns>The response from the GetServiceSetting service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.ServiceSettingNotFoundException">
+        /// The specified service setting was not found. Either the service name or the setting
+        /// has not been provisioned by the AWS service team.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetServiceSetting">REST API Reference for GetServiceSetting Operation</seealso>
+        GetServiceSettingResponse GetServiceSetting(GetServiceSettingRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetServiceSetting operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetServiceSetting operation on AmazonSimpleSystemsManagementClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetServiceSetting
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetServiceSetting">REST API Reference for GetServiceSetting Operation</seealso>
+        IAsyncResult BeginGetServiceSetting(GetServiceSettingRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetServiceSetting operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetServiceSetting.</param>
+        /// 
+        /// <returns>Returns a  GetServiceSettingResult from SimpleSystemsManagement.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetServiceSetting">REST API Reference for GetServiceSetting Operation</seealso>
+        GetServiceSettingResponse EndGetServiceSetting(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  LabelParameterVersion
 
 
@@ -4802,9 +4867,9 @@ namespace Amazon.SimpleSystemsManagement
         /// <summary>
         /// An invocation is copy of a command sent to a specific instance. A command can apply
         /// to one or more instances. A command invocation applies to one instance. For example,
-        /// if a user executes SendCommand against three instances, then a command invocation
-        /// is created for each requested instance ID. ListCommandInvocations provide status about
-        /// command execution.
+        /// if a user runs SendCommand against three instances, then a command invocation is created
+        /// for each requested instance ID. ListCommandInvocations provide status about command
+        /// execution.
         /// </summary>
         /// 
         /// <returns>The response from the ListCommandInvocations service method, as returned by SimpleSystemsManagement.</returns>
@@ -4850,9 +4915,9 @@ namespace Amazon.SimpleSystemsManagement
         /// <summary>
         /// An invocation is copy of a command sent to a specific instance. A command can apply
         /// to one or more instances. A command invocation applies to one instance. For example,
-        /// if a user executes SendCommand against three instances, then a command invocation
-        /// is created for each requested instance ID. ListCommandInvocations provide status about
-        /// command execution.
+        /// if a user runs SendCommand against three instances, then a command invocation is created
+        /// for each requested instance ID. ListCommandInvocations provide status about command
+        /// execution.
         /// </summary>
         /// <param name="commandId">(Optional) The invocations for a specific command ID.</param>
         /// 
@@ -4899,9 +4964,9 @@ namespace Amazon.SimpleSystemsManagement
         /// <summary>
         /// An invocation is copy of a command sent to a specific instance. A command can apply
         /// to one or more instances. A command invocation applies to one instance. For example,
-        /// if a user executes SendCommand against three instances, then a command invocation
-        /// is created for each requested instance ID. ListCommandInvocations provide status about
-        /// command execution.
+        /// if a user runs SendCommand against three instances, then a command invocation is created
+        /// for each requested instance ID. ListCommandInvocations provide status about command
+        /// execution.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListCommandInvocations service method.</param>
         /// 
@@ -6291,6 +6356,76 @@ namespace Amazon.SimpleSystemsManagement
 
         #endregion
         
+        #region  ResetServiceSetting
+
+
+        /// <summary>
+        /// <code>ServiceSetting</code> is an account-level setting for an AWS service. This
+        /// setting defines how a user interacts with or uses a service or a feature of a service.
+        /// For example, if an AWS service charges money to the account based on feature or service
+        /// usage, then the AWS service team might create a default setting of "false". This means
+        /// the user can't use this feature unless they change the setting to "true" and intentionally
+        /// opt in for a paid feature.
+        /// 
+        ///  
+        /// <para>
+        /// Services map a <code>SettingId</code> object to a setting value. AWS services teams
+        /// define the default value for a <code>SettingId</code>. You can't create a new <code>SettingId</code>,
+        /// but you can overwrite the default value if you have the <code>ssm:UpdateServiceSetting</code>
+        /// permission for the setting. Use the <a>GetServiceSetting</a> API action to view the
+        /// current value. Use the <a>UpdateServiceSetting</a> API action to change the default
+        /// setting. 
+        /// </para>
+        ///  
+        /// <para>
+        /// Reset the service setting for the account to the default value as provisioned by the
+        /// AWS service team. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ResetServiceSetting service method.</param>
+        /// 
+        /// <returns>The response from the ResetServiceSetting service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.ServiceSettingNotFoundException">
+        /// The specified service setting was not found. Either the service name or the setting
+        /// has not been provisioned by the AWS service team.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.TooManyUpdatesException">
+        /// There are concurrent updates for a resource that supports one update at a time.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ResetServiceSetting">REST API Reference for ResetServiceSetting Operation</seealso>
+        ResetServiceSettingResponse ResetServiceSetting(ResetServiceSettingRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ResetServiceSetting operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ResetServiceSetting operation on AmazonSimpleSystemsManagementClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndResetServiceSetting
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ResetServiceSetting">REST API Reference for ResetServiceSetting Operation</seealso>
+        IAsyncResult BeginResetServiceSetting(ResetServiceSettingRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ResetServiceSetting operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginResetServiceSetting.</param>
+        /// 
+        /// <returns>Returns a  ResetServiceSettingResult from SimpleSystemsManagement.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ResetServiceSetting">REST API Reference for ResetServiceSetting Operation</seealso>
+        ResetServiceSettingResponse EndResetServiceSetting(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  ResumeSession
 
 
@@ -6411,10 +6546,10 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Executes commands on one or more managed instances.
+        /// Runs commands on one or more managed instances.
         /// </summary>
-        /// <param name="documentName">Required. The name of the Systems Manager document to execute. This can be a public document or a custom document.</param>
-        /// <param name="instanceIds">The instance IDs where the command should execute. You can specify a maximum of 50 IDs. If you prefer not to list individual instance IDs, you can instead send commands to a fleet of instances using the Targets parameter, which accepts EC2 tags. For more information about how to use targets, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending Commands to a Fleet</a> in the <i>AWS Systems Manager User Guide</i>.</param>
+        /// <param name="documentName">Required. The name of the Systems Manager document to run. This can be a public document or a custom document.</param>
+        /// <param name="instanceIds">The instance IDs where the command should run. You can specify a maximum of 50 IDs. If you prefer not to list individual instance IDs, you can instead send commands to a fleet of instances using the Targets parameter, which accepts EC2 tags. For more information about how to use targets, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending Commands to a Fleet</a> in the <i>AWS Systems Manager User Guide</i>.</param>
         /// 
         /// <returns>The response from the SendCommand service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DuplicateInstanceIdException">
@@ -6481,7 +6616,7 @@ namespace Amazon.SimpleSystemsManagement
         SendCommandResponse SendCommand(string documentName, List<string> instanceIds);
 
         /// <summary>
-        /// Executes commands on one or more managed instances.
+        /// Runs commands on one or more managed instances.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SendCommand service method.</param>
         /// 
@@ -6581,8 +6716,8 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Use this API action to execute an association immediately and only one time. This
-        /// action can be helpful when troubleshooting associations.
+        /// Use this API action to run an association immediately and only one time. This action
+        /// can be helpful when troubleshooting associations.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartAssociationsOnce service method.</param>
         /// 
@@ -6757,7 +6892,7 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Stop an Automation that is currently executing.
+        /// Stop an Automation that is currently running.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StopAutomationExecution service method.</param>
         /// 
@@ -6863,6 +6998,13 @@ namespace Amazon.SimpleSystemsManagement
         /// <summary>
         /// Updates an association. You can update the association name and version, the document
         /// version, schedule, parameters, and Amazon S3 output.
+        /// 
+        ///  <important> 
+        /// <para>
+        /// When you update an association, the association immediately runs against the specified
+        /// targets.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateAssociation service method.</param>
         /// 
@@ -7492,6 +7634,75 @@ namespace Amazon.SimpleSystemsManagement
         /// <returns>Returns a  UpdatePatchBaselineResult from SimpleSystemsManagement.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdatePatchBaseline">REST API Reference for UpdatePatchBaseline Operation</seealso>
         UpdatePatchBaselineResponse EndUpdatePatchBaseline(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  UpdateServiceSetting
+
+
+        /// <summary>
+        /// <code>ServiceSetting</code> is an account-level setting for an AWS service. This
+        /// setting defines how a user interacts with or uses a service or a feature of a service.
+        /// For example, if an AWS service charges money to the account based on feature or service
+        /// usage, then the AWS service team might create a default setting of "false". This means
+        /// the user can't use this feature unless they change the setting to "true" and intentionally
+        /// opt in for a paid feature.
+        /// 
+        ///  
+        /// <para>
+        /// Services map a <code>SettingId</code> object to a setting value. AWS services teams
+        /// define the default value for a <code>SettingId</code>. You can't create a new <code>SettingId</code>,
+        /// but you can overwrite the default value if you have the <code>ssm:UpdateServiceSetting</code>
+        /// permission for the setting. Use the <a>GetServiceSetting</a> API action to view the
+        /// current value. Or, use the <a>ResetServiceSetting</a> to change the value back to
+        /// the original value defined by the AWS service team.
+        /// </para>
+        ///  
+        /// <para>
+        /// Update the service setting for the account. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateServiceSetting service method.</param>
+        /// 
+        /// <returns>The response from the UpdateServiceSetting service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.ServiceSettingNotFoundException">
+        /// The specified service setting was not found. Either the service name or the setting
+        /// has not been provisioned by the AWS service team.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.TooManyUpdatesException">
+        /// There are concurrent updates for a resource that supports one update at a time.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateServiceSetting">REST API Reference for UpdateServiceSetting Operation</seealso>
+        UpdateServiceSettingResponse UpdateServiceSetting(UpdateServiceSettingRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateServiceSetting operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateServiceSetting operation on AmazonSimpleSystemsManagementClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateServiceSetting
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateServiceSetting">REST API Reference for UpdateServiceSetting Operation</seealso>
+        IAsyncResult BeginUpdateServiceSetting(UpdateServiceSettingRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateServiceSetting operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateServiceSetting.</param>
+        /// 
+        /// <returns>Returns a  UpdateServiceSettingResult from SimpleSystemsManagement.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateServiceSetting">REST API Reference for UpdateServiceSetting Operation</seealso>
+        UpdateServiceSettingResponse EndUpdateServiceSetting(IAsyncResult asyncResult);
 
         #endregion
         

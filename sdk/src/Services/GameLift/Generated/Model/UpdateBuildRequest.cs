@@ -33,6 +33,19 @@ namespace Amazon.GameLift.Model
     /// the metadata, specify the build ID to update and provide the new values. If successful,
     /// a build object containing the updated metadata is returned.
     /// 
+    ///  
+    /// <para>
+    ///  <b>Learn more</b> 
+    /// </para>
+    ///  
+    /// <para>
+    ///  <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/build-intro.html">
+    /// Working with Builds</a> 
+    /// </para>
+    ///  
+    /// <para>
+    ///  <b>Related operations</b> 
+    /// </para>
     ///  <ul> <li> 
     /// <para>
     ///  <a>CreateBuild</a> 
@@ -67,6 +80,7 @@ namespace Amazon.GameLift.Model
         /// Unique identifier for a build to update.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string BuildId
         {
             get { return this._buildId; }
@@ -86,6 +100,7 @@ namespace Amazon.GameLift.Model
         /// 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string Name
         {
             get { return this._name; }
@@ -104,6 +119,7 @@ namespace Amazon.GameLift.Model
         /// Version that is associated with this build. Version strings do not need to be unique.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string Version
         {
             get { return this._version; }

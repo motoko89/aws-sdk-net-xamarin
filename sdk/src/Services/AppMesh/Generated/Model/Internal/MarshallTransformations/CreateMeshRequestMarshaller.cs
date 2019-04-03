@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 using System;
 using System.Collections.Generic;
@@ -55,11 +55,11 @@ namespace Amazon.AppMesh.Model.Internal.MarshallTransformations
         public IRequest Marshall(CreateMeshRequest publicRequest)
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.AppMesh");
-            request.Headers["Content-Type"] = "application/x-amz-json-1.1";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-10-01";            
+            request.Headers["Content-Type"] = "application/json";
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-01-25";            
             request.HttpMethod = "PUT";
 
-            string uriResourcePath = "/meshes";
+            string uriResourcePath = "/v20190125/meshes";
             request.ResourcePath = uriResourcePath;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
@@ -81,6 +81,33 @@ namespace Amazon.AppMesh.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("meshName");
                     context.Writer.Write(publicRequest.MeshName);
+                }
+
+                if(publicRequest.IsSetSpec())
+                {
+                    context.Writer.WritePropertyName("spec");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = MeshSpecMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.Spec, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetTags())
+                {
+                    context.Writer.WritePropertyName("tags");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestTagsListValue in publicRequest.Tags)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = TagRefMarshaller.Instance;
+                        marshaller.Marshall(publicRequestTagsListValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteArrayEnd();
                 }
 
         

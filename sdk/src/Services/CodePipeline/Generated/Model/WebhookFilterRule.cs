@@ -44,6 +44,7 @@ namespace Amazon.CodePipeline.Model
         /// can be found here: https://github.com/json-path/JsonPath.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=150)]
         public string JsonPath
         {
             get { return this._jsonPath; }
@@ -66,10 +67,11 @@ namespace Amazon.CodePipeline.Model
         /// and the target action has an action configuration property called "Branch" with a
         /// value of "master", the MatchEquals value will be evaluated as "refs/heads/master".
         /// A list of action configuration properties for built-in action types can be found here:
-        /// <a href="http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Pipeline
+        /// <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Pipeline
         /// Structure Reference Action Requirements</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=150)]
         public string MatchEquals
         {
             get { return this._matchEquals; }

@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.StorageGateway.Model
 {
     /// <summary>
-    /// 
+    /// Describes a storage volume recovery point object.
     /// </summary>
     public partial class VolumeRecoveryPointInfo
     {
@@ -38,8 +38,12 @@ namespace Amazon.StorageGateway.Model
         private long? _volumeUsageInBytes;
 
         /// <summary>
-        /// Gets and sets the property VolumeARN.
+        /// Gets and sets the property VolumeARN. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of the volume target.
+        /// </para>
         /// </summary>
+        [AWSProperty(Min=50, Max=500)]
         public string VolumeARN
         {
             get { return this._volumeARN; }
@@ -53,7 +57,10 @@ namespace Amazon.StorageGateway.Model
         }
 
         /// <summary>
-        /// Gets and sets the property VolumeRecoveryPointTime.
+        /// Gets and sets the property VolumeRecoveryPointTime. 
+        /// <para>
+        /// The time the recovery point was taken.
+        /// </para>
         /// </summary>
         public string VolumeRecoveryPointTime
         {
@@ -68,7 +75,10 @@ namespace Amazon.StorageGateway.Model
         }
 
         /// <summary>
-        /// Gets and sets the property VolumeSizeInBytes.
+        /// Gets and sets the property VolumeSizeInBytes. 
+        /// <para>
+        /// The size of the volume in bytes.
+        /// </para>
         /// </summary>
         public long VolumeSizeInBytes
         {
@@ -83,7 +93,16 @@ namespace Amazon.StorageGateway.Model
         }
 
         /// <summary>
-        /// Gets and sets the property VolumeUsageInBytes.
+        /// Gets and sets the property VolumeUsageInBytes. 
+        /// <para>
+        /// The size of the data stored on the volume in bytes.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// This value is not available for volumes created prior to May 13, 2015, until you store
+        /// data on the volume.
+        /// </para>
+        ///  </note>
         /// </summary>
         public long VolumeUsageInBytes
         {

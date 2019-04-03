@@ -29,7 +29,7 @@ namespace Amazon.SimpleSystemsManagement.Model
 {
     /// <summary>
     /// Container for the parameters to the GetMaintenanceWindowExecution operation.
-    /// Retrieves details about a specific task executed as part of a Maintenance Window execution.
+    /// Retrieves details about a specific task run as part of a Maintenance Window execution.
     /// </summary>
     public partial class GetMaintenanceWindowExecutionRequest : AmazonSimpleSystemsManagementRequest
     {
@@ -41,6 +41,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The ID of the Maintenance Window execution that includes the task.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=36, Max=36)]
         public string WindowExecutionId
         {
             get { return this._windowExecutionId; }

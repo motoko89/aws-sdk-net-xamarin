@@ -36,6 +36,7 @@ namespace Amazon.DatabaseMigrationService.Model
         private List<Filter> _filters = new List<Filter>();
         private string _marker;
         private int? _maxRecords;
+        private bool? _withoutSettings;
 
         /// <summary>
         /// Gets and sets the property Filters. 
@@ -106,6 +107,26 @@ namespace Amazon.DatabaseMigrationService.Model
         internal bool IsSetMaxRecords()
         {
             return this._maxRecords.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property WithoutSettings. 
+        /// <para>
+        /// Set this flag to avoid returning setting information. Use this to reduce overhead
+        /// when settings are too large. Choose TRUE to use this flag, otherwise choose FALSE
+        /// (default).
+        /// </para>
+        /// </summary>
+        public bool WithoutSettings
+        {
+            get { return this._withoutSettings.GetValueOrDefault(); }
+            set { this._withoutSettings = value; }
+        }
+
+        // Check to see if WithoutSettings property is set
+        internal bool IsSetWithoutSettings()
+        {
+            return this._withoutSettings.HasValue; 
         }
 
     }

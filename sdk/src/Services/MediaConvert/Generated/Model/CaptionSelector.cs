@@ -45,6 +45,7 @@ namespace Amazon.MediaConvert.Model
         /// omit this field (and PID field); there is no way to extract a specific language with
         /// pass-through captions.
         /// </summary>
+        [AWSProperty(Min=3, Max=3)]
         public string CustomLanguageCode
         {
             get { return this._customLanguageCode; }
@@ -78,7 +79,8 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property SourceSettings.
+        /// Gets and sets the property SourceSettings. Source settings (SourceSettings) contains
+        /// the group of settings for captions in the input.
         /// </summary>
         public CaptionSourceSettings SourceSettings
         {

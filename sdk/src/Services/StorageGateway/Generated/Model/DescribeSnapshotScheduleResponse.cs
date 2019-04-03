@@ -39,8 +39,12 @@ namespace Amazon.StorageGateway.Model
         private string _volumeARN;
 
         /// <summary>
-        /// Gets and sets the property Description.
+        /// Gets and sets the property Description. 
+        /// <para>
+        /// The snapshot description.
+        /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string Description
         {
             get { return this._description; }
@@ -54,8 +58,12 @@ namespace Amazon.StorageGateway.Model
         }
 
         /// <summary>
-        /// Gets and sets the property RecurrenceInHours.
+        /// Gets and sets the property RecurrenceInHours. 
+        /// <para>
+        /// The number of hours between snapshots.
+        /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=24)]
         public int RecurrenceInHours
         {
             get { return this._recurrenceInHours.GetValueOrDefault(); }
@@ -69,8 +77,14 @@ namespace Amazon.StorageGateway.Model
         }
 
         /// <summary>
-        /// Gets and sets the property StartAt.
+        /// Gets and sets the property StartAt. 
+        /// <para>
+        /// The hour of the day at which the snapshot schedule begins represented as <i>hh</i>,
+        /// where <i>hh</i> is the hour (0 to 23). The hour of the day is in the time zone of
+        /// the gateway.
+        /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=23)]
         public int StartAt
         {
             get { return this._startAt.GetValueOrDefault(); }
@@ -84,8 +98,12 @@ namespace Amazon.StorageGateway.Model
         }
 
         /// <summary>
-        /// Gets and sets the property Timezone.
+        /// Gets and sets the property Timezone. 
+        /// <para>
+        /// A value that indicates the time zone of the gateway.
+        /// </para>
         /// </summary>
+        [AWSProperty(Min=3, Max=10)]
         public string Timezone
         {
             get { return this._timezone; }
@@ -99,8 +117,12 @@ namespace Amazon.StorageGateway.Model
         }
 
         /// <summary>
-        /// Gets and sets the property VolumeARN.
+        /// Gets and sets the property VolumeARN. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of the volume that was specified in the request.
+        /// </para>
         /// </summary>
+        [AWSProperty(Min=50, Max=500)]
         public string VolumeARN
         {
             get { return this._volumeARN; }

@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 using System;
 using System.Collections.Generic;
@@ -39,16 +39,17 @@ namespace Amazon.AppMesh.Model
         /// <summary>
         /// Gets and sets the property Limit. 
         /// <para>
-        /// The maximum number of mesh results returned by <code>ListMeshes</code> in paginated
-        ///         output. When this parameter is used, <code>ListMeshes</code> only returns
-        ///            <code>limit</code> results in a single page along with a <code>nextToken</code>
-        /// response         element. The remaining results of the initial request can be seen
-        /// by sending another            <code>ListMeshes</code> request with the returned <code>nextToken</code>
-        /// value. This         value can be between 1 and 100. If this parameter is not     
-        ///    used, then <code>ListMeshes</code> returns up to 100 results and a            <code>nextToken</code>
+        /// The maximum number of results returned by <code>ListMeshes</code> in paginated output.
+        ///         When you use this parameter, <code>ListMeshes</code> returns only <code>limit</code>
+        ///         results in a single page along with a <code>nextToken</code> response element.
+        /// You can see the         remaining results of the initial request by sending another
+        ///            <code>ListMeshes</code> request with the returned <code>nextToken</code>
+        /// value. This         value can be between 1 and 100. If you don't use this parameter,
+        ///         <code>ListMeshes</code> returns up to 100 results and a            <code>nextToken</code>
         /// value if applicable.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public int Limit
         {
             get { return this._limit.GetValueOrDefault(); }
@@ -71,7 +72,7 @@ namespace Amazon.AppMesh.Model
         /// </para>
         ///          <note>            
         /// <para>
-        /// This token should be treated as an opaque identifier that is only used to        
+        /// This token should be treated as an opaque identifier that is used only to        
         ///        retrieve the next items in a list and not for other programmatic purposes.
         /// </para>
         ///         </note>

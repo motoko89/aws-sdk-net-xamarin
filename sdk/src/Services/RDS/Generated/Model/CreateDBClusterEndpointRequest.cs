@@ -30,6 +30,12 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// Container for the parameters to the CreateDBClusterEndpoint operation.
     /// Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.
+    /// 
+    ///  <note> 
+    /// <para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class CreateDBClusterEndpointRequest : AmazonRDSRequest
     {
@@ -46,6 +52,7 @@ namespace Amazon.RDS.Model
         /// string.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string DBClusterEndpointIdentifier
         {
             get { return this._dbClusterEndpointIdentifier; }
@@ -65,6 +72,7 @@ namespace Amazon.RDS.Model
         /// is stored as a lowercase string.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string DBClusterIdentifier
         {
             get { return this._dbClusterIdentifier; }
@@ -83,6 +91,7 @@ namespace Amazon.RDS.Model
         /// The type of the endpoint. One of: <code>READER</code>, <code>ANY</code>. 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string EndpointType
         {
             get { return this._endpointType; }

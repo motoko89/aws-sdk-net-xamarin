@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.MediaLive.Model
 {
     /// <summary>
-    /// Placeholder documentation for BlackoutSlate
+    /// Blackout Slate
     /// </summary>
     public partial class BlackoutSlate
     {
@@ -94,6 +94,7 @@ namespace Amazon.MediaLive.Model
         /// Gets and sets the property NetworkId. Provides Network ID that matches EIDR ID format
         /// (e.g., "10.XXXX/XXXX-XXXX-XXXX-XXXX-XXXX-C").
         /// </summary>
+        [AWSProperty(Min=34, Max=34)]
         public string NetworkId
         {
             get { return this._networkId; }

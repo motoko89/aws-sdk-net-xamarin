@@ -33,9 +33,29 @@ namespace Amazon.IoT1ClickProjects.Model
     /// </summary>
     public partial class ProjectSummary
     {
+        private string _arn;
         private DateTime? _createdDate;
         private string _projectName;
+        private Dictionary<string, string> _tags = new Dictionary<string, string>();
         private DateTime? _updatedDate;
+
+        /// <summary>
+        /// Gets and sets the property Arn. 
+        /// <para>
+        /// The ARN of the project.
+        /// </para>
+        /// </summary>
+        public string Arn
+        {
+            get { return this._arn; }
+            set { this._arn = value; }
+        }
+
+        // Check to see if Arn property is set
+        internal bool IsSetArn()
+        {
+            return this._arn != null;
+        }
 
         /// <summary>
         /// Gets and sets the property CreatedDate. 
@@ -43,6 +63,7 @@ namespace Amazon.IoT1ClickProjects.Model
         /// The date when the project was originally created, in UNIX epoch time format.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public DateTime CreatedDate
         {
             get { return this._createdDate.GetValueOrDefault(); }
@@ -61,6 +82,7 @@ namespace Amazon.IoT1ClickProjects.Model
         /// The name of the project being summarized.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=128)]
         public string ProjectName
         {
             get { return this._projectName; }
@@ -74,6 +96,25 @@ namespace Amazon.IoT1ClickProjects.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// The tags (metadata key/value pairs) associated with the project.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=50)]
+        public Dictionary<string, string> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property UpdatedDate. 
         /// <para>
         /// The date when the project was last updated, in UNIX epoch time format. If the project
@@ -81,6 +122,7 @@ namespace Amazon.IoT1ClickProjects.Model
         /// same.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public DateTime UpdatedDate
         {
             get { return this._updatedDate.GetValueOrDefault(); }

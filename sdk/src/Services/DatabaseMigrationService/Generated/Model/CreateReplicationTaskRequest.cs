@@ -138,6 +138,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// The migration type.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public MigrationTypeValue MigrationType
         {
             get { return this._migrationType; }
@@ -156,6 +157,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// The Amazon Resource Name (ARN) of the replication instance.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ReplicationInstanceArn
         {
             get { return this._replicationInstanceArn; }
@@ -191,6 +193,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// </para>
         ///  </li> </ul>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ReplicationTaskIdentifier
         {
             get { return this._replicationTaskIdentifier; }
@@ -207,7 +210,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// Gets and sets the property ReplicationTaskSettings. 
         /// <para>
         /// Settings for the task, such as target metadata settings. For a complete list of task
-        /// settings, see <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html">Task
+        /// settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html">Task
         /// Settings for AWS Database Migration Service Tasks</a> in the <i>AWS Database Migration
         /// User Guide.</i> 
         /// </para>
@@ -230,6 +233,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string SourceEndpointArn
         {
             get { return this._sourceEndpointArn; }
@@ -254,6 +258,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// For example, --table-mappings file://mappingfile.json
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string TableMappings
         {
             get { return this._tableMappings; }
@@ -290,6 +295,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string TargetEndpointArn
         {
             get { return this._targetEndpointArn; }

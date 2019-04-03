@@ -55,7 +55,7 @@ namespace Amazon.Glacier.Model.Internal.MarshallTransformations
         public IRequest Marshall(InitiateJobRequest publicRequest)
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.Glacier");
-            request.Headers["Content-Type"] = "application/x-amz-json-";
+            request.Headers["Content-Type"] = "application/json";
             request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2012-06-01";            
             request.HttpMethod = "POST";
 
@@ -68,13 +68,13 @@ namespace Amazon.Glacier.Model.Internal.MarshallTransformations
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
-                writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                context.Writer.WriteObjectStart();
 
                 var marshaller = JobParametersMarshaller.Instance;
                 marshaller.Marshall(publicRequest.JobParameters, context);
-        
-                writer.WriteObjectEnd();
+
+                context.Writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);
             }

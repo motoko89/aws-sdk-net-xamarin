@@ -54,6 +54,7 @@ namespace Amazon.CodePipeline.Model
         /// </para>
         ///  </note>
         /// </summary>
+        [AWSProperty(Required=true)]
         public ActionCategory Category
         {
             get { return this._category; }
@@ -75,11 +76,12 @@ namespace Amazon.CodePipeline.Model
         /// <para>
         /// You can refer to a name in the configuration properties of the custom action within
         /// the URL templates by following the format of {Config:name}, as long as the configuration
-        /// property is both required and not secret. For more information, see <a href="http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html">Create
+        /// property is both required and not secret. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html">Create
         /// a Custom Action for a Pipeline</a>.
         /// </para>
         ///  </note>
         /// </summary>
+        [AWSProperty(Max=10)]
         public List<ActionConfigurationProperty> ConfigurationProperties
         {
             get { return this._configurationProperties; }
@@ -98,6 +100,7 @@ namespace Amazon.CodePipeline.Model
         /// The details of the input artifact for the action, such as its commit ID.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public ArtifactDetails InputArtifactDetails
         {
             get { return this._inputArtifactDetails; }
@@ -116,6 +119,7 @@ namespace Amazon.CodePipeline.Model
         /// The details of the output artifact of the action, such as its commit ID.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public ArtifactDetails OutputArtifactDetails
         {
             get { return this._outputArtifactDetails; }
@@ -134,6 +138,7 @@ namespace Amazon.CodePipeline.Model
         /// The provider of the service used in the custom action, such as AWS CodeDeploy.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=25)]
         public string Provider
         {
             get { return this._provider; }
@@ -170,6 +175,7 @@ namespace Amazon.CodePipeline.Model
         /// The version identifier of the custom action.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=9)]
         public string Version
         {
             get { return this._version; }

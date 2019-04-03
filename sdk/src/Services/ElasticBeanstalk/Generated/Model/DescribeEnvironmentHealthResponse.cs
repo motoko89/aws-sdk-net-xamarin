@@ -80,7 +80,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// <summary>
         /// Gets and sets the property Color. 
         /// <para>
-        /// The <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">health
+        /// The <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">health
         /// color</a> of the environment.
         /// </para>
         /// </summary>
@@ -102,6 +102,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// The environment's name.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=4, Max=40)]
         public string EnvironmentName
         {
             get { return this._environmentName; }
@@ -117,7 +118,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// <summary>
         /// Gets and sets the property HealthStatus. 
         /// <para>
-        /// The <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">health
+        /// The <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">health
         /// status</a> of the environment. For example, <code>Ok</code>.
         /// </para>
         /// </summary>

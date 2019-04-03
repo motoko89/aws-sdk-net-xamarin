@@ -954,7 +954,8 @@
         "GatewayRegion":{"shape":"RegionId"},
         "GatewayType":{"shape":"GatewayType"},
         "TapeDriveType":{"shape":"TapeDriveType"},
-        "MediumChangerType":{"shape":"MediumChangerType"}
+        "MediumChangerType":{"shape":"MediumChangerType"},
+        "Tags":{"shape":"Tags"}
       }
     },
     "ActivateGatewayOutput":{
@@ -1206,7 +1207,8 @@
         "Squash":{"shape":"Squash"},
         "ReadOnly":{"shape":"Boolean"},
         "GuessMIMETypeEnabled":{"shape":"Boolean"},
-        "RequesterPays":{"shape":"Boolean"}
+        "RequesterPays":{"shape":"Boolean"},
+        "Tags":{"shape":"Tags"}
       }
     },
     "CreateNFSFileShareOutput":{
@@ -1237,7 +1239,8 @@
         "RequesterPays":{"shape":"Boolean"},
         "ValidUserList":{"shape":"FileShareUserList"},
         "InvalidUserList":{"shape":"FileShareUserList"},
-        "Authentication":{"shape":"Authentication"}
+        "Authentication":{"shape":"Authentication"},
+        "Tags":{"shape":"Tags"}
       }
     },
     "CreateSMBFileShareOutput":{
@@ -1323,7 +1326,8 @@
         "TapeSizeInBytes":{"shape":"TapeSize"},
         "TapeBarcode":{"shape":"TapeBarcode"},
         "KMSEncrypted":{"shape":"Boolean"},
-        "KMSKey":{"shape":"KMSKey"}
+        "KMSKey":{"shape":"KMSKey"},
+        "PoolId":{"shape":"PoolId"}
       }
     },
     "CreateTapeWithBarcodeOutput":{
@@ -1348,7 +1352,8 @@
         "NumTapesToCreate":{"shape":"NumTapesToCreate"},
         "TapeBarcodePrefix":{"shape":"TapeBarcodePrefix"},
         "KMSEncrypted":{"shape":"Boolean"},
-        "KMSKey":{"shape":"KMSKey"}
+        "KMSKey":{"shape":"KMSKey"},
+        "PoolId":{"shape":"PoolId"}
       }
     },
     "CreateTapesOutput":{
@@ -1559,7 +1564,8 @@
         "GatewayNetworkInterfaces":{"shape":"GatewayNetworkInterfaces"},
         "GatewayType":{"shape":"GatewayType"},
         "NextUpdateAvailabilityDate":{"shape":"NextUpdateAvailabilityDate"},
-        "LastSoftwareUpdate":{"shape":"LastSoftwareUpdate"}
+        "LastSoftwareUpdate":{"shape":"LastSoftwareUpdate"},
+        "Tags":{"shape":"Tags"}
       }
     },
     "DescribeMaintenanceStartTimeInput":{
@@ -2121,7 +2127,7 @@
     "KMSKey":{
       "type":"string",
       "max":2048,
-      "min":20
+      "min":7
     },
     "LastSoftwareUpdate":{
       "type":"string",
@@ -2302,7 +2308,8 @@
         "Squash":{"shape":"Squash"},
         "ReadOnly":{"shape":"Boolean"},
         "GuessMIMETypeEnabled":{"shape":"Boolean"},
-        "RequesterPays":{"shape":"Boolean"}
+        "RequesterPays":{"shape":"Boolean"},
+        "Tags":{"shape":"Tags"}
       }
     },
     "NFSFileShareInfoList":{
@@ -2378,6 +2385,11 @@
       "max":4,
       "min":1,
       "pattern":"^[0-7]{4}$"
+    },
+    "PoolId":{
+      "type":"string",
+      "max":100,
+      "min":1
     },
     "PositiveIntObject":{
       "type":"integer",
@@ -2502,7 +2514,8 @@
         "RequesterPays":{"shape":"Boolean"},
         "ValidUserList":{"shape":"FileShareUserList"},
         "InvalidUserList":{"shape":"FileShareUserList"},
-        "Authentication":{"shape":"Authentication"}
+        "Authentication":{"shape":"Authentication"},
+        "Tags":{"shape":"Tags"}
       }
     },
     "SMBFileShareInfoList":{
@@ -2674,7 +2687,8 @@
         "VTLDevice":{"shape":"VTLDeviceARN"},
         "Progress":{"shape":"DoubleObject"},
         "TapeUsedInBytes":{"shape":"TapeUsage"},
-        "KMSKey":{"shape":"KMSKey"}
+        "KMSKey":{"shape":"KMSKey"},
+        "PoolId":{"shape":"PoolId"}
       }
     },
     "TapeARN":{
@@ -2698,7 +2712,8 @@
         "RetrievedTo":{"shape":"GatewayARN"},
         "TapeStatus":{"shape":"TapeArchiveStatus"},
         "TapeUsedInBytes":{"shape":"TapeUsage"},
-        "KMSKey":{"shape":"KMSKey"}
+        "KMSKey":{"shape":"KMSKey"},
+        "PoolId":{"shape":"PoolId"}
       }
     },
     "TapeArchiveStatus":{"type":"string"},
@@ -2730,7 +2745,8 @@
         "TapeBarcode":{"shape":"TapeBarcode"},
         "TapeSizeInBytes":{"shape":"TapeSize"},
         "TapeStatus":{"shape":"TapeStatus"},
-        "GatewayARN":{"shape":"GatewayARN"}
+        "GatewayARN":{"shape":"GatewayARN"},
+        "PoolId":{"shape":"PoolId"}
       }
     },
     "TapeInfos":{

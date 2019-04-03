@@ -28,13 +28,14 @@ using Amazon.Runtime.Internal;
 namespace Amazon.MediaLive.Model
 {
     /// <summary>
-    /// Placeholder documentation for OutputGroupSettings
+    /// Output Group Settings
     /// </summary>
     public partial class OutputGroupSettings
     {
         private ArchiveGroupSettings _archiveGroupSettings;
         private FrameCaptureGroupSettings _frameCaptureGroupSettings;
         private HlsGroupSettings _hlsGroupSettings;
+        private MediaPackageGroupSettings _mediaPackageGroupSettings;
         private MsSmoothGroupSettings _msSmoothGroupSettings;
         private RtmpGroupSettings _rtmpGroupSettings;
         private UdpGroupSettings _udpGroupSettings;
@@ -82,6 +83,21 @@ namespace Amazon.MediaLive.Model
         internal bool IsSetHlsGroupSettings()
         {
             return this._hlsGroupSettings != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property MediaPackageGroupSettings.
+        /// </summary>
+        public MediaPackageGroupSettings MediaPackageGroupSettings
+        {
+            get { return this._mediaPackageGroupSettings; }
+            set { this._mediaPackageGroupSettings = value; }
+        }
+
+        // Check to see if MediaPackageGroupSettings property is set
+        internal bool IsSetMediaPackageGroupSettings()
+        {
+            return this._mediaPackageGroupSettings != null;
         }
 
         /// <summary>

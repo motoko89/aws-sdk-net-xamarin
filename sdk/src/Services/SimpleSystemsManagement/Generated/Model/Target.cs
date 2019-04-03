@@ -46,6 +46,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Multiple Instances</a> in the <i>AWS Systems Manager User Guide</i>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=128)]
         public string Key
         {
             get { return this._key; }
@@ -62,12 +63,13 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Gets and sets the property Values. 
         /// <para>
         /// User-defined criteria that maps to Key. For example, if you specified tag:ServerRole,
-        /// you could specify value:WebServer to execute a command on instances that include Amazon
+        /// you could specify value:WebServer to run a command on instances that include Amazon
         /// EC2 tags of ServerRole,WebServer. For more information about how to send commands
         /// that target instances using Key,Value parameters, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending
         /// Commands to a Fleet</a> in the <i>AWS Systems Manager User Guide</i>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=50)]
         public List<string> Values
         {
             get { return this._values; }

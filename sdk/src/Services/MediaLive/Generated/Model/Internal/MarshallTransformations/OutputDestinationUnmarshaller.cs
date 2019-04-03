@@ -70,6 +70,12 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
                     unmarshalledObject.Id = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("mediaPackageSettings", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<MediaPackageOutputDestinationSettings, MediaPackageOutputDestinationSettingsUnmarshaller>(MediaPackageOutputDestinationSettingsUnmarshaller.Instance);
+                    unmarshalledObject.MediaPackageSettings = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("settings", targetDepth))
                 {
                     var unmarshaller = new ListUnmarshaller<OutputDestinationSettings, OutputDestinationSettingsUnmarshaller>(OutputDestinationSettingsUnmarshaller.Instance);

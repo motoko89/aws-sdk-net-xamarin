@@ -55,7 +55,7 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
         public IRequest Marshall(CreateJobRequest publicRequest)
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.MediaConvert");
-            request.Headers["Content-Type"] = "application/x-amz-json-1.1";
+            request.Headers["Content-Type"] = "application/json";
             request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2017-08-29";            
             request.HttpMethod = "POST";
 
@@ -123,10 +123,10 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
-                if(publicRequest.IsSetStatusUpdateIntervalInSecs())
+                if(publicRequest.IsSetStatusUpdateInterval())
                 {
-                    context.Writer.WritePropertyName("statusUpdateIntervalInSecs");
-                    context.Writer.Write(publicRequest.StatusUpdateIntervalInSecs);
+                    context.Writer.WritePropertyName("statusUpdateInterval");
+                    context.Writer.Write(publicRequest.StatusUpdateInterval);
                 }
 
                 if(publicRequest.IsSetUserMetadata())

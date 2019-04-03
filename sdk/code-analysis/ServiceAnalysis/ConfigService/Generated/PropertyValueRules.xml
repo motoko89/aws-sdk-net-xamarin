@@ -51,6 +51,11 @@
     <max>64</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.ConfigService.Model.DeleteRemediationConfigurationRequest.ConfigRuleName</property>
+    <min>1</min>
+    <max>64</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.ConfigService.Model.DeleteRetentionConfigurationRequest.RetentionConfigurationName</property>
     <min>1</min>
     <max>256</max>
@@ -117,6 +122,26 @@
     <property>Amazon.ConfigService.Model.DescribePendingAggregationRequestsRequest.Limit</property>
     <min>0</min>
     <max>20</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ConfigService.Model.DescribeRemediationExecutionStatusRequest.ConfigRuleName</property>
+    <min>1</min>
+    <max>64</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ConfigService.Model.DescribeRemediationExecutionStatusRequest.Limit</property>
+    <min>0</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ConfigService.Model.DescribeRemediationExecutionStatusRequest.NextToken</property>
+    <min>1</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ConfigService.Model.DescribeRemediationExecutionStatusResponse.NextToken</property>
+    <min>1</min>
+    <max>256</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConfigService.Model.GetAggregateComplianceDetailsByConfigRuleRequest.AccountId</property>
@@ -233,6 +258,16 @@
     <max>100</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.ConfigService.Model.ListTagsForResourceRequest.Limit</property>
+    <min>0</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ConfigService.Model.ListTagsForResourceRequest.ResourceArn</property>
+    <min>1</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.ConfigService.Model.PutAggregationAuthorizationRequest.AuthorizedAccountId</property>
     <pattern>\d{12}</pattern>
   </property-value-rule>
@@ -253,12 +288,37 @@
     <max>2557</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.ConfigService.Model.SelectResourceConfigRequest.Expression</property>
+    <min>1</min>
+    <max>4096</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ConfigService.Model.SelectResourceConfigRequest.Limit</property>
+    <min>0</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.ConfigService.Model.StartConfigurationRecorderRequest.ConfigurationRecorderName</property>
     <min>1</min>
     <max>256</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.ConfigService.Model.StartRemediationExecutionRequest.ConfigRuleName</property>
+    <min>1</min>
+    <max>64</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.ConfigService.Model.StopConfigurationRecorderRequest.ConfigurationRecorderName</property>
+    <min>1</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ConfigService.Model.TagResourceRequest.ResourceArn</property>
+    <min>1</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ConfigService.Model.UntagResourceRequest.ResourceArn</property>
     <min>1</min>
     <max>256</max>
   </property-value-rule>
@@ -494,6 +554,16 @@
     <max>768</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.ConfigService.Model.RemediationConfiguration.ConfigRuleName</property>
+    <min>1</min>
+    <max>64</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ConfigService.Model.RemediationConfiguration.TargetId</property>
+    <min>1</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.ConfigService.Model.ResourceCountFilters.AccountId</property>
     <pattern>\d{12}</pattern>
   </property-value-rule>
@@ -555,6 +625,16 @@
   <property-value-rule>
     <property>Amazon.ConfigService.Model.Source.SourceIdentifier</property>
     <min>1</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ConfigService.Model.Tag.Key</property>
+    <min>1</min>
+    <max>128</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ConfigService.Model.Tag.Value</property>
+    <min>0</min>
     <max>256</max>
   </property-value-rule>
 </property-value-rules>

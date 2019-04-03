@@ -31,7 +31,7 @@ namespace Amazon.ElasticMapReduce.Model
     /// Container for the parameters to the AddTags operation.
     /// Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters in
     /// various ways, such as grouping clusters to track your Amazon EMR resource allocation
-    /// costs. For more information, see <a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag
+    /// costs. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag
     /// Clusters</a>.
     /// </summary>
     public partial class AddTagsRequest : AmazonElasticMapReduceRequest
@@ -71,6 +71,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// a cluster identifier.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ResourceId
         {
             get { return this._resourceId; }
@@ -91,6 +92,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// of 128 characters, and an optional value string with a maximum of 256 characters.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public List<Tag> Tags
         {
             get { return this._tags; }

@@ -34,7 +34,7 @@ namespace Amazon.RDS.Model
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html">
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html">
     /// Starting an Amazon RDS DB instance That Was Previously Stopped</a> in the <i>Amazon
     /// RDS User Guide.</i> 
     /// </para>
@@ -55,6 +55,7 @@ namespace Amazon.RDS.Model
         ///  The user-supplied instance identifier. 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string DBInstanceIdentifier
         {
             get { return this._dbInstanceIdentifier; }

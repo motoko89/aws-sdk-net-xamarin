@@ -38,6 +38,7 @@ namespace Amazon.MediaConvert.Model
         private CmafClientCache _clientCache;
         private CmafCodecSpecification _codecSpecification;
         private string _destination;
+        private DestinationSettings _destinationSettings;
         private CmafEncryptionSettings _encryption;
         private int? _fragmentLength;
         private CmafManifestCompression _manifestCompression;
@@ -68,7 +69,8 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property ClientCache.
+        /// Gets and sets the property ClientCache. When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no
+        /// tag, which prevents client from saving media segments for later replay.
         /// </summary>
         public CmafClientCache ClientCache
         {
@@ -83,7 +85,8 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property CodecSpecification.
+        /// Gets and sets the property CodecSpecification. Specification to use (RFC-6381 or the
+        /// default RFC-4281) during m3u8 playlist generation.
         /// </summary>
         public CmafCodecSpecification CodecSpecification
         {
@@ -117,6 +120,22 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
+        /// Gets and sets the property DestinationSettings. Settings associated with the destination.
+        /// Will vary based on the type of destination
+        /// </summary>
+        public DestinationSettings DestinationSettings
+        {
+            get { return this._destinationSettings; }
+            set { this._destinationSettings = value; }
+        }
+
+        // Check to see if DestinationSettings property is set
+        internal bool IsSetDestinationSettings()
+        {
+            return this._destinationSettings != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Encryption. DRM settings.
         /// </summary>
         public CmafEncryptionSettings Encryption
@@ -139,6 +158,7 @@ namespace Amazon.MediaConvert.Model
         /// a single output file and it does not cause the creation of many output files as in
         /// other output types.
         /// </summary>
+        [AWSProperty(Min=1, Max=2147483647)]
         public int FragmentLength
         {
             get { return this._fragmentLength.GetValueOrDefault(); }
@@ -152,7 +172,7 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property ManifestCompression.
+        /// Gets and sets the property ManifestCompression. When set to GZIP, compresses HLS playlist.
         /// </summary>
         public CmafManifestCompression ManifestCompression
         {
@@ -167,7 +187,8 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property ManifestDurationFormat.
+        /// Gets and sets the property ManifestDurationFormat. Indicates whether the output manifest
+        /// should use floating point values for segment duration.
         /// </summary>
         public CmafManifestDurationFormat ManifestDurationFormat
         {
@@ -185,6 +206,7 @@ namespace Amazon.MediaConvert.Model
         /// Gets and sets the property MinBufferTime. Minimum time of initially buffered media
         /// that is needed to ensure smooth playout.
         /// </summary>
+        [AWSProperty(Min=0, Max=2147483647)]
         public int MinBufferTime
         {
             get { return this._minBufferTime.GetValueOrDefault(); }
@@ -223,7 +245,9 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property SegmentControl.
+        /// Gets and sets the property SegmentControl. When set to SINGLE_FILE, a single output
+        /// file is generated, which is internally segmented using the Fragment Length and Segment
+        /// Length. When set to SEGMENTED_FILES, separate segment files will be created.
         /// </summary>
         public CmafSegmentControl SegmentControl
         {
@@ -247,6 +271,7 @@ namespace Amazon.MediaConvert.Model
         /// segments. If you set it to segmented files, the service creates multiple files for
         /// each output, each with the content of one segment.
         /// </summary>
+        [AWSProperty(Min=1, Max=2147483647)]
         public int SegmentLength
         {
             get { return this._segmentLength.GetValueOrDefault(); }
@@ -260,7 +285,8 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property StreamInfResolution.
+        /// Gets and sets the property StreamInfResolution. Include or exclude RESOLUTION attribute
+        /// for video in EXT-X-STREAM-INF tag of variant manifest.
         /// </summary>
         public CmafStreamInfResolution StreamInfResolution
         {
@@ -275,7 +301,8 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property WriteDashManifest.
+        /// Gets and sets the property WriteDashManifest. When set to ENABLED, a DASH MPD manifest
+        /// will be generated for this output.
         /// </summary>
         public CmafWriteDASHManifest WriteDashManifest
         {
@@ -290,7 +317,8 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property WriteHlsManifest.
+        /// Gets and sets the property WriteHlsManifest. When set to ENABLED, an Apple HLS manifest
+        /// will be generated for this output.
         /// </summary>
         public CmafWriteHLSManifest WriteHlsManifest
         {

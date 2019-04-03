@@ -31,7 +31,7 @@ namespace Amazon.ElasticMapReduce.Model
     /// Container for the parameters to the RemoveTags operation.
     /// Removes tags from an Amazon EMR resource. Tags make it easier to associate clusters
     /// in various ways, such as grouping clusters to track your Amazon EMR resource allocation
-    /// costs. For more information, see <a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag
+    /// costs. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag
     /// Clusters</a>. 
     /// 
     ///  
@@ -76,6 +76,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// be a cluster identifier.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ResourceId
         {
             get { return this._resourceId; }
@@ -94,6 +95,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// A list of tag keys to remove from a resource.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public List<string> TagKeys
         {
             get { return this._tagKeys; }

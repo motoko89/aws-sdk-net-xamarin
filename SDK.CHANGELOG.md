@@ -1,3 +1,236 @@
+### 3.3.489.0 (2019-04-02 18:11 UTC)
+* CertificateManager (3.3.100.4)
+	* Documentation updates for acm
+* EC2 (3.3.102.0)
+	* Add paginators.
+* SecurityHub (3.3.101.0)
+	* This update includes 3 additional error codes: AccessDeniedException, InvalidAccessException, and ResourceConflictException. This update also removes the error code ResourceNotFoundException from the GetFindings, GetInvitationsCount, ListInvitations, and ListMembers operations. 
+
+### 3.3.488.0 (2019-04-01 18:17 UTC)
+* ElasticMapReduce (3.3.101.0)
+	* Amazon EMR adds the ability to modify instance group configurations on a running cluster through the new "configurations" field in the ModifyInstanceGroups API.
+* SimpleSystemsManagement (3.3.100.4)
+	* March 2019 documentation updates for Systems Manager.
+
+### 3.3.487.0 (2019-03-29 18:48 UTC)
+* CloudWatch (3.3.101.0)
+	* Added 3 new APIs, and one additional parameter to PutMetricAlarm API, to support tagging of CloudWatch Alarms.
+* Comprehend (3.3.101.0)
+	* With this release AWS Comprehend supports encryption of output results of analysis jobs and volume data on the storage volume attached to the compute instance that processes the analysis job.
+* Greengrass (3.3.101.0)
+	* Greengrass APIs now support tagging operations on resources
+* Core 3.3.100.3
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.486.0 (2019-03-28 19:15 UTC)
+* MediaLive (3.3.101.0)
+	* This release adds a new output locking mode synchronized to the Unix epoch.
+* PinpointEmail (3.3.101.0)
+	* This release adds support for using the Amazon Pinpoint Email API to tag the following types of Amazon Pinpoint resources: configuration sets; dedicated IP pools; deliverability dashboard reports; and, email identities. A tag is a label that you optionally define and associate with these types of resources. Tags can help you categorize and manage these resources in different ways, such as by purpose, owner, environment, or other criteria. A resource can have as many as 50 tags. For more information, see the Amazon Pinpoint Email API Reference.
+* ServiceCatalog (3.3.101.0)
+	* Adds "Tags" field in UpdateProvisionedProduct API. The product should have a new RESOURCE_UPDATE Constraint with TagUpdateOnProvisionedProduct field set to ALLOWED for it to work. See API docs for CreateConstraint for more information
+* WorkSpaces (3.3.101.0)
+	* Amazon WorkSpaces adds tagging support for WorkSpaces Images, WorkSpaces directories, WorkSpaces bundles and IP Access control groups.
+
+### 3.3.485.0 (2019-03-27 20:34 UTC)
+* AppMesh (3.3.101.0)
+	* This release includes AWS Tagging integration for App Mesh, VirtualNode access logging, TCP routing, and Mesh-wide external traffic egress control. See https://docs.aws.amazon.com/app-mesh/latest/APIReference/Welcome.html for more details.
+* EC2 (3.3.101.0)
+	* You can now launch the new Amazon EC2 R5ad and M5ad instances that feature local NVMe attached SSD instance storage (up to 3600 GB). M5ad and R5ad feature AMD EPYC processors that offer a 10% cost savings over the M5d and R5d EC2 instances.
+* ECS (3.3.101.0)
+	* This release of Amazon Elastic Container Service (Amazon ECS) introduces support for external deployment controllers for ECS services with the launch of task set management APIs. Task sets are a new primitive for controlled management of application deployments within a single ECS service.
+* ElasticLoadBalancingV2 (3.3.101.0)
+	* This release adds support for routing based on HTTP headers, methods, query string or query parameters and source IP addresses in Application Load Balancer.
+* S3 (3.3.101.0)
+	* S3 Glacier Deep Archive provides secure, durable object storage class for long term data archival. This SDK release provides API support for this new storage class.
+* StorageGateway (3.3.101.0)
+	* This change allows you to select a pool for archiving virtual tapes. Pools are associated with S3 storage classes. You can now choose to archive virtual tapes in either S3 Glacier or S3 Glacier Deep Archive storage class. CreateTapes API now takes a new PoolId parameter which can either be GLACIER or DEEP_ARCHIVE. Tapes created with this parameter will be archived in the corresponding storage class.
+* Transfer (3.3.101.0)
+	*  This release adds PrivateLink support to your AWS SFTP server endpoint, enabling the customer to access their SFTP server within a VPC, without having to traverse the internet. Customers can now can create a server and specify an option whether they want the endpoint to be hosted as public or in their VPC, and with the in VPC option, SFTP clients and users can access the server only from the customer's VPC or from their on-premises environments using DX or VPN. This release also relaxes the SFTP user name requirements to allow underscores and hyphens.
+
+### 3.3.484.0 (2019-03-26 19:47 UTC)
+* Glue (3.3.101.0)
+	* This new feature will now allow customers to add a customized csv classifier with classifier API. They can specify a custom delimiter, quote symbol and control other behavior they'd like crawlers to have while recognizing csv files
+* WorkMail (3.3.100.2)
+	* Documentation updates for Amazon WorkMail.
+* Core 3.3.100.2
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.483.0 (2019-03-25 18:24 UTC)
+* DirectConnect (3.3.101.0)
+	* Direct Connect gateway enables you to establish connectivity between your on-premise networks and Amazon Virtual Private Clouds (VPCs) in any commercial AWS Region (except in China) using AWS Direct Connect connections at any AWS Direct Connect location. This release enables multi-account support for Direct Connect gateway, with multi-account support for Direct Connect gateway, you can associate up to ten VPCs from any AWS account with a Direct Connect gateway. The AWS accounts owning VPCs and the Direct Connect gateway must belong to the same AWS payer account ID. This release also enables Direct Connect Gateway owners to allocate allowed prefixes from each associated VPCs.
+* FMS (3.3.101.0)
+	* AWS Firewall Manager now allows customer to centrally enable AWS Shield Advanced DDoS protection for their entire AWS infrastructure, across accounts and applications.
+* IoT1ClickDevicesService (3.3.101.0)
+	* This release adds tagging support for AWS IoT 1-Click Device resources. Use these APIs to add, remove, or list tags on Devices, and leverage the tags for various authorization and billing scenarios. This release also adds the ARN property for DescribeDevice response object.
+* IoTAnalytics (3.3.101.0)
+	* This change allows you to specify the number of versions of IoT Analytics data set content to be retained. Previously, the number of versions was managed implicitly via the setting of the data set's retention period.
+* MediaConvert (3.3.101.0)
+	* This release adds support for detailed job progress status and S3 server-side output encryption. In addition, the anti-alias filter will now be automatically applied to all outputs
+* RoboMaker (3.3.101.0)
+	* Added additional progress metadata fields for robot deployments
+* TranscribeService (3.3.102.0)
+	* Amazon Transcribe - With this release Amazon Transcribe enhances the custom vocabulary feature to improve accuracy by providing customization on pronunciations and output formatting. 
+
+### 3.3.482.0 (2019-03-22 20:57 UTC)
+* IoT1ClickProjects (3.3.101.0)
+	* This release adds tagging support for AWS IoT 1-Click Project resources. Use these APIs to add, remove, or list tags on Projects, and leverage the tags for various authorization and billing scenarios. This release also adds the ARN property to projects for DescribeProject and ListProject responses.
+* TranscribeService (3.3.101.0)
+	* Amazon Transcribe - support transcriptions from audio sources in German (de-DE) and Korean (ko-KR).
+* Core 3.3.100.1
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.481.0 (2019-03-21 21:55 UTC)
+* Core 3.3.100.0
+	* Added .NET Standard 2.0 support. All services packages starting with 3.3.100 will also include .NET Standard 2.0 support.
+	* All services packages updated to require new Core
+
+### 3.3.480.0 (2019-03-21 18:07 UTC)
+* AutoScaling (3.3.9.5)
+	* Documentation updates for Amazon EC2 Auto Scaling
+* CloudWatchEvents (3.3.9.0)
+	* Added 3 new APIs, and one additional parameter to the PutRule API, to support tagging of CloudWatch Events rules.
+* CognitoIdentityProvider (3.3.13.0)
+	* This release adds tags and tag-based access control support to Amazon Cognito User Pools.
+* IoT (3.3.27.0)
+	* This release adds the GetStatistics API for the AWS IoT Fleet Indexing Service, which allows customers to query for statistics about registered devices that match a search query. This release only supports the count statistics. For more information about this API, see https://docs.aws.amazon.com/iot/latest/apireference/API_GetStatistics.html
+* Lightsail (3.3.10.0)
+	* This release adds the DeleteKnownHostKeys API, which enables Lightsail's browser-based SSH or RDP clients to connect to the instance after a host key mismatch.
+
+### 3.3.479.0 (2019-03-20 18:09 UTC)
+* AWSMarketplaceMetering (3.3.3.0)
+	* This release increases AWS Marketplace Metering Service maximum usage quantity to 2147483647 and makes parameters usage quantity and dryrun optional.
+* CodePipeline (3.3.7.0)
+	* Add support for viewing details of each action execution belonging to past and latest pipeline executions that have occurred in customer's pipeline. The details include start/updated times, action execution results, input/output artifacts information, etc. Customers also have the option to add pipelineExecutionId in the input to filter the results down to a single pipeline execution.
+* CognitoIdentity (3.3.3.0)
+	* This release adds tags and tag-based access control support to Amazon Cognito Identity Pools (Federated Identities). 
+
+### 3.3.478.0 (2019-03-19 18:29 UTC)
+* ConfigService (3.3.25.0)
+	* AWS Config adds a new API called SelectResourceConfig to run advanced queries based on resource configuration properties.
+* EKS (3.3.4.0)
+	* Added support to control private/public access to the Kubernetes API-server endpoint
+
+### 3.3.477.0 (2019-03-18 18:07 UTC)
+* Chime (3.3.2.0)
+	* This release adds support for the Amazon Chime Business Calling and Voice Connector features.
+* DatabaseMigrationService (3.3.14.0)
+	* S3 Endpoint Settings added support for 1) Migrating to Amazon S3 as a target in Parquet format 2) Encrypting S3 objects after migration with custom KMS Server-Side encryption. Redshift Endpoint Settings added support for encrypting intermediate S3 objects during migration with custom KMS Server-Side encryption. 
+* EC2 (3.3.87.0)
+	* DescribeFpgaImages API now returns a new DataRetentionSupport attribute to indicate if the AFI meets the requirements to support DRAM data retention. DataRetentionSupport is a read-only attribute.
+
+### 3.3.476.0 (2019-03-14 18:31 UTC)
+* ACMPCA (3.3.4.0)
+	* AWS Certificate Manager (ACM) Private CA allows customers to manage permissions on their CAs. Customers can grant or deny AWS Certificate Manager permission to renew exported private certificates.
+* CertificateManager (3.3.6.0)
+	* AWS Certificate Manager has added a new API action, RenewCertificate. RenewCertificate causes ACM to force the renewal of any private certificate which has been exported.
+* CloudWatch (3.3.11.0)
+	* New Messages parameter for the output of GetMetricData, to support new metric search functionality.
+* ConfigService (3.3.24.0)
+	* AWS Config - add ability to tag, untag and list tags for ConfigRule, ConfigurationAggregator and AggregationAuthorization resource types. Tags can be used for various scenarios including tag based authorization.
+* EC2 (3.3.86.0)
+	* This release adds tagging support for Dedicated Host Reservations.
+* IoT (3.3.26.0)
+	* In this release, AWS IoT introduces support for tagging OTA Update and Stream resources. For more information about tagging, see the AWS IoT Developer Guide.
+* SageMaker (3.3.21.0)
+	* Amazon SageMaker Automatic Model Tuning now supports random search and hyperparameter scaling.
+
+### 3.3.475.0 (2019-03-13 18:06 UTC)
+* CloudWatchLogs (3.3.7.25)
+	* Documentation updates for logs
+* ConfigService (3.3.23.0)
+	* Config released Remediation APIs allowing Remediation of Config Rules
+
+### 3.3.474.0 (2019-03-12 18:09 UTC)
+* ServerlessApplicationRepository (3.3.5.0)
+	* The AWS Serverless Application Repository now supports associating a ZIP source code archive with versions of an application.
+
+### 3.3.473.0 (2019-03-11 18:07 UTC)
+* CostExplorer (3.3.11.0)
+	* The only change in this release is to make TimePeriod a required parameter in GetCostAndUsageRequest.
+* ElasticBeanstalk (3.3.13.0)
+	* Elastic Beanstalk added support for tagging, and tag-based access control, of all Elastic Beanstalk resources.
+* Glue (3.3.19.0)
+	* CreateDevEndpoint and UpdateDevEndpoint now support Arguments to configure the DevEndpoint. 
+* IoT (3.3.25.5)
+	* Documentation updates for iot
+* QuickSight (3.3.2.0)
+	* Amazon QuickSight user and group operation results now include group principal IDs and user principal IDs. This release also adds "DeleteUserByPrincipalId", which deletes users given their principal ID. The update also improves role session name validation.
+* Rekognition (3.3.15.6)
+	* Documentation updates for Amazon Rekognition
+* Core 3.3.32.2
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.472.0 (2019-03-08 21:11 UTC)
+* CodeBuild (3.3.23.0)
+	* CodeBuild also now supports Git Submodules.  CodeBuild now supports opting out of Encryption for S3 Build Logs.  By default these logs are encrypted.
+* S3 (3.3.31.23)
+	* Documentation updates for s3
+* SageMaker (3.3.20.0)
+	* SageMaker notebook instances now support enabling or disabling root access for notebook users. SageMaker Neo now supports rk3399 and rk3288 as compilation target devices.
+
+### 3.3.471.0 (2019-03-07 19:31 UTC)
+* AppMesh (3.3.1.0)
+	* This release includes a new version of the AWS App Mesh APIs. You can read more about the new APIs here: https://docs.aws.amazon.com/app-mesh/latest/APIReference/Welcome.html.
+* AutoScaling (3.3.9.3)
+	* Documentation updates for autoscaling
+* ECS (3.3.24.0)
+	* This release of Amazon Elastic Container Service (Amazon ECS) introduces additional task definition parameters that enable you to define dependencies for container startup and shutdown, a per-container start and stop timeout value, as well as an AWS App Mesh proxy configuration which eases the integration between Amazon ECS and AWS App Mesh.
+* GameLift (3.3.14.0)
+	* Amazon GameLift-hosted instances can now securely access resources on other AWS services using IAM roles. See more details at https://aws.amazon.com/releasenotes/amazon-gamelift/.
+* Greengrass (3.3.6.0)
+	* Greengrass group UID and GID settings can now be configured to use a provided default via FunctionDefaultConfig. If configured, all Lambda processes in your deployed Greengrass group will by default start with the provided UID and/or GID, rather than by default starting with UID "ggc_user" and GID "ggc_group" as they would if not configured. Individual Lambdas can also be configured to override the defaults if desired via each object in the Functions list of your FunctionDefinitionVersion.
+* MediaLive (3.3.19.0)
+	* This release adds a MediaPackage output group, simplifying configuration of outputs to AWS Elemental MediaPackage.
+* RDS (3.3.39.0)
+	* You can configure your Aurora database cluster to automatically copy tags on the cluster to any automated or manual database cluster snapshots that are created from the cluster. This allows you to easily set metadata on your snapshots to match the parent cluster, including access policies. You may enable or disable this functionality while creating a new cluster, or by modifying an existing database cluster.
+* Core 3.3.32.1
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.470.0 (2019-03-06 22:12 UTC)
+* Core 3.3.32.0
+	* Upgrades for XML service generation of maps and idempotency tokens; Implement the Standard IMDS Request Header; Bypass using capacity for clock skew errors; Fix to find resource when running from service project; Switch rest-json based service's content-type to application/json; Use wildcard for test project references
+	* All services packages updated to require new Core
+
+### 3.3.469.0 (2019-03-06 20:13 UTC)
+* DirectConnect (3.3.11.0)
+	* Exposed a new available port speeds field in the DescribeLocation api call.
+* EC2 (3.3.85.0)
+	* This release adds pagination support for ec2.DescribeVpcs, ec2.DescribeInternetGateways and ec2.DescribeNetworkAcls APIs
+* ElasticFileSystem (3.3.4.3)
+	* Documentation updates for elasticfilesystem adding new examples for EFS Lifecycle Management feature.
+
+### 3.3.468.0 (2019-03-05 21:51 UTC)
+* CodeDeploy (3.3.12.22)
+	* Documentation updates for codedeploy
+* MediaLive (3.3.18.0)
+	* This release adds support for pausing and unpausing one or both pipelines at scheduled times.
+* StorageGateway (3.3.14.0)
+	* ActivateGateway, CreateNFSFileShare and CreateSMBFileShare APIs support a new parameter: Tags (to be attached to the created resource). Output for DescribeNFSFileShare, DescribeSMBFileShare and DescribeGatewayInformation APIs now also list the Tags associated with the resource. Minimum length of a KMSKey is now 7 characters.
+* Textract (3.3.0.0)
+	* This release is intended ONLY for customers that are officially part of the Amazon Textract Preview program.  If you are not officially part of the Amazon Textract program THIS WILL NOT WORK.  Our two main regions for Amazon Textract Preview are N. Virginia and Dublin.  Also some members have been added to Oregon and Ohio.  If you are outside of any of these AWS regions, Amazon Textract Preview definitely will not work. If you would like to be part of the Amazon Textract program, you can officially request sign up here - https://pages.awscloud.com/textract-preview.html. To set expectations appropriately, we are aiming to admit new preview participants once a week until General Availability.
+
+### 3.3.467.0 (2019-03-04 19:17 UTC)
+* MediaPackage (3.3.7.0)
+	* This release adds support for user-defined tagging of MediaPackage resources. Users may now call operations to list, add and remove tags from channels and origin-endpoints. Users can also specify tags to be attached to these resources during their creation. Describe and list operations on these resources will now additionally return any tags associated with them.
+* SimpleSystemsManagement (3.3.41.0)
+	* This release updates AWS Systems Manager APIs to support service settings for AWS customers.  A service setting is a key-value pair that defines how a user interacts with or uses an AWS service, and is typically created and consumed by the AWS service team. AWS customers can read a service setting via GetServiceSetting API and update the setting via UpdateServiceSetting API or ResetServiceSetting API, which are introduced in this release. For example, if an AWS service charges money to the account based on a feature or service usage, then the AWS service team might create a setting with the default value of "false".   This means the user can't use this feature unless they update the setting to "true" and  intentionally opt in for a paid feature.
+
 ### 3.3.466.0 (2019-03-01 19:41 UTC)
 * AutoScalingPlans (3.3.2.22)
 	* Documentation updates for autoscaling-plans

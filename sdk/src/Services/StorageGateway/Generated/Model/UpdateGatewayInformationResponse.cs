@@ -38,6 +38,7 @@ namespace Amazon.StorageGateway.Model
         /// <summary>
         /// Gets and sets the property GatewayARN.
         /// </summary>
+        [AWSProperty(Min=50, Max=500)]
         public string GatewayARN
         {
             get { return this._gatewayARN; }
@@ -51,7 +52,10 @@ namespace Amazon.StorageGateway.Model
         }
 
         /// <summary>
-        /// Gets and sets the property GatewayName.
+        /// Gets and sets the property GatewayName. 
+        /// <para>
+        /// The name you configured for your gateway.
+        /// </para>
         /// </summary>
         public string GatewayName
         {

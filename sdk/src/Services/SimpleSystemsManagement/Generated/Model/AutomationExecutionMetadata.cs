@@ -61,6 +61,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The execution ID.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=36, Max=36)]
         public string AutomationExecutionId
         {
             get { return this._automationExecutionId; }
@@ -96,10 +97,10 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Gets and sets the property AutomationType. 
         /// <para>
         /// Use this filter with <a>DescribeAutomationExecutions</a>. Specify either Local or
-        /// CrossAccount. CrossAccount is an Automation that executes in multiple AWS Regions
-        /// and accounts. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Concurrently
-        /// Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems
-        /// Manager User Guide</i>. 
+        /// CrossAccount. CrossAccount is an Automation that runs in multiple AWS Regions and
+        /// accounts. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Executing
+        /// Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager
+        /// User Guide</i>. 
         /// </para>
         /// </summary>
         public AutomationType AutomationType
@@ -117,7 +118,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property CurrentAction. 
         /// <para>
-        /// The action of the currently executing step.
+        /// The action of the step that is currently running.
         /// </para>
         /// </summary>
         public string CurrentAction
@@ -135,7 +136,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property CurrentStepName. 
         /// <para>
-        /// The name of the currently executing step.
+        /// The name of the step that is currently running.
         /// </para>
         /// </summary>
         public string CurrentStepName
@@ -189,7 +190,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property ExecutedBy. 
         /// <para>
-        /// The IAM role ARN of the user who executed the Automation.
+        /// The IAM role ARN of the user who ran the Automation.
         /// </para>
         /// </summary>
         public string ExecutedBy
@@ -283,6 +284,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The MaxConcurrency value specified by the user when starting the Automation.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=7)]
         public string MaxConcurrency
         {
             get { return this._maxConcurrency; }
@@ -301,6 +303,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The MaxErrors value specified by the user when starting the Automation.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=7)]
         public string MaxErrors
         {
             get { return this._maxErrors; }
@@ -337,6 +340,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The list of execution outputs as defined in the Automation document.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=200)]
         public Dictionary<string, List<string>> Outputs
         {
             get { return this._outputs; }
@@ -355,6 +359,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The ExecutionId of the parent Automation.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=36, Max=36)]
         public string ParentAutomationExecutionId
         {
             get { return this._parentAutomationExecutionId; }
@@ -409,6 +414,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The specified key-value mapping of document parameters to target resources.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=300)]
         public List<Dictionary<string, List<string>>> TargetMaps
         {
             get { return this._targetMaps; }
@@ -427,6 +433,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The list of execution outputs as defined in the Automation document.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=30)]
         public string TargetParameterName
         {
             get { return this._targetParameterName; }
@@ -445,6 +452,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The targets defined by the user when starting the Automation.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=5)]
         public List<Target> Targets
         {
             get { return this._targets; }

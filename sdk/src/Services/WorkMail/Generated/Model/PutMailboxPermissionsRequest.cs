@@ -29,8 +29,7 @@ namespace Amazon.WorkMail.Model
 {
     /// <summary>
     /// Container for the parameters to the PutMailboxPermissions operation.
-    /// Sets permissions for a user or group. This replaces any pre-existing permissions set
-    /// for the entity.
+    /// Sets permissions for a user, group, or resource. This replaces any pre-existing permissions.
     /// </summary>
     public partial class PutMailboxPermissionsRequest : AmazonWorkMailRequest
     {
@@ -42,9 +41,10 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property EntityId. 
         /// <para>
-        /// The identifier of the entity (user or group) for which to update mailbox permissions.
+        /// The identifier of the user, group, or resource for which to update mailbox permissions.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=12, Max=256)]
         public string EntityId
         {
             get { return this._entityId; }
@@ -60,9 +60,10 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property GranteeId. 
         /// <para>
-        /// The identifier of the entity (user or group) to which to grant the permissions.
+        /// The identifier of the user, group, or resource to which to grant the permissions.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=12, Max=256)]
         public string GranteeId
         {
             get { return this._granteeId; }
@@ -78,9 +79,10 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property OrganizationId. 
         /// <para>
-        /// The identifier of the organization under which the entity (user or group) exists.
+        /// The identifier of the organization under which the user, group, or resource exists.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string OrganizationId
         {
             get { return this._organizationId; }
@@ -104,6 +106,7 @@ namespace Amazon.WorkMail.Model
         /// the mailbox.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public List<string> PermissionValues
         {
             get { return this._permissionValues; }

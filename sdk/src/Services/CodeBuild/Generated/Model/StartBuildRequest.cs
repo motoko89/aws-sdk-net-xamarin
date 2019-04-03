@@ -41,6 +41,7 @@ namespace Amazon.CodeBuild.Model
         private EnvironmentType _environmentTypeOverride;
         private List<EnvironmentVariable> _environmentVariablesOverride = new List<EnvironmentVariable>();
         private int? _gitCloneDepthOverride;
+        private GitSubmodulesConfig _gitSubmodulesConfigOverride;
         private string _idempotencyToken;
         private string _imageOverride;
         private ImagePullCredentialsType _imagePullCredentialsTypeOverride;
@@ -200,6 +201,7 @@ namespace Amazon.CodeBuild.Model
         /// this build only, any previous depth of history defined in the build project.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0)]
         public int GitCloneDepthOverride
         {
             get { return this._gitCloneDepthOverride.GetValueOrDefault(); }
@@ -210,6 +212,25 @@ namespace Amazon.CodeBuild.Model
         internal bool IsSetGitCloneDepthOverride()
         {
             return this._gitCloneDepthOverride.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property GitSubmodulesConfigOverride. 
+        /// <para>
+        ///  Information about the Git submodules configuration for this build of an AWS CodeBuild
+        /// build project. 
+        /// </para>
+        /// </summary>
+        public GitSubmodulesConfig GitSubmodulesConfigOverride
+        {
+            get { return this._gitSubmodulesConfigOverride; }
+            set { this._gitSubmodulesConfigOverride = value; }
+        }
+
+        // Check to see if GitSubmodulesConfigOverride property is set
+        internal bool IsSetGitSubmodulesConfigOverride()
+        {
+            return this._gitSubmodulesConfigOverride != null;
         }
 
         /// <summary>
@@ -240,6 +261,7 @@ namespace Amazon.CodeBuild.Model
         /// project.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1)]
         public string ImageOverride
         {
             get { return this._imageOverride; }
@@ -351,6 +373,7 @@ namespace Amazon.CodeBuild.Model
         /// The name of the AWS CodeBuild build project to start running a build.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1)]
         public string ProjectName
         {
             get { return this._projectName; }
@@ -369,6 +392,7 @@ namespace Amazon.CodeBuild.Model
         ///  The number of minutes a build is allowed to be queued before it times out. 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=5, Max=480)]
         public int QueuedTimeoutInMinutesOverride
         {
             get { return this._queuedTimeoutInMinutesOverride.GetValueOrDefault(); }
@@ -425,6 +449,7 @@ namespace Amazon.CodeBuild.Model
         ///  An array of <code>ProjectArtifacts</code> objects. 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=12)]
         public List<ProjectArtifacts> SecondaryArtifactsOverride
         {
             get { return this._secondaryArtifactsOverride; }
@@ -443,6 +468,7 @@ namespace Amazon.CodeBuild.Model
         ///  An array of <code>ProjectSource</code> objects. 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=12)]
         public List<ProjectSource> SecondarySourcesOverride
         {
             get { return this._secondarySourcesOverride; }
@@ -462,6 +488,7 @@ namespace Amazon.CodeBuild.Model
         /// of the project's secondary sources to be used for this build only. 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=12)]
         public List<ProjectSourceVersion> SecondarySourcesVersionOverride
         {
             get { return this._secondarySourcesVersionOverride; }
@@ -481,6 +508,7 @@ namespace Amazon.CodeBuild.Model
         /// build project.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1)]
         public string ServiceRoleOverride
         {
             get { return this._serviceRoleOverride; }
@@ -600,6 +628,7 @@ namespace Amazon.CodeBuild.Model
         /// this build only, the latest setting already defined in the build project.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=5, Max=480)]
         public int TimeoutInMinutesOverride
         {
             get { return this._timeoutInMinutesOverride.GetValueOrDefault(); }

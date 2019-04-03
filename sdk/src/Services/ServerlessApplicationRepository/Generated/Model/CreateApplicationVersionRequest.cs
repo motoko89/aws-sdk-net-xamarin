@@ -35,6 +35,7 @@ namespace Amazon.ServerlessApplicationRepository.Model
     {
         private string _applicationId;
         private string _semanticVersion;
+        private string _sourceCodeArchiveUrl;
         private string _sourceCodeUrl;
         private string _templateBody;
         private string _templateUrl;
@@ -45,6 +46,7 @@ namespace Amazon.ServerlessApplicationRepository.Model
         /// The Amazon Resource Name (ARN) of the application.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ApplicationId
         {
             get { return this._applicationId; }
@@ -63,6 +65,7 @@ namespace Amazon.ServerlessApplicationRepository.Model
         /// The semantic version of the new version.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string SemanticVersion
         {
             get { return this._semanticVersion; }
@@ -76,9 +79,33 @@ namespace Amazon.ServerlessApplicationRepository.Model
         }
 
         /// <summary>
+        /// Gets and sets the property SourceCodeArchiveUrl. 
+        /// <para>
+        /// A link to the S3 object that contains the ZIP archive of the source code for this
+        /// version of your application.
+        /// </para>
+        /// 
+        /// <para>
+        /// Maximum size 50 MB
+        /// </para>
+        /// </summary>
+        public string SourceCodeArchiveUrl
+        {
+            get { return this._sourceCodeArchiveUrl; }
+            set { this._sourceCodeArchiveUrl = value; }
+        }
+
+        // Check to see if SourceCodeArchiveUrl property is set
+        internal bool IsSetSourceCodeArchiveUrl()
+        {
+            return this._sourceCodeArchiveUrl != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property SourceCodeUrl. 
         /// <para>
-        /// A link to a public repository for the source code of your application.
+        /// A link to a public repository for the source code of your application, for example
+        /// the URL of a specific GitHub commit.
         /// </para>
         /// </summary>
         public string SourceCodeUrl

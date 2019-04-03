@@ -100,6 +100,7 @@ namespace Amazon.CloudWatch.Model
         /// from CloudWatch than setting 12:07 or 12:29 as the <code>EndTime</code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public DateTime EndTimeUtc
         {
             get { return this._endTimeUtc.GetValueOrDefault(); }
@@ -140,6 +141,7 @@ namespace Amazon.CloudWatch.Model
         /// data. 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public List<MetricDataQuery> MetricDataQueries
         {
             get { return this._metricDataQueries; }
@@ -206,6 +208,7 @@ namespace Amazon.CloudWatch.Model
         /// response from CloudWatch than setting 12:07 or 12:29 as the <code>StartTime</code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public DateTime StartTimeUtc
         {
             get { return this._startTimeUtc.GetValueOrDefault(); }

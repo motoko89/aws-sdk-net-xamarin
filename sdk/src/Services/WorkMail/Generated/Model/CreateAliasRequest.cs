@@ -29,7 +29,7 @@ namespace Amazon.WorkMail.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateAlias operation.
-    /// Adds an alias to the set of a given member of Amazon WorkMail.
+    /// Adds an alias to the set of a given member (user or group) of Amazon WorkMail.
     /// </summary>
     public partial class CreateAliasRequest : AmazonWorkMailRequest
     {
@@ -40,9 +40,10 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property Alias. 
         /// <para>
-        /// The alias to add to the user.
+        /// The alias to add to the member set.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=254)]
         public string Alias
         {
             get { return this._alias; }
@@ -58,9 +59,10 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property EntityId. 
         /// <para>
-        /// The alias is added to this Amazon WorkMail entity.
+        /// The member (user or group) to which this alias is added.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=12, Max=256)]
         public string EntityId
         {
             get { return this._entityId; }
@@ -76,9 +78,10 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property OrganizationId. 
         /// <para>
-        /// The organization under which the member exists.
+        /// The organization under which the member (user or group) exists.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string OrganizationId
         {
             get { return this._organizationId; }

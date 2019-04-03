@@ -33,7 +33,7 @@ namespace Amazon.RDS.Model
     /// 
     ///  
     /// <para>
-    /// For an overview on tagging an Amazon RDS resource, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging
+    /// For an overview on tagging an Amazon RDS resource, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging
     /// Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i> 
     /// </para>
     /// </summary>
@@ -46,10 +46,11 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property ResourceName. 
         /// <para>
         /// The Amazon RDS resource that the tags are removed from. This value is an Amazon Resource
-        /// Name (ARN). For information about creating an ARN, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
+        /// Name (ARN). For information about creating an ARN, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
         /// Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide.</i> 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ResourceName
         {
             get { return this._resourceName; }
@@ -68,6 +69,7 @@ namespace Amazon.RDS.Model
         /// The tag key (name) of the tag to be removed.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public List<string> TagKeys
         {
             get { return this._tagKeys; }

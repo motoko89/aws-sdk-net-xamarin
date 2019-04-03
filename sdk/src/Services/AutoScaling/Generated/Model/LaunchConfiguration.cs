@@ -93,11 +93,12 @@ namespace Amazon.AutoScaling.Model
         /// <para>
         /// The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. This parameter
         /// can only be used if you are launching EC2-Classic instances. For more information,
-        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
-        /// in the <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
+        /// in the <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking
         /// EC2-Classic Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string ClassicLinkVPCId
         {
             get { return this._classicLinkVPCId; }
@@ -114,10 +115,14 @@ namespace Amazon.AutoScaling.Model
         /// Gets and sets the property ClassicLinkVPCSecurityGroups. 
         /// <para>
         /// The IDs of one or more security groups for the VPC specified in <code>ClassicLinkVPCId</code>.
-        /// This parameter is required if you specify a ClassicLink-enabled VPC, and cannot be
-        /// used otherwise. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
-        /// in the <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
+        /// in the <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking
         /// EC2-Classic Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Conditional: This parameter is required if you specify a ClassicLink-enabled VPC,
+        /// and cannot be used otherwise.
         /// </para>
         /// </summary>
         public List<string> ClassicLinkVPCSecurityGroups
@@ -138,6 +143,7 @@ namespace Amazon.AutoScaling.Model
         /// The creation date and time for the launch configuration.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public DateTime CreatedTime
         {
             get { return this._createdTime.GetValueOrDefault(); }
@@ -176,6 +182,7 @@ namespace Amazon.AutoScaling.Model
         /// IAM role for the instance.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1600)]
         public string IamInstanceProfile
         {
             get { return this._iamInstanceProfile; }
@@ -194,6 +201,7 @@ namespace Amazon.AutoScaling.Model
         /// The ID of the Amazon Machine Image (AMI).
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string ImageId
         {
             get { return this._imageId; }
@@ -231,6 +239,7 @@ namespace Amazon.AutoScaling.Model
         /// The instance type for the instances.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string InstanceType
         {
             get { return this._instanceType; }
@@ -249,6 +258,7 @@ namespace Amazon.AutoScaling.Model
         /// The ID of the kernel associated with the AMI.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string KernelId
         {
             get { return this._kernelId; }
@@ -267,6 +277,7 @@ namespace Amazon.AutoScaling.Model
         /// The name of the key pair.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string KeyName
         {
             get { return this._keyName; }
@@ -285,6 +296,7 @@ namespace Amazon.AutoScaling.Model
         /// The Amazon Resource Name (ARN) of the launch configuration.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1600)]
         public string LaunchConfigurationARN
         {
             get { return this._launchConfigurationARN; }
@@ -303,6 +315,7 @@ namespace Amazon.AutoScaling.Model
         /// The name of the launch configuration.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string LaunchConfigurationName
         {
             get { return this._launchConfigurationName; }
@@ -323,6 +336,7 @@ namespace Amazon.AutoScaling.Model
         /// hardware and can only be launched into a VPC.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=64)]
         public string PlacementTenancy
         {
             get { return this._placementTenancy; }
@@ -341,6 +355,7 @@ namespace Amazon.AutoScaling.Model
         /// The ID of the RAM disk associated with the AMI.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string RamdiskId
         {
             get { return this._ramdiskId; }
@@ -377,6 +392,7 @@ namespace Amazon.AutoScaling.Model
         /// The price to bid when launching Spot Instances.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string SpotPrice
         {
             get { return this._spotPrice; }
@@ -395,6 +411,7 @@ namespace Amazon.AutoScaling.Model
         /// The user data available to the instances.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=21847)]
         public string UserData
         {
             get { return this._userData; }

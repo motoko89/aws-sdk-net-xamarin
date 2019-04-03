@@ -29,9 +29,9 @@ namespace Amazon.WorkMail.Model
 {
     /// <summary>
     /// Container for the parameters to the UpdatePrimaryEmailAddress operation.
-    /// Updates the primary email for an entity. The current email is moved into the list
-    /// of aliases (or swapped between an existing alias and the current primary email) and
-    /// the email provided in the input is promoted as the primary.
+    /// Updates the primary email for a user, group, or resource. The current email is moved
+    /// into the list of aliases (or swapped between an existing alias and the current primary
+    /// email), and the email provided in the input is promoted as the primary.
     /// </summary>
     public partial class UpdatePrimaryEmailAddressRequest : AmazonWorkMailRequest
     {
@@ -45,6 +45,7 @@ namespace Amazon.WorkMail.Model
         /// The value of the email to be updated as primary.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=254)]
         public string Email
         {
             get { return this._email; }
@@ -60,9 +61,10 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property EntityId. 
         /// <para>
-        /// The entity to update (user, group, or resource).
+        /// The user, group, or resource to update.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=12, Max=256)]
         public string EntityId
         {
             get { return this._entityId; }
@@ -78,9 +80,10 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property OrganizationId. 
         /// <para>
-        /// The organization that contains the entity to update.
+        /// The organization that contains the user, group, or resource to update.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string OrganizationId
         {
             get { return this._organizationId; }

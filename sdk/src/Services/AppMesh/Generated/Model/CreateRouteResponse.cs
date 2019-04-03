@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 using System;
 using System.Collections.Generic;
@@ -40,6 +40,7 @@ namespace Amazon.AppMesh.Model
         /// The full description of your mesh following the create call.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public RouteData Route
         {
             get { return this._route; }

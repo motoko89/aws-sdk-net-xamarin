@@ -41,7 +41,7 @@ namespace Amazon.StorageGateway.Model
     /// File gateways require AWS Security Token Service (AWS STS) to be activated to enable
     /// you to create a file share. Make sure that AWS STS is activated in the AWS Region
     /// you are creating your file gateway in. If AWS STS is not activated in this AWS Region,
-    /// activate it. For information about how to activate AWS STS, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
+    /// activate it. For information about how to activate AWS STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
     /// and Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management
     /// User Guide.</i> 
     /// </para>
@@ -73,6 +73,7 @@ namespace Amazon.StorageGateway.Model
         /// Optional.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=5, Max=20)]
         public string DefaultStorageClass
         {
             get { return this._defaultStorageClass; }
@@ -91,6 +92,7 @@ namespace Amazon.StorageGateway.Model
         /// The Amazon Resource Name (ARN) of the SMB file share that you want to update.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=50, Max=500)]
         public string FileShareARN
         {
             get { return this._fileShareARN; }
@@ -131,6 +133,7 @@ namespace Amazon.StorageGateway.Model
         /// Can only be set if Authentication is set to <code>ActiveDirectory</code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=100)]
         public List<string> InvalidUserList
         {
             get { return this._invalidUserList; }
@@ -169,6 +172,7 @@ namespace Amazon.StorageGateway.Model
         /// This value can only be set when KMSEncrypted is true. Optional.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=7, Max=2048)]
         public string KMSKey
         {
             get { return this._kmsKey; }
@@ -246,6 +250,7 @@ namespace Amazon.StorageGateway.Model
         /// Can only be set if Authentication is set to <code>ActiveDirectory</code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=100)]
         public List<string> ValidUserList
         {
             get { return this._validUserList; }

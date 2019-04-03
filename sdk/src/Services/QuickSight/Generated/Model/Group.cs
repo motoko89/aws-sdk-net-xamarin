@@ -37,6 +37,7 @@ namespace Amazon.QuickSight.Model
         private string _arn;
         private string _description;
         private string _groupName;
+        private string _principalId;
 
         /// <summary>
         /// Gets and sets the property Arn. 
@@ -62,6 +63,7 @@ namespace Amazon.QuickSight.Model
         /// The group description.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=512)]
         public string Description
         {
             get { return this._description; }
@@ -80,6 +82,7 @@ namespace Amazon.QuickSight.Model
         /// The name of the group.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1)]
         public string GroupName
         {
             get { return this._groupName; }
@@ -90,6 +93,24 @@ namespace Amazon.QuickSight.Model
         internal bool IsSetGroupName()
         {
             return this._groupName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PrincipalId. 
+        /// <para>
+        /// The principal ID of the group.
+        /// </para>
+        /// </summary>
+        public string PrincipalId
+        {
+            get { return this._principalId; }
+            set { this._principalId = value; }
+        }
+
+        // Check to see if PrincipalId property is set
+        internal bool IsSetPrincipalId()
+        {
+            return this._principalId != null;
         }
 
     }

@@ -36,6 +36,19 @@ namespace Amazon.GameLift.Model
     /// for the requested fleet ID. If the requested fleet has been deleted, the result set
     /// is empty.
     /// 
+    ///  
+    /// <para>
+    ///  <b>Learn more</b> 
+    /// </para>
+    ///  
+    /// <para>
+    ///  <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
+    /// Working with Fleets</a>.
+    /// </para>
+    ///  
+    /// <para>
+    ///  <b>Related operations</b> 
+    /// </para>
     ///  <ul> <li> 
     /// <para>
     ///  <a>CreateFleet</a> 
@@ -124,6 +137,7 @@ namespace Amazon.GameLift.Model
         /// Unique identifier for a fleet to retrieve port settings for.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string FleetId
         {
             get { return this._fleetId; }

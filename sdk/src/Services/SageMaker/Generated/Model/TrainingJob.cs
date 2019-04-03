@@ -34,6 +34,7 @@ namespace Amazon.SageMaker.Model
     {
         private AlgorithmSpecification _algorithmSpecification;
         private DateTime? _creationTime;
+        private bool? _enableInterContainerTrafficEncryption;
         private bool? _enableNetworkIsolation;
         private string _failureReason;
         private List<MetricData> _finalMetricDataList = new List<MetricData>();
@@ -94,6 +95,28 @@ namespace Amazon.SageMaker.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EnableInterContainerTrafficEncryption. 
+        /// <para>
+        /// To encrypt all communications between ML compute instances in distributed training,
+        /// choose <code>True</code>. Encryption provides greater security for distributed training,
+        /// but training might take longer. How long it takes depends on the amount of communication
+        /// between compute instances, especially if you use a deep learning algorithm in distributed
+        /// training.
+        /// </para>
+        /// </summary>
+        public bool EnableInterContainerTrafficEncryption
+        {
+            get { return this._enableInterContainerTrafficEncryption.GetValueOrDefault(); }
+            set { this._enableInterContainerTrafficEncryption = value; }
+        }
+
+        // Check to see if EnableInterContainerTrafficEncryption property is set
+        internal bool IsSetEnableInterContainerTrafficEncryption()
+        {
+            return this._enableInterContainerTrafficEncryption.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property EnableNetworkIsolation. 
         /// <para>
         /// If the <code>TrainingJob</code> was created with network isolation, the value is set
@@ -119,6 +142,7 @@ namespace Amazon.SageMaker.Model
         /// If the training job failed, the reason it failed.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=1024)]
         public string FailureReason
         {
             get { return this._failureReason; }
@@ -138,6 +162,7 @@ namespace Amazon.SageMaker.Model
         /// if the training job was configured to use metrics.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=20)]
         public List<MetricData> FinalMetricDataList
         {
             get { return this._finalMetricDataList; }
@@ -156,6 +181,7 @@ namespace Amazon.SageMaker.Model
         /// Algorithm-specific parameters.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=100)]
         public Dictionary<string, string> HyperParameters
         {
             get { return this._hyperParameters; }
@@ -174,6 +200,7 @@ namespace Amazon.SageMaker.Model
         /// An array of <code>Channel</code> objects that describes each data input channel.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=8)]
         public List<Channel> InputDataConfig
         {
             get { return this._inputDataConfig; }
@@ -192,6 +219,7 @@ namespace Amazon.SageMaker.Model
         /// The Amazon Resource Name (ARN) of the labeling job.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=2048)]
         public string LabelingJobArn
         {
             get { return this._labelingJobArn; }
@@ -284,6 +312,7 @@ namespace Amazon.SageMaker.Model
         /// The AWS Identity and Access Management (IAM) role configured for the training job.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=20, Max=2048)]
         public string RoleArn
         {
             get { return this._roleArn; }
@@ -423,10 +452,11 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property Tags. 
         /// <para>
-        /// An array of key-value pairs. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
+        /// An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
         /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=50)]
         public List<Tag> Tags
         {
             get { return this._tags; }
@@ -467,6 +497,7 @@ namespace Amazon.SageMaker.Model
         /// The Amazon Resource Name (ARN) of the training job.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=256)]
         public string TrainingJobArn
         {
             get { return this._trainingJobArn; }
@@ -485,6 +516,7 @@ namespace Amazon.SageMaker.Model
         /// The name of the training job.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=63)]
         public string TrainingJobName
         {
             get { return this._trainingJobName; }
@@ -574,6 +606,7 @@ namespace Amazon.SageMaker.Model
         /// training job was launched by a hyperparameter tuning job.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=256)]
         public string TuningJobArn
         {
             get { return this._tuningJobArn; }
@@ -590,7 +623,7 @@ namespace Amazon.SageMaker.Model
         /// Gets and sets the property VpcConfig. 
         /// <para>
         /// A <a>VpcConfig</a> object that specifies the VPC that this training job has access
-        /// to. For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect
+        /// to. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect
         /// Training Jobs by Using an Amazon Virtual Private Cloud</a>.
         /// </para>
         /// </summary>

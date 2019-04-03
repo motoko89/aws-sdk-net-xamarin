@@ -43,6 +43,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// The name of the security configuration.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=0, Max=10280)]
         public string Name
         {
             get { return this._name; }
@@ -59,11 +60,12 @@ namespace Amazon.ElasticMapReduce.Model
         /// Gets and sets the property SecurityConfiguration. 
         /// <para>
         /// The security configuration details in JSON format. For JSON parameters and examples,
-        /// see <a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
+        /// see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
         /// Security Configurations to Set Up Cluster Security</a> in the <i>Amazon EMR Management
         /// Guide</i>.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string SecurityConfiguration
         {
             get { return this._securityConfiguration; }

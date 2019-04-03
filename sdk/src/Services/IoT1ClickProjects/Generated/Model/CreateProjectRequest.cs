@@ -37,6 +37,7 @@ namespace Amazon.IoT1ClickProjects.Model
         private string _description;
         private PlacementTemplate _placementTemplate;
         private string _projectName;
+        private Dictionary<string, string> _tags = new Dictionary<string, string>();
 
         /// <summary>
         /// Gets and sets the property Description. 
@@ -44,6 +45,7 @@ namespace Amazon.IoT1ClickProjects.Model
         /// An optional description for the project.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=500)]
         public string Description
         {
             get { return this._description; }
@@ -83,6 +85,7 @@ namespace Amazon.IoT1ClickProjects.Model
         /// The name of the project to create.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=128)]
         public string ProjectName
         {
             get { return this._projectName; }
@@ -93,6 +96,28 @@ namespace Amazon.IoT1ClickProjects.Model
         internal bool IsSetProjectName()
         {
             return this._projectName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// Optional tags (metadata key/value pairs) to be associated with the project. For example,
+        /// <code>{ {"key1": "value1", "key2": "value2"} }</code>. For more information, see <a
+        /// href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
+        /// Tagging Strategies</a>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=50)]
+        public Dictionary<string, string> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
     }

@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.MediaLive.Model
 {
     /// <summary>
-    /// Placeholder documentation for ArchiveOutputSettings
+    /// Archive Output Settings
     /// </summary>
     public partial class ArchiveOutputSettings
     {
@@ -40,6 +40,7 @@ namespace Amazon.MediaLive.Model
         /// Gets and sets the property ContainerSettings. Settings specific to the container type
         /// of the file.
         /// </summary>
+        [AWSProperty(Required=true)]
         public ArchiveContainerSettings ContainerSettings
         {
             get { return this._containerSettings; }

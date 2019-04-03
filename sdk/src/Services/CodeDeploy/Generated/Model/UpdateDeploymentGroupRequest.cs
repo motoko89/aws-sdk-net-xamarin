@@ -76,6 +76,7 @@ namespace Amazon.CodeDeploy.Model
         /// The application name that corresponds to the deployment group to update.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=100)]
         public string ApplicationName
         {
             get { return this._applicationName; }
@@ -151,6 +152,7 @@ namespace Amazon.CodeDeploy.Model
         /// The current name of the deployment group.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=100)]
         public string CurrentDeploymentGroupName
         {
             get { return this._currentDeploymentGroupName; }
@@ -169,6 +171,7 @@ namespace Amazon.CodeDeploy.Model
         /// The replacement deployment configuration name to use, if you want to change it.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public string DeploymentConfigName
         {
             get { return this._deploymentConfigName; }
@@ -284,6 +287,7 @@ namespace Amazon.CodeDeploy.Model
         /// The new name of the deployment group, if you want to change it.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public string NewDeploymentGroupName
         {
             get { return this._newDeploymentGroupName; }
@@ -357,7 +361,7 @@ namespace Amazon.CodeDeploy.Model
         /// Gets and sets the property TriggerConfigurations. 
         /// <para>
         /// Information about triggers to change when the deployment group is updated. For examples,
-        /// see <a href="http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html">Modify
+        /// see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html">Modify
         /// Triggers in an AWS CodeDeploy Deployment Group</a> in the AWS CodeDeploy User Guide.
         /// </para>
         /// </summary>

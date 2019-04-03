@@ -42,6 +42,7 @@ namespace Amazon.CognitoIdentity.Model
         /// An identity pool ID in the format REGION:GUID.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=55)]
         public string IdentityPoolId
         {
             get { return this._identityPoolId; }
@@ -59,9 +60,10 @@ namespace Amazon.CognitoIdentity.Model
         /// <para>
         /// How users for a specific identity provider are to mapped to roles. This is a String-to-<a>RoleMapping</a>
         /// object map. The string identifies the identity provider, for example, "graph.facebook.com"
-        /// or "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+        /// or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
         /// </para>
         /// </summary>
+        [AWSProperty(Max=10)]
         public Dictionary<string, RoleMapping> RoleMappings
         {
             get { return this._roleMappings; }
@@ -81,6 +83,7 @@ namespace Amazon.CognitoIdentity.Model
         /// roles are supported.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=2)]
         public Dictionary<string, string> Roles
         {
             get { return this._roles; }

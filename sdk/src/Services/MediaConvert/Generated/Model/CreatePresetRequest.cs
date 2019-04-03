@@ -73,6 +73,7 @@ namespace Amazon.MediaConvert.Model
         /// <summary>
         /// Gets and sets the property Name. The name of the preset you are creating.
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Name
         {
             get { return this._name; }
@@ -86,8 +87,9 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property Settings.
+        /// Gets and sets the property Settings. Settings for preset
         /// </summary>
+        [AWSProperty(Required=true)]
         public PresetSettings Settings
         {
             get { return this._settings; }

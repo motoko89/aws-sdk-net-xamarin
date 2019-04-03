@@ -2685,7 +2685,7 @@
         "requestUri":"/"
       },
       "input":{"shape":"ModifyNetworkInterfaceAttributeRequest"},
-      "documentation":"<p>Modifies the specified network interface attribute. You can specify only one attribute at a time.</p>"
+      "documentation":"<p>Modifies the specified network interface attribute. You can specify only one attribute at a time. You can use this action to attach and detach security groups from an existing EC2 instance.</p>"
     },
     "ModifyReservedInstances":{
       "name":"ModifyReservedInstances",
@@ -5410,7 +5410,7 @@
           "documentation":"<p>The signed authorization message for the prefix and account.</p>"
         }
       },
-      "documentation":"<p>Provides authorization for Amazon to bring a specific IP address range to a specific AWS account using bring your own IP addresses (BYOIP).</p>"
+      "documentation":"<p>Provides authorization for Amazon to bring a specific IP address range to a specific AWS account using bring your own IP addresses (BYOIP). For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip\">Prepare to Bring Your Address Range to Your AWS Account</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
     },
     "CidrBlock":{
       "type":"structure",
@@ -9608,12 +9608,12 @@
         },
         "MaxResults":{
           "shape":"Integer",
-          "documentation":"<p>The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned <code>NextToken</code> value. This value can be between 5 and 1000. If <code>MaxResults</code> is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the instance IDs parameter in the same request.</p> <p>Constraint: If the value is greater than 1000, we return only 1000 items.</p>",
+          "documentation":"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p> <p>Constraint: If the value is greater than 1000, we return only 1000 items.</p>",
           "locationName":"maxResults"
         },
         "NextToken":{
           "shape":"String",
-          "documentation":"<p>The token to retrieve the next page of results.</p>",
+          "documentation":"<p>The token for the next page of results.</p>",
           "locationName":"nextToken"
         }
       }
@@ -9957,11 +9957,11 @@
         },
         "MaxResults":{
           "shape":"Integer",
-          "documentation":"<p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>NextToken</code> value. This value can be between 5 and 1000. If <code>MaxResults</code> is given a value larger than 1000, only 1000 results are returned.</p>"
+          "documentation":"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
         },
         "NextToken":{
           "shape":"String",
-          "documentation":"<p>The token to retrieve the next page of results.</p>"
+          "documentation":"<p>The token for the next page of results.</p>"
         }
       }
     },
@@ -9975,7 +9975,7 @@
         },
         "NextToken":{
           "shape":"String",
-          "documentation":"<p>The token to use to retrieve the next page of results.</p>",
+          "documentation":"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>",
           "locationName":"nextToken"
         }
       }
@@ -10290,11 +10290,11 @@
         },
         "MaxResults":{
           "shape":"Integer",
-          "documentation":"<p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>NextToken</code> value. This value can be between 5 and 1000. If <code>MaxResults</code> is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the flow log IDs parameter in the same request.</p>"
+          "documentation":"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
         },
         "NextToken":{
           "shape":"String",
-          "documentation":"<p>The token to retrieve the next page of results.</p>"
+          "documentation":"<p>The token for the next page of results.</p>"
         }
       }
     },
@@ -10403,7 +10403,7 @@
           "documentation":"<p>This is the maximum duration of the reservation to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 94608000 for three years.</p>"
         },
         "MaxResults":{
-          "shape":"Integer",
+          "shape":"DescribeHostReservationsMaxResults",
           "documentation":"<p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>"
         },
         "MinDuration":{
@@ -10435,12 +10435,17 @@
         }
       }
     },
+    "DescribeHostReservationsMaxResults":{
+      "type":"integer",
+      "max":500,
+      "min":5
+    },
     "DescribeHostReservationsRequest":{
       "type":"structure",
       "members":{
         "Filter":{
           "shape":"FilterList",
-          "documentation":"<p>One or more filters.</p> <ul> <li> <p> <code>instance-family</code> - The instance family (for example, <code>m4</code>).</p> </li> <li> <p> <code>payment-option</code> - The payment option (<code>NoUpfront</code> | <code>PartialUpfront</code> | <code>AllUpfront</code>).</p> </li> <li> <p> <code>state</code> - The state of the reservation (<code>payment-pending</code> | <code>payment-failed</code> | <code>active</code> | <code>retired</code>).</p> </li> </ul>"
+          "documentation":"<p>One or more filters.</p> <ul> <li> <p> <code>instance-family</code> - The instance family (for example, <code>m4</code>).</p> </li> <li> <p> <code>payment-option</code> - The payment option (<code>NoUpfront</code> | <code>PartialUpfront</code> | <code>AllUpfront</code>).</p> </li> <li> <p> <code>state</code> - The state of the reservation (<code>payment-pending</code> | <code>payment-failed</code> | <code>active</code> | <code>retired</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>"
         },
         "HostReservationIdSet":{
           "shape":"HostReservationIdSet",
@@ -10909,6 +10914,11 @@
         }
       }
     },
+    "DescribeInternetGatewaysMaxResults":{
+      "type":"integer",
+      "max":1000,
+      "min":5
+    },
     "DescribeInternetGatewaysRequest":{
       "type":"structure",
       "members":{
@@ -10926,6 +10936,14 @@
           "shape":"ValueStringList",
           "documentation":"<p>One or more internet gateway IDs.</p> <p>Default: Describes all your internet gateways.</p>",
           "locationName":"internetGatewayId"
+        },
+        "NextToken":{
+          "shape":"String",
+          "documentation":"<p>The token for the next page of results.</p>"
+        },
+        "MaxResults":{
+          "shape":"DescribeInternetGatewaysMaxResults",
+          "documentation":"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
         }
       }
     },
@@ -10936,6 +10954,11 @@
           "shape":"InternetGatewayList",
           "documentation":"<p>Information about one or more internet gateways.</p>",
           "locationName":"internetGatewaySet"
+        },
+        "NextToken":{
+          "shape":"String",
+          "documentation":"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>",
+          "locationName":"nextToken"
         }
       }
     },
@@ -11128,7 +11151,7 @@
         },
         "MaxResults":{
           "shape":"Integer",
-          "documentation":"<p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p> <p>Constraint: If the value specified is greater than 1000, we return only 1000 items.</p>"
+          "documentation":"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
         },
         "NatGatewayIds":{
           "shape":"ValueStringList",
@@ -11137,7 +11160,7 @@
         },
         "NextToken":{
           "shape":"String",
-          "documentation":"<p>The token to retrieve the next page of results.</p>"
+          "documentation":"<p>The token for the next page of results.</p>"
         }
       }
     },
@@ -11156,6 +11179,11 @@
         }
       }
     },
+    "DescribeNetworkAclsMaxResults":{
+      "type":"integer",
+      "max":1000,
+      "min":5
+    },
     "DescribeNetworkAclsRequest":{
       "type":"structure",
       "members":{
@@ -11173,6 +11201,14 @@
           "shape":"ValueStringList",
           "documentation":"<p>One or more network ACL IDs.</p> <p>Default: Describes all your network ACLs.</p>",
           "locationName":"NetworkAclId"
+        },
+        "NextToken":{
+          "shape":"String",
+          "documentation":"<p>The token for the next page of results.</p>"
+        },
+        "MaxResults":{
+          "shape":"DescribeNetworkAclsMaxResults",
+          "documentation":"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
         }
       }
     },
@@ -11183,6 +11219,11 @@
           "shape":"NetworkAclList",
           "documentation":"<p>Information about one or more network ACLs.</p>",
           "locationName":"networkAclSet"
+        },
+        "NextToken":{
+          "shape":"String",
+          "documentation":"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>",
+          "locationName":"nextToken"
         }
       }
     },
@@ -11368,11 +11409,11 @@
         },
         "MaxResults":{
           "shape":"Integer",
-          "documentation":"<p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p> <p>Constraint: If the value specified is greater than 1000, we return only 1000 items.</p>"
+          "documentation":"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
         },
         "NextToken":{
           "shape":"String",
-          "documentation":"<p>The token for the next set of items to return. (You received this token from a prior call.)</p>"
+          "documentation":"<p>The token for the next page of results.</p>"
         },
         "PrefixListIds":{
           "shape":"ValueStringList",
@@ -11386,7 +11427,7 @@
       "members":{
         "NextToken":{
           "shape":"String",
-          "documentation":"<p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>",
+          "documentation":"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>",
           "locationName":"nextToken"
         },
         "PrefixLists":{
@@ -11715,11 +11756,11 @@
         },
         "NextToken":{
           "shape":"String",
-          "documentation":"<p>The token to retrieve the next page of results.</p>"
+          "documentation":"<p>The token for the next page of results.</p>"
         },
         "MaxResults":{
           "shape":"Integer",
-          "documentation":"<p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <b>NextToken</b> value. This value can be between 5 and 100.</p>"
+          "documentation":"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
         }
       }
     },
@@ -12389,7 +12430,7 @@
         },
         "Filters":{
           "shape":"FilterList",
-          "documentation":"<p>One or more filters.</p> <ul> <li> <p> <code>key</code> - The tag key.</p> </li> <li> <p> <code>resource-id</code> - The ID of the resource.</p> </li> <li> <p> <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code> | <code>image</code> | <code>instance</code> | <code>internet-gateway</code> | <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> | <code>reserved-instances</code> | <code>route-table</code> | <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example, specify \"tag:Owner\" for the filter name and \"TeamA\" for the filter value to find resources with the tag \"Owner=TeamA\".</p> </li> <li> <p> <code>value</code> - The tag value.</p> </li> </ul>",
+          "documentation":"<p>One or more filters.</p> <ul> <li> <p> <code>key</code> - The tag key.</p> </li> <li> <p> <code>resource-id</code> - The ID of the resource.</p> </li> <li> <p> <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code> | <code>image</code> | <code>instance</code> | <code>host-reservation</code> | <code>internet-gateway</code> | <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> | <code>reserved-instances</code> | <code>route-table</code> | <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example, specify \"tag:Owner\" for the filter name and \"TeamA\" for the filter value to find resources with the tag \"Owner=TeamA\".</p> </li> <li> <p> <code>value</code> - The tag value.</p> </li> </ul>",
           "locationName":"Filter"
         },
         "MaxResults":{
@@ -12808,12 +12849,12 @@
       "members":{
         "MaxResults":{
           "shape":"MaxResults",
-          "documentation":"<p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>",
+          "documentation":"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>",
           "locationName":"maxResults"
         },
         "NextToken":{
           "shape":"NextToken",
-          "documentation":"<p>The token for the next set of items to return. (You received this token from a prior call.)</p>",
+          "documentation":"<p>The token for the next page of results.</p>",
           "locationName":"nextToken"
         },
         "VpcIds":{
@@ -12827,7 +12868,7 @@
       "members":{
         "NextToken":{
           "shape":"NextToken",
-          "documentation":"<p>The token to use when requesting the next set of items.</p>",
+          "documentation":"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>",
           "locationName":"nextToken"
         },
         "Vpcs":{
@@ -13147,11 +13188,11 @@
         },
         "NextToken":{
           "shape":"String",
-          "documentation":"<p>The token to request the next page of results. (You received this token from a prior call.)</p>"
+          "documentation":"<p>The token for the next page of results.</p>"
         },
         "MaxResults":{
           "shape":"DescribeVpcPeeringConnectionsMaxResults",
-          "documentation":"<p>The maximum number of results to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>"
+          "documentation":"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
         }
       }
     },
@@ -13170,6 +13211,11 @@
         }
       }
     },
+    "DescribeVpcsMaxResults":{
+      "type":"integer",
+      "max":1000,
+      "min":5
+    },
     "DescribeVpcsRequest":{
       "type":"structure",
       "members":{
@@ -13187,6 +13233,14 @@
           "shape":"Boolean",
           "documentation":"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
           "locationName":"dryRun"
+        },
+        "NextToken":{
+          "shape":"String",
+          "documentation":"<p>The token for the next page of results.</p>"
+        },
+        "MaxResults":{
+          "shape":"DescribeVpcsMaxResults",
+          "documentation":"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
         }
       }
     },
@@ -13197,6 +13251,11 @@
           "shape":"VpcList",
           "documentation":"<p>Information about one or more VPCs.</p>",
           "locationName":"vpcSet"
+        },
+        "NextToken":{
+          "shape":"String",
+          "documentation":"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>",
+          "locationName":"nextToken"
         }
       }
     },
@@ -15127,6 +15186,11 @@
           "shape":"Boolean",
           "documentation":"<p>Indicates whether the AFI is public.</p>",
           "locationName":"public"
+        },
+        "DataRetentionSupport":{
+          "shape":"Boolean",
+          "documentation":"<p>Indicates whether data retention support is enabled for the AFI.</p>",
+          "locationName":"dataRetentionSupport"
         }
       },
       "documentation":"<p>Describes an Amazon FPGA image (AFI).</p>"
@@ -15950,6 +16014,11 @@
           "shape":"String",
           "documentation":"<p>The upfront price of the reservation.</p>",
           "locationName":"upfrontPrice"
+        },
+        "Tags":{
+          "shape":"TagList",
+          "documentation":"<p>Any tags assigned to the Dedicated Host Reservation.</p>",
+          "locationName":"tagSet"
         }
       },
       "documentation":"<p>Details about the Dedicated Host Reservation and associated Dedicated Hosts.</p>"
@@ -18113,6 +18182,14 @@
         "r5d.12xlarge",
         "r5d.24xlarge",
         "r5d.metal",
+        "r5ad.large",
+        "r5ad.xlarge",
+        "r5ad.2xlarge",
+        "r5ad.4xlarge",
+        "r5ad.8xlarge",
+        "r5ad.12xlarge",
+        "r5ad.16xlarge",
+        "r5ad.24xlarge",
         "x1.16xlarge",
         "x1.32xlarge",
         "x1e.xlarge",
@@ -18207,6 +18284,14 @@
         "m5d.12xlarge",
         "m5d.24xlarge",
         "m5d.metal",
+        "m5ad.large",
+        "m5ad.xlarge",
+        "m5ad.2xlarge",
+        "m5ad.4xlarge",
+        "m5ad.8xlarge",
+        "m5ad.12xlarge",
+        "m5ad.16xlarge",
+        "m5ad.24xlarge",
         "h1.2xlarge",
         "h1.4xlarge",
         "h1.8xlarge",
@@ -24014,6 +24099,7 @@
         "elastic-ip",
         "fleet",
         "fpga-image",
+        "host-reservation",
         "image",
         "instance",
         "internet-gateway",

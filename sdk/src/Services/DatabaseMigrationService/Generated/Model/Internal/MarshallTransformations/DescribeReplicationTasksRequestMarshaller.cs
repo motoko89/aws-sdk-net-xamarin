@@ -96,6 +96,12 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.MaxRecords);
                 }
 
+                if(publicRequest.IsSetWithoutSettings())
+                {
+                    context.Writer.WritePropertyName("WithoutSettings");
+                    context.Writer.Write(publicRequest.WithoutSettings);
+                }
+
         
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();

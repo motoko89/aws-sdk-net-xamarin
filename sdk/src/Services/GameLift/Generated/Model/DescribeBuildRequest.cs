@@ -32,6 +32,19 @@ namespace Amazon.GameLift.Model
     /// Retrieves properties for a build. To request a build record, specify a build ID. If
     /// successful, an object containing the build properties is returned.
     /// 
+    ///  
+    /// <para>
+    ///  <b>Learn more</b> 
+    /// </para>
+    ///  
+    /// <para>
+    ///  <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/build-intro.html">
+    /// Working with Builds</a> 
+    /// </para>
+    ///  
+    /// <para>
+    ///  <b>Related operations</b> 
+    /// </para>
     ///  <ul> <li> 
     /// <para>
     ///  <a>CreateBuild</a> 
@@ -64,6 +77,7 @@ namespace Amazon.GameLift.Model
         /// Unique identifier for a build to retrieve properties for.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string BuildId
         {
             get { return this._buildId; }

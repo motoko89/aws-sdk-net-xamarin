@@ -43,9 +43,9 @@ namespace Amazon.Chime.Model
     ///  
     /// <para>
     /// Users suspended from an <code>EnterpriseLWA</code> account are immediately signed
-    /// out of Amazon Chime and are no longer able to sign in. To remove the suspension from
-    /// suspended <code>EnterpriseLWA</code> account users, use the <a>BatchUnsuspendUser</a>
-    /// action. 
+    /// out of Amazon Chime and can no longer sign in. To remove the suspension from suspended
+    /// <code>EnterpriseLWA</code> account users, use the <a>BatchUnsuspendUser</a> action.
+    /// 
     /// </para>
     ///  
     /// <para>
@@ -63,6 +63,7 @@ namespace Amazon.Chime.Model
         /// The Amazon Chime account ID.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string AccountId
         {
             get { return this._accountId; }
@@ -81,6 +82,7 @@ namespace Amazon.Chime.Model
         /// The request containing the user IDs to suspend.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Max=50)]
         public List<string> UserIdList
         {
             get { return this._userIdList; }

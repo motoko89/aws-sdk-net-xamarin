@@ -42,6 +42,7 @@ namespace Amazon.MediaPackage.Model
         private string _manifestName;
         private MssPackage _mssPackage;
         private int? _startoverWindowSeconds;
+        private Dictionary<string, string> _tags = new Dictionary<string, string>();
         private int? _timeDelaySeconds;
         private List<string> _whitelist = new List<string>();
 
@@ -49,6 +50,7 @@ namespace Amazon.MediaPackage.Model
         /// Gets and sets the property ChannelId. The ID of the Channel that the OriginEndpoint
         /// will be associated with.This cannot be changed after the OriginEndpoint is created.
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ChannelId
         {
             get { return this._channelId; }
@@ -125,6 +127,7 @@ namespace Amazon.MediaPackage.Model
         /// Gets and sets the property Id. The ID of the OriginEndpoint.  The ID must be unique
         /// within the regionand it cannot be changed after the OriginEndpoint is created.
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Id
         {
             get { return this._id; }
@@ -183,6 +186,21 @@ namespace Amazon.MediaPackage.Model
         internal bool IsSetStartoverWindowSeconds()
         {
             return this._startoverWindowSeconds.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
         /// <summary>

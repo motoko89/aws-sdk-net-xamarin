@@ -42,8 +42,7 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property DisabledDate. 
         /// <para>
-        /// The date and time when a user was deregistered from Amazon WorkMail, in UNIX epoch
-        /// time format.
+        /// The date and time when a user was deregistered from WorkMail, in UNIX epoch time format.
         /// </para>
         /// </summary>
         public DateTime DisabledDate
@@ -64,6 +63,7 @@ namespace Amazon.WorkMail.Model
         /// The email of the described group.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=254)]
         public string Email
         {
             get { return this._email; }
@@ -79,8 +79,7 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property EnabledDate. 
         /// <para>
-        /// The date and time when a user was registered to Amazon WorkMail, in UNIX epoch time
-        /// format.
+        /// The date and time when a user was registered to WorkMail, in UNIX epoch time format.
         /// </para>
         /// </summary>
         public DateTime EnabledDate
@@ -101,6 +100,7 @@ namespace Amazon.WorkMail.Model
         /// The identifier of the described group.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=12, Max=256)]
         public string GroupId
         {
             get { return this._groupId; }
@@ -119,6 +119,7 @@ namespace Amazon.WorkMail.Model
         /// The name of the described group.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=256)]
         public string Name
         {
             get { return this._name; }
@@ -135,7 +136,7 @@ namespace Amazon.WorkMail.Model
         /// Gets and sets the property State. 
         /// <para>
         /// The state of the user: enabled (registered to Amazon WorkMail) or disabled (deregistered
-        /// or never registered to Amazon WorkMail).
+        /// or never registered to WorkMail).
         /// </para>
         /// </summary>
         public EntityState State

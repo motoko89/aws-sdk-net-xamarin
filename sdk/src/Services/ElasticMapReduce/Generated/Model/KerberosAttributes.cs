@@ -29,7 +29,7 @@ namespace Amazon.ElasticMapReduce.Model
 {
     /// <summary>
     /// Attributes for Kerberos configuration when Kerberos authentication is enabled using
-    /// a security configuration. For more information see <a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html">Use
+    /// a security configuration. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html">Use
     /// Kerberos Authentication</a> in the <i>EMR Management Guide</i>.
     /// </summary>
     public partial class KerberosAttributes
@@ -46,6 +46,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// The Active Directory password for <code>ADDomainJoinUser</code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=256)]
         public string ADDomainJoinPassword
         {
             get { return this._adDomainJoinPassword; }
@@ -65,6 +66,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// A user with sufficient privileges to join resources to the domain.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=256)]
         public string ADDomainJoinUser
         {
             get { return this._adDomainJoinUser; }
@@ -84,6 +86,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// The cross-realm principal password, which must be identical across realms.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=256)]
         public string CrossRealmTrustPrincipalPassword
         {
             get { return this._crossRealmTrustPrincipalPassword; }
@@ -103,6 +106,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=0, Max=256)]
         public string KdcAdminPassword
         {
             get { return this._kdcAdminPassword; }
@@ -122,6 +126,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// <code>EC2.INTERNAL</code>. 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=0, Max=256)]
         public string Realm
         {
             get { return this._realm; }

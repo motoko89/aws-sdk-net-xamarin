@@ -57,6 +57,7 @@ namespace Amazon.CloudWatch.Model
         /// The dimensions to filter against.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=10)]
         public List<DimensionFilter> Dimensions
         {
             get { return this._dimensions; }
@@ -75,6 +76,7 @@ namespace Amazon.CloudWatch.Model
         /// The name of the metric to filter against.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string MetricName
         {
             get { return this._metricName; }
@@ -93,6 +95,7 @@ namespace Amazon.CloudWatch.Model
         /// The namespace to filter against.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string Namespace
         {
             get { return this._awsNamespace; }

@@ -42,6 +42,7 @@ namespace Amazon.CognitoIdentity.Model
         /// not match the one passed on input.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=55)]
         public string IdentityId
         {
             get { return this._identityId; }
@@ -57,7 +58,7 @@ namespace Amazon.CognitoIdentity.Model
         /// <summary>
         /// Gets and sets the property Token. 
         /// <para>
-        /// An OpenID token, valid for 15 minutes.
+        /// An OpenID token, valid for 10 minutes.
         /// </para>
         /// </summary>
         public string Token

@@ -41,10 +41,12 @@ namespace Amazon.StorageGateway.Model
         private string _gatewayType;
         private string _lastSoftwareUpdate;
         private string _nextUpdateAvailabilityDate;
+        private List<Tag> _tags = new List<Tag>();
 
         /// <summary>
         /// Gets and sets the property GatewayARN.
         /// </summary>
+        [AWSProperty(Min=50, Max=500)]
         public string GatewayARN
         {
             get { return this._gatewayARN; }
@@ -64,6 +66,7 @@ namespace Amazon.StorageGateway.Model
         /// part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=12, Max=30)]
         public string GatewayId
         {
             get { return this._gatewayId; }
@@ -119,6 +122,7 @@ namespace Amazon.StorageGateway.Model
         /// A value that indicates the operating state of the gateway.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=2, Max=25)]
         public string GatewayState
         {
             get { return this._gatewayState; }
@@ -137,6 +141,7 @@ namespace Amazon.StorageGateway.Model
         /// A value that indicates the time zone configured for the gateway.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=3, Max=10)]
         public string GatewayTimezone
         {
             get { return this._gatewayTimezone; }
@@ -155,6 +160,7 @@ namespace Amazon.StorageGateway.Model
         /// The type of the gateway.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=2, Max=20)]
         public string GatewayType
         {
             get { return this._gatewayType; }
@@ -174,6 +180,7 @@ namespace Amazon.StorageGateway.Model
         /// has never been updated, this field does not return a value in the response.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=25)]
         public string LastSoftwareUpdate
         {
             get { return this._lastSoftwareUpdate; }
@@ -194,6 +201,7 @@ namespace Amazon.StorageGateway.Model
         /// returned in the response.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=25)]
         public string NextUpdateAvailabilityDate
         {
             get { return this._nextUpdateAvailabilityDate; }
@@ -204,6 +212,26 @@ namespace Amazon.StorageGateway.Model
         internal bool IsSetNextUpdateAvailabilityDate()
         {
             return this._nextUpdateAvailabilityDate != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// A list of up to 10 tags assigned to the gateway, sorted alphabetically by key name.
+        /// Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can
+        /// view all tags using the <code>ListTagsForResource</code> API operation.
+        /// </para>
+        /// </summary>
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
     }

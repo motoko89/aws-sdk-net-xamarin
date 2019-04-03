@@ -58,7 +58,7 @@ namespace Amazon.SageMaker.Model
         /// <para>
         /// An array of hyperparameter tuning jobs that are used as the starting point for the
         /// new hyperparameter tuning job. For more information about warm starting a hyperparameter
-        /// tuning job, see <a href="http://docs.aws.amazon.com/automatic-model-tuning-incremental">Using
+        /// tuning job, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-warm-start.html">Using
         /// a Previous Hyperparameter Tuning Job as a Starting Point</a>.
         /// </para>
         ///  
@@ -67,6 +67,7 @@ namespace Amazon.SageMaker.Model
         /// jobs for warm start tuning jobs.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=5)]
         public List<ParentHyperParameterTuningJob> ParentHyperParameterTuningJobs
         {
             get { return this._parentHyperParameterTuningJobs; }
@@ -109,6 +110,7 @@ namespace Amazon.SageMaker.Model
         /// </para>
         ///  </dd> </dl>
         /// </summary>
+        [AWSProperty(Required=true)]
         public HyperParameterTuningJobWarmStartType WarmStartType
         {
             get { return this._warmStartType; }

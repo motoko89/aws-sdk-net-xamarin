@@ -53,6 +53,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// or aws:updateSSMAgent. 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=4)]
         public string Name
         {
             get { return this._name; }
@@ -71,6 +72,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Output of the plugin execution.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=2500)]
         public string Output
         {
             get { return this._output; }
@@ -111,6 +113,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// awsrunShellScript is the name of the plugin.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=3, Max=63)]
         public string OutputS3BucketName
         {
             get { return this._outputS3BucketName; }
@@ -152,6 +155,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// awsrunShellScript is the name of the plugin.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=500)]
         public string OutputS3KeyPrefix
         {
             get { return this._outputS3KeyPrefix; }
@@ -171,6 +175,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Systems Manager automatically determines the Amazon S3 bucket region.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=3, Max=20)]
         public string OutputS3Region
         {
             get { return this._outputS3Region; }
@@ -186,7 +191,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property ResponseCode. 
         /// <para>
-        /// A numeric response code generated after executing the plugin. 
+        /// A numeric response code generated after running the plugin. 
         /// </para>
         /// </summary>
         public int ResponseCode
@@ -204,7 +209,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property ResponseFinishDateTime. 
         /// <para>
-        /// The time the plugin stopped executing. Could stop prematurely if, for example, a cancel
+        /// The time the plugin stopped running. Could stop prematurely if, for example, a cancel
         /// command was sent. 
         /// </para>
         /// </summary>
@@ -223,7 +228,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property ResponseStartDateTime. 
         /// <para>
-        /// The time the plugin started executing. 
+        /// The time the plugin started running. 
         /// </para>
         /// </summary>
         public DateTime ResponseStartDateTime
@@ -279,7 +284,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property Status. 
         /// <para>
-        /// The status of this plugin. You can execute a document with multiple plugins.
+        /// The status of this plugin. You can run a document with multiple plugins.
         /// </para>
         /// </summary>
         public CommandPluginStatus Status
@@ -356,6 +361,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// </para>
         ///  </li> </ul>
         /// </summary>
+        [AWSProperty(Min=0, Max=100)]
         public string StatusDetails
         {
             get { return this._statusDetails; }

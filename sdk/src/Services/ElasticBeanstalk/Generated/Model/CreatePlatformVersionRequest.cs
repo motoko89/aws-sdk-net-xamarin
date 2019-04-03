@@ -38,6 +38,7 @@ namespace Amazon.ElasticBeanstalk.Model
         private S3Location _platformDefinitionBundle;
         private string _platformName;
         private string _platformVersion;
+        private List<Tag> _tags = new List<Tag>();
 
         /// <summary>
         /// Gets and sets the property EnvironmentName. 
@@ -45,6 +46,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// The name of the builder environment.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=4, Max=40)]
         public string EnvironmentName
         {
             get { return this._environmentName; }
@@ -81,6 +83,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// The location of the platform definition archive in Amazon S3.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public S3Location PlatformDefinitionBundle
         {
             get { return this._platformDefinitionBundle; }
@@ -99,6 +102,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// The name of your custom platform.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string PlatformName
         {
             get { return this._platformName; }
@@ -117,6 +121,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// The number, such as 1.0.2, for the new platform version.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string PlatformVersion
         {
             get { return this._platformVersion; }
@@ -127,6 +132,29 @@ namespace Amazon.ElasticBeanstalk.Model
         internal bool IsSetPlatformVersion()
         {
             return this._platformVersion != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// Specifies the tags applied to the new platform version.
+        /// </para>
+        ///  
+        /// <para>
+        /// Elastic Beanstalk applies these tags only to the platform version. Environments that
+        /// you create using the platform version don't inherit the tags.
+        /// </para>
+        /// </summary>
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
     }

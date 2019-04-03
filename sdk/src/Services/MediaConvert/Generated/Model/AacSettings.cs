@@ -48,7 +48,15 @@ namespace Amazon.MediaConvert.Model
         private AacVbrQuality _vbrQuality;
 
         /// <summary>
-        /// Gets and sets the property AudioDescriptionBroadcasterMix.
+        /// Gets and sets the property AudioDescriptionBroadcasterMix. Choose BROADCASTER_MIXED_AD
+        /// when the input contains pre-mixed main audio + audio description (AD) as a stereo
+        /// pair. The value for AudioType will be set to 3, which signals to downstream systems
+        /// that this stream contains "broadcaster mixed AD". Note that the input received by
+        /// the encoder must contain pre-mixed audio; the encoder does not perform the mixing.
+        /// When you choose BROADCASTER_MIXED_AD, the encoder ignores any values you provide in
+        /// AudioType and  FollowInputAudioType. Choose NORMAL when the input does not contain
+        /// pre-mixed audio + audio description (AD). In this case, the encoder will use any values
+        /// you provide for AudioType and FollowInputAudioType.
         /// </summary>
         public AacAudioDescriptionBroadcasterMix AudioDescriptionBroadcasterMix
         {
@@ -71,6 +79,7 @@ namespace Amazon.MediaConvert.Model
         /// (codecProfile), Bitrate control mode (codingMode), and Sample rate (sampleRate). Default
         /// values depend on Bitrate control mode and Profile.
         /// </summary>
+        [AWSProperty(Min=6000, Max=1024000)]
         public int Bitrate
         {
             get { return this._bitrate.GetValueOrDefault(); }
@@ -84,7 +93,7 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property CodecProfile.
+        /// Gets and sets the property CodecProfile. AAC Profile.
         /// </summary>
         public AacCodecProfile CodecProfile
         {
@@ -99,7 +108,11 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property CodingMode.
+        /// Gets and sets the property CodingMode. Mono (Audio Description), Mono, Stereo, or
+        /// 5.1 channel layout. Valid values depend on rate control mode and profile. "1.0 - Audio
+        /// Description (Receiver Mix)" setting receives a stereo description plus control track
+        /// and emits a mono AAC encode of the description track, with control data emitted in
+        /// the PES header as per ETSI TS 101 154 Annex E.
         /// </summary>
         public AacCodingMode CodingMode
         {
@@ -114,7 +127,7 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property RateControlMode.
+        /// Gets and sets the property RateControlMode. Rate Control Mode.
         /// </summary>
         public AacRateControlMode RateControlMode
         {
@@ -129,7 +142,8 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property RawFormat.
+        /// Gets and sets the property RawFormat. Enables LATM/LOAS AAC output. Note that if you
+        /// use LATM/LOAS AAC in an output, you must choose "No container" for the output container.
         /// </summary>
         public AacRawFormat RawFormat
         {
@@ -147,6 +161,7 @@ namespace Amazon.MediaConvert.Model
         /// Gets and sets the property SampleRate. Sample rate in Hz. Valid values depend on rate
         /// control mode and profile.
         /// </summary>
+        [AWSProperty(Min=8000, Max=96000)]
         public int SampleRate
         {
             get { return this._sampleRate.GetValueOrDefault(); }
@@ -160,7 +175,8 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property Specification.
+        /// Gets and sets the property Specification. Use MPEG-2 AAC instead of MPEG-4 AAC audio
+        /// for raw or MPEG-2 Transport Stream containers.
         /// </summary>
         public AacSpecification Specification
         {
@@ -175,7 +191,8 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property VbrQuality.
+        /// Gets and sets the property VbrQuality. VBR Quality Level - Only used if rate_control_mode
+        /// is VBR.
         /// </summary>
         public AacVbrQuality VbrQuality
         {

@@ -35,8 +35,28 @@ namespace Amazon.DirectConnect.Model
     /// </summary>
     public partial class CreateDirectConnectGatewayAssociationRequest : AmazonDirectConnectRequest
     {
+        private List<RouteFilterPrefix> _addAllowedPrefixesToDirectConnectGateway = new List<RouteFilterPrefix>();
         private string _directConnectGatewayId;
+        private string _gatewayId;
         private string _virtualGatewayId;
+
+        /// <summary>
+        /// Gets and sets the property AddAllowedPrefixesToDirectConnectGateway. 
+        /// <para>
+        /// The Amazon VPC prefixes to advertise to the Direct Connect gateway
+        /// </para>
+        /// </summary>
+        public List<RouteFilterPrefix> AddAllowedPrefixesToDirectConnectGateway
+        {
+            get { return this._addAllowedPrefixesToDirectConnectGateway; }
+            set { this._addAllowedPrefixesToDirectConnectGateway = value; }
+        }
+
+        // Check to see if AddAllowedPrefixesToDirectConnectGateway property is set
+        internal bool IsSetAddAllowedPrefixesToDirectConnectGateway()
+        {
+            return this._addAllowedPrefixesToDirectConnectGateway != null && this._addAllowedPrefixesToDirectConnectGateway.Count > 0; 
+        }
 
         /// <summary>
         /// Gets and sets the property DirectConnectGatewayId. 
@@ -44,6 +64,7 @@ namespace Amazon.DirectConnect.Model
         /// The ID of the Direct Connect gateway.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string DirectConnectGatewayId
         {
             get { return this._directConnectGatewayId; }
@@ -54,6 +75,24 @@ namespace Amazon.DirectConnect.Model
         internal bool IsSetDirectConnectGatewayId()
         {
             return this._directConnectGatewayId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property GatewayId. 
+        /// <para>
+        /// The ID of the virtual private gateway.
+        /// </para>
+        /// </summary>
+        public string GatewayId
+        {
+            get { return this._gatewayId; }
+            set { this._gatewayId = value; }
+        }
+
+        // Check to see if GatewayId property is set
+        internal bool IsSetGatewayId()
+        {
+            return this._gatewayId != null;
         }
 
         /// <summary>

@@ -39,9 +39,10 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property OrganizationId. 
         /// <para>
-        /// The identifier associated with the organization for which the resource is deleted.
+        /// The identifier associated with the organization from which the resource is deleted.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string OrganizationId
         {
             get { return this._organizationId; }
@@ -60,6 +61,7 @@ namespace Amazon.WorkMail.Model
         /// The identifier of the resource to be deleted.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ResourceId
         {
             get { return this._resourceId; }

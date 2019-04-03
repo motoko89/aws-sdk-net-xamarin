@@ -31,9 +31,15 @@ namespace Amazon.RDS.Model
     /// Container for the parameters to the RestoreDBClusterFromS3 operation.
     /// Creates an Amazon Aurora DB cluster from data stored in an Amazon S3 bucket. Amazon
     /// RDS must be authorized to access the Amazon S3 bucket and the data must be created
-    /// using the Percona XtraBackup utility as described in <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.html">
+    /// using the Percona XtraBackup utility as described in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.html">
     /// Migrating Data to an Amazon Aurora MySQL DB Cluster</a> in the <i>Amazon Aurora User
     /// Guide</i>.
+    /// 
+    ///  <note> 
+    /// <para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class RestoreDBClusterFromS3Request : AmazonRDSRequest
     {
@@ -41,6 +47,7 @@ namespace Amazon.RDS.Model
         private long? _backtrackWindow;
         private int? _backupRetentionPeriod;
         private string _characterSetName;
+        private bool? _copyTagsToSnapshot;
         private string _databaseName;
         private string _dbClusterIdentifier;
         private string _dbClusterParameterGroupName;
@@ -169,6 +176,25 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property CopyTagsToSnapshot. 
+        /// <para>
+        /// True to copy all tags from the restored DB cluster to snapshots of the restored DB
+        /// cluster, and otherwise false. The default is false.
+        /// </para>
+        /// </summary>
+        public bool CopyTagsToSnapshot
+        {
+            get { return this._copyTagsToSnapshot.GetValueOrDefault(); }
+            set { this._copyTagsToSnapshot = value; }
+        }
+
+        // Check to see if CopyTagsToSnapshot property is set
+        internal bool IsSetCopyTagsToSnapshot()
+        {
+            return this._copyTagsToSnapshot.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property DatabaseName. 
         /// <para>
         /// The database name for the restored DB cluster.
@@ -213,6 +239,7 @@ namespace Amazon.RDS.Model
         /// Example: <code>my-cluster1</code> 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string DBClusterIdentifier
         {
             get { return this._dbClusterIdentifier; }
@@ -303,7 +330,7 @@ namespace Amazon.RDS.Model
         /// <para>
         /// The list of logs that the restored DB cluster is to export to CloudWatch Logs. The
         /// values in the list depend on the DB engine being used. For more information, see <a
-        /// href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.
         /// </para>
         /// </summary>
@@ -352,6 +379,7 @@ namespace Amazon.RDS.Model
         /// Valid Values: <code>aurora</code>, <code>aurora-postgresql</code> 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Engine
         {
             get { return this._engine; }
@@ -453,6 +481,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  </li> </ul>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string MasterUsername
         {
             get { return this._masterUsername; }
@@ -476,6 +505,7 @@ namespace Amazon.RDS.Model
         /// Constraints: Must contain from 8 to 41 characters.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string MasterUserPassword
         {
             get { return this._masterUserPassword; }
@@ -543,7 +573,7 @@ namespace Amazon.RDS.Model
         ///  
         /// <para>
         /// The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region. To see the time blocks available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+        /// for each AWS Region. To see the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
         /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
         /// 
         /// </para>
@@ -595,7 +625,7 @@ namespace Amazon.RDS.Model
         /// <para>
         /// The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each AWS Region, occurring on a random day of the week. To see the time blocks
-        /// available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
+        /// available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
         /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
         /// 
         /// </para>
@@ -627,6 +657,7 @@ namespace Amazon.RDS.Model
         /// Aurora DB cluster.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string S3BucketName
         {
             get { return this._s3BucketName; }
@@ -646,6 +677,7 @@ namespace Amazon.RDS.Model
         /// that authorizes Amazon RDS to access the Amazon S3 bucket on your behalf.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string S3IngestionRoleArn
         {
             get { return this._s3IngestionRoleArn; }
@@ -689,6 +721,7 @@ namespace Amazon.RDS.Model
         /// Valid values: <code>mysql</code> 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string SourceEngine
         {
             get { return this._sourceEngine; }
@@ -715,6 +748,7 @@ namespace Amazon.RDS.Model
         /// Example: <code>5.6.22</code> 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string SourceEngineVersion
         {
             get { return this._sourceEngineVersion; }

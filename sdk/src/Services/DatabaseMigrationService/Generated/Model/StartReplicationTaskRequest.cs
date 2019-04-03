@@ -33,7 +33,7 @@ namespace Amazon.DatabaseMigrationService.Model
     /// 
     ///  
     /// <para>
-    /// For more information about AWS DMS tasks, see <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working
+    /// For more information about AWS DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working
     /// with Migration Tasks </a> in the <i>AWS Database Migration Service User Guide.</i>
     /// 
     /// </para>
@@ -139,6 +139,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// The Amazon Resource Name (ARN) of the replication task to be started.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ReplicationTaskArn
         {
             get { return this._replicationTaskArn; }
@@ -157,6 +158,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// The type of replication task.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public StartReplicationTaskTypeValue StartReplicationTaskType
         {
             get { return this._startReplicationTaskType; }

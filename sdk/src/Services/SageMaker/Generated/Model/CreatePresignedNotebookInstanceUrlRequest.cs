@@ -42,7 +42,7 @@ namespace Amazon.SageMaker.Model
     /// AWS Identity and Access Management user, group, or role used to access the notebook
     /// instance. Use the <code>NotIpAddress</code> condition operator and the <code>aws:SourceIP</code>
     /// condition context key to specify the list of IP addresses that you want to have access
-    /// to the notebook instance. For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/howitworks-access-ws.html#nbi-ip-filter">Limit
+    /// to the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-ip-filter.html">Limit
     /// Access to a Notebook Instance by IP Address</a>.
     /// </para>
     /// </summary>
@@ -57,6 +57,7 @@ namespace Amazon.SageMaker.Model
         /// The name of the notebook instance.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Max=63)]
         public string NotebookInstanceName
         {
             get { return this._notebookInstanceName; }
@@ -75,6 +76,7 @@ namespace Amazon.SageMaker.Model
         /// The duration of the session, in seconds. The default is 12 hours.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1800, Max=43200)]
         public int SessionExpirationDurationInSeconds
         {
             get { return this._sessionExpirationDurationInSeconds.GetValueOrDefault(); }

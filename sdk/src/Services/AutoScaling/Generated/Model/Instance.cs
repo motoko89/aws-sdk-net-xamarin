@@ -46,6 +46,7 @@ namespace Amazon.AutoScaling.Model
         /// The Availability Zone in which the instance is running.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string AvailabilityZone
         {
             get { return this._availabilityZone; }
@@ -66,6 +67,7 @@ namespace Amazon.AutoScaling.Model
         /// and that Amazon EC2 Auto Scaling should terminate and replace it.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=32)]
         public string HealthStatus
         {
             get { return this._healthStatus; }
@@ -84,6 +86,7 @@ namespace Amazon.AutoScaling.Model
         /// The ID of the instance.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=19)]
         public string InstanceId
         {
             get { return this._instanceId; }
@@ -102,6 +105,7 @@ namespace Amazon.AutoScaling.Model
         /// The launch configuration associated with the instance.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=255)]
         public string LaunchConfigurationName
         {
             get { return this._launchConfigurationName; }
@@ -139,6 +143,7 @@ namespace Amazon.AutoScaling.Model
         /// not used.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public LifecycleState LifecycleState
         {
             get { return this._lifecycleState; }
@@ -157,12 +162,8 @@ namespace Amazon.AutoScaling.Model
         /// Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling
         /// when scaling in.
         /// </para>
-        ///  
-        /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance
-        /// Protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-        /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public bool ProtectedFromScaleIn
         {
             get { return this._protectedFromScaleIn.GetValueOrDefault(); }

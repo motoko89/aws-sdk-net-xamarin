@@ -30,9 +30,9 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// <summary>
     /// An invocation is copy of a command sent to a specific instance. A command can apply
     /// to one or more instances. A command invocation applies to one instance. For example,
-    /// if a user executes SendCommand against three instances, then a command invocation
-    /// is created for each requested instance ID. A command invocation returns status and
-    /// detail information about a command you executed.
+    /// if a user runs SendCommand against three instances, then a command invocation is created
+    /// for each requested instance ID. A command invocation returns status and detail information
+    /// about a command you ran.
     /// </summary>
     public partial class CommandInvocation
     {
@@ -77,6 +77,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The command against which this invocation was requested.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=36, Max=36)]
         public string CommandId
         {
             get { return this._commandId; }
@@ -111,6 +112,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// the command should do.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=100)]
         public string Comment
         {
             get { return this._comment; }
@@ -184,6 +186,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// the aws:Name tag. For on-premises instances, this is the name of the instance.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=255)]
         public string InstanceName
         {
             get { return this._instanceName; }
@@ -375,6 +378,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// </para>
         ///  </li> </ul>
         /// </summary>
+        [AWSProperty(Min=0, Max=100)]
         public string StatusDetails
         {
             get { return this._statusDetails; }
@@ -393,6 +397,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         ///  Gets the trace output sent by the agent. 
         /// </para>
         /// </summary>
+        [AWSProperty(Max=2500)]
         public string TraceOutput
         {
             get { return this._traceOutput; }

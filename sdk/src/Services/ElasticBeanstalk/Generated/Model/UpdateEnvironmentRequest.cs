@@ -72,6 +72,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// The name of the application with which the environment is associated.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public string ApplicationName
         {
             get { return this._applicationName; }
@@ -91,6 +92,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// environment.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=200)]
         public string Description
         {
             get { return this._description; }
@@ -145,6 +147,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// error. 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=4, Max=40)]
         public string EnvironmentName
         {
             get { return this._environmentName; }
@@ -162,10 +165,11 @@ namespace Amazon.ElasticBeanstalk.Model
         /// <para>
         /// The name of the group to which the target environment belongs. Specify a group name
         /// only if the environment's name is specified in an environment manifest and not with
-        /// the environment name or environment ID parameters. See <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html">Environment
+        /// the environment name or environment ID parameters. See <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html">Environment
         /// Manifest (env.yaml)</a> for details.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=19)]
         public string GroupName
         {
             get { return this._groupName; }
@@ -262,6 +266,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// returns an <code>InvalidParameterValue</code> error. 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public string TemplateName
         {
             get { return this._templateName; }
@@ -305,6 +310,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// error. 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public string VersionLabel
         {
             get { return this._versionLabel; }

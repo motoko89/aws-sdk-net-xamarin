@@ -41,6 +41,11 @@
     <max>255</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.AppMesh.Model.CreateVirtualServiceRequest.MeshName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.AppMesh.Model.DeleteMeshRequest.MeshName</property>
     <min>1</min>
     <max>255</max>
@@ -77,6 +82,11 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.AppMesh.Model.DeleteVirtualRouterRequest.VirtualRouterName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AppMesh.Model.DeleteVirtualServiceRequest.MeshName</property>
     <min>1</min>
     <max>255</max>
   </property-value-rule>
@@ -121,6 +131,11 @@
     <max>255</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.AppMesh.Model.DescribeVirtualServiceRequest.MeshName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.AppMesh.Model.ListMeshesRequest.Limit</property>
     <min>1</min>
     <max>100</max>
@@ -141,6 +156,11 @@
     <max>255</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.AppMesh.Model.ListTagsForResourceRequest.Limit</property>
+    <min>1</min>
+    <max>50</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.AppMesh.Model.ListVirtualNodesRequest.Limit</property>
     <min>1</min>
     <max>100</max>
@@ -157,6 +177,21 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.AppMesh.Model.ListVirtualRoutersRequest.MeshName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AppMesh.Model.ListVirtualServicesRequest.Limit</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AppMesh.Model.ListVirtualServicesRequest.MeshName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AppMesh.Model.UpdateMeshRequest.MeshName</property>
     <min>1</min>
     <max>255</max>
   </property-value-rule>
@@ -192,6 +227,16 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.AppMesh.Model.UpdateVirtualRouterRequest.VirtualRouterName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AppMesh.Model.UpdateVirtualServiceRequest.MeshName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AppMesh.Model.FileAccessLog.Path</property>
     <min>1</min>
     <max>255</max>
   </property-value-rule>
@@ -266,6 +311,16 @@
     <max>255</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.AppMesh.Model.TagRef.Key</property>
+    <min>1</min>
+    <max>128</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AppMesh.Model.TagRef.Value</property>
+    <min>0</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.AppMesh.Model.VirtualNodeData.MeshName</property>
     <min>1</min>
     <max>255</max>
@@ -286,6 +341,11 @@
     <max>255</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.AppMesh.Model.VirtualNodeServiceProvider.VirtualNodeName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.AppMesh.Model.VirtualRouterData.MeshName</property>
     <min>1</min>
     <max>255</max>
@@ -302,6 +362,21 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.AppMesh.Model.VirtualRouterRef.VirtualRouterName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AppMesh.Model.VirtualRouterServiceProvider.VirtualRouterName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AppMesh.Model.VirtualServiceData.MeshName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AppMesh.Model.VirtualServiceRef.MeshName</property>
     <min>1</min>
     <max>255</max>
   </property-value-rule>

@@ -1822,7 +1822,8 @@
       "members":{
         "GrokClassifier":{"shape":"GrokClassifier"},
         "XMLClassifier":{"shape":"XMLClassifier"},
-        "JsonClassifier":{"shape":"JsonClassifier"}
+        "JsonClassifier":{"shape":"JsonClassifier"},
+        "CsvClassifier":{"shape":"CsvClassifier"}
       }
     },
     "ClassifierList":{
@@ -2141,7 +2142,8 @@
       "members":{
         "GrokClassifier":{"shape":"CreateGrokClassifierRequest"},
         "XMLClassifier":{"shape":"CreateXMLClassifierRequest"},
-        "JsonClassifier":{"shape":"CreateJsonClassifierRequest"}
+        "JsonClassifier":{"shape":"CreateJsonClassifierRequest"},
+        "CsvClassifier":{"shape":"CreateCsvClassifierRequest"}
       }
     },
     "CreateClassifierResponse":{
@@ -2190,6 +2192,19 @@
       "members":{
       }
     },
+    "CreateCsvClassifierRequest":{
+      "type":"structure",
+      "required":["Name"],
+      "members":{
+        "Name":{"shape":"NameString"},
+        "Delimiter":{"shape":"CsvColumnDelimiter"},
+        "QuoteSymbol":{"shape":"CsvQuoteSymbol"},
+        "ContainsHeader":{"shape":"CsvHeaderOption"},
+        "Header":{"shape":"CsvHeader"},
+        "DisableValueTrimming":{"shape":"NullableBoolean"},
+        "AllowSingleColumn":{"shape":"NullableBoolean"}
+      }
+    },
     "CreateDatabaseRequest":{
       "type":"structure",
       "required":["DatabaseInput"],
@@ -2220,7 +2235,8 @@
         "ExtraPythonLibsS3Path":{"shape":"GenericString"},
         "ExtraJarsS3Path":{"shape":"GenericString"},
         "SecurityConfiguration":{"shape":"NameString"},
-        "Tags":{"shape":"TagsMap"}
+        "Tags":{"shape":"TagsMap"},
+        "Arguments":{"shape":"MapValue"}
       }
     },
     "CreateDevEndpointResponse":{
@@ -2240,7 +2256,8 @@
         "ExtraJarsS3Path":{"shape":"GenericString"},
         "FailureReason":{"shape":"GenericString"},
         "SecurityConfiguration":{"shape":"NameString"},
-        "CreatedTimestamp":{"shape":"TimestampValue"}
+        "CreatedTimestamp":{"shape":"TimestampValue"},
+        "Arguments":{"shape":"MapValue"}
       }
     },
     "CreateGrokClassifierRequest":{
@@ -2426,6 +2443,46 @@
       }
     },
     "CronExpression":{"type":"string"},
+    "CsvClassifier":{
+      "type":"structure",
+      "required":["Name"],
+      "members":{
+        "Name":{"shape":"NameString"},
+        "CreationTime":{"shape":"Timestamp"},
+        "LastUpdated":{"shape":"Timestamp"},
+        "Version":{"shape":"VersionId"},
+        "Delimiter":{"shape":"CsvColumnDelimiter"},
+        "QuoteSymbol":{"shape":"CsvQuoteSymbol"},
+        "ContainsHeader":{"shape":"CsvHeaderOption"},
+        "Header":{"shape":"CsvHeader"},
+        "DisableValueTrimming":{"shape":"NullableBoolean"},
+        "AllowSingleColumn":{"shape":"NullableBoolean"}
+      }
+    },
+    "CsvColumnDelimiter":{
+      "type":"string",
+      "max":1,
+      "min":1,
+      "pattern":"[^\\r\\n]"
+    },
+    "CsvHeader":{
+      "type":"list",
+      "member":{"shape":"NameString"}
+    },
+    "CsvHeaderOption":{
+      "type":"string",
+      "enum":[
+        "UNKNOWN",
+        "PRESENT",
+        "ABSENT"
+      ]
+    },
+    "CsvQuoteSymbol":{
+      "type":"string",
+      "max":1,
+      "min":1,
+      "pattern":"[^\\r\\n]"
+    },
     "CustomPatterns":{
       "type":"string",
       "max":16000,
@@ -2705,7 +2762,8 @@
         "LastModifiedTimestamp":{"shape":"TimestampValue"},
         "PublicKey":{"shape":"GenericString"},
         "PublicKeys":{"shape":"PublicKeysList"},
-        "SecurityConfiguration":{"shape":"NameString"}
+        "SecurityConfiguration":{"shape":"NameString"},
+        "Arguments":{"shape":"MapValue"}
       }
     },
     "DevEndpointCustomLibraries":{
@@ -3737,6 +3795,13 @@
       "type":"string",
       "enum":["EQUALS"]
     },
+    "MapValue":{
+      "type":"map",
+      "key":{"shape":"GenericString"},
+      "value":{"shape":"GenericString"},
+      "max":100,
+      "min":0
+    },
     "MappingEntry":{
       "type":"structure",
       "members":{
@@ -3803,6 +3868,10 @@
       "type":"integer",
       "box":true,
       "min":1
+    },
+    "NullableBoolean":{
+      "type":"boolean",
+      "box":true
     },
     "NullableDouble":{
       "type":"double",
@@ -4490,7 +4559,8 @@
       "members":{
         "GrokClassifier":{"shape":"UpdateGrokClassifierRequest"},
         "XMLClassifier":{"shape":"UpdateXMLClassifierRequest"},
-        "JsonClassifier":{"shape":"UpdateJsonClassifierRequest"}
+        "JsonClassifier":{"shape":"UpdateJsonClassifierRequest"},
+        "CsvClassifier":{"shape":"UpdateCsvClassifierRequest"}
       }
     },
     "UpdateClassifierResponse":{
@@ -4550,6 +4620,19 @@
       "members":{
       }
     },
+    "UpdateCsvClassifierRequest":{
+      "type":"structure",
+      "required":["Name"],
+      "members":{
+        "Name":{"shape":"NameString"},
+        "Delimiter":{"shape":"CsvColumnDelimiter"},
+        "QuoteSymbol":{"shape":"CsvQuoteSymbol"},
+        "ContainsHeader":{"shape":"CsvHeaderOption"},
+        "Header":{"shape":"CsvHeader"},
+        "DisableValueTrimming":{"shape":"NullableBoolean"},
+        "AllowSingleColumn":{"shape":"NullableBoolean"}
+      }
+    },
     "UpdateDatabaseRequest":{
       "type":"structure",
       "required":[
@@ -4576,7 +4659,9 @@
         "AddPublicKeys":{"shape":"PublicKeysList"},
         "DeletePublicKeys":{"shape":"PublicKeysList"},
         "CustomLibraries":{"shape":"DevEndpointCustomLibraries"},
-        "UpdateEtlLibraries":{"shape":"BooleanValue"}
+        "UpdateEtlLibraries":{"shape":"BooleanValue"},
+        "DeleteArguments":{"shape":"StringList"},
+        "AddArguments":{"shape":"MapValue"}
       }
     },
     "UpdateDevEndpointResponse":{

@@ -38,7 +38,7 @@ namespace Amazon.AutoScaling.Model
         /// <summary>
         /// Gets and sets the property Alarms. 
         /// <para>
-        /// The CloudWatch alarms created for the target tracking policy.
+        /// The CloudWatch alarms created for the target tracking scaling policy.
         /// </para>
         /// </summary>
         public List<Alarm> Alarms
@@ -59,6 +59,7 @@ namespace Amazon.AutoScaling.Model
         /// The Amazon Resource Name (ARN) of the policy.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1600)]
         public string PolicyARN
         {
             get { return this._policyARN; }

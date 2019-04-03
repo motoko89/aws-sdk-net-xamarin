@@ -45,6 +45,7 @@ namespace Amazon.IoT.Model
         /// The search index name.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=128)]
         public string IndexName
         {
             get { return this._indexName; }
@@ -63,6 +64,7 @@ namespace Amazon.IoT.Model
         /// The maximum number of results to return at one time.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=500)]
         public int MaxResults
         {
             get { return this._maxResults.GetValueOrDefault(); }
@@ -78,7 +80,7 @@ namespace Amazon.IoT.Model
         /// <summary>
         /// Gets and sets the property NextToken. 
         /// <para>
-        /// The token used to get the next set of results, or <b>null</b> if there are no additional
+        /// The token used to get the next set of results, or null if there are no additional
         /// results.
         /// </para>
         /// </summary>
@@ -100,6 +102,7 @@ namespace Amazon.IoT.Model
         /// The search query string.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1)]
         public string QueryString
         {
             get { return this._queryString; }

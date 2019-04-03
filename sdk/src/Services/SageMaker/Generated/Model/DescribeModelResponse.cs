@@ -47,6 +47,7 @@ namespace Amazon.SageMaker.Model
         /// The containers in the inference pipeline.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=5)]
         public List<ContainerDefinition> Containers
         {
             get { return this._containers; }
@@ -65,6 +66,7 @@ namespace Amazon.SageMaker.Model
         /// A timestamp that shows when the model was created.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public DateTime CreationTime
         {
             get { return this._creationTime.GetValueOrDefault(); }
@@ -107,6 +109,7 @@ namespace Amazon.SageMaker.Model
         /// The Amazon Resource Name (ARN) of the IAM role that you specified for the model.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=20, Max=2048)]
         public string ExecutionRoleArn
         {
             get { return this._executionRoleArn; }
@@ -125,6 +128,7 @@ namespace Amazon.SageMaker.Model
         /// The Amazon Resource Name (ARN) of the model.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=20, Max=2048)]
         public string ModelArn
         {
             get { return this._modelArn; }
@@ -143,6 +147,7 @@ namespace Amazon.SageMaker.Model
         /// Name of the Amazon SageMaker model.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Max=63)]
         public string ModelName
         {
             get { return this._modelName; }
@@ -178,7 +183,7 @@ namespace Amazon.SageMaker.Model
         /// Gets and sets the property VpcConfig. 
         /// <para>
         /// A <a>VpcConfig</a> object that specifies the VPC that this model has access to. For
-        /// more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect
+        /// more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect
         /// Endpoints by Using an Amazon Virtual Private Cloud</a> 
         /// </para>
         /// </summary>

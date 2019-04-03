@@ -55,8 +55,9 @@ namespace Amazon.Greengrass.Model
         }
 
         /// <summary>
-        /// Gets and sets the property DefaultConfig. Default configuration that will apply to
-        /// all Lambda functions in this function definition version
+        /// Gets and sets the property DefaultConfig. The default configuration that applies to
+        /// all Lambda functions in this function definition version. Individual Lambda functions
+        /// can override these settings.
         /// </summary>
         public FunctionDefaultConfig DefaultConfig
         {
@@ -73,6 +74,7 @@ namespace Amazon.Greengrass.Model
         /// <summary>
         /// Gets and sets the property FunctionDefinitionId. The ID of the Lambda function definition.
         /// </summary>
+        [AWSProperty(Required=true)]
         public string FunctionDefinitionId
         {
             get { return this._functionDefinitionId; }

@@ -45,6 +45,7 @@ namespace Amazon.MediaConvert.Model
         /// uses this language information to choose the font language for rendering the captions
         /// text.
         /// </summary>
+        [AWSProperty(Min=3, Max=3)]
         public string CustomLanguageCode
         {
             get { return this._customLanguageCode; }
@@ -58,7 +59,9 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property DestinationSettings.
+        /// Gets and sets the property DestinationSettings. Specific settings required by destination
+        /// type. Note that burnin_destination_settings are not available if the source of the
+        /// caption data is Embedded or Teletext.
         /// </summary>
         public CaptionDestinationSettings DestinationSettings
         {

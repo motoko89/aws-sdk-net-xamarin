@@ -68,6 +68,7 @@ namespace Amazon.ElasticBeanstalk.Model
         private bool? _process;
         private SourceBuildInformation _sourceBuildInformation;
         private S3Location _sourceBundle;
+        private List<Tag> _tags = new List<Tag>();
         private string _versionLabel;
 
         /// <summary>
@@ -93,6 +94,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// is <code>false</code>, returns an <code>InvalidParameterValue</code> error. 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=100)]
         public string ApplicationName
         {
             get { return this._applicationName; }
@@ -148,6 +150,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// Describes this version.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=200)]
         public string Description
         {
             get { return this._description; }
@@ -243,6 +246,29 @@ namespace Amazon.ElasticBeanstalk.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// Specifies the tags applied to the application version.
+        /// </para>
+        ///  
+        /// <para>
+        /// Elastic Beanstalk applies these tags only to the application version. Environments
+        /// that use the application version don't inherit the tags.
+        /// </para>
+        /// </summary>
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property VersionLabel. 
         /// <para>
         /// A label identifying this version.
@@ -254,6 +280,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// error. 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=100)]
         public string VersionLabel
         {
             get { return this._versionLabel; }

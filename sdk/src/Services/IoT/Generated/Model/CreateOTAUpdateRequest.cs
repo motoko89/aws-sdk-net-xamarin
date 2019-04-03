@@ -39,6 +39,7 @@ namespace Amazon.IoT.Model
         private List<OTAUpdateFile> _files = new List<OTAUpdateFile>();
         private string _otaUpdateId;
         private string _roleArn;
+        private List<Tag> _tags = new List<Tag>();
         private List<string> _targets = new List<string>();
         private TargetSelection _targetSelection;
 
@@ -84,6 +85,7 @@ namespace Amazon.IoT.Model
         /// The description of the OTA update.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=2028)]
         public string Description
         {
             get { return this._description; }
@@ -102,6 +104,7 @@ namespace Amazon.IoT.Model
         /// The files to be streamed by the OTA update.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=50)]
         public List<OTAUpdateFile> Files
         {
             get { return this._files; }
@@ -120,6 +123,7 @@ namespace Amazon.IoT.Model
         /// The ID of the OTA update to be created.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=128)]
         public string OtaUpdateId
         {
             get { return this._otaUpdateId; }
@@ -138,6 +142,7 @@ namespace Amazon.IoT.Model
         /// The IAM role that allows access to the AWS IoT Jobs service.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=20, Max=2048)]
         public string RoleArn
         {
             get { return this._roleArn; }
@@ -151,11 +156,30 @@ namespace Amazon.IoT.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// Metadata which can be used to manage updates.
+        /// </para>
+        /// </summary>
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property Targets. 
         /// <para>
         /// The targeted devices to receive OTA updates.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1)]
         public List<string> Targets
         {
             get { return this._targets; }

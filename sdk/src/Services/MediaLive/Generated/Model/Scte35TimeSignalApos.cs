@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.MediaLive.Model
 {
     /// <summary>
-    /// Placeholder documentation for Scte35TimeSignalApos
+    /// Scte35 Time Signal Apos
     /// </summary>
     public partial class Scte35TimeSignalApos
     {
@@ -41,6 +41,7 @@ namespace Amazon.MediaLive.Model
         /// is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35
         /// messages and does not apply to OOB messages.
         /// </summary>
+        [AWSProperty(Min=-1000, Max=1000)]
         public int AdAvailOffset
         {
             get { return this._adAvailOffset.GetValueOrDefault(); }

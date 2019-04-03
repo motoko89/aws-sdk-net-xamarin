@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 using System;
 using System.Collections.Generic;
@@ -41,6 +41,7 @@ namespace Amazon.AppMesh.Model
         /// The action to take if a match is determined.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public HttpRouteAction Action
         {
             get { return this._action; }
@@ -59,6 +60,7 @@ namespace Amazon.AppMesh.Model
         /// The criteria for determining an HTTP request match.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public HttpRouteMatch Match
         {
             get { return this._match; }

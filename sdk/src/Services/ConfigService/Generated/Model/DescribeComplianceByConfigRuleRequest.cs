@@ -75,9 +75,10 @@ namespace Amazon.ConfigService.Model
         /// </para>
         ///  
         /// <para>
-        /// The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>INSUFFICIENT_DATA</code>.
+        /// The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=3)]
         public List<string> ComplianceTypes
         {
             get { return this._complianceTypes; }
@@ -96,6 +97,7 @@ namespace Amazon.ConfigService.Model
         /// Specify one or more AWS Config rule names to filter the results by rule.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=25)]
         public List<string> ConfigRuleNames
         {
             get { return this._configRuleNames; }

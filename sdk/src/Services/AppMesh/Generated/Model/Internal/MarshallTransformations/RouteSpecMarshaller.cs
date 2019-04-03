@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 using System;
 using System.Collections.Generic;
@@ -52,6 +52,17 @@ namespace Amazon.AppMesh.Model.Internal.MarshallTransformations
 
                 var marshaller = HttpRouteMarshaller.Instance;
                 marshaller.Marshall(requestObject.HttpRoute, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetTcpRoute())
+            {
+                context.Writer.WritePropertyName("tcpRoute");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = TcpRouteMarshaller.Instance;
+                marshaller.Marshall(requestObject.TcpRoute, context);
 
                 context.Writer.WriteObjectEnd();
             }

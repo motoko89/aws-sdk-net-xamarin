@@ -47,6 +47,7 @@ namespace Amazon.SageMaker.Model
         private string _notebookInstanceName;
         private NotebookInstanceStatus _notebookInstanceStatus;
         private string _roleArn;
+        private RootAccess _rootAccess;
         private List<string> _securityGroups = new List<string>();
         private string _subnetId;
         private string _url;
@@ -85,6 +86,7 @@ namespace Amazon.SageMaker.Model
         /// Git Repositories with Amazon SageMaker Notebook Instances</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=3)]
         public List<string> AdditionalCodeRepositories
         {
             get { return this._additionalCodeRepositories; }
@@ -128,6 +130,7 @@ namespace Amazon.SageMaker.Model
         /// Git Repositories with Amazon SageMaker Notebook Instances</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string DefaultCodeRepository
         {
             get { return this._defaultCodeRepository; }
@@ -144,12 +147,12 @@ namespace Amazon.SageMaker.Model
         /// Gets and sets the property DirectInternetAccess. 
         /// <para>
         /// Describes whether Amazon SageMaker provides internet access to the notebook instance.
-        /// If this value is set to <i>Disabled, he notebook instance does not have internet access,
-        /// and cannot connect to Amazon SageMaker training and endpoint services</i>.
+        /// If this value is set to <i>Disabled</i>, the notebook instance does not have internet
+        /// access, and cannot connect to Amazon SageMaker training and endpoint services.
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook
+        /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook
         /// Instances Are Internet-Enabled by Default</a>.
         /// </para>
         /// </summary>
@@ -171,6 +174,7 @@ namespace Amazon.SageMaker.Model
         /// If status is <code>Failed</code>, the reason it failed.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=1024)]
         public string FailureReason
         {
             get { return this._failureReason; }
@@ -208,6 +212,7 @@ namespace Amazon.SageMaker.Model
         /// storage volume attached to the instance. 
         /// </para>
         /// </summary>
+        [AWSProperty(Max=2048)]
         public string KmsKeyId
         {
             get { return this._kmsKeyId; }
@@ -264,6 +269,7 @@ namespace Amazon.SageMaker.Model
         /// The Amazon Resource Name (ARN) of the notebook instance.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=256)]
         public string NotebookInstanceArn
         {
             get { return this._notebookInstanceArn; }
@@ -283,10 +289,11 @@ namespace Amazon.SageMaker.Model
         /// </para>
         ///  
         /// <para>
-        /// For information about notebook instance lifestyle configurations, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+        /// For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
         /// 2.1: (Optional) Customize a Notebook Instance</a> 
         /// </para>
         /// </summary>
+        [AWSProperty(Max=63)]
         public string NotebookInstanceLifecycleConfigName
         {
             get { return this._notebookInstanceLifecycleConfigName; }
@@ -305,6 +312,7 @@ namespace Amazon.SageMaker.Model
         /// The name of the Amazon SageMaker notebook instance. 
         /// </para>
         /// </summary>
+        [AWSProperty(Max=63)]
         public string NotebookInstanceName
         {
             get { return this._notebookInstanceName; }
@@ -341,6 +349,7 @@ namespace Amazon.SageMaker.Model
         /// The Amazon Resource Name (ARN) of the IAM role associated with the instance. 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=20, Max=2048)]
         public string RoleArn
         {
             get { return this._roleArn; }
@@ -354,11 +363,37 @@ namespace Amazon.SageMaker.Model
         }
 
         /// <summary>
+        /// Gets and sets the property RootAccess. 
+        /// <para>
+        /// Whether root access is enabled or disabled for users of the notebook instance.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// Lifecycle configurations need root access to be able to set up a notebook instance.
+        /// Because of this, lifecycle configurations associated with a notebook instance always
+        /// run with root access even if you disable root access for users.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        public RootAccess RootAccess
+        {
+            get { return this._rootAccess; }
+            set { this._rootAccess = value; }
+        }
+
+        // Check to see if RootAccess property is set
+        internal bool IsSetRootAccess()
+        {
+            return this._rootAccess != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property SecurityGroups. 
         /// <para>
         /// The IDs of the VPC security groups.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=5)]
         public List<string> SecurityGroups
         {
             get { return this._securityGroups; }
@@ -377,6 +412,7 @@ namespace Amazon.SageMaker.Model
         /// The ID of the VPC subnet.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=32)]
         public string SubnetId
         {
             get { return this._subnetId; }
@@ -414,6 +450,7 @@ namespace Amazon.SageMaker.Model
         /// The size, in GB, of the ML storage volume attached to the notebook instance.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=5, Max=16384)]
         public int VolumeSizeInGB
         {
             get { return this._volumeSizeInGB.GetValueOrDefault(); }

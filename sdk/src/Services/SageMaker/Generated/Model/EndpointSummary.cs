@@ -44,6 +44,7 @@ namespace Amazon.SageMaker.Model
         /// A timestamp that shows when the endpoint was created.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public DateTime CreationTime
         {
             get { return this._creationTime.GetValueOrDefault(); }
@@ -62,6 +63,7 @@ namespace Amazon.SageMaker.Model
         /// The Amazon Resource Name (ARN) of the endpoint.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=20, Max=2048)]
         public string EndpointArn
         {
             get { return this._endpointArn; }
@@ -80,6 +82,7 @@ namespace Amazon.SageMaker.Model
         /// The name of the endpoint.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Max=63)]
         public string EndpointName
         {
             get { return this._endpointName; }
@@ -113,7 +116,7 @@ namespace Amazon.SageMaker.Model
         ///  </li> <li> 
         /// <para>
         ///  <code>SystemUpdating</code>: Endpoint is undergoing maintenance and cannot be updated
-        /// or deleted or re-scaled until it has completed. This mainenance operation does not
+        /// or deleted or re-scaled until it has completed. This maintenance operation does not
         /// change any customer-specified values such as VPC config, KMS encryption, model, instance
         /// type, or instance count.
         /// </para>
@@ -146,6 +149,7 @@ namespace Amazon.SageMaker.Model
         /// filter.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public EndpointStatus EndpointStatus
         {
             get { return this._endpointStatus; }
@@ -164,6 +168,7 @@ namespace Amazon.SageMaker.Model
         /// A timestamp that shows when the endpoint was last modified.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public DateTime LastModifiedTime
         {
             get { return this._lastModifiedTime.GetValueOrDefault(); }

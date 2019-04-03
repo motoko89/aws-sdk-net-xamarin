@@ -29,7 +29,7 @@ namespace Amazon.WorkSpaces.Model
 {
     /// <summary>
     /// Container for the parameters to the ModifyClientProperties operation.
-    /// Modifies the properties of the specified Amazon WorkSpaces client.
+    /// Modifies the properties of the specified Amazon WorkSpaces clients.
     /// </summary>
     public partial class ModifyClientPropertiesRequest : AmazonWorkSpacesRequest
     {
@@ -42,6 +42,7 @@ namespace Amazon.WorkSpaces.Model
         /// Information about the Amazon WorkSpaces client.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public ClientProperties ClientProperties
         {
             get { return this._clientProperties; }
@@ -60,6 +61,7 @@ namespace Amazon.WorkSpaces.Model
         /// The resource identifiers, in the form of directory IDs.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1)]
         public string ResourceId
         {
             get { return this._resourceId; }

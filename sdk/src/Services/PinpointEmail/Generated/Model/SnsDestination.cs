@@ -39,10 +39,11 @@ namespace Amazon.PinpointEmail.Model
         /// Gets and sets the property TopicArn. 
         /// <para>
         /// The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish email
-        /// events to. For more information about Amazon SNS topics, see the <a href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon
+        /// events to. For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon
         /// SNS Developer Guide</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string TopicArn
         {
             get { return this._topicArn; }

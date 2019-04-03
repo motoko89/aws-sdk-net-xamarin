@@ -30,7 +30,7 @@ namespace Amazon.ElasticBeanstalk.Model
     /// <summary>
     /// Container for the parameters to the DescribeInstancesHealth operation.
     /// Retrieves detailed information about the health of instances in your AWS Elastic Beanstalk.
-    /// This operation requires <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced
+    /// This operation requires <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced
     /// health reporting</a>.
     /// </summary>
     public partial class DescribeInstancesHealthRequest : AmazonElasticBeanstalkRequest
@@ -83,6 +83,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// Specify the AWS Elastic Beanstalk environment by name.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=4, Max=40)]
         public string EnvironmentName
         {
             get { return this._environmentName; }
@@ -101,6 +102,7 @@ namespace Amazon.ElasticBeanstalk.Model
         /// Specify the pagination token returned by a previous call.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public string NextToken
         {
             get { return this._nextToken; }

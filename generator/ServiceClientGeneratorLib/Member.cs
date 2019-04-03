@@ -19,6 +19,7 @@ namespace ServiceClientGenerator
         public const string FlattenedKey = "flattened";
         public const string JsonValueKey = "jsonvalue";
         public const string DeprecatedKey = "deprecated";
+        public const string RequiredKey = "required";
         public const string DeprecatedMessageKey = "deprecatedMessage";
         public const string HostLabelKey = "hostLabel";
 
@@ -698,7 +699,7 @@ namespace ServiceClientGenerator
                     var valueTypeUnmarshaller = GetTypeUnmarshallerName(memberShape[Shape.ValueKey]);
                     var valueTypeUnmarshallerInstantiate = DetermineTypeUnmarshallerInstantiate(memberShape[Shape.ValueKey]);
 
-                    if (this.model.Type == ServiceType.Json || this.model.Type == ServiceType.Rest_Json)
+                    if (this.model.Type == ServiceType.Json || this.model.Type == ServiceType.Rest_Json || this.model.Type == ServiceType.Rest_Xml)
                         return string.Format("new DictionaryUnmarshaller<{0}, {1}, {2}, {3}>(StringUnmarshaller.Instance, {5})",
                             keyType, valueType, keyTypeUnmarshaller, valueTypeUnmarshaller, keyTypeUnmarshallerInstantiate, valueTypeUnmarshallerInstantiate);
                     else
@@ -856,6 +857,17 @@ namespace ServiceClientGenerator
                     return (bool)data[DeprecatedKey];
 
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// Determines if the member is required
+        /// </summary>
+        public bool IsRequired
+        {
+            get
+            {
+                return OwningShape.IsFieldRequired(ModeledName);
             }
         }
 

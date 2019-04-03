@@ -29,7 +29,7 @@ namespace Amazon.WorkMail.Model
 {
     /// <summary>
     /// Container for the parameters to the DeleteAlias operation.
-    /// Remove the alias from a set of aliases for a given user.
+    /// Remove one or more specified aliases from a set of aliases for a given user.
     /// </summary>
     public partial class DeleteAliasRequest : AmazonWorkMailRequest
     {
@@ -44,6 +44,7 @@ namespace Amazon.WorkMail.Model
         /// list are collapsed into single entries (the list is transformed into a set).
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=254)]
         public string Alias
         {
             get { return this._alias; }
@@ -59,9 +60,10 @@ namespace Amazon.WorkMail.Model
         /// <summary>
         /// Gets and sets the property EntityId. 
         /// <para>
-        /// The identifier for the Amazon WorkMail entity to have the aliases removed.
+        /// The identifier for the member (user or group) from which to have the aliases removed.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=12, Max=256)]
         public string EntityId
         {
             get { return this._entityId; }
@@ -80,6 +82,7 @@ namespace Amazon.WorkMail.Model
         /// The identifier for the organization under which the user exists.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string OrganizationId
         {
             get { return this._organizationId; }

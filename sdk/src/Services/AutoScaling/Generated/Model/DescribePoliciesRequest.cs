@@ -45,6 +45,7 @@ namespace Amazon.AutoScaling.Model
         /// The name of the Auto Scaling group.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1600)]
         public string AutoScalingGroupName
         {
             get { return this._autoScalingGroupName; }
@@ -60,8 +61,8 @@ namespace Amazon.AutoScaling.Model
         /// <summary>
         /// Gets and sets the property MaxRecords. 
         /// <para>
-        /// The maximum number of items to be returned with each call. The default value is 50
-        /// and the maximum value is 100.
+        /// The maximum number of items to be returned with each call. The default value is <code>50</code>
+        /// and the maximum value is <code>100</code>.
         /// </para>
         /// </summary>
         public int MaxRecords
@@ -118,7 +119,8 @@ namespace Amazon.AutoScaling.Model
         /// <summary>
         /// Gets and sets the property PolicyTypes. 
         /// <para>
-        /// One or more policy types. Valid values are <code>SimpleScaling</code> and <code>StepScaling</code>.
+        /// One or more policy types. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>,
+        /// and <code>TargetTrackingScaling</code>.
         /// </para>
         /// </summary>
         public List<string> PolicyTypes

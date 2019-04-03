@@ -46,6 +46,7 @@ namespace Amazon.CertificateManager.Model
         /// or <code>example.com</code>. 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=253)]
         public string DomainName
         {
             get { return this._domainName; }
@@ -62,7 +63,7 @@ namespace Amazon.CertificateManager.Model
         /// Gets and sets the property ResourceRecord. 
         /// <para>
         /// Contains the CNAME record that you add to your DNS database for domain validation.
-        /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">Use
+        /// For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">Use
         /// DNS to Validate Domain Ownership</a>.
         /// </para>
         /// </summary>
@@ -84,6 +85,7 @@ namespace Amazon.CertificateManager.Model
         /// The domain name that ACM used to send domain validation emails.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=253)]
         public string ValidationDomain
         {
             get { return this._validationDomain; }

@@ -84,7 +84,7 @@ namespace Amazon.GameLift.Model
     /// </para>
     ///  
     /// <para>
-    /// See Amazon GameLift Developer Guide topics in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
+    ///  <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
     /// Working with Fleets</a>.
     /// </para>
     ///  
@@ -176,6 +176,7 @@ namespace Amazon.GameLift.Model
         private List<IpPermission> _ec2InboundPermissions = new List<IpPermission>();
         private EC2InstanceType _ec2InstanceType;
         private FleetType _fleetType;
+        private string _instanceRoleArn;
         private List<string> _logPaths = new List<string>();
         private List<string> _metricGroups = new List<string>();
         private string _name;
@@ -195,6 +196,7 @@ namespace Amazon.GameLift.Model
         /// This fleet setting cannot be changed once the fleet is created.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string BuildId
         {
             get { return this._buildId; }
@@ -213,6 +215,7 @@ namespace Amazon.GameLift.Model
         /// Human-readable description of a fleet.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string Description
         {
             get { return this._description; }
@@ -234,6 +237,7 @@ namespace Amazon.GameLift.Model
         /// You can specify one or more sets of permissions for a fleet.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=50)]
         public List<IpPermission> EC2InboundPermissions
         {
             get { return this._ec2InboundPermissions; }
@@ -256,6 +260,7 @@ namespace Amazon.GameLift.Model
         /// Instance Types</a> for detailed descriptions.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public EC2InstanceType EC2InstanceType
         {
             get { return this._ec2InstanceType; }
@@ -294,6 +299,31 @@ namespace Amazon.GameLift.Model
         }
 
         /// <summary>
+        /// Gets and sets the property InstanceRoleArn. 
+        /// <para>
+        /// Unique identifier for an AWS IAM role that manages access to your AWS services. Any
+        /// application that runs on an instance in this fleet can assume the role, including
+        /// install scripts, server processs, daemons (background processes). Create a role or
+        /// look up a role's ARN using the <a href="https://console.aws.amazon.com/iam/">IAM dashboard</a>
+        /// in the AWS Management Console. Learn more about using on-box credentials for your
+        /// game servers at <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
+        /// Access external resources from a game server</a>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1)]
+        public string InstanceRoleArn
+        {
+            get { return this._instanceRoleArn; }
+            set { this._instanceRoleArn = value; }
+        }
+
+        // Check to see if InstanceRoleArn property is set
+        internal bool IsSetInstanceRoleArn()
+        {
+            return this._instanceRoleArn != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property LogPaths. 
         /// <para>
         /// This parameter is no longer used. Instead, to specify where Amazon GameLift should
@@ -324,6 +354,7 @@ namespace Amazon.GameLift.Model
         /// metric group at a time. 
         /// </para>
         /// </summary>
+        [AWSProperty(Max=1)]
         public List<string> MetricGroups
         {
             get { return this._metricGroups; }
@@ -342,6 +373,7 @@ namespace Amazon.GameLift.Model
         /// Descriptive label that is associated with a fleet. Fleet names do not need to be unique.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=1024)]
         public string Name
         {
             get { return this._name; }
@@ -394,6 +426,7 @@ namespace Amazon.GameLift.Model
         /// account settings. 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string PeerVpcAwsAccountId
         {
             get { return this._peerVpcAwsAccountId; }
@@ -416,6 +449,7 @@ namespace Amazon.GameLift.Model
         /// Peering with Amazon GameLift Fleets</a>. 
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string PeerVpcId
         {
             get { return this._peerVpcId; }
@@ -482,6 +516,7 @@ namespace Amazon.GameLift.Model
         /// path and launch parameters instead of a run-time configuration will continue to work.)
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string ServerLaunchParameters
         {
             get { return this._serverLaunchParameters; }
@@ -502,6 +537,7 @@ namespace Amazon.GameLift.Model
         /// path and launch parameters instead of a run-time configuration will continue to work.)
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
         public string ServerLaunchPath
         {
             get { return this._serverLaunchPath; }

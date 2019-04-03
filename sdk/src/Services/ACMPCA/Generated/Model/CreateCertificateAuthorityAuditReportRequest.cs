@@ -29,8 +29,8 @@ namespace Amazon.ACMPCA.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateCertificateAuthorityAuditReport operation.
-    /// Creates an audit report that lists every time that the your CA private key is used.
-    /// The report is saved in the Amazon S3 bucket that you specify on input. The <a>IssueCertificate</a>
+    /// Creates an audit report that lists every time that your CA private key is used. The
+    /// report is saved in the Amazon S3 bucket that you specify on input. The <a>IssueCertificate</a>
     /// and <a>RevokeCertificate</a> operations use the private key. You can generate a new
     /// report every 30 minutes.
     /// </summary>
@@ -43,9 +43,10 @@ namespace Amazon.ACMPCA.Model
         /// <summary>
         /// Gets and sets the property AuditReportResponseFormat. 
         /// <para>
-        /// Format in which to create the report. This can be either <b>JSON</b> or <b>CSV</b>.
+        /// The format in which to create the report. This can be either <b>JSON</b> or <b>CSV</b>.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public AuditReportResponseFormat AuditReportResponseFormat
         {
             get { return this._auditReportResponseFormat; }
@@ -61,7 +62,7 @@ namespace Amazon.ACMPCA.Model
         /// <summary>
         /// Gets and sets the property CertificateAuthorityArn. 
         /// <para>
-        /// Amazon Resource Name (ARN) of the CA to be audited. This is of the form:
+        /// The Amazon Resource Name (ARN) of the CA to be audited. This is of the form:
         /// </para>
         ///  
         /// <para>
@@ -69,6 +70,7 @@ namespace Amazon.ACMPCA.Model
         /// </code>.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=5, Max=200)]
         public string CertificateAuthorityArn
         {
             get { return this._certificateAuthorityArn; }
@@ -84,9 +86,10 @@ namespace Amazon.ACMPCA.Model
         /// <summary>
         /// Gets and sets the property S3BucketName. 
         /// <para>
-        /// Name of the S3 bucket that will contain the audit report.
+        /// The name of the S3 bucket that will contain the audit report.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string S3BucketName
         {
             get { return this._s3BucketName; }

@@ -28,13 +28,14 @@ using Amazon.Runtime.Internal;
 namespace Amazon.MediaLive.Model
 {
     /// <summary>
-    /// Placeholder documentation for GlobalConfiguration
+    /// Global Configuration
     /// </summary>
     public partial class GlobalConfiguration
     {
         private int? _initialAudioGain;
         private GlobalConfigurationInputEndAction _inputEndAction;
         private InputLossBehavior _inputLossBehavior;
+        private GlobalConfigurationOutputLockingMode _outputLockingMode;
         private GlobalConfigurationOutputTimingSource _outputTimingSource;
         private GlobalConfigurationLowFramerateInputs _supportLowFramerateInputs;
 
@@ -42,6 +43,7 @@ namespace Amazon.MediaLive.Model
         /// Gets and sets the property InitialAudioGain. Value to set the initial audio gain for
         /// the Live Event.
         /// </summary>
+        [AWSProperty(Min=-60, Max=60)]
         public int InitialAudioGain
         {
             get { return this._initialAudioGain.GetValueOrDefault(); }
@@ -88,6 +90,24 @@ namespace Amazon.MediaLive.Model
         internal bool IsSetInputLossBehavior()
         {
             return this._inputLossBehavior != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property OutputLockingMode. Indicates how MediaLive pipelines are
+        /// synchronized.PIPELINELOCKING - MediaLive will attempt to synchronize the output of
+        /// each pipeline to the other.EPOCHLOCKING - MediaLive will attempt to synchronize the
+        /// output of each pipeline to the Unix epoch.
+        /// </summary>
+        public GlobalConfigurationOutputLockingMode OutputLockingMode
+        {
+            get { return this._outputLockingMode; }
+            set { this._outputLockingMode = value; }
+        }
+
+        // Check to see if OutputLockingMode property is set
+        internal bool IsSetOutputLockingMode()
+        {
+            return this._outputLockingMode != null;
         }
 
         /// <summary>

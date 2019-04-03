@@ -57,7 +57,7 @@ namespace Amazon.PinpointEmail.Model.Internal.MarshallTransformations
             IRequest request = new DefaultRequest(publicRequest, "Amazon.PinpointEmail");
             string target = "com.amazonaws.services.pinpoint.email.CreateConfigurationSet";
             request.Headers["X-Amz-Target"] = target;
-            request.Headers["Content-Type"] = "application/x-amz-json-1.1";
+            request.Headers["Content-Type"] = "application/json";
             request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-07-26";            
             request.HttpMethod = "POST";
 
@@ -105,6 +105,22 @@ namespace Amazon.PinpointEmail.Model.Internal.MarshallTransformations
                     marshaller.Marshall(publicRequest.SendingOptions, context);
 
                     context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetTags())
+                {
+                    context.Writer.WritePropertyName("Tags");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestTagsListValue in publicRequest.Tags)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = TagMarshaller.Instance;
+                        marshaller.Marshall(publicRequestTagsListValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteArrayEnd();
                 }
 
                 if(publicRequest.IsSetTrackingOptions())

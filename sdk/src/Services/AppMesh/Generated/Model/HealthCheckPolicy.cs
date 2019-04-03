@@ -14,7 +14,7 @@
  */
 
 /*
- * Do not modify this file. This file is generated from the appmesh-2018-10-01.normal.json service model.
+ * Do not modify this file. This file is generated from the appmesh-2019-01-25.normal.json service model.
  */
 using System;
 using System.Collections.Generic;
@@ -47,6 +47,7 @@ namespace Amazon.AppMesh.Model
         ///         listener healthy.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=2, Max=10)]
         public int HealthyThreshold
         {
             get { return this._healthyThreshold.GetValueOrDefault(); }
@@ -65,6 +66,7 @@ namespace Amazon.AppMesh.Model
         /// The time period in milliseconds between each health check execution.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=5000, Max=300000)]
         public long IntervalMillis
         {
             get { return this._intervalMillis.GetValueOrDefault(); }
@@ -80,8 +82,8 @@ namespace Amazon.AppMesh.Model
         /// <summary>
         /// Gets and sets the property Path. 
         /// <para>
-        /// The destination path for the health check request. This is only required if the  
-        ///       specified protocol is HTTP; if the protocol is TCP, then this parameter is ignored.
+        /// The destination path for the health check request. This is required only if the  
+        ///       specified protocol is HTTP. If the protocol is TCP, this parameter is ignored.
         /// </para>
         /// </summary>
         public string Path
@@ -103,6 +105,7 @@ namespace Amazon.AppMesh.Model
         ///         in the <a>PortMapping</a> for the listener.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=65535)]
         public int Port
         {
             get { return this._port.GetValueOrDefault(); }
@@ -121,6 +124,7 @@ namespace Amazon.AppMesh.Model
         /// The protocol for the health check request.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public PortProtocol Protocol
         {
             get { return this._protocol; }
@@ -140,6 +144,7 @@ namespace Amazon.AppMesh.Model
         ///      milliseconds.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=2000, Max=60000)]
         public long TimeoutMillis
         {
             get { return this._timeoutMillis.GetValueOrDefault(); }
@@ -159,6 +164,7 @@ namespace Amazon.AppMesh.Model
         ///         virtual node unhealthy. 
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=2, Max=10)]
         public int UnhealthyThreshold
         {
             get { return this._unhealthyThreshold.GetValueOrDefault(); }

@@ -85,6 +85,7 @@ namespace Amazon.SageMaker.Model
         /// The maximum number of training jobs to return in the response.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=100)]
         public int MaxResults
         {
             get { return this._maxResults.GetValueOrDefault(); }
@@ -104,6 +105,7 @@ namespace Amazon.SageMaker.Model
         /// whose name contains the specified string. 
         /// </para>
         /// </summary>
+        [AWSProperty(Max=63)]
         public string NameContains
         {
             get { return this._nameContains; }
@@ -124,6 +126,7 @@ namespace Amazon.SageMaker.Model
         /// configurations, use the token in the next request. 
         /// </para>
         /// </summary>
+        [AWSProperty(Max=8192)]
         public string NextToken
         {
             get { return this._nextToken; }
@@ -157,7 +160,7 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property SortOrder. 
         /// <para>
-        /// The sort order for results. The default is <code>Ascending</code>.
+        /// The sort order for results. The default is <code>Descending</code>.
         /// </para>
         /// </summary>
         public OrderKey SortOrder

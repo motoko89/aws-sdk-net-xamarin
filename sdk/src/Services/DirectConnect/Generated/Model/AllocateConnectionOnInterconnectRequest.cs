@@ -42,7 +42,7 @@ namespace Amazon.DirectConnect.Model
     /// </para>
     ///  <note> 
     /// <para>
-    /// Intended for use by AWS Direct Connect partners only.
+    /// Intended for use by AWS Direct Connect Partners only.
     /// </para>
     ///  </note>
     /// </summary>
@@ -57,10 +57,13 @@ namespace Amazon.DirectConnect.Model
         /// <summary>
         /// Gets and sets the property Bandwidth. 
         /// <para>
-        /// The bandwidth of the connection, in Mbps. The possible values are 50Mbps, 100Mbps,
-        /// 200Mbps, 300Mbps, 400Mbps, and 500Mbps.
+        /// The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,
+        /// 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS
+        /// Direct Connect Partners who have met specific requirements are allowed to create a
+        /// 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Bandwidth
         {
             get { return this._bandwidth; }
@@ -79,6 +82,7 @@ namespace Amazon.DirectConnect.Model
         /// The name of the provisioned connection.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string ConnectionName
         {
             get { return this._connectionName; }
@@ -94,10 +98,10 @@ namespace Amazon.DirectConnect.Model
         /// <summary>
         /// Gets and sets the property InterconnectId. 
         /// <para>
-        /// The ID of the interconnect on which the connection will be provisioned. For example,
-        /// dxcon-456abc78.
+        /// The ID of the interconnect on which the connection will be provisioned.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string InterconnectId
         {
             get { return this._interconnectId; }
@@ -116,6 +120,7 @@ namespace Amazon.DirectConnect.Model
         /// The ID of the AWS account of the customer for whom the connection will be provisioned.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string OwnerAccount
         {
             get { return this._ownerAccount; }
@@ -134,6 +139,7 @@ namespace Amazon.DirectConnect.Model
         /// The dedicated VLAN provisioned to the connection.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public int Vlan
         {
             get { return this._vlan.GetValueOrDefault(); }

@@ -34,7 +34,7 @@ namespace Amazon.CloudWatchLogs.Model
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch
     /// Logs Insights Query Syntax</a>.
     /// </para>
     /// </summary>
@@ -49,10 +49,12 @@ namespace Amazon.CloudWatchLogs.Model
         /// <summary>
         /// Gets and sets the property EndTime. 
         /// <para>
-        /// The end of the time range to query. Specified as epoch time, the number of seconds
-        /// since January 1, 1970, 00:00:00 UTC.
+        /// The end of the time range to query. The range is inclusive, so the specified end time
+        /// is included in the query. Specified as epoch time, the number of seconds since January
+        /// 1, 1970, 00:00:00 UTC.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=0)]
         public long EndTime
         {
             get { return this._endTime.GetValueOrDefault(); }
@@ -72,6 +74,7 @@ namespace Amazon.CloudWatchLogs.Model
         /// the <code>fields</code> command, only the specified fields and their values are returned.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=10000)]
         public int Limit
         {
             get { return this._limit.GetValueOrDefault(); }
@@ -90,6 +93,7 @@ namespace Amazon.CloudWatchLogs.Model
         /// The log group on which to perform the query.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=512)]
         public string LogGroupName
         {
             get { return this._logGroupName; }
@@ -105,10 +109,11 @@ namespace Amazon.CloudWatchLogs.Model
         /// <summary>
         /// Gets and sets the property QueryString. 
         /// <para>
-        /// The query string to use. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch
+        /// The query string to use. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch
         /// Logs Insights Query Syntax</a>.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=0, Max=2048)]
         public string QueryString
         {
             get { return this._queryString; }
@@ -124,10 +129,12 @@ namespace Amazon.CloudWatchLogs.Model
         /// <summary>
         /// Gets and sets the property StartTime. 
         /// <para>
-        /// The beginning of the time range to query. Specified as epoch time, the number of seconds
+        /// The beginning of the time range to query. The range is inclusive, so the specified
+        /// start time is included in the query. Specified as epoch time, the number of seconds
         /// since January 1, 1970, 00:00:00 UTC.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true, Min=0)]
         public long StartTime
         {
             get { return this._startTime.GetValueOrDefault(); }
