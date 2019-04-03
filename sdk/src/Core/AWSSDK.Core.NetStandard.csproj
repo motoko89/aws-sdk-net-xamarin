@@ -18,12 +18,17 @@
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
 
-    <NoWarn>$(NoWarn);CS1591</NoWarn>        
-
-    <NetStandardImplicitPackageVersion Condition="'$(TargetFramework)' == 'netstandard1.3'">1.6.0</NetStandardImplicitPackageVersion>
-    <NetStandardImplicitPackageVersion Condition="'$(TargetFramework)' == 'netstandard2.0'">2.0.0</NetStandardImplicitPackageVersion>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>       
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DefineConstants>TRACE;AWS_ASYNC_API;DEBUG;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD20</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+    <DefineConstants>TRACE;AWS_ASYNC_API;RELEASE;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD20</DefineConstants>
+  </PropertyGroup>
   <Choose>
     <When Condition=" '$(AWSKeyFile)' == '' ">
       <PropertyGroup>
