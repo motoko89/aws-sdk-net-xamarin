@@ -76,6 +76,12 @@ namespace Amazon.GameLift.Model.Internal.MarshallTransformations
                     unmarshalledObject.Key = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("ObjectVersion", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.ObjectVersion = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("RoleArn", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

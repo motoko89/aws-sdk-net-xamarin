@@ -83,6 +83,17 @@ namespace Amazon.Kafka.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.ClusterName);
                 }
 
+                if(publicRequest.IsSetConfigurationInfo())
+                {
+                    context.Writer.WritePropertyName("configurationInfo");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = ConfigurationInfoMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.ConfigurationInfo, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetEncryptionInfo())
                 {
                     context.Writer.WritePropertyName("encryptionInfo");

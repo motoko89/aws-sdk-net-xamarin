@@ -43,7 +43,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property ElasticGpuIds. 
         /// <para>
-        /// One or more Elastic Graphics accelerator IDs.
+        /// The Elastic Graphics accelerator IDs.
         /// </para>
         /// </summary>
         public List<string> ElasticGpuIds
@@ -61,7 +61,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property Filters. 
         /// <para>
-        /// One or more filters.
+        /// The filters.
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -109,6 +109,7 @@ namespace Amazon.EC2.Model
         /// can be between 5 and 1000.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=10, Max=1000)]
         public int MaxResults
         {
             get { return this._maxResults.GetValueOrDefault(); }

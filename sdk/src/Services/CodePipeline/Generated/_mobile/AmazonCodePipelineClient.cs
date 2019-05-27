@@ -88,6 +88,13 @@ namespace Amazon.CodePipeline
     /// </para>
     ///  </li> <li> 
     /// <para>
+    ///  <a>ListActionExecutions</a>, which returns action-level details for past executions.
+    /// The details include full stage and action-level details, including individual action
+    /// duration, status, any errors which occurred during the execution, and input and output
+    /// artifact location details.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
     ///  <a>ListPipelines</a>, which gets a summary of all of the pipelines associated with
     /// your account.
     /// </para>
@@ -634,6 +641,9 @@ namespace Amazon.CodePipeline
         /// </param>
         /// 
         /// <returns>The response from the CreatePipeline service method, as returned by CodePipeline.</returns>
+        /// <exception cref="Amazon.CodePipeline.Model.ConcurrentModificationException">
+        /// Unable to modify the tag due to a simultaneous update request.
+        /// </exception>
         /// <exception cref="Amazon.CodePipeline.Model.InvalidActionDeclarationException">
         /// The specified action declaration was specified in an invalid format.
         /// </exception>
@@ -646,12 +656,18 @@ namespace Amazon.CodePipeline
         /// <exception cref="Amazon.CodePipeline.Model.InvalidStructureException">
         /// The specified structure was specified in an invalid format.
         /// </exception>
+        /// <exception cref="Amazon.CodePipeline.Model.InvalidTagsException">
+        /// The specified resource tags are invalid.
+        /// </exception>
         /// <exception cref="Amazon.CodePipeline.Model.LimitExceededException">
         /// The number of pipelines associated with the AWS account has exceeded the limit allowed
         /// for the account.
         /// </exception>
         /// <exception cref="Amazon.CodePipeline.Model.PipelineNameInUseException">
         /// The specified pipeline name is already in use.
+        /// </exception>
+        /// <exception cref="Amazon.CodePipeline.Model.TooManyTagsException">
+        /// The tags limit for a resource has been exceeded.
         /// </exception>
         /// <exception cref="Amazon.CodePipeline.Model.ValidationException">
         /// The validation was specified in an invalid format.
@@ -740,6 +756,9 @@ namespace Amazon.CodePipeline
         /// </param>
         /// 
         /// <returns>The response from the DeletePipeline service method, as returned by CodePipeline.</returns>
+        /// <exception cref="Amazon.CodePipeline.Model.ConcurrentModificationException">
+        /// Unable to modify the tag due to a simultaneous update request.
+        /// </exception>
         /// <exception cref="Amazon.CodePipeline.Model.ValidationException">
         /// The validation was specified in an invalid format.
         /// </exception>
@@ -1114,8 +1133,8 @@ namespace Amazon.CodePipeline
         /// 
         ///  <note> 
         /// <para>
-        /// Values returned in the revisionId and revisionUrl fields indicate the source revision
-        /// information, such as the commit ID, for the current state.
+        /// Values returned in the <code>revisionId</code> and <code>revisionUrl</code> fields
+        /// indicate the source revision information, such as the commit ID, for the current state.
         /// </para>
         ///  </note>
         /// </summary>
@@ -1438,6 +1457,39 @@ namespace Amazon.CodePipeline
 
         #endregion
         
+        #region  ListTagsForResource
+
+        internal virtual ListTagsForResourceResponse ListTagsForResource(ListTagsForResourceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTagsForResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTagsForResourceResponseUnmarshaller.Instance;
+
+            return Invoke<ListTagsForResourceResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListTagsForResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
+        public virtual Task<ListTagsForResourceResponse> ListTagsForResourceAsync(ListTagsForResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTagsForResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTagsForResourceResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListTagsForResourceResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListWebhooks
 
         internal virtual ListWebhooksResponse ListWebhooks(ListWebhooksRequest request)
@@ -1619,7 +1671,7 @@ namespace Amazon.CodePipeline
         /// Represents the failure of a job as returned to the pipeline by a job worker. Only
         /// used for custom actions.
         /// </summary>
-        /// <param name="jobId">The unique system-generated ID of the job that failed. This is the same ID returned from PollForJobs.</param>
+        /// <param name="jobId">The unique system-generated ID of the job that failed. This is the same ID returned from <code>PollForJobs</code>.</param>
         /// <param name="failureDetails">The details about the failure of a job.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -1715,7 +1767,7 @@ namespace Amazon.CodePipeline
         /// Represents the failure of a third party job as returned to the pipeline by a job worker.
         /// Only used for partner actions.
         /// </summary>
-        /// <param name="jobId">The ID of the job that failed. This is the same ID returned from PollForThirdPartyJobs.</param>
+        /// <param name="jobId">The ID of the job that failed. This is the same ID returned from <code>PollForThirdPartyJobs</code>.</param>
         /// <param name="clientToken">The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.</param>
         /// <param name="failureDetails">Represents information about failure details.</param>
         /// <param name="cancellationToken">
@@ -1957,6 +2009,72 @@ namespace Amazon.CodePipeline
 
         #endregion
         
+        #region  TagResource
+
+        internal virtual TagResourceResponse TagResource(TagResourceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = TagResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = TagResourceResponseUnmarshaller.Instance;
+
+            return Invoke<TagResourceResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the TagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the TagResource operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/TagResource">REST API Reference for TagResource Operation</seealso>
+        public virtual Task<TagResourceResponse> TagResourceAsync(TagResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = TagResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = TagResourceResponseUnmarshaller.Instance;
+
+            return InvokeAsync<TagResourceResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UntagResource
+
+        internal virtual UntagResourceResponse UntagResource(UntagResourceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UntagResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UntagResourceResponseUnmarshaller.Instance;
+
+            return Invoke<UntagResourceResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UntagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UntagResource operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/UntagResource">REST API Reference for UntagResource Operation</seealso>
+        public virtual Task<UntagResourceResponse> UntagResourceAsync(UntagResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UntagResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UntagResourceResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UntagResourceResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  UpdatePipeline
 
         internal virtual UpdatePipelineResponse UpdatePipeline(UpdatePipelineRequest request)
@@ -1971,9 +2089,9 @@ namespace Amazon.CodePipeline
 
         /// <summary>
         /// Updates a specified pipeline with edits or changes to its structure. Use a JSON file
-        /// with the pipeline structure in conjunction with UpdatePipeline to provide the full
-        /// structure of the pipeline. Updating the pipeline increases the version number of the
-        /// pipeline by 1.
+        /// with the pipeline structure in conjunction with <code>UpdatePipeline</code> to provide
+        /// the full structure of the pipeline. Updating the pipeline increases the version number
+        /// of the pipeline by 1.
         /// </summary>
         /// <param name="pipeline">The name of the pipeline to be updated.</param>
         /// <param name="cancellationToken">

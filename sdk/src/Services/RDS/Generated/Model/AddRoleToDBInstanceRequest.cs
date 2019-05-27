@@ -30,6 +30,12 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// Container for the parameters to the AddRoleToDBInstance operation.
     /// Associates an AWS Identity and Access Management (IAM) role with a DB instance.
+    /// 
+    ///  <note> 
+    /// <para>
+    /// To add a role to a DB instance, the status of the DB instance must be <code>available</code>.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class AddRoleToDBInstanceRequest : AmazonRDSRequest
     {
@@ -60,7 +66,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property FeatureName. 
         /// <para>
         /// The name of the feature for the DB instance that the IAM role is to be associated
-        /// with. For the list of supported feature names, see <a>DBEngineVersion</a>. 
+        /// with. For the list of supported feature names, see <code>DBEngineVersion</code>. 
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

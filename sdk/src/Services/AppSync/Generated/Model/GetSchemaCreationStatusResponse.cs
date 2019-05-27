@@ -56,8 +56,8 @@ namespace Amazon.AppSync.Model
         /// <summary>
         /// Gets and sets the property Status. 
         /// <para>
-        /// The current state of the schema (PROCESSING, ACTIVE, or DELETING). Once the schema
-        /// is in the ACTIVE state, you can add data.
+        /// The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE).
+        /// When the schema is in the ACTIVE state, you can add data.
         /// </para>
         /// </summary>
         public SchemaStatus Status

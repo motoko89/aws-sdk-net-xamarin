@@ -1175,7 +1175,8 @@
         "NetworkInterfaceId":{"shape":"NetworkInterfaceId"},
         "ClientToken":{"shape":"ClientToken"},
         "KMSEncrypted":{"shape":"Boolean"},
-        "KMSKey":{"shape":"KMSKey"}
+        "KMSKey":{"shape":"KMSKey"},
+        "Tags":{"shape":"Tags"}
       }
     },
     "CreateCachediSCSIVolumeOutput":{
@@ -1237,6 +1238,8 @@
         "ReadOnly":{"shape":"Boolean"},
         "GuessMIMETypeEnabled":{"shape":"Boolean"},
         "RequesterPays":{"shape":"Boolean"},
+        "SMBACLEnabled":{"shape":"Boolean"},
+        "AdminUserList":{"shape":"FileShareUserList"},
         "ValidUserList":{"shape":"FileShareUserList"},
         "InvalidUserList":{"shape":"FileShareUserList"},
         "Authentication":{"shape":"Authentication"},
@@ -1276,7 +1279,8 @@
       ],
       "members":{
         "VolumeARN":{"shape":"VolumeARN"},
-        "SnapshotDescription":{"shape":"SnapshotDescription"}
+        "SnapshotDescription":{"shape":"SnapshotDescription"},
+        "Tags":{"shape":"Tags"}
       }
     },
     "CreateSnapshotOutput":{
@@ -1303,7 +1307,8 @@
         "TargetName":{"shape":"TargetName"},
         "NetworkInterfaceId":{"shape":"NetworkInterfaceId"},
         "KMSEncrypted":{"shape":"Boolean"},
-        "KMSKey":{"shape":"KMSKey"}
+        "KMSKey":{"shape":"KMSKey"},
+        "Tags":{"shape":"Tags"}
       }
     },
     "CreateStorediSCSIVolumeOutput":{
@@ -1327,7 +1332,8 @@
         "TapeBarcode":{"shape":"TapeBarcode"},
         "KMSEncrypted":{"shape":"Boolean"},
         "KMSKey":{"shape":"KMSKey"},
-        "PoolId":{"shape":"PoolId"}
+        "PoolId":{"shape":"PoolId"},
+        "Tags":{"shape":"Tags"}
       }
     },
     "CreateTapeWithBarcodeOutput":{
@@ -1353,7 +1359,8 @@
         "TapeBarcodePrefix":{"shape":"TapeBarcodePrefix"},
         "KMSEncrypted":{"shape":"Boolean"},
         "KMSKey":{"shape":"KMSKey"},
-        "PoolId":{"shape":"PoolId"}
+        "PoolId":{"shape":"PoolId"},
+        "Tags":{"shape":"Tags"}
       }
     },
     "CreateTapesOutput":{
@@ -1363,6 +1370,11 @@
       }
     },
     "CreatedDate":{"type":"timestamp"},
+    "DayOfMonth":{
+      "type":"integer",
+      "max":28,
+      "min":1
+    },
     "DayOfWeek":{
       "type":"integer",
       "max":6,
@@ -1565,6 +1577,8 @@
         "GatewayType":{"shape":"GatewayType"},
         "NextUpdateAvailabilityDate":{"shape":"NextUpdateAvailabilityDate"},
         "LastSoftwareUpdate":{"shape":"LastSoftwareUpdate"},
+        "Ec2InstanceId":{"shape":"Ec2InstanceId"},
+        "Ec2InstanceRegion":{"shape":"Ec2InstanceRegion"},
         "Tags":{"shape":"Tags"}
       }
     },
@@ -1582,6 +1596,7 @@
         "HourOfDay":{"shape":"HourOfDay"},
         "MinuteOfHour":{"shape":"MinuteOfHour"},
         "DayOfWeek":{"shape":"DayOfWeek"},
+        "DayOfMonth":{"shape":"DayOfMonth"},
         "Timezone":{"shape":"GatewayTimezone"}
       }
     },
@@ -1863,6 +1878,8 @@
       "sensitive":true
     },
     "DoubleObject":{"type":"double"},
+    "Ec2InstanceId":{"type":"string"},
+    "Ec2InstanceRegion":{"type":"string"},
     "ErrorCode":{
       "type":"string",
       "enum":[
@@ -2016,7 +2033,9 @@
         "GatewayARN":{"shape":"GatewayARN"},
         "GatewayType":{"shape":"GatewayType"},
         "GatewayOperationalState":{"shape":"GatewayOperationalState"},
-        "GatewayName":{"shape":"string"}
+        "GatewayName":{"shape":"string"},
+        "Ec2InstanceId":{"shape":"Ec2InstanceId"},
+        "Ec2InstanceRegion":{"shape":"Ec2InstanceRegion"}
       }
     },
     "GatewayName":{
@@ -2512,6 +2531,8 @@
         "ReadOnly":{"shape":"Boolean"},
         "GuessMIMETypeEnabled":{"shape":"Boolean"},
         "RequesterPays":{"shape":"Boolean"},
+        "SMBACLEnabled":{"shape":"Boolean"},
+        "AdminUserList":{"shape":"FileShareUserList"},
         "ValidUserList":{"shape":"FileShareUserList"},
         "InvalidUserList":{"shape":"FileShareUserList"},
         "Authentication":{"shape":"Authentication"},
@@ -2856,14 +2877,14 @@
       "required":[
         "GatewayARN",
         "HourOfDay",
-        "MinuteOfHour",
-        "DayOfWeek"
+        "MinuteOfHour"
       ],
       "members":{
         "GatewayARN":{"shape":"GatewayARN"},
         "HourOfDay":{"shape":"HourOfDay"},
         "MinuteOfHour":{"shape":"MinuteOfHour"},
-        "DayOfWeek":{"shape":"DayOfWeek"}
+        "DayOfWeek":{"shape":"DayOfWeek"},
+        "DayOfMonth":{"shape":"DayOfMonth"}
       }
     },
     "UpdateMaintenanceStartTimeOutput":{
@@ -2907,6 +2928,8 @@
         "ReadOnly":{"shape":"Boolean"},
         "GuessMIMETypeEnabled":{"shape":"Boolean"},
         "RequesterPays":{"shape":"Boolean"},
+        "SMBACLEnabled":{"shape":"Boolean"},
+        "AdminUserList":{"shape":"FileShareUserList"},
         "ValidUserList":{"shape":"FileShareUserList"},
         "InvalidUserList":{"shape":"FileShareUserList"}
       }
@@ -2928,7 +2951,8 @@
         "VolumeARN":{"shape":"VolumeARN"},
         "StartAt":{"shape":"HourOfDay"},
         "RecurrenceInHours":{"shape":"RecurrenceInHours"},
-        "Description":{"shape":"Description"}
+        "Description":{"shape":"Description"},
+        "Tags":{"shape":"Tags"}
       }
     },
     "UpdateSnapshotScheduleOutput":{

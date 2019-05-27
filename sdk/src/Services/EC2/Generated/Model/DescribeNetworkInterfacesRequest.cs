@@ -183,7 +183,7 @@ namespace Amazon.EC2.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>source-desk-check</code> - Indicates whether the network interface performs
+        ///  <code>source-dest-check</code> - Indicates whether the network interface performs
         /// source/destination checking. A value of <code>true</code> means checking is enabled,
         /// and <code>false</code> means checking is disabled. The value must be <code>false</code>
         /// for the network interface to perform network address translation (NAT) in your VPC.
@@ -237,6 +237,7 @@ namespace Amazon.EC2.Model
         /// that you can specify in a subsequent call to get the next set of results.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=5, Max=1000)]
         public int MaxResults
         {
             get { return this._maxResults.GetValueOrDefault(); }

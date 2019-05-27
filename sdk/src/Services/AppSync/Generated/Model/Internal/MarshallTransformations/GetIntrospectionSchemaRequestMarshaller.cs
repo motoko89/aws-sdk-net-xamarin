@@ -65,6 +65,9 @@ namespace Amazon.AppSync.Model.Internal.MarshallTransformations
             
             if (publicRequest.IsSetFormat())
                 request.Parameters.Add("format", StringUtils.FromString(publicRequest.Format));
+            
+            if (publicRequest.IsSetIncludeDirectives())
+                request.Parameters.Add("includeDirectives", StringUtils.FromBool(publicRequest.IncludeDirectives));
             request.ResourcePath = uriResourcePath;
             request.UseQueryString = true;
 

@@ -86,6 +86,12 @@ namespace Amazon.GameLift.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.NextToken);
                 }
 
+                if(publicRequest.IsSetScriptId())
+                {
+                    context.Writer.WritePropertyName("ScriptId");
+                    context.Writer.Write(publicRequest.ScriptId);
+                }
+
         
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();

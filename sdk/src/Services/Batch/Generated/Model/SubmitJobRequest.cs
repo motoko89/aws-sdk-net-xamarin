@@ -50,7 +50,7 @@ namespace Amazon.Batch.Model
         /// <para>
         /// The array properties for the submitted job, such as the size of the array. The array
         /// size can be between 2 and 10,000. If you specify array properties for a job, it becomes
-        /// an array job. For more information, see <a href="http://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html">Array
+        /// an array job. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html">Array
         /// Jobs</a> in the <i>AWS Batch User Guide</i>.
         /// </para>
         /// </summary>
@@ -241,7 +241,7 @@ namespace Amazon.Batch.Model
         /// a job is terminated due to a timeout, it is not retried. The minimum value for the
         /// timeout is 60 seconds. This configuration overrides any timeout configuration specified
         /// in the job definition. For array jobs, child jobs have the same timeout configuration
-        /// as the parent job. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
+        /// as the parent job. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
         /// Timeouts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
         /// </para>
         /// </summary>

@@ -33,13 +33,6 @@ namespace Amazon.DataSync.Model
     /// of the agent in your request. The operation disassociates the agent from your AWS
     /// account. However, it doesn't delete the agent virtual machine (VM) from your on-premises
     /// environment.
-    /// 
-    ///  <note> 
-    /// <para>
-    /// After you delete an agent, you can't reactivate it and you longer pay software charges
-    /// for it.
-    /// </para>
-    ///  </note>
     /// </summary>
     public partial class DeleteAgentRequest : AmazonDataSyncRequest
     {

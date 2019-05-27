@@ -146,9 +146,11 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property DisableApiTermination. 
         /// <para>
-        /// If set to <code>true</code>, you can't terminate the instance using the Amazon EC2
-        /// console, CLI, or API. To change this attribute to <code>false</code> after launch,
-        /// use <a>ModifyInstanceAttribute</a>.
+        /// If you set this parameter to <code>true</code>, you can't terminate the instance using
+        /// the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute
+        /// after launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>.
+        /// Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to <code>terminate</code>,
+        /// you can terminate the instance by running the shutdown command from the instance.
         /// </para>
         /// </summary>
         public bool DisableApiTermination
@@ -263,7 +265,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property ImageId. 
         /// <para>
-        /// The ID of the AMI, which you can get by using <a>DescribeImages</a>.
+        /// The ID of the AMI.
         /// </para>
         /// </summary>
         public string ImageId
@@ -366,8 +368,8 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property KeyName. 
         /// <para>
-        /// The name of the key pair. You can create a key pair using <a>CreateKeyPair</a> or
-        /// <a>ImportKeyPair</a>.
+        /// The name of the key pair. You can create a key pair using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+        /// or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.
         /// </para>
         ///  <important> 
         /// <para>
@@ -427,7 +429,8 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property NetworkInterfaces. 
         /// <para>
-        /// One or more network interfaces.
+        /// One or more network interfaces. If you specify a network interface, you must specify
+        /// any security groups as part of the network interface.
         /// </para>
         /// </summary>
         public List<LaunchTemplateInstanceNetworkInterfaceSpecificationRequest> NetworkInterfaces
@@ -488,7 +491,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property SecurityGroupIds. 
         /// <para>
-        /// One or more security group IDs. You can create a security group using <a>CreateSecurityGroup</a>.
+        /// One or more security group IDs. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.
         /// You cannot specify both a security group ID and security name in the same request.
         /// </para>
         /// </summary>
@@ -529,7 +532,7 @@ namespace Amazon.EC2.Model
         /// <para>
         /// The tags to apply to the resources during launch. You can only tag instances and volumes
         /// on launch. The specified tags are applied to all instances or volumes that are created
-        /// during launch. To tag a resource after it has been created, see <a>CreateTags</a>.
+        /// during launch. To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.
         /// </para>
         /// </summary>
         public List<LaunchTemplateTagSpecificationRequest> TagSpecifications

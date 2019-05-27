@@ -37,7 +37,7 @@ namespace Amazon.DirectConnect.Model
         /// <summary>
         /// Gets and sets the property DirectConnectGatewayAssociationProposal. 
         /// <para>
-        /// The ID of the virtual private gateway.
+        /// The ID of the associated gateway.
         /// </para>
         /// </summary>
         public DirectConnectGatewayAssociationProposal DirectConnectGatewayAssociationProposal

@@ -68,6 +68,17 @@ namespace Amazon.StorageGateway.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetAdminUserList())
+                {
+                    context.Writer.WritePropertyName("AdminUserList");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestAdminUserListListValue in publicRequest.AdminUserList)
+                    {
+                            context.Writer.Write(publicRequestAdminUserListListValue);
+                    }
+                    context.Writer.WriteArrayEnd();
+                }
+
                 if(publicRequest.IsSetDefaultStorageClass())
                 {
                     context.Writer.WritePropertyName("DefaultStorageClass");
@@ -125,6 +136,12 @@ namespace Amazon.StorageGateway.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("RequesterPays");
                     context.Writer.Write(publicRequest.RequesterPays);
+                }
+
+                if(publicRequest.IsSetSMBACLEnabled())
+                {
+                    context.Writer.WritePropertyName("SMBACLEnabled");
+                    context.Writer.Write(publicRequest.SMBACLEnabled);
                 }
 
                 if(publicRequest.IsSetValidUserList())

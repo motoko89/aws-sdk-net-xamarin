@@ -29,8 +29,8 @@ namespace Amazon.EC2.Model
 {
     /// <summary>
     /// Container for the parameters to the DescribeSecurityGroupReferences operation.
-    /// [EC2-VPC only] Describes the VPCs on the other side of a VPC peering connection that
-    /// are referencing the security groups you've specified in this request.
+    /// [VPC only] Describes the VPCs on the other side of a VPC peering connection that are
+    /// referencing the security groups you've specified in this request.
     /// </summary>
     public partial class DescribeSecurityGroupReferencesRequest : AmazonEC2Request
     {
@@ -39,7 +39,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property GroupId. 
         /// <para>
-        /// One or more security group IDs in your account.
+        /// The IDs of the security groups in your account.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

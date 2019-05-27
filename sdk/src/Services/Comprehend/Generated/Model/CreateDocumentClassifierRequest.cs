@@ -41,7 +41,10 @@ namespace Amazon.Comprehend.Model
         private string _documentClassifierName;
         private DocumentClassifierInputDataConfig _inputDataConfig;
         private LanguageCode _languageCode;
+        private DocumentClassifierOutputDataConfig _outputDataConfig;
+        private List<Tag> _tags = new List<Tag>();
         private string _volumeKmsKeyId;
+        private VpcConfig _vpcConfig;
 
         /// <summary>
         /// Gets and sets the property ClientRequestToken. 
@@ -142,6 +145,46 @@ namespace Amazon.Comprehend.Model
         }
 
         /// <summary>
+        /// Gets and sets the property OutputDataConfig. 
+        /// <para>
+        /// Enables the addition of output results configuration parameters for custom classifier
+        /// jobs.
+        /// </para>
+        /// </summary>
+        public DocumentClassifierOutputDataConfig OutputDataConfig
+        {
+            get { return this._outputDataConfig; }
+            set { this._outputDataConfig = value; }
+        }
+
+        // Check to see if OutputDataConfig property is set
+        internal bool IsSetOutputDataConfig()
+        {
+            return this._outputDataConfig != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// Tags to be associated with the document classifier being created. A tag is a key-value
+        /// pair that adds as a metadata to a resource used by Amazon Comprehend. For example,
+        /// a tag with "Sales" as the key might be added to a resource to indicate its use by
+        /// the sales department. 
+        /// </para>
+        /// </summary>
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property VolumeKmsKeyId. 
         /// <para>
         /// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
@@ -170,6 +213,27 @@ namespace Amazon.Comprehend.Model
         internal bool IsSetVolumeKmsKeyId()
         {
             return this._volumeKmsKeyId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property VpcConfig. 
+        /// <para>
+        /// Configuration parameters for an optional private Virtual Private Cloud (VPC) containing
+        /// the resources you are using for your custom classifier. For more information, see
+        /// <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+        /// VPC</a>. 
+        /// </para>
+        /// </summary>
+        public VpcConfig VpcConfig
+        {
+            get { return this._vpcConfig; }
+            set { this._vpcConfig = value; }
+        }
+
+        // Check to see if VpcConfig property is set
+        internal bool IsSetVpcConfig()
+        {
+            return this._vpcConfig != null;
         }
 
     }

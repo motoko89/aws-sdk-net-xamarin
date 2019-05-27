@@ -38,10 +38,12 @@ namespace Amazon.EC2.Model
         private List<string> _networkInterfaceIds = new List<string>();
         private string _policyDocument;
         private bool? _privateDnsEnabled;
+        private bool? _requesterManaged;
         private List<string> _routeTableIds = new List<string>();
         private string _serviceName;
         private State _state;
         private List<string> _subnetIds = new List<string>();
+        private List<Tag> _tags = new List<Tag>();
         private string _vpcEndpointId;
         private VpcEndpointType _vpcEndpointType;
         private string _vpcId;
@@ -157,6 +159,24 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property RequesterManaged. 
+        /// <para>
+        /// Indicates whether the VPC endpoint is being managed by its service.
+        /// </para>
+        /// </summary>
+        public bool RequesterManaged
+        {
+            get { return this._requesterManaged.GetValueOrDefault(); }
+            set { this._requesterManaged = value; }
+        }
+
+        // Check to see if RequesterManaged property is set
+        internal bool IsSetRequesterManaged()
+        {
+            return this._requesterManaged.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property RouteTableIds. 
         /// <para>
         /// (Gateway endpoint) One or more route tables associated with the endpoint.
@@ -226,6 +246,24 @@ namespace Amazon.EC2.Model
         internal bool IsSetSubnetIds()
         {
             return this._subnetIds != null && this._subnetIds.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// Any tags assigned to the VPC endpoint.
+        /// </para>
+        /// </summary>
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
         /// <summary>

@@ -126,11 +126,13 @@
       <Directory>$(ProjectDir)/src/Services/lightsail/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/machinelearning/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/macie/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/managedblockchain/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/marketplaceentitlementservice/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/mediaconnect/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/mediaconvert/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/medialive/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/mediapackage/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/mediapackagevod/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/mediastore/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/mediastoredata/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/mediatailor/bin/Release/net35/</Directory>
@@ -300,11 +302,13 @@
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Lightsail.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MachineLearning.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Macie.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ManagedBlockchain.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MarketplaceEntitlementService.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MediaConnect.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MediaConvert.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MediaLive.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MediaPackage.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MediaPackageVod.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MediaStore.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MediaStoreData.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MediaTailor.dll" Analyze="True" AnalyzeAllChildren="True" />

@@ -32,8 +32,27 @@ namespace Amazon.ServiceCatalog.Model
     /// </summary>
     public partial class DescribeProductResponse : AmazonWebServiceResponse
     {
+        private List<BudgetDetail> _budgets = new List<BudgetDetail>();
         private ProductViewSummary _productViewSummary;
         private List<ProvisioningArtifact> _provisioningArtifacts = new List<ProvisioningArtifact>();
+
+        /// <summary>
+        /// Gets and sets the property Budgets. 
+        /// <para>
+        /// Information about the associated budgets.
+        /// </para>
+        /// </summary>
+        public List<BudgetDetail> Budgets
+        {
+            get { return this._budgets; }
+            set { this._budgets = value; }
+        }
+
+        // Check to see if Budgets property is set
+        internal bool IsSetBudgets()
+        {
+            return this._budgets != null && this._budgets.Count > 0; 
+        }
 
         /// <summary>
         /// Gets and sets the property ProductViewSummary. 

@@ -11,6 +11,7 @@
     "DeleteInput": "Deletes the input end point",
     "DeleteInputSecurityGroup": "Deletes an Input Security Group",
     "DeleteReservation": "Delete an expired reservation.",
+    "DeleteSchedule": "Delete all schedule actions on a channel.",
     "DeleteTags": "Removes tags for a resource",
     "DescribeChannel": "Gets details about a channel",
     "DescribeInput": "Produces details about an input",
@@ -28,8 +29,10 @@
     "StartChannel": "Starts an existing channel",
     "StopChannel": "Stops a running channel",
     "UpdateChannel": "Updates a channel.",
+    "UpdateChannelClass": "Changes the class of the channel.",
     "UpdateInput": "Updates an input.",
-    "UpdateInputSecurityGroup": "Update an Input Security Group's Whilelists."
+    "UpdateInputSecurityGroup": "Update an Input Security Group's Whilelists.",
+    "UpdateReservation": "Update reservation."
   },
   "shapes": {
     "AacCodingMode": {
@@ -422,6 +425,16 @@
       "refs": {
         "CreateChannelResultModel$Channel": null,
         "UpdateChannelResultModel$Channel": null
+      }
+    },
+    "ChannelClass": {
+      "base": "A standard channel has two encoding pipelines and a single pipeline channel only has one.",
+      "refs": {
+        "Channel$ChannelClass": "The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.",
+        "ChannelSummary$ChannelClass": "The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.",
+        "CreateChannel$ChannelClass": "The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.",
+        "ReservationResourceSpecification$ChannelClass": "Channel class, e.g. 'STANDARD'",
+        "UpdateChannelClass$ChannelClass": "The channel class that you wish to update this channel to use."
       }
     },
     "ChannelConfigurationValidationError": {
@@ -1109,6 +1122,12 @@
         "__listOfInputChannelLevel$member": null
       }
     },
+    "InputClass": {
+      "base": "A standard input has two sources and a single pipeline input only has one.",
+      "refs": {
+        "Input$InputClass": "STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.\nSINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.\n"
+      }
+    },
     "InputCodec": {
       "base": "codec in increasing order of complexity",
       "refs": {
@@ -1684,6 +1703,7 @@
       "base": "Reserved resources available to use",
       "refs": {
         "PurchaseOfferingResultModel$Reservation": null,
+        "UpdateReservationResultModel$Reservation": null,
         "__listOfReservation$member": null
       }
     },
@@ -1804,6 +1824,11 @@
       "base": "Settings to specify the start time for an action.",
       "refs": {
         "ScheduleAction$ScheduleActionStartSettings": "The time for the action to start in the channel."
+      }
+    },
+    "ScheduleDeleteResultModel": {
+      "base": "Result of a schedule deletion.",
+      "refs": {
       }
     },
     "ScheduleDescribeResultModel": {
@@ -2037,6 +2062,8 @@
         "Input$Tags": "A collection of key-value pairs.",
         "InputSecurityGroup$Tags": "A collection of key-value pairs.",
         "InputSecurityGroupWhitelistRequest$Tags": "A collection of key-value pairs.",
+        "PurchaseOffering$Tags": "A collection of key-value pairs",
+        "Reservation$Tags": "A collection of key-value pairs",
         "TagsModel$Tags": null
       }
     },
@@ -2120,6 +2147,11 @@
       "refs": {
       }
     },
+    "UpdateChannelClass": {
+      "base": null,
+      "refs": {
+      }
+    },
     "UpdateChannelResultModel": {
       "base": "The updated channel's description.",
       "refs": {
@@ -2137,6 +2169,16 @@
     },
     "UpdateInputSecurityGroupResultModel": {
       "base": null,
+      "refs": {
+      }
+    },
+    "UpdateReservation": {
+      "base": "UpdateReservation request",
+      "refs": {
+      }
+    },
+    "UpdateReservationResultModel": {
+      "base": "UpdateReservation response",
       "refs": {
       }
     },
@@ -2777,7 +2819,8 @@
         "Channel$Destinations": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.\n",
         "ChannelSummary$Destinations": "A list of destinations of the channel. For UDP outputs, there is one\ndestination per output. For other types (HLS, for example), there is\none destination per packager.\n",
         "CreateChannel$Destinations": null,
-        "UpdateChannel$Destinations": "A list of output destinations for this channel."
+        "UpdateChannel$Destinations": "A list of output destinations for this channel.",
+        "UpdateChannelClass$Destinations": "A list of output destinations for this channel."
       }
     },
     "__listOfOutputDestinationSettings": {
@@ -2991,6 +3034,7 @@
         "UpdateChannel$RoleArn": "An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed.",
         "UpdateInput$Name": "Name of the input.",
         "UpdateInput$RoleArn": "The Amazon Resource Name (ARN) of the role this input assumes during and after creation.",
+        "UpdateReservation$Name": "Name of the reservation",
         "ValidationError$ElementPath": null,
         "ValidationError$ErrorMessage": null,
         "VideoDescription$Name": "The name of this VideoDescription. Outputs will use this name to uniquely identify this Description.  Description names should be unique within this Live Event.",

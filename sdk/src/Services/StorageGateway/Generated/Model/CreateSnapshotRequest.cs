@@ -36,7 +36,7 @@ namespace Amazon.StorageGateway.Model
     /// AWS Storage Gateway provides the ability to back up point-in-time snapshots of your
     /// data to Amazon Simple Storage (S3) for durable off-site recovery, as well as import
     /// the data to an Amazon Elastic Block Store (EBS) volume in Amazon Elastic Compute Cloud
-    /// (EC2). You can take snapshots of your gateway volume on a scheduled or ad-hoc basis.
+    /// (EC2). You can take snapshots of your gateway volume on a scheduled or ad hoc basis.
     /// This API enables you to take ad-hoc snapshot. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot">Editing
     /// a Snapshot Schedule</a>.
     /// </para>
@@ -67,6 +67,7 @@ namespace Amazon.StorageGateway.Model
     public partial class CreateSnapshotRequest : AmazonStorageGatewayRequest
     {
         private string _snapshotDescription;
+        private List<Tag> _tags = new List<Tag>();
         private string _volumeARN;
 
         /// <summary>
@@ -88,6 +89,33 @@ namespace Amazon.StorageGateway.Model
         internal bool IsSetSnapshotDescription()
         {
             return this._snapshotDescription != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value
+        /// pair.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// Valid characters for key and value are letters, spaces, and numbers representable
+        /// in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
+        /// length of a tag's key is 128 characters, and the maximum length for a tag's value
+        /// is 256.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
         /// <summary>

@@ -67,7 +67,6 @@ namespace Amazon.IdentityManagement.Model
         /// request.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=320)]
         public string Marker
         {
             get { return this._marker; }
@@ -87,7 +86,7 @@ namespace Amazon.IdentityManagement.Model
         /// </para>
         ///  
         /// <para>
-        /// For more information about managed policy versions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
+        /// For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
         /// for Managed Policies</a> in the <i>IAM User Guide</i>.
         /// </para>
         /// </summary>

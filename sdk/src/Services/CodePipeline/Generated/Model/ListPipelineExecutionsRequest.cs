@@ -41,9 +41,9 @@ namespace Amazon.CodePipeline.Model
         /// Gets and sets the property MaxResults. 
         /// <para>
         /// The maximum number of results to return in a single call. To retrieve the remaining
-        /// results, make another call with the returned nextToken value. The available pipeline
-        /// execution history is limited to the most recent 12 months, based on pipeline execution
-        /// start times. Default value is 100.
+        /// results, make another call with the returned nextToken value. Pipeline history is
+        /// limited to the most recent 12 months, based on pipeline execution start times. Default
+        /// value is 100.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=100)]
@@ -62,8 +62,8 @@ namespace Amazon.CodePipeline.Model
         /// <summary>
         /// Gets and sets the property NextToken. 
         /// <para>
-        /// The token that was returned from the previous ListPipelineExecutions call, which can
-        /// be used to return the next set of pipeline executions in the list.
+        /// The token that was returned from the previous <code>ListPipelineExecutions</code>
+        /// call, which can be used to return the next set of pipeline executions in the list.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=2048)]

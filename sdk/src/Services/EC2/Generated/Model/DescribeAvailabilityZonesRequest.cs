@@ -29,10 +29,10 @@ namespace Amazon.EC2.Model
 {
     /// <summary>
     /// Container for the parameters to the DescribeAvailabilityZones operation.
-    /// Describes one or more of the Availability Zones that are available to you. The results
-    /// include zones only for the region you're currently using. If there is an event impacting
-    /// an Availability Zone, you can use this request to view the state and any provided
-    /// message for that Availability Zone.
+    /// Describes the Availability Zones that are available to you. The results include zones
+    /// only for the Region you're currently using. If there is an event impacting an Availability
+    /// Zone, you can use this request to view the state and any provided message for that
+    /// Availability Zone.
     /// 
     ///  
     /// <para>
@@ -49,7 +49,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property Filters. 
         /// <para>
-        /// One or more filters.
+        /// The filters.
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -57,7 +57,7 @@ namespace Amazon.EC2.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>region-name</code> - The name of the region for the Availability Zone (for
+        ///  <code>region-name</code> - The name of the Region for the Availability Zone (for
         /// example, <code>us-east-1</code>).
         /// </para>
         ///  </li> <li> 
@@ -90,7 +90,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property ZoneIds. 
         /// <para>
-        /// The IDs of one or more Availability Zones.
+        /// The IDs of the Availability Zones.
         /// </para>
         /// </summary>
         public List<string> ZoneIds
@@ -108,7 +108,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property ZoneNames. 
         /// <para>
-        /// The names of one or more Availability Zones.
+        /// The names of the Availability Zones.
         /// </para>
         /// </summary>
         public List<string> ZoneNames

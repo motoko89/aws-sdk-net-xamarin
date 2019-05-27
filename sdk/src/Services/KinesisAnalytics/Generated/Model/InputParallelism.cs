@@ -29,7 +29,7 @@ namespace Amazon.KinesisAnalytics.Model
 {
     /// <summary>
     /// Describes the number of in-application streams to create for a given streaming source.
-    /// For information about parallelism, see <a href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring
+    /// For information about parallelism, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring
     /// Application Input</a>.
     /// </summary>
     public partial class InputParallelism
@@ -39,7 +39,7 @@ namespace Amazon.KinesisAnalytics.Model
         /// <summary>
         /// Gets and sets the property Count. 
         /// <para>
-        /// Number of in-application streams to create. For more information, see <a href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html">Limits</a>.
+        /// Number of in-application streams to create. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html">Limits</a>.
         /// 
         /// </para>
         /// </summary>

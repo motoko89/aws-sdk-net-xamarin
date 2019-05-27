@@ -66,6 +66,22 @@ namespace Amazon.AppSync.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetAdditionalAuthenticationProviders())
+                {
+                    context.Writer.WritePropertyName("additionalAuthenticationProviders");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestAdditionalAuthenticationProvidersListValue in publicRequest.AdditionalAuthenticationProviders)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = AdditionalAuthenticationProviderMarshaller.Instance;
+                        marshaller.Marshall(publicRequestAdditionalAuthenticationProvidersListValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteArrayEnd();
+                }
+
                 if(publicRequest.IsSetAuthenticationType())
                 {
                     context.Writer.WritePropertyName("authenticationType");
@@ -97,6 +113,20 @@ namespace Amazon.AppSync.Model.Internal.MarshallTransformations
                     var marshaller = OpenIDConnectConfigMarshaller.Instance;
                     marshaller.Marshall(publicRequest.OpenIDConnectConfig, context);
 
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetTags())
+                {
+                    context.Writer.WritePropertyName("tags");
+                    context.Writer.WriteObjectStart();
+                    foreach (var publicRequestTagsKvp in publicRequest.Tags)
+                    {
+                        context.Writer.WritePropertyName(publicRequestTagsKvp.Key);
+                        var publicRequestTagsValue = publicRequestTagsKvp.Value;
+
+                            context.Writer.Write(publicRequestTagsValue);
+                    }
                     context.Writer.WriteObjectEnd();
                 }
 

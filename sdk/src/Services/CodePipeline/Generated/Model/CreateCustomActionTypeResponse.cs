@@ -28,11 +28,12 @@ using Amazon.Runtime.Internal;
 namespace Amazon.CodePipeline.Model
 {
     /// <summary>
-    /// Represents the output of a CreateCustomActionType operation.
+    /// Represents the output of a <code>CreateCustomActionType</code> operation.
     /// </summary>
     public partial class CreateCustomActionTypeResponse : AmazonWebServiceResponse
     {
         private ActionType _actionType;
+        private List<Tag> _tags = new List<Tag>();
 
         /// <summary>
         /// Gets and sets the property ActionType. 
@@ -51,6 +52,24 @@ namespace Amazon.CodePipeline.Model
         internal bool IsSetActionType()
         {
             return this._actionType != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// Specifies the tags applied to the custom action.
+        /// </para>
+        /// </summary>
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
     }

@@ -56,6 +56,17 @@ namespace Amazon.IoTAnalytics.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetS3DestinationConfiguration())
+            {
+                context.Writer.WritePropertyName("s3DestinationConfiguration");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = S3DestinationConfigurationMarshaller.Instance;
+                marshaller.Marshall(requestObject.S3DestinationConfiguration, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
         }
 
         /// <summary>

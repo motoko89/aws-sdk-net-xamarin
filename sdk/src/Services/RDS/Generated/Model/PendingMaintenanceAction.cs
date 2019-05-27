@@ -43,7 +43,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property Action. 
         /// <para>
         /// The type of pending maintenance action that is available for the resource. Valid actions
-        /// are <code>system-update</code> and <code>db-upgrade</code>.
+        /// are <code>system-update</code>, <code>db-upgrade</code>, and <code>hardware-maintenance</code>.
         /// </para>
         /// </summary>
         public string Action
@@ -82,7 +82,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property CurrentApplyDate. 
         /// <para>
         /// The effective date when the pending maintenance action is applied to the resource.
-        /// This date takes into account opt-in requests received from the <a>ApplyPendingMaintenanceAction</a>
+        /// This date takes into account opt-in requests received from the <code>ApplyPendingMaintenanceAction</code>
         /// API, the <code>AutoAppliedAfterDate</code>, and the <code>ForcedApplyDate</code>.
         /// This value is blank if an opt-in request has not been received and nothing has been
         /// specified as <code>AutoAppliedAfterDate</code> or <code>ForcedApplyDate</code>.

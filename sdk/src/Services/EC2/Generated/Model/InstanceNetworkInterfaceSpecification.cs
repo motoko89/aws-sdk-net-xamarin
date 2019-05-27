@@ -37,6 +37,7 @@ namespace Amazon.EC2.Model
         private string _description;
         private int? _deviceIndex;
         private List<string> _groups = new List<string>();
+        private string _interfaceType;
         private int? _ipv6AddressCount;
         private List<InstanceIpv6Address> _ipv6Addresses = new List<InstanceIpv6Address>();
         private string _networkInterfaceId;
@@ -109,9 +110,13 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property DeviceIndex. 
         /// <para>
-        /// The index of the device on the instance for the network interface attachment. If you
-        /// are specifying a network interface in a <a>RunInstances</a> request, you must provide
-        /// the device index.
+        /// The position of the network interface in the attachment order. A primary network interface
+        /// has a device index of 0.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you specify a network interface when launching an instance, you must specify the
+        /// device index.
         /// </para>
         /// </summary>
         public int DeviceIndex
@@ -143,6 +148,34 @@ namespace Amazon.EC2.Model
         internal bool IsSetGroups()
         {
             return this._groups != null && this._groups.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property InterfaceType. 
+        /// <para>
+        /// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify
+        /// <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic
+        /// Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you are not creating an EFA, specify <code>interface</code> or omit this parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valide values: <code>interface</code> | <code>efa</code> 
+        /// </para>
+        /// </summary>
+        public string InterfaceType
+        {
+            get { return this._interfaceType; }
+            set { this._interfaceType = value; }
+        }
+
+        // Check to see if InterfaceType property is set
+        internal bool IsSetInterfaceType()
+        {
+            return this._interfaceType != null;
         }
 
         /// <summary>
@@ -210,7 +243,8 @@ namespace Amazon.EC2.Model
         /// <para>
         /// The private IPv4 address of the network interface. Applies only if creating a network
         /// interface when launching an instance. You cannot specify this option if you're launching
-        /// more than one instance in a <a>RunInstances</a> request.
+        /// more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+        /// request.
         /// </para>
         /// </summary>
         public string PrivateIpAddress
@@ -230,7 +264,8 @@ namespace Amazon.EC2.Model
         /// <para>
         /// One or more private IPv4 addresses to assign to the network interface. Only one private
         /// IPv4 address can be designated as primary. You cannot specify this option if you're
-        /// launching more than one instance in a <a>RunInstances</a> request.
+        /// launching more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+        /// request.
         /// </para>
         /// </summary>
         public List<PrivateIpAddressSpecification> PrivateIpAddresses
@@ -250,7 +285,7 @@ namespace Amazon.EC2.Model
         /// <para>
         /// The number of secondary private IPv4 addresses. You can't specify this option and
         /// specify more than one private IP address using the private IP addresses option. You
-        /// cannot specify this option if you're launching more than one instance in a <a>RunInstances</a>
+        /// cannot specify this option if you're launching more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
         /// request.
         /// </para>
         /// </summary>

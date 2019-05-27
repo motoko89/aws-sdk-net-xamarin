@@ -28,8 +28,12 @@ using Amazon.Runtime.Internal;
 namespace Amazon.GameLift.Model
 {
     /// <summary>
-    /// Properties describing a game build.
+    /// Properties describing a custom game build.
     /// 
+    ///  
+    /// <para>
+    ///  <b>Related operations</b> 
+    /// </para>
     ///  <ul> <li> 
     /// <para>
     ///  <a>CreateBuild</a> 
@@ -199,8 +203,8 @@ namespace Amazon.GameLift.Model
         /// <summary>
         /// Gets and sets the property Version. 
         /// <para>
-        /// Version that is associated with this build. Version strings do not need to be unique.
-        /// This value can be set using <a>CreateBuild</a> or <a>UpdateBuild</a>.
+        /// Version that is associated with a build or script. Version strings do not need to
+        /// be unique. This value can be set using <a>CreateBuild</a> or <a>UpdateBuild</a>.
         /// </para>
         /// </summary>
         public string Version

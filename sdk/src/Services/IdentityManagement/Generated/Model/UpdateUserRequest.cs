@@ -34,8 +34,8 @@ namespace Amazon.IdentityManagement.Model
     ///  <important> 
     /// <para>
     ///  You should understand the implications of changing an IAM user's path or name. For
-    /// more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming">Renaming
-    /// an IAM User</a> and <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html">Renaming
+    /// more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming">Renaming
+    /// an IAM User</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html">Renaming
     /// an IAM Group</a> in the <i>IAM User Guide</i>.
     /// </para>
     ///  </important> <note> 
@@ -43,7 +43,7 @@ namespace Amazon.IdentityManagement.Model
     ///  To change a user name, the requester must have appropriate permissions on both the
     /// source object and the target object. For example, to change Bob to Robert, the entity
     /// making the request must have permission on Bob and Robert, or must have permission
-    /// on all (*). For more information about permissions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html">Permissions
+    /// on all (*). For more information about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html">Permissions
     /// and Policies</a>. 
     /// </para>
     ///  </note>
@@ -103,9 +103,9 @@ namespace Amazon.IdentityManagement.Model
         /// </para>
         ///  
         /// <para>
-        /// This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
-        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-        /// characters with no spaces. You can also include any of the following characters: _+=,.@-
+        /// IAM user, group, role, and policy names must be unique within the account. Names are
+        /// not distinguished by case. For example, you cannot create resources named both "MyResource"
+        /// and "myresource".
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=64)]

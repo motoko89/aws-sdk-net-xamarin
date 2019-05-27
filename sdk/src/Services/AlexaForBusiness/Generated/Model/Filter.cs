@@ -61,7 +61,7 @@ namespace Amazon.AlexaForBusiness.Model
         /// The values of a filter.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Max=5)]
+        [AWSProperty(Required=true, Max=50)]
         public List<string> Values
         {
             get { return this._values; }

@@ -30,13 +30,13 @@ namespace Amazon.IdentityManagement.Model
     /// <summary>
     /// Container for the parameters to the ListSSHPublicKeys operation.
     /// Returns information about the SSH public keys associated with the specified IAM user.
-    /// If there none exists, the operation returns an empty list.
+    /// If none exists, the operation returns an empty list.
     /// 
     ///  
     /// <para>
     /// The SSH public keys returned by this operation are used only for authenticating the
     /// IAM user to an AWS CodeCommit repository. For more information about using SSH keys
-    /// to authenticate to an AWS CodeCommit repository, see <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set
+    /// to authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set
     /// up AWS CodeCommit for SSH Connections</a> in the <i>AWS CodeCommit User Guide</i>.
     /// </para>
     ///  

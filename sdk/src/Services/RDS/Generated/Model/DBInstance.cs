@@ -32,8 +32,8 @@ namespace Amazon.RDS.Model
     /// 
     ///  
     /// <para>
-    /// This data type is used as a response element in the <a>DescribeDBInstances</a> action.
-    /// 
+    /// This data type is used as a response element in the <code>DescribeDBInstances</code>
+    /// action. 
     /// </para>
     /// </summary>
     public partial class DBInstance
@@ -237,7 +237,7 @@ namespace Amazon.RDS.Model
         /// <para>
         /// Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this
         /// value for an Aurora DB instance has no effect on the DB cluster setting. For more
-        /// information, see <a>DBCluster</a>.
+        /// information, see <code>DBCluster</code>.
         /// </para>
         /// </summary>
         public bool CopyTagsToSnapshot
@@ -386,10 +386,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property DBName. 
         /// <para>
-        /// The meaning of this parameter differs according to the database engine you use. For
-        /// example, this value returns MySQL, MariaDB, or PostgreSQL information when returning
-        /// values from CreateDBInstanceReadReplica since Read Replicas are only supported for
-        /// these engines.
+        /// The meaning of this parameter differs according to the database engine you use.
         /// </para>
         ///  
         /// <para>
@@ -448,7 +445,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property DBSecurityGroups. 
         /// <para>
-        ///  Provides List of DB security group elements containing only <code>DBSecurityGroup.Name</code>
+        ///  A list of DB security group elements containing <code>DBSecurityGroup.Name</code>
         /// and <code>DBSecurityGroup.Status</code> subelements. 
         /// </para>
         /// </summary>
@@ -487,7 +484,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property DeletionProtection. 
         /// <para>
         /// Indicates if the DB instance has deletion protection enabled. The database can't be
-        /// deleted when this value is set to true. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+        /// deleted when deletion protection is enabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
         /// Deleting a DB Instance</a>. 
         /// </para>
         /// </summary>

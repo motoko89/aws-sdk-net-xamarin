@@ -488,8 +488,8 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By
-        /// default, you can allocate 5 Elastic IP addresses for EC2-Classic per region and 5
-        /// Elastic IP addresses for EC2-VPC per region.
+        /// default, you can allocate 5 Elastic IP addresses for EC2-Classic per Region and 5
+        /// Elastic IP addresses for EC2-VPC per Region.
         /// </para>
         ///  
         /// <para>
@@ -4537,7 +4537,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your Elastic IP addresses.
+        /// Describes the specified Elastic IP addresses or all of your Elastic IP addresses.
         /// 
         ///  
         /// <para>
@@ -4629,10 +4629,10 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of the Availability Zones that are available to you. The results
-        /// include zones only for the region you're currently using. If there is an event impacting
-        /// an Availability Zone, you can use this request to view the state and any provided
-        /// message for that Availability Zone.
+        /// Describes the Availability Zones that are available to you. The results include zones
+        /// only for the Region you're currently using. If there is an event impacting an Availability
+        /// Zone, you can use this request to view the state and any provided message for that
+        /// Availability Zone.
         /// 
         ///  
         /// <para>
@@ -4690,7 +4690,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your bundling tasks.
+        /// Describes the specified bundle tasks or all of your bundle tasks.
         /// 
         ///  <note> 
         /// <para>
@@ -5015,8 +5015,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your conversion tasks. For more information, see the <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM
-        /// Import/Export User Guide</a>.
+        /// Describes the specified conversion tasks or all your conversion tasks. For more information,
+        /// see the <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM Import/Export
+        /// User Guide</a>.
         /// 
         ///  
         /// <para>
@@ -5256,7 +5257,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your export tasks.
+        /// Describes the specified export tasks or all your export tasks.
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -5737,16 +5738,21 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of the images (AMIs, AKIs, and ARIs) available to you. Images
-        /// available to you include public images, private images that you own, and private images
-        /// owned by other AWS accounts but for which you have explicit launch permissions.
+        /// Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the
+        /// images available to you.
         /// 
-        ///  <note> 
+        ///  
         /// <para>
-        /// Deregistered images are included in the returned results for an unspecified interval
-        /// after deregistration.
+        /// The images available to you include public images, private images that you own, and
+        /// private images owned by other AWS accounts for which you have explicit launch permissions.
         /// </para>
-        ///  </note>
+        ///  
+        /// <para>
+        /// Recently deregistered images appear in the returned results for a short interval and
+        /// then return empty results. After all instances that reference a deregistered AMI are
+        /// terminated, specifying the ID of the image results in an error indicating that the
+        /// AMI ID cannot be found.
+        /// </para>
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -5930,7 +5936,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your instances.
+        /// Describes the specified instances or all of your instances.
         /// 
         ///  
         /// <para>
@@ -6003,8 +6009,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the status of one or more instances. By default, only running instances
-        /// are described, unless you specifically indicate to return the status of all instances.
+        /// Describes the status of the specified instances or all of your instances. By default,
+        /// only running instances are described, unless you specifically indicate to return the
+        /// status of all instances.
         /// 
         ///  
         /// <para>
@@ -6135,7 +6142,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your key pairs.
+        /// Describes the specified key pairs or all of your key pairs.
         /// 
         ///  
         /// <para>
@@ -6501,7 +6508,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your placement groups. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+        /// Describes the specified placement groups or all of your placement groups. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
         /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </summary>
         /// <param name="cancellationToken">
@@ -6653,12 +6661,15 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more regions that are currently available to you.
+        /// Describes the Regions that are currently available to you. The API returns a list
+        /// of all the Regions, including Regions that are disabled for your account. For information
+        /// about enabling Regions for your account, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-account-payment.html#manage-account-payment-enable-disable-regions">Enabling
+        /// and Disabling Regions</a> in the <i>AWS Billing and Cost Management User Guide</i>.
         /// 
         ///  
         /// <para>
-        /// For a list of the regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region">Regions
-        /// and Endpoints</a>.
+        /// For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region">
+        /// Regions and Endpoints</a>.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -7139,7 +7150,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your security groups.
+        /// Describes the specified security groups or all of your security groups.
         /// 
         ///  
         /// <para>
@@ -7233,11 +7244,15 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of the EBS snapshots available to you. Available snapshots include
-        /// public snapshots available for use by any AWS account, private snapshots that you
-        /// own, and private snapshots owned by another AWS account for which you've been given
-        /// explicit create volume permissions.
+        /// Describes the specified EBS snapshots available to you or all of the EBS snapshots
+        /// available to you.
         /// 
+        ///  
+        /// <para>
+        /// The snapshots available to you include public snapshots, private snapshots that you
+        /// own, and private snapshots owned by other AWS accounts for which you have explicit
+        /// create volume permissions.
+        /// </para>
         ///  
         /// <para>
         /// The create volume permissions fall into the following categories:
@@ -7729,7 +7744,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of the tags for your EC2 resources.
+        /// Describes the specified tags for your EC2 resources.
         /// 
         ///  
         /// <para>
@@ -7952,7 +7967,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the specified EBS volumes.
+        /// Describes the specified EBS volumes or all of your EBS volumes.
         /// 
         ///  
         /// <para>
@@ -8813,6 +8828,39 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DisableEbsEncryptionByDefault
+
+        internal virtual DisableEbsEncryptionByDefaultResponse DisableEbsEncryptionByDefault(DisableEbsEncryptionByDefaultRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisableEbsEncryptionByDefaultRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisableEbsEncryptionByDefaultResponseUnmarshaller.Instance;
+
+            return Invoke<DisableEbsEncryptionByDefaultResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DisableEbsEncryptionByDefault operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DisableEbsEncryptionByDefault operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableEbsEncryptionByDefault">REST API Reference for DisableEbsEncryptionByDefault Operation</seealso>
+        public virtual Task<DisableEbsEncryptionByDefaultResponse> DisableEbsEncryptionByDefaultAsync(DisableEbsEncryptionByDefaultRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisableEbsEncryptionByDefaultRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisableEbsEncryptionByDefaultResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DisableEbsEncryptionByDefaultResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DisableTransitGatewayRouteTablePropagation
 
         internal virtual DisableTransitGatewayRouteTablePropagationResponse DisableTransitGatewayRouteTablePropagation(DisableTransitGatewayRouteTablePropagationRequest request)
@@ -9176,6 +9224,39 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  EnableEbsEncryptionByDefault
+
+        internal virtual EnableEbsEncryptionByDefaultResponse EnableEbsEncryptionByDefault(EnableEbsEncryptionByDefaultRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = EnableEbsEncryptionByDefaultRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = EnableEbsEncryptionByDefaultResponseUnmarshaller.Instance;
+
+            return Invoke<EnableEbsEncryptionByDefaultResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the EnableEbsEncryptionByDefault operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the EnableEbsEncryptionByDefault operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableEbsEncryptionByDefault">REST API Reference for EnableEbsEncryptionByDefault Operation</seealso>
+        public virtual Task<EnableEbsEncryptionByDefaultResponse> EnableEbsEncryptionByDefaultAsync(EnableEbsEncryptionByDefaultRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = EnableEbsEncryptionByDefaultRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = EnableEbsEncryptionByDefaultResponseUnmarshaller.Instance;
+
+            return InvokeAsync<EnableEbsEncryptionByDefaultResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  EnableTransitGatewayRouteTablePropagation
 
         internal virtual EnableTransitGatewayRouteTablePropagationResponse EnableTransitGatewayRouteTablePropagation(EnableTransitGatewayRouteTablePropagationRequest request)
@@ -9502,6 +9583,72 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = GetConsoleScreenshotResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetConsoleScreenshotResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetEbsDefaultKmsKeyId
+
+        internal virtual GetEbsDefaultKmsKeyIdResponse GetEbsDefaultKmsKeyId(GetEbsDefaultKmsKeyIdRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetEbsDefaultKmsKeyIdRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetEbsDefaultKmsKeyIdResponseUnmarshaller.Instance;
+
+            return Invoke<GetEbsDefaultKmsKeyIdResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetEbsDefaultKmsKeyId operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetEbsDefaultKmsKeyId operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetEbsDefaultKmsKeyId">REST API Reference for GetEbsDefaultKmsKeyId Operation</seealso>
+        public virtual Task<GetEbsDefaultKmsKeyIdResponse> GetEbsDefaultKmsKeyIdAsync(GetEbsDefaultKmsKeyIdRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetEbsDefaultKmsKeyIdRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetEbsDefaultKmsKeyIdResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetEbsDefaultKmsKeyIdResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetEbsEncryptionByDefault
+
+        internal virtual GetEbsEncryptionByDefaultResponse GetEbsEncryptionByDefault(GetEbsEncryptionByDefaultRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetEbsEncryptionByDefaultRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetEbsEncryptionByDefaultResponseUnmarshaller.Instance;
+
+            return Invoke<GetEbsEncryptionByDefaultResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetEbsEncryptionByDefault operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetEbsEncryptionByDefault operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetEbsEncryptionByDefault">REST API Reference for GetEbsEncryptionByDefault Operation</seealso>
+        public virtual Task<GetEbsEncryptionByDefaultResponse> GetEbsEncryptionByDefaultAsync(GetEbsEncryptionByDefaultRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetEbsEncryptionByDefaultRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetEbsEncryptionByDefaultResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetEbsEncryptionByDefaultResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -9997,6 +10144,39 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = ModifyClientVpnEndpointResponseUnmarshaller.Instance;
 
             return InvokeAsync<ModifyClientVpnEndpointResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ModifyEbsDefaultKmsKeyId
+
+        internal virtual ModifyEbsDefaultKmsKeyIdResponse ModifyEbsDefaultKmsKeyId(ModifyEbsDefaultKmsKeyIdRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyEbsDefaultKmsKeyIdRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyEbsDefaultKmsKeyIdResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyEbsDefaultKmsKeyIdResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyEbsDefaultKmsKeyId operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyEbsDefaultKmsKeyId operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyEbsDefaultKmsKeyId">REST API Reference for ModifyEbsDefaultKmsKeyId Operation</seealso>
+        public virtual Task<ModifyEbsDefaultKmsKeyIdResponse> ModifyEbsDefaultKmsKeyIdAsync(ModifyEbsDefaultKmsKeyIdRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyEbsDefaultKmsKeyIdRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyEbsDefaultKmsKeyIdResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyEbsDefaultKmsKeyIdResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -10892,6 +11072,39 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  ModifyVpnConnection
+
+        internal virtual ModifyVpnConnectionResponse ModifyVpnConnection(ModifyVpnConnectionRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVpnConnectionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVpnConnectionResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyVpnConnectionResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyVpnConnection operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVpnConnection operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpnConnection">REST API Reference for ModifyVpnConnection Operation</seealso>
+        public virtual Task<ModifyVpnConnectionResponse> ModifyVpnConnectionAsync(ModifyVpnConnectionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVpnConnectionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVpnConnectionResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyVpnConnectionResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  MonitorInstances
 
         internal virtual MonitorInstancesResponse MonitorInstances(MonitorInstancesRequest request)
@@ -11614,6 +11827,39 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = RequestSpotInstancesResponseUnmarshaller.Instance;
 
             return InvokeAsync<RequestSpotInstancesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ResetEbsDefaultKmsKeyId
+
+        internal virtual ResetEbsDefaultKmsKeyIdResponse ResetEbsDefaultKmsKeyId(ResetEbsDefaultKmsKeyIdRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ResetEbsDefaultKmsKeyIdRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ResetEbsDefaultKmsKeyIdResponseUnmarshaller.Instance;
+
+            return Invoke<ResetEbsDefaultKmsKeyIdResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ResetEbsDefaultKmsKeyId operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ResetEbsDefaultKmsKeyId operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetEbsDefaultKmsKeyId">REST API Reference for ResetEbsDefaultKmsKeyId Operation</seealso>
+        public virtual Task<ResetEbsDefaultKmsKeyIdResponse> ResetEbsDefaultKmsKeyIdAsync(ResetEbsDefaultKmsKeyIdRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ResetEbsDefaultKmsKeyIdRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ResetEbsDefaultKmsKeyIdResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ResetEbsDefaultKmsKeyIdResponse>(request, options, cancellationToken);
         }
 
         #endregion

@@ -90,10 +90,27 @@ namespace Amazon.XRay.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.Sampling);
                 }
 
+                if(publicRequest.IsSetSamplingStrategy())
+                {
+                    context.Writer.WritePropertyName("SamplingStrategy");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = SamplingStrategyMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.SamplingStrategy, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetStartTime())
                 {
                     context.Writer.WritePropertyName("StartTime");
                     context.Writer.Write(publicRequest.StartTime);
+                }
+
+                if(publicRequest.IsSetTimeRangeType())
+                {
+                    context.Writer.WritePropertyName("TimeRangeType");
+                    context.Writer.Write(publicRequest.TimeRangeType);
                 }
 
         

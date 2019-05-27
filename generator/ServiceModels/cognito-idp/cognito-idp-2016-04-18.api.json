@@ -415,6 +415,24 @@
         {"shape":"InternalErrorException"}
       ]
     },
+    "AdminSetUserPassword":{
+      "name":"AdminSetUserPassword",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"AdminSetUserPasswordRequest"},
+      "output":{"shape":"AdminSetUserPasswordResponse"},
+      "errors":[
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"NotAuthorizedException"},
+        {"shape":"UserNotFoundException"},
+        {"shape":"InternalErrorException"},
+        {"shape":"TooManyRequestsException"},
+        {"shape":"InvalidParameterException"},
+        {"shape":"InvalidPasswordException"}
+      ]
+    },
     "AdminSetUserSettings":{
       "name":"AdminSetUserSettings",
       "http":{
@@ -485,7 +503,10 @@
         {"shape":"TooManyRequestsException"},
         {"shape":"NotAuthorizedException"},
         {"shape":"UserNotFoundException"},
-        {"shape":"InternalErrorException"}
+        {"shape":"InternalErrorException"},
+        {"shape":"InvalidSmsRoleAccessPolicyException"},
+        {"shape":"InvalidEmailRoleAccessPolicyException"},
+        {"shape":"InvalidSmsRoleTrustRelationshipException"}
       ]
     },
     "AdminUserGlobalSignOut":{
@@ -2294,6 +2315,25 @@
       "members":{
       }
     },
+    "AdminSetUserPasswordRequest":{
+      "type":"structure",
+      "required":[
+        "UserPoolId",
+        "Username",
+        "Password"
+      ],
+      "members":{
+        "UserPoolId":{"shape":"UserPoolIdType"},
+        "Username":{"shape":"UsernameType"},
+        "Password":{"shape":"PasswordType"},
+        "Permanent":{"shape":"BooleanType"}
+      }
+    },
+    "AdminSetUserPasswordResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
     "AdminSetUserSettingsRequest":{
       "type":"structure",
       "required":[
@@ -3306,7 +3346,8 @@
       "type":"structure",
       "members":{
         "SourceArn":{"shape":"ArnType"},
-        "ReplyToEmailAddress":{"shape":"EmailAddressType"}
+        "ReplyToEmailAddress":{"shape":"EmailAddressType"},
+        "EmailSendingAccount":{"shape":"EmailSendingAccountType"}
       }
     },
     "EmailNotificationBodyType":{
@@ -3320,6 +3361,13 @@
       "max":140,
       "min":1,
       "pattern":"[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+"
+    },
+    "EmailSendingAccountType":{
+      "type":"string",
+      "enum":[
+        "COGNITO_DEFAULT",
+        "DEVELOPER"
+      ]
     },
     "EmailVerificationMessageByLinkType":{
       "type":"string",
@@ -3875,7 +3923,7 @@
     "ListProvidersLimitType":{
       "type":"integer",
       "max":60,
-      "min":1
+      "min":0
     },
     "ListResourceServersLimitType":{
       "type":"integer",
@@ -4119,7 +4167,8 @@
         "RequireUppercase":{"shape":"BooleanType"},
         "RequireLowercase":{"shape":"BooleanType"},
         "RequireNumbers":{"shape":"BooleanType"},
-        "RequireSymbols":{"shape":"BooleanType"}
+        "RequireSymbols":{"shape":"BooleanType"},
+        "TemporaryPasswordValidityDays":{"shape":"TemporaryPasswordValidityDaysType"}
       }
     },
     "PasswordResetRequiredException":{
@@ -4679,6 +4728,11 @@
     "TagValueType":{
       "type":"string",
       "max":256,
+      "min":0
+    },
+    "TemporaryPasswordValidityDaysType":{
+      "type":"integer",
+      "max":365,
       "min":0
     },
     "TokenModelType":{

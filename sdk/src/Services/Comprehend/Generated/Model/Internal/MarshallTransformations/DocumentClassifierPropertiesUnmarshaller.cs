@@ -106,6 +106,12 @@ namespace Amazon.Comprehend.Model.Internal.MarshallTransformations
                     unmarshalledObject.Message = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("OutputDataConfig", targetDepth))
+                {
+                    var unmarshaller = DocumentClassifierOutputDataConfigUnmarshaller.Instance;
+                    unmarshalledObject.OutputDataConfig = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Status", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -134,6 +140,12 @@ namespace Amazon.Comprehend.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.VolumeKmsKeyId = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("VpcConfig", targetDepth))
+                {
+                    var unmarshaller = VpcConfigUnmarshaller.Instance;
+                    unmarshalledObject.VpcConfig = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

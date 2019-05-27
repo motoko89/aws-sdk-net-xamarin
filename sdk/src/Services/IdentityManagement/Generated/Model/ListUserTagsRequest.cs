@@ -30,7 +30,7 @@ namespace Amazon.IdentityManagement.Model
     /// <summary>
     /// Container for the parameters to the ListUserTags operation.
     /// Lists the tags that are attached to the specified user. The returned list of tags
-    /// is sorted by tag key. For more information about tagging, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging
+    /// is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging
     /// IAM Identities</a> in the <i>IAM User Guide</i>.
     /// </summary>
     public partial class ListUserTagsRequest : AmazonIdentityManagementServiceRequest
@@ -44,7 +44,7 @@ namespace Amazon.IdentityManagement.Model
         /// <para>
         /// Use this parameter only when paginating results and only after you receive a response
         /// indicating that the results are truncated. Set it to the value of the <code>Marker</code>
-        /// element in the response to indicate where the next call should start.
+        /// element in the response that you received to indicate where the next call should start.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=320)]

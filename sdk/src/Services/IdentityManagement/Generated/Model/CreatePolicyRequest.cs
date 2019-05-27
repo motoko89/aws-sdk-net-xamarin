@@ -35,12 +35,12 @@ namespace Amazon.IdentityManagement.Model
     /// <para>
     /// This operation creates a policy version with a version identifier of <code>v1</code>
     /// and sets v1 as the policy's default version. For more information about policy versions,
-    /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
+    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
     /// for Managed Policies</a> in the <i>IAM User Guide</i>.
     /// </para>
     ///  
     /// <para>
-    /// For more information about managed policies in general, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+    /// For more information about managed policies in general, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
     /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
@@ -86,7 +86,7 @@ namespace Amazon.IdentityManagement.Model
         /// </para>
         ///  
         /// <para>
-        /// For more information about paths, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
+        /// For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
         /// Identifiers</a> in the <i>IAM User Guide</i>.
         /// </para>
         ///  
@@ -118,6 +118,12 @@ namespace Amazon.IdentityManagement.Model
         /// Gets and sets the property PolicyDocument. 
         /// <para>
         /// The JSON policy document that you want to use as the content for the new policy.
+        /// </para>
+        ///  
+        /// <para>
+        /// You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates
+        /// formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation
+        /// always converts a YAML policy to JSON format before submitting it to IAM.
         /// </para>
         ///  
         /// <para>
@@ -160,9 +166,9 @@ namespace Amazon.IdentityManagement.Model
         /// </para>
         ///  
         /// <para>
-        /// This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
-        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-        /// characters with no spaces. You can also include any of the following characters: _+=,.@-
+        /// IAM user, group, role, and policy names must be unique within the account. Names are
+        /// not distinguished by case. For example, you cannot create resources named both "MyResource"
+        /// and "myresource".
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=128)]

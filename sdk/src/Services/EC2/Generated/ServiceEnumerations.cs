@@ -4719,6 +4719,34 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType T32xlarge = new InstanceType("t3.2xlarge");
         /// <summary>
+        /// Constant T3a2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType T3a2xlarge = new InstanceType("t3a.2xlarge");
+        /// <summary>
+        /// Constant T3aLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType T3aLarge = new InstanceType("t3a.large");
+        /// <summary>
+        /// Constant T3aMedium for InstanceType
+        /// </summary>
+        public static readonly InstanceType T3aMedium = new InstanceType("t3a.medium");
+        /// <summary>
+        /// Constant T3aMicro for InstanceType
+        /// </summary>
+        public static readonly InstanceType T3aMicro = new InstanceType("t3a.micro");
+        /// <summary>
+        /// Constant T3aNano for InstanceType
+        /// </summary>
+        public static readonly InstanceType T3aNano = new InstanceType("t3a.nano");
+        /// <summary>
+        /// Constant T3aSmall for InstanceType
+        /// </summary>
+        public static readonly InstanceType T3aSmall = new InstanceType("t3a.small");
+        /// <summary>
+        /// Constant T3aXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType T3aXlarge = new InstanceType("t3a.xlarge");
+        /// <summary>
         /// Constant T3Large for InstanceType
         /// </summary>
         public static readonly InstanceType T3Large = new InstanceType("t3.large");
@@ -5457,6 +5485,52 @@ namespace Amazon.EC2
 
 
     /// <summary>
+    /// Constants used for properties of type NetworkInterfaceCreationType.
+    /// </summary>
+    public class NetworkInterfaceCreationType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Efa for NetworkInterfaceCreationType
+        /// </summary>
+        public static readonly NetworkInterfaceCreationType Efa = new NetworkInterfaceCreationType("efa");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public NetworkInterfaceCreationType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static NetworkInterfaceCreationType FindValue(string value)
+        {
+            return FindValue<NetworkInterfaceCreationType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator NetworkInterfaceCreationType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type NetworkInterfacePermissionStateCode.
     /// </summary>
     public class NetworkInterfacePermissionStateCode : ConstantClass
@@ -5582,6 +5656,10 @@ namespace Amazon.EC2
     public class NetworkInterfaceType : ConstantClass
     {
 
+        /// <summary>
+        /// Constant Efa for NetworkInterfaceType
+        /// </summary>
+        public static readonly NetworkInterfaceType Efa = new NetworkInterfaceType("efa");
         /// <summary>
         /// Constant Interface for NetworkInterfaceType
         /// </summary>

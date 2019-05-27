@@ -418,8 +418,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For an inter-region VPC peering connection request, you must accept the VPC peering
-        /// connection in the region of the accepter VPC.
+        /// For an inter-Region VPC peering connection request, you must accept the VPC peering
+        /// connection in the Region of the accepter VPC.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AcceptVpcPeeringConnection service method.</param>
@@ -546,8 +546,8 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By
-        /// default, you can allocate 5 Elastic IP addresses for EC2-Classic per region and 5
-        /// Elastic IP addresses for EC2-VPC per region.
+        /// default, you can allocate 5 Elastic IP addresses for EC2-Classic per Region and 5
+        /// Elastic IP addresses for EC2-VPC per Region.
         /// </para>
         ///  
         /// <para>
@@ -588,8 +588,8 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By
-        /// default, you can allocate 5 Elastic IP addresses for EC2-Classic per region and 5
-        /// Elastic IP addresses for EC2-VPC per region.
+        /// default, you can allocate 5 Elastic IP addresses for EC2-Classic per Region and 5
+        /// Elastic IP addresses for EC2-VPC per Region.
         /// </para>
         ///  
         /// <para>
@@ -635,8 +635,8 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By
-        /// default, you can allocate 5 Elastic IP addresses for EC2-Classic per region and 5
-        /// Elastic IP addresses for EC2-VPC per region.
+        /// default, you can allocate 5 Elastic IP addresses for EC2-Classic per Region and 5
+        /// Elastic IP addresses for EC2-VPC per Region.
         /// </para>
         ///  
         /// <para>
@@ -1571,27 +1571,30 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// [EC2-VPC only] Adds one or more egress rules to a security group for use with a VPC.
-        /// Specifically, this action permits instances to send traffic to one or more destination
-        /// IPv4 or IPv6 CIDR address ranges, or to one or more destination security groups for
-        /// the same VPC. This action doesn't apply to security groups for use in EC2-Classic.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
-        /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. For
-        /// more information about security group limits, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon
-        /// VPC Limits</a>.
+        /// [VPC only] Adds the specified egress rules to a security group for use with a VPC.
         /// 
         ///  
         /// <para>
-        /// Each rule consists of the protocol (for example, TCP), plus either a CIDR range or
-        /// a source group. For the TCP and UDP protocols, you must also specify the destination
-        /// port or port range. For the ICMP protocol, you must also specify the ICMP type and
-        /// code. You can use -1 for the type or code to mean all types or all codes. You can
-        /// optionally specify a description for the rule.
+        /// An outbound rule permits instances to send traffic to the specified destination IPv4
+        /// or IPv6 CIDR address ranges, or to the specified destination security groups for the
+        /// same VPC.
+        /// </para>
+        ///  
+        /// <para>
+        /// You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols,
+        /// you must also specify the destination port or port range. For the ICMP protocol, you
+        /// must also specify the ICMP type and code. You can use -1 for the type or code to mean
+        /// all types or all codes.
         /// </para>
         ///  
         /// <para>
         /// Rule changes are propagated to affected instances as quickly as possible. However,
         /// a small delay might occur.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
+        /// VPC Limits</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AuthorizeSecurityGroupEgress service method.</param>
@@ -1632,8 +1635,19 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Adds one or more ingress rules to a security group.
+        /// Adds the specified ingress rules to a security group.
         /// 
+        ///  
+        /// <para>
+        /// An inbound rule permits instances to receive traffic from the specified destination
+        /// IPv4 or IPv6 CIDR address ranges, or from the specified destination security groups.
+        /// </para>
+        ///  
+        /// <para>
+        /// You specify a protocol for each rule (for example, TCP). For TCP and UDP, you must
+        /// also specify the destination port or port range. For ICMP/ICMPv6, you must also specify
+        /// the ICMP/ICMPv6 type and code. You can use -1 to mean all types or all codes.
+        /// </para>
         ///  
         /// <para>
         /// Rule changes are propagated to instances within the security group as quickly as possible.
@@ -1641,24 +1655,8 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// [EC2-Classic] This action gives one or more IPv4 CIDR address ranges permission to
-        /// access a security group in your account, or gives one or more security groups (called
-        /// the <i>source groups</i>) permission to access a security group for your account.
-        /// A source group can be for your own AWS account, or another. You can have up to 100
-        /// rules per group.
-        /// </para>
-        ///  
-        /// <para>
-        /// [EC2-VPC] This action gives one or more IPv4 or IPv6 CIDR address ranges permission
-        /// to access a security group in your VPC, or gives one or more other security groups
-        /// (called the <i>source groups</i>) permission to access a security group for your VPC.
-        /// The security groups must all be for the same VPC or a peer VPC in a VPC peering connection.
-        /// For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon
+        /// For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
         /// VPC Limits</a>.
-        /// </para>
-        ///  
-        /// <para>
-        /// You can optionally specify a description for the security group rule.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AuthorizeSecurityGroupIngress service method.</param>
@@ -2157,7 +2155,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Copies the specified Amazon FPGA Image (AFI) to the current region.
+        /// Copies the specified Amazon FPGA Image (AFI) to the current Region.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CopyFpgaImage service method.</param>
         /// 
@@ -2197,8 +2195,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Initiates the copy of an AMI from the specified source region to the current region.
-        /// You specify the destination region by using its endpoint when making the request.
+        /// Initiates the copy of an AMI from the specified source Region to the current Region.
+        /// You specify the destination Region by using its endpoint when making the request.
         /// 
         ///  
         /// <para>
@@ -2487,8 +2485,8 @@ namespace Amazon.EC2
         ///  <note> 
         /// <para>
         /// Amazon EC2 supports all 2-byte ASN numbers in the range of 1 - 65534, with the exception
-        /// of 7224, which is reserved in the <code>us-east-1</code> region, and 9059, which is
-        /// reserved in the <code>eu-west-1</code> region.
+        /// of 7224, which is reserved in the <code>us-east-1</code> Region, and 9059, which is
+        /// reserved in the <code>eu-west-1</code> Region.
         /// </para>
         ///  </note> 
         /// <para>
@@ -2662,7 +2660,7 @@ namespace Amazon.EC2
         ///  </li> <li> 
         /// <para>
         ///  <code>domain-name</code> - If you're using AmazonProvidedDNS in <code>us-east-1</code>,
-        /// specify <code>ec2.internal</code>. If you're using AmazonProvidedDNS in another region,
+        /// specify <code>ec2.internal</code>. If you're using AmazonProvidedDNS in another Region,
         /// specify <code>region.compute.internal</code> (for example, <code>ap-northeast-1.compute.internal</code>).
         /// Otherwise, specify a domain name (for example, <code>MyCompany.com</code>). This value
         /// is used to complete unqualified DNS hostnames. <b>Important</b>: Some Linux operating
@@ -2900,8 +2898,8 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely
-        /// deploy an AFI on one or more FPGA-accelerated instances. For more information, see
-        /// the <a href="https://github.com/aws/aws-fpga/">AWS FPGA Hardware Development Kit</a>.
+        /// deploy an AFI on multiple FPGA-accelerated instances. For more information, see the
+        /// <a href="https://github.com/aws/aws-fpga/">AWS FPGA Hardware Development Kit</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateFpgaImage service method.</param>
@@ -3137,13 +3135,13 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// You can have up to five thousand key pairs per region.
+        /// You can have up to five thousand key pairs per Region.
         /// </para>
         ///  
         /// <para>
-        /// The key pair returned to you is available only in the region in which you create it.
+        /// The key pair returned to you is available only in the Region in which you create it.
         /// If you prefer, you can create your own key pair using a third-party tool and upload
-        /// it to any region using <a>ImportKeyPair</a>.
+        /// it to any Region using <a>ImportKeyPair</a>.
         /// </para>
         ///  
         /// <para>
@@ -3774,21 +3772,13 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// A security group is for use with instances either in the EC2-Classic platform or in
-        /// a specific VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon
+        /// A security group acts as a virtual firewall for your instance to control inbound and
+        /// outbound traffic. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon
         /// EC2 Security Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and
         /// <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
         /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
-        ///  <important> 
-        /// <para>
-        /// EC2-Classic: You can have up to 500 security groups.
-        /// </para>
         ///  
-        /// <para>
-        /// EC2-VPC: You can create up to 500 security groups per VPC.
-        /// </para>
-        ///  </important> 
         /// <para>
         /// When you create a security group, you specify a friendly name of your choice. You
         /// can have a security group for use in EC2-Classic with the same name as a security
@@ -3807,6 +3797,11 @@ namespace Amazon.EC2
         /// <para>
         /// You can add or remove rules from your security groups using <a>AuthorizeSecurityGroupIngress</a>,
         /// <a>AuthorizeSecurityGroupEgress</a>, <a>RevokeSecurityGroupIngress</a>, and <a>RevokeSecurityGroupEgress</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
+        /// VPC Limits</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSecurityGroup service method.</param>
@@ -4048,7 +4043,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Adds or overwrites one or more tags for the specified Amazon EC2 resource or resources.
+        /// Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources.
         /// Each resource can have a maximum of 50 tags. Each tag consists of a key and optional
         /// value. Tag keys must be unique per resource.
         /// 
@@ -4652,7 +4647,7 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Creates a VPN connection between an existing virtual private gateway and a VPN customer
-        /// gateway. The only supported connection type is <code>ipsec.1</code>.
+        /// gateway. The supported connection types are <code>ipsec.1</code> and <code>ipsec.2</code>.
         /// 
         ///  
         /// <para>
@@ -6726,7 +6721,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your Elastic IP addresses.
+        /// Describes the specified Elastic IP addresses or all of your Elastic IP addresses.
         /// 
         ///  
         /// <para>
@@ -6745,7 +6740,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your Elastic IP addresses.
+        /// Describes the specified Elastic IP addresses or all of your Elastic IP addresses.
         /// 
         ///  
         /// <para>
@@ -6769,7 +6764,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your Elastic IP addresses.
+        /// Describes the specified Elastic IP addresses or all of your Elastic IP addresses.
         /// 
         ///  
         /// <para>
@@ -6813,9 +6808,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the longer ID format settings for all resource types in a specific region.
+        /// Describes the longer ID format settings for all resource types in a specific Region.
         /// This request is useful for performing a quick audit to determine whether a specific
-        /// region is fully opted in for longer IDs (17-character IDs).
+        /// Region is fully opted in for longer IDs (17-character IDs).
         /// 
         ///  
         /// <para>
@@ -6874,10 +6869,10 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of the Availability Zones that are available to you. The results
-        /// include zones only for the region you're currently using. If there is an event impacting
-        /// an Availability Zone, you can use this request to view the state and any provided
-        /// message for that Availability Zone.
+        /// Describes the Availability Zones that are available to you. The results include zones
+        /// only for the Region you're currently using. If there is an event impacting an Availability
+        /// Zone, you can use this request to view the state and any provided message for that
+        /// Availability Zone.
         /// 
         ///  
         /// <para>
@@ -6895,10 +6890,10 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of the Availability Zones that are available to you. The results
-        /// include zones only for the region you're currently using. If there is an event impacting
-        /// an Availability Zone, you can use this request to view the state and any provided
-        /// message for that Availability Zone.
+        /// Describes the Availability Zones that are available to you. The results include zones
+        /// only for the Region you're currently using. If there is an event impacting an Availability
+        /// Zone, you can use this request to view the state and any provided message for that
+        /// Availability Zone.
         /// 
         ///  
         /// <para>
@@ -6921,10 +6916,10 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of the Availability Zones that are available to you. The results
-        /// include zones only for the region you're currently using. If there is an event impacting
-        /// an Availability Zone, you can use this request to view the state and any provided
-        /// message for that Availability Zone.
+        /// Describes the Availability Zones that are available to you. The results include zones
+        /// only for the Region you're currently using. If there is an event impacting an Availability
+        /// Zone, you can use this request to view the state and any provided message for that
+        /// Availability Zone.
         /// 
         ///  
         /// <para>
@@ -6967,7 +6962,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your bundling tasks.
+        /// Describes the specified bundle tasks or all of your bundle tasks.
         /// 
         ///  <note> 
         /// <para>
@@ -6988,7 +6983,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your bundling tasks.
+        /// Describes the specified bundle tasks or all of your bundle tasks.
         /// 
         ///  <note> 
         /// <para>
@@ -7014,7 +7009,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your bundling tasks.
+        /// Describes the specified bundle tasks or all of your bundle tasks.
         /// 
         ///  <note> 
         /// <para>
@@ -7390,8 +7385,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your conversion tasks. For more information, see the <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM
-        /// Import/Export User Guide</a>.
+        /// Describes the specified conversion tasks or all your conversion tasks. For more information,
+        /// see the <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM Import/Export
+        /// User Guide</a>.
         /// 
         ///  
         /// <para>
@@ -7409,8 +7405,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your conversion tasks. For more information, see the <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM
-        /// Import/Export User Guide</a>.
+        /// Describes the specified conversion tasks or all your conversion tasks. For more information,
+        /// see the <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM Import/Export
+        /// User Guide</a>.
         /// 
         ///  
         /// <para>
@@ -7433,8 +7430,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your conversion tasks. For more information, see the <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM
-        /// Import/Export User Guide</a>.
+        /// Describes the specified conversion tasks or all your conversion tasks. For more information,
+        /// see the <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM Import/Export
+        /// User Guide</a>.
         /// 
         ///  
         /// <para>
@@ -7727,7 +7725,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your export tasks.
+        /// Describes the specified export tasks or all your export tasks.
         /// </summary>
         /// 
         /// <returns>The response from the DescribeExportTasks service method, as returned by EC2.</returns>
@@ -7739,7 +7737,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your export tasks.
+        /// Describes the specified export tasks or all your export tasks.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeExportTasks service method.</param>
         /// 
@@ -7756,7 +7754,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your export tasks.
+        /// Describes the specified export tasks or all your export tasks.
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -7873,7 +7871,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your EC2 Fleets.
+        /// Describes the specified EC2 Fleets or all your EC2 Fleets.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeFleets service method.</param>
         /// 
@@ -7995,7 +7993,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more available Amazon FPGA Images (AFIs). These include public AFIs,
+        /// Describes the Amazon FPGA Images (AFIs) available to you. These include public AFIs,
         /// private AFIs that you own, and AFIs owned by other AWS accounts for which you have
         /// load permissions.
         /// </summary>
@@ -8127,7 +8125,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your Dedicated Hosts.
+        /// Describes the specified Dedicated Hosts or all your Dedicated Hosts.
         /// 
         ///  
         /// <para>
@@ -8279,7 +8277,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the ID format settings for your resources on a per-region basis, for example,
+        /// Describes the ID format settings for your resources on a per-Region basis, for example,
         /// to view which resource types are enabled for longer IDs. This request only returns
         /// information about resource types whose ID formats can be modified; it does not return
         /// information about other resource types.
@@ -8387,16 +8385,21 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of the images (AMIs, AKIs, and ARIs) available to you. Images
-        /// available to you include public images, private images that you own, and private images
-        /// owned by other AWS accounts but for which you have explicit launch permissions.
+        /// Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the
+        /// images available to you.
         /// 
-        ///  <note> 
+        ///  
         /// <para>
-        /// Deregistered images are included in the returned results for an unspecified interval
-        /// after deregistration.
+        /// The images available to you include public images, private images that you own, and
+        /// private images owned by other AWS accounts for which you have explicit launch permissions.
         /// </para>
-        ///  </note>
+        ///  
+        /// <para>
+        /// Recently deregistered images appear in the returned results for a short interval and
+        /// then return empty results. After all instances that reference a deregistered AMI are
+        /// terminated, specifying the ID of the image results in an error indicating that the
+        /// AMI ID cannot be found.
+        /// </para>
         /// </summary>
         /// 
         /// <returns>The response from the DescribeImages service method, as returned by EC2.</returns>
@@ -8408,16 +8411,21 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of the images (AMIs, AKIs, and ARIs) available to you. Images
-        /// available to you include public images, private images that you own, and private images
-        /// owned by other AWS accounts but for which you have explicit launch permissions.
+        /// Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the
+        /// images available to you.
         /// 
-        ///  <note> 
+        ///  
         /// <para>
-        /// Deregistered images are included in the returned results for an unspecified interval
-        /// after deregistration.
+        /// The images available to you include public images, private images that you own, and
+        /// private images owned by other AWS accounts for which you have explicit launch permissions.
         /// </para>
-        ///  </note>
+        ///  
+        /// <para>
+        /// Recently deregistered images appear in the returned results for a short interval and
+        /// then return empty results. After all instances that reference a deregistered AMI are
+        /// terminated, specifying the ID of the image results in an error indicating that the
+        /// AMI ID cannot be found.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeImages service method.</param>
         /// 
@@ -8434,16 +8442,21 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of the images (AMIs, AKIs, and ARIs) available to you. Images
-        /// available to you include public images, private images that you own, and private images
-        /// owned by other AWS accounts but for which you have explicit launch permissions.
+        /// Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the
+        /// images available to you.
         /// 
-        ///  <note> 
+        ///  
         /// <para>
-        /// Deregistered images are included in the returned results for an unspecified interval
-        /// after deregistration.
+        /// The images available to you include public images, private images that you own, and
+        /// private images owned by other AWS accounts for which you have explicit launch permissions.
         /// </para>
-        ///  </note>
+        ///  
+        /// <para>
+        /// Recently deregistered images appear in the returned results for a short interval and
+        /// then return empty results. After all instances that reference a deregistered AMI are
+        /// terminated, specifying the ID of the image results in an error indicating that the
+        /// AMI ID cannot be found.
+        /// </para>
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -8606,8 +8619,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the credit option for CPU usage of one or more of your T2 or T3 instances.
-        /// The credit options are <code>standard</code> and <code>unlimited</code>.
+        /// Describes the credit option for CPU usage of the specified T2 or T3 instances. The
+        /// credit options are <code>standard</code> and <code>unlimited</code>.
         /// 
         ///  
         /// <para>
@@ -8678,7 +8691,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your instances.
+        /// Describes the specified instances or all of your instances.
         /// 
         ///  
         /// <para>
@@ -8711,7 +8724,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your instances.
+        /// Describes the specified instances or all of your instances.
         /// 
         ///  
         /// <para>
@@ -8749,7 +8762,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your instances.
+        /// Describes the specified instances or all of your instances.
         /// 
         ///  
         /// <para>
@@ -8807,8 +8820,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the status of one or more instances. By default, only running instances
-        /// are described, unless you specifically indicate to return the status of all instances.
+        /// Describes the status of the specified instances or all of your instances. By default,
+        /// only running instances are described, unless you specifically indicate to return the
+        /// status of all instances.
         /// 
         ///  
         /// <para>
@@ -8847,8 +8861,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the status of one or more instances. By default, only running instances
-        /// are described, unless you specifically indicate to return the status of all instances.
+        /// Describes the status of the specified instances or all of your instances. By default,
+        /// only running instances are described, unless you specifically indicate to return the
+        /// status of all instances.
         /// 
         ///  
         /// <para>
@@ -8892,8 +8907,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the status of one or more instances. By default, only running instances
-        /// are described, unless you specifically indicate to return the status of all instances.
+        /// Describes the status of the specified instances or all of your instances. By default,
+        /// only running instances are described, unless you specifically indicate to return the
+        /// status of all instances.
         /// 
         ///  
         /// <para>
@@ -9023,7 +9039,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your key pairs.
+        /// Describes the specified key pairs or all of your key pairs.
         /// 
         ///  
         /// <para>
@@ -9041,7 +9057,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your key pairs.
+        /// Describes the specified key pairs or all of your key pairs.
         /// 
         ///  
         /// <para>
@@ -9064,7 +9080,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your key pairs.
+        /// Describes the specified key pairs or all of your key pairs.
         /// 
         ///  
         /// <para>
@@ -9500,7 +9516,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your placement groups. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+        /// Describes the specified placement groups or all of your placement groups. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
         /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </summary>
         /// 
@@ -9513,7 +9530,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your placement groups. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+        /// Describes the specified placement groups or all of your placement groups. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
         /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribePlacementGroups service method.</param>
@@ -9531,7 +9549,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your placement groups. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+        /// Describes the specified placement groups or all of your placement groups. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
         /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </summary>
         /// <param name="cancellationToken">
@@ -9715,12 +9734,15 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more regions that are currently available to you.
+        /// Describes the Regions that are currently available to you. The API returns a list
+        /// of all the Regions, including Regions that are disabled for your account. For information
+        /// about enabling Regions for your account, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-account-payment.html#manage-account-payment-enable-disable-regions">Enabling
+        /// and Disabling Regions</a> in the <i>AWS Billing and Cost Management User Guide</i>.
         /// 
         ///  
         /// <para>
-        /// For a list of the regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region">Regions
-        /// and Endpoints</a>.
+        /// For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region">
+        /// Regions and Endpoints</a>.
         /// </para>
         /// </summary>
         /// 
@@ -9733,12 +9755,15 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more regions that are currently available to you.
+        /// Describes the Regions that are currently available to you. The API returns a list
+        /// of all the Regions, including Regions that are disabled for your account. For information
+        /// about enabling Regions for your account, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-account-payment.html#manage-account-payment-enable-disable-regions">Enabling
+        /// and Disabling Regions</a> in the <i>AWS Billing and Cost Management User Guide</i>.
         /// 
         ///  
         /// <para>
-        /// For a list of the regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region">Regions
-        /// and Endpoints</a>.
+        /// For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region">
+        /// Regions and Endpoints</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeRegions service method.</param>
@@ -9756,12 +9781,15 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more regions that are currently available to you.
+        /// Describes the Regions that are currently available to you. The API returns a list
+        /// of all the Regions, including Regions that are disabled for your account. For information
+        /// about enabling Regions for your account, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-account-payment.html#manage-account-payment-enable-disable-regions">Enabling
+        /// and Disabling Regions</a> in the <i>AWS Billing and Cost Management User Guide</i>.
         /// 
         ///  
         /// <para>
-        /// For a list of the regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region">Regions
-        /// and Endpoints</a>.
+        /// For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region">
+        /// Regions and Endpoints</a>.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -10389,7 +10417,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your Scheduled Instances.
+        /// Describes the specified Scheduled Instances or all your Scheduled Instances.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeScheduledInstances service method.</param>
         /// 
@@ -10429,8 +10457,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// [EC2-VPC only] Describes the VPCs on the other side of a VPC peering connection that
-        /// are referencing the security groups you've specified in this request.
+        /// [VPC only] Describes the VPCs on the other side of a VPC peering connection that are
+        /// referencing the security groups you've specified in this request.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeSecurityGroupReferences service method.</param>
         /// 
@@ -10470,7 +10498,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your security groups.
+        /// Describes the specified security groups or all of your security groups.
         /// 
         ///  
         /// <para>
@@ -10491,7 +10519,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your security groups.
+        /// Describes the specified security groups or all of your security groups.
         /// 
         ///  
         /// <para>
@@ -10517,7 +10545,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your security groups.
+        /// Describes the specified security groups or all of your security groups.
         /// 
         ///  
         /// <para>
@@ -10610,11 +10638,15 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of the EBS snapshots available to you. Available snapshots include
-        /// public snapshots available for use by any AWS account, private snapshots that you
-        /// own, and private snapshots owned by another AWS account for which you've been given
-        /// explicit create volume permissions.
+        /// Describes the specified EBS snapshots available to you or all of the EBS snapshots
+        /// available to you.
         /// 
+        ///  
+        /// <para>
+        /// The snapshots available to you include public snapshots, private snapshots that you
+        /// own, and private snapshots owned by other AWS accounts for which you have explicit
+        /// create volume permissions.
+        /// </para>
         ///  
         /// <para>
         /// The create volume permissions fall into the following categories:
@@ -10687,11 +10719,15 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of the EBS snapshots available to you. Available snapshots include
-        /// public snapshots available for use by any AWS account, private snapshots that you
-        /// own, and private snapshots owned by another AWS account for which you've been given
-        /// explicit create volume permissions.
+        /// Describes the specified EBS snapshots available to you or all of the EBS snapshots
+        /// available to you.
         /// 
+        ///  
+        /// <para>
+        /// The snapshots available to you include public snapshots, private snapshots that you
+        /// own, and private snapshots owned by other AWS accounts for which you have explicit
+        /// create volume permissions.
+        /// </para>
         ///  
         /// <para>
         /// The create volume permissions fall into the following categories:
@@ -10769,11 +10805,15 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of the EBS snapshots available to you. Available snapshots include
-        /// public snapshots available for use by any AWS account, private snapshots that you
-        /// own, and private snapshots owned by another AWS account for which you've been given
-        /// explicit create volume permissions.
+        /// Describes the specified EBS snapshots available to you or all of the EBS snapshots
+        /// available to you.
         /// 
+        ///  
+        /// <para>
+        /// The snapshots available to you include public snapshots, private snapshots that you
+        /// own, and private snapshots owned by other AWS accounts for which you have explicit
+        /// create volume permissions.
+        /// </para>
         ///  
         /// <para>
         /// The create volume permissions fall into the following categories:
@@ -11301,7 +11341,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// [EC2-VPC only] Describes the stale security group rules for security groups in a specified
+        /// [VPC only] Describes the stale security group rules for security groups in a specified
         /// VPC. Rules are stale when they reference a deleted security group in a peer VPC, or
         /// a security group in a peer VPC for which the VPC peering connection has been deleted.
         /// </summary>
@@ -11427,7 +11467,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of the tags for your EC2 resources.
+        /// Describes the specified tags for your EC2 resources.
         /// 
         ///  
         /// <para>
@@ -11445,7 +11485,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of the tags for your EC2 resources.
+        /// Describes the specified tags for your EC2 resources.
         /// 
         ///  
         /// <para>
@@ -11468,7 +11508,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of the tags for your EC2 resources.
+        /// Describes the specified tags for your EC2 resources.
         /// 
         ///  
         /// <para>
@@ -11723,7 +11763,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the specified EBS volumes.
+        /// Describes the specified EBS volumes or all of your EBS volumes.
         /// 
         ///  
         /// <para>
@@ -11750,7 +11790,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the specified EBS volumes.
+        /// Describes the specified EBS volumes or all of your EBS volumes.
         /// 
         ///  
         /// <para>
@@ -11782,7 +11822,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the specified EBS volumes.
+        /// Describes the specified EBS volumes or all of your EBS volumes.
         /// 
         ///  
         /// <para>
@@ -12984,6 +13024,60 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DisableEbsEncryptionByDefault
+
+
+        /// <summary>
+        /// Disables default encryption for EBS volumes that are created in your account in the
+        /// current region.
+        /// 
+        ///  
+        /// <para>
+        /// Call this API if you have enabled default encryption using <a>EnableEbsEncryptionByDefault</a>
+        /// and want to disable default EBS encryption. Once default EBS encryption is disabled,
+        /// you can still create an encrypted volume by setting <i>encrypted</i> to <i>true</i>
+        /// in the API call that creates the volume. 
+        /// </para>
+        ///  
+        /// <para>
+        /// Disabling default EBS encryption will not change the encryption status of any of your
+        /// existing volumes.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisableEbsEncryptionByDefault service method.</param>
+        /// 
+        /// <returns>The response from the DisableEbsEncryptionByDefault service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableEbsEncryptionByDefault">REST API Reference for DisableEbsEncryptionByDefault Operation</seealso>
+        public virtual DisableEbsEncryptionByDefaultResponse DisableEbsEncryptionByDefault(DisableEbsEncryptionByDefaultRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisableEbsEncryptionByDefaultRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisableEbsEncryptionByDefaultResponseUnmarshaller.Instance;
+
+            return Invoke<DisableEbsEncryptionByDefaultResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DisableEbsEncryptionByDefault operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DisableEbsEncryptionByDefault operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableEbsEncryptionByDefault">REST API Reference for DisableEbsEncryptionByDefault Operation</seealso>
+        public virtual Task<DisableEbsEncryptionByDefaultResponse> DisableEbsEncryptionByDefaultAsync(DisableEbsEncryptionByDefaultRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisableEbsEncryptionByDefaultRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisableEbsEncryptionByDefaultResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DisableEbsEncryptionByDefaultResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DisableTransitGatewayRouteTablePropagation
 
 
@@ -13486,6 +13580,80 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  EnableEbsEncryptionByDefault
+
+
+        /// <summary>
+        /// Enables default encryption for EBS volumes that are created in your account in the
+        /// current region.
+        /// 
+        ///  
+        /// <para>
+        /// Once encryption is enabled with this action, EBS volumes that are created in your
+        /// account will always be encrypted even if encryption is not specified at launch. This
+        /// setting overrides the <i>encrypted</i> setting to <i>true</i> in all API calls that
+        /// create EBS volumes in your account. A volume will be encrypted even if you specify
+        /// <i>encryption</i> to be <i>false</i> in the API call that creates the volume.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you do not specify a customer master key (CMK) in the API call that creates the
+        /// EBS volume, then the volume is encrypted to your AWS account's default CMK.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can specify a default CMK of your choice using <a>ModifyEbsDefaultKmsKeyId</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Enabling default encryption for EBS volumes has no effect on existing unencrypted
+        /// volumes in your account. Encrypting the data in these requires manual action. You
+        /// can either create an encrypted snapshot of an unencrypted volume, or encrypt a copy
+        /// of an unencrypted snapshot. Any volume restored from an encrypted snapshot is also
+        /// encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon
+        /// EBS Snapshots</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Once EBS encryption by default is enabled, you can no longer launch older-generation
+        /// instance types that do not support encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
+        /// Instance Types</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the EnableEbsEncryptionByDefault service method.</param>
+        /// 
+        /// <returns>The response from the EnableEbsEncryptionByDefault service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableEbsEncryptionByDefault">REST API Reference for EnableEbsEncryptionByDefault Operation</seealso>
+        public virtual EnableEbsEncryptionByDefaultResponse EnableEbsEncryptionByDefault(EnableEbsEncryptionByDefaultRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = EnableEbsEncryptionByDefaultRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = EnableEbsEncryptionByDefaultResponseUnmarshaller.Instance;
+
+            return Invoke<EnableEbsEncryptionByDefaultResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the EnableEbsEncryptionByDefault operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the EnableEbsEncryptionByDefault operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableEbsEncryptionByDefault">REST API Reference for EnableEbsEncryptionByDefault Operation</seealso>
+        public virtual Task<EnableEbsEncryptionByDefaultResponse> EnableEbsEncryptionByDefaultAsync(EnableEbsEncryptionByDefaultRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = EnableEbsEncryptionByDefaultRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = EnableEbsEncryptionByDefaultResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<EnableEbsEncryptionByDefaultResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  EnableTransitGatewayRouteTablePropagation
 
 
@@ -13928,6 +14096,89 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = GetConsoleScreenshotResponseUnmarshaller.Instance;
             
             return InvokeAsync<GetConsoleScreenshotResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetEbsDefaultKmsKeyId
+
+
+        /// <summary>
+        /// Describes the default customer master key (CMK) that your account uses to encrypt
+        /// EBS volumes if you don’t specify a CMK in the API call. You can change this default
+        /// using <a>ModifyEbsDefaultKmsKeyId</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetEbsDefaultKmsKeyId service method.</param>
+        /// 
+        /// <returns>The response from the GetEbsDefaultKmsKeyId service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetEbsDefaultKmsKeyId">REST API Reference for GetEbsDefaultKmsKeyId Operation</seealso>
+        public virtual GetEbsDefaultKmsKeyIdResponse GetEbsDefaultKmsKeyId(GetEbsDefaultKmsKeyIdRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetEbsDefaultKmsKeyIdRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetEbsDefaultKmsKeyIdResponseUnmarshaller.Instance;
+
+            return Invoke<GetEbsDefaultKmsKeyIdResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetEbsDefaultKmsKeyId operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetEbsDefaultKmsKeyId operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetEbsDefaultKmsKeyId">REST API Reference for GetEbsDefaultKmsKeyId Operation</seealso>
+        public virtual Task<GetEbsDefaultKmsKeyIdResponse> GetEbsDefaultKmsKeyIdAsync(GetEbsDefaultKmsKeyIdRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetEbsDefaultKmsKeyIdRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetEbsDefaultKmsKeyIdResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<GetEbsDefaultKmsKeyIdResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetEbsEncryptionByDefault
+
+
+        /// <summary>
+        /// Describes whether default EBS encryption is enabled for your account in the current
+        /// region.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetEbsEncryptionByDefault service method.</param>
+        /// 
+        /// <returns>The response from the GetEbsEncryptionByDefault service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetEbsEncryptionByDefault">REST API Reference for GetEbsEncryptionByDefault Operation</seealso>
+        public virtual GetEbsEncryptionByDefaultResponse GetEbsEncryptionByDefault(GetEbsEncryptionByDefaultRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetEbsEncryptionByDefaultRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetEbsEncryptionByDefaultResponseUnmarshaller.Instance;
+
+            return Invoke<GetEbsEncryptionByDefaultResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetEbsEncryptionByDefault operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetEbsEncryptionByDefault operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetEbsEncryptionByDefault">REST API Reference for GetEbsEncryptionByDefault Operation</seealso>
+        public virtual Task<GetEbsEncryptionByDefaultResponse> GetEbsEncryptionByDefaultAsync(GetEbsEncryptionByDefaultRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetEbsEncryptionByDefaultRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetEbsEncryptionByDefaultResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<GetEbsEncryptionByDefaultResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -14612,6 +14863,60 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  ModifyEbsDefaultKmsKeyId
+
+
+        /// <summary>
+        /// Changes the default customer master key (CMK) that your account uses to encrypt EBS
+        /// volumes if you don’t specify a CMK in the API call.
+        /// 
+        ///  
+        /// <para>
+        /// Your account has an AWS-managed default CMK that is used for encrypting an EBS volume
+        /// when no CMK is specified in the API call that creates the volume. By calling this
+        /// API, you can specify a customer-managed CMK to use in place of the AWS-managed default
+        /// CMK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Note: Deleting or disabling the custom CMK that you have specified to act as your
+        /// default CMK will result in instance-launch failures.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyEbsDefaultKmsKeyId service method.</param>
+        /// 
+        /// <returns>The response from the ModifyEbsDefaultKmsKeyId service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyEbsDefaultKmsKeyId">REST API Reference for ModifyEbsDefaultKmsKeyId Operation</seealso>
+        public virtual ModifyEbsDefaultKmsKeyIdResponse ModifyEbsDefaultKmsKeyId(ModifyEbsDefaultKmsKeyIdRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyEbsDefaultKmsKeyIdRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyEbsDefaultKmsKeyIdResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyEbsDefaultKmsKeyIdResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyEbsDefaultKmsKeyId operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyEbsDefaultKmsKeyId operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyEbsDefaultKmsKeyId">REST API Reference for ModifyEbsDefaultKmsKeyId Operation</seealso>
+        public virtual Task<ModifyEbsDefaultKmsKeyIdResponse> ModifyEbsDefaultKmsKeyIdAsync(ModifyEbsDefaultKmsKeyIdRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyEbsDefaultKmsKeyIdRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyEbsDefaultKmsKeyIdResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ModifyEbsDefaultKmsKeyIdResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ModifyFleet
 
 
@@ -14820,7 +15125,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the ID format for the specified resource on a per-region basis. You can specify
+        /// Modifies the ID format for the specified resource on a per-Region basis. You can specify
         /// that resources should receive longer IDs (17-character IDs) when they are created.
         /// 
         ///  
@@ -15394,6 +15699,10 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
+        /// You can only modify a Spot Fleet request of type <code>maintain</code>.
+        /// </para>
+        ///  
+        /// <para>
         /// While the Spot Fleet request is being modified, it is in the <code>modifying</code>
         /// state.
         /// </para>
@@ -15914,10 +16223,10 @@ namespace Amazon.EC2
         /// If the peered VPCs are in the same AWS account, you can enable DNS resolution for
         /// queries from the local VPC. This ensures that queries from the local VPC resolve to
         /// private IP addresses in the peer VPC. This option is not available if the peered VPCs
-        /// are in different AWS accounts or different regions. For peered VPCs in different AWS
+        /// are in different AWS accounts or different Regions. For peered VPCs in different AWS
         /// accounts, each AWS account owner must initiate a separate request to modify the peering
-        /// connection options. For inter-region peering connections, you must use the region
-        /// for the requester VPC to modify the requester VPC peering options and the region for
+        /// connection options. For inter-region peering connections, you must use the Region
+        /// for the requester VPC to modify the requester VPC peering options and the Region for
         /// the accepter VPC to modify the accepter VPC peering options. To verify which VPCs
         /// are the accepter and the requester for a VPC peering connection, use the <a>DescribeVpcPeeringConnections</a>
         /// command.
@@ -16007,6 +16316,109 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = ModifyVpcTenancyResponseUnmarshaller.Instance;
             
             return InvokeAsync<ModifyVpcTenancyResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ModifyVpnConnection
+
+
+        /// <summary>
+        /// Modifies the target gateway of a AWS Site-to-Site VPN connection. The following migration
+        /// options are available:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// An existing virtual private gateway to a new virtual private gateway
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// An existing virtual private gateway to a transit gateway
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// An existing transit gateway to a new transit gateway
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// An existing transit gateway to a virtual private gateway
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Before you perform the migration to the new gateway, you must configure the new gateway.
+        /// Use <a>CreateVpnGateway</a> to create a virtual private gateway, or <a>CreateTransitGateway</a>
+        /// to create a transit gateway.
+        /// </para>
+        ///  
+        /// <para>
+        /// This step is required when you migrate from a virtual private gateway with static
+        /// routes to a transit gateway. 
+        /// </para>
+        ///  
+        /// <para>
+        /// You must delete the static routes before you migrate to the new gateway.
+        /// </para>
+        ///  
+        /// <para>
+        /// Keep a copy of the static route before you delete it. You will need to add back these
+        /// routes to the transit gateway after the VPN connection migration is complete.
+        /// </para>
+        ///  
+        /// <para>
+        /// After you migrate to the new gateway, you might need to modify your VPC route table.
+        /// Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes described in <a
+        /// href="https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing">VPN
+        /// Gateway Target Modification Required VPC Route Table Updates</a> in the <i>AWS Site-to-Site
+        /// VPN User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  When the new gateway is a transit gateway, modify the transit gateway route table
+        /// to allow traffic between the VPC and the AWS Site-to-Site VPN connection. Use <a>CreateTransitGatewayRoute</a>
+        /// to add the routes.
+        /// </para>
+        ///  
+        /// <para>
+        ///  If you deleted VPN static routes, you must add the static routes to the transit gateway
+        /// route table.
+        /// </para>
+        ///  
+        /// <para>
+        /// After you perform this operation, the AWS VPN endpoint's IP addresses on the AWS side
+        /// and the tunnel options remain intact. Your s2slong; connection will be temporarily
+        /// unavailable for approximately 10 minutes while we provision the new endpoints 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVpnConnection service method.</param>
+        /// 
+        /// <returns>The response from the ModifyVpnConnection service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpnConnection">REST API Reference for ModifyVpnConnection Operation</seealso>
+        public virtual ModifyVpnConnectionResponse ModifyVpnConnection(ModifyVpnConnectionRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVpnConnectionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVpnConnectionResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyVpnConnectionResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyVpnConnection operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVpnConnection operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpnConnection">REST API Reference for ModifyVpnConnection Operation</seealso>
+        public virtual Task<ModifyVpnConnectionResponse> ModifyVpnConnectionAsync(ModifyVpnConnectionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVpnConnectionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVpnConnectionResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ModifyVpnConnectionResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -16264,7 +16676,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Purchases one or more Scheduled Instances with the specified schedule.
+        /// Purchases the Scheduled Instances with the specified schedule.
         /// 
         ///  
         /// <para>
@@ -16318,7 +16730,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Requests a reboot of one or more instances. This operation is asynchronous; it only
+        /// Requests a reboot of the specified instances. This operation is asynchronous; it only
         /// queues a request to reboot the specified instances. The operation succeeds if the
         /// instances are valid and belong to you. Requests to reboot terminated instances are
         /// ignored.
@@ -17146,6 +17558,59 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  ResetEbsDefaultKmsKeyId
+
+
+        /// <summary>
+        /// Resets the account's default customer master key (CMK) to the account's AWS-managed
+        /// default CMK. This default CMK is used to encrypt EBS volumes when you have enabled
+        /// EBS encryption by default without specifying a CMK in the API call. If you have not
+        /// enabled encryption by default, then this CMK is used when you set the <code>Encrypted</code>
+        /// parameter to true without specifying a custom CMK in the API call.
+        /// 
+        ///  
+        /// <para>
+        /// Call this API if you have modified the default CMK that is used for encrypting your
+        /// EBS volume using <a>ModifyEbsDefaultKmsKeyId</a> and you want to reset it to the AWS-managed
+        /// default CMK. After resetting, you can continue to provide a CMK of your choice in
+        /// the API call that creates the volume. However, if no CMK is specified, your account
+        /// will encrypt the volume to the AWS-managed default CMK.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ResetEbsDefaultKmsKeyId service method.</param>
+        /// 
+        /// <returns>The response from the ResetEbsDefaultKmsKeyId service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetEbsDefaultKmsKeyId">REST API Reference for ResetEbsDefaultKmsKeyId Operation</seealso>
+        public virtual ResetEbsDefaultKmsKeyIdResponse ResetEbsDefaultKmsKeyId(ResetEbsDefaultKmsKeyIdRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ResetEbsDefaultKmsKeyIdRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ResetEbsDefaultKmsKeyIdResponseUnmarshaller.Instance;
+
+            return Invoke<ResetEbsDefaultKmsKeyIdResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ResetEbsDefaultKmsKeyId operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ResetEbsDefaultKmsKeyId operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetEbsDefaultKmsKeyId">REST API Reference for ResetEbsDefaultKmsKeyId Operation</seealso>
+        public virtual Task<ResetEbsDefaultKmsKeyIdResponse> ResetEbsDefaultKmsKeyIdAsync(ResetEbsDefaultKmsKeyIdRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ResetEbsDefaultKmsKeyIdRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ResetEbsDefaultKmsKeyIdResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ResetEbsDefaultKmsKeyIdResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ResetFpgaImageAttribute
 
 
@@ -17457,8 +17922,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// [EC2-VPC only] Removes one or more egress rules from a security group for EC2-VPC.
-        /// This action doesn't apply to security groups for use in EC2-Classic. To remove a rule,
+        /// [VPC only] Removes the specified egress rules from a security group for EC2-VPC. This
+        /// action doesn't apply to security groups for use in EC2-Classic. To remove a rule,
         /// the values that you specify (for example, ports) must match the existing rule's values
         /// exactly.
         /// 
@@ -17514,14 +17979,14 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Removes one or more ingress rules from a security group. To remove a rule, the values
+        /// Removes the specified ingress rules from a security group. To remove a rule, the values
         /// that you specify (for example, ports) must match the existing rule's values exactly.
         /// 
         ///  <note> 
         /// <para>
-        /// [EC2-Classic security groups only] If the values you specify do not match the existing
-        /// rule's values, no error is returned. Use <a>DescribeSecurityGroups</a> to verify that
-        /// the rule has been removed.
+        /// [EC2-Classic only] If the values you specify do not match the existing rule's values,
+        /// no error is returned. Use <a>DescribeSecurityGroups</a> to verify that the rule has
+        /// been removed.
         /// </para>
         ///  </note> 
         /// <para>
@@ -17990,8 +18455,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Shuts down one or more instances. This operation is idempotent; if you terminate an
-        /// instance more than once, each call succeeds. 
+        /// Shuts down the specified instances. This operation is idempotent; if you terminate
+        /// an instance more than once, each call succeeds. 
         /// 
         ///  
         /// <para>
@@ -18184,9 +18649,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// [EC2-VPC only] Updates the description of an egress (outbound) security group rule.
-        /// You can replace an existing description, or add a description to a rule that did not
-        /// have one previously.
+        /// [VPC only] Updates the description of an egress (outbound) security group rule. You
+        /// can replace an existing description, or add a description to a rule that did not have
+        /// one previously.
         /// 
         ///  
         /// <para>

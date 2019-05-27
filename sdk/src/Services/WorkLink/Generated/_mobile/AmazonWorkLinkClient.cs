@@ -249,6 +249,72 @@ namespace Amazon.WorkLink
         #endregion
 
 
+        #region  AssociateDomain
+
+        internal virtual AssociateDomainResponse AssociateDomain(AssociateDomainRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateDomainRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateDomainResponseUnmarshaller.Instance;
+
+            return Invoke<AssociateDomainResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the AssociateDomain operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the AssociateDomain operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/AssociateDomain">REST API Reference for AssociateDomain Operation</seealso>
+        public virtual Task<AssociateDomainResponse> AssociateDomainAsync(AssociateDomainRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateDomainRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateDomainResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AssociateDomainResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  AssociateWebsiteAuthorizationProvider
+
+        internal virtual AssociateWebsiteAuthorizationProviderResponse AssociateWebsiteAuthorizationProvider(AssociateWebsiteAuthorizationProviderRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateWebsiteAuthorizationProviderRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateWebsiteAuthorizationProviderResponseUnmarshaller.Instance;
+
+            return Invoke<AssociateWebsiteAuthorizationProviderResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the AssociateWebsiteAuthorizationProvider operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the AssociateWebsiteAuthorizationProvider operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/AssociateWebsiteAuthorizationProvider">REST API Reference for AssociateWebsiteAuthorizationProvider Operation</seealso>
+        public virtual Task<AssociateWebsiteAuthorizationProviderResponse> AssociateWebsiteAuthorizationProviderAsync(AssociateWebsiteAuthorizationProviderRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateWebsiteAuthorizationProviderRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateWebsiteAuthorizationProviderResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AssociateWebsiteAuthorizationProviderResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  AssociateWebsiteCertificateAuthority
 
         internal virtual AssociateWebsiteCertificateAuthorityResponse AssociateWebsiteCertificateAuthority(AssociateWebsiteCertificateAuthorityRequest request)
@@ -480,6 +546,39 @@ namespace Amazon.WorkLink
 
         #endregion
         
+        #region  DescribeDomain
+
+        internal virtual DescribeDomainResponse DescribeDomain(DescribeDomainRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeDomainRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeDomainResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeDomainResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeDomain operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeDomain operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/DescribeDomain">REST API Reference for DescribeDomain Operation</seealso>
+        public virtual Task<DescribeDomainResponse> DescribeDomainAsync(DescribeDomainRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeDomainRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeDomainResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeDomainResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DescribeFleetMetadata
 
         internal virtual DescribeFleetMetadataResponse DescribeFleetMetadata(DescribeFleetMetadataRequest request)
@@ -579,6 +678,72 @@ namespace Amazon.WorkLink
 
         #endregion
         
+        #region  DisassociateDomain
+
+        internal virtual DisassociateDomainResponse DisassociateDomain(DisassociateDomainRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateDomainRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateDomainResponseUnmarshaller.Instance;
+
+            return Invoke<DisassociateDomainResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DisassociateDomain operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateDomain operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/DisassociateDomain">REST API Reference for DisassociateDomain Operation</seealso>
+        public virtual Task<DisassociateDomainResponse> DisassociateDomainAsync(DisassociateDomainRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateDomainRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateDomainResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DisassociateDomainResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DisassociateWebsiteAuthorizationProvider
+
+        internal virtual DisassociateWebsiteAuthorizationProviderResponse DisassociateWebsiteAuthorizationProvider(DisassociateWebsiteAuthorizationProviderRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateWebsiteAuthorizationProviderRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateWebsiteAuthorizationProviderResponseUnmarshaller.Instance;
+
+            return Invoke<DisassociateWebsiteAuthorizationProviderResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DisassociateWebsiteAuthorizationProvider operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateWebsiteAuthorizationProvider operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/DisassociateWebsiteAuthorizationProvider">REST API Reference for DisassociateWebsiteAuthorizationProvider Operation</seealso>
+        public virtual Task<DisassociateWebsiteAuthorizationProviderResponse> DisassociateWebsiteAuthorizationProviderAsync(DisassociateWebsiteAuthorizationProviderRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateWebsiteAuthorizationProviderRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateWebsiteAuthorizationProviderResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DisassociateWebsiteAuthorizationProviderResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DisassociateWebsiteCertificateAuthority
 
         internal virtual DisassociateWebsiteCertificateAuthorityResponse DisassociateWebsiteCertificateAuthority(DisassociateWebsiteCertificateAuthorityRequest request)
@@ -645,6 +810,39 @@ namespace Amazon.WorkLink
 
         #endregion
         
+        #region  ListDomains
+
+        internal virtual ListDomainsResponse ListDomains(ListDomainsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListDomainsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListDomainsResponseUnmarshaller.Instance;
+
+            return Invoke<ListDomainsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListDomains operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListDomains operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/ListDomains">REST API Reference for ListDomains Operation</seealso>
+        public virtual Task<ListDomainsResponse> ListDomainsAsync(ListDomainsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListDomainsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListDomainsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListDomainsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListFleets
 
         internal virtual ListFleetsResponse ListFleets(ListFleetsRequest request)
@@ -678,6 +876,39 @@ namespace Amazon.WorkLink
 
         #endregion
         
+        #region  ListWebsiteAuthorizationProviders
+
+        internal virtual ListWebsiteAuthorizationProvidersResponse ListWebsiteAuthorizationProviders(ListWebsiteAuthorizationProvidersRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListWebsiteAuthorizationProvidersRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListWebsiteAuthorizationProvidersResponseUnmarshaller.Instance;
+
+            return Invoke<ListWebsiteAuthorizationProvidersResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListWebsiteAuthorizationProviders operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListWebsiteAuthorizationProviders operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/ListWebsiteAuthorizationProviders">REST API Reference for ListWebsiteAuthorizationProviders Operation</seealso>
+        public virtual Task<ListWebsiteAuthorizationProvidersResponse> ListWebsiteAuthorizationProvidersAsync(ListWebsiteAuthorizationProvidersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListWebsiteAuthorizationProvidersRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListWebsiteAuthorizationProvidersResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListWebsiteAuthorizationProvidersResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListWebsiteCertificateAuthorities
 
         internal virtual ListWebsiteCertificateAuthoritiesResponse ListWebsiteCertificateAuthorities(ListWebsiteCertificateAuthoritiesRequest request)
@@ -707,6 +938,72 @@ namespace Amazon.WorkLink
             options.ResponseUnmarshaller = ListWebsiteCertificateAuthoritiesResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListWebsiteCertificateAuthoritiesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  RestoreDomainAccess
+
+        internal virtual RestoreDomainAccessResponse RestoreDomainAccess(RestoreDomainAccessRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RestoreDomainAccessRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RestoreDomainAccessResponseUnmarshaller.Instance;
+
+            return Invoke<RestoreDomainAccessResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the RestoreDomainAccess operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the RestoreDomainAccess operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/RestoreDomainAccess">REST API Reference for RestoreDomainAccess Operation</seealso>
+        public virtual Task<RestoreDomainAccessResponse> RestoreDomainAccessAsync(RestoreDomainAccessRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RestoreDomainAccessRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RestoreDomainAccessResponseUnmarshaller.Instance;
+
+            return InvokeAsync<RestoreDomainAccessResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  RevokeDomainAccess
+
+        internal virtual RevokeDomainAccessResponse RevokeDomainAccess(RevokeDomainAccessRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RevokeDomainAccessRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RevokeDomainAccessResponseUnmarshaller.Instance;
+
+            return Invoke<RevokeDomainAccessResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the RevokeDomainAccess operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the RevokeDomainAccess operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/RevokeDomainAccess">REST API Reference for RevokeDomainAccess Operation</seealso>
+        public virtual Task<RevokeDomainAccessResponse> RevokeDomainAccessAsync(RevokeDomainAccessRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RevokeDomainAccessRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RevokeDomainAccessResponseUnmarshaller.Instance;
+
+            return InvokeAsync<RevokeDomainAccessResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -839,6 +1136,39 @@ namespace Amazon.WorkLink
             options.ResponseUnmarshaller = UpdateDevicePolicyConfigurationResponseUnmarshaller.Instance;
 
             return InvokeAsync<UpdateDevicePolicyConfigurationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateDomainMetadata
+
+        internal virtual UpdateDomainMetadataResponse UpdateDomainMetadata(UpdateDomainMetadataRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateDomainMetadataRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateDomainMetadataResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateDomainMetadataResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateDomainMetadata operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateDomainMetadata operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/worklink-2018-09-25/UpdateDomainMetadata">REST API Reference for UpdateDomainMetadata Operation</seealso>
+        public virtual Task<UpdateDomainMetadataResponse> UpdateDomainMetadataAsync(UpdateDomainMetadataRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateDomainMetadataRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateDomainMetadataResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateDomainMetadataResponse>(request, options, cancellationToken);
         }
 
         #endregion

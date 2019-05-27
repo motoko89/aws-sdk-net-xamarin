@@ -74,7 +74,8 @@ namespace Amazon.IdentityManagement.Model
         /// <para>
         /// A list of names of API operations to evaluate in the simulation. Each operation is
         /// evaluated against each resource. Each operation must include the service identifier,
-        /// such as <code>iam:CreateUser</code>.
+        /// such as <code>iam:CreateUser</code>. This operation does not support using wildcards
+        /// (*) in an action name.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -121,7 +122,7 @@ namespace Amazon.IdentityManagement.Model
         /// Gets and sets the property ContextEntries. 
         /// <para>
         /// A list of context keys and corresponding values for the simulation to use. Whenever
-        /// a context key is evaluated in one of the simulated IAM permission policies, the corresponding
+        /// a context key is evaluated in one of the simulated IAM permissions policies, the corresponding
         /// value is supplied.
         /// </para>
         /// </summary>
@@ -194,8 +195,8 @@ namespace Amazon.IdentityManagement.Model
         /// as a string containing the complete, valid JSON text of an IAM policy. Do not include
         /// any resource-based policies in this parameter. Any resource-based policy must be submitted
         /// with the <code>ResourcePolicy</code> parameter. The policies cannot be "scope-down"
-        /// policies, such as you could include in a call to <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a>
-        /// or one of the <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a>
+        /// policies, such as you could include in a call to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a>
+        /// or one of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a>
         /// API operations. In other words, do not use policies designed to restrict what a user
         /// can do while using the temporary credentials.
         /// </para>
@@ -255,7 +256,7 @@ namespace Amazon.IdentityManagement.Model
         /// </para>
         ///  
         /// <para>
-        /// For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
         /// </para>
         /// </summary>
@@ -288,7 +289,7 @@ namespace Amazon.IdentityManagement.Model
         /// resources. If your scenario includes an EBS volume, then you must specify that volume
         /// as a resource. If the EC2 scenario includes VPC, then you must supply the network-interface
         /// resource. If it includes an IP subnet, then you must specify the subnet resource.
-        /// For more information on the EC2 scenario options, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
+        /// For more information on the EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
         /// Platforms</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         ///  <ul> <li> 
@@ -358,13 +359,14 @@ namespace Amazon.IdentityManagement.Model
         /// Gets and sets the property ResourceOwner. 
         /// <para>
         /// An ARN representing the AWS account ID that specifies the owner of any simulated resource
-        /// that does not identify its owner in the resource ARN, such as an S3 bucket or object.
-        /// If <code>ResourceOwner</code> is specified, it is also used as the account owner of
-        /// any <code>ResourcePolicy</code> included in the simulation. If the <code>ResourceOwner</code>
-        /// parameter is not specified, then the owner of the resources and the resource policy
-        /// defaults to the account of the identity provided in <code>CallerArn</code>. This parameter
-        /// is required only if you specify a resource-based policy and account that owns the
-        /// resource is different from the account that owns the simulated calling user <code>CallerArn</code>.
+        /// that does not identify its owner in the resource ARN. Examples of resource ARNs include
+        /// an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used
+        /// as the account owner of any <code>ResourcePolicy</code> included in the simulation.
+        /// If the <code>ResourceOwner</code> parameter is not specified, then the owner of the
+        /// resources and the resource policy defaults to the account of the identity provided
+        /// in <code>CallerArn</code>. This parameter is required only if you specify a resource-based
+        /// policy and account that owns the resource is different from the account that owns
+        /// the simulated calling user <code>CallerArn</code>.
         /// </para>
         ///  
         /// <para>

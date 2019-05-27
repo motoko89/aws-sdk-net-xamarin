@@ -93,6 +93,12 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         unmarshalledObject.PrivateDnsEnabled = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("requesterManaged", targetDepth))
+                    {
+                        var unmarshaller = BoolUnmarshaller.Instance;
+                        unmarshalledObject.RequesterManaged = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("routeTableIdSet/item", targetDepth))
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
@@ -117,6 +123,13 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         var unmarshaller = StringUnmarshaller.Instance;
                         var item = unmarshaller.Unmarshall(context);
                         unmarshalledObject.SubnetIds.Add(item);
+                        continue;
+                    }
+                    if (context.TestExpression("tagSet/item", targetDepth))
+                    {
+                        var unmarshaller = TagUnmarshaller.Instance;
+                        var item = unmarshaller.Unmarshall(context);
+                        unmarshalledObject.Tags.Add(item);
                         continue;
                     }
                     if (context.TestExpression("vpcEndpointId", targetDepth))

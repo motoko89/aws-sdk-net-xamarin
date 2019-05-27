@@ -1816,6 +1816,26 @@
         "ImportedBy":{"shape":"NameString"}
       }
     },
+    "CatalogTablesList":{
+      "type":"list",
+      "member":{"shape":"NameString"},
+      "min":1
+    },
+    "CatalogTarget":{
+      "type":"structure",
+      "required":[
+        "DatabaseName",
+        "Tables"
+      ],
+      "members":{
+        "DatabaseName":{"shape":"NameString"},
+        "Tables":{"shape":"CatalogTablesList"}
+      }
+    },
+    "CatalogTargetList":{
+      "type":"list",
+      "member":{"shape":"CatalogTarget"}
+    },
     "Classification":{"type":"string"},
     "Classifier":{
       "type":"structure",
@@ -2134,7 +2154,8 @@
       "members":{
         "S3Targets":{"shape":"S3TargetList"},
         "JdbcTargets":{"shape":"JdbcTargetList"},
-        "DynamoDBTargets":{"shape":"DynamoDBTargetList"}
+        "DynamoDBTargets":{"shape":"DynamoDBTargetList"},
+        "CatalogTargets":{"shape":"CatalogTargetList"}
       }
     },
     "CreateClassifierRequest":{
@@ -2169,7 +2190,6 @@
       "required":[
         "Name",
         "Role",
-        "DatabaseName",
         "Targets"
       ],
       "members":{
@@ -2299,6 +2319,8 @@
         "Timeout":{"shape":"Timeout"},
         "MaxCapacity":{"shape":"NullableDouble"},
         "NotificationProperty":{"shape":"NotificationProperty"},
+        "WorkerType":{"shape":"WorkerType"},
+        "NumberOfWorkers":{"shape":"NullableInteger"},
         "SecurityConfiguration":{"shape":"NameString"},
         "Tags":{"shape":"TagsMap"}
       }
@@ -3531,8 +3553,10 @@
         },
         "Timeout":{"shape":"Timeout"},
         "MaxCapacity":{"shape":"NullableDouble"},
-        "NotificationProperty":{"shape":"NotificationProperty"},
-        "SecurityConfiguration":{"shape":"NameString"}
+        "WorkerType":{"shape":"WorkerType"},
+        "NumberOfWorkers":{"shape":"NullableInteger"},
+        "SecurityConfiguration":{"shape":"NameString"},
+        "NotificationProperty":{"shape":"NotificationProperty"}
       }
     },
     "JobBookmarkEntry":{
@@ -3599,6 +3623,8 @@
         "Timeout":{"shape":"Timeout"},
         "MaxCapacity":{"shape":"NullableDouble"},
         "NotificationProperty":{"shape":"NotificationProperty"},
+        "WorkerType":{"shape":"WorkerType"},
+        "NumberOfWorkers":{"shape":"NullableInteger"},
         "SecurityConfiguration":{"shape":"NameString"},
         "LogGroupName":{"shape":"GenericString"}
       }
@@ -3637,8 +3663,10 @@
         },
         "Timeout":{"shape":"Timeout"},
         "MaxCapacity":{"shape":"NullableDouble"},
-        "NotificationProperty":{"shape":"NotificationProperty"},
-        "SecurityConfiguration":{"shape":"NameString"}
+        "WorkerType":{"shape":"WorkerType"},
+        "NumberOfWorkers":{"shape":"NullableInteger"},
+        "SecurityConfiguration":{"shape":"NameString"},
+        "NotificationProperty":{"shape":"NotificationProperty"}
       }
     },
     "JsonClassifier":{
@@ -3875,6 +3903,10 @@
     },
     "NullableDouble":{
       "type":"double",
+      "box":true
+    },
+    "NullableInteger":{
+      "type":"integer",
       "box":true
     },
     "OperationTimeoutException":{
@@ -4256,8 +4288,10 @@
         },
         "Timeout":{"shape":"Timeout"},
         "MaxCapacity":{"shape":"NullableDouble"},
-        "NotificationProperty":{"shape":"NotificationProperty"},
-        "SecurityConfiguration":{"shape":"NameString"}
+        "WorkerType":{"shape":"WorkerType"},
+        "NumberOfWorkers":{"shape":"NullableInteger"},
+        "SecurityConfiguration":{"shape":"NameString"},
+        "NotificationProperty":{"shape":"NotificationProperty"}
       }
     },
     "StartJobRunResponse":{
@@ -4846,6 +4880,14 @@
     "ViewTextString":{
       "type":"string",
       "max":409600
+    },
+    "WorkerType":{
+      "type":"string",
+      "enum":[
+        "Standard",
+        "G.1X",
+        "G.2X"
+      ]
     },
     "XMLClassifier":{
       "type":"structure",

@@ -70,6 +70,12 @@ namespace Amazon.IoTAnalytics.Model.Internal.MarshallTransformations
                     unmarshalledObject.IotEventsDestinationConfiguration = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("s3DestinationConfiguration", targetDepth))
+                {
+                    var unmarshaller = S3DestinationConfigurationUnmarshaller.Instance;
+                    unmarshalledObject.S3DestinationConfiguration = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

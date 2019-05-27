@@ -29,7 +29,7 @@ namespace Amazon.MQ.Model
 {
     /// <summary>
     /// Container for the parameters to the DeleteTags operation.
-    /// Remove a tag from a resource.
+    /// Removes a tag from a resource.
     /// </summary>
     public partial class DeleteTagsRequest : AmazonMQRequest
     {
@@ -37,7 +37,8 @@ namespace Amazon.MQ.Model
         private List<string> _tagKeys = new List<string>();
 
         /// <summary>
-        /// Gets and sets the property ResourceArn. the Amazon Resource Name (ARN)
+        /// Gets and sets the property ResourceArn. The Amazon Resource Name (ARN) of the resource
+        /// tag.
         /// </summary>
         [AWSProperty(Required=true)]
         public string ResourceArn

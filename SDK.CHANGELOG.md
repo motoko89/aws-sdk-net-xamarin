@@ -1,3 +1,384 @@
+### 3.3.518.0 (2019-05-24 19:13 UTC)
+* CodeDeploy (3.3.101.0)
+	* AWS CodeDeploy now supports tagging for the application and deployment group resources.
+* MediaStoreData (3.3.101.0)
+	* MediaStore - This release adds support for chunked transfer of objects, which reduces latency by making an object available for downloading while it is still being uploaded.
+* OpsWorksCM (3.3.100.25)
+	* Documentation updates for OpsWorks for Chef Automate; attribute values updated for Chef Automate 2.0 release.
+
+### 3.3.517.0 (2019-05-23 18:07 UTC)
+* EC2 (3.3.110.0)
+	* New APIs to enable EBS encryption by default feature. Once EBS encryption by default is enabled in a region within the account, all new EBS volumes and snapshot copies are always encrypted
+* WAFRegional (3.3.100.24)
+	* Documentation updates for waf-regional
+* Core 3.3.101.15
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.516.0 (2019-05-22 19:20 UTC)
+* APIGateway (3.3.101.0)
+	* This release adds support for tagging of Amazon API Gateway resources.
+* Budgets (3.3.101.0)
+	* Added new datatype PlannedBudgetLimits to Budget model, and updated examples for AWS Budgets API for UpdateBudget, CreateBudget, DescribeBudget, and DescribeBudgets
+* DeviceFarm (3.3.101.0)
+	* This release introduces support for tagging, tag-based access control, and resource-based access control.
+* EC2 (3.3.109.0)
+	* This release adds idempotency support for associate, create route and authorization APIs for AWS Client VPN Endpoints.
+* ElasticFileSystem (3.3.101.0)
+	* AWS EFS documentation updated to reflect the minimum required value for ProvisionedThroughputInMibps is 1 from the previously documented 0. The service has always required a minimum value of 1, therefor service behavior is not changed. 
+* RDS (3.3.102.15)
+	* Documentation updates for rds
+* ServiceCatalog (3.3.104.0)
+	* Service Catalog UpdateProvisionedProductProperties API enables customers to manage provisioned product ownership. Administrators can now update the user associated to a provisioned product to another user within the same account allowing the new user to describe, update, terminate and execute service actions in that Service Catalog resource. New owner will also be able to list and describe all past records executed for that provisioned product.
+* WorkLink (3.3.102.0)
+	* Amazon WorkLink is a fully managed, cloud-based service that enables secure, one-click access to internal websites and web apps from mobile phones. This release introduces new APIs to associate and manage website authorization providers with Amazon WorkLink fleets.
+* Core 3.3.101.14
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.515.0 (2019-05-21 18:30 UTC)
+* AlexaForBusiness (3.3.104.0)
+	* This release contains API changes to allow customers to create and manage Network Profiles for their Shared devices
+* DataSync (3.3.102.0)
+	* Documentation update and refine pagination token on Datasync List API's
+* Core 3.3.101.13
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.514.0 (2019-05-20 18:14 UTC)
+* AWSMarketplaceMetering (3.3.100.21)
+	* Documentation updates for meteringmarketplace
+* Kafka (3.3.102.0)
+	* Updated APIs for the Managed Streaming for Kafka service that let customers create clusters with custom Kafka configuration. 
+* MediaPackageVod (3.3.100.0)
+	* AWS Elemental MediaPackage now supports Video-on-Demand (VOD) workflows.  These new features allow you to easily deliver a vast library of source video Assets stored in your own S3 buckets using a small set of simple to set up Packaging Configurations and Packaging Groups.
+* Core 3.3.101.12
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.513.0 (2019-05-17 18:26 UTC)
+* AppStream (3.3.101.0)
+	* Includes APIs for managing subscriptions to AppStream 2.0 usage reports and configuring idle disconnect timeouts on AppStream 2.0 fleets.
+* Core 3.3.101.11
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.512.0 (2019-05-16 18:42 UTC)
+* S3 (3.3.102.0)
+	* This release updates the Amazon S3 PUT Bucket replication API to include a new optional field named token, which allows you to add a replication configuration to an S3 bucket that has Object Lock enabled.
+
+### 3.3.511.0 (2019-05-15 18:09 UTC)
+* CodePipeline (3.3.102.0)
+	* This feature includes new APIs to add, edit, remove and view tags for pipeline, custom action type and webhook resources. You can also add tags while creating these resources.
+* EC2 (3.3.108.0)
+	* Adding tagging support for VPC Endpoints and VPC Endpoint Services.
+* MediaPackage (3.3.101.0)
+	* Adds optional configuration for DASH SegmentTemplateFormat to refer to segments by Number with Duration, rather than Number or Time with SegmentTimeline.
+* RDS (3.3.102.11)
+	* In the RDS API and CLI documentation, corrections to the descriptions for Boolean parameters to avoid references to TRUE and FALSE. The RDS CLI does not allow TRUE and FALSE values values for Boolean parameters.
+* TranscribeService (3.3.104.0)
+	* Amazon Transcribe - support transcriptions from audio sources in Indian English (en-IN) and Hindi (hi-IN).
+* Core 3.3.101.10
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.510.0 (2019-05-14 18:18 UTC)
+* Chime (3.3.101.0)
+	* Amazon Chime private bots GA release.
+* Comprehend (3.3.104.0)
+	* With this release AWS Comprehend now supports Virtual Private Cloud for Asynchronous Batch Processing jobs
+* EC2 (3.3.107.0)
+	* Pagination support for ec2.DescribeSubnets, ec2.DescribeDhcpOptions 
+* StorageGateway (3.3.105.0)
+	* Add Tags parameter to CreateSnapshot and UpdateSnapshotSchedule APIs, used for creating tags on create for one off snapshots and scheduled snapshots.
+
+### 3.3.509.0 (2019-05-13 18:28 UTC)
+* DataSync (3.3.101.0)
+	* AWS DataSync now enables exclude and include filters to control what files and directories will be copied as part of a task execution.
+* IoTAnalytics (3.3.102.0)
+	* ContentDeliveryRule to support sending dataset to S3 and glue
+* Lambda (3.3.102.0)
+	* AWS Lambda now supports Node.js v10
+
+### 3.3.508.0 (2019-05-10 19:45 UTC)
+* Glue (3.3.103.0)
+	* AWS Glue now supports specifying existing catalog tables for a crawler to examine as a data source. A new parameter CatalogTargets is added to the CrawlerTargets data type. 
+* SecurityToken (3.3.101.0)
+	* AWS Security Token Service (STS) now supports passing IAM Managed Policy ARNs as session policies when you programmatically create temporary sessions for a role or federated user. The Managed Policy ARNs can be passed via the PolicyArns parameter, which is now available in the AssumeRole, AssumeRoleWithWebIdentity, AssumeRoleWithSAML, and GetFederationToken APIs. The session policies referenced by the PolicyArn parameter will only further restrict the existing permissions of an IAM User or Role for individual sessions.
+* Core 3.3.101.9
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.507.0 (2019-05-08 18:12 UTC)
+* EKS (3.3.101.13)
+	* Documentation update for Amazon EKS to clarify allowed parameters in update-cluster-config.
+* KinesisAnalytics (3.3.101.0)
+	* Kinesis Data Analytics APIs now support tagging on applications.
+* KinesisAnalyticsV2 (3.3.101.0)
+	* Kinesis Data Analytics APIs now support tagging on applications.
+* SageMaker (3.3.101.0)
+	* Workteams now supports notification configurations. Neo now supports Jetson Nano as a target device and NumberOfHumanWorkersPerDataObject is now included in the ListLabelingJobsForWorkteam response.
+* ServiceCatalog (3.3.103.0)
+	* Adds "Parameters" field in UpdateConstraint API, which will allow Admin user to update "Parameters" in created Constraints.
+* Core 3.3.101.8
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.506.0 (2019-05-07 18:30 UTC)
+* AlexaForBusiness (3.3.103.0)
+	* This release adds an API allowing authorized users to delete a shared device's history of voice recordings and associated response data.
+* AppSync (3.3.101.0)
+	* AWS AppSync now supports the ability to add additional authentication providers to your AWS AppSync GraphQL API as well as the ability to retrieve directives configured against fields or object type definitions during schema introspection.
+* SimpleSystemsManagement (3.3.102.0)
+	* Patch Manager adds support for Microsoft Application Patching.
+* StorageGateway (3.3.104.0)
+	* Add optional field AdminUserList to CreateSMBFileShare and UpdateSMBFileShare APIs.
+* Core 3.3.101.7
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.505.1 (2019-05-06 19:13 UTC)
+* CodePipeline (3.3.101.3)
+	* Documentation updates for codepipeline
+* ConfigService (3.3.100.16)
+	* AWS Config now supports tagging on PutConfigRule, PutConfigurationAggregator and PutAggregationAuthorization APIs.
+* IdentityManagement (3.3.101.5)
+	* Documentation updates for iam
+* SecurityToken (3.3.100.16)
+	* Documentation updates for sts
+
+### 3.3.505.0 (2019-05-03 18:07 UTC)
+* CognitoIdentityProvider (3.3.102.0)
+	* This release of Amazon Cognito User Pools introduces the new AdminSetUserPassword API that allows administrators of a user pool to change a user's password. The new password can be temporary or permanent.
+* MediaConvert (3.3.103.0)
+	* DASH output groups using DRM encryption can now enable a playback device compatibility mode to correct problems with playback on older devices. 
+* MediaLive (3.3.103.0)
+	* You can now switch the channel mode of your channels from standard to single pipeline and from single pipeline to standard. In order to switch a channel from single pipeline to standard all inputs attached to the channel must support two encoder pipelines.
+* WorkMail (3.3.101.0)
+	* Amazon WorkMail is releasing two new actions: 'GetMailboxDetails' and 'UpdateMailboxQuota'. They add insight into how much space is used by a given mailbox (size) and what its limit is (quota). A mailbox quota can be updated, but lowering the value will not influence WorkMail per user charges. For a closer look at the actions please visit https://docs.aws.amazon.com/workmail/latest/APIReference/API_Operations.html
+* Core 3.3.101.6
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.504.0 (2019-05-02 19:45 UTC)
+* AlexaForBusiness (3.3.102.0)
+	* This release allows developers and customers to send text and audio announcements to rooms.
+* KeyManagementService (3.3.101.0)
+	* AWS Key Management Service (KMS) can return an INTERNAL_ERROR connection error code if it cannot connect a custom key store to its AWS CloudHSM cluster. INTERNAL_ERROR is one of several connection error codes that help you to diagnose and fix a problem with your custom key store.
+* Core 3.3.101.5
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.503.0 (2019-05-01 18:10 UTC)
+* EC2 (3.3.106.0)
+	* This release adds an API for the modification of a VPN Connection, enabling migration from a Virtual Private Gateway (VGW) to a Transit Gateway (TGW), while preserving the VPN endpoint IP addresses on the AWS side as well as the tunnel options.
+* ECS (3.3.102.0)
+	* This release of Amazon Elastic Container Service (Amazon ECS) introduces additional task definition parameters that enable you to define secret options for Docker log configuration, a per-container list contains secrets stored in AWS Systems Manager Parameter Store or AWS Secrets Manager.
+* XRay (3.3.101.0)
+	* AWS X-Ray now includes Analytics, an interactive approach to analyzing user request paths (i.e., traces). Analytics will allow you to easily understand how your application and its underlying services are performing. With X-Ray Analytics, you can quickly detect application issues, pinpoint the root cause of the issue, determine the severity of the issues, and identify which end users were impacted. With AWS X-Ray Analytics you can explore, analyze, and visualize traces, allowing you to find increases in response time to user requests or increases in error rates. Metadata around peak periods, including frequency and actual times of occurrence, can be investigated by applying filters with a few clicks. You can then drill down on specific errors, faults, and response time root causes and view the associated traces. 
+
+### 3.3.502.0 (2019-04-30 18:24 UTC)
+* CodePipeline (3.3.101.0)
+	* This release contains an update to the PipelineContext object that includes the Pipeline ARN, and the Pipeline Execution Id. The ActionContext object is also updated to include the Action Execution Id.
+* DirectConnect (3.3.102.0)
+	* This release adds support for AWS Direct Connect customers to use AWS Transit Gateway with AWS Direct Connect gateway to route traffic between on-premise networks and their VPCs.
+* ManagedBlockchain (3.3.100.0)
+	* (New Service) Amazon Managed Blockchain is a fully managed service that makes it easy to create and manage scalable blockchain networks using popular open source frameworks.
+* Neptune (3.3.100.13)
+	* Adds a feature to allow customers to specify a custom parameter group when restoring a database cluster.
+* S3Control (3.3.101.0)
+	* Add support for Amazon S3 Batch Operations.
+* ServiceCatalog (3.3.102.0)
+	* Admin users can now associate/disassociate aws budgets with a portfolio or product in Service Catalog. End users can see the association by listing it or as part of the describe portfolio/product output. A new optional boolean parameter, "DisableTemplateValidation", is added to ProvisioningArtifactProperties data type. The purpose of the parameter is to enable or disable the CloudFormation template validtion when creating a product or a provisioning artifact.
+* Core 3.3.101.4
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.501.0 (2019-04-29 18:09 UTC)
+* EC2 (3.3.105.0)
+	* Adds support for Elastic Fabric Adapter (EFA) ENIs. 
+* Transfer (3.3.102.0)
+	* This release adds support for per-server host-key management. You can now specify the SSH RSA private key used by your SFTP server.
+* Core 3.3.101.3
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.500.0 (2019-04-26 19:02 UTC)
+* IdentityManagement (3.3.101.0)
+	* AWS Security Token Service (STS) enables you to request session tokens from the global STS endpoint that work in all AWS Regions. You can configure the global STS endpoint to vend session tokens that are compatible with all AWS Regions using the new IAM SetSecurityTokenServicePreferences API. 
+* SimpleNotificationService (3.3.101.0)
+	* With this release AWS SNS adds tagging support for Topics.
+* Core 3.3.101.2
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.499.0 (2019-04-25 20:21 UTC)
+* Batch (3.3.101.6)
+	* Documentation updates for AWS Batch.
+* DynamoDBv2 (3.3.101.0)
+	* This update allows you to tag Amazon DynamoDB tables when you create them. Tags are labels you can attach to AWS resources to make them easier to manage, search, and filter. 
+* GameLift (3.3.101.0)
+	* This release introduces the new Realtime Servers feature, giving game developers a lightweight yet flexible solution that eliminates the need to build a fully custom game server. The AWS SDK updates provide support for scripts, which are used to configure and customize Realtime Servers.
+* Inspector (3.3.101.0)
+	* AWS Inspector - Improve the ListFindings API response time and decreases the maximum number of agentIDs from 500 to 99.
+* Lambda (3.3.101.0)
+	* AWS Lambda now supports the GetLayerVersionByArn API.
+* WorkSpaces (3.3.102.3)
+	* Documentation updates for workspaces
+* Core 3.3.101.1
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.498.0 (2019-04-24 23:22 UTC)
+* Core 3.3.101.0
+	* Added SAML authentication support in the .NET Standard 2.0 flavor of the SDK; Fix for expired token while using federated AWS credentials; Reverting updates to endpoints.json file from Core 3.3.100.8
+	* All services packages updated to require new Core
+
+### 3.3.497.0 (2019-04-24 18:09 UTC)
+* AlexaForBusiness (3.3.101.0)
+	* This release adds support for the Alexa for Business gateway and gateway group APIs.
+* CloudFormation (3.3.100.8)
+	* Documentation updates for cloudformation
+* EC2 (3.3.104.0)
+	* You can now launch the new Amazon EC2 general purpose burstable instance types T3a that feature AMD EPYC processors.
+* MediaConnect (3.3.101.0)
+	* Adds support for ListEntitlements pagination.
+* MediaTailor (3.3.101.0)
+	* AWS Elemental MediaTailor SDK now includes a new parameter to support origin servers that produce single-period DASH manifests.
+* RDS (3.3.102.0)
+	* A new parameter "feature-name" is added to the add-role and remove-role db cluster APIs. The value for the parameter is optional for Aurora MySQL compatible database clusters, but mandatory for Aurora PostgresQL. You can find the valid list of values using describe db engine versions API.
+* Route53 (3.3.101.0)
+	* Amazon Route 53 now supports the Asia Pacific (Hong Kong) Region (ap-east-1) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region.
+* SimpleSystemsManagement (3.3.101.0)
+	* This release updates AWS Systems Manager APIs to allow customers to configure parameters to use either the standard-parameter tier (the default tier) or the advanced-parameter tier. It allows customers to create parameters with larger values and attach parameter policies to an Advanced Parameter. 
+* StorageGateway (3.3.103.0)
+	* AWS Storage Gateway now supports Access Control Lists (ACLs) on File Gateway SMB shares, enabling you to apply fine grained access controls for Active Directory users and groups.
+* Textract (3.3.101.0)
+	* This release adds support for checkbox also known as SELECTION_ELEMENT in Amazon Textract.
+* Core 3.3.100.8
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.496.0 (2019-04-19 18:09 UTC)
+* ResourceGroups (3.3.101.0)
+	* The AWS Resource Groups service increased the query size limit to 4096 bytes.
+* TranscribeService (3.3.103.0)
+	* Amazon Transcribe - support transcriptions from audio sources in Spanish Spanish (es-ES).
+* WorkSpaces (3.3.102.0)
+	* Added a new reserved field.
+
+### 3.3.495.0 (2019-04-18 21:07 UTC)
+* ApplicationDiscoveryService (3.3.101.0)
+	* The Application Discovery Service's DescribeImportTasks and BatchDeleteImportData APIs now return additional statuses for error reporting.
+* CognitoIdentityProvider (3.3.101.1)
+	* Document updates for Amazon Cognito Identity Provider.
+* Kafka (3.3.101.0)
+	* Amazon Kafka - Added tagging APIs
+* Organizations (3.3.101.0)
+	* AWS Organizations is now available in the AWS GovCloud (US) Regions, and we added a new API action for creating accounts in those Regions. For more information, see CreateGovCloudAccount in the AWS Organizations API Reference. 
+* RDS (3.3.101.0)
+	* This release adds the TimeoutAction parameter to the ScalingConfiguration of an Aurora Serverless DB cluster. You can now configure the behavior when an auto-scaling capacity change can't find a scaling point.
+* WorkLink (3.3.101.0)
+	* Amazon WorkLink is a fully managed, cloud-based service that enables secure, one-click access to internal websites and web apps from mobile phones. This release introduces new APIs to link and manage internal websites and web apps with Amazon WorkLink fleets. 
+* WorkSpaces (3.3.101.5)
+	* Documentation updates for workspaces
+* Core 3.3.100.7
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.494.0 (2019-04-17 18:14 UTC)
+* EC2 (3.3.103.0)
+	* This release adds support for requester-managed Interface VPC Endpoints (powered by AWS PrivateLink). The feature prevents VPC endpoint owners from accidentally deleting or otherwise mismanaging the VPC endpoints of some AWS VPC endpoint services.
+* Polly (3.3.101.0)
+	* Amazon Polly adds Arabic language support with new female voice - "Zeina"
+
+### 3.3.493.0 (2019-04-16 18:22 UTC)
+* CloudWatch (3.3.101.3)
+	* Documentation updates for monitoring
+* CognitoIdentityProvider (3.3.101.0)
+	* This release adds support for the new email configuration in Amazon Cognito User Pools. You can now specify whether Amazon Cognito emails your users by using its built-in email functionality or your Amazon SES email configuration.
+* MQ (3.3.101.0)
+	* This release adds the ability to retrieve information about broker engines and broker instance options. See Broker Engine Types and Broker Instance Options in the Amazon MQ REST API Reference.
+* Organizations (3.3.100.6)
+	* Documentation updates for organizations
+* Redshift (3.3.101.0)
+	* DescribeResize can now return percent of data transferred from source cluster to target cluster for a classic resize.
+* StorageGateway (3.3.102.0)
+	* This change allows you to select either a weekly or monthly maintenance window for your volume or tape gateway. It also allows you to tag your tape and volume resources on creation by adding a Tag value on calls to the respective api endpoints.
+* Core 3.3.100.6
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.492.0 (2019-04-05 18:07 UTC)
+* Comprehend (3.3.103.0)
+	* With this release AWS Comprehend provides confusion matrix for custom document classifier.
+* Glue (3.3.102.0)
+	* AWS Glue now supports workerType choices in the CreateJob, UpdateJob, and StartJobRun APIs, to be used for memory-intensive jobs.
+* IoT1ClickDevicesService (3.3.101.5)
+	* Documentation updates for 1-Click: improved descriptions of resource tagging APIs.
+* MediaConvert (3.3.102.0)
+	* Rectify incorrect modelling of DisassociateCertificate method
+* MediaLive (3.3.102.0)
+	* Today AWS Elemental MediaLive (https://aws.amazon.com/medialive/) adds the option to create "Single Pipeline" channels, which offers a lower-cost option compared to Standard channels. MediaLive Single Pipeline channels have a single encoding pipeline rather than the redundant dual Availability Zone (AZ) pipelines that MediaLive provides with a "Standard" channel.
+
+### 3.3.491.1 (2019-04-04 21:40 UTC)
+* Core 3.3.100.5
+	* Retry Support for RequestThrottledException
+	* All services packages updated to require new Core
+
+### 3.3.491.0 (2019-04-04 18:43 UTC)
+* EKS (3.3.101.0)
+	* Added support to enable or disable publishing Kubernetes cluster logs in AWS CloudWatch
+* IdentityManagement (3.3.100.5)
+	* Documentation updates for iam
+
+### 3.3.490.0 (2019-04-03 18:38 UTC)
+* Batch (3.3.101.0)
+	* Support for GPU resource requirement in RegisterJobDefinition and SubmitJob
+* Comprehend (3.3.102.0)
+	* With this release AWS Comprehend  adds tagging support for document-classifiers and entity-recognizers.
+* Core 3.3.100.4
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
 ### 3.3.489.0 (2019-04-02 18:11 UTC)
 * CertificateManager (3.3.100.4)
 	* Documentation updates for acm

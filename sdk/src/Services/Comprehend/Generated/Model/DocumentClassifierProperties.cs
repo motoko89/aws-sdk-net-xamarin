@@ -39,11 +39,13 @@ namespace Amazon.Comprehend.Model
         private DocumentClassifierInputDataConfig _inputDataConfig;
         private LanguageCode _languageCode;
         private string _message;
+        private DocumentClassifierOutputDataConfig _outputDataConfig;
         private ModelStatus _status;
         private DateTime? _submitTime;
         private DateTime? _trainingEndTime;
         private DateTime? _trainingStartTime;
         private string _volumeKmsKeyId;
+        private VpcConfig _vpcConfig;
 
         /// <summary>
         /// Gets and sets the property ClassifierMetadata. 
@@ -179,6 +181,24 @@ namespace Amazon.Comprehend.Model
         }
 
         /// <summary>
+        /// Gets and sets the property OutputDataConfig. 
+        /// <para>
+        ///  Provides output results configuration parameters for custom classifier jobs.
+        /// </para>
+        /// </summary>
+        public DocumentClassifierOutputDataConfig OutputDataConfig
+        {
+            get { return this._outputDataConfig; }
+            set { this._outputDataConfig = value; }
+        }
+
+        // Check to see if OutputDataConfig property is set
+        internal bool IsSetOutputDataConfig()
+        {
+            return this._outputDataConfig != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Status. 
         /// <para>
         /// The status of the document classifier. If the status is <code>TRAINED</code> the classifier
@@ -284,6 +304,26 @@ namespace Amazon.Comprehend.Model
         internal bool IsSetVolumeKmsKeyId()
         {
             return this._volumeKmsKeyId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property VpcConfig. 
+        /// <para>
+        ///  Configuration parameters for a private Virtual Private Cloud (VPC) containing the
+        /// resources you are using for your custom classifier. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+        /// VPC</a>. 
+        /// </para>
+        /// </summary>
+        public VpcConfig VpcConfig
+        {
+            get { return this._vpcConfig; }
+            set { this._vpcConfig = value; }
+        }
+
+        // Check to see if VpcConfig property is set
+        internal bool IsSetVpcConfig()
+        {
+            return this._vpcConfig != null;
         }
 
     }

@@ -34,7 +34,7 @@ namespace Amazon.IdentityManagement.Model
     ///  <important> 
     /// <para>
     ///  You should understand the implications of changing a group's path or name. For more
-    /// information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html">Renaming
+    /// information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html">Renaming
     /// Users and Groups</a> in the <i>IAM User Guide</i>.
     /// </para>
     ///  </important> <note> 
@@ -44,7 +44,7 @@ namespace Amazon.IdentityManagement.Model
     /// <code>Managers</code> to <code>MGRs</code>, the principal must have a policy that
     /// allows them to update both groups. If the principal has permission to update the <code>Managers</code>
     /// group, but not the <code>MGRs</code> group, then the update fails. For more information
-    /// about permissions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+    /// about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
     /// Management</a>. 
     /// </para>
     ///  </note>
@@ -102,9 +102,9 @@ namespace Amazon.IdentityManagement.Model
         /// </para>
         ///  
         /// <para>
-        /// This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
-        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-        /// characters with no spaces. You can also include any of the following characters: _+=,.@-
+        /// IAM user, group, role, and policy names must be unique within the account. Names are
+        /// not distinguished by case. For example, you cannot create resources named both "MyResource"
+        /// and "myresource".
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=128)]

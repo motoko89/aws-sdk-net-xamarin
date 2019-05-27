@@ -29,16 +29,21 @@ namespace Amazon.EC2.Model
 {
     /// <summary>
     /// Container for the parameters to the DescribeImages operation.
-    /// Describes one or more of the images (AMIs, AKIs, and ARIs) available to you. Images
-    /// available to you include public images, private images that you own, and private images
-    /// owned by other AWS accounts but for which you have explicit launch permissions.
+    /// Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the
+    /// images available to you.
     /// 
-    ///  <note> 
+    ///  
     /// <para>
-    /// Deregistered images are included in the returned results for an unspecified interval
-    /// after deregistration.
+    /// The images available to you include public images, private images that you own, and
+    /// private images owned by other AWS accounts for which you have explicit launch permissions.
     /// </para>
-    ///  </note>
+    ///  
+    /// <para>
+    /// Recently deregistered images appear in the returned results for a short interval and
+    /// then return empty results. After all instances that reference a deregistered AMI are
+    /// terminated, specifying the ID of the image results in an error indicating that the
+    /// AMI ID cannot be found.
+    /// </para>
     /// </summary>
     public partial class DescribeImagesRequest : AmazonEC2Request
     {
@@ -69,7 +74,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property Filters. 
         /// <para>
-        /// One or more filters.
+        /// The filters.
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -234,7 +239,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property ImageIds. 
         /// <para>
-        /// One or more image IDs.
+        /// The image IDs.
         /// </para>
         ///  
         /// <para>

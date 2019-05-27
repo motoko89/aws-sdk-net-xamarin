@@ -30,9 +30,9 @@ namespace Amazon.IdentityManagement.Model
     /// <summary>
     /// Container for the parameters to the CreateRole operation.
     /// Creates a new role for your AWS account. For more information about roles, go to <a
-    /// href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM Roles</a>.
-    /// For information about limitations on role names and the number of roles you can create,
-    /// go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
+    /// href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM
+    /// Roles</a>. For information about limitations on role names and the number of roles
+    /// you can create, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
     /// on IAM Entities</a> in the <i>IAM User Guide</i>.
     /// </summary>
     public partial class CreateRoleRequest : AmazonIdentityManagementServiceRequest
@@ -50,6 +50,12 @@ namespace Amazon.IdentityManagement.Model
         /// <para>
         /// The trust relationship policy document that grants an entity permission to assume
         /// the role.
+        /// </para>
+        ///  
+        /// <para>
+        /// You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates
+        /// formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation
+        /// always converts a YAML policy to JSON format before submitting it to IAM.
         /// </para>
         ///  
         /// <para>
@@ -121,7 +127,7 @@ namespace Amazon.IdentityManagement.Model
         /// are valid for one hour by default. This applies when you use the <code>AssumeRole*</code>
         /// API operations or the <code>assume-role*</code> CLI operations but does not apply
         /// when you use those operations to create a console URL. For more information, see <a
-        /// href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM
+        /// href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM
         /// Roles</a> in the <i>IAM User Guide</i>.
         /// </para>
         /// </summary>
@@ -141,7 +147,7 @@ namespace Amazon.IdentityManagement.Model
         /// <summary>
         /// Gets and sets the property Path. 
         /// <para>
-        ///  The path to the role. For more information about paths, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
+        ///  The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
         /// Identifiers</a> in the <i>IAM User Guide</i>.
         /// </para>
         ///  
@@ -196,14 +202,9 @@ namespace Amazon.IdentityManagement.Model
         /// </para>
         ///  
         /// <para>
-        /// This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
-        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-        /// characters with no spaces. You can also include any of the following characters: _+=,.@-
-        /// </para>
-        ///  
-        /// <para>
-        /// Role names are not distinguished by case. For example, you cannot create roles named
-        /// both "PRODROLE" and "prodrole".
+        /// IAM user, group, role, and policy names must be unique within the account. Names are
+        /// not distinguished by case. For example, you cannot create resources named both "MyResource"
+        /// and "myresource".
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=64)]
@@ -224,7 +225,7 @@ namespace Amazon.IdentityManagement.Model
         /// <para>
         /// A list of tags that you want to attach to the newly created role. Each tag consists
         /// of a key name and an associated value. For more information about tagging, see <a
-        /// href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a>
+        /// href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a>
         /// in the <i>IAM User Guide</i>.
         /// </para>
         ///  <note> 

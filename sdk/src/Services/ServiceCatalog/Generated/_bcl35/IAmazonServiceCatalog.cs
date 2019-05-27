@@ -92,6 +92,59 @@ namespace Amazon.ServiceCatalog
 
         #endregion
         
+        #region  AssociateBudgetWithResource
+
+
+        /// <summary>
+        /// Associates the specified budget with the specified resource.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssociateBudgetWithResource service method.</param>
+        /// 
+        /// <returns>The response from the AssociateBudgetWithResource service method, as returned by ServiceCatalog.</returns>
+        /// <exception cref="Amazon.ServiceCatalog.Model.DuplicateResourceException">
+        /// The specified resource is a duplicate.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceCatalog.Model.InvalidParametersException">
+        /// One or more parameters provided to the operation are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceCatalog.Model.LimitExceededException">
+        /// The current limits of the service would have been exceeded by this operation. Decrease
+        /// your resource use or increase your service limits and retry the operation.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceCatalog.Model.ResourceNotFoundException">
+        /// The specified resource was not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/AssociateBudgetWithResource">REST API Reference for AssociateBudgetWithResource Operation</seealso>
+        AssociateBudgetWithResourceResponse AssociateBudgetWithResource(AssociateBudgetWithResourceRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the AssociateBudgetWithResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the AssociateBudgetWithResource operation on AmazonServiceCatalogClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAssociateBudgetWithResource
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/AssociateBudgetWithResource">REST API Reference for AssociateBudgetWithResource Operation</seealso>
+        IAsyncResult BeginAssociateBudgetWithResource(AssociateBudgetWithResourceRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  AssociateBudgetWithResource operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginAssociateBudgetWithResource.</param>
+        /// 
+        /// <returns>Returns a  AssociateBudgetWithResourceResult from ServiceCatalog.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/AssociateBudgetWithResource">REST API Reference for AssociateBudgetWithResource Operation</seealso>
+        AssociateBudgetWithResourceResponse EndAssociateBudgetWithResource(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  AssociatePrincipalWithPortfolio
 
 
@@ -1818,6 +1871,14 @@ namespace Amazon.ServiceCatalog
         /// Use this operation after calling a request operation (for example, <a>ProvisionProduct</a>,
         /// <a>TerminateProvisionedProduct</a>, or <a>UpdateProvisionedProduct</a>). 
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// If a provisioned product was transferred to a new owner using <a>UpdateProvisionedProductProperties</a>,
+        /// the new owner will be able to describe all past records for that product. The previous
+        /// owner will no longer be able to describe the records, but will be able to use <a>ListRecordHistory</a>
+        /// to see the product's history from when he was the owner.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeRecord service method.</param>
         /// 
@@ -1998,6 +2059,49 @@ namespace Amazon.ServiceCatalog
         /// <returns>Returns a  DisableAWSOrganizationsAccessResult from ServiceCatalog.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DisableAWSOrganizationsAccess">REST API Reference for DisableAWSOrganizationsAccess Operation</seealso>
         DisableAWSOrganizationsAccessResponse EndDisableAWSOrganizationsAccess(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  DisassociateBudgetFromResource
+
+
+        /// <summary>
+        /// Disassociates the specified budget from the specified resource.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateBudgetFromResource service method.</param>
+        /// 
+        /// <returns>The response from the DisassociateBudgetFromResource service method, as returned by ServiceCatalog.</returns>
+        /// <exception cref="Amazon.ServiceCatalog.Model.ResourceNotFoundException">
+        /// The specified resource was not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DisassociateBudgetFromResource">REST API Reference for DisassociateBudgetFromResource Operation</seealso>
+        DisassociateBudgetFromResourceResponse DisassociateBudgetFromResource(DisassociateBudgetFromResourceRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DisassociateBudgetFromResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateBudgetFromResource operation on AmazonServiceCatalogClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDisassociateBudgetFromResource
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DisassociateBudgetFromResource">REST API Reference for DisassociateBudgetFromResource Operation</seealso>
+        IAsyncResult BeginDisassociateBudgetFromResource(DisassociateBudgetFromResourceRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DisassociateBudgetFromResource operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDisassociateBudgetFromResource.</param>
+        /// 
+        /// <returns>Returns a  DisassociateBudgetFromResourceResult from ServiceCatalog.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/DisassociateBudgetFromResource">REST API Reference for DisassociateBudgetFromResource Operation</seealso>
+        DisassociateBudgetFromResourceResponse EndDisassociateBudgetFromResource(IAsyncResult asyncResult);
 
         #endregion
         
@@ -2438,6 +2542,52 @@ namespace Amazon.ServiceCatalog
         /// <returns>Returns a  ListAcceptedPortfolioSharesResult from ServiceCatalog.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ListAcceptedPortfolioShares">REST API Reference for ListAcceptedPortfolioShares Operation</seealso>
         ListAcceptedPortfolioSharesResponse EndListAcceptedPortfolioShares(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  ListBudgetsForResource
+
+
+        /// <summary>
+        /// Lists all the budgets associated to the specified resource.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListBudgetsForResource service method.</param>
+        /// 
+        /// <returns>The response from the ListBudgetsForResource service method, as returned by ServiceCatalog.</returns>
+        /// <exception cref="Amazon.ServiceCatalog.Model.InvalidParametersException">
+        /// One or more parameters provided to the operation are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceCatalog.Model.ResourceNotFoundException">
+        /// The specified resource was not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ListBudgetsForResource">REST API Reference for ListBudgetsForResource Operation</seealso>
+        ListBudgetsForResourceResponse ListBudgetsForResource(ListBudgetsForResourceRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListBudgetsForResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListBudgetsForResource operation on AmazonServiceCatalogClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListBudgetsForResource
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ListBudgetsForResource">REST API Reference for ListBudgetsForResource Operation</seealso>
+        IAsyncResult BeginListBudgetsForResource(ListBudgetsForResourceRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListBudgetsForResource operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListBudgetsForResource.</param>
+        /// 
+        /// <returns>Returns a  ListBudgetsForResourceResult from ServiceCatalog.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/ListBudgetsForResource">REST API Reference for ListBudgetsForResource Operation</seealso>
+        ListBudgetsForResourceResponse EndListBudgetsForResource(IAsyncResult asyncResult);
 
         #endregion
         
@@ -3683,6 +3833,56 @@ namespace Amazon.ServiceCatalog
         /// <returns>Returns a  UpdateProvisionedProductResult from ServiceCatalog.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/UpdateProvisionedProduct">REST API Reference for UpdateProvisionedProduct Operation</seealso>
         UpdateProvisionedProductResponse EndUpdateProvisionedProduct(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  UpdateProvisionedProductProperties
+
+
+        /// <summary>
+        /// Requests updates to the properties of the specified provisioned product.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateProvisionedProductProperties service method.</param>
+        /// 
+        /// <returns>The response from the UpdateProvisionedProductProperties service method, as returned by ServiceCatalog.</returns>
+        /// <exception cref="Amazon.ServiceCatalog.Model.InvalidParametersException">
+        /// One or more parameters provided to the operation are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceCatalog.Model.InvalidStateException">
+        /// An attempt was made to modify a resource that is in a state that is not valid. Check
+        /// your resources to ensure that they are in valid states before retrying the operation.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceCatalog.Model.ResourceNotFoundException">
+        /// The specified resource was not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/UpdateProvisionedProductProperties">REST API Reference for UpdateProvisionedProductProperties Operation</seealso>
+        UpdateProvisionedProductPropertiesResponse UpdateProvisionedProductProperties(UpdateProvisionedProductPropertiesRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateProvisionedProductProperties operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateProvisionedProductProperties operation on AmazonServiceCatalogClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateProvisionedProductProperties
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/UpdateProvisionedProductProperties">REST API Reference for UpdateProvisionedProductProperties Operation</seealso>
+        IAsyncResult BeginUpdateProvisionedProductProperties(UpdateProvisionedProductPropertiesRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateProvisionedProductProperties operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateProvisionedProductProperties.</param>
+        /// 
+        /// <returns>Returns a  UpdateProvisionedProductPropertiesResult from ServiceCatalog.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicecatalog-2015-12-10/UpdateProvisionedProductProperties">REST API Reference for UpdateProvisionedProductProperties Operation</seealso>
+        UpdateProvisionedProductPropertiesResponse EndUpdateProvisionedProductProperties(IAsyncResult asyncResult);
 
         #endregion
         

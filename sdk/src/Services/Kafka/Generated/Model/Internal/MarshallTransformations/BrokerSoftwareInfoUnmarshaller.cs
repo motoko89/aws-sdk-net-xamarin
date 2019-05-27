@@ -72,7 +72,7 @@ namespace Amazon.Kafka.Model.Internal.MarshallTransformations
                 }
                 if (context.TestExpression("configurationRevision", targetDepth))
                 {
-                    var unmarshaller = StringUnmarshaller.Instance;
+                    var unmarshaller = LongUnmarshaller.Instance;
                     unmarshalledObject.ConfigurationRevision = unmarshaller.Unmarshall(context);
                     continue;
                 }

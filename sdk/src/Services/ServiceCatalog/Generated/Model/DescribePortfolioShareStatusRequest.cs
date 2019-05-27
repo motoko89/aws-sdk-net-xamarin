@@ -43,7 +43,7 @@ namespace Amazon.ServiceCatalog.Model
         /// or by DeletePortfolioShare.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [AWSProperty(Required=true, Min=1, Max=100)]
         public string PortfolioShareToken
         {
             get { return this._portfolioShareToken; }

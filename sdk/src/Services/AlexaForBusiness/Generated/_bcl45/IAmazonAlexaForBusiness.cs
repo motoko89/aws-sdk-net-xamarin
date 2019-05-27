@@ -112,6 +112,43 @@ namespace Amazon.AlexaForBusiness
 
         #endregion
         
+        #region  AssociateDeviceWithNetworkProfile
+
+
+        /// <summary>
+        /// Associates a device with the specified network profile.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssociateDeviceWithNetworkProfile service method.</param>
+        /// 
+        /// <returns>The response from the AssociateDeviceWithNetworkProfile service method, as returned by AlexaForBusiness.</returns>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.ConcurrentModificationException">
+        /// There is a concurrent modification of resources.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.DeviceNotRegisteredException">
+        /// The request failed because this device is no longer registered and therefore no longer
+        /// managed by this account.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.NotFoundException">
+        /// The resource is not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/AssociateDeviceWithNetworkProfile">REST API Reference for AssociateDeviceWithNetworkProfile Operation</seealso>
+        AssociateDeviceWithNetworkProfileResponse AssociateDeviceWithNetworkProfile(AssociateDeviceWithNetworkProfileRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the AssociateDeviceWithNetworkProfile operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the AssociateDeviceWithNetworkProfile operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/AssociateDeviceWithNetworkProfile">REST API Reference for AssociateDeviceWithNetworkProfile Operation</seealso>
+        Task<AssociateDeviceWithNetworkProfileResponse> AssociateDeviceWithNetworkProfileAsync(AssociateDeviceWithNetworkProfileRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  AssociateDeviceWithRoom
 
 
@@ -375,6 +412,81 @@ namespace Amazon.AlexaForBusiness
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/CreateContact">REST API Reference for CreateContact Operation</seealso>
         Task<CreateContactResponse> CreateContactAsync(CreateContactRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  CreateGatewayGroup
+
+
+        /// <summary>
+        /// Creates a gateway group with the specified details.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateGatewayGroup service method.</param>
+        /// 
+        /// <returns>The response from the CreateGatewayGroup service method, as returned by AlexaForBusiness.</returns>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.AlreadyExistsException">
+        /// The resource being created already exists.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.LimitExceededException">
+        /// You are performing an action that would put you beyond your account's limits.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/CreateGatewayGroup">REST API Reference for CreateGatewayGroup Operation</seealso>
+        CreateGatewayGroupResponse CreateGatewayGroup(CreateGatewayGroupRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateGatewayGroup operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateGatewayGroup operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/CreateGatewayGroup">REST API Reference for CreateGatewayGroup Operation</seealso>
+        Task<CreateGatewayGroupResponse> CreateGatewayGroupAsync(CreateGatewayGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  CreateNetworkProfile
+
+
+        /// <summary>
+        /// Creates a network profile with the specified details.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateNetworkProfile service method.</param>
+        /// 
+        /// <returns>The response from the CreateNetworkProfile service method, as returned by AlexaForBusiness.</returns>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.AlreadyExistsException">
+        /// The resource being created already exists.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.ConcurrentModificationException">
+        /// There is a concurrent modification of resources.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.InvalidCertificateAuthorityException">
+        /// The Certificate Authority can't issue or revoke a certificate.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.InvalidServiceLinkedRoleStateException">
+        /// The service linked role is locked for deletion.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.LimitExceededException">
+        /// You are performing an action that would put you beyond your account's limits.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/CreateNetworkProfile">REST API Reference for CreateNetworkProfile Operation</seealso>
+        CreateNetworkProfileResponse CreateNetworkProfile(CreateNetworkProfileRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateNetworkProfile operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateNetworkProfile operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/CreateNetworkProfile">REST API Reference for CreateNetworkProfile Operation</seealso>
+        Task<CreateNetworkProfileResponse> CreateNetworkProfileAsync(CreateNetworkProfileRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -681,6 +793,111 @@ namespace Amazon.AlexaForBusiness
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/DeleteDevice">REST API Reference for DeleteDevice Operation</seealso>
         Task<DeleteDeviceResponse> DeleteDeviceAsync(DeleteDeviceRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DeleteDeviceUsageData
+
+
+        /// <summary>
+        /// When this action is called for a specified shared device, it allows authorized users
+        /// to delete the device's entire previous history of voice input data. This action can
+        /// be called once every 24 hours for a specific shared device.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteDeviceUsageData service method.</param>
+        /// 
+        /// <returns>The response from the DeleteDeviceUsageData service method, as returned by AlexaForBusiness.</returns>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.DeviceNotRegisteredException">
+        /// The request failed because this device is no longer registered and therefore no longer
+        /// managed by this account.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.LimitExceededException">
+        /// You are performing an action that would put you beyond your account's limits.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.NotFoundException">
+        /// The resource is not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/DeleteDeviceUsageData">REST API Reference for DeleteDeviceUsageData Operation</seealso>
+        DeleteDeviceUsageDataResponse DeleteDeviceUsageData(DeleteDeviceUsageDataRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteDeviceUsageData operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteDeviceUsageData operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/DeleteDeviceUsageData">REST API Reference for DeleteDeviceUsageData Operation</seealso>
+        Task<DeleteDeviceUsageDataResponse> DeleteDeviceUsageDataAsync(DeleteDeviceUsageDataRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DeleteGatewayGroup
+
+
+        /// <summary>
+        /// Deletes a gateway group.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteGatewayGroup service method.</param>
+        /// 
+        /// <returns>The response from the DeleteGatewayGroup service method, as returned by AlexaForBusiness.</returns>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.ResourceAssociatedException">
+        /// Another resource is associated with the resource in the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/DeleteGatewayGroup">REST API Reference for DeleteGatewayGroup Operation</seealso>
+        DeleteGatewayGroupResponse DeleteGatewayGroup(DeleteGatewayGroupRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteGatewayGroup operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteGatewayGroup operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/DeleteGatewayGroup">REST API Reference for DeleteGatewayGroup Operation</seealso>
+        Task<DeleteGatewayGroupResponse> DeleteGatewayGroupAsync(DeleteGatewayGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DeleteNetworkProfile
+
+
+        /// <summary>
+        /// Deletes a network profile by the network profile ARN.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteNetworkProfile service method.</param>
+        /// 
+        /// <returns>The response from the DeleteNetworkProfile service method, as returned by AlexaForBusiness.</returns>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.ConcurrentModificationException">
+        /// There is a concurrent modification of resources.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.NotFoundException">
+        /// The resource is not found.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.ResourceInUseException">
+        /// The resource in the request is already in use.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/DeleteNetworkProfile">REST API Reference for DeleteNetworkProfile Operation</seealso>
+        DeleteNetworkProfileResponse DeleteNetworkProfile(DeleteNetworkProfileRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteNetworkProfile operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteNetworkProfile operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/DeleteNetworkProfile">REST API Reference for DeleteNetworkProfile Operation</seealso>
+        Task<DeleteNetworkProfileResponse> DeleteNetworkProfileAsync(DeleteNetworkProfileRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -1220,6 +1437,66 @@ namespace Amazon.AlexaForBusiness
 
         #endregion
         
+        #region  GetGateway
+
+
+        /// <summary>
+        /// Retrieves the details of a gateway.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetGateway service method.</param>
+        /// 
+        /// <returns>The response from the GetGateway service method, as returned by AlexaForBusiness.</returns>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.NotFoundException">
+        /// The resource is not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/GetGateway">REST API Reference for GetGateway Operation</seealso>
+        GetGatewayResponse GetGateway(GetGatewayRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetGateway operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetGateway operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/GetGateway">REST API Reference for GetGateway Operation</seealso>
+        Task<GetGatewayResponse> GetGatewayAsync(GetGatewayRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  GetGatewayGroup
+
+
+        /// <summary>
+        /// Retrieves the details of a gateway group.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetGatewayGroup service method.</param>
+        /// 
+        /// <returns>The response from the GetGatewayGroup service method, as returned by AlexaForBusiness.</returns>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.NotFoundException">
+        /// The resource is not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/GetGatewayGroup">REST API Reference for GetGatewayGroup Operation</seealso>
+        GetGatewayGroupResponse GetGatewayGroup(GetGatewayGroupRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetGatewayGroup operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetGatewayGroup operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/GetGatewayGroup">REST API Reference for GetGatewayGroup Operation</seealso>
+        Task<GetGatewayGroupResponse> GetGatewayGroupAsync(GetGatewayGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  GetInvitationConfiguration
 
 
@@ -1247,6 +1524,39 @@ namespace Amazon.AlexaForBusiness
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/GetInvitationConfiguration">REST API Reference for GetInvitationConfiguration Operation</seealso>
         Task<GetInvitationConfigurationResponse> GetInvitationConfigurationAsync(GetInvitationConfigurationRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  GetNetworkProfile
+
+
+        /// <summary>
+        /// Gets the network profile details by the network profile ARN.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetNetworkProfile service method.</param>
+        /// 
+        /// <returns>The response from the GetNetworkProfile service method, as returned by AlexaForBusiness.</returns>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.InvalidSecretsManagerResourceException">
+        /// A password in SecretsManager is in an invalid state.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.NotFoundException">
+        /// The resource is not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/GetNetworkProfile">REST API Reference for GetNetworkProfile Operation</seealso>
+        GetNetworkProfileResponse GetNetworkProfile(GetNetworkProfileRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetNetworkProfile operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetNetworkProfile operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/GetNetworkProfile">REST API Reference for GetNetworkProfile Operation</seealso>
+        Task<GetNetworkProfileResponse> GetNetworkProfileAsync(GetNetworkProfileRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -1451,6 +1761,63 @@ namespace Amazon.AlexaForBusiness
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/ListDeviceEvents">REST API Reference for ListDeviceEvents Operation</seealso>
         Task<ListDeviceEventsResponse> ListDeviceEventsAsync(ListDeviceEventsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  ListGatewayGroups
+
+
+        /// <summary>
+        /// Retrieves a list of gateway group summaries. Use GetGatewayGroup to retrieve details
+        /// of a specific gateway group.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListGatewayGroups service method.</param>
+        /// 
+        /// <returns>The response from the ListGatewayGroups service method, as returned by AlexaForBusiness.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/ListGatewayGroups">REST API Reference for ListGatewayGroups Operation</seealso>
+        ListGatewayGroupsResponse ListGatewayGroups(ListGatewayGroupsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListGatewayGroups operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListGatewayGroups operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/ListGatewayGroups">REST API Reference for ListGatewayGroups Operation</seealso>
+        Task<ListGatewayGroupsResponse> ListGatewayGroupsAsync(ListGatewayGroupsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  ListGateways
+
+
+        /// <summary>
+        /// Retrieves a list of gateway summaries. Use GetGateway to retrieve details of a specific
+        /// gateway. An optional gateway group ARN can be provided to only retrieve gateway summaries
+        /// of gateways that are associated with that gateway group ARN.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListGateways service method.</param>
+        /// 
+        /// <returns>The response from the ListGateways service method, as returned by AlexaForBusiness.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/ListGateways">REST API Reference for ListGateways Operation</seealso>
+        ListGatewaysResponse ListGateways(ListGatewaysRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListGateways operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListGateways operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/ListGateways">REST API Reference for ListGateways Operation</seealso>
+        Task<ListGatewaysResponse> ListGatewaysAsync(ListGatewaysRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -1942,6 +2309,33 @@ namespace Amazon.AlexaForBusiness
 
         #endregion
         
+        #region  SearchNetworkProfiles
+
+
+        /// <summary>
+        /// Searches network profiles and lists the ones that meet a set of filter and sort criteria.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the SearchNetworkProfiles service method.</param>
+        /// 
+        /// <returns>The response from the SearchNetworkProfiles service method, as returned by AlexaForBusiness.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/SearchNetworkProfiles">REST API Reference for SearchNetworkProfiles Operation</seealso>
+        SearchNetworkProfilesResponse SearchNetworkProfiles(SearchNetworkProfilesRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the SearchNetworkProfiles operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the SearchNetworkProfiles operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/SearchNetworkProfiles">REST API Reference for SearchNetworkProfiles Operation</seealso>
+        Task<SearchNetworkProfilesResponse> SearchNetworkProfilesAsync(SearchNetworkProfilesRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  SearchProfiles
 
 
@@ -2050,6 +2444,40 @@ namespace Amazon.AlexaForBusiness
 
         #endregion
         
+        #region  SendAnnouncement
+
+
+        /// <summary>
+        /// Triggers an asynchronous flow to send text, SSML, or audio announcements to rooms
+        /// that are identified by a search or filter.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the SendAnnouncement service method.</param>
+        /// 
+        /// <returns>The response from the SendAnnouncement service method, as returned by AlexaForBusiness.</returns>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.AlreadyExistsException">
+        /// The resource being created already exists.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.LimitExceededException">
+        /// You are performing an action that would put you beyond your account's limits.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/SendAnnouncement">REST API Reference for SendAnnouncement Operation</seealso>
+        SendAnnouncementResponse SendAnnouncement(SendAnnouncementRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the SendAnnouncement operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the SendAnnouncement operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/SendAnnouncement">REST API Reference for SendAnnouncement Operation</seealso>
+        Task<SendAnnouncementResponse> SendAnnouncementAsync(SendAnnouncementRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  SendInvitation
 
 
@@ -2091,8 +2519,32 @@ namespace Amazon.AlexaForBusiness
 
 
         /// <summary>
-        /// Resets a device and its account to the known default settings, by clearing all information
-        /// and settings set by previous users.
+        /// Resets a device and its account to the known default settings. This clears all information
+        /// and settings set by previous users in the following ways:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// Bluetooth - This unpairs all bluetooth devices paired with your echo device.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Volume - This resets the echo device's volume to the default value.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Notifications - This clears all notifications from your echo device.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Lists - This clears all to-do items from your echo device.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Settings - This internally syncs the room's profile (if the device is assigned to
+        /// a room), contacts, address books, delegation access for account linking, and communications
+        /// (if enabled on the room profile).
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartDeviceSync service method.</param>
         /// 
@@ -2376,6 +2828,116 @@ namespace Amazon.AlexaForBusiness
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/UpdateDevice">REST API Reference for UpdateDevice Operation</seealso>
         Task<UpdateDeviceResponse> UpdateDeviceAsync(UpdateDeviceRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  UpdateGateway
+
+
+        /// <summary>
+        /// Updates the details of a gateway. If any optional field is not provided, the existing
+        /// corresponding value is left unmodified.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateGateway service method.</param>
+        /// 
+        /// <returns>The response from the UpdateGateway service method, as returned by AlexaForBusiness.</returns>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.NameInUseException">
+        /// The name sent in the request is already in use.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.NotFoundException">
+        /// The resource is not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/UpdateGateway">REST API Reference for UpdateGateway Operation</seealso>
+        UpdateGatewayResponse UpdateGateway(UpdateGatewayRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateGateway operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateGateway operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/UpdateGateway">REST API Reference for UpdateGateway Operation</seealso>
+        Task<UpdateGatewayResponse> UpdateGatewayAsync(UpdateGatewayRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  UpdateGatewayGroup
+
+
+        /// <summary>
+        /// Updates the details of a gateway group. If any optional field is not provided, the
+        /// existing corresponding value is left unmodified.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateGatewayGroup service method.</param>
+        /// 
+        /// <returns>The response from the UpdateGatewayGroup service method, as returned by AlexaForBusiness.</returns>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.NameInUseException">
+        /// The name sent in the request is already in use.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.NotFoundException">
+        /// The resource is not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/UpdateGatewayGroup">REST API Reference for UpdateGatewayGroup Operation</seealso>
+        UpdateGatewayGroupResponse UpdateGatewayGroup(UpdateGatewayGroupRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateGatewayGroup operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateGatewayGroup operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/UpdateGatewayGroup">REST API Reference for UpdateGatewayGroup Operation</seealso>
+        Task<UpdateGatewayGroupResponse> UpdateGatewayGroupAsync(UpdateGatewayGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  UpdateNetworkProfile
+
+
+        /// <summary>
+        /// Updates a network profile by the network profile ARN.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateNetworkProfile service method.</param>
+        /// 
+        /// <returns>The response from the UpdateNetworkProfile service method, as returned by AlexaForBusiness.</returns>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.ConcurrentModificationException">
+        /// There is a concurrent modification of resources.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.InvalidCertificateAuthorityException">
+        /// The Certificate Authority can't issue or revoke a certificate.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.InvalidSecretsManagerResourceException">
+        /// A password in SecretsManager is in an invalid state.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.NameInUseException">
+        /// The name sent in the request is already in use.
+        /// </exception>
+        /// <exception cref="Amazon.AlexaForBusiness.Model.NotFoundException">
+        /// The resource is not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/UpdateNetworkProfile">REST API Reference for UpdateNetworkProfile Operation</seealso>
+        UpdateNetworkProfileResponse UpdateNetworkProfile(UpdateNetworkProfileRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateNetworkProfile operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateNetworkProfile operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/alexaforbusiness-2017-11-09/UpdateNetworkProfile">REST API Reference for UpdateNetworkProfile Operation</seealso>
+        Task<UpdateNetworkProfileResponse> UpdateNetworkProfileAsync(UpdateNetworkProfileRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         

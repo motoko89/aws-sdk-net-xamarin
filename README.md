@@ -283,6 +283,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* Amazon Machine Learning is a service that makes it easy for developers of all skill levels to use machine learning technology.
 * [AWSSDK.Macie](https://www.nuget.org/packages/AWSSDK.Macie/)
 	* Amazon Macie is a security service that uses machine learning to automatically discover, classify, and protect sensitive data in AWS. With this release, we are launching the following Macie HTTPS API operations: AssociateMemberAccount, AssociateS3Resources, DisassociateMemberAccount, DisassociateS3Resources, ListMemberAccounts, ListS3Resources, and UpdateS3Resources. With these API operations you can issue HTTPS requests directly to the service.
+* [AWSSDK.ManagedBlockchain](https://www.nuget.org/packages/AWSSDK.ManagedBlockchain/)
+	* (New Service) Amazon Managed Blockchain is a fully managed service that makes it easy to create and manage scalable blockchain networks using popular open source frameworks.
 * [AWSSDK.MarketplaceEntitlementService](https://www.nuget.org/packages/AWSSDK.MarketplaceEntitlementService/)
 	* AWS Marketplace Entitlement Service enables AWS Marketplace sellers to determine the capacity purchased by their customers.
 * [AWSSDK.MediaConnect](https://www.nuget.org/packages/AWSSDK.MediaConnect/)
@@ -293,6 +295,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* AWS Elemental MediaLive is a video service that lets you easily create live outputs for broadcast and streaming delivery.
 * [AWSSDK.MediaPackage](https://www.nuget.org/packages/AWSSDK.MediaPackage/)
 	* AWS Elemental MediaPackage is a just-in-time video packaging and origination service that lets you format highly secure and reliable live outputs for a variety of devices.
+* [AWSSDK.MediaPackageVod](https://www.nuget.org/packages/AWSSDK.MediaPackageVod/)
+	* AWS Elemental MediaPackage now supports Video-on-Demand (VOD) workflows. These new features allow you to easily deliver a vast library of source video Assets stored in your own S3 buckets using a small set of simple to set up Packaging Configurations and Packaging Groups.
 * [AWSSDK.MediaStore](https://www.nuget.org/packages/AWSSDK.MediaStore/)
 	* AWS Elemental MediaStore is an AWS storage service optimized for media. It gives you the performance, consistency, and low latency required to deliver live and on-demand video content. AWS Elemental MediaStore acts as the origin store in your video workflow.
 * [AWSSDK.MediaStoreData](https://www.nuget.org/packages/AWSSDK.MediaStoreData/)
@@ -398,7 +402,7 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 * [AWSSDK.StorageGateway](https://www.nuget.org/packages/AWSSDK.StorageGateway/)
 	* The AWS Storage Gateway is a service connecting an on-premises software appliance with cloud-based storage to provide seamless and secure integration between an organization's on-premises IT environment and AWS's storage infrastructure.
 * [AWSSDK.Textract](https://www.nuget.org/packages/AWSSDK.Textract/)
-	* New Service temporary synopsis, please replace it.
+	* This release is intended ONLY for customers that are officially part of the Amazon Textract Preview program. If you are not officially part of the Amazon Textract program THIS WILL NOT WORK. Our two main regions for Amazon Textract Preview are N. Virginia and Dublin. Also some members have been added to Oregon and Ohio. If you are outside of any of these AWS regions, Amazon Textract Preview definitely will not work. If you would like to be part of the Amazon Textract program, you can officially request sign up here - https://pages.awscloud.com/textract-preview.html. To set expectations appropriately, we are aiming to admit new preview participants once a week until General Availability.
 * [AWSSDK.TranscribeService](https://www.nuget.org/packages/AWSSDK.TranscribeService/)
 	* Amazon Transcribe Public Preview Release
 * [AWSSDK.Transfer](https://www.nuget.org/packages/AWSSDK.Transfer/)

@@ -74,6 +74,12 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         unmarshalledObject.BaseEndpointDnsNames.Add(item);
                         continue;
                     }
+                    if (context.TestExpression("managesVpcEndpoints", targetDepth))
+                    {
+                        var unmarshaller = BoolUnmarshaller.Instance;
+                        unmarshalledObject.ManagesVpcEndpoints = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("networkLoadBalancerArnSet/item", targetDepth))
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
@@ -110,6 +116,13 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         var unmarshaller = ServiceTypeDetailUnmarshaller.Instance;
                         var item = unmarshaller.Unmarshall(context);
                         unmarshalledObject.ServiceType.Add(item);
+                        continue;
+                    }
+                    if (context.TestExpression("tagSet/item", targetDepth))
+                    {
+                        var unmarshaller = TagUnmarshaller.Instance;
+                        var item = unmarshaller.Unmarshall(context);
+                        unmarshalledObject.Tags.Add(item);
                         continue;
                     }
                 }

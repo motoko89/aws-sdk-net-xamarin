@@ -70,6 +70,12 @@ namespace Amazon.CodeDeploy.Model.Internal.MarshallTransformations
                     unmarshalledObject.DeploymentId = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("lambdaFunctionInfo", targetDepth))
+                {
+                    var unmarshaller = LambdaFunctionInfoUnmarshaller.Instance;
+                    unmarshalledObject.LambdaFunctionInfo = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("lastUpdatedAt", targetDepth))
                 {
                     var unmarshaller = DateTimeUnmarshaller.Instance;

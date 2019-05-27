@@ -34,6 +34,7 @@ namespace Amazon.StorageGateway.Model
     /// </summary>
     public partial class SMBFileShareInfo
     {
+        private List<string> _adminUserList = new List<string>();
         private string _authentication;
         private string _defaultStorageClass;
         private string _fileShareARN;
@@ -50,8 +51,30 @@ namespace Amazon.StorageGateway.Model
         private bool? _readOnly;
         private bool? _requesterPays;
         private string _role;
+        private bool? _smbaclEnabled;
         private List<Tag> _tags = new List<Tag>();
         private List<string> _validUserList = new List<string>();
+
+        /// <summary>
+        /// Gets and sets the property AdminUserList. 
+        /// <para>
+        /// A list of users or groups in the Active Directory that have administrator rights to
+        /// the file share. A group must be prefixed with the @ character. For example <code>@group1</code>.
+        /// Can only be set if Authentication is set to <code>ActiveDirectory</code>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=100)]
+        public List<string> AdminUserList
+        {
+            get { return this._adminUserList; }
+            set { this._adminUserList = value; }
+        }
+
+        // Check to see if AdminUserList property is set
+        internal bool IsSetAdminUserList()
+        {
+            return this._adminUserList != null && this._adminUserList.Count > 0; 
+        }
 
         /// <summary>
         /// Gets and sets the property Authentication.
@@ -302,9 +325,18 @@ namespace Amazon.StorageGateway.Model
         /// <summary>
         /// Gets and sets the property RequesterPays. 
         /// <para>
-        /// A value that sets the access control list permission for objects in the Amazon S3
-        /// bucket that a file gateway puts objects into. The default value is <code>private</code>.
+        /// A value that sets who pays the cost of the request and the cost associated with data
+        /// download from the S3 bucket. If this value is set to true, the requester pays the
+        /// costs. Otherwise the S3 bucket owner pays. However, the S3 bucket owner always pays
+        /// the cost of storing data.
         /// </para>
+        ///  <note> 
+        /// <para>
+        ///  <code>RequesterPays</code> is a configuration for the S3 bucket that backs the file
+        /// share, so make sure that the configuration on the file share is the same as the S3
+        /// bucket configuration.
+        /// </para>
+        ///  </note>
         /// </summary>
         public bool RequesterPays
         {
@@ -335,9 +367,34 @@ namespace Amazon.StorageGateway.Model
         }
 
         /// <summary>
+        /// Gets and sets the property SMBACLEnabled. 
+        /// <para>
+        /// If this value is set to "true", indicates that ACL (access control list) is enabled
+        /// on the SMB file share. If it is set to "false", it indicates that file and directory
+        /// permissions are mapped to the POSIX permission.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html
+        /// in the Storage Gateway User Guide.
+        /// </para>
+        /// </summary>
+        public bool SMBACLEnabled
+        {
+            get { return this._smbaclEnabled.GetValueOrDefault(); }
+            set { this._smbaclEnabled = value; }
+        }
+
+        // Check to see if SMBACLEnabled property is set
+        internal bool IsSetSMBACLEnabled()
+        {
+            return this._smbaclEnabled.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property Tags. 
         /// <para>
-        /// A list of up to 10 tags assigned to the SMB file share, sorted alphabetically by key
+        /// A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key
         /// name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned,
         /// you can view all tags using the <code>ListTagsForResource</code> API operation.
         /// </para>

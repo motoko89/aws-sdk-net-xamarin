@@ -6,10 +6,10 @@
     "serviceFullName": "AWS Elemental MediaLive",
     "serviceId": "MediaLive",
     "protocol": "rest-json",
+    "jsonVersion": "1.1",
     "uid": "medialive-2017-10-14",
     "signatureVersion": "v4",
-    "serviceAbbreviation": "MediaLive",
-    "jsonVersion": "1.1"
+    "serviceAbbreviation": "MediaLive"
   },
   "operations": {
     "BatchUpdateSchedule": {
@@ -421,6 +421,52 @@
         }
       ],
       "documentation": "Delete an expired reservation."
+    },
+    "DeleteSchedule": {
+      "name": "DeleteSchedule",
+      "http": {
+        "method": "DELETE",
+        "requestUri": "/prod/channels/{channelId}/schedule",
+        "responseCode": 200
+      },
+      "input": {
+        "shape": "DeleteScheduleRequest"
+      },
+      "output": {
+        "shape": "DeleteScheduleResponse",
+        "documentation": "Successful delete of the schedule."
+      },
+      "errors": [
+        {
+          "shape": "BadRequestException",
+          "documentation": "This request to delete the schedule on this channel was invalid."
+        },
+        {
+          "shape": "InternalServerErrorException",
+          "documentation": "Unexpected internal service error."
+        },
+        {
+          "shape": "ForbiddenException",
+          "documentation": "You do not have permission to delete the channel schedule."
+        },
+        {
+          "shape": "BadGatewayException",
+          "documentation": "Bad Gateway Error"
+        },
+        {
+          "shape": "NotFoundException",
+          "documentation": "The specified channel does not exist to have its schedule deleted."
+        },
+        {
+          "shape": "GatewayTimeoutException",
+          "documentation": "Gateway Timeout Error"
+        },
+        {
+          "shape": "TooManyRequestsException",
+          "documentation": "Request limit exceeded on delete schedule calls."
+        }
+      ],
+      "documentation": "Delete all schedule actions on a channel."
     },
     "DeleteTags": {
       "name": "DeleteTags",
@@ -1168,6 +1214,60 @@
       ],
       "documentation": "Updates a channel."
     },
+    "UpdateChannelClass": {
+      "name": "UpdateChannelClass",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/prod/channels/{channelId}/channelClass",
+        "responseCode": 200
+      },
+      "input": {
+        "shape": "UpdateChannelClassRequest"
+      },
+      "output": {
+        "shape": "UpdateChannelClassResponse",
+        "documentation": "The class of the channel has been successfully updated."
+      },
+      "errors": [
+        {
+          "shape": "BadRequestException",
+          "documentation": "This request to update the channel class was invalid."
+        },
+        {
+          "shape": "UnprocessableEntityException",
+          "documentation": "The channel configuration failed validation when attempting to update the channel class."
+        },
+        {
+          "shape": "InternalServerErrorException",
+          "documentation": "Unexpected internal service error."
+        },
+        {
+          "shape": "ForbiddenException",
+          "documentation": "You do not have permission to update the class of this channel."
+        },
+        {
+          "shape": "BadGatewayException",
+          "documentation": "Bad Gateway Error"
+        },
+        {
+          "shape": "NotFoundException",
+          "documentation": "The channel you're trying to update the class on does not exist."
+        },
+        {
+          "shape": "GatewayTimeoutException",
+          "documentation": "Gateway Timeout Error"
+        },
+        {
+          "shape": "TooManyRequestsException",
+          "documentation": "Request limit exceeded on update channel class calls."
+        },
+        {
+          "shape": "ConflictException",
+          "documentation": "The channel class cannot be updated due to an issue with channel resources."
+        }
+      ],
+      "documentation": "Changes the class of the channel."
+    },
     "UpdateInput": {
       "name": "UpdateInput",
       "http": {
@@ -1259,6 +1359,56 @@
         }
       ],
       "documentation": "Update an Input Security Group's Whilelists."
+    },
+    "UpdateReservation": {
+      "name": "UpdateReservation",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/prod/reservations/{reservationId}",
+        "responseCode": 200
+      },
+      "input": {
+        "shape": "UpdateReservationRequest"
+      },
+      "output": {
+        "shape": "UpdateReservationResponse",
+        "documentation": "Updated reservation"
+      },
+      "errors": [
+        {
+          "shape": "BadRequestException",
+          "documentation": "This request was invalid"
+        },
+        {
+          "shape": "InternalServerErrorException",
+          "documentation": "Internal service error"
+        },
+        {
+          "shape": "ForbiddenException",
+          "documentation": "You do not have permission to update reservation"
+        },
+        {
+          "shape": "BadGatewayException",
+          "documentation": "Bad gateway error"
+        },
+        {
+          "shape": "NotFoundException",
+          "documentation": "Reservation not found"
+        },
+        {
+          "shape": "GatewayTimeoutException",
+          "documentation": "Gateway timeout error"
+        },
+        {
+          "shape": "TooManyRequestsException",
+          "documentation": "Request limit exceeded"
+        },
+        {
+          "shape": "ConflictException",
+          "documentation": "The reservation could not be updated"
+        }
+      ],
+      "documentation": "Update reservation."
     }
   },
   "shapes": {
@@ -2393,6 +2543,11 @@
           "locationName": "arn",
           "documentation": "The unique arn of the channel."
         },
+        "ChannelClass": {
+          "shape": "ChannelClass",
+          "locationName": "channelClass",
+          "documentation": "The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline."
+        },
         "Destinations": {
           "shape": "__listOfOutputDestination",
           "locationName": "destinations",
@@ -2453,6 +2608,14 @@
       },
       "documentation": "Placeholder documentation for Channel"
     },
+    "ChannelClass": {
+      "type": "string",
+      "documentation": "A standard channel has two encoding pipelines and a single pipeline channel only has one.",
+      "enum": [
+        "STANDARD",
+        "SINGLE_PIPELINE"
+      ]
+    },
     "ChannelConfigurationValidationError": {
       "type": "structure",
       "members": {
@@ -2490,7 +2653,9 @@
         "RECOVERING",
         "STOPPING",
         "DELETING",
-        "DELETED"
+        "DELETED",
+        "UPDATING",
+        "UPDATE_FAILED"
       ],
       "documentation": "Placeholder documentation for ChannelState"
     },
@@ -2501,6 +2666,11 @@
           "shape": "__string",
           "locationName": "arn",
           "documentation": "The unique arn of the channel."
+        },
+        "ChannelClass": {
+          "shape": "ChannelClass",
+          "locationName": "channelClass",
+          "documentation": "The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline."
         },
         "Destinations": {
           "shape": "__listOfOutputDestination",
@@ -2575,6 +2745,11 @@
     "CreateChannel": {
       "type": "structure",
       "members": {
+        "ChannelClass": {
+          "shape": "ChannelClass",
+          "locationName": "channelClass",
+          "documentation": "The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline."
+        },
         "Destinations": {
           "shape": "__listOfOutputDestination",
           "locationName": "destinations"
@@ -2631,6 +2806,11 @@
     "CreateChannelRequest": {
       "type": "structure",
       "members": {
+        "ChannelClass": {
+          "shape": "ChannelClass",
+          "locationName": "channelClass",
+          "documentation": "The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline."
+        },
         "Destinations": {
           "shape": "__listOfOutputDestination",
           "locationName": "destinations"
@@ -2911,6 +3091,11 @@
           "locationName": "arn",
           "documentation": "The unique arn of the channel."
         },
+        "ChannelClass": {
+          "shape": "ChannelClass",
+          "locationName": "channelClass",
+          "documentation": "The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline."
+        },
         "Destinations": {
           "shape": "__listOfOutputDestination",
           "locationName": "destinations",
@@ -3111,6 +3296,11 @@
           "locationName": "state",
           "documentation": "Current state of reservation, e.g. 'ACTIVE'"
         },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs"
+        },
         "UsagePrice": {
           "shape": "__double",
           "locationName": "usagePrice",
@@ -3118,6 +3308,27 @@
         }
       },
       "documentation": "Placeholder documentation for DeleteReservationResponse"
+    },
+    "DeleteScheduleRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelId": {
+          "shape": "__string",
+          "location": "uri",
+          "locationName": "channelId",
+          "documentation": "Id of the channel whose schedule is being deleted."
+        }
+      },
+      "required": [
+        "ChannelId"
+      ],
+      "documentation": "Placeholder documentation for DeleteScheduleRequest"
+    },
+    "DeleteScheduleResponse": {
+      "type": "structure",
+      "members": {
+      },
+      "documentation": "Placeholder documentation for DeleteScheduleResponse"
     },
     "DeleteTagsRequest": {
       "type": "structure",
@@ -3162,6 +3373,11 @@
           "shape": "__string",
           "locationName": "arn",
           "documentation": "The unique arn of the channel."
+        },
+        "ChannelClass": {
+          "shape": "ChannelClass",
+          "locationName": "channelClass",
+          "documentation": "The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline."
         },
         "Destinations": {
           "shape": "__listOfOutputDestination",
@@ -3260,6 +3476,11 @@
           "shape": "__string",
           "locationName": "id",
           "documentation": "The generated ID of the input (unique for user account, immutable)."
+        },
+        "InputClass": {
+          "shape": "InputClass",
+          "locationName": "inputClass",
+          "documentation": "STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.\nSINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.\n"
         },
         "MediaConnectFlows": {
           "shape": "__listOfMediaConnectFlow",
@@ -3526,6 +3747,11 @@
           "shape": "ReservationState",
           "locationName": "state",
           "documentation": "Current state of reservation, e.g. 'ACTIVE'"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs"
         },
         "UsagePrice": {
           "shape": "__double",
@@ -5372,6 +5598,11 @@
           "locationName": "id",
           "documentation": "The generated ID of the input (unique for user account, immutable)."
         },
+        "InputClass": {
+          "shape": "InputClass",
+          "locationName": "inputClass",
+          "documentation": "STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.\nSINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.\n"
+        },
         "MediaConnectFlows": {
           "shape": "__listOfMediaConnectFlow",
           "locationName": "mediaConnectFlows",
@@ -5452,6 +5683,14 @@
       "required": [
         "InputChannel",
         "Gain"
+      ]
+    },
+    "InputClass": {
+      "type": "string",
+      "documentation": "A standard input has two sources and a single pipeline input only has one.",
+      "enum": [
+        "STANDARD",
+        "SINGLE_PIPELINE"
       ]
     },
     "InputCodec": {
@@ -6108,6 +6347,12 @@
     "ListOfferingsRequest": {
       "type": "structure",
       "members": {
+        "ChannelClass": {
+          "shape": "__string",
+          "location": "querystring",
+          "locationName": "channelClass",
+          "documentation": "Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'\n"
+        },
         "ChannelConfiguration": {
           "shape": "__string",
           "location": "querystring",
@@ -6204,6 +6449,12 @@
     "ListReservationsRequest": {
       "type": "structure",
       "members": {
+        "ChannelClass": {
+          "shape": "__string",
+          "location": "querystring",
+          "locationName": "channelClass",
+          "documentation": "Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'\n"
+        },
         "Codec": {
           "shape": "__string",
           "location": "querystring",
@@ -7380,6 +7631,11 @@
           "shape": "__string",
           "locationName": "start",
           "documentation": "Requested reservation start time (UTC) in ISO-8601 format. The specified time must be between the first day of the current month and one year from now. If no value is given, the default is now."
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs"
         }
       },
       "documentation": "PurchaseOffering request",
@@ -7416,6 +7672,11 @@
           "shape": "__string",
           "locationName": "start",
           "documentation": "Requested reservation start time (UTC) in ISO-8601 format. The specified time must be between the first day of the current month and one year from now. If no value is given, the default is now."
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs"
         }
       },
       "required": [
@@ -7551,6 +7812,11 @@
           "locationName": "state",
           "documentation": "Current state of reservation, e.g. 'ACTIVE'"
         },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs"
+        },
         "UsagePrice": {
           "shape": "__double",
           "locationName": "usagePrice",
@@ -7598,6 +7864,11 @@
     "ReservationResourceSpecification": {
       "type": "structure",
       "members": {
+        "ChannelClass": {
+          "shape": "ChannelClass",
+          "locationName": "channelClass",
+          "documentation": "Channel class, e.g. 'STANDARD'"
+        },
         "Codec": {
           "shape": "ReservationCodec",
           "locationName": "codec",
@@ -7875,6 +8146,12 @@
         }
       },
       "documentation": "Settings to specify the start time for an action."
+    },
+    "ScheduleDeleteResultModel": {
+      "type": "structure",
+      "members": {
+      },
+      "documentation": "Result of a schedule deletion."
     },
     "ScheduleDescribeResultModel": {
       "type": "structure",
@@ -8342,6 +8619,11 @@
           "locationName": "arn",
           "documentation": "The unique arn of the channel."
         },
+        "ChannelClass": {
+          "shape": "ChannelClass",
+          "locationName": "channelClass",
+          "documentation": "The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline."
+        },
         "Destinations": {
           "shape": "__listOfOutputDestination",
           "locationName": "destinations",
@@ -8518,6 +8800,11 @@
           "shape": "__string",
           "locationName": "arn",
           "documentation": "The unique arn of the channel."
+        },
+        "ChannelClass": {
+          "shape": "ChannelClass",
+          "locationName": "channelClass",
+          "documentation": "The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline."
         },
         "Destinations": {
           "shape": "__listOfOutputDestination",
@@ -8805,6 +9092,61 @@
       },
       "documentation": "Placeholder documentation for UpdateChannel"
     },
+    "UpdateChannelClass": {
+      "type": "structure",
+      "members": {
+        "ChannelClass": {
+          "shape": "ChannelClass",
+          "locationName": "channelClass",
+          "documentation": "The channel class that you wish to update this channel to use."
+        },
+        "Destinations": {
+          "shape": "__listOfOutputDestination",
+          "locationName": "destinations",
+          "documentation": "A list of output destinations for this channel."
+        }
+      },
+      "required": [
+        "ChannelClass"
+      ],
+      "documentation": "Placeholder documentation for UpdateChannelClass"
+    },
+    "UpdateChannelClassRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelClass": {
+          "shape": "ChannelClass",
+          "locationName": "channelClass",
+          "documentation": "The channel class that you wish to update this channel to use."
+        },
+        "ChannelId": {
+          "shape": "__string",
+          "location": "uri",
+          "locationName": "channelId",
+          "documentation": "Channel Id of the channel whose class should be updated."
+        },
+        "Destinations": {
+          "shape": "__listOfOutputDestination",
+          "locationName": "destinations",
+          "documentation": "A list of output destinations for this channel."
+        }
+      },
+      "documentation": "Channel class that the channel should be updated to.",
+      "required": [
+        "ChannelId",
+        "ChannelClass"
+      ]
+    },
+    "UpdateChannelClassResponse": {
+      "type": "structure",
+      "members": {
+        "Channel": {
+          "shape": "Channel",
+          "locationName": "channel"
+        }
+      },
+      "documentation": "Placeholder documentation for UpdateChannelClassResponse"
+    },
     "UpdateChannelRequest": {
       "type": "structure",
       "members": {
@@ -9019,6 +9361,57 @@
         }
       },
       "documentation": "Placeholder documentation for UpdateInputSecurityGroupResultModel"
+    },
+    "UpdateReservation": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "shape": "__string",
+          "locationName": "name",
+          "documentation": "Name of the reservation"
+        }
+      },
+      "documentation": "UpdateReservation request"
+    },
+    "UpdateReservationRequest": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "shape": "__string",
+          "locationName": "name",
+          "documentation": "Name of the reservation"
+        },
+        "ReservationId": {
+          "shape": "__string",
+          "location": "uri",
+          "locationName": "reservationId",
+          "documentation": "Unique reservation ID, e.g. '1234567'"
+        }
+      },
+      "documentation": "Request to update a reservation",
+      "required": [
+        "ReservationId"
+      ]
+    },
+    "UpdateReservationResponse": {
+      "type": "structure",
+      "members": {
+        "Reservation": {
+          "shape": "Reservation",
+          "locationName": "reservation"
+        }
+      },
+      "documentation": "Placeholder documentation for UpdateReservationResponse"
+    },
+    "UpdateReservationResultModel": {
+      "type": "structure",
+      "members": {
+        "Reservation": {
+          "shape": "Reservation",
+          "locationName": "reservation"
+        }
+      },
+      "documentation": "UpdateReservation response"
     },
     "ValidationError": {
       "type": "structure",
