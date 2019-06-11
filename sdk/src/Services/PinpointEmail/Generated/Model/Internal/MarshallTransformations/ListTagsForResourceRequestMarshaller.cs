@@ -55,30 +55,15 @@ namespace Amazon.PinpointEmail.Model.Internal.MarshallTransformations
         public IRequest Marshall(ListTagsForResourceRequest publicRequest)
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.PinpointEmail");
-            string target = "com.amazonaws.services.pinpoint.email.ListTagsForResource";
-            request.Headers["X-Amz-Target"] = target;
             request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-07-26";            
             request.HttpMethod = "GET";
 
             string uriResourcePath = "/v1/email/tags";
+            
+            if (publicRequest.IsSetResourceArn())
+                request.Parameters.Add("ResourceArn", StringUtils.FromString(publicRequest.ResourceArn));
             request.ResourcePath = uriResourcePath;
-            using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
-            {
-                JsonWriter writer = new JsonWriter(stringWriter);
-                writer.WriteObjectStart();
-                var context = new JsonMarshallerContext(request, writer);
-                if(publicRequest.IsSetResourceArn())
-                {
-                    context.Writer.WritePropertyName("ResourceArn");
-                    context.Writer.Write(publicRequest.ResourceArn);
-                }
-
-        
-                writer.WriteObjectEnd();
-                string snippet = stringWriter.ToString();
-                request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);
-            }
-
+            request.UseQueryString = true;
 
             return request;
         }

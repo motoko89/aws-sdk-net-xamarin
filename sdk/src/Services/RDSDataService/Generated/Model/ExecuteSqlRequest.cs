@@ -29,7 +29,14 @@ namespace Amazon.RDSDataService.Model
 {
     /// <summary>
     /// Container for the parameters to the ExecuteSql operation.
-    /// Executes any SQL statement on the target database synchronously
+    /// Runs one or more SQL statements.
+    /// 
+    ///         <important>            
+    /// <para>
+    /// This operation is deprecated. Use the <code>BatchExecuteStatement</code> or      
+    ///              <code>ExecuteStatement</code> operation.
+    /// </para>
+    ///         </important>
     /// </summary>
     public partial class ExecuteSqlRequest : AmazonRDSDataServiceRequest
     {
@@ -40,10 +47,12 @@ namespace Amazon.RDSDataService.Model
         private string _sqlStatements;
 
         /// <summary>
-        /// Gets and sets the property AwsSecretStoreArn. ARN of the db credentials in AWS Secret
-        /// Store or the friendly secret name
+        /// Gets and sets the property AwsSecretStoreArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of the secret that enables access to the DB cluster.
+        /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Max=1024)]
+        [AWSProperty(Required=true, Max=100)]
         public string AwsSecretStoreArn
         {
             get { return this._awsSecretStoreArn; }
@@ -57,7 +66,10 @@ namespace Amazon.RDSDataService.Model
         }
 
         /// <summary>
-        /// Gets and sets the property Database. Target DB name
+        /// Gets and sets the property Database. 
+        /// <para>
+        /// The name of the database.
+        /// </para>
         /// </summary>
         [AWSProperty(Max=64)]
         public string Database
@@ -73,10 +85,12 @@ namespace Amazon.RDSDataService.Model
         }
 
         /// <summary>
-        /// Gets and sets the property DbClusterOrInstanceArn. ARN of the target db cluster or
-        /// instance
+        /// Gets and sets the property DbClusterOrInstanceArn. 
+        /// <para>
+        /// The ARN of the Aurora Serverless DB cluster.
+        /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Max=1024)]
+        [AWSProperty(Required=true, Max=100)]
         public string DbClusterOrInstanceArn
         {
             get { return this._dbClusterOrInstanceArn; }
@@ -90,7 +104,10 @@ namespace Amazon.RDSDataService.Model
         }
 
         /// <summary>
-        /// Gets and sets the property Schema. Target Schema name
+        /// Gets and sets the property Schema. 
+        /// <para>
+        /// The name of the database schema.
+        /// </para>
         /// </summary>
         [AWSProperty(Max=64)]
         public string Schema
@@ -106,8 +123,16 @@ namespace Amazon.RDSDataService.Model
         }
 
         /// <summary>
-        /// Gets and sets the property SqlStatements. SQL statement(s) to be executed. Statements
-        /// can be chained by using semicolons
+        /// Gets and sets the property SqlStatements. 
+        /// <para>
+        /// One or more SQL statements to run on the DB cluster.
+        /// </para>
+        ///         
+        /// <para>
+        /// You can separate SQL statements from each other with a semicolon (;). Any valid SQL
+        ///            statement is permitted, including data definition, data manipulation, and
+        /// commit            statements. 
+        /// </para>
         /// </summary>
         [AWSProperty(Required=true, Max=65536)]
         public string SqlStatements

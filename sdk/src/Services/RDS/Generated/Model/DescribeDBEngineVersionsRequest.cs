@@ -38,6 +38,7 @@ namespace Amazon.RDS.Model
         private string _engine;
         private string _engineVersion;
         private List<Filter> _filters = new List<Filter>();
+        private bool? _includeAll;
         private bool? _listSupportedCharacterSets;
         private bool? _listSupportedTimezones;
         private string _marker;
@@ -150,6 +151,25 @@ namespace Amazon.RDS.Model
         internal bool IsSetFilters()
         {
             return this._filters != null && this._filters.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property IncludeAll. 
+        /// <para>
+        /// A value that indicates whether to include engine versions that aren't available in
+        /// the list. The default is to list only available engine versions.
+        /// </para>
+        /// </summary>
+        public bool IncludeAll
+        {
+            get { return this._includeAll.GetValueOrDefault(); }
+            set { this._includeAll = value; }
+        }
+
+        // Check to see if IncludeAll property is set
+        internal bool IsSetIncludeAll()
+        {
+            return this._includeAll.HasValue; 
         }
 
         /// <summary>

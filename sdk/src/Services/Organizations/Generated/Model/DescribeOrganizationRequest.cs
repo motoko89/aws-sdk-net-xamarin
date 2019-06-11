@@ -37,7 +37,7 @@ namespace Amazon.Organizations.Model
     /// </para>
     ///  <note> 
     /// <para>
-    /// Even if a policy type is shown as available in the organization, it can be disabled
+    /// Even if a policy type is shown as available in the organization, you can disable it
     /// separately at the root level with <a>DisablePolicyType</a>. Use <a>ListRoots</a> to
     /// see the status of policy types for a specified root.
     /// </para>

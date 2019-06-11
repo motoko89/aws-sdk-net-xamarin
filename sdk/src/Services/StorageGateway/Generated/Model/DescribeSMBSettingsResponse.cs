@@ -35,6 +35,7 @@ namespace Amazon.StorageGateway.Model
         private string _domainName;
         private string _gatewayARN;
         private bool? _smbGuestPasswordSet;
+        private SMBSecurityStrategy _smbSecurityStrategy;
 
         /// <summary>
         /// Gets and sets the property DomainName. 
@@ -88,6 +89,39 @@ namespace Amazon.StorageGateway.Model
         internal bool IsSetSMBGuestPasswordSet()
         {
             return this._smbGuestPasswordSet.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property SMBSecurityStrategy. 
+        /// <para>
+        /// The type of security strategy that was specified for file gateway.
+        /// </para>
+        ///  
+        /// <para>
+        /// ClientSpecified: SMBv1 is enabled, SMB signing is offered but not required, SMB encryption
+        /// is offered but not required.
+        /// </para>
+        ///  
+        /// <para>
+        /// MandatorySigning: SMBv1 is disabled, SMB signing is required, SMB encryption is offered
+        /// but not required.
+        /// </para>
+        ///  
+        /// <para>
+        /// MandatoryEncryption: SMBv1 is disabled, SMB signing is offered but not required, SMB
+        /// encryption is required.
+        /// </para>
+        /// </summary>
+        public SMBSecurityStrategy SMBSecurityStrategy
+        {
+            get { return this._smbSecurityStrategy; }
+            set { this._smbSecurityStrategy = value; }
+        }
+
+        // Check to see if SMBSecurityStrategy property is set
+        internal bool IsSetSMBSecurityStrategy()
+        {
+            return this._smbSecurityStrategy != null;
         }
 
     }

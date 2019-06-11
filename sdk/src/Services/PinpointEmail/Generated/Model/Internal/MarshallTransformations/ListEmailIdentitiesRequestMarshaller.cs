@@ -55,36 +55,18 @@ namespace Amazon.PinpointEmail.Model.Internal.MarshallTransformations
         public IRequest Marshall(ListEmailIdentitiesRequest publicRequest)
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.PinpointEmail");
-            string target = "com.amazonaws.services.pinpoint.email.ListEmailIdentities";
-            request.Headers["X-Amz-Target"] = target;
             request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-07-26";            
             request.HttpMethod = "GET";
 
             string uriResourcePath = "/v1/email/identities";
+            
+            if (publicRequest.IsSetNextToken())
+                request.Parameters.Add("NextToken", StringUtils.FromString(publicRequest.NextToken));
+            
+            if (publicRequest.IsSetPageSize())
+                request.Parameters.Add("PageSize", StringUtils.FromInt(publicRequest.PageSize));
             request.ResourcePath = uriResourcePath;
-            using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
-            {
-                JsonWriter writer = new JsonWriter(stringWriter);
-                writer.WriteObjectStart();
-                var context = new JsonMarshallerContext(request, writer);
-                if(publicRequest.IsSetNextToken())
-                {
-                    context.Writer.WritePropertyName("NextToken");
-                    context.Writer.Write(publicRequest.NextToken);
-                }
-
-                if(publicRequest.IsSetPageSize())
-                {
-                    context.Writer.WritePropertyName("PageSize");
-                    context.Writer.Write(publicRequest.PageSize);
-                }
-
-        
-                writer.WriteObjectEnd();
-                string snippet = stringWriter.ToString();
-                request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);
-            }
-
+            request.UseQueryString = true;
 
             return request;
         }

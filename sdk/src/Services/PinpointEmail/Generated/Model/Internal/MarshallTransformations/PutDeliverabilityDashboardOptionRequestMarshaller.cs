@@ -55,8 +55,6 @@ namespace Amazon.PinpointEmail.Model.Internal.MarshallTransformations
         public IRequest Marshall(PutDeliverabilityDashboardOptionRequest publicRequest)
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.PinpointEmail");
-            string target = "com.amazonaws.services.pinpoint.email.PutDeliverabilityDashboardOption";
-            request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/json";
             request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-07-26";            
             request.HttpMethod = "PUT";
@@ -72,6 +70,22 @@ namespace Amazon.PinpointEmail.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("DashboardEnabled");
                     context.Writer.Write(publicRequest.DashboardEnabled);
+                }
+
+                if(publicRequest.IsSetSubscribedDomains())
+                {
+                    context.Writer.WritePropertyName("SubscribedDomains");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestSubscribedDomainsListValue in publicRequest.SubscribedDomains)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = DomainDeliverabilityTrackingOptionMarshaller.Instance;
+                        marshaller.Marshall(publicRequestSubscribedDomainsListValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteArrayEnd();
                 }
 
         

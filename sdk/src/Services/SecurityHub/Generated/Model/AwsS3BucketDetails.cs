@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.SecurityHub.Model
 {
     /// <summary>
-    /// The details of an AWS S3 Bucket.
+    /// The details of an Amazon S3 bucket.
     /// </summary>
     public partial class AwsS3BucketDetails
     {

@@ -29,7 +29,7 @@ namespace Amazon.PinpointEmail.Model
 {
     /// <summary>
     /// Container for the parameters to the ListTagsForResource operation.
-    /// Retrieve a list of the tags (keys and values) that are associated with a specific
+    /// Retrieve a list of the tags (keys and values) that are associated with a specified
     /// resource. A <i>tag</i> is a label that you optionally define and associate with a
     /// resource in Amazon Pinpoint. Each tag consists of a required <i>tag key</i> and an
     /// optional associated <i>tag value</i>. A tag key is a general label that acts as a

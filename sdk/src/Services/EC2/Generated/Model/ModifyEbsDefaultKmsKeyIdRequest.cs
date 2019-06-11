@@ -29,20 +29,24 @@ namespace Amazon.EC2.Model
 {
     /// <summary>
     /// Container for the parameters to the ModifyEbsDefaultKmsKeyId operation.
-    /// Changes the default customer master key (CMK) that your account uses to encrypt EBS
-    /// volumes if you don’t specify a CMK in the API call.
+    /// Changes the default customer master key (CMK) for EBS encryption by default for your
+    /// account in this Region.
     /// 
     ///  
     /// <para>
-    /// Your account has an AWS-managed default CMK that is used for encrypting an EBS volume
-    /// when no CMK is specified in the API call that creates the volume. By calling this
-    /// API, you can specify a customer-managed CMK to use in place of the AWS-managed default
-    /// CMK.
+    /// AWS creates a unique AWS managed CMK in each Region for use with encryption by default.
+    /// If you change the default CMK to a customer managed CMK, it is used instead of the
+    /// AWS managed CMK. To reset the default CMK to the AWS managed CMK for EBS, use <a>ResetEbsDefaultKmsKeyId</a>.
     /// </para>
     ///  
     /// <para>
-    /// Note: Deleting or disabling the custom CMK that you have specified to act as your
-    /// default CMK will result in instance-launch failures.
+    /// If you delete or disable the customer managed CMK that you specified for use with
+    /// encryption by default, your instances will fail to launch.
+    /// </para>
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+    /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     public partial class ModifyEbsDefaultKmsKeyIdRequest : AmazonEC2Request
@@ -52,39 +56,36 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property KmsKeyId. 
         /// <para>
-        /// An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK)
-        /// to use to encrypt the volume. This parameter is only required if you want to use a
-        /// non-default CMK; if this parameter is not specified, the default CMK for EBS is used.
-        /// If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also
-        /// be set. 
+        /// The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK)
+        /// to use for Amazon EBS encryption. If this parameter is not specified, your AWS managed
+        /// CMK for EBS is used. If <code>KmsKeyId</code> is specified, the encrypted state must
+        /// be <code>true</code>.
         /// </para>
         ///  
         /// <para>
-        /// The CMK identifier may be provided in any of the following formats: 
+        /// You can specify the CMK using any of the following:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Key ID
+        /// Key ID. For example, key/1234abcd-12ab-34cd-56ef-1234567890ab.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Key alias
+        /// Key alias. For example, alias/ExampleAlias.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed
-        /// by the Region of the CMK, the AWS account ID of the CMK owner, the <code>key</code>
-        /// namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.
-        /// 
+        /// Key ARN. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace,
-        /// followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code>
-        /// namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.
-        /// 
+        /// Alias ARN. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> 
+        /// <para>
+        /// AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias,
+        /// or ARN that is not valid, the action can appear to complete, but eventually fails.
+        /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
         public string KmsKeyId

@@ -69,6 +69,12 @@ namespace Amazon.StorageGateway.Model.Internal.MarshallTransformations
                     response.SMBGuestPasswordSet = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("SMBSecurityStrategy", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.SMBSecurityStrategy = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
 
             return response;

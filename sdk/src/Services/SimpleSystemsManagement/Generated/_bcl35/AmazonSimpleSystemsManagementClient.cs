@@ -53,8 +53,8 @@ namespace Amazon.SimpleSystemsManagement
     ///  
     /// <para>
     /// To get started, verify prerequisites and configure managed instances. For more information,
-    /// see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Systems
-    /// Manager Prerequisites</a> in the <i>AWS Systems Manager User Guide</i>.
+    /// see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Setting
+    /// Up AWS Systems Manager</a> in the <i>AWS Systems Manager User Guide</i>.
     /// </para>
     ///  
     /// <para>
@@ -267,7 +267,7 @@ namespace Amazon.SimpleSystemsManagement
 
         /// <summary>
         /// Adds or overwrites one or more tags for the specified resource. Tags are metadata
-        /// that you can assign to your documents, managed instances, Maintenance Windows, Parameter
+        /// that you can assign to your documents, managed instances, maintenance windows, Parameter
         /// Store parameters, and patch baselines. Tags enable you to categorize your resources
         /// in different ways, for example, by purpose, owner, or environment. Each tag consists
         /// of a key and an optional value, both of which you define. For example, you could define
@@ -550,7 +550,7 @@ namespace Amazon.SimpleSystemsManagement
         #region  CancelMaintenanceWindowExecution
 
         /// <summary>
-        /// Stops a Maintenance Window execution that is already in progress and cancels any tasks
+        /// Stops a maintenance window execution that is already in progress and cancels any tasks
         /// in the window that have not already starting running. (Tasks already in progress will
         /// continue to completion.)
         /// </summary>
@@ -558,7 +558,7 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the CancelMaintenanceWindowExecution service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -623,7 +623,7 @@ namespace Amazon.SimpleSystemsManagement
         /// manage these resources using Run Command. An on-premises server or virtual machine
         /// that has been registered with EC2 is called a managed instance. For more information
         /// about activations, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting
-        /// Up Systems Manager in Hybrid Environments</a>.
+        /// Up AWS Systems Manager for Hybrid Environments</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateActivation service method.</param>
         /// 
@@ -1134,7 +1134,7 @@ namespace Amazon.SimpleSystemsManagement
         #region  CreateMaintenanceWindow
 
         /// <summary>
-        /// Creates a new Maintenance Window.
+        /// Creates a new maintenance window.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateMaintenanceWindow service method.</param>
         /// 
@@ -1148,7 +1148,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ResourceLimitExceededException">
         /// Error returned when the caller has exceeded the default resource limits. For example,
-        /// too many Maintenance Windows or Patch baselines have been created.
+        /// too many maintenance windows or patch baselines have been created.
         /// 
         ///  
         /// <para>
@@ -1202,6 +1202,85 @@ namespace Amazon.SimpleSystemsManagement
 
         #endregion
         
+        #region  CreateOpsItem
+
+        /// <summary>
+        /// Creates a new OpsItem. You must have permission in AWS Identity and Access Management
+        /// (IAM) to create a new OpsItem. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsItems-getting-started.html">Getting
+        /// Started with OpsItems</a> in the <i>AWS Systems Manager User Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// Operations engineers and IT professionals use the Systems Manager OpsItems capability
+        /// to view, investigate, and remediate operational issues impacting the performance and
+        /// health of their AWS resources. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsItems.html">AWS
+        /// Systems Manager OpsItems</a> in the <i>AWS Systems Manager User Guide</i>. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateOpsItem service method.</param>
+        /// 
+        /// <returns>The response from the CreateOpsItem service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemAlreadyExistsException">
+        /// The OpsItem already exists.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemInvalidParameterException">
+        /// A specified parameter argument isn't valid. Verify the available arguments and try
+        /// again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemLimitExceededException">
+        /// The request caused OpsItems to exceed one or more limits. For information about OpsItem
+        /// limits, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsItems-learn-more.html#OpsItems-learn-more-limits">What
+        /// are the resource limits for OpsItems?</a>.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateOpsItem">REST API Reference for CreateOpsItem Operation</seealso>
+        public virtual CreateOpsItemResponse CreateOpsItem(CreateOpsItemRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateOpsItemRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateOpsItemResponseUnmarshaller.Instance;
+
+            return Invoke<CreateOpsItemResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateOpsItem operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateOpsItem operation on AmazonSimpleSystemsManagementClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateOpsItem
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateOpsItem">REST API Reference for CreateOpsItem Operation</seealso>
+        public virtual IAsyncResult BeginCreateOpsItem(CreateOpsItemRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateOpsItemRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateOpsItemResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CreateOpsItem operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCreateOpsItem.</param>
+        /// 
+        /// <returns>Returns a  CreateOpsItemResult from SimpleSystemsManagement.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateOpsItem">REST API Reference for CreateOpsItem Operation</seealso>
+        public virtual CreateOpsItemResponse EndCreateOpsItem(IAsyncResult asyncResult)
+        {
+            return EndInvoke<CreateOpsItemResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  CreatePatchBaseline
 
         /// <summary>
@@ -1226,7 +1305,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ResourceLimitExceededException">
         /// Error returned when the caller has exceeded the default resource limits. For example,
-        /// too many Maintenance Windows or Patch baselines have been created.
+        /// too many maintenance windows or patch baselines have been created.
         /// 
         ///  
         /// <para>
@@ -1770,7 +1849,7 @@ namespace Amazon.SimpleSystemsManagement
         #region  DeleteMaintenanceWindow
 
         /// <summary>
-        /// Deletes a Maintenance Window.
+        /// Deletes a maintenance window.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteMaintenanceWindow service method.</param>
         /// 
@@ -2212,13 +2291,13 @@ namespace Amazon.SimpleSystemsManagement
         #region  DeregisterTargetFromMaintenanceWindow
 
         /// <summary>
-        /// Removes a target from a Maintenance Window.
+        /// Removes a target from a maintenance window.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeregisterTargetFromMaintenanceWindow service method.</param>
         /// 
         /// <returns>The response from the DeregisterTargetFromMaintenanceWindow service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -2283,13 +2362,13 @@ namespace Amazon.SimpleSystemsManagement
         #region  DeregisterTaskFromMaintenanceWindow
 
         /// <summary>
-        /// Removes a task from a Maintenance Window.
+        /// Removes a task from a maintenance window.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeregisterTaskFromMaintenanceWindow service method.</param>
         /// 
         /// <returns>The response from the DeregisterTaskFromMaintenanceWindow service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -3136,7 +3215,7 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the DescribeEffectivePatchesForPatchBaseline service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -3672,8 +3751,8 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidDeletionIdException">
-        /// The ID specified for the delete operation does not exist or is not valide. Verify
-        /// the ID and try again.
+        /// The ID specified for the delete operation does not exist or is not valid. Verify the
+        /// ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidNextTokenException">
         /// The specified token is not valid.
@@ -3727,9 +3806,9 @@ namespace Amazon.SimpleSystemsManagement
         #region  DescribeMaintenanceWindowExecutions
 
         /// <summary>
-        /// Lists the executions of a Maintenance Window. This includes information about when
-        /// the Maintenance Window was scheduled to be active, and information about tasks registered
-        /// and run with the Maintenance Window.
+        /// Lists the executions of a maintenance window. This includes information about when
+        /// the maintenance window was scheduled to be active, and information about tasks registered
+        /// and run with the maintenance window.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeMaintenanceWindowExecutions service method.</param>
         /// 
@@ -3787,13 +3866,13 @@ namespace Amazon.SimpleSystemsManagement
 
         /// <summary>
         /// Retrieves the individual task executions (one per target) for a particular task run
-        /// as part of a Maintenance Window execution.
+        /// as part of a maintenance window execution.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeMaintenanceWindowExecutionTaskInvocations service method.</param>
         /// 
         /// <returns>The response from the DescribeMaintenanceWindowExecutionTaskInvocations service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -3854,13 +3933,13 @@ namespace Amazon.SimpleSystemsManagement
         #region  DescribeMaintenanceWindowExecutionTasks
 
         /// <summary>
-        /// For a given Maintenance Window execution, lists the tasks that were run.
+        /// For a given maintenance window execution, lists the tasks that were run.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeMaintenanceWindowExecutionTasks service method.</param>
         /// 
         /// <returns>The response from the DescribeMaintenanceWindowExecutionTasks service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -3921,7 +4000,7 @@ namespace Amazon.SimpleSystemsManagement
         #region  DescribeMaintenanceWindows
 
         /// <summary>
-        /// Retrieves the Maintenance Windows in an AWS account.
+        /// Retrieves the maintenance windows in an AWS account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeMaintenanceWindows service method.</param>
         /// 
@@ -3978,13 +4057,13 @@ namespace Amazon.SimpleSystemsManagement
         #region  DescribeMaintenanceWindowSchedule
 
         /// <summary>
-        /// Retrieves information about upcoming executions of a Maintenance Window.
+        /// Retrieves information about upcoming executions of a maintenance window.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeMaintenanceWindowSchedule service method.</param>
         /// 
         /// <returns>The response from the DescribeMaintenanceWindowSchedule service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -4045,7 +4124,7 @@ namespace Amazon.SimpleSystemsManagement
         #region  DescribeMaintenanceWindowsForTarget
 
         /// <summary>
-        /// Retrieves information about the Maintenance Windows targets or tasks that an instance
+        /// Retrieves information about the maintenance window targets or tasks that an instance
         /// is associated with.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeMaintenanceWindowsForTarget service method.</param>
@@ -4103,13 +4182,13 @@ namespace Amazon.SimpleSystemsManagement
         #region  DescribeMaintenanceWindowTargets
 
         /// <summary>
-        /// Lists the targets registered with the Maintenance Window.
+        /// Lists the targets registered with the maintenance window.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeMaintenanceWindowTargets service method.</param>
         /// 
         /// <returns>The response from the DescribeMaintenanceWindowTargets service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -4170,13 +4249,13 @@ namespace Amazon.SimpleSystemsManagement
         #region  DescribeMaintenanceWindowTasks
 
         /// <summary>
-        /// Lists the tasks in a Maintenance Window.
+        /// Lists the tasks in a maintenance window.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeMaintenanceWindowTasks service method.</param>
         /// 
         /// <returns>The response from the DescribeMaintenanceWindowTasks service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -4230,6 +4309,73 @@ namespace Amazon.SimpleSystemsManagement
         public virtual DescribeMaintenanceWindowTasksResponse EndDescribeMaintenanceWindowTasks(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeMaintenanceWindowTasksResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  DescribeOpsItems
+
+        /// <summary>
+        /// Query a set of OpsItems. You must have permission in AWS Identity and Access Management
+        /// (IAM) to query a list of OpsItems. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsItems-getting-started.html">Getting
+        /// Started with OpsItems</a> in the <i>AWS Systems Manager User Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// Operations engineers and IT professionals use the Systems Manager OpsItems capability
+        /// to view, investigate, and remediate operational issues impacting the performance and
+        /// health of their AWS resources. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsItems.html">AWS
+        /// Systems Manager OpsItems</a> in the <i>AWS Systems Manager User Guide</i>. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeOpsItems service method.</param>
+        /// 
+        /// <returns>The response from the DescribeOpsItems service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeOpsItems">REST API Reference for DescribeOpsItems Operation</seealso>
+        public virtual DescribeOpsItemsResponse DescribeOpsItems(DescribeOpsItemsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeOpsItemsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeOpsItemsResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeOpsItemsResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeOpsItems operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeOpsItems operation on AmazonSimpleSystemsManagementClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeOpsItems
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeOpsItems">REST API Reference for DescribeOpsItems Operation</seealso>
+        public virtual IAsyncResult BeginDescribeOpsItems(DescribeOpsItemsRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeOpsItemsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeOpsItemsResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeOpsItems operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeOpsItems.</param>
+        /// 
+        /// <returns>Returns a  DescribeOpsItemsResult from SimpleSystemsManagement.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeOpsItems">REST API Reference for DescribeOpsItems Operation</seealso>
+        public virtual DescribeOpsItemsResponse EndDescribeOpsItems(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DescribeOpsItemsResponse>(asyncResult);
         }
 
         #endregion
@@ -4752,7 +4898,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvocationDoesNotExistException">
         /// The command ID and instance ID you specified did not match any invocations. Verify
-        /// the command ID adn the instance ID and try again.
+        /// the command ID and the instance ID and try again.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetCommandInvocation">REST API Reference for GetCommandInvocation Operation</seealso>
         public virtual GetCommandInvocationResponse GetCommandInvocation(GetCommandInvocationRequest request)
@@ -4936,7 +5082,10 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.UnsupportedFeatureRequiredException">
-        /// 
+        /// Microsoft application patching is only available on EC2 instances and Advanced Instances.
+        /// To patch Microsoft applications on on-premises servers and VMs, you must enable Advanced
+        /// Instances. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html">Using
+        /// the Advanced-Instances Tier</a> in the <i>AWS Systems Manager User Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.UnsupportedOperatingSystemException">
         /// The operating systems you specified is not supported, or the operation is not supported
@@ -5219,13 +5368,13 @@ namespace Amazon.SimpleSystemsManagement
         #region  GetMaintenanceWindow
 
         /// <summary>
-        /// Retrieves a Maintenance Window.
+        /// Retrieves a maintenance window.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMaintenanceWindow service method.</param>
         /// 
         /// <returns>The response from the GetMaintenanceWindow service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -5286,13 +5435,13 @@ namespace Amazon.SimpleSystemsManagement
         #region  GetMaintenanceWindowExecution
 
         /// <summary>
-        /// Retrieves details about a specific task run as part of a Maintenance Window execution.
+        /// Retrieves details about a specific task run as part of a maintenance window execution.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMaintenanceWindowExecution service method.</param>
         /// 
         /// <returns>The response from the GetMaintenanceWindowExecution service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -5353,13 +5502,13 @@ namespace Amazon.SimpleSystemsManagement
         #region  GetMaintenanceWindowExecutionTask
 
         /// <summary>
-        /// Retrieves the details about a specific task run as part of a Maintenance Window execution.
+        /// Retrieves the details about a specific task run as part of a maintenance window execution.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMaintenanceWindowExecutionTask service method.</param>
         /// 
         /// <returns>The response from the GetMaintenanceWindowExecutionTask service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -5421,13 +5570,13 @@ namespace Amazon.SimpleSystemsManagement
 
         /// <summary>
         /// Retrieves a task invocation. A task invocation is a specific task running on a specific
-        /// target. Maintenance Windows report status for all invocations.
+        /// target. maintenance windows report status for all invocations.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMaintenanceWindowExecutionTaskInvocation service method.</param>
         /// 
         /// <returns>The response from the GetMaintenanceWindowExecutionTaskInvocation service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -5488,13 +5637,13 @@ namespace Amazon.SimpleSystemsManagement
         #region  GetMaintenanceWindowTask
 
         /// <summary>
-        /// Lists the tasks in a Maintenance Window.
+        /// Lists the tasks in a maintenance window.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMaintenanceWindowTask service method.</param>
         /// 
         /// <returns>The response from the GetMaintenanceWindowTask service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -5548,6 +5697,147 @@ namespace Amazon.SimpleSystemsManagement
         public virtual GetMaintenanceWindowTaskResponse EndGetMaintenanceWindowTask(IAsyncResult asyncResult)
         {
             return EndInvoke<GetMaintenanceWindowTaskResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetOpsItem
+
+        /// <summary>
+        /// Get information about an OpsItem by using the ID. You must have permission in AWS
+        /// Identity and Access Management (IAM) to view information about an OpsItem. For more
+        /// information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsItems-getting-started.html">Getting
+        /// Started with OpsItems</a> in the <i>AWS Systems Manager User Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// Operations engineers and IT professionals use the Systems Manager OpsItems capability
+        /// to view, investigate, and remediate operational issues impacting the performance and
+        /// health of their AWS resources. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsItems.html">AWS
+        /// Systems Manager OpsItems</a> in the <i>AWS Systems Manager User Guide</i>. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetOpsItem service method.</param>
+        /// 
+        /// <returns>The response from the GetOpsItem service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemNotFoundException">
+        /// The specified OpsItem ID doesn't exist. Verify the ID and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetOpsItem">REST API Reference for GetOpsItem Operation</seealso>
+        public virtual GetOpsItemResponse GetOpsItem(GetOpsItemRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetOpsItemRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetOpsItemResponseUnmarshaller.Instance;
+
+            return Invoke<GetOpsItemResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetOpsItem operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetOpsItem operation on AmazonSimpleSystemsManagementClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetOpsItem
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetOpsItem">REST API Reference for GetOpsItem Operation</seealso>
+        public virtual IAsyncResult BeginGetOpsItem(GetOpsItemRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetOpsItemRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetOpsItemResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetOpsItem operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetOpsItem.</param>
+        /// 
+        /// <returns>Returns a  GetOpsItemResult from SimpleSystemsManagement.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetOpsItem">REST API Reference for GetOpsItem Operation</seealso>
+        public virtual GetOpsItemResponse EndGetOpsItem(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetOpsItemResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetOpsSummary
+
+        /// <summary>
+        /// View a summary of OpsItems based on specified filters and aggregators.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetOpsSummary service method.</param>
+        /// 
+        /// <returns>The response from the GetOpsSummary service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidAggregatorException">
+        /// The specified aggregator is not valid for inventory groups. Verify that the aggregator
+        /// uses a valid inventory type such as <code>AWS:Application</code> or <code>AWS:InstanceInformation</code>.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterException">
+        /// The filter name is not valid. Verify the you entered the correct name and try again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidNextTokenException">
+        /// The specified token is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidTypeNameException">
+        /// The parameter type name is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetOpsSummary">REST API Reference for GetOpsSummary Operation</seealso>
+        public virtual GetOpsSummaryResponse GetOpsSummary(GetOpsSummaryRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetOpsSummaryRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetOpsSummaryResponseUnmarshaller.Instance;
+
+            return Invoke<GetOpsSummaryResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetOpsSummary operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetOpsSummary operation on AmazonSimpleSystemsManagementClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetOpsSummary
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetOpsSummary">REST API Reference for GetOpsSummary Operation</seealso>
+        public virtual IAsyncResult BeginGetOpsSummary(GetOpsSummaryRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetOpsSummaryRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetOpsSummaryResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetOpsSummary operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetOpsSummary.</param>
+        /// 
+        /// <returns>Returns a  GetOpsSummaryResult from SimpleSystemsManagement.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetOpsSummary">REST API Reference for GetOpsSummary Operation</seealso>
+        public virtual GetOpsSummaryResponse EndGetOpsSummary(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetOpsSummaryResponse>(asyncResult);
         }
 
         #endregion
@@ -5847,7 +6137,7 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the GetPatchBaseline service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -7705,7 +7995,7 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the RegisterDefaultPatchBaseline service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -7779,7 +8069,7 @@ namespace Amazon.SimpleSystemsManagement
         /// that is already registered with a different patch baseline.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -7796,7 +8086,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ResourceLimitExceededException">
         /// Error returned when the caller has exceeded the default resource limits. For example,
-        /// too many Maintenance Windows or Patch baselines have been created.
+        /// too many maintenance windows or patch baselines have been created.
         /// 
         ///  
         /// <para>
@@ -7853,13 +8143,13 @@ namespace Amazon.SimpleSystemsManagement
         #region  RegisterTargetWithMaintenanceWindow
 
         /// <summary>
-        /// Registers a target with a Maintenance Window.
+        /// Registers a target with a maintenance window.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RegisterTargetWithMaintenanceWindow service method.</param>
         /// 
         /// <returns>The response from the RegisterTargetWithMaintenanceWindow service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -7877,7 +8167,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ResourceLimitExceededException">
         /// Error returned when the caller has exceeded the default resource limits. For example,
-        /// too many Maintenance Windows or Patch baselines have been created.
+        /// too many maintenance windows or patch baselines have been created.
         /// 
         ///  
         /// <para>
@@ -7934,13 +8224,13 @@ namespace Amazon.SimpleSystemsManagement
         #region  RegisterTaskWithMaintenanceWindow
 
         /// <summary>
-        /// Adds a new task to a Maintenance Window.
+        /// Adds a new task to a maintenance window.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RegisterTaskWithMaintenanceWindow service method.</param>
         /// 
         /// <returns>The response from the RegisterTaskWithMaintenanceWindow service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -7962,7 +8252,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ResourceLimitExceededException">
         /// Error returned when the caller has exceeded the default resource limits. For example,
-        /// too many Maintenance Windows or Patch baselines have been created.
+        /// too many maintenance windows or patch baselines have been created.
         /// 
         ///  
         /// <para>
@@ -8184,7 +8474,7 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the ResumeSession service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -8794,7 +9084,7 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the TerminateSession service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -9204,13 +9494,13 @@ namespace Amazon.SimpleSystemsManagement
         #region  UpdateMaintenanceWindow
 
         /// <summary>
-        /// Updates an existing Maintenance Window. Only specified parameters are modified.
+        /// Updates an existing maintenance window. Only specified parameters are modified.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateMaintenanceWindow service method.</param>
         /// 
         /// <returns>The response from the UpdateMaintenanceWindow service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -9271,7 +9561,7 @@ namespace Amazon.SimpleSystemsManagement
         #region  UpdateMaintenanceWindowTarget
 
         /// <summary>
-        /// Modifies the target of an existing Maintenance Window. You can't change the target
+        /// Modifies the target of an existing maintenance window. You can't change the target
         /// type, but you can change the following:
         /// 
         ///  
@@ -9307,7 +9597,7 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the UpdateMaintenanceWindowTarget service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -9368,7 +9658,7 @@ namespace Amazon.SimpleSystemsManagement
         #region  UpdateMaintenanceWindowTask
 
         /// <summary>
-        /// Modifies a task assigned to a Maintenance Window. You can't change the task type,
+        /// Modifies a task assigned to a maintenance window. You can't change the task type,
         /// but you can change the following values:
         /// 
         ///  <ul> <li> 
@@ -9408,7 +9698,7 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the UpdateMaintenanceWindowTask service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  
@@ -9548,6 +9838,88 @@ namespace Amazon.SimpleSystemsManagement
 
         #endregion
         
+        #region  UpdateOpsItem
+
+        /// <summary>
+        /// Edit or change an OpsItem. You must have permission in AWS Identity and Access Management
+        /// (IAM) to update an OpsItem. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsItems-getting-started.html">Getting
+        /// Started with OpsItems</a> in the <i>AWS Systems Manager User Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// Operations engineers and IT professionals use the Systems Manager OpsItems capability
+        /// to view, investigate, and remediate operational issues impacting the performance and
+        /// health of their AWS resources. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsItems.html">AWS
+        /// Systems Manager OpsItems</a> in the <i>AWS Systems Manager User Guide</i>. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateOpsItem service method.</param>
+        /// 
+        /// <returns>The response from the UpdateOpsItem service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemAlreadyExistsException">
+        /// The OpsItem already exists.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemInvalidParameterException">
+        /// A specified parameter argument isn't valid. Verify the available arguments and try
+        /// again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemLimitExceededException">
+        /// The request caused OpsItems to exceed one or more limits. For information about OpsItem
+        /// limits, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsItems-learn-more.html#OpsItems-learn-more-limits">What
+        /// are the resource limits for OpsItems?</a>.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemNotFoundException">
+        /// The specified OpsItem ID doesn't exist. Verify the ID and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateOpsItem">REST API Reference for UpdateOpsItem Operation</seealso>
+        public virtual UpdateOpsItemResponse UpdateOpsItem(UpdateOpsItemRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateOpsItemRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateOpsItemResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateOpsItemResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateOpsItem operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateOpsItem operation on AmazonSimpleSystemsManagementClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateOpsItem
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateOpsItem">REST API Reference for UpdateOpsItem Operation</seealso>
+        public virtual IAsyncResult BeginUpdateOpsItem(UpdateOpsItemRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateOpsItemRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateOpsItemResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateOpsItem operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateOpsItem.</param>
+        /// 
+        /// <returns>Returns a  UpdateOpsItemResult from SimpleSystemsManagement.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateOpsItem">REST API Reference for UpdateOpsItem Operation</seealso>
+        public virtual UpdateOpsItemResponse EndUpdateOpsItem(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateOpsItemResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  UpdatePatchBaseline
 
         /// <summary>
@@ -9565,7 +9937,7 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the UpdatePatchBaseline service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// Error returned when the ID specified for a resource, such as a maintenance window
         /// or Patch baseline, doesn't exist.
         /// 
         ///  

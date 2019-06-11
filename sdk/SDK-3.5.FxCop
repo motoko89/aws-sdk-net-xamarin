@@ -100,6 +100,7 @@
       <Directory>$(ProjectDir)/src/Services/globalaccelerator/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/glue/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/greengrass/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/groundstation/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/guardduty/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/identitymanagement/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/importexport/bin/Release/net35/</Directory>
@@ -109,7 +110,10 @@
       <Directory>$(ProjectDir)/src/Services/iot1clickprojects/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/iotanalytics/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/iotdata/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/iotevents/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/ioteventsdata/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/iotjobsdataplane/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/iotthingsgraph/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/kafka/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/keymanagementservice/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/kinesis/bin/Release/net35/</Directory>
@@ -145,6 +149,9 @@
       <Directory>$(ProjectDir)/src/Services/opsworks/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/opsworkscm/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/organizations/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/personalize/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/personalizeevents/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/personalizeruntime/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/pi/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/pinpoint/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/pinpointemail/bin/Release/net35/</Directory>
@@ -276,6 +283,7 @@
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.GlobalAccelerator.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Glue.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Greengrass.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.GroundStation.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.GuardDuty.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.IdentityManagement.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ImportExport.dll" Analyze="True" AnalyzeAllChildren="True" />
@@ -285,7 +293,10 @@
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.IoT1ClickProjects.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.IoTAnalytics.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.IotData.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.IoTEvents.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.IoTEventsData.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.IoTJobsDataPlane.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.IoTThingsGraph.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Kafka.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.KeyManagementService.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Kinesis.dll" Analyze="True" AnalyzeAllChildren="True" />
@@ -321,6 +332,9 @@
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.OpsWorks.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.OpsWorksCM.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Organizations.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Personalize.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.PersonalizeEvents.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.PersonalizeRuntime.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.PI.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Pinpoint.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.PinpointEmail.dll" Analyze="True" AnalyzeAllChildren="True" />

@@ -40,7 +40,7 @@ namespace Amazon.SecurityHub.Model
         /// <summary>
         /// Gets and sets the property MaxResults. 
         /// <para>
-        /// Indicates the maximum number of items that you want in the response. 
+        /// The maximum number of items that you want in the response. 
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=100)]
@@ -59,10 +59,10 @@ namespace Amazon.SecurityHub.Model
         /// <summary>
         /// Gets and sets the property NextToken. 
         /// <para>
-        /// Paginates results. Set the value of this parameter to NULL on your first call to the
-        /// ListMembers operation. For subsequent calls to the operation, fill nextToken in the
-        /// request with the value of NextToken from the previous response to continue listing
-        /// data. 
+        /// Paginates results. Set the value of this parameter to <code>NULL</code> on your first
+        /// call to the <code>ListMembers</code> operation. For subsequent calls to the operation,
+        /// fill <code>nextToken</code> in the request with the value of <code>nextToken</code>
+        /// from the previous response to continue listing data. 
         /// </para>
         /// </summary>
         public string NextToken
@@ -80,11 +80,12 @@ namespace Amazon.SecurityHub.Model
         /// <summary>
         /// Gets and sets the property OnlyAssociated. 
         /// <para>
-        /// Specifies what member accounts the response includes based on their relationship status
-        /// with the master account. The default value is TRUE. If onlyAssociated is set to TRUE,
-        /// the response includes member accounts whose relationship status with the master is
-        /// set to ENABLED or DISABLED. If onlyAssociated is set to FALSE, the response includes
-        /// all existing member accounts. 
+        /// Specifies which member accounts the response includes based on their relationship
+        /// status with the master account. The default value is <code>TRUE</code>. If <code>onlyAssociated</code>
+        /// is set to <code>TRUE</code>, the response includes member accounts whose relationship
+        /// status with the master is set to <code>ENABLED</code> or <code>DISABLED</code>. If
+        /// <code>onlyAssociated</code> is set to <code>FALSE</code>, the response includes all
+        /// existing member accounts. 
         /// </para>
         /// </summary>
         public bool OnlyAssociated

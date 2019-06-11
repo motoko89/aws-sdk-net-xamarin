@@ -29,8 +29,7 @@ namespace Amazon.SecurityHub.Model
 {
     /// <summary>
     /// Container for the parameters to the GetMembers operation.
-    /// Returns the details on the Security Hub member accounts that are specified by the
-    /// account IDs.
+    /// Returns the details on the Security Hub member accounts that the account IDs specify.
     /// </summary>
     public partial class GetMembersRequest : AmazonSecurityHubRequest
     {
@@ -39,8 +38,8 @@ namespace Amazon.SecurityHub.Model
         /// <summary>
         /// Gets and sets the property AccountIds. 
         /// <para>
-        /// A list of account IDs for the Security Hub member accounts on which you want to return
-        /// the details. 
+        /// A list of account IDs for the Security Hub member accounts that you want to return
+        /// the details for. 
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

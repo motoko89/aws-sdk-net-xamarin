@@ -60,7 +60,7 @@ namespace Amazon.Organizations.Model
         /// Gets and sets the property Policies. 
         /// <para>
         /// A list of policies that match the filter criteria in the request. The output list
-        /// does not include the policy contents. To see the content for a policy, see <a>DescribePolicy</a>.
+        /// doesn't include the policy contents. To see the content for a policy, see <a>DescribePolicy</a>.
         /// </para>
         /// </summary>
         public List<PolicySummary> Policies

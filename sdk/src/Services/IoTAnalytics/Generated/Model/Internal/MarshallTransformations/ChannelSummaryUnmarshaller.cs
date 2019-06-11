@@ -70,6 +70,12 @@ namespace Amazon.IoTAnalytics.Model.Internal.MarshallTransformations
                     unmarshalledObject.ChannelName = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("channelStorage", targetDepth))
+                {
+                    var unmarshaller = ChannelStorageSummaryUnmarshaller.Instance;
+                    unmarshalledObject.ChannelStorage = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("creationTime", targetDepth))
                 {
                     var unmarshaller = DateTimeUnmarshaller.Instance;

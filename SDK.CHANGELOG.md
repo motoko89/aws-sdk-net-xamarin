@@ -1,3 +1,151 @@
+### 3.3.528.0 (2019-06-10 18:10 UTC)
+* CodeBuild (3.3.101.0)
+	* AWS CodeBuild adds support for source version on project level.
+* CodeCommit (3.3.102.0)
+	* This release adds two merge strategies for merging pull requests: squash and three-way. It also adds functionality for resolving merge conflicts, testing merge outcomes, and for merging branches using one of the three supported merge strategies.
+* Personalize (3.3.100.0)
+	* Amazon Personalize is a machine learning service that makes it easy for developers to create individualized recommendations for customers using their applications.
+* PersonalizeEvents (3.3.100.0)
+	* Introducing Amazon Personalize  - a machine learning service that makes it easy for developers to create individualized recommendations for customers using their applications.
+* PersonalizeRuntime (3.3.100.0)
+	* Amazon Personalize is a machine learning service that makes it easy for developers to create individualized recommendations for customers using their applications.
+
+### 3.3.527.0 (2019-06-07 18:09 UTC)
+* EC2 (3.3.114.0)
+	* Adds DNS entries and NLB ARNs to describe-vpc-endpoint-connections API response. Adds owner ID to describe-vpc-endpoints and create-vpc-endpoint API responses.
+* Core 3.3.102.3
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.526.0 (2019-06-06 18:47 UTC)
+* CloudWatchLogs (3.3.100.31)
+	* Documentation updates for logs
+* DynamoDBv2 (3.3.101.21)
+	* Documentation updates for dynamodb
+* ECS (3.3.103.0)
+	* This release of Amazon Elastic Container Service (Amazon ECS) introduces support for launching container instances using supported Amazon EC2 instance types that have increased elastic network interface density. Using these instance types and opting in to the awsvpcTrunking account setting provides increased elastic network interface (ENI) density on newly launched container instances which allows you to place more tasks on each container instance.
+* GuardDuty (3.3.101.0)
+	* Improve FindingCriteria Condition field names, support long-typed conditions and deprecate old Condition field names.
+* MediaConnect (3.3.102.0)
+	* This release adds support for encrypting entitlements using Secure Packager and Encoder Key Exchange (SPEKE).
+* Organizations (3.3.102.0)
+	* You can tag and untag accounts in your organization and view tags on an account in your organization.
+* SimpleEmail (3.3.101.0)
+	* You can now specify whether the Amazon Simple Email Service must deliver email over a connection that is encrypted using Transport Layer Security (TLS).
+* SimpleSystemsManagement (3.3.103.0)
+	* OpsCenter is a new Systems Manager capability that allows you to view, diagnose, and remediate, operational issues, aka OpsItems, related to various AWS resources by bringing together contextually relevant investigation information. New APIs to create, update, describe, and get OpsItems as well as OpsItems summary API. 
+
+### 3.3.525.0 (2019-06-05 19:17 UTC)
+* Glue (3.3.104.0)
+	* Support specifying python version for Python shell jobs. A new parameter PythonVersion is added to the JobCommand data type.
+
+### 3.3.524.0 (2019-06-04 18:09 UTC)
+* EC2 (3.3.113.0)
+	* This release adds support for Host Recovery feature which automatically restarts instances on to a new replacement host if failures are detected on Dedicated Host.
+* ElastiCache (3.3.101.0)
+	* Amazon ElastiCache now allows you to apply available service updates on demand. Features included: (1) Access to the list of applicable service updates and their priorities. (2) Service update monitoring and regular status updates. (3) Recommended apply-by-dates for scheduling the service updates, which is critical if your cluster is in ElastiCache-supported compliance programs. (4) Ability to stop and later re-apply updates. For more information, see https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Self-Service-Updates.html
+* IdentityManagement (3.3.101.20)
+	* This release adds validation for policy path field. This field is now restricted to be max 512 characters.
+* S3 (3.3.102.11)
+	* Documentation updates for s3
+* StorageGateway (3.3.107.0)
+	* AWS Storage Gateway now supports AWS PrivateLink, enabling you to administer and use gateways without needing to use public IP addresses or a NAT/Internet Gateway, while avoiding traffic from going over the internet.
+* Core 3.3.102.2
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.523.0 (2019-06-03 18:17 UTC)
+* EC2 (3.3.112.0)
+	* Amazon EC2 I3en instances are the new storage-optimized instances offering up to 60 TB NVMe SSD instance storage and up to 100 Gbps of network bandwidth.
+* RDS (3.3.104.2)
+	* Amazon RDS Data API is generally available. Removing beta notes in the documentation.
+* Core 3.3.102.1
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.522.0 (2019-05-30 23:05 UTC)
+* Core 3.3.102.0
+	* Closing response object during SAML authentication in .NET Framework 3.5.
+Updating the documentation for the async operations.
+Handling anonymous credentials in endpoint discovery handler.
+Added support for unbounded streams when using services that support chunked transfer encoding.
+	* All services packages updated to require new Core
+
+### 3.3.521.0 (2019-05-30 20:01 UTC)
+* CodeCommit (3.3.101.0)
+	* This release adds APIs that allow adding and removing tags to a repository, and viewing tags for a repository. It also enables adding tags when creating a repository.
+* IoTAnalytics (3.3.103.0)
+	* IoT Analytics adds the option to use your own S3 bucket to store channel and data store resources. Previously, only service-managed storage was used.
+* IoTEvents (3.3.100.0)
+	* The AWS IoT Events service allows customers to monitor their IoT devices and sensors to detect failures or changes in operation and to trigger actions when these events occur
+* IoTEventsData (3.3.100.0)
+	* The AWS IoT Events service allows customers to monitor their IoT devices and sensors to detect failures or changes in operation and to trigger actions when these events occur
+* Kafka (3.3.103.0)
+	* Updated APIs for Amazon MSK to enable new features such as encryption in transit, client authentication, and scaling storage.
+* PinpointEmail (3.3.103.0)
+	* You can now specify whether the Amazon Pinpoint Email service must deliver email over a connection that is encrypted using Transport Layer Security (TLS).
+* RDS (3.3.104.0)
+	* This release adds support for Activity Streams for database clusters.
+* RDSDataService (3.3.101.0)
+	* The RDS Data API is generally available for the MySQL-compatible edition of Amazon Aurora Serverless in the US East (N. Virginia and Ohio), US West (Oregon), EU (Ireland), and Asia Pacific (Tokyo) regions. This service enables you to easily access Aurora Serverless clusters with web services-based applications including AWS Lambda and AWS AppSync. The new APIs included in this SDK release are ExecuteStatement, BatchExecuteStatement, BeginTransaction, CommitTransaction, and RollbackTransaction. The ExecuteSql API is deprecated; instead use ExecuteStatement which provides additional functionality including transaction support.
+* ServiceCatalog (3.3.105.0)
+	* Service Catalog ListStackInstancesForProvisionedProduct API enables customers to get details of a provisioned product with type "CFN_STACKSET". By passing the provisioned product id, the API will list account, region and status of each stack instances that are associated with this provisioned product.
+* Core 3.3.101.18
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.520.0 (2019-05-29 18:16 UTC)
+* DLM (3.3.101.0)
+	* Customers can now simultaneously take snapshots of multiple EBS volumes attached to an EC2 instance. With this new capability, snapshots guarantee crash-consistency across multiple volumes by preserving the order of IO operations. This new feature is fully integrated with Amazon Data Lifecycle Manager (DLM) allowing customers to automatically manage snapshots by creating lifecycle policies. 
+* EC2 (3.3.111.0)
+	* Customers can now simultaneously take snapshots of multiple EBS volumes attached to an EC2 instance. With this new capability, snapshots guarantee crash-consistency across multiple volumes by preserving the order of IO operations. This new feature is fully integrated with Amazon Data Lifecycle Manager (DLM) allowing customers to automatically manage snapshots by creating lifecycle policies. 
+* IoTThingsGraph (3.3.100.0)
+	* Initial release.
+* RDS (3.3.103.1)
+	* Documentation updates for rds
+* SecurityHub (3.3.102.0)
+	* This update adds the ListProductSubscribers API, DescribeProducts API, removes CONTAINS as a comparison value for the StringFilter, and only allows use of EQUALS instead of CONTAINS in MapFilter.  
+* SimpleSystemsManagement (3.3.102.10)
+	* Systems Manager - Documentation updates
+* Core 3.3.101.17
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.519.0 (2019-05-28 20:04 UTC)
+* Chime (3.3.102.0)
+	* This release adds the ability to search and order toll free phone numbers for Voice Connectors.
+* GroundStation (3.3.100.0)
+	* AWS Ground Station is a fully managed service that enables you to control satellite communications, downlink and process satellite data, and scale your satellite operations efficiently and cost-effectively without having to build or manage your own ground station infrastructure.
+* PinpointEmail (3.3.102.0)
+	* This release adds support for programmatic access to Deliverability dashboard subscriptions and the deliverability data provided by the Deliverability dashboard for domains and IP addresses. The data includes placement metrics for campaigns that use subscribed domains to send email.
+* RDS (3.3.103.0)
+	* Add a new output field Status to DBEngineVersion which shows the status of the engine version (either available or deprecated). Add a new parameter IncludeAll to DescribeDBEngineVersions to make it possible to return both available and deprecated engine versions. These changes enable a user to create a Read Replica of an DB instance on a deprecated engine version.
+* RoboMaker (3.3.102.0)
+	* Added support for an additional robot software suite (Gazebo 9) and for cancelling deployment jobs.
+* SecurityToken (3.3.101.7)
+	* Documentation updates for iam
+* StorageGateway (3.3.106.0)
+	* Introduce AssignTapePool operation to allow customers to migrate tapes between pools.
+* TranscribeService (3.3.105.0)
+	* Amazon Transcribe - support transcriptions from audio sources in Modern Standard Arabic (ar-SA).
+* WAF (3.3.100.25)
+	* Documentation updates for waf
+* Core 3.3.101.16
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
 ### 3.3.518.0 (2019-05-24 19:13 UTC)
 * CodeDeploy (3.3.101.0)
 	* AWS CodeDeploy now supports tagging for the application and deployment group resources.

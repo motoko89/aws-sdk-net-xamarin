@@ -28,17 +28,19 @@ using Amazon.Runtime.Internal;
 namespace Amazon.RDSDataService.Model
 {
     /// <summary>
-    /// Execute SQL response
+    /// The response elements represent the output of a request to run one or more SQL   
+    ///         statements.
     /// </summary>
     public partial class ExecuteSqlResponse : AmazonWebServiceResponse
     {
         private List<SqlStatementResult> _sqlStatementResults = new List<SqlStatementResult>();
 
         /// <summary>
-        /// Gets and sets the property SqlStatementResults. Results returned by executing the
-        /// sql statement(s)
+        /// Gets and sets the property SqlStatementResults. 
+        /// <para>
+        /// The results of the SQL statement or statements.
+        /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
         public List<SqlStatementResult> SqlStatementResults
         {
             get { return this._sqlStatementResults; }

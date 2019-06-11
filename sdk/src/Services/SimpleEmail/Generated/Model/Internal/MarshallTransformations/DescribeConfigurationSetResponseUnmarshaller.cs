@@ -87,6 +87,12 @@ namespace Amazon.SimpleEmail.Model.Internal.MarshallTransformations
                         response.ConfigurationSet = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("DeliveryOptions", targetDepth))
+                    {
+                        var unmarshaller = DeliveryOptionsUnmarshaller.Instance;
+                        response.DeliveryOptions = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("EventDestinations/member", targetDepth))
                     {
                         var unmarshaller = EventDestinationUnmarshaller.Instance;

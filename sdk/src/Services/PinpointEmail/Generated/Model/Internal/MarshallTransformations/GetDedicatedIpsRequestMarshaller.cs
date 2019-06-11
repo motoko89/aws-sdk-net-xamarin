@@ -55,42 +55,21 @@ namespace Amazon.PinpointEmail.Model.Internal.MarshallTransformations
         public IRequest Marshall(GetDedicatedIpsRequest publicRequest)
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.PinpointEmail");
-            string target = "com.amazonaws.services.pinpoint.email.GetDedicatedIps";
-            request.Headers["X-Amz-Target"] = target;
             request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-07-26";            
             request.HttpMethod = "GET";
 
             string uriResourcePath = "/v1/email/dedicated-ips";
+            
+            if (publicRequest.IsSetNextToken())
+                request.Parameters.Add("NextToken", StringUtils.FromString(publicRequest.NextToken));
+            
+            if (publicRequest.IsSetPageSize())
+                request.Parameters.Add("PageSize", StringUtils.FromInt(publicRequest.PageSize));
+            
+            if (publicRequest.IsSetPoolName())
+                request.Parameters.Add("PoolName", StringUtils.FromString(publicRequest.PoolName));
             request.ResourcePath = uriResourcePath;
-            using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
-            {
-                JsonWriter writer = new JsonWriter(stringWriter);
-                writer.WriteObjectStart();
-                var context = new JsonMarshallerContext(request, writer);
-                if(publicRequest.IsSetNextToken())
-                {
-                    context.Writer.WritePropertyName("NextToken");
-                    context.Writer.Write(publicRequest.NextToken);
-                }
-
-                if(publicRequest.IsSetPageSize())
-                {
-                    context.Writer.WritePropertyName("PageSize");
-                    context.Writer.Write(publicRequest.PageSize);
-                }
-
-                if(publicRequest.IsSetPoolName())
-                {
-                    context.Writer.WritePropertyName("PoolName");
-                    context.Writer.Write(publicRequest.PoolName);
-                }
-
-        
-                writer.WriteObjectEnd();
-                string snippet = stringWriter.ToString();
-                request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);
-            }
-
+            request.UseQueryString = true;
 
             return request;
         }
