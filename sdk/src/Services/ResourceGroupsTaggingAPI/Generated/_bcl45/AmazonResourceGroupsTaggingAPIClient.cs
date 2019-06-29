@@ -52,17 +52,11 @@ namespace Amazon.ResourceGroupsTaggingAPI
     ///  
     /// <para>
     /// Tagging can help you organize your resources and enables you to simplify resource
-    /// management, access management and cost allocation. For more information about tagging,
-    /// see <a href="http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html">Working
-    /// with Tag Editor</a> and <a href="http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/resource-groups.html">Working
-    /// with Resource Groups</a>. For more information about permissions you need to use the
-    /// resource groups tagging APIs, see <a href="http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/obtaining-permissions-for-resource-groups.html">Obtaining
-    /// Permissions for Resource Groups </a> and <a href="http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/obtaining-permissions-for-tagging.html">Obtaining
-    /// Permissions for Tagging </a>.
+    /// management, access management and cost allocation. 
     /// </para>
     ///  
     /// <para>
-    /// You can use the resource groups tagging APIs to complete the following tasks:
+    /// You can use the resource groups tagging API operations to complete the following tasks:
     /// </para>
     ///  <ul> <li> 
     /// <para>
@@ -84,18 +78,338 @@ namespace Amazon.ResourceGroupsTaggingAPI
     /// </para>
     ///  </li> </ul> 
     /// <para>
-    /// Not all resources can have tags. For a lists of resources that you can tag, see <a
-    /// href="http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/supported-resources.html">Supported
-    /// Resources</a> in the <i>AWS Resource Groups and Tag Editor User Guide</i>.
+    /// To make full use of the resource groups tagging API operations, you might need additional
+    /// IAM permissions, including permission to access the resources of individual services
+    /// as well as permission to view and apply tags to those resources. For more information,
+    /// see <a href="http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/obtaining-permissions-for-resource-groups.html">Obtaining
+    /// Permissions for Resource Groups and Tag Editor</a>.
     /// </para>
     ///  
     /// <para>
-    /// To make full use of the resource groups tagging APIs, you might need additional IAM
-    /// permissions, including permission to access the resources of individual services as
-    /// well as permission to view and apply tags to those resources. For more information,
-    /// see <a href="http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/obtaining-permissions-for-tagging.html">Obtaining
-    /// Permissions for Tagging</a> in the <i>AWS Resource Groups and Tag Editor User Guide</i>.
+    /// You can use the Resource Groups Tagging API to tag resources for the following AWS
+    /// services.
     /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// Alexa for Business (a4b)
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// API Gateway
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS AppStream
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS AppSync
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Athena
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Aurora
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Certificate Manager
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Certificate Manager Private CA
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Cloud Directory
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS CloudFormation
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon CloudFront
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS CloudHSM
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS CloudTrail
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon CloudWatch (alarms only)
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon CloudWatch Events
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon CloudWatch Logs
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS CodeBuild
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS CodeStar
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Cognito Identity
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Cognito User Pools
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Comprehend
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Config
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Data Pipeline
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Database Migration Service
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Datasync
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Direct Connect
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Directory Service
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon DynamoDB
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon EBS
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon EC2
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon ECR
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon ECS
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Elastic Beanstalk
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Elastic File System
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Elastic Load Balancing
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon ElastiCache
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Elasticsearch Service
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Elemental MediaLive
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Elemental MediaPackage
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Elemental MediaTailor
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon EMR
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon FSx
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Glacier
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Glue
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Inspector
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS IoT Analytics
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS IoT Core
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS IoT Device Defender
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS IoT Device Management
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS IoT Greengrass
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Key Management Service
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Kinesis
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Kinesis Data Analytics
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Kinesis Data Firehose
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Lambda
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS License Manager
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Machine Learning
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon MQ
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon MSK
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Neptune
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS OpsWorks
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon RDS
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Redshift
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Resource Access Manager
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Resource Groups
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS RoboMaker
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Route 53
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Route 53 Resolver
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon S3 (buckets only)
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon SageMaker
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Secrets Manager
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Service Catalog
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Simple Notification Service (SNS)
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Simple Queue Service (SQS)
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Simple System Manager (SSM)
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Step Functions
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Storage Gateway
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// AWS Transfer for SFTP
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon VPC
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon WorkSpaces
+    /// </para>
+    ///  </li> </ul>
     /// </summary>
     public partial class AmazonResourceGroupsTaggingAPIClient : AmazonServiceClient, IAmazonResourceGroupsTaggingAPI
     {
@@ -299,11 +613,19 @@ namespace Amazon.ResourceGroupsTaggingAPI
 
 
         /// <summary>
-        /// Returns all the tagged resources that are associated with the specified tags (keys
-        /// and values) located in the specified region for the AWS account. The tags and the
-        /// resource types that you specify in the request are known as <i>filters</i>. The response
-        /// includes all tags that are associated with the requested resources. If no filter is
-        /// provided, this action returns a paginated resource list with the associated tags.
+        /// Returns all the tagged or previously tagged resources that are located in the specified
+        /// region for the AWS account. You can optionally specify <i>filters</i> (tags and resource
+        /// types) in your request, depending on what information you want returned. The response
+        /// includes all tags that are associated with the requested resources.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// You can check the <code>PaginationToken</code> response parameter to determine if
+        /// a query completed. Queries can occasionally return fewer results on a page than allowed.
+        /// The <code>PaginationToken</code> response parameter value is <code>null</code> <i>only</i>
+        /// when there are no more results to display. 
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetResources service method.</param>
         /// 
@@ -335,11 +657,19 @@ namespace Amazon.ResourceGroupsTaggingAPI
 
 
         /// <summary>
-        /// Returns all the tagged resources that are associated with the specified tags (keys
-        /// and values) located in the specified region for the AWS account. The tags and the
-        /// resource types that you specify in the request are known as <i>filters</i>. The response
-        /// includes all tags that are associated with the requested resources. If no filter is
-        /// provided, this action returns a paginated resource list with the associated tags.
+        /// Returns all the tagged or previously tagged resources that are located in the specified
+        /// region for the AWS account. You can optionally specify <i>filters</i> (tags and resource
+        /// types) in your request, depending on what information you want returned. The response
+        /// includes all tags that are associated with the requested resources.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// You can check the <code>PaginationToken</code> response parameter to determine if
+        /// a query completed. Queries can occasionally return fewer results on a page than allowed.
+        /// The <code>PaginationToken</code> response parameter value is <code>null</code> <i>only</i>
+        /// when there are no more results to display. 
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetResources service method.</param>
         /// <param name="cancellationToken">
@@ -525,8 +855,8 @@ namespace Amazon.ResourceGroupsTaggingAPI
         ///  <ul> <li> 
         /// <para>
         /// Not all resources can have tags. For a list of resources that support tagging, see
-        /// <a href="http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/supported-resources.html">Supported
-        /// Resources</a> in the <i>AWS Resource Groups and Tag Editor User Guide</i>.
+        /// <a href="http://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html">Supported
+        /// Resources</a> in the <i>AWS Resource Groups User Guide</i>.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -541,8 +871,8 @@ namespace Amazon.ResourceGroupsTaggingAPI
         /// <para>
         /// To add tags to a resource, you need the necessary permissions for the service that
         /// the resource belongs to as well as permissions for adding tags. For more information,
-        /// see <a href="http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/obtaining-permissions-for-tagging.html">Obtaining
-        /// Permissions for Tagging</a> in the <i>AWS Resource Groups and Tag Editor User Guide</i>.
+        /// see <a href="http://docs.aws.amazon.com/ARG/latest/userguide/obtaining-permissions-for-tagging.html">Obtaining
+        /// Permissions for Tagging</a> in the <i>AWS Resource Groups User Guide</i>.
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -577,8 +907,8 @@ namespace Amazon.ResourceGroupsTaggingAPI
         ///  <ul> <li> 
         /// <para>
         /// Not all resources can have tags. For a list of resources that support tagging, see
-        /// <a href="http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/supported-resources.html">Supported
-        /// Resources</a> in the <i>AWS Resource Groups and Tag Editor User Guide</i>.
+        /// <a href="http://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html">Supported
+        /// Resources</a> in the <i>AWS Resource Groups User Guide</i>.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -593,8 +923,8 @@ namespace Amazon.ResourceGroupsTaggingAPI
         /// <para>
         /// To add tags to a resource, you need the necessary permissions for the service that
         /// the resource belongs to as well as permissions for adding tags. For more information,
-        /// see <a href="http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/obtaining-permissions-for-tagging.html">Obtaining
-        /// Permissions for Tagging</a> in the <i>AWS Resource Groups and Tag Editor User Guide</i>.
+        /// see <a href="http://docs.aws.amazon.com/ARG/latest/userguide/obtaining-permissions-for-tagging.html">Obtaining
+        /// Permissions for Tagging</a> in the <i>AWS Resource Groups User Guide</i>.
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -640,8 +970,8 @@ namespace Amazon.ResourceGroupsTaggingAPI
         /// <para>
         /// To remove tags from a resource, you need the necessary permissions for the service
         /// that the resource belongs to as well as permissions for removing tags. For more information,
-        /// see <a href="http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/obtaining-permissions-for-tagging.html">Obtaining
-        /// Permissions for Tagging</a> in the <i>AWS Resource Groups and Tag Editor User Guide</i>.
+        /// see <a href="http://docs.aws.amazon.com/ARG/latest/userguide/obtaining-permissions-for-tagging.html">Obtaining
+        /// Permissions for Tagging</a> in the <i>AWS Resource Groups User Guide</i>.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -684,8 +1014,8 @@ namespace Amazon.ResourceGroupsTaggingAPI
         /// <para>
         /// To remove tags from a resource, you need the necessary permissions for the service
         /// that the resource belongs to as well as permissions for removing tags. For more information,
-        /// see <a href="http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/obtaining-permissions-for-tagging.html">Obtaining
-        /// Permissions for Tagging</a> in the <i>AWS Resource Groups and Tag Editor User Guide</i>.
+        /// see <a href="http://docs.aws.amazon.com/ARG/latest/userguide/obtaining-permissions-for-tagging.html">Obtaining
+        /// Permissions for Tagging</a> in the <i>AWS Resource Groups User Guide</i>.
         /// </para>
         ///  </li> <li> 
         /// <para>

@@ -38,8 +38,8 @@ namespace Amazon.ResourceGroupsTaggingAPI.Model
     /// <para>
     /// To remove tags from a resource, you need the necessary permissions for the service
     /// that the resource belongs to as well as permissions for removing tags. For more information,
-    /// see <a href="http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/obtaining-permissions-for-tagging.html">Obtaining
-    /// Permissions for Tagging</a> in the <i>AWS Resource Groups and Tag Editor User Guide</i>.
+    /// see <a href="http://docs.aws.amazon.com/ARG/latest/userguide/obtaining-permissions-for-tagging.html">Obtaining
+    /// Permissions for Tagging</a> in the <i>AWS Resource Groups User Guide</i>.
     /// </para>
     ///  </li> <li> 
     /// <para>

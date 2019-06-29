@@ -1,3 +1,179 @@
+### 3.3.542.0 (2019-06-28 18:43 UTC)
+* AlexaForBusiness (3.3.105.0)
+	* This release allows developers and customers to add SIP addresses and international phone numbers to contacts.
+* EC2 (3.3.119.0)
+	* You can now launch 8xlarge and 16xlarge instance sizes on the general purpose M5 and memory optimized R5 instance types.
+* Redshift (3.3.102.0)
+	* ClusterAvailabilityStatus: The availability status of the cluster for queries. Possible values are the following: Available, Unavailable, Maintenance, Modifying, Failed.
+* WorkSpaces (3.3.104.0)
+	* Minor API fixes for WorkSpaces.
+* Core 3.3.103.5
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.541.0 (2019-06-27 18:14 UTC)
+* DirectConnect (3.3.103.0)
+	* Tags will now be included in the API responses of all supported resources (Virtual interfaces, Connections, Interconnects and LAGs). You can also add tags while creating these resources.
+* EC2InstanceConnect (3.3.100.0)
+	* Amazon EC2 Instance Connect is a simple and secure way to connect to your instances using Secure Shell (SSH). With EC2 Instance Connect, you can control SSH access to your instances using AWS Identity and Access Management (IAM) policies as well as audit connection requests with AWS CloudTrail events. In addition, you can leverage your existing SSH keys or further enhance your security posture by generating one-time use SSH keys each time an authorized user connects.
+* Pinpoint (3.3.100.40)
+	* This release includes editorial updates for the Amazon Pinpoint API documentation.
+* WorkSpaces (3.3.103.0)
+	* Added support for the WorkSpaces restore feature and copying WorkSpaces Images across AWS Regions.
+* Core 3.3.103.4
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.540.1 (2019-06-27 00:22 UTC)
+* DynamoDBv2 (3.3.101.30)
+	* Documentation updates for dynamodb
+* Core 3.3.103.3
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.540.0 (2019-06-26 19:13 UTC)
+* ApiGatewayV2 (3.3.102.0)
+	* You can now perform tag operations on ApiGatewayV2 Resources (typically associated with WebSocket APIs)
+* CodeCommit (3.3.103.0)
+	* This release supports better exception handling for merges.
+* Core 3.3.103.2
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.539.0 (2019-06-25 18:51 UTC)
+* EC2 (3.3.118.0)
+	* Starting today, you can use Traffic Mirroring  to copy network traffic from an elastic network interface of Amazon EC2 instances and then send it to out-of-band security and monitoring appliances for content inspection, threat monitoring, and troubleshooting. These appliances can be deployed as individual instances, or as a fleet of instances behind a Network Load Balancer with a User Datagram Protocol (UDP) listener. Traffic Mirroring supports filters and packet truncation, so that you only extract the traffic of interest to monitor by using monitoring tools of your choice.
+* EKS (3.3.101.35)
+	* Changing Amazon EKS full service name to Amazon Elastic Kubernetes Service.
+
+### 3.3.538.0 (2019-06-24 18:18 UTC)
+* APIGateway (3.3.102.0)
+	* Customers can pick different security policies (TLS version + cipher suite) for custom domains in API Gateway
+* ApiGatewayV2 (3.3.101.0)
+	* Customers can get information about security policies set on custom domain resources in API Gateway
+* ApplicationInsights (3.3.100.0)
+	* CloudWatch Application Insights detects errors and exceptions from logs, including .NET custom application logs, SQL Server logs, IIS logs, and more, and uses a combination of built-in rules and machine learning, such as dynamic baselining, to identify common problems. You can then easily drill into specific issues with CloudWatch Automatic Dashboards that are dynamically generated. These dashboards contain the most recent alarms, a summary of relevant metrics, and log snippets to help you identify root cause.
+* ElasticLoadBalancingV2 (3.3.102.0)
+	* This release adds support for UDP on Network Load Balancers
+* FSx (3.3.101.0)
+	* Starting today, you can join your Amazon FSx for Windows File Server file systems to your organization's self-managed Microsoft Active Directory while creating the file system. You can also perform in-place updates of file systems to keep your Active Directory configuration up to date.
+* ResourceGroupsTaggingAPI (3.3.102.0)
+	* Updated service APIs and documentation.
+* SecurityHub (3.3.103.0)
+	* This release includes a new Tags parameter for the EnableSecurityHub operation, and the following new operations: DescribeHub, CreateActionTarget, DeleteActionTarget, DescribeActionTargets, UpdateActionTarget, TagResource, UntagResource, and ListTagsforResource. It removes the operation ListProductSubscribers, and makes Title and Description required attributes of AwsSecurityFinding.
+* ServiceQuotas (3.3.100.0)
+	* Service Quotas enables you to view and manage your quotas for AWS services from a central location.
+* SimpleSystemsManagement (3.3.104.0)
+	* AWS Systems Manager now supports deleting a specific version of a SSM Document.
+* Core 3.3.103.1
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.537.0 (2019-06-21 19:40 UTC)
+* DeviceFarm (3.3.101.14)
+	* This release includes updated documentation about the default timeout value for test runs and remote access sessions. This release also includes miscellaneous bug fixes for the documentation.
+* IdentityManagement (3.3.102.0)
+	* We are making it easier for you to manage your permission guardrails i.e. service control policies by enabling you to retrieve the last timestamp when an AWS service was accessed within an account or AWS Organizations entity.
+* KinesisVideoMedia (3.3.100.37)
+	* Documentation updates for Amazon Kinesis Video Streams.
+* MediaPackage (3.3.102.0)
+	* Added two new origin endpoint fields for configuring which SCTE-35 messages are treated as advertisements.
+
+### 3.3.536.0 (2019-06-20 22:29 UTC)
+* Core 3.3.103.0
+	* Added support for the credential_process credential provider; Added host name support for Client Side Metrics.
+	* All services packages updated to require new Core
+
+### 3.3.535.0 (2019-06-20 18:11 UTC)
+* ACMPCA (3.3.101.0)
+	* ACM Private CA is launching Root CAs and hierarchy management, a new feature that expands the scope of ACM Private CA from supporting only subordinate issuing CAs, to now include a full CA hierarchy that includes root CAs - the cryptographic root of trust for an organization.
+* AWSHealth (3.3.101.0)
+	* API improvements for the AWS Health service.
+* Glue (3.3.105.0)
+	* Starting today, you can now use workflows in AWS Glue to author directed acyclic graphs (DAGs) of Glue triggers, crawlers and jobs. Workflows enable orchestration of your ETL workloads by building dependencies between Glue entities (triggers, crawlers and jobs).  You can visually track status of the different nodes in the workflows on the console making it easier to monitor progress and troubleshoot issues. Also, you can share parameters across entities in the workflow.
+* IoTEventsData (3.3.101.0)
+	* "The colon character ':' is now permitted in Detector Model 'key' parameter values.
+* OpsWorks (3.3.100.35)
+	* Documentation updates for OpsWorks Stacks.
+* RDS (3.3.105.0)
+	* This release adds support for RDS storage autoscaling
+* Core 3.3.102.7
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.534.1 (2019-06-19 20:40 UTC)
+* EKS (3.3.101.31)
+	* Changing Amazon EKS full service name to Amazon Elastic Kubernetes Service.
+
+### 3.3.534.0 (2019-06-18 18:12 UTC)
+* EC2 (3.3.117.0)
+	* You can now launch new 12xlarge, 24xlarge, and metal instance sizes on the Amazon EC2 compute optimized C5 instance types featuring 2nd Gen Intel Xeon Scalable Processors.
+* ResourceGroupsTaggingAPI (3.3.101.0)
+	* You can use tag policies to help standardize on tags across your organization's resources.
+
+### 3.3.533.0 (2019-06-17 19:09 UTC)
+* Neptune (3.3.101.0)
+	* This release adds a feature to configure Amazon Neptune to publish audit logs to Amazon CloudWatch Logs.
+* RoboMaker (3.3.103.0)
+	* Add the ServiceUnavailableException (503) into CreateSimulationJob API.
+* ServiceCatalog (3.3.107.0)
+	* Restrict concurrent calls by a single customer account for CreatePortfolioShare and DeletePortfolioShare when sharing/unsharing to an Organization.
+* Core 3.3.102.6
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.532.0 (2019-06-14 18:12 UTC)
+* AppStream (3.3.102.0)
+	* Added 2 new values(WINDOWS_SERVER_2016, WINDOWS_SERVER_2019) for PlatformType enum.
+* CloudFront (3.3.101.0)
+	* A new datatype in the CloudFront API, AliasICPRecordal, provides the ICP recordal status for CNAMEs associated with distributions. AWS services in China customers must file for an Internet Content Provider (ICP) recordal if they want to serve content publicly on an alternate domain name, also known as a CNAME, that they have added to CloudFront. The status value is returned in the CloudFront response; you cannot configure it yourself. The status is set to APPROVED for all CNAMEs (aliases) in regions outside of China.
+* EC2 (3.3.116.0)
+	* Correction to enumerations in EC2 client.
+* Personalize (3.3.100.2)
+	* Documentation updates for Amazon Personalize.
+* Core 3.3.102.5
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.531.0 (2019-06-13 19:22 UTC)
+* AppMesh (3.3.102.0)
+	* This release adds support for AWS Cloud Map as a service discovery method for virtual nodes.
+* EC2 (3.3.115.0)
+	* G4 instances are Amazon EC2 instances based on NVIDIA T4 GPUs and are designed to provide cost-effective machine learning inference for applications, like image classification, object detection, recommender systems, automated speech recognition, and language translation. G4 instances are also a cost-effective platform for building and running graphics-intensive applications, such as remote graphics workstations, video transcoding, photo-realistic design, and game streaming in the cloud. To get started with G4 instances visit https://aws.amazon.com/ec2/instance-types/g4.
+* ElastiCache (3.3.102.0)
+	* This release is to add support for reader endpoint for cluster-mode disabled Amazon ElastiCache for Redis clusters.
+* GuardDuty (3.3.102.0)
+	* Support for tagging functionality in Create and Get operations for Detector, IP Set, Threat Intel Set, and Finding Filter resources and 3 new tagging APIs: ListTagsForResource, TagResource, and UntagResource.
+
+### 3.3.530.1 (2019-06-12 23:23 UTC)
+* Core 3.3.102.4
+	* Fixed issue with AssumeRoleAWSCredentials not refreshing credentials before they expire.
+	* All services packages updated to require new Core
+
+### 3.3.530.0 (2019-06-12 18:09 UTC)
+* ServiceCatalog (3.3.106.0)
+	* This release adds a new field named Guidance to update provisioning artifact, this field can be set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+
+### 3.3.529.0 (2019-06-11 18:32 UTC)
+* SageMaker (3.3.102.0)
+	* The default TaskTimeLimitInSeconds of labeling job is increased to 8 hours. Batch Transform introduces a new DataProcessing field which supports input and output filtering and data joining. Training job increases the max allowed input channels from 8 to 20.
+
 ### 3.3.528.0 (2019-06-10 18:10 UTC)
 * CodeBuild (3.3.101.0)
 	* AWS CodeBuild adds support for source version on project level.

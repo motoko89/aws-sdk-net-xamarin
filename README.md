@@ -91,6 +91,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* Application Auto Scaling is a general purpose Auto Scaling service for supported elastic AWS resources. With Application Auto Scaling, you can automatically scale your AWS resources, with an experience similar to that of Amazon EC2 Auto Scaling.
 * [AWSSDK.ApplicationDiscoveryService](https://www.nuget.org/packages/AWSSDK.ApplicationDiscoveryService/)
 	* AWS Application Discovery Service helps Systems Integrators quickly and reliably plan application migration projects by automatically identifying applications running in your data center, their associated dependencies, and their performance profile.
+* [AWSSDK.ApplicationInsights](https://www.nuget.org/packages/AWSSDK.ApplicationInsights/)
+	* CloudWatch Application Insights detects errors and exceptions from logs, including .NET custom application logs, SQL Server logs, IIS logs, and more, and uses a combination of built-in rules and machine learning, such as dynamic baselining, to identify common problems. You can then easily drill into specific issues with CloudWatch Automatic Dashboards that are dynamically generated. These dashboards contain the most recent alarms, a summary of relevant metrics, and log snippets to help you identify root cause.
 * [AWSSDK.AppMesh](https://www.nuget.org/packages/AWSSDK.AppMesh/)
 	* AWS App Mesh is a service mesh that makes it easy to monitor and control communications between microservices of an application. AWS App Mesh APIs are available for preview in eu-west-1, us-east-1, us-east-2, and us-west-2 regions.
 * [AWSSDK.AppStream](https://www.nuget.org/packages/AWSSDK.AppStream/)
@@ -195,6 +197,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need consistent, single-digit millisecond latency at any scale.
 * [AWSSDK.EC2](https://www.nuget.org/packages/AWSSDK.EC2/)
 	* Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers.
+* [AWSSDK.EC2InstanceConnect](https://www.nuget.org/packages/AWSSDK.EC2InstanceConnect/)
+	* Amazon EC2 Instance Connect is a simple and secure way to connect to your instances using Secure Shell (SSH). With EC2 Instance Connect, you can control SSH access to your instances using AWS Identity and Access Management (IAM) policies as well as audit connection requests with AWS CloudTrail events. In addition, you can leverage your existing SSH keys or further enhance your security posture by generating one-time use SSH keys each time an authorized user connects.
 * [AWSSDK.ECR](https://www.nuget.org/packages/AWSSDK.ECR/)
 	* Amazon EC2 Container Registry (Amazon ECR) is a managed AWS Docker registry service. Customers can use the familiar Docker CLI to push, pull, and manage images.
 * [AWSSDK.ECS](https://www.nuget.org/packages/AWSSDK.ECS/)
@@ -393,6 +397,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* AWS Service Catalog allows organizations to create and manage catalogs of IT services that are approved for use on AWS.
 * [AWSSDK.ServiceDiscovery](https://www.nuget.org/packages/AWSSDK.ServiceDiscovery/)
 	* AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces that your microservice applications run in. When an instance of the service becomes available, you can call the AWS Cloud Map API to register the instance with AWS Cloud Map. For public or private DNS namespaces, AWS Cloud Map automatically creates DNS records and an optional health check. Clients that submit public or private DNS queries, or HTTP requests, for the service receive an answer that contains up to eight healthy records.
+* [AWSSDK.ServiceQuotas](https://www.nuget.org/packages/AWSSDK.ServiceQuotas/)
+	* Service Quotas enables you to view and manage your quotas for AWS services from a central location.
 * [AWSSDK.Shield](https://www.nuget.org/packages/AWSSDK.Shield/)
 	* AWS Shield protects web applications from large and sophisticated DDoS attacks at Layer 3, 4 and 7. In addition AWS Shield provides visibility in attacks, and access to 24X7 DDoS Response Team.
 * [AWSSDK.Signer](https://www.nuget.org/packages/AWSSDK.Signer/)

@@ -2563,6 +2563,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly EventType FleetRequestChange = new EventType("fleetRequestChange");
         /// <summary>
+        /// Constant Information for EventType
+        /// </summary>
+        public static readonly EventType Information = new EventType("information");
+        /// <summary>
         /// Constant InstanceChange for EventType
         /// </summary>
         public static readonly EventType InstanceChange = new EventType("instanceChange");
@@ -4211,9 +4215,17 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType C4Xlarge = new InstanceType("c4.xlarge");
         /// <summary>
+        /// Constant C512xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C512xlarge = new InstanceType("c5.12xlarge");
+        /// <summary>
         /// Constant C518xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType C518xlarge = new InstanceType("c5.18xlarge");
+        /// <summary>
+        /// Constant C524xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C524xlarge = new InstanceType("c5.24xlarge");
         /// <summary>
         /// Constant C52xlarge for InstanceType
         /// </summary>
@@ -4254,6 +4266,10 @@ namespace Amazon.EC2
         /// Constant C5Large for InstanceType
         /// </summary>
         public static readonly InstanceType C5Large = new InstanceType("c5.large");
+        /// <summary>
+        /// Constant C5Metal for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5Metal = new InstanceType("c5.metal");
         /// <summary>
         /// Constant C5n18xlarge for InstanceType
         /// </summary>
@@ -4519,6 +4535,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType M512xlarge = new InstanceType("m5.12xlarge");
         /// <summary>
+        /// Constant M516xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M516xlarge = new InstanceType("m5.16xlarge");
+        /// <summary>
         /// Constant M524xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType M524xlarge = new InstanceType("m5.24xlarge");
@@ -4531,9 +4551,17 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType M54xlarge = new InstanceType("m5.4xlarge");
         /// <summary>
+        /// Constant M58xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M58xlarge = new InstanceType("m5.8xlarge");
+        /// <summary>
         /// Constant M5a12xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType M5a12xlarge = new InstanceType("m5a.12xlarge");
+        /// <summary>
+        /// Constant M5a16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M5a16xlarge = new InstanceType("m5a.16xlarge");
         /// <summary>
         /// Constant M5a24xlarge for InstanceType
         /// </summary>
@@ -4546,6 +4574,10 @@ namespace Amazon.EC2
         /// Constant M5a4xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType M5a4xlarge = new InstanceType("m5a.4xlarge");
+        /// <summary>
+        /// Constant M5a8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M5a8xlarge = new InstanceType("m5a.8xlarge");
         /// <summary>
         /// Constant M5ad12xlarge for InstanceType
         /// </summary>
@@ -4591,6 +4623,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType M5d12xlarge = new InstanceType("m5d.12xlarge");
         /// <summary>
+        /// Constant M5d16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M5d16xlarge = new InstanceType("m5d.16xlarge");
+        /// <summary>
         /// Constant M5d24xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType M5d24xlarge = new InstanceType("m5d.24xlarge");
@@ -4602,6 +4638,10 @@ namespace Amazon.EC2
         /// Constant M5d4xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType M5d4xlarge = new InstanceType("m5d.4xlarge");
+        /// <summary>
+        /// Constant M5d8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M5d8xlarge = new InstanceType("m5d.8xlarge");
         /// <summary>
         /// Constant M5dLarge for InstanceType
         /// </summary>
@@ -4703,6 +4743,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType R512xlarge = new InstanceType("r5.12xlarge");
         /// <summary>
+        /// Constant R516xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R516xlarge = new InstanceType("r5.16xlarge");
+        /// <summary>
         /// Constant R524xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType R524xlarge = new InstanceType("r5.24xlarge");
@@ -4715,9 +4759,17 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType R54xlarge = new InstanceType("r5.4xlarge");
         /// <summary>
+        /// Constant R58xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R58xlarge = new InstanceType("r5.8xlarge");
+        /// <summary>
         /// Constant R5a12xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType R5a12xlarge = new InstanceType("r5a.12xlarge");
+        /// <summary>
+        /// Constant R5a16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R5a16xlarge = new InstanceType("r5a.16xlarge");
         /// <summary>
         /// Constant R5a24xlarge for InstanceType
         /// </summary>
@@ -4730,6 +4782,10 @@ namespace Amazon.EC2
         /// Constant R5a4xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType R5a4xlarge = new InstanceType("r5a.4xlarge");
+        /// <summary>
+        /// Constant R5a8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R5a8xlarge = new InstanceType("r5a.8xlarge");
         /// <summary>
         /// Constant R5ad12xlarge for InstanceType
         /// </summary>
@@ -4775,6 +4831,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType R5d12xlarge = new InstanceType("r5d.12xlarge");
         /// <summary>
+        /// Constant R5d16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R5d16xlarge = new InstanceType("r5d.16xlarge");
+        /// <summary>
         /// Constant R5d24xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType R5d24xlarge = new InstanceType("r5d.24xlarge");
@@ -4786,6 +4846,10 @@ namespace Amazon.EC2
         /// Constant R5d4xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType R5d4xlarge = new InstanceType("r5d.4xlarge");
+        /// <summary>
+        /// Constant R5d8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R5d8xlarge = new InstanceType("r5d.8xlarge");
         /// <summary>
         /// Constant R5dLarge for InstanceType
         /// </summary>
@@ -6895,6 +6959,18 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly ResourceType Subnet = new ResourceType("subnet");
         /// <summary>
+        /// Constant TrafficMirrorFilter for ResourceType
+        /// </summary>
+        public static readonly ResourceType TrafficMirrorFilter = new ResourceType("traffic-mirror-filter");
+        /// <summary>
+        /// Constant TrafficMirrorSession for ResourceType
+        /// </summary>
+        public static readonly ResourceType TrafficMirrorSession = new ResourceType("traffic-mirror-session");
+        /// <summary>
+        /// Constant TrafficMirrorTarget for ResourceType
+        /// </summary>
+        public static readonly ResourceType TrafficMirrorTarget = new ResourceType("traffic-mirror-target");
+        /// <summary>
         /// Constant TransitGateway for ResourceType
         /// </summary>
         public static readonly ResourceType TransitGateway = new ResourceType("transit-gateway");
@@ -8214,6 +8290,314 @@ namespace Amazon.EC2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator Tenancy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TrafficDirection.
+    /// </summary>
+    public class TrafficDirection : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Egress for TrafficDirection
+        /// </summary>
+        public static readonly TrafficDirection Egress = new TrafficDirection("egress");
+        /// <summary>
+        /// Constant Ingress for TrafficDirection
+        /// </summary>
+        public static readonly TrafficDirection Ingress = new TrafficDirection("ingress");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TrafficDirection(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TrafficDirection FindValue(string value)
+        {
+            return FindValue<TrafficDirection>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TrafficDirection(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TrafficMirrorFilterRuleField.
+    /// </summary>
+    public class TrafficMirrorFilterRuleField : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Description for TrafficMirrorFilterRuleField
+        /// </summary>
+        public static readonly TrafficMirrorFilterRuleField Description = new TrafficMirrorFilterRuleField("description");
+        /// <summary>
+        /// Constant DestinationPortRange for TrafficMirrorFilterRuleField
+        /// </summary>
+        public static readonly TrafficMirrorFilterRuleField DestinationPortRange = new TrafficMirrorFilterRuleField("destination-port-range");
+        /// <summary>
+        /// Constant Protocol for TrafficMirrorFilterRuleField
+        /// </summary>
+        public static readonly TrafficMirrorFilterRuleField Protocol = new TrafficMirrorFilterRuleField("protocol");
+        /// <summary>
+        /// Constant SourcePortRange for TrafficMirrorFilterRuleField
+        /// </summary>
+        public static readonly TrafficMirrorFilterRuleField SourcePortRange = new TrafficMirrorFilterRuleField("source-port-range");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TrafficMirrorFilterRuleField(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TrafficMirrorFilterRuleField FindValue(string value)
+        {
+            return FindValue<TrafficMirrorFilterRuleField>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TrafficMirrorFilterRuleField(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TrafficMirrorNetworkService.
+    /// </summary>
+    public class TrafficMirrorNetworkService : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AmazonDns for TrafficMirrorNetworkService
+        /// </summary>
+        public static readonly TrafficMirrorNetworkService AmazonDns = new TrafficMirrorNetworkService("amazon-dns");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TrafficMirrorNetworkService(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TrafficMirrorNetworkService FindValue(string value)
+        {
+            return FindValue<TrafficMirrorNetworkService>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TrafficMirrorNetworkService(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TrafficMirrorRuleAction.
+    /// </summary>
+    public class TrafficMirrorRuleAction : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Accept for TrafficMirrorRuleAction
+        /// </summary>
+        public static readonly TrafficMirrorRuleAction Accept = new TrafficMirrorRuleAction("accept");
+        /// <summary>
+        /// Constant Reject for TrafficMirrorRuleAction
+        /// </summary>
+        public static readonly TrafficMirrorRuleAction Reject = new TrafficMirrorRuleAction("reject");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TrafficMirrorRuleAction(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TrafficMirrorRuleAction FindValue(string value)
+        {
+            return FindValue<TrafficMirrorRuleAction>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TrafficMirrorRuleAction(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TrafficMirrorSessionField.
+    /// </summary>
+    public class TrafficMirrorSessionField : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Description for TrafficMirrorSessionField
+        /// </summary>
+        public static readonly TrafficMirrorSessionField Description = new TrafficMirrorSessionField("description");
+        /// <summary>
+        /// Constant PacketLength for TrafficMirrorSessionField
+        /// </summary>
+        public static readonly TrafficMirrorSessionField PacketLength = new TrafficMirrorSessionField("packet-length");
+        /// <summary>
+        /// Constant VirtualNetworkId for TrafficMirrorSessionField
+        /// </summary>
+        public static readonly TrafficMirrorSessionField VirtualNetworkId = new TrafficMirrorSessionField("virtual-network-id");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TrafficMirrorSessionField(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TrafficMirrorSessionField FindValue(string value)
+        {
+            return FindValue<TrafficMirrorSessionField>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TrafficMirrorSessionField(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TrafficMirrorTargetType.
+    /// </summary>
+    public class TrafficMirrorTargetType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant NetworkInterface for TrafficMirrorTargetType
+        /// </summary>
+        public static readonly TrafficMirrorTargetType NetworkInterface = new TrafficMirrorTargetType("network-interface");
+        /// <summary>
+        /// Constant NetworkLoadBalancer for TrafficMirrorTargetType
+        /// </summary>
+        public static readonly TrafficMirrorTargetType NetworkLoadBalancer = new TrafficMirrorTargetType("network-load-balancer");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TrafficMirrorTargetType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TrafficMirrorTargetType FindValue(string value)
+        {
+            return FindValue<TrafficMirrorTargetType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TrafficMirrorTargetType(string value)
         {
             return FindValue(value);
         }

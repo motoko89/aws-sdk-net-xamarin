@@ -45,6 +45,17 @@ namespace Amazon.AppMesh.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(ServiceDiscovery requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetAwsCloudMap())
+            {
+                context.Writer.WritePropertyName("awsCloudMap");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = AwsCloudMapServiceDiscoveryMarshaller.Instance;
+                marshaller.Marshall(requestObject.AwsCloudMap, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetDns())
             {
                 context.Writer.WritePropertyName("dns");

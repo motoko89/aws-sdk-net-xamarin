@@ -29,10 +29,11 @@ namespace Amazon.IdentityManagement.Model
 {
     /// <summary>
     /// Container for the parameters to the GetServiceLastAccessedDetails operation.
-    /// After you generate a user, group, role, or policy report using the <code>GenerateServiceLastAccessedDetails</code>
-    /// operation, you can use the <code>JobId</code> parameter in <code>GetServiceLastAccessedDetails</code>.
-    /// This operation retrieves the status of your report job and a list of AWS services
-    /// that the resource (user, group, role, or managed policy) can access.
+    /// Retrieves a service last accessed report that was created using the <code>GenerateServiceLastAccessedDetails</code>
+    /// operation. You can use the <code>JobId</code> parameter in <code>GetServiceLastAccessedDetails</code>
+    /// to retrieve the status of your report job. When the report is complete, you can retrieve
+    /// the generated report. The report includes a list of AWS services that the resource
+    /// (user, group, role, or managed policy) can access.
     /// 
     ///  <note> 
     /// <para>

@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.IdentityManagement.Model
 {
     /// <summary>
-    /// Contains information about AWS Organizations's effect on a policy simulation.
+    /// Contains information about the effect that Organizations has on a policy simulation.
     /// </summary>
     public partial class OrganizationsDecisionDetail
     {
@@ -37,7 +37,7 @@ namespace Amazon.IdentityManagement.Model
         /// <summary>
         /// Gets and sets the property AllowedByOrganizations. 
         /// <para>
-        /// Specifies whether the simulated operation is allowed by the AWS Organizations service
+        /// Specifies whether the simulated operation is allowed by the Organizations service
         /// control policies that impact the simulated user's account.
         /// </para>
         /// </summary>

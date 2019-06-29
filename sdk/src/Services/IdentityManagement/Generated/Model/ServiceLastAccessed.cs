@@ -146,11 +146,12 @@ namespace Amazon.IdentityManagement.Model
         /// <summary>
         /// Gets and sets the property TotalAuthenticatedEntities. 
         /// <para>
-        /// The total number of authenticated entities that have attempted to access the service.
+        /// The total number of authenticated principals (root user, IAM users, or IAM roles)
+        /// that have attempted to access the service.
         /// </para>
         ///  
         /// <para>
-        /// This field is null if no IAM entities attempted to access the service within the <a
+        /// This field is null if no principals attempted to access the service within the <a
         /// href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting
         /// period</a>.
         /// </para>

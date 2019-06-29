@@ -89,8 +89,8 @@ namespace Amazon.IdentityManagement.Model
         /// </para>
         ///  
         /// <para>
-        /// This field is null if the job is still in progress, as indicated by a <code>JobStatus</code>
-        /// value of <code>IN_PROGRESS</code>.
+        /// This field is null if the job is still in progress, as indicated by a job status value
+        /// of <code>IN_PROGRESS</code>.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

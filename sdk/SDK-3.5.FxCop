@@ -30,6 +30,7 @@
       <Directory>$(ProjectDir)/src/Services/apigatewayv2/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/applicationautoscaling/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/applicationdiscoveryservice/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/applicationinsights/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/appmesh/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/appstream/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/appsync/bin/Release/net35/</Directory>
@@ -82,6 +83,7 @@
       <Directory>$(ProjectDir)/src/Services/docdb/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/dynamodbv2/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/ec2/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/ec2instanceconnect/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/ecr/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/ecs/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/eks/bin/Release/net35/</Directory>
@@ -181,6 +183,7 @@
       <Directory>$(ProjectDir)/src/Services/servermigrationservice/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/servicecatalog/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/servicediscovery/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/servicequotas/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/shield/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/signer/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/simpledb/bin/Release/net35/</Directory>
@@ -213,6 +216,7 @@
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ApiGatewayV2.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ApplicationAutoScaling.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ApplicationDiscoveryService.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ApplicationInsights.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.AppMesh.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.AppStream.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.AppSync.dll" Analyze="True" AnalyzeAllChildren="True" />
@@ -265,6 +269,7 @@
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.DocDB.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.DynamoDBv2.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.EC2.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.EC2InstanceConnect.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ECR.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ECS.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.EKS.dll" Analyze="True" AnalyzeAllChildren="True" />
@@ -364,6 +369,7 @@
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ServerMigrationService.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ServiceCatalog.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ServiceDiscovery.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ServiceQuotas.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Shield.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Signer.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.SimpleDB.dll" Analyze="True" AnalyzeAllChildren="True" />

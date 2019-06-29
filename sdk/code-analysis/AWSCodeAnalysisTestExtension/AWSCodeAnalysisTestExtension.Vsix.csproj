@@ -84,6 +84,10 @@
       <Project>{1707A0B9-C421-4504-A887-EF27A459B440}</Project>
       <Name>AWSSDK.ApplicationDiscoveryService.CodeAnalysis</Name>
     </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/ApplicationInsights/AWSSDK.ApplicationInsights.CodeAnalysis.csproj">
+      <Project>{DBC8FB2F-6C2F-452D-B0C0-4100FE32AF2F}</Project>
+      <Name>AWSSDK.ApplicationInsights.CodeAnalysis</Name>
+    </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/AppMesh/AWSSDK.AppMesh.CodeAnalysis.csproj">
       <Project>{51779681-17D6-43BF-B4E3-C57D3C22283E}</Project>
       <Name>AWSSDK.AppMesh.CodeAnalysis</Name>
@@ -291,6 +295,10 @@
     <ProjectReference Include="../ServiceAnalysis/EC2/AWSSDK.EC2.CodeAnalysis.csproj">
       <Project>{5EDD3F86-D8FD-4BA0-9086-290BFF27CD44}</Project>
       <Name>AWSSDK.EC2.CodeAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/EC2InstanceConnect/AWSSDK.EC2InstanceConnect.CodeAnalysis.csproj">
+      <Project>{56DC8268-FEA0-43A5-BC73-66C6804B0DE4}</Project>
+      <Name>AWSSDK.EC2InstanceConnect.CodeAnalysis</Name>
     </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/ECR/AWSSDK.ECR.CodeAnalysis.csproj">
       <Project>{881A7C3A-497D-46FF-845C-2CB7D11436C8}</Project>
@@ -687,6 +695,10 @@
     <ProjectReference Include="../ServiceAnalysis/ServiceDiscovery/AWSSDK.ServiceDiscovery.CodeAnalysis.csproj">
       <Project>{1EB8CAA6-EAA1-4C64-8A44-897602E2787A}</Project>
       <Name>AWSSDK.ServiceDiscovery.CodeAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/ServiceQuotas/AWSSDK.ServiceQuotas.CodeAnalysis.csproj">
+      <Project>{2930FF73-AB2E-4834-A60C-8D3987B854D4}</Project>
+      <Name>AWSSDK.ServiceQuotas.CodeAnalysis</Name>
     </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/Shield/AWSSDK.Shield.CodeAnalysis.csproj">
       <Project>{03C02718-4F53-4F68-972B-750EF9839187}</Project>

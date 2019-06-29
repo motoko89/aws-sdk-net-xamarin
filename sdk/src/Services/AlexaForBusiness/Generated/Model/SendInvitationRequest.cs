@@ -29,8 +29,8 @@ namespace Amazon.AlexaForBusiness.Model
 {
     /// <summary>
     /// Container for the parameters to the SendInvitation operation.
-    /// Sends an enrollment invitation email with a URL to a user. The URL is valid for 72
-    /// hours or until you call this operation again, whichever comes first.
+    /// Sends an enrollment invitation email with a URL to a user. The URL is valid for 30
+    /// days or until you call this operation again, whichever comes first.
     /// </summary>
     public partial class SendInvitationRequest : AmazonAlexaForBusinessRequest
     {

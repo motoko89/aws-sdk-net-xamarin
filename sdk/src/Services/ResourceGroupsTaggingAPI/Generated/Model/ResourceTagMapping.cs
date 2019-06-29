@@ -38,7 +38,7 @@ namespace Amazon.ResourceGroupsTaggingAPI.Model
         /// <summary>
         /// Gets and sets the property ResourceARN. 
         /// <para>
-        /// An array of resource ARN(s).
+        /// The ARN of the resource.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=1600)]

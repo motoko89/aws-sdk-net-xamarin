@@ -34,8 +34,8 @@ namespace Amazon.ResourceGroupsTaggingAPI.Model
     ///  <ul> <li> 
     /// <para>
     /// Not all resources can have tags. For a list of resources that support tagging, see
-    /// <a href="http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/supported-resources.html">Supported
-    /// Resources</a> in the <i>AWS Resource Groups and Tag Editor User Guide</i>.
+    /// <a href="http://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html">Supported
+    /// Resources</a> in the <i>AWS Resource Groups User Guide</i>.
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -50,8 +50,8 @@ namespace Amazon.ResourceGroupsTaggingAPI.Model
     /// <para>
     /// To add tags to a resource, you need the necessary permissions for the service that
     /// the resource belongs to as well as permissions for adding tags. For more information,
-    /// see <a href="http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/obtaining-permissions-for-tagging.html">Obtaining
-    /// Permissions for Tagging</a> in the <i>AWS Resource Groups and Tag Editor User Guide</i>.
+    /// see <a href="http://docs.aws.amazon.com/ARG/latest/userguide/obtaining-permissions-for-tagging.html">Obtaining
+    /// Permissions for Tagging</a> in the <i>AWS Resource Groups User Guide</i>.
     /// </para>
     ///  </li> </ul>
     /// </summary>
