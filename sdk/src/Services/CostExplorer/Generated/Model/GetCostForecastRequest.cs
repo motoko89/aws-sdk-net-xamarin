@@ -97,23 +97,23 @@ namespace Amazon.CostExplorer.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// AmortizedCost
+        /// AMORTIZED_COST
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// BlendedCost
+        /// BLENDED_COST
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// NetAmortizedCost
+        /// NET_AMORTIZED_COST
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// NetUnblendedCost
+        /// NET_UNBLENDED_COST
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// UnblendedCost
+        /// UNBLENDED_COST
         /// </para>
         ///  </li> </ul>
         /// </summary>

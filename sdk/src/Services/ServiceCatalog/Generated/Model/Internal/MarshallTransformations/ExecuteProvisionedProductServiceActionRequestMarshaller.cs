@@ -85,6 +85,25 @@ namespace Amazon.ServiceCatalog.Model.Internal.MarshallTransformations
                     context.Writer.WritePropertyName("ExecuteToken");
                     context.Writer.Write(Guid.NewGuid().ToString());                                                
                 }
+                if(publicRequest.IsSetParameters())
+                {
+                    context.Writer.WritePropertyName("Parameters");
+                    context.Writer.WriteObjectStart();
+                    foreach (var publicRequestParametersKvp in publicRequest.Parameters)
+                    {
+                        context.Writer.WritePropertyName(publicRequestParametersKvp.Key);
+                        var publicRequestParametersValue = publicRequestParametersKvp.Value;
+
+                        context.Writer.WriteArrayStart();
+                        foreach(var publicRequestParametersValueListValue in publicRequestParametersValue)
+                        {
+                                context.Writer.Write(publicRequestParametersValueListValue);
+                        }
+                        context.Writer.WriteArrayEnd();
+                    }
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetProvisionedProductId())
                 {
                     context.Writer.WritePropertyName("ProvisionedProductId");

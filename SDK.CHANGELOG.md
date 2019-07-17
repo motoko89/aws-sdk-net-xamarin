@@ -1,3 +1,107 @@
+### 3.3.550.0 (2019-07-12 18:07 UTC)
+* ApiGatewayV2 (3.3.103.0)
+	* Bug fix (Add tags field to Update Stage , Api and DomainName Responses )
+* Elasticsearch (3.3.101.0)
+	* Amazon Elasticsearch Service now supports M5, C5, and R5 instance types.
+* IdentityManagement (3.3.103.0)
+	* Removed exception that was indicated but never thrown for IAM GetAccessKeyLastUsed API
+* RoboMaker (3.3.104.0)
+	* Added Melodic as a supported Robot Software Suite Version
+* Core 3.3.103.11
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.549.0 (2019-07-11 15:06 UTC)
+* CloudWatchEvents (3.3.101.0)
+	* Adds APIs for partner event sources, partner event buses, and custom event buses. These new features are managed in the EventBridge service.
+* EventBridge (3.3.100.0)
+	* Amazon EventBridge is a serverless event bus service that makes it easy to connect your applications with data from a variety of sources, including AWS services, partner applications, and your own applications.
+
+### 3.3.548.0 (2019-07-10 18:29 UTC)
+* Glacier (3.3.100.46)
+	* Documentation updates for glacier
+* QuickSight (3.3.101.0)
+	* Amazon QuickSight now supports embedding dashboards for all non-federated QuickSight users. This includes IAM users, AD users and users from the QuickSight user pool. The get-dashboard-embed-url API accepts QUICKSIGHT as identity type with a user ARN to authenticate the embeddable dashboard viewer as a non-federated user.
+* ServiceCatalog (3.3.108.0)
+	* This release adds support for Parameters in ExecuteProvisionedProductServiceAction and adds functionality to get the default parameter values for a Self-Service Action execution against a Provisioned Product via DescribeServiceActionExecutionParameters
+* Core 3.3.103.10
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.547.0 (2019-07-09 18:24 UTC)
+* Amplify (3.3.101.0)
+	* This release adds webhook APIs and manual deployment APIs for AWS Amplify Console.
+* CloudWatch (3.3.102.0)
+	* This release adds three new APIs (PutAnomalyDetector, DeleteAnomalyDetector, and DescribeAnomalyDetectors) to support the new feature, CloudWatch Anomaly Detection. In addition, PutMetricAlarm and DescribeAlarms APIs are updated to support management of Anomaly Detection based alarms.
+* ConfigService (3.3.101.0)
+	* AWS Config now supports a new set of APIs to manage AWS Config rules across your organization in AWS Organizations. Using this capability, you can centrally create, update, and delete AWS Config rules across all accounts in your organization. This capability is particularly useful if you have a need to deploy a common set of AWS Config rules across all accounts. You can also specify accounts where AWS Config rules should not be created. In addition, you can use these APIs from the master account in AWS Organizations to enforce governance by ensuring that the underlying AWS Config rules are not modifiable by your organization member accounts.These APIs work for both managed and custom AWS Config rules. For more information, see Enabling AWS Config Rules Across all Accounts in Your Organization in the AWS Config Developer Guide.The new APIs are available in all commercial AWS Regions where AWS Config and AWS Organizations are supported. For the full list of supported Regions, see AWS Regions and Endpoints in the AWS General Reference. To learn more about AWS Config, visit the AWS Config webpage. To learn more about AWS Organizations, visit the AWS Organizations webpage.
+* ElasticFileSystem (3.3.102.0)
+	* EFS customers can now enable Lifecycle Management for all file systems. You can also now select from one of four Lifecycle Management policies (14, 30, 60 and 90 days), to automatically move files that have not been accessed for the period of time defined by the policy, from the EFS Standard storage class to the EFS Infrequent Access (IA) storage class. EFS IA provides price/performance that is cost-optimized for files that are not accessed every day.
+* GameLift (3.3.102.0)
+	* GameLift FlexMatch now supports matchmaking of up to 200 players per game session, and FlexMatch can now automatically backfill your game sessions whenever there is an open slot.
+* KinesisVideo (3.3.101.0)
+	* Add "GET_DASH_STREAMING_SESSION_URL" as an API name to the GetDataEndpoint API.
+* KinesisVideoArchivedMedia (3.3.101.0)
+	* Adds support for the GetDASHStreamingSessionURL API. Also adds support for the Live Replay playback mode of the GetHLSStreamingSessionURL API.
+* WAF (3.3.101.0)
+	* Updated SDK APIs to add tags to WAF Resources: WebACL, Rule, Rulegroup and RateBasedRule. Tags can also be added during creation of these resources.
+* WAFRegional (3.3.101.0)
+	* Updated SDK APIs to add tags to WAF Resources: WebACL, Rule, Rulegroup and RateBasedRule. Tags can also be added during creation of these resources.
+* Core 3.3.103.9
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.546.0 (2019-07-08 19:22 UTC)
+* CostExplorer (3.3.101.0)
+	* This release introduces a new operation called GetUsageForecast, which allows you to programmatically access AWS Cost Explorer's forecasting engine on usage data (running hours, data transfer, etc).
+* Core 3.3.103.8
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.545.0 (2019-07-03 19:47 UTC)
+* EC2 (3.3.121.0)
+	* AssignPrivateIpAddresses response includes two new fields: AssignedPrivateIpAddresses, NetworkInterfaceId
+* RDS (3.3.107.0)
+	* This release supports Cross-Account Cloning for Amazon Aurora clusters.
+* S3 (3.3.103.0)
+	* Add S3 x-amz-server-side-encryption-context support.
+* SimpleWorkflow (3.3.101.0)
+	* This release adds APIs that allow adding and removing tags to a SWF domain, and viewing tags for a domain. It also enables adding tags when creating a domain.
+
+### 3.3.544.0 (2019-07-02 19:33 UTC)
+* AppStream (3.3.102.10)
+	* Adding ImageBuilderName in Fleet API and Documentation updates for AppStream. 
+* MediaStore (3.3.101.0)
+	* This release adds support for tagging, untagging, and listing tags for AWS Elemental MediaStore containers.
+* Core 3.3.103.7
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.543.0 (2019-07-01 18:27 UTC)
+* DocDB (3.3.101.0)
+	* This release provides support for cluster delete protection and the ability to stop and start clusters.
+* EC2 (3.3.120.0)
+	* This release adds support for specifying a maximum hourly price for all On-Demand and Spot instances in both Spot Fleet and EC2 Fleet.
+* Organizations (3.3.103.0)
+	* Specifying the tag key and tag value is required for tagging requests.
+* RDS (3.3.106.0)
+	* This release adds support for RDS DB Cluster major version upgrade 
+* Core 3.3.103.6
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
 ### 3.3.542.0 (2019-06-28 18:43 UTC)
 * AlexaForBusiness (3.3.105.0)
 	* This release allows developers and customers to add SIP addresses and international phone numbers to contacts.

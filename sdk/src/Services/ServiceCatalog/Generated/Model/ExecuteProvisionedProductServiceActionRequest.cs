@@ -35,6 +35,7 @@ namespace Amazon.ServiceCatalog.Model
     {
         private string _acceptLanguage;
         private string _executeToken;
+        private Dictionary<string, List<string>> _parameters = new Dictionary<string, List<string>>();
         private string _provisionedProductId;
         private string _serviceActionId;
 
@@ -87,6 +88,22 @@ namespace Amazon.ServiceCatalog.Model
         internal bool IsSetExecuteToken()
         {
             return this._executeToken != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Parameters.
+        /// </summary>
+        [AWSProperty(Min=1, Max=200)]
+        public Dictionary<string, List<string>> Parameters
+        {
+            get { return this._parameters; }
+            set { this._parameters = value; }
+        }
+
+        // Check to see if Parameters property is set
+        internal bool IsSetParameters()
+        {
+            return this._parameters != null && this._parameters.Count > 0; 
         }
 
         /// <summary>

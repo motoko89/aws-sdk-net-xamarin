@@ -34,7 +34,9 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
     /// 
     ///  
     /// <para>
-    /// You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.
+    /// Both the <code>StreamName</code> and the <code>StreamARN</code> parameters are optional,
+    /// but you must specify either the <code>StreamName</code> or the <code>StreamARN</code>
+    /// when invoking this API operation.
     /// </para>
     ///  
     /// <para>
@@ -43,9 +45,10 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
     /// </para>
     ///  <ul> <li> 
     /// <para>
-    /// The media must contain h.264 encoded video and, optionally, AAC encoded audio. Specifically,
-    /// the codec id of track 1 should be <code>V_MPEG/ISO/AVC</code>. Optionally, the codec
-    /// id of track 2 should be <code>A_AAC</code>.
+    /// The media must contain h.264 or h.265 encoded video and, optionally, AAC encoded audio.
+    /// Specifically, the codec id of track 1 should be <code>V_MPEG/ISO/AVC</code> (for h.264)
+    /// or <code>V_MPEG/ISO/HEVC</code> (for h.265). Optionally, the codec id of track 2 should
+    /// be <code>A_AAC</code>.
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -54,7 +57,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
     ///  </li> <li> 
     /// <para>
     /// The video track of each fragment must contain codec private data in the Advanced Video
-    /// Coding (AVC) for H.264 format (<a href="https://www.iso.org/standard/55980.html">MPEG-4
+    /// Coding (AVC) for H.264 format or HEVC for H.265 format (<a href="https://www.iso.org/standard/55980.html">MPEG-4
     /// specification ISO/IEC 14496-15</a>). For information about adapting stream data to
     /// a given format, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/producer-reference-nal.html">NAL
     /// Adaptation Flags</a>.
@@ -68,10 +71,9 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
     ///  </li> </ul> 
     /// <para>
     /// Kinesis Video Streams HLS sessions contain fragments in the fragmented MPEG-4 form
-    /// (also called fMP4 or CMAF), rather than the MPEG-2 form (also called TS chunks, which
-    /// the HLS specification also supports). For more information about HLS fragment types,
-    /// see the <a href="https://tools.ietf.org/html/draft-pantos-http-live-streaming-23">HLS
-    /// specification</a>.
+    /// (also called fMP4 or CMAF) or the MPEG-2 form (also called TS chunks, which the HLS
+    /// specification also supports). For more information about HLS fragment types, see the
+    /// <a href="https://tools.ietf.org/html/draft-pantos-http-live-streaming-23">HLS specification</a>.
     /// </para>
     ///  
     /// <para>
@@ -199,14 +201,19 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// A Kinesis video stream can have a maximum of five active HLS streaming sessions. If
+    /// A Kinesis video stream can have a maximum of ten active HLS streaming sessions. If
     /// a new session is created when the maximum number of sessions is already active, the
     /// oldest (earliest created) session is closed. The number of active <code>GetMedia</code>
     /// connections on a Kinesis video stream does not count against this limit, and the number
     /// of active HLS sessions does not count against the active <code>GetMedia</code> connection
     /// limit.
     /// </para>
-    ///  </li> </ul> </note> 
+    ///  <note> 
+    /// <para>
+    /// The maximum limits for active HLS and MPEG-DASH streaming sessions are independent
+    /// of each other.
+    /// </para>
+    ///  </note> </li> </ul> </note> 
     /// <para>
     /// You can monitor the amount of data that the media player consumes by monitoring the
     /// <code>GetMP4MediaFragment.OutgoingBytes</code> Amazon CloudWatch metric. For information
@@ -220,16 +227,46 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
     /// For more information about HLS, see <a href="https://developer.apple.com/streaming/">HTTP
     /// Live Streaming</a> on the <a href="https://developer.apple.com">Apple Developer site</a>.
     /// </para>
+    ///  <important> 
+    /// <para>
+    /// If an error is thrown after invoking a Kinesis Video Streams archived media API, in
+    /// addition to the HTTP status code and the response body, it includes the following
+    /// pieces of information: 
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    ///  <code>x-amz-ErrorType</code> HTTP header – contains a more specific error type in
+    /// addition to what the HTTP status code provides. 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <code>x-amz-RequestId</code> HTTP header – if you want to report an issue to AWS,
+    /// the support team can better diagnose the problem if given the Request Id.
+    /// </para>
+    ///  </li> </ul> 
+    /// <para>
+    /// Both the HTTP status code and the ErrorType header can be utilized to make programmatic
+    /// decisions about whether errors are retry-able and under what conditions, as well as
+    /// provide information on what actions the client programmer might need to take in order
+    /// to successfully try again.
+    /// </para>
+    ///  
+    /// <para>
+    /// For more information, see the <b>Errors</b> section at the bottom of this topic, as
+    /// well as <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html">Common
+    /// Errors</a>. 
+    /// </para>
+    ///  </important>
     /// </summary>
     public partial class GetHLSStreamingSessionURLRequest : AmazonKinesisVideoArchivedMediaRequest
     {
         private ContainerFormat _containerFormat;
-        private DiscontinuityMode _discontinuityMode;
-        private DisplayFragmentTimestamp _displayFragmentTimestamp;
+        private HLSDiscontinuityMode _discontinuityMode;
+        private HLSDisplayFragmentTimestamp _displayFragmentTimestamp;
         private int? _expires;
         private HLSFragmentSelector _hlsFragmentSelector;
         private long? _maxMediaPlaylistFragmentResults;
-        private PlaybackMode _playbackMode;
+        private HLSPlaybackMode _playbackMode;
         private string _streamARN;
         private string _streamName;
 
@@ -282,7 +319,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
         /// timeline to accurately map to the producer timestamps.
         /// </para>
         /// </summary>
-        public DiscontinuityMode DiscontinuityMode
+        public HLSDiscontinuityMode DiscontinuityMode
         {
             get { return this._discontinuityMode; }
             set { this._discontinuityMode = value; }
@@ -312,7 +349,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
         /// 
         /// </para>
         /// </summary>
-        public DisplayFragmentTimestamp DisplayFragmentTimestamp
+        public HLSDisplayFragmentTimestamp DisplayFragmentTimestamp
         {
             get { return this._displayFragmentTimestamp; }
             set { this._displayFragmentTimestamp = value; }
@@ -333,8 +370,8 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
         ///  
         /// <para>
         /// When a session expires, no new calls to <code>GetHLSMasterPlaylist</code>, <code>GetHLSMediaPlaylist</code>,
-        /// <code>GetMP4InitFragment</code>, or <code>GetMP4MediaFragment</code> can be made for
-        /// that session.
+        /// <code>GetMP4InitFragment</code>, <code>GetMP4MediaFragment</code>, or <code>GetTSFragment</code>
+        /// can be made for that session.
         /// </para>
         ///  
         /// <para>
@@ -361,10 +398,11 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
         /// </para>
         ///  
         /// <para>
-        /// This parameter is required if <code>PlaybackMode</code> is <code>ON_DEMAND</code>.
-        /// This parameter is optional if <code>PlaybackMode</code> is <code>LIVE</code>. If <code>PlaybackMode</code>
-        /// is <code>LIVE</code>, the <code>FragmentSelectorType</code> can be set, but the <code>TimestampRange</code>
-        /// should not be set. If <code>PlaybackMode</code> is <code>ON_DEMAND</code>, both <code>FragmentSelectorType</code>
+        /// This parameter is required if <code>PlaybackMode</code> is <code>ON_DEMAND</code>
+        /// or <code>LIVE_REPLAY</code>. This parameter is optional if PlaybackMode is<code/>
+        /// <code>LIVE</code>. If <code>PlaybackMode</code> is <code>LIVE</code>, the <code>FragmentSelectorType</code>
+        /// can be set, but the <code>TimestampRange</code> should not be set. If <code>PlaybackMode</code>
+        /// is <code>ON_DEMAND</code> or <code>LIVE_REPLAY</code>, both <code>FragmentSelectorType</code>
         /// and <code>TimestampRange</code> must be set.
         /// </para>
         /// </summary>
@@ -401,8 +439,8 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
         /// </para>
         ///  
         /// <para>
-        /// The default is 5 fragments if <code>PlaybackMode</code> is <code>LIVE</code>, and
-        /// 1,000 if <code>PlaybackMode</code> is <code>ON_DEMAND</code>. 
+        /// The default is 5 fragments if <code>PlaybackMode</code> is <code>LIVE</code> or <code>LIVE_REPLAY</code>,
+        /// and 1,000 if <code>PlaybackMode</code> is <code>ON_DEMAND</code>. 
         /// </para>
         ///  
         /// <para>
@@ -427,11 +465,11 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
         /// <summary>
         /// Gets and sets the property PlaybackMode. 
         /// <para>
-        /// Whether to retrieve live or archived, on-demand data.
+        /// Whether to retrieve live, live replay, or archived, on-demand data.
         /// </para>
         ///  
         /// <para>
-        /// Features of the two types of session include the following:
+        /// Features of the three types of sessions include the following:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -454,6 +492,19 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
         /// </para>
         ///  </note> </li> <li> 
         /// <para>
+        ///  <b> <code>LIVE_REPLAY</code> </b>: For sessions of this type, the HLS media playlist
+        /// is updated similarly to how it is updated for <code>LIVE</code> mode except that it
+        /// starts by including fragments from a given start time. Instead of fragments being
+        /// added as they are ingested, fragments are added as the duration of the next fragment
+        /// elapses. For example, if the fragments in the session are two seconds long, then a
+        /// new fragment is added to the media playlist every two seconds. This mode is useful
+        /// to be able to start playback from when an event is detected and continue live streaming
+        /// media that has not yet been ingested as of the time of the session creation. This
+        /// mode is also useful to stream previously archived media without being limited by the
+        /// 1,000 fragment limit in the <code>ON_DEMAND</code> mode. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         ///  <b> <code>ON_DEMAND</code> </b>: For sessions of this type, the HLS media playlist
         /// contains all the fragments for the session, up to the number that is specified in
         /// <code>MaxMediaPlaylistFragmentResults</code>. The playlist must be retrieved only
@@ -463,7 +514,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// In both playback modes, if <code>FragmentSelectorType</code> is <code>PRODUCER_TIMESTAMP</code>,
+        /// In all playback modes, if <code>FragmentSelectorType</code> is <code>PRODUCER_TIMESTAMP</code>,
         /// and if there are multiple fragments with the same start timestamp, the fragment that
         /// has the larger fragment number (that is, the newer fragment) is included in the HLS
         /// media playlist. The other fragments are not included. Fragments that have different
@@ -475,7 +526,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
         /// The default is <code>LIVE</code>.
         /// </para>
         /// </summary>
-        public PlaybackMode PlaybackMode
+        public HLSPlaybackMode PlaybackMode
         {
             get { return this._playbackMode; }
             set { this._playbackMode = value; }

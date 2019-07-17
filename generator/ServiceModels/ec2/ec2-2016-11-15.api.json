@@ -99,7 +99,8 @@
         "method":"POST",
         "requestUri":"/"
       },
-      "input":{"shape":"AssignPrivateIpAddressesRequest"}
+      "input":{"shape":"AssignPrivateIpAddressesRequest"},
+      "output":{"shape":"AssignPrivateIpAddressesResult"}
     },
     "AssociateAddress":{
       "name":"AssociateAddress",
@@ -3578,6 +3579,35 @@
           "shape":"Integer",
           "locationName":"secondaryPrivateIpAddressCount"
         }
+      }
+    },
+    "AssignPrivateIpAddressesResult":{
+      "type":"structure",
+      "members":{
+        "NetworkInterfaceId":{
+          "shape":"String",
+          "locationName":"networkInterfaceId"
+        },
+        "AssignedPrivateIpAddresses":{
+          "shape":"AssignedPrivateIpAddressList",
+          "locationName":"assignedPrivateIpAddressesSet"
+        }
+      }
+    },
+    "AssignedPrivateIpAddress":{
+      "type":"structure",
+      "members":{
+        "PrivateIpAddress":{
+          "shape":"String",
+          "locationName":"privateIpAddress"
+        }
+      }
+    },
+    "AssignedPrivateIpAddressList":{
+      "type":"list",
+      "member":{
+        "shape":"AssignedPrivateIpAddress",
+        "locationName":"item"
       }
     },
     "AssociateAddressRequest":{
@@ -16822,7 +16852,8 @@
         "TargetCapacity":{
           "shape":"Integer",
           "locationName":"targetCapacity"
-        }
+        },
+        "OnDemandTargetCapacity":{"shape":"Integer"}
       }
     },
     "ModifySpotFleetRequestResponse":{
@@ -17852,6 +17883,10 @@
         "MinTargetCapacity":{
           "shape":"Integer",
           "locationName":"minTargetCapacity"
+        },
+        "MaxTotalPrice":{
+          "shape":"String",
+          "locationName":"maxTotalPrice"
         }
       }
     },
@@ -17861,7 +17896,8 @@
         "AllocationStrategy":{"shape":"FleetOnDemandAllocationStrategy"},
         "SingleInstanceType":{"shape":"Boolean"},
         "SingleAvailabilityZone":{"shape":"Boolean"},
-        "MinTargetCapacity":{"shape":"Integer"}
+        "MinTargetCapacity":{"shape":"Integer"},
+        "MaxTotalPrice":{"shape":"String"}
       }
     },
     "OperationType":{
@@ -21489,6 +21525,14 @@
           "shape":"Integer",
           "locationName":"onDemandTargetCapacity"
         },
+        "OnDemandMaxTotalPrice":{
+          "shape":"String",
+          "locationName":"onDemandMaxTotalPrice"
+        },
+        "SpotMaxTotalPrice":{
+          "shape":"String",
+          "locationName":"spotMaxTotalPrice"
+        },
         "TerminateInstancesWithExpiration":{
           "shape":"Boolean",
           "locationName":"terminateInstancesWithExpiration"
@@ -21736,6 +21780,10 @@
         "MinTargetCapacity":{
           "shape":"Integer",
           "locationName":"minTargetCapacity"
+        },
+        "MaxTotalPrice":{
+          "shape":"String",
+          "locationName":"maxTotalPrice"
         }
       }
     },
@@ -21747,7 +21795,8 @@
         "InstancePoolsToUseCount":{"shape":"Integer"},
         "SingleInstanceType":{"shape":"Boolean"},
         "SingleAvailabilityZone":{"shape":"Boolean"},
-        "MinTargetCapacity":{"shape":"Integer"}
+        "MinTargetCapacity":{"shape":"Integer"},
+        "MaxTotalPrice":{"shape":"String"}
       }
     },
     "SpotPlacement":{

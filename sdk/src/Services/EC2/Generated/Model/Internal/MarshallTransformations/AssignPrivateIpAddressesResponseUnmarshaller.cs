@@ -55,6 +55,19 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                 if (context.IsStartElement || context.IsAttribute)
                 {
 
+                    if (context.TestExpression("assignedPrivateIpAddressesSet/item", targetDepth))
+                    {
+                        var unmarshaller = AssignedPrivateIpAddressUnmarshaller.Instance;
+                        var item = unmarshaller.Unmarshall(context);
+                        response.AssignedPrivateIpAddresses.Add(item);
+                        continue;
+                    }
+                    if (context.TestExpression("networkInterfaceId", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        response.NetworkInterfaceId = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                 } 
             }
 
