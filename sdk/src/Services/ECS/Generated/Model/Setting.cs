@@ -39,7 +39,7 @@ namespace Amazon.ECS.Model
         /// <summary>
         /// Gets and sets the property Name. 
         /// <para>
-        /// The account resource name.
+        /// The Amazon ECS resource name.
         /// </para>
         /// </summary>
         public SettingName Name
@@ -76,10 +76,7 @@ namespace Amazon.ECS.Model
         /// <summary>
         /// Gets and sets the property Value. 
         /// <para>
-        /// The current account setting for the resource name. If <code>enabled</code>, the resource
-        /// receives the new Amazon Resource Name (ARN) and resource identifier (ID) format. If
-        /// <code>disabled</code>, the resource receives the old Amazon Resource Name (ARN) and
-        /// resource identifier (ID) format.
+        /// Whether the account setting is enabled or disabled for the specified resource.
         /// </para>
         /// </summary>
         public string Value

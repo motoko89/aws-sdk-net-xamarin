@@ -1,3 +1,53 @@
+### 3.3.555.0 (2019-07-22 19:41 UTC)
+* MQ (3.3.102.0)
+	* Adds support for AWS Key Management Service (KMS) to offer server-side encryption. You can now select your own customer managed CMK, or use an AWS managed CMK in your KMS  account.
+* Shield (3.3.101.0)
+	* Adding new VectorType (HTTP_Reflection) and related top contributor types to describe WordPress Pingback DDoS attacks.
+* Core 3.3.103.14
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.554.0 (2019-07-19 19:12 UTC)
+* IoTEvents (3.3.101.0)
+	* Adds support for IoT Events, Lambda, SQS and Kinesis Firehose actions.
+* SQS (3.3.100.49)
+	* This release updates the information about the availability of FIFO queues and includes miscellaneous fixes.
+* Core 3.3.103.13
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.553.0 (2019-07-19 01:05 UTC)
+* EC2 (3.3.121.5)
+	* Fixing serialization of the Ipv6Addresses and PrivateIpAddresses fields in RequestSpotFleetRequest, RequestSpotInstancesRequest and RunInstancesRequestMarshaller
+* S3 (3.3.104.0)
+	* Updated to use new Core, version 3.3.103.12
+	* Adding an HTTPS-capable variant of DoesS3BucketExist; Preventing overflow exception when using S3 SelectObjectContent on PCL platforms
+* Core 3.3.103.12
+	* Fix for concurrency errors in region endpoints indicating that a duplicate key has been added; Adding a utility method allowing to check if value-type properties are set; Added region ap-east-1 Asia Pacific (Hong Kong)
+	* All services packages updated to require new Core
+
+### 3.3.552.0 (2019-07-18 20:29 UTC)
+* CodeDeploy (3.3.101.24)
+	* Documentation updates for codedeploy
+* Comprehend (3.3.105.0)
+	* Amazon Comprehend now supports multiple entities for custom entity recognition
+* ECS (3.3.104.0)
+	* This release of Amazon Elastic Container Service (Amazon ECS) introduces support for cluster settings. Cluster settings specify whether CloudWatch Container Insights is enabled or disabled for the cluster.
+* ElastiCache (3.3.102.16)
+	* Updates for Elasticache
+
+### 3.3.551.0 (2019-07-17 19:17 UTC)
+* AutoScaling (3.3.100.48)
+	* Documentation updates for autoscaling
+* ConfigService (3.3.102.0)
+	* This release adds more granularity to the status of an OrganizationConfigRule by adding a new status. It also adds an exception when organization access is denied.
+* DatabaseMigrationService (3.3.101.0)
+	* S3 endpoint settings update: 1) Option to append operation column to full-load files. 2) Option to add a commit timestamp column to full-load and cdc files. Updated DescribeAccountAttributes to include UniqueAccountIdentifier.
+
 ### 3.3.550.0 (2019-07-12 18:07 UTC)
 * ApiGatewayV2 (3.3.103.0)
 	* Bug fix (Add tags field to Update Stage , Api and DomainName Responses )

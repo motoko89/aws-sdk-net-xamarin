@@ -38,7 +38,7 @@ namespace Amazon.IoTEvents.Model
         /// <summary>
         /// Gets and sets the property InputName. 
         /// <para>
-        /// The name of the input to be deleted.
+        /// The name of the input to delete.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=128)]
