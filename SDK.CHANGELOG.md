@@ -1,3 +1,80 @@
+### 3.3.561.1 (2019-08-01 21:25 UTC)
+* Core 3.3.103.19
+	* Allow "Assume Role" profiles to reference other "Assume Role" profiles as their source
+	* All services packages updated to require new Core
+
+### 3.3.561.0 (2019-07-30 18:10 UTC)
+* MediaConvert (3.3.105.0)
+	* MediaConvert adds support for specifying priority (-50 to 50) on jobs submitted to on demand or reserved queues
+* Polly (3.3.102.0)
+	* Amazon Polly adds support for Neural text-to-speech engine.
+* Route53 (3.3.102.0)
+	* Amazon Route 53 now supports the Middle East (Bahrain) Region (me-south-1) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region.
+* Core 3.3.103.18
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.560.0 (2019-07-29 18:12 UTC)
+* CodeCommit (3.3.104.0)
+	* This release supports better exception handling for merges.
+* Core 3.3.103.17
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.559.0 (2019-07-26 18:23 UTC)
+* Batch (3.3.102.0)
+	* AWS Batch now supports SDK auto-pagination and Job-level docker devices.
+* CloudWatchLogs (3.3.101.0)
+	* Allow for specifying multiple log groups in an Insights query, and deprecate storedByte field for LogStreams and interleaved field for FilterLogEventsRequest.
+* CostExplorer (3.3.102.0)
+	* Adds support for resource optimization recommendations.
+* EC2 (3.3.123.0)
+	* You can now create EC2 Capacity Reservations using Availability Zone ID or Availability Zone name. You can view usage of Amazon EC2 Capacity Reservations per AWS account.
+* Glue (3.3.107.0)
+	* This release provides GetJobBookmark and GetJobBookmarks APIs. These APIs enable users to look at specific versions or all versions of the JobBookmark for a specific job. This release also enables resetting the job bookmark to a specific run via an enhancement of the ResetJobBookmark API.
+* Greengrass (3.3.102.0)
+	* Greengrass OTA service supports openwrt/aarch64 and openwrt/armv7l platforms.
+* MediaConnect (3.3.103.0)
+	* This release adds support for the Zixi pull protocol on outputs.
+
+### 3.3.558.0 (2019-07-25 18:10 UTC)
+* ECR (3.3.101.0)
+	* This release adds support for immutable image tags.
+* MediaConvert (3.3.104.0)
+	* AWS Elemental MediaConvert has added several features including support for: audio normalization using ITU BS.1770-3, 1770-4 algorithms, extension of job progress indicators, input cropping rectangle & output position rectangle filters per input, and dual SCC caption mapping to additional codecs and containers. 
+* MediaLive (3.3.104.0)
+	* AWS Elemental MediaLive is adding Input Clipping, Immediate Mode Input Switching, and Dynamic Inputs.
+* Core 3.3.103.16
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.557.0 (2019-07-24 18:19 UTC)
+* EC2 (3.3.122.0)
+	* This release introduces support for split tunnel with AWS Client VPN, and also adds support for opt-in Regions in DescribeRegions API. In addition, customers can now also tag Launch Templates on creation.
+* Glue (3.3.106.0)
+	* This release provides GlueVersion option for Job APIs and WorkerType option for DevEndpoint APIs. Job APIs enable users to pick specific GlueVersion for a specific job and pin the job to a specific runtime environment. DevEndpoint APIs enable users to pick different WorkerType for memory intensive workload.
+* Pinpoint (3.3.101.0)
+	* This release adds support for programmatic access to many of the same campaign metrics that are displayed on the Amazon Pinpoint console. You can now use the Amazon Pinpoint API to monitor and assess performance data for campaigns, and integrate metrics data with other reporting tools. We update the metrics data continuously, resulting in a data latency timeframe that is limited to approximately two hours.
+* SecurityToken (3.3.102.0)
+	* New STS GetAccessKeyInfo API operation that returns the account identifier for the specified access key ID.
+* Core 3.3.103.15
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.556.0 (2019-07-23 19:44 UTC)
+* SecretsManager (3.3.101.0)
+	* This release increases the maximum allowed size of SecretString or SecretBinary from 7KB to 10KB in the CreateSecret, UpdateSecret, PutSecretValue and GetSecretValue APIs. This release also increases the maximum allowed size of ResourcePolicy from 4KB to 20KB in the GetResourcePolicy and PutResourcePolicy APIs.
+* SimpleSystemsManagement (3.3.105.0)
+	* You can now use Maintenance Windows to select a resource group as the target. By selecting a resource group as the target of a Maintenance Window, customers can perform routine tasks across different resources such as Amazon Elastic Compute Cloud (AmazonEC2) instances, Amazon Elastic Block Store (Amazon EBS) volumes, and Amazon Simple Storage Service(Amazon S3) buckets within the same recurring time window.
+
 ### 3.3.555.0 (2019-07-22 19:41 UTC)
 * MQ (3.3.102.0)
 	* Adds support for AWS Key Management Service (KMS) to offer server-side encryption. You can now select your own customer managed CMK, or use an AWS managed CMK in your KMS  account.

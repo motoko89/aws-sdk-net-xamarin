@@ -368,10 +368,10 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Returns a list of resource metadata for a given list of DevEndpoint names. After calling
-        /// the <code>ListDevEndpoints</code> operation, you can call this operation to access
-        /// the data to which you have been granted permissions. This operation supports all IAM
-        /// permissions, including permission conditions that uses tags.
+        /// Returns a list of resource metadata for a given list of development endpoint names.
+        /// After calling the <code>ListDevEndpoints</code> operation, you can call this operation
+        /// to access the data to which you have been granted permissions. This operation supports
+        /// all IAM permissions, including permission conditions that uses tags.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchGetDevEndpoints service method.</param>
         /// 
@@ -901,7 +901,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Creates a new DevEndpoint.
+        /// Creates a new development endpoint.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateDevEndpoint service method.</param>
         /// 
@@ -1136,7 +1136,11 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Creates a new security configuration.
+        /// Creates a new security configuration. A security configuration is a set of security
+        /// properties that can be used by AWS Glue. You can use a security configuration to encrypt
+        /// data at rest. For information about using security configurations in AWS Glue, see
+        /// <a href="https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html">Encrypting
+        /// Data Written by Crawlers, Jobs, and Development Endpoints</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSecurityConfiguration service method.</param>
         /// 
@@ -1649,7 +1653,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Deletes a specified DevEndpoint.
+        /// Deletes a specified development endpoint.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteDevEndpoint service method.</param>
         /// 
@@ -2760,7 +2764,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Retrieves information about a specified DevEndpoint.
+        /// Retrieves information about a specified development endpoint.
         /// 
         ///  <note> 
         /// <para>
@@ -2821,7 +2825,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Retrieves all the DevEndpoints in this AWS account.
+        /// Retrieves all the development endpoints in this AWS account.
         /// 
         ///  <note> 
         /// <para>
@@ -2927,6 +2931,114 @@ namespace Amazon.Glue
         /// <returns>Returns a  GetJobResult from Glue.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetJob">REST API Reference for GetJob Operation</seealso>
         GetJobResponse EndGetJob(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  GetJobBookmark
+
+
+        /// <summary>
+        /// Returns information on a job bookmark entry.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetJobBookmark service method.</param>
+        /// 
+        /// <returns>The response from the GetJobBookmark service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ValidationException">
+        /// A value could not be validated.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetJobBookmark">REST API Reference for GetJobBookmark Operation</seealso>
+        GetJobBookmarkResponse GetJobBookmark(GetJobBookmarkRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetJobBookmark operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetJobBookmark operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetJobBookmark
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetJobBookmark">REST API Reference for GetJobBookmark Operation</seealso>
+        IAsyncResult BeginGetJobBookmark(GetJobBookmarkRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetJobBookmark operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetJobBookmark.</param>
+        /// 
+        /// <returns>Returns a  GetJobBookmarkResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetJobBookmark">REST API Reference for GetJobBookmark Operation</seealso>
+        GetJobBookmarkResponse EndGetJobBookmark(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  GetJobBookmarks
+
+
+        /// <summary>
+        /// Returns information on the job bookmark entries. The list is ordered on decreasing
+        /// version numbers.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetJobBookmarks service method.</param>
+        /// 
+        /// <returns>The response from the GetJobBookmarks service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetJobBookmarks">REST API Reference for GetJobBookmarks Operation</seealso>
+        GetJobBookmarksResponse GetJobBookmarks(GetJobBookmarksRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetJobBookmarks operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetJobBookmarks operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetJobBookmarks
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetJobBookmarks">REST API Reference for GetJobBookmarks Operation</seealso>
+        IAsyncResult BeginGetJobBookmarks(GetJobBookmarksRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetJobBookmarks operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetJobBookmarks.</param>
+        /// 
+        /// <returns>Returns a  GetJobBookmarksResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetJobBookmarks">REST API Reference for GetJobBookmarks Operation</seealso>
+        GetJobBookmarksResponse EndGetJobBookmarks(IAsyncResult asyncResult);
 
         #endregion
         
@@ -5524,7 +5636,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Updates a specified DevEndpoint.
+        /// Updates a specified development endpoint.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateDevEndpoint service method.</param>
         /// 

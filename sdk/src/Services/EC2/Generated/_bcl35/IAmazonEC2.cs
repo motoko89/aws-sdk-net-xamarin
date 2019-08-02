@@ -2390,7 +2390,7 @@ namespace Amazon.EC2
         ///  <code>domain-name-servers</code> - The IP addresses of up to four domain name servers,
         /// or AmazonProvidedDNS. The default DHCP option set specifies AmazonProvidedDNS. If
         /// specifying more than one domain name server, specify the IP addresses in a single
-        /// parameter, separated by commas. ITo have your instance to receive a custom DNS hostname
+        /// parameter, separated by commas. To have your instance receive a custom DNS hostname
         /// as specified in <code>domain-name</code>, you must set <code>domain-name-servers</code>
         /// to a custom DNS server.
         /// </para>
@@ -9411,15 +9411,17 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the Regions that are currently available to you. The API returns a list
-        /// of all the Regions, including Regions that are disabled for your account. For information
-        /// about enabling Regions for your account, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-account-payment.html#manage-account-payment-enable-disable-regions">Enabling
-        /// and Disabling Regions</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+        /// Describes the Regions that are enabled for your account, or all Regions.
         /// 
         ///  
         /// <para>
         /// For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region">
         /// Regions and Endpoints</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For information about enabling and disabling Regions for your account, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing
+        /// AWS Regions</a> in the <i>AWS General Reference</i>.
         /// </para>
         /// </summary>
         /// 
@@ -9428,15 +9430,17 @@ namespace Amazon.EC2
         DescribeRegionsResponse DescribeRegions();
 
         /// <summary>
-        /// Describes the Regions that are currently available to you. The API returns a list
-        /// of all the Regions, including Regions that are disabled for your account. For information
-        /// about enabling Regions for your account, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-account-payment.html#manage-account-payment-enable-disable-regions">Enabling
-        /// and Disabling Regions</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+        /// Describes the Regions that are enabled for your account, or all Regions.
         /// 
         ///  
         /// <para>
         /// For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region">
         /// Regions and Endpoints</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For information about enabling and disabling Regions for your account, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing
+        /// AWS Regions</a> in the <i>AWS General Reference</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeRegions service method.</param>
@@ -13166,6 +13170,46 @@ namespace Amazon.EC2
         /// <returns>Returns a  ExportTransitGatewayRoutesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ExportTransitGatewayRoutes">REST API Reference for ExportTransitGatewayRoutes Operation</seealso>
         ExportTransitGatewayRoutesResponse EndExportTransitGatewayRoutes(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  GetCapacityReservationUsage
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetCapacityReservationUsage service method.</param>
+        /// 
+        /// <returns>The response from the GetCapacityReservationUsage service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetCapacityReservationUsage">REST API Reference for GetCapacityReservationUsage Operation</seealso>
+        GetCapacityReservationUsageResponse GetCapacityReservationUsage(GetCapacityReservationUsageRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetCapacityReservationUsage operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetCapacityReservationUsage operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetCapacityReservationUsage
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetCapacityReservationUsage">REST API Reference for GetCapacityReservationUsage Operation</seealso>
+        IAsyncResult BeginGetCapacityReservationUsage(GetCapacityReservationUsageRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetCapacityReservationUsage operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetCapacityReservationUsage.</param>
+        /// 
+        /// <returns>Returns a  GetCapacityReservationUsageResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetCapacityReservationUsage">REST API Reference for GetCapacityReservationUsage Operation</seealso>
+        GetCapacityReservationUsageResponse EndGetCapacityReservationUsage(IAsyncResult asyncResult);
 
         #endregion
         

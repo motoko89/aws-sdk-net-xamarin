@@ -39,7 +39,7 @@ namespace Amazon.SecurityToken.Model
         /// Gets and sets the property Arn. 
         /// <para>
         /// The Amazon Resource Name (ARN) of the IAM managed policy to use as a session policy
-        /// for the role. For more information about ARNs, see <a href="general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// for the role. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
         /// </para>
         /// </summary>

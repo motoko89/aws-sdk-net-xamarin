@@ -28,14 +28,16 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Glue.Model
 {
     /// <summary>
-    /// Defines a point which a job can resume processing.
+    /// Defines a point that a job can resume processing.
     /// </summary>
     public partial class JobBookmarkEntry
     {
         private int? _attempt;
         private string _jobBookmark;
         private string _jobName;
+        private string _previousRunId;
         private int? _run;
+        private string _runId;
         private int? _version;
 
         /// <summary>
@@ -77,7 +79,7 @@ namespace Amazon.Glue.Model
         /// <summary>
         /// Gets and sets the property JobName. 
         /// <para>
-        /// Name of the job in question.
+        /// The name of the job in question.
         /// </para>
         /// </summary>
         public string JobName
@@ -90,6 +92,24 @@ namespace Amazon.Glue.Model
         internal bool IsSetJobName()
         {
             return this._jobName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PreviousRunId. 
+        /// <para>
+        /// The unique run identifier associated with the previous job run..
+        /// </para>
+        /// </summary>
+        public string PreviousRunId
+        {
+            get { return this._previousRunId; }
+            set { this._previousRunId = value; }
+        }
+
+        // Check to see if PreviousRunId property is set
+        internal bool IsSetPreviousRunId()
+        {
+            return this._previousRunId != null;
         }
 
         /// <summary>
@@ -111,9 +131,27 @@ namespace Amazon.Glue.Model
         }
 
         /// <summary>
+        /// Gets and sets the property RunId. 
+        /// <para>
+        /// The unique run identifier associated with this job run.
+        /// </para>
+        /// </summary>
+        public string RunId
+        {
+            get { return this._runId; }
+            set { this._runId = value; }
+        }
+
+        // Check to see if RunId property is set
+        internal bool IsSetRunId()
+        {
+            return this._runId != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Version. 
         /// <para>
-        /// Version of the job.
+        /// The version of the job.
         /// </para>
         /// </summary>
         public int Version

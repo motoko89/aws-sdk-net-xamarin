@@ -51,6 +51,28 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.InputAttachmentNameReference);
             }
 
+            if(requestObject.IsSetInputClippingSettings())
+            {
+                context.Writer.WritePropertyName("inputClippingSettings");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = InputClippingSettingsMarshaller.Instance;
+                marshaller.Marshall(requestObject.InputClippingSettings, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetUrlPath())
+            {
+                context.Writer.WritePropertyName("urlPath");
+                context.Writer.WriteArrayStart();
+                foreach(var requestObjectUrlPathListValue in requestObject.UrlPath)
+                {
+                        context.Writer.Write(requestObjectUrlPathListValue);
+                }
+                context.Writer.WriteArrayEnd();
+            }
+
         }
 
         /// <summary>

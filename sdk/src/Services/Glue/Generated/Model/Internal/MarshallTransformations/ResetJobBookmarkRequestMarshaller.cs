@@ -74,6 +74,12 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.JobName);
                 }
 
+                if(publicRequest.IsSetRunId())
+                {
+                    context.Writer.WritePropertyName("RunId");
+                    context.Writer.Write(publicRequest.RunId);
+                }
+
         
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();

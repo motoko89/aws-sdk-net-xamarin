@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.MediaLive.Model
 {
     /// <summary>
-    /// Media Package Output Destination Settings
+    /// MediaPackage Output Destination Settings
     /// </summary>
     public partial class MediaPackageOutputDestinationSettings
     {

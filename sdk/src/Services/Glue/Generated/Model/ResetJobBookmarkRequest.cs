@@ -34,6 +34,7 @@ namespace Amazon.Glue.Model
     public partial class ResetJobBookmarkRequest : AmazonGlueRequest
     {
         private string _jobName;
+        private string _runId;
 
         /// <summary>
         /// Gets and sets the property JobName. 
@@ -52,6 +53,24 @@ namespace Amazon.Glue.Model
         internal bool IsSetJobName()
         {
             return this._jobName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property RunId. 
+        /// <para>
+        /// The unique run identifier associated with this job run.
+        /// </para>
+        /// </summary>
+        public string RunId
+        {
+            get { return this._runId; }
+            set { this._runId = value; }
+        }
+
+        // Check to see if RunId property is set
+        internal bool IsSetRunId()
+        {
+            return this._runId != null;
         }
 
     }

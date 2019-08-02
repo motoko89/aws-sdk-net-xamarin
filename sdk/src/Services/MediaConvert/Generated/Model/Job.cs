@@ -44,6 +44,7 @@ namespace Amazon.MediaConvert.Model
         private int? _jobPercentComplete;
         private string _jobTemplate;
         private List<OutputGroupDetail> _outputGroupDetails = new List<OutputGroupDetail>();
+        private int? _priority;
         private string _queue;
         private int? _retryCount;
         private string _role;
@@ -189,9 +190,8 @@ namespace Amazon.MediaConvert.Model
         /// AWS Elemental MediaConvert provides jobPercentComplete in CloudWatch STATUS_UPDATE
         /// events and in the response to GetJob and ListJobs requests. The jobPercentComplete
         /// estimate is reliable for the following input containers: Quicktime, Transport Stream,
-        /// MP4, and MXF. For some jobs, including audio-only jobs and jobs that use input clipping,
-        /// the service can't provide information about job progress. In those cases, jobPercentComplete
-        /// returns a null value.
+        /// MP4, and MXF. For some jobs, the service can't provide information about job progress.
+        /// In those cases, jobPercentComplete returns a null value.
         /// </summary>
         public int JobPercentComplete
         {
@@ -234,6 +234,22 @@ namespace Amazon.MediaConvert.Model
         internal bool IsSetOutputGroupDetails()
         {
             return this._outputGroupDetails != null && this._outputGroupDetails.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property Priority. Relative priority on the job.
+        /// </summary>
+        [AWSProperty(Min=-50, Max=50)]
+        public int Priority
+        {
+            get { return this._priority.GetValueOrDefault(); }
+            set { this._priority = value; }
+        }
+
+        // Check to see if Priority property is set
+        internal bool IsSetPriority()
+        {
+            return this._priority.HasValue; 
         }
 
         /// <summary>

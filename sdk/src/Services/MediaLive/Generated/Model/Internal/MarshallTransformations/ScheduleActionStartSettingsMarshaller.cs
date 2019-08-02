@@ -67,6 +67,17 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetImmediateModeScheduleActionStartSettings())
+            {
+                context.Writer.WritePropertyName("immediateModeScheduleActionStartSettings");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = ImmediateModeScheduleActionStartSettingsMarshaller.Instance;
+                marshaller.Marshall(requestObject.ImmediateModeScheduleActionStartSettings, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
         }
 
         /// <summary>
