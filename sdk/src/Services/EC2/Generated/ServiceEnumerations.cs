@@ -255,6 +255,10 @@ namespace Amazon.EC2
     {
 
         /// <summary>
+        /// Constant CapacityOptimized for AllocationStrategy
+        /// </summary>
+        public static readonly AllocationStrategy CapacityOptimized = new AllocationStrategy("capacityOptimized");
+        /// <summary>
         /// Constant Diversified for AllocationStrategy
         /// </summary>
         public static readonly AllocationStrategy Diversified = new AllocationStrategy("diversified");
@@ -4447,6 +4451,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType I3enLarge = new InstanceType("i3en.large");
         /// <summary>
+        /// Constant I3enMetal for InstanceType
+        /// </summary>
+        public static readonly InstanceType I3enMetal = new InstanceType("i3en.metal");
+        /// <summary>
         /// Constant I3enXlarge for InstanceType
         /// </summary>
         public static readonly InstanceType I3enXlarge = new InstanceType("i3en.xlarge");
@@ -7572,6 +7580,10 @@ namespace Amazon.EC2
     public class SpotAllocationStrategy : ConstantClass
     {
 
+        /// <summary>
+        /// Constant CapacityOptimized for SpotAllocationStrategy
+        /// </summary>
+        public static readonly SpotAllocationStrategy CapacityOptimized = new SpotAllocationStrategy("capacity-optimized");
         /// <summary>
         /// Constant Diversified for SpotAllocationStrategy
         /// </summary>

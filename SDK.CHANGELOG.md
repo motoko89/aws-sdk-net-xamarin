@@ -1,3 +1,146 @@
+### 3.3.570.0 (2019-08-16 19:18 UTC)
+* ECS (3.3.105.0)
+	* This release of Amazon Elastic Container Service (Amazon ECS) introduces support for controlling the usage of swap space on a per-container basis for Linux containers.
+* ElasticMapReduce (3.3.102.0)
+	* Amazon EMR  has introduced an account level configuration called Block Public Access that allows you to block clusters with ports open to traffic from public IP sources (i.e. 0.0.0.0/0 for IPv4 and ::/0 for IPv6) from launching.  Individual ports or port ranges can be added as exceptions to allow public access.
+* RoboMaker (3.3.105.0)
+	* Two feature release: 1. AWS RoboMaker introduces log-based simulation. Log-based simulation allows you to play back pre-recorded log data such as sensor streams for testing robotic functions like localization, mapping, and object detection. Use the AWS RoboMaker SDK to test your robotic applications.  2.  AWS RoboMaker allow customer to setup a robot deployment timeout when CreateDeploymentJob.
+* Core 3.3.103.29
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.569.1 (2019-08-15 21:36 UTC)
+* CognitoIdentity (3.3.100.64)
+	* Fix call hanging issue in CognitoAWSCredentials
+* S3 (3.3.104.16)
+	* PR [#1298](https://github.com/aws/aws-sdk-net/pull/1298) Add missing ContentRange property to GetObjectMetadataResponse. Thanks [eangelov](https://github.com/eangelov)
+* Core 3.3.103.28
+	* PR [#1276](https://github.com/aws/aws-sdk-net/pull/1276) Fixed issue in .NET Framework async calls not handling timeout correctly. Thanks [Daniel Marbach](https://github.com/danielmarbach)
+    * PR [#1370](https://github.com/aws/aws-sdk-net/pull/1370) Better error handling when no EC2 instance metadata found. Thanks [Martin Costello](https://github.com/martincostello)
+    * PR [#1366](https://github.com/aws/aws-sdk-net/pull/1366) Fixed issue looking for "default" profile in ~/.aws/config file. Thanks [Jesse Mandel](https://github.com/supergibbs)
+    * Updated generator to not mark idempotency tokens as required. 
+    * Fix call hanging issue in RefreshAWSCredentials impacting CognitoAWSCredentials
+	* All services packages updated to require new Core
+
+### 3.3.569.0 (2019-08-15 19:06 UTC)
+* AppMesh (3.3.103.0)
+	* This release adds support for http header based routing and route prioritization.
+* Athena (3.3.101.0)
+	* This release adds support for querying S3 Requester Pays buckets. Users can enable this feature through their Workgroup settings.
+* CodeCommit (3.3.105.0)
+	* This release adds an API, BatchGetCommits, that allows retrieval of metadata for multiple commits in an AWS CodeCommit repository.
+* EC2 (3.3.126.0)
+	* This release adds an option to use private certificates from AWS Certificate Manager (ACM) to authenticate a Site-to-Site VPN connection's tunnel endpoints and customer gateway device. 
+* Glue (3.3.109.0)
+	* GetJobBookmarks API is withdrawn.
+* StorageGateway (3.3.108.0)
+	* CreateSnapshotFromVolumeRecoveryPoint API supports new parameter: Tags (to be attached to the created resource)
+
+### 3.3.568.0 (2019-08-14 18:15 UTC)
+* EC2 (3.3.125.0)
+	* This release adds a new API called SendDiagnosticInterrupt, which allows you to send diagnostic interrupts to your EC2 instance.
+* Core 3.3.103.27
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.567.0 (2019-08-13 19:35 UTC)
+* AppSync (3.3.102.0)
+	* Adds a configuration option for AppSync GraphQL APIs
+* Core 3.3.103.26
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.566.0 (2019-08-12 18:14 UTC)
+* ApplicationAutoScaling (3.3.100.61)
+	* Documentation updates for Application Auto Scaling
+* AutoScaling (3.3.100.62)
+	* Amazon EC2 Auto Scaling now supports a new Spot allocation strategy "capacity-optimized" that fulfills your request using Spot Instance pools that are optimally chosen based on the available Spot capacity.
+* CloudWatch (3.3.102.16)
+	* Documentation updates for monitoring
+* Rekognition (3.3.101.0)
+	* Adding new Emotion, Fear
+* Core 3.3.103.25
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.565.0 (2019-08-09 18:16 UTC)
+* GuardDuty (3.3.103.0)
+	* New "evidence" field in the finding model to provide evidence information explaining why the finding has been triggered. Currently only threat-intelligence findings have this field. Some documentation updates.
+* IoT (3.3.102.0)
+	* This release adds Quality of Service (QoS) support for AWS IoT rules engine republish action.
+* Lex (3.3.101.0)
+	* Manage Amazon Lex session state using APIs on the client
+* MediaConvert (3.3.106.0)
+	* AWS Elemental MediaConvert has added support for multi-DRM SPEKE with CMAF outputs, MP3 ingest, and options for improved video quality. 
+* Redshift (3.3.103.0)
+	* Add expectedNextSnapshotScheduleTime and expectedNextSnapshotScheduleTimeStatus to redshift cluster object.
+* Core 3.3.103.24
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.564.0 (2019-08-08 19:48 UTC)
+* CodeBuild (3.3.102.0)
+	* CodeBuild adds CloudFormation support for SourceCredential
+* Glue (3.3.108.0)
+	* You can now use AWS Glue to find matching records across dataset even without identifiers to join on by using the new FindMatches ML Transform. Find related products, places, suppliers, customers, and more by teaching a custom machine learning transformation that you can use to identify matching matching records as part of your analysis, data cleaning, or master data management project by adding the FindMatches transformation to your Glue ETL Jobs. If your problem is more along the lines of deduplication, you can use the FindMatches in much the same way to identify customers who have signed up more than ones, products that have accidentally been added to your product catalog more than once, and so forth. Using the FindMatches MLTransform, you can teach a Transform your definition of a duplicate through examples, and it will use machine learning to identify other potential duplicates in your dataset. As with data integration, you can then use your new Transform in your deduplication projects by adding the FindMatches transformation to your Glue ETL Jobs. This release also contains additional APIs that support AWS Lake Formation.
+* LakeFormation (3.3.100.0)
+	* Lake Formation: (New Service) AWS Lake Formation is a fully managed service that makes it easier for customers to build, secure and manage data lakes.  AWS Lake Formation simplifies and automates many of the complex manual steps usually required to create data lakes including collecting, cleaning and cataloging data and securely making that data available for analytics and machine learning.
+* OpsWorksCM (3.3.101.0)
+	* This release adds support for Chef Automate 2 specific engine attributes.
+* Core 3.3.103.23
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.563.1 (2019-08-07 21:49 UTC)
+* S3 (3.3.104.10)
+	* Updated to use new Core, version 3.3.103.22
+	* Fixes issues with encoding of slashes and %2F within resource paths.
+* Core 3.3.103.22
+	* Fixes issues with encoding of slashes and %2F within resource paths.
+	* All services packages updated to require new Core
+
+### 3.3.563.0 (2019-08-07 19:29 UTC)
+* ApplicationInsights (3.3.101.0)
+	* CloudWatch Application Insights for .NET and SQL Server now provides integration with AWS Systems Manager OpsCenter. This integration allows you to view and resolve problems and operational issues detected for selected applications.
+* Core 3.3.103.21
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.562.1 (2019-08-06 18:08 UTC)
+* Batch (3.3.102.5)
+	* Documentation updates for AWS Batch
+
+### 3.3.562.0 (2019-08-05 18:08 UTC)
+* DataSync (3.3.103.0)
+	* Support VPC endpoints.
+* EC2 (3.3.124.0)
+	* Amazon EC2 now supports a new Spot allocation strategy "Capacity-optimized" that fulfills your request using Spot Instance pools that are optimally chosen based on the available Spot capacity.
+* IoT (3.3.101.0)
+	* In this release, AWS IoT Device Defender introduces audit mitigation actions that can be applied to audit findings to help mitigate security issues.
+
+### 3.3.561.2 (2019-08-02 18:51 UTC)
+* SecurityToken (3.3.102.5)
+	* Documentation updates for sts
+* Core 3.3.103.20
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
 ### 3.3.561.1 (2019-08-01 21:25 UTC)
 * Core 3.3.103.19
 	* Allow "Assume Role" profiles to reference other "Assume Role" profiles as their source
