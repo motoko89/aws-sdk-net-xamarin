@@ -901,6 +901,106 @@ namespace Amazon.SageMaker
 
 
     /// <summary>
+    /// Constants used for properties of type FileSystemAccessMode.
+    /// </summary>
+    public class FileSystemAccessMode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Ro for FileSystemAccessMode
+        /// </summary>
+        public static readonly FileSystemAccessMode Ro = new FileSystemAccessMode("ro");
+        /// <summary>
+        /// Constant Rw for FileSystemAccessMode
+        /// </summary>
+        public static readonly FileSystemAccessMode Rw = new FileSystemAccessMode("rw");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public FileSystemAccessMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static FileSystemAccessMode FindValue(string value)
+        {
+            return FindValue<FileSystemAccessMode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator FileSystemAccessMode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type FileSystemType.
+    /// </summary>
+    public class FileSystemType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant EFS for FileSystemType
+        /// </summary>
+        public static readonly FileSystemType EFS = new FileSystemType("EFS");
+        /// <summary>
+        /// Constant FSxLustre for FileSystemType
+        /// </summary>
+        public static readonly FileSystemType FSxLustre = new FileSystemType("FSxLustre");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public FileSystemType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static FileSystemType FindValue(string value)
+        {
+            return FindValue<FileSystemType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator FileSystemType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type Framework.
     /// </summary>
     public class Framework : ConstantClass
@@ -3015,6 +3115,10 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly SecondaryStatus Failed = new SecondaryStatus("Failed");
         /// <summary>
+        /// Constant Interrupted for SecondaryStatus
+        /// </summary>
+        public static readonly SecondaryStatus Interrupted = new SecondaryStatus("Interrupted");
+        /// <summary>
         /// Constant LaunchingMLInstances for SecondaryStatus
         /// </summary>
         public static readonly SecondaryStatus LaunchingMLInstances = new SecondaryStatus("LaunchingMLInstances");
@@ -3022,6 +3126,10 @@ namespace Amazon.SageMaker
         /// Constant MaxRuntimeExceeded for SecondaryStatus
         /// </summary>
         public static readonly SecondaryStatus MaxRuntimeExceeded = new SecondaryStatus("MaxRuntimeExceeded");
+        /// <summary>
+        /// Constant MaxWaitTimeExceeded for SecondaryStatus
+        /// </summary>
+        public static readonly SecondaryStatus MaxWaitTimeExceeded = new SecondaryStatus("MaxWaitTimeExceeded");
         /// <summary>
         /// Constant PreparingTrainingStack for SecondaryStatus
         /// </summary>
@@ -3251,6 +3359,10 @@ namespace Amazon.SageMaker
     {
 
         /// <summary>
+        /// Constant Aisage for TargetDevice
+        /// </summary>
+        public static readonly TargetDevice Aisage = new TargetDevice("aisage");
+        /// <summary>
         /// Constant Deeplens for TargetDevice
         /// </summary>
         public static readonly TargetDevice Deeplens = new TargetDevice("deeplens");
@@ -3294,6 +3406,14 @@ namespace Amazon.SageMaker
         /// Constant Ml_p3 for TargetDevice
         /// </summary>
         public static readonly TargetDevice Ml_p3 = new TargetDevice("ml_p3");
+        /// <summary>
+        /// Constant Qcs603 for TargetDevice
+        /// </summary>
+        public static readonly TargetDevice Qcs603 = new TargetDevice("qcs603");
+        /// <summary>
+        /// Constant Qcs605 for TargetDevice
+        /// </summary>
+        public static readonly TargetDevice Qcs605 = new TargetDevice("qcs605");
         /// <summary>
         /// Constant Rasp3b for TargetDevice
         /// </summary>
@@ -3506,6 +3626,10 @@ namespace Amazon.SageMaker
         /// Constant MlP38xlarge for TrainingInstanceType
         /// </summary>
         public static readonly TrainingInstanceType MlP38xlarge = new TrainingInstanceType("ml.p3.8xlarge");
+        /// <summary>
+        /// Constant MlP3dn24xlarge for TrainingInstanceType
+        /// </summary>
+        public static readonly TrainingInstanceType MlP3dn24xlarge = new TrainingInstanceType("ml.p3dn.24xlarge");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant

@@ -35,6 +35,7 @@ namespace Amazon.ECS.Model
         private string _containerArn;
         private string _cpu;
         private int? _exitCode;
+        private FirelensConfiguration _firelensConfiguration;
         private List<string> _gpuIds = new List<string>();
         private HealthStatus _healthStatus;
         private string _lastStatus;
@@ -44,6 +45,7 @@ namespace Amazon.ECS.Model
         private List<NetworkBinding> _networkBindings = new List<NetworkBinding>();
         private List<NetworkInterface> _networkInterfaces = new List<NetworkInterface>();
         private string _reason;
+        private string _runtimeId;
         private string _taskArn;
 
         /// <summary>
@@ -99,6 +101,24 @@ namespace Amazon.ECS.Model
         internal bool IsSetExitCode()
         {
             return this._exitCode.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property FirelensConfiguration. 
+        /// <para>
+        /// The FireLens configuration for the container.
+        /// </para>
+        /// </summary>
+        public FirelensConfiguration FirelensConfiguration
+        {
+            get { return this._firelensConfiguration; }
+            set { this._firelensConfiguration = value; }
+        }
+
+        // Check to see if FirelensConfiguration property is set
+        internal bool IsSetFirelensConfiguration()
+        {
+            return this._firelensConfiguration != null;
         }
 
         /// <summary>
@@ -263,6 +283,24 @@ namespace Amazon.ECS.Model
         internal bool IsSetReason()
         {
             return this._reason != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property RuntimeId. 
+        /// <para>
+        /// The ID of the Docker container.
+        /// </para>
+        /// </summary>
+        public string RuntimeId
+        {
+            get { return this._runtimeId; }
+            set { this._runtimeId = value; }
+        }
+
+        // Check to see if RuntimeId property is set
+        internal bool IsSetRuntimeId()
+        {
+            return this._runtimeId != null;
         }
 
         /// <summary>

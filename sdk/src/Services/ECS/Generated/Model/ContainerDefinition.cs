@@ -45,6 +45,7 @@ namespace Amazon.ECS.Model
         private List<KeyValuePair> _environment = new List<KeyValuePair>();
         private bool? _essential;
         private List<HostEntry> _extraHosts = new List<HostEntry>();
+        private FirelensConfiguration _firelensConfiguration;
         private HealthCheck _healthCheck;
         private string _hostname;
         private string _image;
@@ -476,6 +477,25 @@ namespace Amazon.ECS.Model
         internal bool IsSetExtraHosts()
         {
             return this._extraHosts != null && this._extraHosts.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property FirelensConfiguration. 
+        /// <para>
+        /// The FireLens configuration for the container. This is used to specify and configure
+        /// a log router for container logs.
+        /// </para>
+        /// </summary>
+        public FirelensConfiguration FirelensConfiguration
+        {
+            get { return this._firelensConfiguration; }
+            set { this._firelensConfiguration = value; }
+        }
+
+        // Check to see if FirelensConfiguration property is set
+        internal bool IsSetFirelensConfiguration()
+        {
+            return this._firelensConfiguration != null;
         }
 
         /// <summary>
@@ -1060,9 +1080,9 @@ namespace Amazon.ECS.Model
         /// <summary>
         /// Gets and sets the property StartTimeout. 
         /// <para>
-        /// Time duration to wait before giving up on resolving dependencies for a container.
-        /// For example, you specify two containers in a task definition with containerA having
-        /// a dependency on containerB reaching a <code>COMPLETE</code>, <code>SUCCESS</code>,
+        /// Time duration (in seconds) to wait before giving up on resolving dependencies for
+        /// a container. For example, you specify two containers in a task definition with containerA
+        /// having a dependency on containerB reaching a <code>COMPLETE</code>, <code>SUCCESS</code>,
         /// or <code>HEALTHY</code> status. If a <code>startTimeout</code> value is specified
         /// for containerB and it does not reach the desired status within that time then containerA
         /// will give up and not start. This results in the task transitioning to a <code>STOPPED</code>
@@ -1103,11 +1123,11 @@ namespace Amazon.ECS.Model
         /// <summary>
         /// Gets and sets the property StopTimeout. 
         /// <para>
-        /// Time duration to wait before the container is forcefully killed if it doesn't exit
-        /// normally on its own. For tasks using the Fargate launch type, the max <code>stopTimeout</code>
-        /// value is 2 minutes. This parameter is available for tasks using the Fargate launch
-        /// type in the Ohio (us-east-2) region only and the task or service requires platform
-        /// version 1.3.0 or later.
+        /// Time duration (in seconds) to wait before the container is forcefully killed if it
+        /// doesn't exit normally on its own. For tasks using the Fargate launch type, the max
+        /// <code>stopTimeout</code> value is 2 minutes. This parameter is available for tasks
+        /// using the Fargate launch type in the Ohio (us-east-2) region only and the task or
+        /// service requires platform version 1.3.0 or later.
         /// </para>
         ///  
         /// <para>

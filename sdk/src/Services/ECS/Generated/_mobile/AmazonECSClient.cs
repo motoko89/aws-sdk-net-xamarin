@@ -341,14 +341,15 @@ namespace Amazon.ECS
         /// <summary>
         /// Runs and maintains a desired number of tasks from a specified task definition. If
         /// the number of tasks running in a service drops below the <code>desiredCount</code>,
-        /// Amazon ECS spawns another copy of the task in the specified cluster. To update an
-        /// existing service, see <a>UpdateService</a>.
+        /// Amazon ECS runs another copy of the task in the specified cluster. To update an existing
+        /// service, see <a>UpdateService</a>.
         /// 
         ///  
         /// <para>
         /// In addition to maintaining the desired count of tasks in your service, you can optionally
-        /// run your service behind a load balancer. The load balancer distributes traffic across
-        /// the tasks that are associated with the service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
+        /// run your service behind one or more load balancers. The load balancers distribute
+        /// traffic across the tasks that are associated with the service. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
         /// Load Balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
         /// </para>
         ///  
@@ -2422,6 +2423,55 @@ namespace Amazon.ECS
             options.ResponseUnmarshaller = UntagResourceResponseUnmarshaller.Instance;
 
             return InvokeAsync<UntagResourceResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateClusterSettings
+
+        internal virtual UpdateClusterSettingsResponse UpdateClusterSettings(UpdateClusterSettingsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateClusterSettingsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateClusterSettingsResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateClusterSettingsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Modifies the settings to use for a cluster.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateClusterSettings service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateClusterSettings service method, as returned by ECS.</returns>
+        /// <exception cref="Amazon.ECS.Model.ClientException">
+        /// These errors are usually caused by a client action, such as using an action or resource
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
+        /// specifying an identifier that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
+        /// The specified cluster could not be found. You can view your available clusters with
+        /// <a>ListClusters</a>. Amazon ECS clusters are Region-specific.
+        /// </exception>
+        /// <exception cref="Amazon.ECS.Model.InvalidParameterException">
+        /// The specified parameter is invalid. Review the available parameters for the API request.
+        /// </exception>
+        /// <exception cref="Amazon.ECS.Model.ServerException">
+        /// These errors are usually caused by a server issue.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/UpdateClusterSettings">REST API Reference for UpdateClusterSettings Operation</seealso>
+        public virtual Task<UpdateClusterSettingsResponse> UpdateClusterSettingsAsync(UpdateClusterSettingsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateClusterSettingsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateClusterSettingsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateClusterSettingsResponse>(request, options, cancellationToken);
         }
 
         #endregion

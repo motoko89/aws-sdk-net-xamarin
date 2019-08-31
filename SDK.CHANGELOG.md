@@ -1,3 +1,102 @@
+### 3.3.579.0 (2019-08-30 18:08 UTC)
+* ApiGatewayManagementApi (3.3.101.0)
+	* You can use getConnection to return information about the connection (when it is connected, IP address, etc) and deleteConnection to disconnect the given connection
+* ECS (3.3.107.0)
+	* This release of Amazon Elastic Container Service (Amazon ECS) introduces support for modifying the cluster settings for existing clusters, which enables you to toggle whether Container Insights is enabled or not. Support is also introduced for custom log routing using the ECS FireLens integration.
+* MQ (3.3.103.0)
+	* Adds support for updating security groups selection of an Amazon MQ broker.
+
+### 3.3.578.0 (2019-08-29 19:29 UTC)
+* ApplicationAutoScaling (3.3.101.0)
+	* With the current release, you can suspend and later resume any of the following scaling actions in Application Auto Scaling: scheduled scaling actions, dynamic scaling in actions, dynamic scaling out actions.
+* CodePipeline (3.3.103.0)
+	* Introducing pipeline execution trigger details in ListPipelineExecutions API.
+* ECS (3.3.106.0)
+	* This release of Amazon Elastic Container Service (Amazon ECS) introduces support for including Docker container IDs in the API response when describing and stopping tasks. This enables customers to easily map containers to the tasks they are associated with.
+* ElastiCache (3.3.104.0)
+	* Amazon ElastiCache for Redis now supports encryption at rest using customer managed customer master keys (CMKs) in AWS Key Management Service (KMS). Amazon ElastiCache now supports cluster names upto 40 characters for replicationGoups and upto 50 characters for cacheClusters.
+* Lambda (3.3.103.0)
+	* Adds a "MaximumBatchingWindowInSeconds" parameter to event source mapping api's. Usable by Dynamodb and Kinesis event sources.
+
+### 3.3.577.0 (2019-08-28 18:33 UTC)
+* GlobalAccelerator (3.3.101.0)
+	* API Update for AWS Global Accelerator Client IP Preservation
+* MediaConvert (3.3.107.0)
+	* This release adds the ability to send a job to an on-demand queue while simulating the performance of a job sent to a reserved queue. Use this setting to estimate the number of reserved transcoding slots (RTS) you need for a reserved queue.
+* SQS (3.3.102.0)
+	* Added support for message system attributes, which currently lets you send AWS X-Ray trace IDs through Amazon SQS.
+
+### 3.3.576.1 (2019-08-27 18:10 UTC)
+* Organizations (3.3.103.26)
+	* Documentation updates for organizations
+* Core 3.3.103.32
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.576.0 (2019-08-26 18:09 UTC)
+* SecurityHub (3.3.104.0)
+	* This release resolves an issue with the DescribeHub action, changes the MasterId and InvitationId parameters for AcceptInvitation to Required, and changes the AccountIds parameter for DeleteInvitations and DeclineInvitations to Required.
+* SimpleSystemsManagement (3.3.106.0)
+	* This feature adds "default tier" to the AWS Systems Manager Parameter Store for parameter creation and update. AWS customers can now set the "default tier" to one of the following values: Standard (default), Advanced or Intelligent-Tiering.  This allows customers to create advanced parameters or parameters in corresponding tiers with one setting rather than code change to specify parameter tiers.
+
+### 3.3.575.0 (2019-08-23 18:12 UTC)
+* EC2 (3.3.127.0)
+	* This release of EC2 VM Import Export adds support for exporting Amazon Machine Image(AMI)s to a VM file
+* MediaPackageVod (3.3.101.0)
+	* Adds optional Constant Initialization Vector (IV) to HLS Encryption for MediaPackage VOD.
+* TranscribeService (3.3.106.0)
+	* Amazon Transcribe - support transcriptions from audio sources in Russian (ru-RU) and Chinese (zh-CN).
+* Core 3.3.103.31
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.574.0 (2019-08-22 18:31 UTC)
+* DataSync (3.3.104.0)
+	* This release adds support for SMB location type.
+* RDS (3.3.108.0)
+	* This release allows users to enable RDS Data API while creating Aurora Serverless databases. 
+* Core 3.3.103.30
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.573.0 (2019-08-21 18:23 UTC)
+* ElastiCache (3.3.103.0)
+	* ElastiCache extends support for Scale down for Redis Cluster-mode enabled and disabled replication groups 
+* ForecastQueryService (3.3.100.0)
+	* Amazon Forecast is a fully managed machine learning service that makes it easy for customers to generate accurate forecasts using their historical time-series data
+* ForecastService (3.3.100.0)
+	* Amazon Forecast is a fully managed machine learning service that makes it easy for customers to generate accurate forecasts using their historical time-series data
+* PersonalizeRuntime (3.3.101.0)
+	* Increased limits on number of items recommended and reranked: The maximum number of results returned from getRecommendations API has been increased to 200. The maximum number of items which can be reranked via getPersonalizedRanking API has been increased to 200.
+* Rekognition (3.3.101.5)
+	* Documentation updates for Amazon Rekognition.
+* SageMaker (3.3.104.0)
+	* Amazon SageMaker now supports Amazon EFS and Amazon FSx for Lustre file systems as data sources for training machine learning models. Amazon SageMaker now supports running training jobs on ml.p3dn.24xlarge instance type. This instance type is offered as a limited private preview for certain SageMaker customers. If you are interested in joining the private preview, please reach out to the SageMaker Product Management team via AWS Support."
+* SQS (3.3.101.0)
+	* This release provides a way to add metadata tags to a queue when it is created. You can use tags to organize and identify your Amazon SQS queues for cost allocation.
+
+### 3.3.572.0 (2019-08-20 18:42 UTC)
+* AlexaForBusiness (3.3.106.0)
+	* Adding support for optional locale input in CreateProfile and UpdateProfile APIs
+* AppStream (3.3.103.0)
+	* Includes API updates to support streaming through VPC endpoints for image builders and stacks.
+* SageMaker (3.3.103.0)
+	* Amazon SageMaker introduces Managed Spot Training. Increases the maximum number of metric definitions to 40 for SageMaker Training and Hyperparameter Tuning Jobs. SageMaker Neo adds support for Acer aiSage and Qualcomm QCS605 and QCS603. 
+* Transfer (3.3.103.0)
+	* New field in response of TestIdentityProvider
+
+### 3.3.571.0 (2019-08-19 18:08 UTC)
+* AppMesh (3.3.104.0)
+	* Fix for HttpMethod enum
+* CostAndUsageReport (3.3.101.0)
+	* New IAM permission required for editing AWS Cost and Usage Reports - Starting today, you can allow or deny IAM users permission to edit Cost & Usage Reports through the API and the Billing and Cost Management console. To allow users to edit Cost & Usage Reports, ensure that they have 'cur: ModifyReportDefinition' permission. Refer to the technical documentation (https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_cur_ModifyReportDefinition.html) for additional details.
+
 ### 3.3.570.0 (2019-08-16 19:18 UTC)
 * ECS (3.3.105.0)
 	* This release of Amazon Elastic Container Service (Amazon ECS) introduces support for controlling the usage of swap space on a per-container basis for Linux containers.
