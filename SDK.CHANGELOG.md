@@ -1,3 +1,133 @@
+### 3.3.589.0 (2019-09-18 20:39 UTC)
+* APIGateway (3.3.103.0)
+	* Amazon API Gateway simplifies accessing PRIVATE APIs by allowing you to associate one or more Amazon Virtual Private Cloud (VPC) Endpoints to a private API. API Gateway will create and manage DNS alias records necessary for easily invoking the private APIs. With this feature, you can leverage private APIs in web applications hosted within your VPCs.
+* RAM (3.3.101.0)
+	* AWS RAM provides a new ListPendingInvitationResources API action that lists the resources in a resource share that is shared with you but that the invitation is still pending for
+* WAFRegional (3.3.102.0)
+	* Lowering the threshold for Rate Based rule from 2000 to 100.
+* Core 3.3.103.40
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.588.0 (2019-09-17 18:07 UTC)
+* Athena (3.3.102.0)
+	* This release adds DataManifestLocation field indicating the location and file name of the data manifest file. Users can get a list of files that the Athena query wrote or intended to write from the manifest file.
+* IdentityManagement (3.3.103.28)
+	* Documentation updates for iam
+* Personalize (3.3.101.0)
+	* [Personalize] Adds trainingHours to solutionVersion properties.
+* Core 3.3.103.39
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.587.0 (2019-09-16 18:10 UTC)
+* EKS (3.3.103.0)
+	* This release lets customers add tags to an Amazon EKS cluster. These tags can be used to control access to the EKS API for managing the cluster using IAM. The Amazon EKS TagResource API allows customers to associate tags with their cluster. Customers can list tags for a cluster using the ListTagsForResource API and remove tags from a cluster with the UntagResource API. Note: tags are specific to the EKS cluster resource, they do not propagate to other AWS resources used by the cluster.
+* MediaConvert (3.3.108.0)
+	* AWS Elemental MediaConvert SDK has added support for multi-DRM SPEKE with CMAF outputs, MP3 ingest, and options for improved video quality.
+* Core 3.3.103.38
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.586.0 (2019-09-12 19:16 UTC)
+* EC2 (3.3.130.0)
+	* Fix for FleetActivityStatus and FleetStateCode enum
+* ElasticLoadBalancingV2 (3.3.102.36)
+	* Documentation updates for elasticloadbalancingv2: This release adds support for TLS SNI on Network Load Balancers 
+* MediaLive (3.3.105.0)
+	* AWS Elemental MediaLive now supports High Efficiency Video Coding (HEVC) for standard-definition (SD), high-definition (HD), and ultra-high-definition (UHD) encoding with HDR support.Encoding with HEVC offers a number of advantages. While UHD video requires an advanced codec beyond H.264 (AVC), high frame rate (HFR) or High Dynamic Range (HDR) content in HD also benefit from HEVC's advancements. In addition, benefits can be achieved with HD and SD content even if HDR and HFR are not needed.
+* WorkMailMessageFlow (3.3.100.0)
+	* This release allows customers to access email messages as they flow to and from Amazon WorkMail.
+* Core 3.3.103.37
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.585.0 (2019-09-11 19:29 UTC)
+* ConfigService (3.3.104.0)
+	* Adding input validation for the OrganizationConfigRuleName string.
+* EC2 (3.3.129.0)
+	* This release adds support for new data fields and log format in VPC flow logs.
+* MediaConnect (3.3.104.0)
+	* This release adds support for the RIST protocol on sources and outputs.
+* RDS (3.3.109.0)
+	* This release allows customers to specify a custom parameter group when creating a Read Replica, for DB engines which support this feature.
+* SimpleEmail (3.3.101.43)
+	* Updated API documentation to correct broken links, and to update content based on customer feedback.
+* StepFunctions (3.3.102.0)
+	* Fixing letter case in Map history event details to be small case
+
+### 3.3.584.0 (2019-09-10 18:12 UTC)
+* StorageGateway (3.3.109.0)
+	* The CloudWatchLogGroupARN parameter of the UpdateGatewayInformation API allows for configuring the gateway to use a CloudWatch log-group where Storage Gateway health events will be logged. 
+
+### 3.3.583.0 (2019-09-09 21:38 UTC)
+* AppMesh (3.3.105.0)
+	* This release adds support for http retry policies.
+* AppStream (3.3.104.0)
+	* IamRoleArn support in CreateFleet, UpdateFleet, CreateImageBuilder APIs
+* AWSMarketplaceCommerceAnalytics (3.3.101.0)
+	* Add FDP+FPS (monthly_revenue_field_demonstration_usage + monthly_revenue_flexible_payment_schedule)  to Marketplace Commerce Analytics Service
+* EC2 (3.3.128.0)
+	* This release expands Site-to-Site VPN tunnel options to allow customers to restrict security algorithms and configure timer settings for VPN connections. Customers can specify these new options while creating new VPN connections, or they can modify the tunnel options on existing connections using a new API.
+* QLDB (3.3.100.0)
+	* (New Service) Amazon QLDB is a fully managed ledger database that provides a transparent, immutable, and cryptographically verifiable transaction log owned by a central trusted authority. Amazon QLDB is a new class of serverless database that eliminates the need to engage in the complex development effort of building your own ledger-like applications and it automatically scales to support the demands of your application. Introduces Amazon QLDB API operations needed for managing Amazon QLDB ledgers. This includes the ability to manage Amazon QLDB ledgers, cryptographically verify documents, and export the journal in a ledger.
+* QLDBSession (3.3.100.0)
+	* (New Service) Amazon QLDB is a fully managed ledger database that provides a transparent, immutable, and cryptographically verifiable transaction log owned by a central trusted authority. Amazon QLDB is a new class of serverless database that eliminates the need to engage in the complex development effort of building your own ledger-like applications and it automatically scales to support the demands of your application. Introduces Amazon QLDB API operations needed for interacting with data in Amazon QLDB ledgers.
+* RoboMaker (3.3.106.0)
+	* Support for Connectivity to Simulation. When you need to interact with the applications in your simulation job, you can connect to your robot application or simulation application with port forwarding. When you configure port forwarding, traffic will be forwarded from the simulation job port to the application port. Port forwarding makes it easy to connect with tools such as ROS Bridge and other tools. This can be useful when you want to debug or run custom tools to interact with your applications. 
+* Core 3.3.103.36
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.582.1 (2019-09-06 18:21 UTC)
+* KinesisAnalytics (3.3.101.54)
+	* Documentation updates for kinesisanalytics
+* Core 3.3.103.35
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.582.0 (2019-09-05 18:11 UTC)
+* ConfigService (3.3.103.0)
+	* AWS Config now includes the option for marking RemediationConfigurations as automatic, removing the need to call the StartRemediationExecution API. Manual control over resource execution rate is also included, and RemediationConfigurations are now ARN addressable. Exceptions to exclude account resources from being remediated can be configured with the new PutRemediationExceptions, DescribeRemediationExceptions, and DeleteRemediationExceptions APIs.
+* Core 3.3.103.34
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.581.0 (2019-09-04 18:17 UTC)
+* EKS (3.3.102.0)
+	* Amazon EKS DescribeCluster API returns a new OIDC issuer field that can be used to create OIDC identity provider for IAM for Service Accounts feature.
+* StepFunctions (3.3.101.0)
+	* Added support for new history events
+* TranscribeService (3.3.107.0)
+	* MediaFormat is now optional for StartTranscriptionJob API.
+* Core 3.3.103.33
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.580.0 (2019-09-03 19:34 UTC)
+* ECS (3.3.108.0)
+	* This release of Amazon Elastic Container Service (Amazon ECS) introduces support for attaching Amazon Elastic Inference accelerators to your containers. This enables you to run deep learning inference workloads with hardware acceleration in a more efficient way.
+* GameLift (3.3.103.0)
+	* You can now make use of PKI resources to provide more secure connections between your game clients and servers.  To learn more, please refer to the public Amazon GameLift documentation.
+* ResourceGroupsTaggingAPI (3.3.102.32)
+	* Documentation updates for resourcegroupstaggingapi
+
 ### 3.3.579.0 (2019-08-30 18:08 UTC)
 * ApiGatewayManagementApi (3.3.101.0)
 	* You can use getConnection to return information about the connection (when it is connected, IP address, etc) and deleteConnection to disconnect the given connection
