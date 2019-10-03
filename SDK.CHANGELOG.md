@@ -1,3 +1,106 @@
+### 3.3.600.0 (2019-10-03 19:11 UTC)
+* ApplicationAutoScaling (3.3.101.14)
+	* Documentation updates for Application Auto Scaling
+* DeviceFarm (3.3.101.60)
+	* Documentation updates for devicefarm
+* EC2 (3.3.132.0)
+	* This release allows customers to purchase regional EC2 RIs on a future date.
+* Elasticsearch (3.3.102.0)
+	* Amazon Elasticsearch Service now supports configuring additional options for domain endpoint, such as whether to require HTTPS for all traffic.
+
+### 3.3.599.0 (2019-10-02 19:59 UTC)
+* Lightsail (3.3.101.0)
+	* This release adds support for the automatic snapshots add-on for instances and block storage disks.
+
+### 3.3.598.0 (2019-10-01 18:09 UTC)
+* DocDB (3.3.102.0)
+	* This release provides support for describe and modify CA certificates.
+
+### 3.3.597.0 (2019-09-30 19:19 UTC)
+* MQ (3.3.104.0)
+	* Amazon MQ now includes the ability to scale your brokers by changing the host instance type. See the hostInstanceType property of UpdateBrokerInput (https://docs.aws.amazon.com/amazon-mq/latest/api-reference/brokers-broker-id.html#brokers-broker-id-model-updatebrokerinput), and pendingHostInstanceType property of DescribeBrokerOutput (https://docs.aws.amazon.com/amazon-mq/latest/api-reference/brokers-broker-id.html#brokers-broker-id-model-describebrokeroutput).
+* RDS (3.3.111.0)
+	* This release adds support for creating a Read Replica with Active Directory domain information. This release updates RDS API to indicate whether an OrderableDBInstanceOption supports Kerberos Authentication.
+* WAF (3.3.102.0)
+	* Lowering the threshold for Rate Based rule from 2000 to 100.
+* Core 3.3.103.45
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.596.0 (2019-09-27 19:11 UTC)
+* Amplify (3.3.102.0)
+	* This release adds access logs APIs and artifact APIs for AWS Amplify Console.
+* ECS (3.3.110.0)
+	* This release of Amazon Elastic Container Service (Amazon ECS) removes FirelensConfiguration from the DescribeTask output during the FireLens public preview.
+
+### 3.3.595.0 (2019-09-26 18:13 UTC)
+* CodePipeline (3.3.103.12)
+	* Documentation updates for CodePipeline
+* SimpleSystemsManagement (3.3.107.0)
+	* This release updates the AWS Systems Manager Parameter Store PutParameter and LabelParameterVersion APIs to return the "Tier" of parameter created/updated and the "parameter version" labeled respectively. 
+* Core 3.3.103.44
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.594.0 (2019-09-25 18:23 UTC)
+* DatabaseMigrationService (3.3.102.0)
+	* This release adds a new DeleteConnection API to delete the connection between a replication instance and an endpoint. It also adds an optional S3 setting to specify the precision of any TIMESTAMP column values written to an S3 object file in .parquet format.
+* GlobalAccelerator (3.3.102.0)
+	* API Update for AWS Global Accelerator to support for DNS aliasing.
+* SageMaker (3.3.105.0)
+	* Enable G4D and R5 instances in SageMaker Hosting Services
+
+### 3.3.593.0 (2019-09-24 18:14 UTC)
+* ComprehendMedical (3.3.101.0)
+	* Use Amazon Comprehend Medical to analyze medical text stored in the specified Amazon S3 bucket. Use the console to create and manage batch analysis jobs, or use the batch APIs to detect both medical entities and protected health information (PHI). The batch APIs start, stop, list, and retrieve information about batch analysis jobs. This release also includes DetectEntitiesV2 operation which returns the Acuity and Direction entities as attributes instead of types.
+* DataSync (3.3.105.0)
+	* Added S3StorageClass, OverwriteMode sync option, and ONLY_FILES_TRANSFERRED setting for the VerifyMode sync option.
+* TranscribeService (3.3.108.0)
+	* With this update Amazon Transcribe enables you to provide an AWS KMS key to encrypt your transcription output.
+
+### 3.3.592.0 (2019-09-23 19:08 UTC)
+* RDSDataService (3.3.102.0)
+	* RDS Data API now supports Amazon Aurora Serverless PostgreSQL databases.
+* Redshift (3.3.104.0)
+	* Adds API operation DescribeNodeConfigurationOptions and associated data structures.
+* Core 3.3.103.43
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.591.0 (2019-09-20 23:11 UTC)
+* EC2 (3.3.131.0)
+	* G4 instances are Amazon EC2 instances based on NVIDIA T4 GPUs and are designed to provide cost-effective machine learning inference for applications, like image classification, object detection, recommender systems, automated speech recognition, and language translation. G4 instances are also a cost-effective platform for building and running graphics-intensive applications, such as remote graphics workstations, video transcoding, photo-realistic design, and game streaming in the cloud. To get started with G4 instances visit https://aws.amazon.com/ec2/instance-types/g4.
+* Greengrass (3.3.103.0)
+	* Greengrass OTA service now returns the updated software version in the PlatformSoftwareVersion parameter of a CreateSoftwareUpdateJob response
+* RDS (3.3.110.0)
+	* Add a new LeaseID output field to DescribeReservedDBInstances, which shows the unique identifier for the lease associated with the reserved DB instance. AWS Support might request the lease ID for an issue related to a reserved DB instance.
+* WorkSpaces (3.3.105.0)
+	* Adds the WorkSpaces restore feature
+* Core 3.3.103.42
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.590.0 (2019-09-19 21:40 UTC)
+* ECS (3.3.109.0)
+	* This release of Amazon Elastic Container Service (Amazon ECS) introduces support for container image manifest digests. This enables you to identify all tasks launched using a container image pulled from ECR in order to correlate what was built with where it is running.
+* Glue (3.3.110.0)
+	* AWS Glue DevEndpoints now supports GlueVersion, enabling you to choose Apache Spark 2.4.3 (in addition to Apache Spark 2.2.1). In addition to supporting the latest version of Spark, you will also have the ability to choose between Python 2 and Python 3.
+* MediaConnect (3.3.105.0)
+	* When you grant an entitlement, you can now specify the percentage of the entitlement data transfer that you want the subscriber to be responsible for.
+* Core 3.3.103.41
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
 ### 3.3.589.0 (2019-09-18 20:39 UTC)
 * APIGateway (3.3.103.0)
 	* Amazon API Gateway simplifies accessing PRIVATE APIs by allowing you to associate one or more Amazon Virtual Private Cloud (VPC) Endpoints to a private API. API Gateway will create and manage DNS alias records necessary for easily invoking the private APIs. With this feature, you can leverage private APIs in web applications hosted within your VPCs.
