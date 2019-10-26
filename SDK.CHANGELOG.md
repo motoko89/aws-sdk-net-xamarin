@@ -1,3 +1,162 @@
+### 3.3.615.0 (2019-10-24 18:16 UTC)
+* AppMesh (3.3.106.0)
+	* This release adds support for the gRPC and HTTP/2 protocols.
+* Chime (3.3.103.0)
+	* * This release introduces Voice Connector PDX region and defaults previously created Voice Connectors to IAD. You can create Voice Connector Groups and add region specific Voice Connectors to direct telephony traffic across AWS regions in case of regional failures. With this release you can add phone numbers to Voice Connector Groups and can bulk move phone numbers between Voice Connectors, between Voice Connector and Voice Connector Groups and between Voice Connector Groups. Voice Connector now supports additional settings to enable SIP Log capture. This is in addition to the launch of Voice Connector Cloud Watch metrics in this release. This release also supports assigning outbound calling name (CNAM) to AWS account and individual phone numbers assigned to Voice Connectors. * Voice Connector now supports a setting to enable real time audio streaming delivered via Kinesis Audio streams. Please note that recording Amazon Chime Voice Connector calls with this feature maybe be subject to laws or regulations regarding the recording of telephone calls and other electronic communications. AWS Customer and their end users' have the responsibility to comply with all applicable laws regarding the recording, including properly notifying all participants in a recorded session or to a recorded communication that the session or communication is being recorded and obtain their consent.
+* EC2 (3.3.134.0)
+	* This release updates CreateFpgaImage to support tagging FPGA images on creation
+* GameLift (3.3.104.0)
+	* Amazon GameLift offers expanded hardware options for game hosting: Custom game builds can use the Amazon Linux 2 operating system, and fleets for both custom builds and Realtime servers can now use C5, M5, and R5 instance types.
+* SageMaker (3.3.106.0)
+	* Adds support for the new family of Elastic Inference Accelerators (eia2) for SageMaker Hosting and Notebook Services
+
+### 3.3.614.0 (2019-10-23 23:18 UTC)
+* Connect (3.3.101.0)
+	* This release adds 4 new APIs ListQueues, ListPhoneNumbers, ListContactFlows, and ListHoursOfOperations, which can be used to programmatically list Queues, PhoneNumbers, ContactFlows, and HoursOfOperations configured for an Amazon Connect instance respectively. You can learn more about the new APIs here: https://docs.aws.amazon.com/connect/latest/APIReference/Welcome.html.
+* Polly (3.3.103.0)
+	* Amazon Polly adds new female voices: US Spanish - Lupe and Brazilian Portuguese - Camila; both voices are available in Standard and Neural engine.
+* SecurityToken (3.3.103.3)
+	* AWS Security Token Service (STS) now supports a regional configuration flag to make the client respect the region without the need for the endpoint parameter. 
+* Core 3.3.103.54
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.613.0 (2019-10-22 19:23 UTC)
+* IoTEvents (3.3.102.0)
+	* Add support for new serial evaluation method for events in a detector model.
+* OpsWorksCM (3.3.102.0)
+	* AWS OpsWorks for Chef Automate (OWCA) now allows customers to use a custom domain and respective certificate, for their AWS OpsWorks For Chef Automate servers. Customers can now provide a CustomDomain, CustomCertificate and CustomPrivateKey in CreateServer API to configure their Chef Automate servers with a custom domain and certificate.
+* Core 3.3.103.53
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.612.0 (2019-10-18 19:14 UTC)
+* CloudWatch (3.3.103.0)
+	* New Period parameter added to MetricDataQuery structure.
+* Core 3.3.103.52
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.611.0 (2019-10-17 22:55 UTC)
+* S3 (3.3.104.39)
+	* Fixed headers for SelectObjectContentRequest; Enabling UploadFilesConcurrently for TransferUtilityUploadDirectoryRequest in NetStandard. Removing unnecessary fields from CopyPartRequest.
+
+
+* SecurityToken (3.3.103.0)
+	* Updated to use new Core, version 3.3.103.51
+	* Check for STS Regional Flag within environment variable, shared credentials file, and client config for all STS customers
+* Core 3.3.103.51
+	* Adding me-south-1 region constant.
+
+### 3.3.610.0 (2019-10-17 19:17 UTC)
+* Batch (3.3.103.0)
+	* Adding support for Compute Environment Allocation Strategies 
+* RDS (3.3.112.0)
+	* Amazon RDS now supports Amazon RDS on VMware with the introduction of APIs related to Custom Availability Zones and Media installation.
+* Core 3.3.103.50
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.609.0 (2019-10-16 18:14 UTC)
+* AWSMarketplaceCommerceAnalytics (3.3.102.0)
+	* add 2 more values for the supporting sections - age of past due funds + uncollected funds breakdown
+* Kafka (3.3.104.0)
+	* AWS MSK has added support for adding brokers to a cluster.
+* RoboMaker (3.3.107.0)
+	* This release adds support for ROS2 Dashing as a beta feature
+* Core 3.3.103.49
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.608.0 (2019-10-15 19:46 UTC)
+* KinesisVideoArchivedMedia (3.3.102.0)
+	* Add ON_DISCONTINUITY mode to the GetHLSStreamingSessionURL API
+
+### 3.3.607.0 (2019-10-14 18:10 UTC)
+* Personalize (3.3.102.0)
+	* AWS Personalize: Adds ability to create a solution version using FULL or UPDATE training mode
+* WorkSpaces (3.3.105.7)
+	* Documentation updates for WorkSpaces
+
+### 3.3.606.0 (2019-10-11 19:26 UTC)
+* Greengrass (3.3.104.0)
+	* Greengrass OTA service supports Raspbian/Armv6l platforms.
+* Core 3.3.103.48
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.605.0 (2019-10-10 19:23 UTC)
+* EC2 (3.3.133.0)
+	* New EC2 M5n, M5dn, R5n, R5dn instances with 100 Gbps network performance and Elastic Fabric Adapter (EFA) for ultra low latency; New A1.metal bare metal instance powered by AWS Graviton Processors
+* FMS (3.3.102.0)
+	* Firewall Manager now supports Amazon VPC security groups, making it easier to configure and manage security groups across multiple accounts from a single place.
+* IoTAnalytics (3.3.104.0)
+	* Add `completionTime` to API call ListDatasetContents.
+* Lex (3.3.102.0)
+	* Amazon Lex now supports Session API checkpoints
+* Core 3.3.103.47
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.604.0 (2019-10-09 18:14 UTC)
+* ElastiCache (3.3.105.0)
+	* Amazon ElastiCache now allows you to apply available service updates on demand to your Memcached and Redis Cache Clusters. Features included: (1) Access to the list of applicable service updates and their priorities. (2) Service update monitoring and regular status updates. (3) Recommended apply-by-dates for scheduling the service updates. (4) Ability to stop and later re-apply updates. For more information, see https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Self-Service-Updates.html and https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Self-Service-Updates.html
+* Kafka (3.3.103.56)
+	* Updated documentation for Amazon Managed Streaming for Kafka service.
+* MediaConvert (3.3.109.0)
+	* AWS Elemental MediaConvert SDK has added support for Dolby Atmos encoding, up to 36 outputs, accelerated transcoding with frame capture and preferred acceleration feature.
+
+### 3.3.603.0 (2019-10-08 19:34 UTC)
+* DataSync (3.3.106.0)
+	* Add Sync options to enable/disable TaskQueueing
+* EventBridge (3.3.100.36)
+	* Documentation updates for Amazon EventBridge.
+* KinesisFirehose (3.3.102.0)
+	* With this release, you can use Amazon Kinesis Firehose delivery streams to deliver streaming data to Amazon Elasticsearch Service version 7.x clusters. For technical documentation, look for CreateDeliveryStream operation in Amazon Kinesis Firehose API reference.
+* Organizations (3.3.103.40)
+	* Documentation updates for organizations
+* Core 3.3.103.46
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.602.0 (2019-10-07 19:39 UTC)
+* DirectConnect (3.3.104.0)
+	* This release adds a service provider field for physical connection creation and provides a list of available partner providers for each Direct Connect location.
+* Glue (3.3.111.0)
+	* AWS Glue now provides ability to use custom certificates for JDBC Connections.
+* KinesisFirehose (3.3.101.0)
+	* Amazon Kinesis Data Firehose now allows delivering data to Elasticsearch clusters set up in a different AWS account than the Firehose AWS account. For technical documentation, look for ElasticsearchDestinationConfiguration in the Amazon Kinesis Firehose API reference.
+* Pinpoint (3.3.102.0)
+	* This release of the Amazon Pinpoint API introduces support for using and managing message templates.
+* PinpointEmail (3.3.104.0)
+	* This release of the Amazon Pinpoint Email API introduces support for using and managing message templates.
+* Snowball (3.3.101.0)
+	* AWS Snowball Edge now allows you to perform an offline update to the software of your Snowball Edge device when your device is not connected to the internet. Previously, updating your Snowball Edge's software required that the device be connected to the internet or be sent back to AWS. Now, you can keep your Snowball Edge software up to date even if your device(s) cannot connect to the internet, or are required to run in an air-gapped environment. To complete offline updates, download the software update from a client machine with connection to the internet using the AWS Command Line Interface (CLI). Then, have the Snowball Edge device download and install the software update using the Snowball Edge device API. For more information about offline updates, visit the Snowball Edge documentation page.
+
+### 3.3.601.0 (2019-10-04 19:22 UTC)
+* CognitoIdentityProvider (3.3.103.0)
+	* This release adds ClientMetadata input parameter to multiple Cognito User Pools operations, making this parameter available to the customer configured lambda triggers as applicable. 
+* MediaPackage (3.3.103.0)
+	* New Harvest Job APIs to export segment-accurate content windows from MediaPackage Origin Endpoints to S3. See https://docs.aws.amazon.com/mediapackage/latest/ug/harvest-jobs.html for more info
+* SimpleSystemsManagement (3.3.107.2)
+	* Documentation updates for Systems Manager / StartSession.
+
 ### 3.3.600.0 (2019-10-03 19:11 UTC)
 * ApplicationAutoScaling (3.3.101.14)
 	* Documentation updates for Application Auto Scaling
