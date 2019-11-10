@@ -63,6 +63,7 @@
       <Directory>$(ProjectDir)/src/Services/codedeploy/bin/Release/net45/</Directory>
       <Directory>$(ProjectDir)/src/Services/codepipeline/bin/Release/net45/</Directory>
       <Directory>$(ProjectDir)/src/Services/codestar/bin/Release/net45/</Directory>
+      <Directory>$(ProjectDir)/src/Services/codestarnotifications/bin/Release/net45/</Directory>
       <Directory>$(ProjectDir)/src/Services/cognitoidentity/bin/Release/net45/</Directory>
       <Directory>$(ProjectDir)/src/Services/cognitoidentityprovider/bin/Release/net45/</Directory>
       <Directory>$(ProjectDir)/src/Services/cognitosync/bin/Release/net45/</Directory>
@@ -182,6 +183,7 @@
       <Directory>$(ProjectDir)/src/Services/s3control/bin/Release/net45/</Directory>
       <Directory>$(ProjectDir)/src/Services/sagemaker/bin/Release/net45/</Directory>
       <Directory>$(ProjectDir)/src/Services/sagemakerruntime/bin/Release/net45/</Directory>
+      <Directory>$(ProjectDir)/src/Services/savingsplans/bin/Release/net45/</Directory>
       <Directory>$(ProjectDir)/src/Services/secretsmanager/bin/Release/net45/</Directory>
       <Directory>$(ProjectDir)/src/Services/securityhub/bin/Release/net45/</Directory>
       <Directory>$(ProjectDir)/src/Services/securitytoken/bin/Release/net45/</Directory>
@@ -199,6 +201,8 @@
       <Directory>$(ProjectDir)/src/Services/simpleworkflow/bin/Release/net45/</Directory>
       <Directory>$(ProjectDir)/src/Services/snowball/bin/Release/net45/</Directory>
       <Directory>$(ProjectDir)/src/Services/sqs/bin/Release/net45/</Directory>
+      <Directory>$(ProjectDir)/src/Services/sso/bin/Release/net45/</Directory>
+      <Directory>$(ProjectDir)/src/Services/ssooidc/bin/Release/net45/</Directory>
       <Directory>$(ProjectDir)/src/Services/stepfunctions/bin/Release/net45/</Directory>
       <Directory>$(ProjectDir)/src/Services/storagegateway/bin/Release/net45/</Directory>
       <Directory>$(ProjectDir)/src/Services/textract/bin/Release/net45/</Directory>
@@ -256,6 +260,7 @@
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.CodeDeploy.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.CodePipeline.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.CodeStar.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.CodeStarNotifications.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.CognitoIdentity.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.CognitoIdentityProvider.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.CognitoSync.dll" Analyze="True" AnalyzeAllChildren="True" />
@@ -375,6 +380,7 @@
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.S3Control.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.SageMaker.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.SageMakerRuntime.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.SavingsPlans.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.SecretsManager.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.SecurityHub.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.SecurityToken.dll" Analyze="True" AnalyzeAllChildren="True" />
@@ -392,6 +398,8 @@
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.SimpleWorkflow.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.Snowball.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.SQS.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.SSO.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.SSOOIDC.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.StepFunctions.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.StorageGateway.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net45\AWSSDK.Textract.dll" Analyze="True" AnalyzeAllChildren="True" />

@@ -69,6 +69,10 @@ namespace Amazon.CodeBuild.Model
         /// <para>
         ///  <code>PLAINTEXT</code>: An environment variable in plaintext format.
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>SECRETS_MANAGER</code>: An environment variable stored in AWS Secrets Manager.
+        /// </para>
         ///  </li> </ul>
         /// </summary>
         public EnvironmentVariableType Type

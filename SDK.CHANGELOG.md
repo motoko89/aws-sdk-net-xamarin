@@ -1,3 +1,129 @@
+### 3.3.627.0 (2019-11-08 20:24 UTC)
+* CognitoIdentity (3.3.101.0)
+	* This release adds support for disabling classic flow.
+* ECR (3.3.102.7)
+	* This release contains ticket fixes for Amazon ECR.
+* Core 3.3.103.62
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.626.0 (2019-11-07 20:37 UTC)
+* Comprehend (3.3.106.0)
+	* This release adds new languages (ar, hi, ko, ja, zh, zh-TW) for Amazon Comprehend's DetectSentiment, DetectEntities, DetectKeyPhrases, BatchDetectSentiment, BatchDetectEntities and BatchDetectKeyPhrases APIs
+* SimpleSystemsManagement (3.3.108.0)
+	* AWS Systems Manager Session Manager target length increased to 400.
+* SSO (3.3.100.0)
+	* This is an initial release of AWS Single Sign-On (SSO) end-user access. This release adds support for accessing AWS accounts assigned in AWS SSO using short term credentials.
+* SSOOIDC (3.3.100.0)
+	* This is an initial release of AWS Single Sign-On OAuth device code authorization service.
+* Core 3.3.103.61
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.625.0 (2019-11-06 23:19 UTC)
+* SavingsPlans (3.3.101.0)
+	* This is the first release of Savings Plans, a new flexible pricing model that offers low prices on Amazon EC2 and AWS Fargate usage.
+* Core 3.3.103.60
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.624.0 (2019-11-06 19:59 UTC)
+* Budgets (3.3.101.72)
+	* Documentation updates for budgets to track Savings Plans utilization and coverage
+* CodeBuild (3.3.103.0)
+	* Add support for Build Number, Secrets Manager and Exported Environment Variables.
+* CostExplorer (3.3.103.0)
+	* This launch provides customers with access to Savings Plans management APIs.
+* ElasticFileSystem (3.3.103.0)
+	* EFS customers can select a lifecycle policy that automatically moves files that have not been accessed for 7 days into the EFS Infrequent Access (EFS IA) storage class. EFS IA provides price/performance that is cost-optimized for files that are not accessed every day.
+* SavingsPlans (3.3.100.0)
+	* This is the first release of Savings Plans, a new flexible pricing model that offers low prices on Amazon EC2 and AWS Fargate usage.
+* Signer (3.3.101.0)
+	* This release adds support for tagging code-signing profiles in AWS Signer.
+
+### 3.3.623.0 (2019-11-05 19:14 UTC)
+* CodeStarNotifications (3.3.100.0)
+	* This release adds a notification manager for events in repositories, build projects, deployments, and pipelines. You can now configure rules and receive notifications about events that occur for resources. Each notification includes a status message as well as a link to the resource (repository, build project, deployment application, or pipeline) whose event generated the notification.
+* RDS (3.3.112.8)
+	* Documentation updates for Amazon RDS
+* Core 3.3.103.59
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.622.0 (2019-11-04 20:38 UTC)
+* DAX (3.3.100.94)
+	* Documentation updates for dax
+* EC2 (3.3.134.5)
+	* Documentation updates for ec2
+* RoboMaker (3.3.108.0)
+	* RoboMaker Fleet Management launch a feature to verify your robot is ready to download and install the new robot application using a download condition file, which is a script run on the robot prior to downloading the new deployment. 
+
+### 3.3.621.0 (2019-11-02 00:12 UTC)
+* CloudTrail (3.3.101.0)
+	* This release adds two new APIs, GetTrail and ListTrails, and support for adding tags when you create a trail by using a new TagsList parameter on CreateTrail operations.
+* DatabaseMigrationService (3.3.103.0)
+	* This release contains task timeline attributes in replication task statistics. This release also adds a note to the documentation for the CdcStartPosition task request parameter. This note describes how to enable the use of native CDC start points for a PostgreSQL source by setting the new slotName extra connection attribute on the source endpoint to the name of an existing logical replication slot.
+* Pinpoint (3.3.103.0)
+	* This release of the Amazon Pinpoint API introduces support for using and managing journeys, and querying analytics data for journeys.
+
+### 3.3.620.0 (2019-10-31 18:12 UTC)
+* Amplify (3.3.103.0)
+	* This release of AWS Amplify Console introduces support for Web Previews. This feature allows user to create ephemeral branch deployments from pull request submissions made to a connected repository.  A pull-request preview deploys every pull request made to your Git repository to a unique preview URL.
+* AWSSupport (3.3.100.93)
+	* The status descriptions for TrustedAdvisorCheckRefreshStatus have been updated
+* S3 (3.3.106.0)
+	* S3 Inventory now supports a new field 'IntelligentTieringAccessTier' that reports the access tier (frequent or infrequent) of objects stored in Intelligent-Tiering storage class.
+* Core 3.3.103.58
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.619.0 (2019-10-30 18:38 UTC)
+* ElastiCache (3.3.107.0)
+	* Amazon ElastiCache for Redis 5.0.5 now allows you to modify authentication tokens by setting and rotating new tokens. You can now modify active tokens while in use, or add brand-new tokens to existing encryption-in-transit enabled clusters that were previously setup without authentication tokens. This is a two-step process that allows you to set and rotate the token without interrupting client requests.
+* Core 3.3.103.57
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.618.0 (2019-10-29 19:13 UTC)
+* AppStream (3.3.105.0)
+	* Adds support for providing domain names that can embed streaming sessions
+* Cloud9 (3.3.101.0)
+	* Added CREATING and CREATE_FAILED environment lifecycle statuses.  
+
+### 3.3.617.0 (2019-10-28 21:24 UTC)
+* S3 (3.3.105.0)
+	* Adding support in SelectObjectContent for scanning a portion of an object specified by a scan range.
+* Core 3.3.103.56
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.616.0 (2019-10-28 19:23 UTC)
+* ECR (3.3.102.0)
+	* This release of Amazon Elastic Container Registry Service (Amazon ECR) introduces support for image scanning. This identifies the software vulnerabilities in the container image based on the Common Vulnerabilities and Exposures (CVE) database.
+* ElastiCache (3.3.106.0)
+	* Amazon ElastiCache adds support for migrating Redis workloads hosted on Amazon EC2 into ElastiCache by syncing the data between the source Redis cluster and target ElastiCache for Redis cluster in real time. For more information, see https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/migrate-to-elasticache.html.
+* Transfer (3.3.104.0)
+	* This release adds logical directories support to your AWS SFTP server endpoint, so you can now create logical directory structures mapped to Amazon Simple Storage Service (Amazon S3) bucket paths for users created and stored within the service. Amazon S3 bucket names and paths can now be hidden from AWS SFTP users, providing an additional level of privacy to meet security requirements. You can lock down your SFTP users' access to designated folders (commonly referred to as 'chroot'), and simplify complex folder structures for data distribution through SFTP without replicating files across multiple users.
+* Core 3.3.103.55
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
 ### 3.3.615.0 (2019-10-24 18:16 UTC)
 * AppMesh (3.3.106.0)
 	* This release adds support for the gRPC and HTTP/2 protocols.
