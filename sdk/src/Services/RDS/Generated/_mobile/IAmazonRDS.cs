@@ -1276,6 +1276,12 @@ namespace Amazon.RDS
         /// you do not specify either the SourceType nor the SourceIdentifier, you are notified
         /// of events generated from all RDS sources belonging to your customer account.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// RDS event notification is only available for unencrypted SNS topics. If you specify
+        /// an encrypted SNS topic, event notifications aren't sent for the topic.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateEventSubscription service method.</param>
         /// <param name="cancellationToken">
@@ -3339,6 +3345,13 @@ namespace Amazon.RDS
         /// RDS console</a> or the <code>DescribeDBClusterParameters</code> action to verify that
         /// your DB cluster parameter group has been created or modified.
         /// </para>
+        ///  
+        /// <para>
+        /// If the modified DB cluster parameter group is used by an Aurora Serverless cluster,
+        /// Aurora applies the update immediately. The cluster restart might interrupt your workload.
+        /// In that case, your application must reopen any connections and retry any transactions
+        /// that were active when the parameter changes took effect.
+        /// </para>
         ///  </important> <note> 
         /// <para>
         /// This action only applies to Aurora DB clusters.
@@ -3559,7 +3572,7 @@ namespace Amazon.RDS
         /// 
         ///  
         /// <para>
-        /// Amazon RDS supports upgrading DB snapshots for MySQL and Oracle. 
+        /// Amazon RDS supports upgrading DB snapshots for MySQL, Oracle, and PostgreSQL. 
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyDBSnapshot service method.</param>

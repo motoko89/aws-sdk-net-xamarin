@@ -39,7 +39,7 @@ namespace Amazon.CostExplorer.Model
         /// <summary>
         /// Gets and sets the property Metadata. 
         /// <para>
-        /// The accountIDs these recommendations are generated for.
+        /// Information regarding this specific recommendation set.
         /// </para>
         /// </summary>
         public SavingsPlansPurchaseRecommendationMetadata Metadata

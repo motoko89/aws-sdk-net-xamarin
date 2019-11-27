@@ -31,48 +31,15 @@ namespace Amazon.QuickSight.Model
     /// Container for the parameters to the GetDashboardEmbedUrl operation.
     /// Generates a server-side embeddable URL and authorization code. Before this can work
     /// properly, first you need to configure the dashboards and user permissions. For more
-    /// information, see <a href="https://docs.aws.amazon.com/en_us/quicksight/latest/user/embedding.html">
-    /// Embedding Amazon QuickSight Dashboards</a>.
+    /// information, see the Amazon QuickSight User Guide section on <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html">Embedding
+    /// Amazon QuickSight Dashboards</a> or see the Amazon QuickSight API Reference section
+    /// on <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/qs-dev-embedded-dashboards.html">Embedding
+    /// Amazon QuickSight Dashboards</a> .
     /// 
     ///  
     /// <para>
     /// Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not
     /// from the user’s browser.
-    /// </para>
-    ///  
-    /// <para>
-    ///  <b>CLI Sample:</b> 
-    /// </para>
-    ///  
-    /// <para>
-    /// Assume the role with permissions enabled for actions: <code>quickSight:RegisterUser</code>
-    /// and <code>quicksight:GetDashboardEmbedURL</code>. You can use assume-role, assume-role-with-web-identity,
-    /// or assume-role-with-saml. 
-    /// </para>
-    ///  
-    /// <para>
-    ///  <code>aws sts assume-role --role-arn "arn:aws:iam::111122223333:role/embedding_quicksight_dashboard_role"
-    /// --role-session-name embeddingsession</code> 
-    /// </para>
-    ///  
-    /// <para>
-    /// If the user does not exist in QuickSight, register the user:
-    /// </para>
-    ///  
-    /// <para>
-    ///  <code>aws quicksight register-user --aws-account-id 111122223333 --namespace default
-    /// --identity-type IAM --iam-arn "arn:aws:iam::111122223333:role/embedding_quicksight_dashboard_role"
-    /// --user-role READER --session-name "embeddingsession" --email user123@example.com --region
-    /// us-east-1</code> 
-    /// </para>
-    ///  
-    /// <para>
-    /// Get the URL for the embedded dashboard
-    /// </para>
-    ///  
-    /// <para>
-    ///  <code>aws quicksight get-dashboard-embed-url --aws-account-id 111122223333 --dashboard-id
-    /// 1a1ac2b2-3fc3-4b44-5e5d-c6db6778df89 --identity-type IAM</code> 
     /// </para>
     /// </summary>
     public partial class GetDashboardEmbedUrlRequest : AmazonQuickSightRequest
@@ -110,7 +77,7 @@ namespace Amazon.QuickSight.Model
         /// The ID for the dashboard, also added to IAM policy
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [AWSProperty(Required=true, Min=1, Max=2048)]
         public string DashboardId
         {
             get { return this._dashboardId; }
@@ -126,7 +93,7 @@ namespace Amazon.QuickSight.Model
         /// <summary>
         /// Gets and sets the property IdentityType. 
         /// <para>
-        /// The authentication method the user uses to sign in (IAM only).
+        /// The authentication method the user uses to sign in.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -203,16 +170,13 @@ namespace Amazon.QuickSight.Model
         /// <summary>
         /// Gets and sets the property UserArn. 
         /// <para>
-        /// The Amazon QuickSight user's ARN, for use with <code>QUICKSIGHT</code> identity type.
-        /// You can use this for any of the following:
+        /// The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code>
+        /// identity type. You can use this for any Amazon QuickSight users in your account (readers,
+        /// authors, or admins) authenticated as one of the following:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Amazon QuickSight users in your account (readers, authors, or admins)
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// AD users
+        /// Active Directory (AD) users or group members
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -220,11 +184,8 @@ namespace Amazon.QuickSight.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Federated IAM users
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Federated IAM role-based sessions
+        /// IAM users and IAM role-based sessions authenticated through Federated Single Sign-On
+        /// using SAML, OpenID Connect, or IAM Federation
         /// </para>
         ///  </li> </ul>
         /// </summary>

@@ -79,6 +79,12 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         unmarshalledObject.Encrypted = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("fastRestored", targetDepth))
+                    {
+                        var unmarshaller = BoolUnmarshaller.Instance;
+                        unmarshalledObject.FastRestored = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("iops", targetDepth))
                     {
                         var unmarshaller = IntUnmarshaller.Instance;

@@ -1,3 +1,326 @@
+### 3.3.639.0 (2019-11-26 19:12 UTC)
+* CognitoIdentityProvider (3.3.107.0)
+	* This release adds a new setting for a user pool to configure which recovery methods a user can use to recover their account via the forgot password operation.
+* DirectoryService (3.3.101.0)
+	* This release will introduce optional encryption over LDAP network traffic using SSL certificates between customer's self-managed AD and AWS Directory Services instances. The release also provides APIs for Certificate management.
+* DynamoDBv2 (3.3.104.0)
+	* 1) Amazon Contributor Insights for Amazon DynamoDB is a diagnostic tool for identifying frequently accessed keys and understanding database traffic trends. 2) Support for displaying new fields when a table's encryption state is Inaccessible or the table have been Archived.
+* ElasticInference (3.3.100.0)
+	* Amazon Elastic Inference allows customers to attach Elastic Inference Accelerators to Amazon EC2 and Amazon ECS tasks, thus providing low-cost GPU-powered acceleration and reducing the cost of running deep learning inference. This release allows customers to add or remove tags for their Elastic Inference Accelerators.
+* MediaTailor (3.3.102.0)
+	* AWS Elemental MediaTailor SDK now allows configuration of the Live Pre-Roll feature for HLS and DASH streams.
+* Organizations (3.3.104.0)
+	* Introduces the DescribeEffectivePolicy action, which returns the contents of the policy that's in effect for the account.
+* QuickSight (3.3.102.4)
+	* Documentation updates for QuickSight
+* RDSDataService (3.3.103.0)
+	* Type hints to improve handling of some specific parameter types (date/time, decimal etc) for ExecuteStatement and BatchExecuteStatement APIs
+* ResourceGroupsTaggingAPI (3.3.103.0)
+	* You can use tag policies to help standardize on tags across your organization's resources.
+* ServerlessApplicationRepository (3.3.101.0)
+	* AWS Serverless Application Repository now supports verified authors. Verified means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
+* WorkSpaces (3.3.107.0)
+	* For the WorkspaceBundle API, added the image identifier and the time of the last update.
+* Core 3.3.103.70
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.638.0 (2019-11-25 21:21 UTC)
+* AlexaForBusiness (3.3.107.0)
+	* API update for Alexa for Business: This update enables the use of meeting room configuration that can be applied to a room profile. These settings help improve and measure utilization on Alexa for Business enabled rooms. New features include end meeting reminders, intelligent room release and room utilization analytics report.
+* AppConfig (3.3.100.0)
+	* Introducing AWS AppConfig, a new service that enables customers to quickly deploy validated configurations to applications of any size in a controlled and monitored fashion.
+* ApplicationAutoScaling (3.3.103.0)
+	* This release supports auto scaling of document classifier endpoints for Comprehend; and supports target tracking based on the average capacity utilization metric for AppStream 2.0 fleets. 
+* ApplicationInsights (3.3.102.0)
+	* CloudWatch Application Insights for .NET and SQL Server includes the follwing features: -Tagging Create and manage tags for your applications.-Custom log pattern matching. Define custom log patterns to be detected and monitored.-Resource-level permissions. Specify applications users can access.
+* Athena (3.3.103.0)
+	* This release adds additional query lifecycle metrics to the QueryExecutionStatistics object in GetQueryExecution response.
+* CloudWatch (3.3.104.0)
+	* This release adds a new feature called "Contributor Insights". "Contributor Insights" supports the following 6 new APIs (PutInsightRule, DeleteInsightRules, EnableInsightRules, DisableInsightRules, DescribeInsightRules and GetInsightRuleReport). 
+* CodeBuild (3.3.106.0)
+	* CodeBuild adds support for test reporting
+* CognitoIdentityProvider (3.3.106.0)
+	* Amazon Cognito Userpools now supports Sign in with Apple as an Identity Provider.
+* Comprehend (3.3.107.0)
+	* Amazon Comprehend now supports real-time analysis with Custom Classification
+* CostExplorer (3.3.106.0)
+	* This launch provides customers with access to Cost Category Public Beta APIs.
+* DLM (3.3.104.0)
+	* You can now set time based retention policies on Data Lifecycle Manager. With this launch, DLM allows you to set snapshot retention period in the following interval units: days, weeks, months and years.
+* EC2 (3.3.140.0)
+	* This release adds two new APIs: 1. ModifyDefaultCreditSpecification, which allows you to set default credit specification at the account level per AWS Region, per burstable performance instance family, so that all new burstable performance instances in the account launch using the new default credit specification. 2. GetDefaultCreditSpecification, which allows you to get current default credit specification per AWS Region, per burstable performance instance family. This release also adds new client exceptions for StartInstances and StopInstances.
+* ElasticLoadBalancingV2 (3.3.104.0)
+	* This release of Elastic Load Balancing V2 adds new subnet features for Network Load Balancers and a new routing algorithm for Application Load Balancers. 
+* Greengrass (3.3.105.0)
+	* IoT Greengrass supports machine learning resources in 'No container' mode.
+* IoT (3.3.105.0)
+	* This release adds: 1) APIs for fleet provisioning claim and template, 2) endpoint configuration and custom domains, 3) support for enhanced custom authentication, d) support for 4 additional audit checks: Device and CA certificate key quality checks, IoT role alias over-permissive check and IoT role alias access to unused services check, 5) extended capability of AWS IoT Rules Engine to support IoT SiteWise rule action. The IoT SiteWise rule action lets you send messages from IoT sensors and applications to IoT SiteWise asset properties
+* IoTSecureTunneling (3.3.100.0)
+	* This release adds support for IoT Secure Tunneling to remote access devices behind restricted firewalls.
+* KeyManagementService (3.3.102.0)
+	* AWS Key Management Service (KMS) now enables creation and use of asymmetric Customer Master Keys (CMKs) and the generation of asymmetric data key pairs.
+* KinesisAnalyticsV2 (3.3.102.0)
+	* Kinesis Data Analytics service adds support to configure Java applications to access resources in a VPC. Also releasing support to configure Java applications to set allowNonRestoreState flag through the service APIs.
+* Lambda (3.3.105.0)
+	* Added the function state and update status to the output of GetFunctionConfiguration and other actions. Check the state information to ensure that a function is ready before you perform operations on it. Functions take time to become ready when you connect them to a VPC.Added the EventInvokeConfig type and operations to configure error handling options for asynchronous invocation. Use PutFunctionEventInvokeConfig to configure the number of retries and the maximum age of events when you invoke the function asynchronously.Added on-failure and on-success destination settings for asynchronous invocation. Configure destinations to send an invocation record to an SNS topic, an SQS queue, an EventBridge event bus, or a Lambda function.Added error handling options to event source mappings. This enables you to configure the number of retries, configure the maximum age of records, or retry with smaller batches when an error occurs when a function processes a Kinesis or DynamoDB stream.Added the on-failure destination setting to event source mappings. This enables you to send discarded events to an SNS topic or SQS queue when all retries fail or when the maximum record age is exceeded when a function processes a Kinesis or DynamoDB stream.Added the ParallelizationFactor option to event source mappings to increase concurrency per shard when a function processes a Kinesis or DynamoDB stream.
+* Lex (3.3.104.0)
+	* Amazon Lex adds "sessionId" attribute to the PostText and PostContent response.
+* MediaConvert (3.3.111.0)
+	* AWS Elemental MediaConvert SDK has added support for 8K outputs and support for QuickTime Animation Codec (RLE) inputs.
+* MediaLive (3.3.106.0)
+	* AWS Elemental MediaLive now supports the ability to create a multiple program transport stream (MPTS).
+* MediaPackageVod (3.3.103.0)
+	* Adds a domain name to PackagingGroups, representing the fully qualified domain name for Assets created in the group.
+* RAM (3.3.102.0)
+	* AWS RAM provides new APIs to view the permissions granted to principals in a resource share. This release also creates corresponding resource shares for supported services that use resource policies, as well as an API to promote them to standard shares that can be managed in RAM.
+* RDS (3.3.113.0)
+	* Cluster Endpoints can now be tagged by using --tags in the create-db-cluster-endpoint API
+* Redshift (3.3.105.0)
+	* This release contains changes for 1. Redshift Scheduler 2. Update to the DescribeNodeConfigurationOptions to include a new action type recommend-node-config
+* SageMakerRuntime (3.3.101.0)
+	* Amazon SageMaker Runtime now supports a new TargetModel header to invoke a specific model hosted on multi model endpoints.
+* SimpleEmailV2 (3.3.101.0)
+	* This release includes support for automatically suppressing email addresses that result in hard bounce or complaint events at the account level, and for managing addresses on this account-level suppression list.
+* SimpleSystemsManagement (3.3.113.0)
+	* AWS Systems Manager Documents now supports more Document Types: ApplicationConfiguration, ApplicationConfigurationSchema and DeploymentStrategy. This release also extends Document Permissions capabilities and introduces a new Force flag for DeleteDocument API.
+* WAFV2 (3.3.100.0)
+	* This release introduces new set of APIs (wafv2) for AWS WAF. Major changes include single set of APIs for creating/updating resources in global and regional scope, and rules are configured directly into web ACL instead of being referenced. The previous APIs (waf and waf-regional) are now referred as AWS WAF Classic. For more information visit: https://docs.aws.amazon.com/waf/latest/APIReference/Welcome.html
+* Core 3.3.103.69
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.637.0 (2019-11-22 20:14 UTC)
+* ApplicationAutoScaling (3.3.102.0)
+	* Update default endpoint for Application Auto Scaling.
+* AutoScalingPlans (3.3.101.0)
+	* Update default endpoint for AWS Auto Scaling.
+* CertificateManager (3.3.101.0)
+	* This release adds support for Tag-Based IAM for AWS Certificate Manager and adding tags to certificates upon creation.
+* CodeBuild (3.3.105.0)
+	* Add Canonical ARN to LogsLocation.
+* EC2 (3.3.139.0)
+	* This release adds two new APIs (DescribeInstanceTypes and DescribeInstanceTypeOfferings) that give customers access to instance type attributes and regional and zonal offerings.
+* ElasticMapReduce (3.3.104.0)
+	* Amazon EMR adds support for concurrent step execution and cancelling running steps. Amazon EMR has added a new Outpost ARN field in the ListCluster and DescribeCluster API responses that is populated for clusters launched in an AWS Outpost subnet.
+* ForecastService (3.3.101.0)
+	* This release adds two key updates to existing APIs. 1. Amazon Forecast can now generate forecasts in any quantile using the optional parameter forecastTypes in the CreateForecast API and 2. You can get additional details (metrics and relevant error messages) on your AutoML runs using the DescribePredictor and GetAccuracyMetrics APIs.
+* MediaPackageVod (3.3.102.0)
+	* Includes the submission time of Asset ingestion request in the API response for Create/List/Describe Assets.
+* Rekognition (3.3.102.0)
+	* This release adds enhanced face filtering support to the IndexFaces API operation, and introduces face filtering for CompareFaces and SearchFacesByImage API operations.
+* SecurityToken (3.3.104.0)
+	* Support tagging for STS sessions and tag based access control for the STS APIs
+* SimpleNotificationService (3.3.101.92)
+	* Added documentation for the dead-letter queue feature.
+* SimpleSystemsManagement (3.3.112.0)
+	* Add RebootOption and LastNoRebootInstallOperationTime for DescribeInstancePatchStates and DescribeInstancePatchStatesForPatchGroup API
+* Core 3.3.103.68
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.636.0 (2019-11-21 22:52 UTC)
+* Amplify (3.3.104.0)
+	* This release of AWS Amplify Console introduces support for backend environments. Backend environments are containers for AWS deployments. Each environment is a collection of AWS resources.
+* AppSync (3.3.103.0)
+	* AppSync: AWS AppSync now supports the ability to add, configure, and maintain caching for your AWS AppSync GraphQL API.
+* AWSMarketplaceMetering (3.3.101.3)
+	* Documentation updates for the AWS Marketplace Metering Service.
+* ConfigService (3.3.106.0)
+	* AWS Config launches Custom Configuration Items. A new feature which allows customers to publish resource configuration for third-party resources, custom, or on-premises servers.
+* Connect (3.3.103.0)
+	* This release adds a new API: StartChatContact. You can use it to programmatically start a chat on the specified Amazon Connect instance. Learn more here: https://docs.aws.amazon.com/connect/latest/APIReference/Welcome.html 
+* ConnectParticipant (3.3.100.0)
+	* This release adds 5 new APIs: CreateParticipantConnection, DisconnectParticipant, GetTranscript, SendEvent, and SendMessage. For Amazon Connect chat, you can use them to programmatically perform participant actions on the configured Amazon Connect instance. Learn more here: https://docs.aws.amazon.com/connect-participant/latest/APIReference/Welcome.html
+* DynamoDBv2 (3.3.103.0)
+	* With this release, you can convert an existing Amazon DynamoDB table to a global table by adding replicas in other AWS Regions.
+* EC2 (3.3.138.0)
+	* This release adds support for attaching AWS License Manager Configurations to Amazon Machine Image (AMI) using ImportImage API; and adds support for running different instance sizes on EC2 Dedicated Hosts
+* Glue (3.3.112.0)
+	* This release adds support for Glue 1.0 compatible ML Transforms.
+* Lex (3.3.103.0)
+	* Amazon Lex now supports Sentiment Analysis
+* LexModelBuildingService (3.3.101.0)
+	* Amazon Lex now supports Sentiment Analysis
+* SimpleSystemsManagement (3.3.111.0)
+	* The release contains new API and API changes for AWS Systems Manager Explorer product.
+* TranscribeService (3.3.111.0)
+	* With this release, Amazon Transcribe now supports transcriptions from audio sources in Hebrew (he-IL), Swiss German (de-CH), Japanese (ja-JP), Turkish (tr-TR), Arabic-Gulf (ar-AE), Malay (ms-MY), Telugu (te-IN)
+* Core 3.3.103.67
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.635.0 (2019-11-20 19:24 UTC)
+* ApplicationDiscoveryService (3.3.102.0)
+	* New exception type for use with Migration Hub home region
+* Chime (3.3.105.0)
+	* Adds APIs to create and manage meeting session resources for the Amazon Chime SDK
+* CloudTrail (3.3.102.0)
+	*  1. This release adds two new APIs, GetInsightSelectors and PutInsightSelectors, which let you configure CloudTrail Insights event delivery on a trail. An Insights event is a new type of event that is generated when CloudTrail detects unusual activity in your AWS account. In this release, only "ApiCallRateInsight" is a supported Insights event type. 2. This release also adds the new "ExcludeManagementEventSource" option to the existing PutEventSelectors API. This field currently supports only AWS Key Management Services.
+* CodeCommit (3.3.106.0)
+	* This release adds support for creating pull request approval rules and pull request approval rule templates in AWS CodeCommit. This allows developers to block merges of pull requests, contingent on the approval rules being satisfiied.
+* DataSync (3.3.107.0)
+	* Update to configure task to run periodically on a schedule
+* DLM (3.3.103.0)
+	* DLM now supports Fast Snapshot Restore. You can enable Fast Restore on snapshots created by DLM, provide the AZs and the number of snapshots to be enabled with this capability.
+* EC2 (3.3.137.0)
+	* This release of Amazon Elastic Compute Cloud (Amazon EC2) introduces support for Amazon Elastic Block Store (Amazon EBS) fast snapshot restores.
+* ECS (3.3.111.0)
+	* Added support for CPU and memory task-level overrides on the RunTask and StartTask APIs.  Added location information to Tasks.
+* FSx (3.3.102.0)
+	* Announcing a Multi-AZ deployment type for Amazon FSx for Windows File Server, providing fully-managed Windows file storage with high availability and redundancy across multiple AWS Availability Zones.
+* KinesisFirehose (3.3.103.0)
+	* With this release, Amazon Kinesis Data Firehose allows server side encryption with customer managed CMKs. Customer managed CMKs ( "Customer Master Keys") are AWS Key Management Service (KMS) keys that are fully managed by the customer. With customer managed CMKs, customers can establish and maintain their key policies, IAM policies, rotating policies and add tags. For more information about AWS KMS and CMKs, please refer to:  https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html. Please refer to the following link to create CMKs: https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html
+* MediaStore (3.3.102.0)
+	* This release fixes a broken link in the SDK documentation.
+* MigrationHub (3.3.101.0)
+	* New exception type for use with Migration Hub home region
+* MigrationHubConfig (3.3.100.0)
+	* AWS Migration Hub Config Service allows you to get and set the Migration Hub home region for use with AWS Migration Hub and Application Discovery Service
+* QuickSight (3.3.102.0)
+	* Amazon QuickSight now supports programmatic creation and management of data sources, data sets, dashboards and templates with new APIs. Templates hold dashboard metadata, and can be used to create copies connected to the same or different dataset as required. Also included in this release are APIs for SPICE ingestions, fine-grained access control over AWS resources using AWS Identity and Access Management (IAM) policies, as well AWS tagging. APIs are supported for both Standard and Enterprise Edition, with edition-specific support for specific functionality.
+* S3 (3.3.108.0)
+	* This release introduces support for Amazon S3 Replication Time Control, a new feature of S3 Replication that provides a predictable replication time backed by a Service Level Agreement. S3 Replication Time Control helps customers meet compliance or business requirements for data replication, and provides visibility into the replication process with new Amazon CloudWatch Metrics.
+* StorageGateway (3.3.110.0)
+	* The new DescribeAvailabilityMonitorTest API provides the results of the most recent High Availability monitoring test. The new StartAvailabilityMonitorTest API verifies the storage gateway is configured for High Availability monitoring. The new ActiveDirectoryStatus response element has been added to the DescribeSMBSettings and JoinDomain APIs to indicate the status of the gateway after the most recent JoinDomain operation. The new TimeoutInSeconds parameter of the JoinDomain API allows for the configuration of the timeout in which the JoinDomain operation must complete.
+* TranscribeService (3.3.110.0)
+	* With this release Amazon Transcribe enables alternative transcriptions so that you can see different interpretations of transcribed audio.
+
+### 3.3.634.1 (2019-11-19 22:36 UTC)
+* EC2 (3.3.136.1)
+	* Updated to use new Core, version 3.3.103.66
+	* Updates obsolete IMDS methods to obtain a metadata token that is used with subsequent metadata calls. A potential breaking change exists where exceptions other than WebException may no longer be thrown. Instead null will be returned for consistency between targets.
+* Lambda (3.3.104.1)
+	* Allow clearing of Lambda Environment variables via UpdateLambdaConfiguration.
+* Core 3.3.103.66
+	* Fix unmarshalling of JSON arrays that contain forward slashes in names; Updates IMDS to obtain a metadata token that is used with subsequent metadata calls. This also updates IMDS based instance profile credentials to use metadata tokens as part of IMDS calls. A potential breaking change exists where exceptions other than WebException may no longer be thrown. Instead null will be returned for consistency between targets.
+	* All services packages updated to require new Core
+
+### 3.3.634.0 (2019-11-19 21:03 UTC)
+* AutoScaling (3.3.101.0)
+	* Amazon EC2 Auto Scaling now supports Instance Weighting and Max Instance Lifetime. Instance Weighting allows specifying the capacity units for each instance type included in the MixedInstancesPolicy and how they would contribute to your application's performance. Max Instance Lifetime allows specifying the maximum length of time that an instance can be in service. If any instances are approaching this limit, Amazon EC2 Auto Scaling gradually replaces them.
+* CloudFormation (3.3.103.0)
+	* This release of AWS CloudFormation StackSets enables users to detect drift on a stack set and the stack instances that belong to that stack set.
+* CodeBuild (3.3.104.0)
+	* Add support for ARM and GPU-enhanced build environments and a new SSD-backed Linux compute type with additional CPU and memory in CodeBuild
+* ConfigService (3.3.105.0)
+	* AWSConfig launches support for conformance packs. A conformance pack is a new resource type that allows you to package a collection of Config rules and remediation actions into a single entity. You can create and deploy conformance packs into your account or across all accounts in your organization
+* EC2 (3.3.136.0)
+	* This release adds support for RunInstances to specify the metadata options for new instances; adds a new API, ModifyInstanceMetadataOptions, which lets you modify the metadata options for a running or stopped instance; and adds support for CreateCustomerGateway to specify a device name.
+* ElasticLoadBalancingV2 (3.3.103.0)
+	* This release allows forward actions on Application Load Balancers to route requests to multiple target groups, based on the weight you specify for each target group.
+* IdentityManagement (3.3.104.0)
+	* IAM reports the timestamp when a role's credentials were last used to make an AWS request. This helps you identify unused roles and remove them confidently from your AWS accounts.
+* IoT (3.3.104.0)
+	* As part of this release, we are extending the capability of AWS IoT Rules Engine to send messages directly to customer's own web services/applications. Customers can now create topic rules with HTTP actions to route messages from IoT Core directly to URL's that they own. Ownership is proved by creating and confirming topic rule destinations.
+* Lambda (3.3.104.0)
+	* This release provides three new runtimes to support Node.js 12 (initially 12.13.0), Python 3.8 and Java 11.  
+* Core 3.3.103.65
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.633.0 (2019-11-18 19:17 UTC)
+* CloudFormation (3.3.102.0)
+	* This release introduces APIs for the CloudFormation Registry, a new service to submit and discover resource providers with which you can manage third-party resources natively in CloudFormation.
+* CostExplorer (3.3.105.0)
+	* add EstimatedOnDemandCostWithCurrentCommitment to GetSavingsPlansPurchaseRecommendationRequest API
+* Pinpoint (3.3.104.0)
+	* This release of the Amazon Pinpoint API introduces support for using and managing message templates for messages that are sent through the voice channel. It also introduces support for specifying default values for message variables in message templates. 
+* RDS (3.3.112.14)
+	* Documentation updates for rds
+* S3 (3.3.107.0)
+	* Added support for S3 Replication for existing objects. This release allows customers who have requested and been granted access to replicate existing S3 objects across buckets.
+* SageMaker (3.3.107.0)
+	* Amazon SageMaker now supports multi-model endpoints to host multiple models on an endpoint using a single inference container.
+* SimpleSystemsManagement (3.3.110.0)
+	* The release contains new API and API changes for AWS Systems Manager Explorer product.
+
+### 3.3.632.0 (2019-11-15 19:38 UTC)
+* Chime (3.3.104.0)
+	* This release adds support for Chime Room Management APIs
+* CloudWatchLogs (3.3.101.48)
+	* Documentation updates for logs
+* CognitoIdentityProvider (3.3.105.0)
+	* This release adds a new option in the User Pool to allow specifying sender's name in the emails sent by Amazon Cognito. This release also adds support to add SES Configuration Set to the emails sent by Amazon Cognito.
+* EC2 (3.3.135.0)
+	* You can now add tags while copying snapshots. Previously, a user had to first copy the snapshot and then add tags to the copied snapshot manually. Moving forward, you can specify the list of tags you wish to be applied to the copied snapshot as a parameter on the Copy Snapshot API. 
+* EKS (3.3.104.0)
+	* Introducing Amazon EKS managed node groups, a new feature that lets you easily provision worker nodes for Amazon EKS clusters and keep them up to date using the Amazon EKS management console, CLI, and APIs.
+* ElasticLoadBalancingV2 (3.3.102.64)
+	* Documentation-only change to the default value of the routing.http.drop_invalid_header_fields.enabled attribute.
+* ElasticMapReduce (3.3.103.0)
+	* Access to the cluster ARN makes it easier for you to author resource-level permissions policies in AWS Identity and Access Management. To simplify the process of obtaining the cluster ARN, Amazon EMR has added a new field containing the cluster ARN to all API responses that include the cluster ID.
+* GuardDuty (3.3.104.0)
+	* This release includes new operations related to findings export, including: CreatePublishingDestination, UpdatePublishingDestination, DescribePublishingDestination, DeletePublishingDestination and ListPublishingDestinations.
+* MediaConvert (3.3.110.0)
+	* AWS Elemental MediaConvert SDK has added support for DolbyVision encoding, and SCTE35 & ESAM insertion to DASH ISO EMSG.
+* SimpleSystemsManagement (3.3.109.1)
+	* This release updates AWS Systems Manager Parameter Store documentation for the enhanced search capability.
+* WorkSpaces (3.3.106.0)
+	* Added APIs to register your directories with Amazon WorkSpaces and to modify directory details. 
+
+### 3.3.631.0 (2019-11-14 19:28 UTC)
+* AWSMarketplaceMetering (3.3.101.0)
+	* Added CustomerNotEntitledException in MeterUsage API for Container use case.
+* CognitoIdentityProvider (3.3.104.0)
+	* This release adds a new setting at user pool client to prevent user existence related errors during authentication, confirmation, and password recovery related operations. This release also adds support to enable or disable specific authentication flows for a user pool client.
+* Connect (3.3.102.0)
+	* This release enhances the existing user management APIs and adds 3 new APIs - TagResource, UntagResource, and ListTagsForResource to support tagging Amazon Connect users, which facilitates more granular access controls for Amazon Connect users within an Amazon Connect instance. You can learn more about the new APIs here: https://docs.aws.amazon.com/connect/latest/APIReference/Welcome.html.
+* Personalize (3.3.103.0)
+	* Amazon Personalize: Adds ability to get batch recommendations by creating a batch inference job.
+* SimpleSystemsManagement (3.3.109.0)
+	* Updates support for adding attachments to Systems Manager Automation documents
+* Core 3.3.103.64
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.630.0 (2019-11-13 21:29 UTC)
+* CloudSearch (3.3.101.0)
+	* Amazon CloudSearch domains let you require that all traffic to the domain arrive over HTTPS. This security feature helps you block clients that send unencrypted requests to the domain.
+* DataExchange (3.3.100.0)
+	* Introducing AWS Data Exchange, a service that makes it easy for AWS customers to securely create, manage, access, and exchange data sets in the cloud.
+* DLM (3.3.102.0)
+	* You can now add tags to a lifecycle policy in Data Lifecycle Manager (DLM). Tags allow you to categorize your policies in different ways, such as by department, purpose or owner. You can also enable resource level permissions based on tags to set access control on ability to modify or delete a tagged policy.
+* IoT (3.3.103.0)
+	* This release adds the custom fields definition support in the index definition for AWS IoT Fleet Indexing Service. Custom fields can be used as an aggregation field to run aggregations with both existing GetStatistics API and newly added GetCardinality, GetPercentiles APIs. GetStatistics will return all statistics (min/max/sum/avg/count...) with this release. For more information, please refer to our latest documentation: https://docs.aws.amazon.com/iot/latest/developerguide/iot-indexing.html
+* SimpleEmailV2 (3.3.100.0)
+	* This is the first release of version 2 of the Amazon SES API. You can use this API to configure your Amazon SES account, and to send email. This API extends the functionality that exists in the previous version of the Amazon SES API.
+* Core 3.3.103.63
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.629.0 (2019-11-12 21:03 UTC)
+* CodePipeline (3.3.104.0)
+	* AWS CodePipeline now supports the use of variables in action configuration.
+* DynamoDBv2 (3.3.102.0)
+	* Amazon DynamoDB enables you to restore your data to a new DynamoDB table using a point-in-time or on-demand backup. You now can modify the settings on the new restored table. Specifically, you can exclude some or all of the local and global secondary indexes from being created with the restored table. In addition, you can change the billing mode and provisioned capacity settings.
+* ElasticLoadBalancingV2 (3.3.102.61)
+	* You can configure your Application Load Balancer to either drop invalid header fields or forward them to targets.
+* MarketplaceCatalog (3.3.100.0)
+	* This is the first release for the AWS Marketplace Catalog service which allows you to list, describe and manage change requests on your published entities on AWS Marketplace. 
+* TranscribeService (3.3.109.0)
+	* With this release, Amazon Transcribe now supports transcriptions from audio sources in Welsh English (en-WL), Scottish English(en-AB), Irish English(en-IE), Farsi(fa-IR), Tamil(ta-IN), Indonesian(id-ID), Portuguese (pt-PT), Dutch(nl-NL).
+
+### 3.3.628.0 (2019-11-11 20:27 UTC)
+* CloudFormation (3.3.101.0)
+	* The Resource Import feature enables customers to import existing AWS resources into new or existing CloudFormation Stacks.
+* CostExplorer (3.3.104.0)
+	* This launch provides customers with access to GetCostAndUsageWithResources API.
+
 ### 3.3.627.0 (2019-11-08 20:24 UTC)
 * CognitoIdentity (3.3.101.0)
 	* This release adds support for disabling classic flow.

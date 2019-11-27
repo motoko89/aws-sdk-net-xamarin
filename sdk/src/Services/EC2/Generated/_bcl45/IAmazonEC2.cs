@@ -462,8 +462,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Allocates a Dedicated Host to your account. At a minimum, specify the instance size
-        /// type, Availability Zone, and quantity of hosts to allocate.
+        /// Allocates a Dedicated Host to your account. At a minimum, specify the supported instance
+        /// type or instance family, the Availability Zone in which to allocate the host, and
+        /// the number of hosts to allocate.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AllocateHosts service method.</param>
         /// 
@@ -474,8 +475,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Allocates a Dedicated Host to your account. At a minimum, specify the instance size
-        /// type, Availability Zone, and quantity of hosts to allocate.
+        /// Allocates a Dedicated Host to your account. At a minimum, specify the supported instance
+        /// type or instance family, the Availability Zone in which to allocate the host, and
+        /// the number of hosts to allocate.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AllocateHosts service method.</param>
         /// <param name="cancellationToken">
@@ -2192,11 +2194,9 @@ namespace Amazon.EC2
         /// </para>
         ///  <important> 
         /// <para>
-        /// You cannot create more than one customer gateway with the same VPN type, IP address,
-        /// and BGP ASN parameter values. If you run an identical request more than one time,
-        /// the first request creates the customer gateway, and subsequent requests return information
-        /// about the existing customer gateway. The subsequent requests do not create new customer
-        /// gateway resources.
+        /// To create more than one customer gateway with the same VPN type, IP address, and BGP
+        /// ASN, specify a unique device name for each customer gateway. Identical requests return
+        /// information about the existing customer gateway and do not create new customer gateways.
         /// </para>
         ///  </important>
         /// </summary>
@@ -2235,11 +2235,9 @@ namespace Amazon.EC2
         /// </para>
         ///  <important> 
         /// <para>
-        /// You cannot create more than one customer gateway with the same VPN type, IP address,
-        /// and BGP ASN parameter values. If you run an identical request more than one time,
-        /// the first request creates the customer gateway, and subsequent requests return information
-        /// about the existing customer gateway. The subsequent requests do not create new customer
-        /// gateway resources.
+        /// To create more than one customer gateway with the same VPN type, IP address, and BGP
+        /// ASN, specify a unique device name for each customer gateway. Identical requests return
+        /// information about the existing customer gateway and do not create new customer gateways.
         /// </para>
         ///  </important>
         /// </summary>
@@ -7568,11 +7566,46 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DescribeFastSnapshotRestores
+
+
+        /// <summary>
+        /// Describes the state of fast snapshot restores for your snapshots.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeFastSnapshotRestores service method.</param>
+        /// 
+        /// <returns>The response from the DescribeFastSnapshotRestores service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFastSnapshotRestores">REST API Reference for DescribeFastSnapshotRestores Operation</seealso>
+        DescribeFastSnapshotRestoresResponse DescribeFastSnapshotRestores(DescribeFastSnapshotRestoresRequest request);
+
+
+
+        /// <summary>
+        /// Describes the state of fast snapshot restores for your snapshots.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeFastSnapshotRestores service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeFastSnapshotRestores service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFastSnapshotRestores">REST API Reference for DescribeFastSnapshotRestores Operation</seealso>
+        Task<DescribeFastSnapshotRestoresResponse> DescribeFastSnapshotRestoresAsync(DescribeFastSnapshotRestoresRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DescribeFleetHistory
 
 
         /// <summary>
         /// Describes the events for the specified EC2 Fleet during the specified time.
+        /// 
+        ///  
+        /// <para>
+        /// EC2 Fleet events are delayed by up to 30 seconds before they can be described. This
+        /// ensures that you can query by the last evaluated time and not miss a recorded event.
+        /// EC2 Fleet events are available for 48 hours.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeFleetHistory service method.</param>
         /// 
@@ -7584,6 +7617,13 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Describes the events for the specified EC2 Fleet during the specified time.
+        /// 
+        ///  
+        /// <para>
+        /// EC2 Fleet events are delayed by up to 30 seconds before they can be described. This
+        /// ensures that you can query by the last evaluated time and not miss a recorded event.
+        /// EC2 Fleet events are available for 48 hours.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeFleetHistory service method.</param>
         /// <param name="cancellationToken">
@@ -7752,11 +7792,11 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// The results describe all the Dedicated Host reservation offerings, including offerings
-        /// that may not match the instance family and Region of your Dedicated Hosts. When purchasing
-        /// an offering, ensure that the instance family and Region of the offering matches that
-        /// of the Dedicated Hosts with which it is to be associated. For more information about
-        /// supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
+        /// The results describe all of the Dedicated Host reservation offerings, including offerings
+        /// that might not match the instance family and Region of your Dedicated Hosts. When
+        /// purchasing an offering, ensure that the instance family and Region of the offering
+        /// matches that of the Dedicated Hosts with which it is to be associated. For more information
+        /// about supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
         /// Hosts Overview</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. 
         /// </para>
         /// </summary>
@@ -7773,11 +7813,11 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// The results describe all the Dedicated Host reservation offerings, including offerings
-        /// that may not match the instance family and Region of your Dedicated Hosts. When purchasing
-        /// an offering, ensure that the instance family and Region of the offering matches that
-        /// of the Dedicated Hosts with which it is to be associated. For more information about
-        /// supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
+        /// The results describe all of the Dedicated Host reservation offerings, including offerings
+        /// that might not match the instance family and Region of your Dedicated Hosts. When
+        /// purchasing an offering, ensure that the instance family and Region of the offering
+        /// matches that of the Dedicated Hosts with which it is to be associated. For more information
+        /// about supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
         /// Hosts Overview</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. 
         /// </para>
         /// </summary>
@@ -8285,14 +8325,14 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the credit option for CPU usage of the specified T2 or T3 instances. The
-        /// credit options are <code>standard</code> and <code>unlimited</code>.
+        /// Describes the credit option for CPU usage of the specified burstable performance instances.
+        /// The credit options are <code>standard</code> and <code>unlimited</code>.
         /// 
         ///  
         /// <para>
-        /// If you do not specify an instance ID, Amazon EC2 returns T2 and T3 instances with
-        /// the <code>unlimited</code> credit option, as well as instances that were previously
-        /// configured as T2 or T3 with the <code>unlimited</code> credit option. For example,
+        /// If you do not specify an instance ID, Amazon EC2 returns burstable performance instances
+        /// with the <code>unlimited</code> credit option, as well as instances that were previously
+        /// configured as T2, T3, and T3a with the <code>unlimited</code> credit option. For example,
         /// if you resize a T2 instance, while it is configured as <code>unlimited</code>, to
         /// an M4 instance, Amazon EC2 returns the M4 instance.
         /// </para>
@@ -8300,7 +8340,8 @@ namespace Amazon.EC2
         /// <para>
         /// If you specify one or more instance IDs, Amazon EC2 returns the credit option (<code>standard</code>
         /// or <code>unlimited</code>) of those instances. If you specify an instance ID that
-        /// is not valid, such as an instance that is not a T2 or T3 instance, an error is returned.
+        /// is not valid, such as an instance that is not a burstable performance instance, an
+        /// error is returned.
         /// </para>
         ///  
         /// <para>
@@ -8328,14 +8369,14 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the credit option for CPU usage of the specified T2 or T3 instances. The
-        /// credit options are <code>standard</code> and <code>unlimited</code>.
+        /// Describes the credit option for CPU usage of the specified burstable performance instances.
+        /// The credit options are <code>standard</code> and <code>unlimited</code>.
         /// 
         ///  
         /// <para>
-        /// If you do not specify an instance ID, Amazon EC2 returns T2 and T3 instances with
-        /// the <code>unlimited</code> credit option, as well as instances that were previously
-        /// configured as T2 or T3 with the <code>unlimited</code> credit option. For example,
+        /// If you do not specify an instance ID, Amazon EC2 returns burstable performance instances
+        /// with the <code>unlimited</code> credit option, as well as instances that were previously
+        /// configured as T2, T3, and T3a with the <code>unlimited</code> credit option. For example,
         /// if you resize a T2 instance, while it is configured as <code>unlimited</code>, to
         /// an M4 instance, Amazon EC2 returns the M4 instance.
         /// </para>
@@ -8343,7 +8384,8 @@ namespace Amazon.EC2
         /// <para>
         /// If you specify one or more instance IDs, Amazon EC2 returns the credit option (<code>standard</code>
         /// or <code>unlimited</code>) of those instances. If you specify an instance ID that
-        /// is not valid, such as an instance that is not a T2 or T3 instance, an error is returned.
+        /// is not valid, such as an instance that is not a burstable performance instance, an
+        /// error is returned.
         /// </para>
         ///  
         /// <para>
@@ -8668,6 +8710,68 @@ namespace Amazon.EC2
         /// <returns>The response from the DescribeInstanceStatus service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceStatus">REST API Reference for DescribeInstanceStatus Operation</seealso>
         Task<DescribeInstanceStatusResponse> DescribeInstanceStatusAsync(DescribeInstanceStatusRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DescribeInstanceTypeOfferings
+
+
+        /// <summary>
+        /// Returns a list of all instance types offered. The results can be filtered by location
+        /// (Region or Availability Zone). If no location is specified, the instance types offered
+        /// in the current Region are returned.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceTypeOfferings service method.</param>
+        /// 
+        /// <returns>The response from the DescribeInstanceTypeOfferings service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceTypeOfferings">REST API Reference for DescribeInstanceTypeOfferings Operation</seealso>
+        DescribeInstanceTypeOfferingsResponse DescribeInstanceTypeOfferings(DescribeInstanceTypeOfferingsRequest request);
+
+
+
+        /// <summary>
+        /// Returns a list of all instance types offered. The results can be filtered by location
+        /// (Region or Availability Zone). If no location is specified, the instance types offered
+        /// in the current Region are returned.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceTypeOfferings service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeInstanceTypeOfferings service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceTypeOfferings">REST API Reference for DescribeInstanceTypeOfferings Operation</seealso>
+        Task<DescribeInstanceTypeOfferingsResponse> DescribeInstanceTypeOfferingsAsync(DescribeInstanceTypeOfferingsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DescribeInstanceTypes
+
+
+        /// <summary>
+        /// Returns a list of all instance types offered in your current AWS Region. The results
+        /// can be filtered by the attributes of the instance types.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceTypes service method.</param>
+        /// 
+        /// <returns>The response from the DescribeInstanceTypes service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceTypes">REST API Reference for DescribeInstanceTypes Operation</seealso>
+        DescribeInstanceTypesResponse DescribeInstanceTypes(DescribeInstanceTypesRequest request);
+
+
+
+        /// <summary>
+        /// Returns a list of all instance types offered in your current AWS Region. The results
+        /// can be filtered by the attributes of the instance types.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceTypes service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeInstanceTypes service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceTypes">REST API Reference for DescribeInstanceTypes Operation</seealso>
+        Task<DescribeInstanceTypesResponse> DescribeInstanceTypesAsync(DescribeInstanceTypesRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -12447,6 +12551,36 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DisableFastSnapshotRestores
+
+
+        /// <summary>
+        /// Disables fast snapshot restores for the specified snapshots in the specified Availability
+        /// Zones.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisableFastSnapshotRestores service method.</param>
+        /// 
+        /// <returns>The response from the DisableFastSnapshotRestores service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableFastSnapshotRestores">REST API Reference for DisableFastSnapshotRestores Operation</seealso>
+        DisableFastSnapshotRestoresResponse DisableFastSnapshotRestores(DisableFastSnapshotRestoresRequest request);
+
+
+
+        /// <summary>
+        /// Disables fast snapshot restores for the specified snapshots in the specified Availability
+        /// Zones.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisableFastSnapshotRestores service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DisableFastSnapshotRestores service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableFastSnapshotRestores">REST API Reference for DisableFastSnapshotRestores Operation</seealso>
+        Task<DisableFastSnapshotRestoresResponse> DisableFastSnapshotRestoresAsync(DisableFastSnapshotRestoresRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DisableTransitGatewayRouteTablePropagation
 
 
@@ -12955,6 +13089,50 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  EnableFastSnapshotRestores
+
+
+        /// <summary>
+        /// Enables fast snapshot restores for the specified snapshots in the specified Availability
+        /// Zones.
+        /// 
+        ///  
+        /// <para>
+        /// You get the full benefit of fast snapshot restores after they enter the <code>enabled</code>
+        /// state. To get the current state of fast snapshot restores, use <a>DescribeFastSnapshotRestores</a>.
+        /// To disable fast snapshot restores, use <a>DisableFastSnapshotRestores</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the EnableFastSnapshotRestores service method.</param>
+        /// 
+        /// <returns>The response from the EnableFastSnapshotRestores service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableFastSnapshotRestores">REST API Reference for EnableFastSnapshotRestores Operation</seealso>
+        EnableFastSnapshotRestoresResponse EnableFastSnapshotRestores(EnableFastSnapshotRestoresRequest request);
+
+
+
+        /// <summary>
+        /// Enables fast snapshot restores for the specified snapshots in the specified Availability
+        /// Zones.
+        /// 
+        ///  
+        /// <para>
+        /// You get the full benefit of fast snapshot restores after they enter the <code>enabled</code>
+        /// state. To get the current state of fast snapshot restores, use <a>DescribeFastSnapshotRestores</a>.
+        /// To disable fast snapshot restores, use <a>DisableFastSnapshotRestores</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the EnableFastSnapshotRestores service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the EnableFastSnapshotRestores service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableFastSnapshotRestores">REST API Reference for EnableFastSnapshotRestores Operation</seealso>
+        Task<EnableFastSnapshotRestoresResponse> EnableFastSnapshotRestoresAsync(EnableFastSnapshotRestoresRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  EnableTransitGatewayRouteTablePropagation
 
 
@@ -13390,6 +13568,48 @@ namespace Amazon.EC2
         /// <returns>The response from the GetConsoleScreenshot service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetConsoleScreenshot">REST API Reference for GetConsoleScreenshot Operation</seealso>
         Task<GetConsoleScreenshotResponse> GetConsoleScreenshotAsync(GetConsoleScreenshotRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  GetDefaultCreditSpecification
+
+
+        /// <summary>
+        /// Describes the default credit option for CPU usage of a burstable performance instance
+        /// family.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+        /// Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetDefaultCreditSpecification service method.</param>
+        /// 
+        /// <returns>The response from the GetDefaultCreditSpecification service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetDefaultCreditSpecification">REST API Reference for GetDefaultCreditSpecification Operation</seealso>
+        GetDefaultCreditSpecificationResponse GetDefaultCreditSpecification(GetDefaultCreditSpecificationRequest request);
+
+
+
+        /// <summary>
+        /// Describes the default credit option for CPU usage of a burstable performance instance
+        /// family.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+        /// Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetDefaultCreditSpecification service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetDefaultCreditSpecification service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetDefaultCreditSpecification">REST API Reference for GetDefaultCreditSpecification Operation</seealso>
+        Task<GetDefaultCreditSpecificationResponse> GetDefaultCreditSpecificationAsync(GetDefaultCreditSpecificationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -14059,6 +14279,70 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  ModifyDefaultCreditSpecification
+
+
+        /// <summary>
+        /// Modifies the default credit option for CPU usage of burstable performance instances.
+        /// The default credit option is set at the account level per AWS Region, and is specified
+        /// per instance family. All new burstable performance instances in the account launch
+        /// using the default credit option.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which
+        /// works at an AWS Region level and modifies the credit option for each Availability
+        /// Zone. All zones in a Region are updated within five minutes. But if instances are
+        /// launched during this operation, they might not get the new credit option until the
+        /// zone is updated. To verify whether the update has occurred, you can call <code>GetDefaultCreditSpecification</code>
+        /// and check <code>DefaultCreditSpecification</code> for updates.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+        /// Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyDefaultCreditSpecification service method.</param>
+        /// 
+        /// <returns>The response from the ModifyDefaultCreditSpecification service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyDefaultCreditSpecification">REST API Reference for ModifyDefaultCreditSpecification Operation</seealso>
+        ModifyDefaultCreditSpecificationResponse ModifyDefaultCreditSpecification(ModifyDefaultCreditSpecificationRequest request);
+
+
+
+        /// <summary>
+        /// Modifies the default credit option for CPU usage of burstable performance instances.
+        /// The default credit option is set at the account level per AWS Region, and is specified
+        /// per instance family. All new burstable performance instances in the account launch
+        /// using the default credit option.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which
+        /// works at an AWS Region level and modifies the credit option for each Availability
+        /// Zone. All zones in a Region are updated within five minutes. But if instances are
+        /// launched during this operation, they might not get the new credit option until the
+        /// zone is updated. To verify whether the update has occurred, you can call <code>GetDefaultCreditSpecification</code>
+        /// and check <code>DefaultCreditSpecification</code> for updates.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+        /// Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyDefaultCreditSpecification service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyDefaultCreditSpecification service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyDefaultCreditSpecification">REST API Reference for ModifyDefaultCreditSpecification Operation</seealso>
+        Task<ModifyDefaultCreditSpecificationResponse> ModifyDefaultCreditSpecificationAsync(ModifyDefaultCreditSpecificationRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  ModifyEbsDefaultKmsKeyId
 
 
@@ -14267,6 +14551,12 @@ namespace Amazon.EC2
         /// enabled. When auto-placement is disabled, you need to provide a host ID to have the
         /// instance launch onto a specific host. If no host ID is provided, the instance is launched
         /// onto a suitable host with auto-placement enabled.
+        /// 
+        ///  
+        /// <para>
+        /// You can also use this API action to modify a Dedicated Host to support either multiple
+        /// instance types in an instance family, or to support a specific instance type only.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyHosts service method.</param>
         /// 
@@ -14283,6 +14573,12 @@ namespace Amazon.EC2
         /// enabled. When auto-placement is disabled, you need to provide a host ID to have the
         /// instance launch onto a specific host. If no host ID is provided, the instance is launched
         /// onto a suitable host with auto-placement enabled.
+        /// 
+        ///  
+        /// <para>
+        /// You can also use this API action to modify a Dedicated Host to support either multiple
+        /// instance types in an instance family, or to support a specific instance type only.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyHosts service method.</param>
         /// <param name="cancellationToken">
@@ -14633,8 +14929,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the credit option for CPU usage on a running or stopped T2 or T3 instance.
-        /// The credit options are <code>standard</code> and <code>unlimited</code>.
+        /// Modifies the credit option for CPU usage on a running or stopped burstable performance
+        /// instance. The credit options are <code>standard</code> and <code>unlimited</code>.
         /// 
         ///  
         /// <para>
@@ -14651,8 +14947,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the credit option for CPU usage on a running or stopped T2 or T3 instance.
-        /// The credit options are <code>standard</code> and <code>unlimited</code>.
+        /// Modifies the credit option for CPU usage on a running or stopped burstable performance
+        /// instance. The credit options are <code>standard</code> and <code>unlimited</code>.
         /// 
         ///  
         /// <para>
@@ -14696,6 +14992,46 @@ namespace Amazon.EC2
         /// <returns>The response from the ModifyInstanceEventStartTime service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstanceEventStartTime">REST API Reference for ModifyInstanceEventStartTime Operation</seealso>
         Task<ModifyInstanceEventStartTimeResponse> ModifyInstanceEventStartTimeAsync(ModifyInstanceEventStartTimeRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  ModifyInstanceMetadataOptions
+
+
+        /// <summary>
+        /// Modify the instance metadata parameters on a running or stopped instance. When you
+        /// modify the parameters on a stopped instance, they are applied when the instance is
+        /// started. When you modify the parameters on a running instance, the API responds with
+        /// a state of “pending”. After the parameter modifications are successfully applied to
+        /// the instance, the state of the modifications changes from “pending” to “applied” in
+        /// subsequent describe-instances API calls. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
+        /// Metadata and User Data</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyInstanceMetadataOptions service method.</param>
+        /// 
+        /// <returns>The response from the ModifyInstanceMetadataOptions service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstanceMetadataOptions">REST API Reference for ModifyInstanceMetadataOptions Operation</seealso>
+        ModifyInstanceMetadataOptionsResponse ModifyInstanceMetadataOptions(ModifyInstanceMetadataOptionsRequest request);
+
+
+
+        /// <summary>
+        /// Modify the instance metadata parameters on a running or stopped instance. When you
+        /// modify the parameters on a stopped instance, they are applied when the instance is
+        /// started. When you modify the parameters on a running instance, the API responds with
+        /// a state of “pending”. After the parameter modifications are successfully applied to
+        /// the instance, the state of the modifications changes from “pending” to “applied” in
+        /// subsequent describe-instances API calls. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
+        /// Metadata and User Data</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyInstanceMetadataOptions service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyInstanceMetadataOptions service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstanceMetadataOptions">REST API Reference for ModifyInstanceMetadataOptions Operation</seealso>
+        Task<ModifyInstanceMetadataOptionsResponse> ModifyInstanceMetadataOptionsAsync(ModifyInstanceMetadataOptionsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
