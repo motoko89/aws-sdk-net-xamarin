@@ -21,11 +21,24 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DefineConstants>TRACE;AWS_ASYNC_API;DEBUG;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD20</DefineConstants>
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType></DebugType>
     <DefineConstants>TRACE;AWS_ASYNC_API;RELEASE;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD20</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|iPhoneSimulator' ">
+    <IntermediateOutputPath>obj\AWSSDK.CognitoIdentity.NetStandard\iPhoneSimulator\Test</IntermediateOutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Test</OutputPath>
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+    <DocumentationFile>obj\AWSSDK.CognitoIdentity.NetStandard\Debug\netstandard2.0\AWSSDK.CognitoIdentity.xml</DocumentationFile>
+    <AssemblyName>AWSSDK.CognitoIdentity.NetStandard</AssemblyName>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+    <NoWarn>1701;1702</NoWarn>
+    <NoStdLib>false</NoStdLib>
   </PropertyGroup>
   <Choose>
     <When Condition=" '$(AWSKeyFile)' == '' ">
