@@ -425,6 +425,10 @@ namespace Amazon.SimpleSystemsManagement
     {
 
         /// <summary>
+        /// Constant AttachmentReference for AttachmentsSourceKey
+        /// </summary>
+        public static readonly AttachmentsSourceKey AttachmentReference = new AttachmentsSourceKey("AttachmentReference");
+        /// <summary>
         /// Constant S3FileUrl for AttachmentsSourceKey
         /// </summary>
         public static readonly AttachmentsSourceKey S3FileUrl = new AttachmentsSourceKey("S3FileUrl");
@@ -506,6 +510,10 @@ namespace Amazon.SimpleSystemsManagement
         /// Constant StartTimeBefore for AutomationExecutionFilterKey
         /// </summary>
         public static readonly AutomationExecutionFilterKey StartTimeBefore = new AutomationExecutionFilterKey("StartTimeBefore");
+        /// <summary>
+        /// Constant TagKey for AutomationExecutionFilterKey
+        /// </summary>
+        public static readonly AutomationExecutionFilterKey TagKey = new AutomationExecutionFilterKey("TagKey");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -660,6 +668,56 @@ namespace Amazon.SimpleSystemsManagement
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator AutomationType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type CalendarState.
+    /// </summary>
+    public class CalendarState : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CLOSED for CalendarState
+        /// </summary>
+        public static readonly CalendarState CLOSED = new CalendarState("CLOSED");
+        /// <summary>
+        /// Constant OPEN for CalendarState
+        /// </summary>
+        public static readonly CalendarState OPEN = new CalendarState("OPEN");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public CalendarState(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static CalendarState FindValue(string value)
+        {
+            return FindValue<CalendarState>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator CalendarState(string value)
         {
             return FindValue(value);
         }
@@ -1289,6 +1347,10 @@ namespace Amazon.SimpleSystemsManagement
         /// </summary>
         public static readonly DocumentFormat JSON = new DocumentFormat("JSON");
         /// <summary>
+        /// Constant TEXT for DocumentFormat
+        /// </summary>
+        public static readonly DocumentFormat TEXT = new DocumentFormat("TEXT");
+        /// <summary>
         /// Constant YAML for DocumentFormat
         /// </summary>
         public static readonly DocumentFormat YAML = new DocumentFormat("YAML");
@@ -1554,6 +1616,10 @@ namespace Amazon.SimpleSystemsManagement
         /// Constant Automation for DocumentType
         /// </summary>
         public static readonly DocumentType Automation = new DocumentType("Automation");
+        /// <summary>
+        /// Constant ChangeCalendar for DocumentType
+        /// </summary>
+        public static readonly DocumentType ChangeCalendar = new DocumentType("ChangeCalendar");
         /// <summary>
         /// Constant Command for DocumentType
         /// </summary>

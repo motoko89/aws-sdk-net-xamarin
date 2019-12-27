@@ -120,6 +120,12 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         unmarshalledObject.Hypervisor = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("inferenceAcceleratorInfo", targetDepth))
+                    {
+                        var unmarshaller = InferenceAcceleratorInfoUnmarshaller.Instance;
+                        unmarshalledObject.InferenceAcceleratorInfo = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("instanceStorageInfo", targetDepth))
                     {
                         var unmarshaller = InstanceStorageInfoUnmarshaller.Instance;
@@ -162,11 +168,11 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         unmarshalledObject.ProcessorInfo = unmarshaller.Unmarshall(context);
                         continue;
                     }
-                    if (context.TestExpression("supportedRootDevices/item", targetDepth))
+                    if (context.TestExpression("supportedRootDeviceTypes/item", targetDepth))
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
                         var item = unmarshaller.Unmarshall(context);
-                        unmarshalledObject.SupportedRootDevices.Add(item);
+                        unmarshalledObject.SupportedRootDeviceTypes.Add(item);
                         continue;
                     }
                     if (context.TestExpression("supportedUsageClasses/item", targetDepth))

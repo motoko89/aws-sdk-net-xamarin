@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.EKS.Model
 {
     /// <summary>
-    /// An AutoScaling group that is associated with an Amazon EKS managed node group.
+    /// An Auto Scaling group that is associated with an Amazon EKS managed node group.
     /// </summary>
     public partial class AutoScalingGroup
     {
@@ -37,7 +37,7 @@ namespace Amazon.EKS.Model
         /// <summary>
         /// Gets and sets the property Name. 
         /// <para>
-        /// The name of the AutoScaling group associated with an Amazon EKS managed node group.
+        /// The name of the Auto Scaling group associated with an Amazon EKS managed node group.
         /// </para>
         /// </summary>
         public string Name

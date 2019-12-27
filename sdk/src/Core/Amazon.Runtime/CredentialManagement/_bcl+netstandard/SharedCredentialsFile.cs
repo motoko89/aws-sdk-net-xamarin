@@ -44,6 +44,8 @@ namespace Amazon.Runtime.CredentialManagement
         private const string DefaultFileName = "credentials";
         private const string CredentialProcess = "credential_process";
         private const string StsRegionalEndpointsField = "sts_regional_endpoints";
+        private const string S3UseArnRegionField = "s3_use_arn_region";
+        private const string S3RegionalEndpointField = "s3_us_east_1_regional_endpoint";
         private readonly Logger _logger = Logger.GetLogger(typeof(SharedCredentialsFile));
 
         private static readonly HashSet<string> ReservedPropertyNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
@@ -52,7 +54,9 @@ namespace Amazon.Runtime.CredentialManagement
             RegionField,
             EndpointDiscoveryEnabledField,
             CredentialProcess,
-            StsRegionalEndpointsField
+            StsRegionalEndpointsField,
+            S3UseArnRegionField,
+            S3RegionalEndpointField
         };
 
         /// <summary>
@@ -67,9 +71,16 @@ namespace Amazon.Runtime.CredentialManagement
                 CredentialProfileType.AssumeRoleExternal,
                 CredentialProfileType.AssumeRoleExternalMFA,
                 CredentialProfileType.AssumeRoleMFA,
+                CredentialProfileType.AssumeRoleWithWebIdentity,
+                CredentialProfileType.AssumeRoleWithWebIdentitySessionName,
                 CredentialProfileType.Basic,
                 CredentialProfileType.Session,
-                CredentialProfileType.CredentialProcess
+                CredentialProfileType.CredentialProcess,
+                CredentialProfileType.AssumeRoleSessionName,
+                CredentialProfileType.AssumeRoleCredentialSourceSessionName,
+                CredentialProfileType.AssumeRoleExternalSessionName,
+                CredentialProfileType.AssumeRoleExternalMFASessionName,
+                CredentialProfileType.AssumeRoleMFASessionName
             };
 
         private static readonly CredentialProfilePropertyMapping PropertyMapping =
@@ -84,13 +95,15 @@ namespace Amazon.Runtime.CredentialManagement
                     { "ExternalID", "external_id" },
                     { "MfaSerial", "mfa_serial" },
                     { "RoleArn", "role_arn" },
+                    { "RoleSessionName", "role_session_name" },
                     { "SecretKey", "aws_secret_access_key" },
                     { "SourceProfile", "source_profile" },
                     { "Token", "aws_session_token" },
 #if !NETSTANDARD13
                     { "UserIdentity", null },
 #endif
-                    { "CredentialProcess" , "credential_process" }
+                    { "CredentialProcess" , "credential_process" },
+                    { "WebIdentityTokenFile", "web_identity_token_file" }
                 }
             );
 
@@ -225,6 +238,12 @@ namespace Amazon.Runtime.CredentialManagement
 
             if (profile.StsRegionalEndpoints != null)
                 reservedProperties[StsRegionalEndpointsField] = profile.StsRegionalEndpoints.ToString().ToLowerInvariant();
+
+            if (profile.S3UseArnRegion != null)
+                reservedProperties[S3UseArnRegionField] = profile.S3UseArnRegion.Value.ToString().ToLowerInvariant();
+                
+            if (profile.S3RegionalEndpoint != null)
+                reservedProperties[S3RegionalEndpointField] = profile.S3RegionalEndpoint.ToString().ToLowerInvariant();
 
             var profileDictionary = PropertyMapping.CombineProfileParts(
                 profile.Options, ReservedPropertyNames, reservedProperties, profile.Properties);
@@ -392,6 +411,44 @@ namespace Amazon.Runtime.CredentialManagement
 #endif
                 }
 
+                string s3UseArnRegionString;
+                bool? s3UseArnRegion = null;
+                if (reservedProperties.TryGetValue(S3UseArnRegionField, out s3UseArnRegionString))
+                {
+                    bool s3UseArnRegionOut;
+                    if (!bool.TryParse(s3UseArnRegionString, out s3UseArnRegionOut))
+                    {
+                        profile = null;
+                        return false;
+                    }
+                    s3UseArnRegion = s3UseArnRegionOut;
+                }
+
+                S3UsEast1RegionalEndpointValue? s3RegionalEndpoint = null;
+                if (reservedProperties.TryGetValue(S3RegionalEndpointField, out var s3RegionalEndpointString))
+                {
+#if BCL35
+                    try
+                    {
+                        s3RegionalEndpoint = (S3UsEast1RegionalEndpointValue) Enum.Parse(typeof(S3UsEast1RegionalEndpointValue), s3RegionalEndpointString, true);
+                    }
+                    catch (Exception)
+                    {
+                        _logger.InfoFormat("Invalid value {0} for {1} in profile {2}. A string regional/legacy is expected.", s3RegionalEndpointString, S3RegionalEndpointField, profileName);
+                        profile = null;
+                        return false;
+                    }
+#else 
+                    if (!Enum.TryParse<S3UsEast1RegionalEndpointValue>(s3RegionalEndpointString, true, out var s3RegionalEndpointTemp))
+                    {
+                        _logger.InfoFormat("Invalid value {0} for {1} in profile {2}. A string regional/legacy is expected.", s3RegionalEndpointString, S3RegionalEndpointField, profileName);
+                        profile = null;
+                        return false;
+                    }
+                    s3RegionalEndpoint = s3RegionalEndpointTemp;
+#endif
+                }
+
                 profile = new CredentialProfile(profileName, profileOptions)
                 {
                     UniqueKey = toolkitArtifactGuid,
@@ -399,7 +456,9 @@ namespace Amazon.Runtime.CredentialManagement
                     Region = region,
                     CredentialProfileStore = this,
                     EndpointDiscoveryEnabled = endpointDiscoveryEnabled,
-                    StsRegionalEndpoints = stsRegionalEndpoints
+                    StsRegionalEndpoints = stsRegionalEndpoints,
+                    S3UseArnRegion = s3UseArnRegion,
+                    S3RegionalEndpoint = s3RegionalEndpoint
                 };
 
                 if (!IsSupportedProfileType(profile.ProfileType))

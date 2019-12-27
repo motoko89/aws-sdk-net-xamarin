@@ -121,6 +121,10 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                                     {
                                         request.Parameters.Add("LaunchTemplateConfigs" + "." + publicRequestlistValueIndex + "." + "Overrides" + "." + publicRequestlistValuelistValueIndex + "." + "Placement" + "." + "HostId", StringUtils.FromString(publicRequestlistValuelistValue.Placement.HostId));
                                     }
+                                    if(publicRequestlistValuelistValue.Placement.IsSetHostResourceGroupArn())
+                                    {
+                                        request.Parameters.Add("LaunchTemplateConfigs" + "." + publicRequestlistValueIndex + "." + "Overrides" + "." + publicRequestlistValuelistValueIndex + "." + "Placement" + "." + "HostResourceGroupArn", StringUtils.FromString(publicRequestlistValuelistValue.Placement.HostResourceGroupArn));
+                                    }
                                     if(publicRequestlistValuelistValue.Placement.IsSetPartitionNumber())
                                     {
                                         request.Parameters.Add("LaunchTemplateConfigs" + "." + publicRequestlistValueIndex + "." + "Overrides" + "." + publicRequestlistValuelistValueIndex + "." + "Placement" + "." + "PartitionNumber", StringUtils.FromInt(publicRequestlistValuelistValue.Placement.PartitionNumber));
@@ -157,6 +161,13 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                     if(publicRequest.OnDemandOptions.IsSetAllocationStrategy())
                     {
                         request.Parameters.Add("OnDemandOptions" + "." + "AllocationStrategy", StringUtils.FromString(publicRequest.OnDemandOptions.AllocationStrategy));
+                    }
+                    if(publicRequest.OnDemandOptions.IsSetCapacityReservationOptions())
+                    {
+                        if(publicRequest.OnDemandOptions.CapacityReservationOptions.IsSetUsageStrategy())
+                        {
+                            request.Parameters.Add("OnDemandOptions" + "." + "CapacityReservationOptions" + "." + "UsageStrategy", StringUtils.FromString(publicRequest.OnDemandOptions.CapacityReservationOptions.UsageStrategy));
+                        }
                     }
                     if(publicRequest.OnDemandOptions.IsSetMaxTotalPrice())
                     {

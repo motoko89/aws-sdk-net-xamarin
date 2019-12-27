@@ -174,6 +174,10 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                     int publicRequestlistValueIndex = 1;
                     foreach(var publicRequestlistValue in publicRequest.ElasticInferenceAccelerators)
                     {
+                        if(publicRequestlistValue.IsSetCount())
+                        {
+                            request.Parameters.Add("ElasticInferenceAccelerator" + "." + publicRequestlistValueIndex + "." + "Count", StringUtils.FromInt(publicRequestlistValue.Count));
+                        }
                         if(publicRequestlistValue.IsSetType())
                         {
                             request.Parameters.Add("ElasticInferenceAccelerator" + "." + publicRequestlistValueIndex + "." + "Type", StringUtils.FromString(publicRequestlistValue.Type));
@@ -421,6 +425,10 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                     if(publicRequest.Placement.IsSetHostId())
                     {
                         request.Parameters.Add("Placement" + "." + "HostId", StringUtils.FromString(publicRequest.Placement.HostId));
+                    }
+                    if(publicRequest.Placement.IsSetHostResourceGroupArn())
+                    {
+                        request.Parameters.Add("Placement" + "." + "HostResourceGroupArn", StringUtils.FromString(publicRequest.Placement.HostResourceGroupArn));
                     }
                     if(publicRequest.Placement.IsSetPartitionNumber())
                     {

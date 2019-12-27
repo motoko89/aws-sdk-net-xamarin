@@ -59,6 +59,7 @@
     "DescribePatchProperties": "<p>Lists the properties of available patches organized by product, product family, classification, severity, and other properties of available patches. You can use the reported properties in the filters you specify in requests for actions such as <a>CreatePatchBaseline</a>, <a>UpdatePatchBaseline</a>, <a>DescribeAvailablePatches</a>, and <a>DescribePatchBaselines</a>.</p> <p>The following section lists the properties that can be used in filters for each major operating system type:</p> <dl> <dt>WINDOWS</dt> <dd> <p>Valid properties: PRODUCT, PRODUCT_FAMILY, CLASSIFICATION, MSRC_SEVERITY</p> </dd> <dt>AMAZON_LINUX</dt> <dd> <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p> </dd> <dt>AMAZON_LINUX_2</dt> <dd> <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p> </dd> <dt>UBUNTU </dt> <dd> <p>Valid properties: PRODUCT, PRIORITY</p> </dd> <dt>REDHAT_ENTERPRISE_LINUX</dt> <dd> <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p> </dd> <dt>SUSE</dt> <dd> <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p> </dd> <dt>CENTOS</dt> <dd> <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p> </dd> </dl>",
     "DescribeSessions": "<p>Retrieves a list of all active sessions (both connected and disconnected) or terminated sessions from the past 30 days.</p>",
     "GetAutomationExecution": "<p>Get detailed information about a particular Automation execution.</p>",
+    "GetCalendarState": "<p>Gets the state of the AWS Systems Manager Change Calendar at an optional, specified time. If you specify a time, <code>GetCalendarState</code> returns the state of the calendar at a specific time, and returns the next time that the Change Calendar state will transition. If you do not specify a time, <code>GetCalendarState</code> assumes the current time. Change Calendar entries have two possible states: <code>OPEN</code> or <code>CLOSED</code>. For more information about Systems Manager Change Calendar, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html\">AWS Systems Manager Change Calendar</a> in the <i>AWS Systems Manager User Guide</i>.</p>",
     "GetCommandInvocation": "<p>Returns detailed information about command execution for an invocation or plugin. </p>",
     "GetConnectionStatus": "<p>Retrieves the Session Manager connection status for an instance to determine whether it is connected and ready to receive Session Manager connections.</p>",
     "GetDefaultPatchBaseline": "<p>Retrieves the default patch baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.</p> <p>If you do not specify an operating system value, the default patch baseline for Windows is returned.</p>",
@@ -601,7 +602,7 @@
     "AttachmentsSourceValues": {
       "base": null,
       "refs": {
-        "AttachmentsSource$Values": "<p>The value of a key-value pair that identifies the location of an attachment to a document. The format is the URL of the location of a document attachment, such as the URL of an Amazon S3 bucket.</p>"
+        "AttachmentsSource$Values": "<p>The value of a key-value pair that identifies the location of an attachment to a document. The format for <b>Value</b> depends on the type of key you specify.</p> <ul> <li> <p>For the key <i>SourceUrl</i>, the value is an S3 bucket location. For example:</p> <p> <code>\"Values\": [ \"s3://my-bucket/my-folder\" ]</code> </p> </li> <li> <p>For the key <i>S3FileUrl</i>, the value is a file in an S3 bucket. For example:</p> <p> <code>\"Values\": [ \"s3://my-bucket/my-folder/my-file.py\" ]</code> </p> </li> <li> <p>For the key <i>AttachmentReference</i>, the value is constructed from the name of another SSM document in your account, a version number of that document, and a file attached to that document version that you want to reuse. For example:</p> <p> <code>\"Values\": [ \"MyOtherDocument/3/my-other-file.py\" ]</code> </p> <p>However, if the SSM document is shared with you from another account, the full SSM document ARN must be specified instead of the document name only. For example:</p> <p> <code>\"Values\": [ \"arn:aws:ssm:us-east-2:111122223333:document/OtherAccountDocument/3/their-file.py\" ]</code> </p> </li> </ul>"
       }
     },
     "AttributeName": {
@@ -855,6 +856,24 @@
         "UpdatePatchBaselineResult$ApprovedPatchesEnableNonSecurity": "<p>Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.</p>"
       }
     },
+    "CalendarNameOrARN": {
+      "base": null,
+      "refs": {
+        "CalendarNameOrARNList$member": null
+      }
+    },
+    "CalendarNameOrARNList": {
+      "base": null,
+      "refs": {
+        "GetCalendarStateRequest$CalendarNames": "<p>The names or Amazon Resource Names (ARNs) of the Systems Manager documents that represent the calendar entries for which you want to get the state.</p>"
+      }
+    },
+    "CalendarState": {
+      "base": null,
+      "refs": {
+        "GetCalendarStateResponse$State": "<p>The state of the calendar. An <code>OPEN</code> calendar indicates that actions are allowed to proceed, and a <code>CLOSED</code> calendar indicates that actions are not allowed to proceed.</p>"
+      }
+    },
     "CancelCommandRequest": {
       "base": "<p/>",
       "refs": {
@@ -897,6 +916,7 @@
         "Command$CloudWatchOutputConfig": "<p>CloudWatch Logs information where you want Systems Manager to send the command output.</p>",
         "CommandInvocation$CloudWatchOutputConfig": "<p>CloudWatch Logs information where you want Systems Manager to send the command output.</p>",
         "GetCommandInvocationResult$CloudWatchOutputConfig": "<p>CloudWatch Logs information where Systems Manager sent the command output.</p>",
+        "MaintenanceWindowRunCommandParameters$CloudWatchOutputConfig": null,
         "SendCommandRequest$CloudWatchOutputConfig": "<p>Enables Systems Manager to send Run Command output to Amazon CloudWatch Logs. </p>"
       }
     },
@@ -1401,7 +1421,7 @@
         "InstanceInformation$LastSuccessfulAssociationExecutionDate": "<p>The last date the association was successfully run.</p>",
         "InstancePatchState$OperationStartTime": "<p>The time the most recent patching operation was started on the instance.</p>",
         "InstancePatchState$OperationEndTime": "<p>The time the most recent patching operation completed on the instance.</p>",
-        "InstancePatchState$LastNoRebootInstallOperationTime": "<p>The time of the last attempt to patch the instance with <code>NoReboot</code> specified as the reboot option.</p>",
+        "InstancePatchState$LastNoRebootInstallOperationTime": "<p>Reserved for future use. </p>",
         "MaintenanceWindowExecution$StartTime": "<p>The time the execution started.</p>",
         "MaintenanceWindowExecution$EndTime": "<p>The time the execution finished.</p>",
         "MaintenanceWindowExecutionTaskIdentity$StartTime": "<p>The time the task execution started.</p>",
@@ -2000,7 +2020,7 @@
     "DocumentFormat": {
       "base": null,
       "refs": {
-        "CreateDocumentRequest$DocumentFormat": "<p>Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.</p>",
+        "CreateDocumentRequest$DocumentFormat": "<p>Specify the document format for the request. The document format can be JSON, YAML, or TEXT. JSON is the default format.</p>",
         "DocumentDescription$DocumentFormat": "<p>The document format, either JSON or YAML.</p>",
         "DocumentIdentifier$DocumentFormat": "<p>The document format, either JSON or YAML.</p>",
         "DocumentVersionInfo$DocumentFormat": "<p>The document format, either JSON or YAML.</p>",
@@ -2225,6 +2245,7 @@
         "GetDocumentResult$DocumentVersion": "<p>The document version.</p>",
         "InstanceAssociationStatusInfo$DocumentVersion": "<p>The association document versions.</p>",
         "MaintenanceWindowAutomationParameters$DocumentVersion": "<p>The version of an Automation document to use during task execution.</p>",
+        "MaintenanceWindowRunCommandParameters$DocumentVersion": "<p>The SSM document version to use in the request. You can specify $DEFAULT, $LATEST, or a specific version number. If you run commands by using the AWS CLI, then you must escape the first two options by using a backslash. If you specify a version number, then you don't need to use the backslash. For example:</p> <p>--document-version \"\\$DEFAULT\"</p> <p>--document-version \"\\$LATEST\"</p> <p>--document-version \"3\"</p>",
         "SendCommandRequest$DocumentVersion": "<p>The SSM document version to use in the request. You can specify $DEFAULT, $LATEST, or a specific version number. If you run commands by using the AWS CLI, then you must escape the first two options by using a backslash. If you specify a version number, then you don't need to use the backslash. For example:</p> <p>--document-version \"\\$DEFAULT\"</p> <p>--document-version \"\\$LATEST\"</p> <p>--document-version \"3\"</p>",
         "StartAutomationExecutionRequest$DocumentVersion": "<p>The version of the Automation document to use for this execution.</p>",
         "UpdateAssociationRequest$DocumentVersion": "<p>The document version you want update for the association. </p>",
@@ -2270,7 +2291,7 @@
       }
     },
     "DoesNotExistException": {
-      "base": "<p>Error returned when the ID specified for a resource, such as a maintenance window or Patch baseline, doesn't exist.</p> <p>For information about resource limits in Systems Manager, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm\">AWS Systems Manager Limits</a>.</p>",
+      "base": "<p>Error returned when the ID specified for a resource, such as a maintenance window or Patch baseline, doesn't exist.</p> <p>For information about resource quotas in Systems Manager, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager Service Quotas</a> in the <i>AWS General Reference</i>.</p>",
       "refs": {
       }
     },
@@ -2375,6 +2396,16 @@
       }
     },
     "GetAutomationExecutionResult": {
+      "base": null,
+      "refs": {
+      }
+    },
+    "GetCalendarStateRequest": {
+      "base": null,
+      "refs": {
+      }
+    },
+    "GetCalendarStateResponse": {
       "base": null,
       "refs": {
       }
@@ -2617,6 +2648,14 @@
         "InstanceInformation$IPAddress": "<p>The IP address of the managed instance.</p>"
       }
     },
+    "ISO8601String": {
+      "base": null,
+      "refs": {
+        "GetCalendarStateRequest$AtTime": "<p>(Optional) The specific time for which you want to get calendar state information, in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> format. If you do not add <code>AtTime</code>, the current time is assumed.</p>",
+        "GetCalendarStateResponse$AtTime": "<p>The time, as an <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> string, that you specified in your command. If you did not specify a time, <code>GetCalendarState</code> uses the current time.</p>",
+        "GetCalendarStateResponse$NextTransitionTime": "<p>The time, as an <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> string, that the calendar state will change. If the current calendar state is <code>OPEN</code>, <code>NextTransitionTime</code> indicates when the calendar state changes to <code>CLOSED</code>, and vice-versa.</p>"
+      }
+    },
     "IamRole": {
       "base": null,
       "refs": {
@@ -2720,7 +2759,7 @@
         "AssociationDescription$InstanceId": "<p>The ID of the instance.</p>",
         "CommandInvocation$InstanceId": "<p>The instance ID in which this invocation was requested.</p>",
         "CreateAssociationBatchRequestEntry$InstanceId": "<p>The ID of the instance. </p>",
-        "CreateAssociationRequest$InstanceId": "<p>The instance ID.</p> <note> <p> <code>InstanceId</code> has been deprecated. To specify an instance ID for an association, use the <code>Targets</code> parameter. If you use the parameter <code>InstanceId</code>, you cannot use the parameters <code>AssociationName</code>, <code>DocumentVersion</code>, <code>MaxErrors</code>, <code>MaxConcurrency</code>, <code>OutputLocation</code>, or <code>ScheduleExpression</code>. To use these parameters, you must use the <code>Targets</code> parameter.</p> </note>",
+        "CreateAssociationRequest$InstanceId": "<p>The instance ID.</p> <note> <p> <code>InstanceId</code> has been deprecated. To specify an instance ID for an association, use the <code>Targets</code> parameter. Requests that include the parameter <code>InstanceID</code> with SSM documents that use schema version 2.0 or later will fail. In addition, if you use the parameter <code>InstanceId</code>, you cannot use the parameters <code>AssociationName</code>, <code>DocumentVersion</code>, <code>MaxErrors</code>, <code>MaxConcurrency</code>, <code>OutputLocation</code>, or <code>ScheduleExpression</code>. To use these parameters, you must use the <code>Targets</code> parameter.</p> </note>",
         "DeleteAssociationRequest$InstanceId": "<p>The ID of the instance.</p>",
         "DescribeAssociationRequest$InstanceId": "<p>The instance ID.</p>",
         "DescribeEffectiveInstanceAssociationsRequest$InstanceId": "<p>The instance ID for which you want to view all associations.</p>",
@@ -2877,7 +2916,7 @@
     "InstancesCount": {
       "base": null,
       "refs": {
-        "DescribePatchGroupStateResult$InstancesWithInstalledPendingRebootPatches": "<p>The number of instances with patches installed that have not been rebooted after the patch installation. The status of these instances is NON_COMPLIANT.</p>",
+        "DescribePatchGroupStateResult$InstancesWithInstalledPendingRebootPatches": "<p>Reserved for future use. </p>",
         "DescribePatchGroupStateResult$InstancesWithInstalledRejectedPatches": "<p>The number of instances with patches installed that are specified in a RejectedPatches list. Patches with a status of <i>INSTALLED_REJECTED</i> were typically installed before they were added to a RejectedPatches list.</p> <note> <p>If ALLOW_AS_DEPENDENCY is the specified option for RejectedPatchesAction, the value of InstancesWithInstalledRejectedPatches will always be 0 (zero).</p> </note>"
       }
     },
@@ -2982,6 +3021,11 @@
     },
     "InvalidDocumentSchemaVersion": {
       "base": "<p>The version of the document schema is not supported.</p>",
+      "refs": {
+      }
+    },
+    "InvalidDocumentType": {
+      "base": "<p>The document type is not valid. Valid document types are described in the <code>DocumentType</code> property.</p>",
       "refs": {
       }
     },
@@ -4681,7 +4725,7 @@
       }
     },
     "OpsItemLimitExceededException": {
-      "base": "<p>The request caused OpsItems to exceed one or more limits. For information about OpsItem limits, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits\">What are the resource limits for OpsCenter?</a>.</p>",
+      "base": "<p>The request caused OpsItems to exceed one or more quotas. For information about OpsItem quotas, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits\">What are the resource limits for OpsCenter?</a>.</p>",
       "refs": {
       }
     },
@@ -5333,7 +5377,7 @@
     "PatchInstalledPendingRebootCount": {
       "base": null,
       "refs": {
-        "InstancePatchState$InstalledPendingRebootCount": "<p>The number of patches installed since the last time the instance was rebooted.</p>"
+        "InstancePatchState$InstalledPendingRebootCount": "<p>Reserved for future use.</p>"
       }
     },
     "PatchInstalledRejectedCount": {
@@ -5628,7 +5672,7 @@
     "RebootOption": {
       "base": null,
       "refs": {
-        "InstancePatchState$RebootOption": "<p>Indicates the reboot option specified in the patch baseline.</p> <note> <p>Reboot options apply to <code>Install</code> operations only. Reboots are not attempted for Patch Manager <code>Scan</code> operations.</p> </note> <ul> <li> <p> <b>RebootIfNeeded</b>: Patch Manager tries to reboot the instance if it installed any patches, or if any patches are detected with a status of <code>InstalledPendingReboot</code>.</p> </li> <li> <p> <b>NoReboot</b>: Patch Manager attempts to install missing packages without trying to reboot the system. Patches installed with this option are assigned a status of <code>InstalledPendingReboot</code>. These patches might not be in effect until a reboot is performed.</p> </li> </ul>"
+        "InstancePatchState$RebootOption": "<p>Reserved for future use. </p>"
       }
     },
     "Region": {
@@ -5968,7 +6012,7 @@
       }
     },
     "ResourceLimitExceededException": {
-      "base": "<p>Error returned when the caller has exceeded the default resource limits. For example, too many maintenance windows or patch baselines have been created.</p> <p>For information about resource limits in Systems Manager, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm\">AWS Systems Manager Limits</a>.</p>",
+      "base": "<p>Error returned when the caller has exceeded the default resource quotas. For example, too many maintenance windows or patch baselines have been created.</p> <p>For information about resource quotas in Systems Manager, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager Service Quotas</a> in the <i>AWS General Reference</i>.</p>",
       "refs": {
       }
     },
@@ -6454,8 +6498,8 @@
     "StreamUrl": {
       "base": null,
       "refs": {
-        "ResumeSessionResponse$StreamUrl": "<p>A URL back to SSM Agent on the instance that the Session Manager client uses to send commands and receive output from the instance. Format: <code>wss://ssmmessages.<b>region</b>.amazonaws.com/v1/data-channel/<b>session-id</b>?stream=(input|output)</code>.</p> <p> <b>region</b> represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as <code>us-east-2</code> for the US East (Ohio) Region. For a list of supported <b>region</b> values, see the <b>Region</b> column in the <a href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region\">AWS Systems Manager table of regions and endpoints</a> in the <i>AWS General Reference</i>.</p> <p> <b>session-id</b> represents the ID of a Session Manager session, such as <code>1a2b3c4dEXAMPLE</code>.</p>",
-        "StartSessionResponse$StreamUrl": "<p>A URL back to SSM Agent on the instance that the Session Manager client uses to send commands and receive output from the instance. Format: <code>wss://ssmmessages.<b>region</b>.amazonaws.com/v1/data-channel/<b>session-id</b>?stream=(input|output)</code> </p> <p> <b>region</b> represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as <code>us-east-2</code> for the US East (Ohio) Region. For a list of supported <b>region</b> values, see the <b>Region</b> column in the <a href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region\">AWS Systems Manager table of regions and endpoints</a> in the <i>AWS General Reference</i>.</p> <p> <b>session-id</b> represents the ID of a Session Manager session, such as <code>1a2b3c4dEXAMPLE</code>.</p>"
+        "ResumeSessionResponse$StreamUrl": "<p>A URL back to SSM Agent on the instance that the Session Manager client uses to send commands and receive output from the instance. Format: <code>wss://ssmmessages.<b>region</b>.amazonaws.com/v1/data-channel/<b>session-id</b>?stream=(input|output)</code>.</p> <p> <b>region</b> represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as <code>us-east-2</code> for the US East (Ohio) Region. For a list of supported <b>region</b> values, see the <b>Region</b> column in <a href=\"http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region\">Systems Manager Service Endpoints</a> in the <i>AWS General Reference</i>.</p> <p> <b>session-id</b> represents the ID of a Session Manager session, such as <code>1a2b3c4dEXAMPLE</code>.</p>",
+        "StartSessionResponse$StreamUrl": "<p>A URL back to SSM Agent on the instance that the Session Manager client uses to send commands and receive output from the instance. Format: <code>wss://ssmmessages.<b>region</b>.amazonaws.com/v1/data-channel/<b>session-id</b>?stream=(input|output)</code> </p> <p> <b>region</b> represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as <code>us-east-2</code> for the US East (Ohio) Region. For a list of supported <b>region</b> values, see the <b>Region</b> column in <a href=\"http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region\">Systems Manager Service Endpoints</a> in the <i>AWS General Reference</i>.</p> <p> <b>session-id</b> represents the ID of a Session Manager session, such as <code>1a2b3c4dEXAMPLE</code>.</p>"
       }
     },
     "String": {
@@ -6519,6 +6563,7 @@
         "InvalidDocumentContent$Message": "<p>A description of the validation error.</p>",
         "InvalidDocumentOperation$Message": null,
         "InvalidDocumentSchemaVersion$Message": null,
+        "InvalidDocumentType$Message": null,
         "InvalidDocumentVersion$Message": null,
         "InvalidFilter$Message": null,
         "InvalidFilterOption$message": "<p>The specified filter option is not valid. Valid options are Equals and BeginsWith. For Path filter, valid options are Recursive and OneLevel.</p>",
@@ -6601,6 +6646,7 @@
         "TargetNotConnected$Message": null,
         "TooManyUpdates$Message": null,
         "TotalSizeLimitExceededException$Message": null,
+        "UnsupportedCalendarException$Message": null,
         "UnsupportedFeatureRequiredException$Message": null,
         "UnsupportedInventoryItemContextException$Message": null,
         "UnsupportedInventorySchemaVersionException$Message": null,
@@ -6654,7 +6700,8 @@
         "DocumentDescription$Tags": "<p>The tags, or metadata, that have been applied to the document.</p>",
         "DocumentIdentifier$Tags": "<p>The tags, or metadata, that have been applied to the document.</p>",
         "ListTagsForResourceResult$TagList": "<p>A list of tags.</p>",
-        "PutParameterRequest$Tags": "<p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a Systems Manager parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter. In this case, you could specify the following key name/value pairs:</p> <ul> <li> <p> <code>Key=Resource,Value=S3bucket</code> </p> </li> <li> <p> <code>Key=OS,Value=Windows</code> </p> </li> <li> <p> <code>Key=ParameterType,Value=LicenseKey</code> </p> </li> </ul> <note> <p>To add tags to an existing Systems Manager parameter, use the <a>AddTagsToResource</a> action.</p> </note>"
+        "PutParameterRequest$Tags": "<p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a Systems Manager parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter. In this case, you could specify the following key name/value pairs:</p> <ul> <li> <p> <code>Key=Resource,Value=S3bucket</code> </p> </li> <li> <p> <code>Key=OS,Value=Windows</code> </p> </li> <li> <p> <code>Key=ParameterType,Value=LicenseKey</code> </p> </li> </ul> <note> <p>To add tags to an existing Systems Manager parameter, use the <a>AddTagsToResource</a> action.</p> </note>",
+        "StartAutomationExecutionRequest$Tags": "<p>Optional metadata that you assign to a resource. You can specify a maximum of five tags for an automation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an automation to identify an environment or operating system. In this case, you could specify the following key name/value pairs:</p> <ul> <li> <p> <code>Key=environment,Value=test</code> </p> </li> <li> <p> <code>Key=OS,Value=Windows</code> </p> </li> </ul> <note> <p>To add tags to an existing patch baseline, use the <a>AddTagsToResource</a> action.</p> </note>"
       }
     },
     "TagValue": {
@@ -6834,6 +6881,11 @@
     },
     "TotalSizeLimitExceededException": {
       "base": "<p>The size of inventory data has exceeded the total size limit for the resource.</p>",
+      "refs": {
+      }
+    },
+    "UnsupportedCalendarException": {
+      "base": "<p>The calendar entry contained in the specified Systems Manager document is not supported.</p>",
       "refs": {
       }
     },
