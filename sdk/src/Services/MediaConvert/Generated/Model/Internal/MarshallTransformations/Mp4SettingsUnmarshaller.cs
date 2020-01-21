@@ -70,6 +70,12 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
                     unmarshalledObject.CslgAtom = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("cttsVersion", targetDepth))
+                {
+                    var unmarshaller = IntUnmarshaller.Instance;
+                    unmarshalledObject.CttsVersion = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("freeSpaceBox", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

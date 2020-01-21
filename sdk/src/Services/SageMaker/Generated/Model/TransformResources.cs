@@ -87,19 +87,20 @@ namespace Amazon.SageMaker.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// // KMS Key ID
-        /// </para>
-        ///  
-        /// <para>
-        ///  <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> 
+        /// Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// // Amazon Resource Name (ARN) of a KMS Key
+        /// Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+        /// 
         /// </para>
-        ///  
+        ///  </li> <li> 
         /// <para>
-        ///  <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+        /// Alias name: <code>alias/ExampleAlias</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
         /// 
         /// </para>
         ///  </li> </ul>

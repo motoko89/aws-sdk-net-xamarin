@@ -1796,6 +1796,9 @@ namespace Amazon.SageMaker
         /// <param name="request">Container for the necessary parameters to execute the CreatePresignedDomainUrl service method.</param>
         /// 
         /// <returns>The response from the CreatePresignedDomainUrl service method, as returned by SageMaker.</returns>
+        /// <exception cref="Amazon.SageMaker.Model.ResourceNotFoundException">
+        /// Resource being access is not found.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/CreatePresignedDomainUrl">REST API Reference for CreatePresignedDomainUrl Operation</seealso>
         public virtual CreatePresignedDomainUrlResponse CreatePresignedDomainUrl(CreatePresignedDomainUrlRequest request)
         {
@@ -2323,12 +2326,10 @@ namespace Amazon.SageMaker
         /// </para>
         ///  <note> 
         /// <para>
-        /// You can create a trial component through a direct call to the <code>CreateTrialComponent</code>
-        /// API. However, you can't specify the <code>Source</code> property of the component
-        /// in the request, therefore, the component isn't associated with an Amazon SageMaker
-        /// job. You must use Amazon SageMaker Studio, the Amazon SageMaker Python SDK, or the
-        /// AWS SDK for Python (Boto) to create the component with a valid <code>Source</code>
-        /// property.
+        ///  <code>CreateTrialComponent</code> can only be invoked from within an Amazon SageMaker
+        /// managed environment. This includes Amazon SageMaker training jobs, processing jobs,
+        /// transform jobs, and Amazon SageMaker notebooks. A call to <code>CreateTrialComponent</code>
+        /// from outside one of these environments results in an error.
         /// </para>
         ///  </note>
         /// </summary>
@@ -4997,6 +4998,69 @@ namespace Amazon.SageMaker
 
         #endregion
         
+        #region  DescribeWorkforce
+
+        /// <summary>
+        /// Lists private workforce information, including workforce name, Amazon Resource Name
+        /// (ARN), and, if applicable, allowed IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>).
+        /// Allowable IP address ranges are the IP addresses that workers can use to access tasks.
+        /// 
+        /// 
+        ///  <important> 
+        /// <para>
+        /// This operation applies only to private workforces.
+        /// </para>
+        ///  </important>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeWorkforce service method.</param>
+        /// 
+        /// <returns>The response from the DescribeWorkforce service method, as returned by SageMaker.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/DescribeWorkforce">REST API Reference for DescribeWorkforce Operation</seealso>
+        public virtual DescribeWorkforceResponse DescribeWorkforce(DescribeWorkforceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeWorkforceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeWorkforceResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeWorkforceResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeWorkforce operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeWorkforce operation on AmazonSageMakerClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeWorkforce
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/DescribeWorkforce">REST API Reference for DescribeWorkforce Operation</seealso>
+        public virtual IAsyncResult BeginDescribeWorkforce(DescribeWorkforceRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeWorkforceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeWorkforceResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeWorkforce operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeWorkforce.</param>
+        /// 
+        /// <returns>Returns a  DescribeWorkforceResult from SageMaker.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/DescribeWorkforce">REST API Reference for DescribeWorkforce Operation</seealso>
+        public virtual DescribeWorkforceResponse EndDescribeWorkforce(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DescribeWorkforceResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  DescribeWorkteam
 
         /// <summary>
@@ -6655,13 +6719,30 @@ namespace Amazon.SageMaker
         #region  ListTrialComponents
 
         /// <summary>
-        /// Lists the trial components in your account. You can filter the list to show only components
-        /// that were created in a specific time range. You can sort the list by trial component
-        /// name or creation time.
+        /// Lists the trial components in your account. You can sort the list by trial component
+        /// name or creation time. You can filter the list to show only components that were created
+        /// in a specific time range. You can also filter on one of the following:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>ExperimentName</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>SourceArn</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>TrialName</code> 
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListTrialComponents service method.</param>
         /// 
         /// <returns>The response from the ListTrialComponents service method, as returned by SageMaker.</returns>
+        /// <exception cref="Amazon.SageMaker.Model.ResourceNotFoundException">
+        /// Resource being access is not found.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/ListTrialComponents">REST API Reference for ListTrialComponents Operation</seealso>
         public virtual ListTrialComponentsResponse ListTrialComponents(ListTrialComponentsRequest request)
         {
@@ -6719,6 +6800,9 @@ namespace Amazon.SageMaker
         /// <param name="request">Container for the necessary parameters to execute the ListTrials service method.</param>
         /// 
         /// <returns>The response from the ListTrials service method, as returned by SageMaker.</returns>
+        /// <exception cref="Amazon.SageMaker.Model.ResourceNotFoundException">
+        /// Resource being access is not found.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/ListTrials">REST API Reference for ListTrials Operation</seealso>
         public virtual ListTrialsResponse ListTrials(ListTrialsRequest request)
         {
@@ -6937,7 +7021,7 @@ namespace Amazon.SageMaker
         /// 
         ///  
         /// <para>
-        /// You can query against the following value types: numerical, text, Booleans, and timestamps.
+        /// You can query against the following value types: numeric, text, Boolean, and timestamp.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the Search service method.</param>
@@ -8352,6 +8436,76 @@ namespace Amazon.SageMaker
         public virtual UpdateUserProfileResponse EndUpdateUserProfile(IAsyncResult asyncResult)
         {
             return EndInvoke<UpdateUserProfileResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  UpdateWorkforce
+
+        /// <summary>
+        /// Restricts access to tasks assigned to workers in the specified workforce to those
+        /// within specific ranges of IP addresses. You specify allowed IP addresses by creating
+        /// a list of up to four <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>.
+        /// 
+        ///  
+        /// <para>
+        /// By default, a workforce isn't restricted to specific IP addresses. If you specify
+        /// a range of IP addresses, workers who attempt to access tasks using any IP address
+        /// outside the specified range are denied access and get a <code>Not Found</code> error
+        /// message on the worker portal. After restricting access with this operation, you can
+        /// see the allowed IP values for a private workforce with the operation.
+        /// </para>
+        ///  <important> 
+        /// <para>
+        /// This operation applies only to private workforces.
+        /// </para>
+        ///  </important>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateWorkforce service method.</param>
+        /// 
+        /// <returns>The response from the UpdateWorkforce service method, as returned by SageMaker.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/UpdateWorkforce">REST API Reference for UpdateWorkforce Operation</seealso>
+        public virtual UpdateWorkforceResponse UpdateWorkforce(UpdateWorkforceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateWorkforceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateWorkforceResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateWorkforceResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateWorkforce operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateWorkforce operation on AmazonSageMakerClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateWorkforce
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/UpdateWorkforce">REST API Reference for UpdateWorkforce Operation</seealso>
+        public virtual IAsyncResult BeginUpdateWorkforce(UpdateWorkforceRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateWorkforceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateWorkforceResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateWorkforce operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateWorkforce.</param>
+        /// 
+        /// <returns>Returns a  UpdateWorkforceResult from SageMaker.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/sagemaker-2017-07-24/UpdateWorkforce">REST API Reference for UpdateWorkforce Operation</seealso>
+        public virtual UpdateWorkforceResponse EndUpdateWorkforce(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateWorkforceResponse>(asyncResult);
         }
 
         #endregion

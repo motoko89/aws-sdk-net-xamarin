@@ -37,7 +37,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property ByoipCidr. 
         /// <para>
-        /// Information about the address pool.
+        /// Information about the address range.
         /// </para>
         /// </summary>
         public ByoipCidr ByoipCidr

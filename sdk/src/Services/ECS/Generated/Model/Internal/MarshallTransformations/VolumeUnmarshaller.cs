@@ -70,6 +70,12 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                     unmarshalledObject.DockerVolumeConfiguration = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("efsVolumeConfiguration", targetDepth))
+                {
+                    var unmarshaller = EFSVolumeConfigurationUnmarshaller.Instance;
+                    unmarshalledObject.EfsVolumeConfiguration = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("host", targetDepth))
                 {
                     var unmarshaller = HostVolumePropertiesUnmarshaller.Instance;

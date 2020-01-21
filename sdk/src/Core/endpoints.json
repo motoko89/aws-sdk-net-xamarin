@@ -2144,6 +2144,7 @@
         },
         "kinesisanalytics": {
           "endpoints": {
+            "ap-east-1": {},
             "ap-northeast-1": {},
             "ap-northeast-2": {},
             "ap-south-1": {},
@@ -2155,6 +2156,7 @@
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
+            "me-south-1": {},
             "sa-east-1": {},
             "us-east-1": {},
             "us-east-2": {},
@@ -2722,11 +2724,18 @@
         },
         "outposts": {
           "endpoints": {
+            "ap-east-1": {},
             "ap-northeast-1": {},
             "ap-northeast-2": {},
+            "ap-southeast-1": {},
             "ap-southeast-2": {},
+            "ca-central-1": {},
             "eu-central-1": {},
+            "eu-north-1": {},
             "eu-west-1": {},
+            "eu-west-2": {},
+            "eu-west-3": {},
+            "me-south-1": {},
             "us-east-1": {},
             "us-east-2": {},
             "us-west-1": {},
@@ -2772,6 +2781,7 @@
         },
         "polly": {
           "endpoints": {
+            "ap-east-1": {},
             "ap-northeast-1": {},
             "ap-northeast-2": {},
             "ap-south-1": {},
@@ -2783,6 +2793,7 @@
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
+            "me-south-1": {},
             "sa-east-1": {},
             "us-east-1": {},
             "us-east-2": {},
@@ -2874,6 +2885,7 @@
         },
         "ram": {
           "endpoints": {
+            "ap-east-1": {},
             "ap-northeast-1": {},
             "ap-northeast-2": {},
             "ap-south-1": {},
@@ -2885,6 +2897,7 @@
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
+            "me-south-1": {},
             "sa-east-1": {},
             "us-east-1": {},
             "us-east-2": {},
@@ -3035,6 +3048,7 @@
             ]
           },
           "endpoints": {
+            "ap-east-1": {},
             "ap-northeast-1": {},
             "ap-northeast-2": {},
             "ap-south-1": {},
@@ -4550,6 +4564,12 @@
           },
           "isRegionalized": true
         },
+        "health": {
+          "endpoints": {
+            "cn-north-1": {},
+            "cn-northwest-1": {}
+          }
+        },
         "iam": {
           "endpoints": {
             "aws-cn-global": {
@@ -4625,6 +4645,16 @@
             "cn-northwest-1": {}
           }
         },
+        "neptune": {
+          "endpoints": {
+            "cn-northwest-1": {
+              "credentialScope": {
+                "region": "cn-northwest-1"
+              },
+              "hostname": "rds.cn-northwest-1.amazonaws.com.cn"
+            }
+          }
+        },
         "polly": {
           "endpoints": {
             "cn-northwest-1": {}
@@ -4691,6 +4721,25 @@
           "endpoints": {
             "cn-north-1": {},
             "cn-northwest-1": {}
+          }
+        },
+        "serverlessrepo": {
+          "defaults": {
+            "protocols": [
+              "https"
+            ]
+          },
+          "endpoints": {
+            "cn-north-1": {
+              "protocols": [
+                "https"
+              ]
+            },
+            "cn-northwest-1": {
+              "protocols": [
+                "https"
+              ]
+            }
           }
         },
         "sms": {
@@ -5008,6 +5057,11 @@
               "https"
             ]
           },
+          "endpoints": {
+            "us-gov-west-1": {}
+          }
+        },
+        "comprehendmedical": {
           "endpoints": {
             "us-gov-west-1": {}
           }
@@ -5685,7 +5739,6 @@
         },
         "application-autoscaling": {
           "defaults": {
-            "hostname": "autoscaling.us-iso-east-1.c2s.ic.gov",
             "protocols": [
               "http",
               "https"
@@ -5996,7 +6049,6 @@
       "services": {
         "application-autoscaling": {
           "defaults": {
-            "hostname": "autoscaling.us-isob-east-1.sc2s.sgov.gov",
             "protocols": [
               "http",
               "https"

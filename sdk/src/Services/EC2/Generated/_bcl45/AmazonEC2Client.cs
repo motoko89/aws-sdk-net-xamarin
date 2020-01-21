@@ -525,8 +525,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Advertises an IPv4 address range that is provisioned for use with your AWS resources
-        /// through bring your own IP addresses (BYOIP).
+        /// Advertises an IPv4 or IPv6 address range that is provisioned for use with your AWS
+        /// resources through bring your own IP addresses (BYOIP).
         /// 
         ///  
         /// <para>
@@ -565,8 +565,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Advertises an IPv4 address range that is provisioned for use with your AWS resources
-        /// through bring your own IP addresses (BYOIP).
+        /// Advertises an IPv4 or IPv6 address range that is provisioned for use with your AWS
+        /// resources through bring your own IP addresses (BYOIP).
         /// 
         ///  
         /// <para>
@@ -1508,8 +1508,9 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block,
-        /// or you can associate an Amazon-provided IPv6 CIDR block. The IPv6 CIDR block size
-        /// is fixed at /56.
+        /// an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool
+        /// that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).
+        /// The IPv6 CIDR block size is fixed at /56.
         /// 
         ///  
         /// <para>
@@ -1534,8 +1535,9 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block,
-        /// or you can associate an Amazon-provided IPv6 CIDR block. The IPv6 CIDR block size
-        /// is fixed at /56.
+        /// an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool
+        /// that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).
+        /// The IPv6 CIDR block size is fixed at /56.
         /// 
         ///  
         /// <para>
@@ -6015,9 +6017,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// You can optionally request an Amazon-provided IPv6 CIDR block for the VPC. The IPv6
-        /// CIDR block uses a /56 prefix length, and is allocated from Amazon's pool of IPv6 addresses.
-        /// You cannot choose the IPv6 range for your VPC.
+        /// You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided
+        /// IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an
+        /// IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).
         /// </para>
         ///  
         /// <para>
@@ -6055,9 +6057,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// You can optionally request an Amazon-provided IPv6 CIDR block for the VPC. The IPv6
-        /// CIDR block uses a /56 prefix length, and is allocated from Amazon's pool of IPv6 addresses.
-        /// You cannot choose the IPv6 range for your VPC.
+        /// You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided
+        /// IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an
+        /// IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).
         /// </para>
         ///  
         /// <para>
@@ -6097,7 +6099,7 @@ namespace Amazon.EC2
         /// <summary>
         /// Creates a VPC endpoint for a specified service. An endpoint enables you to create
         /// a private connection between your VPC and the service. The service may be provided
-        /// by AWS, an AWS Marketplace partner, or another AWS account. For more information,
+        /// by AWS, an AWS Marketplace Partner, or another AWS account. For more information,
         /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC
         /// Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// 
@@ -6105,7 +6107,7 @@ namespace Amazon.EC2
         /// <para>
         /// A <code>gateway</code> endpoint serves as a target for a route in your route table
         /// for traffic destined for the AWS service. You can specify an endpoint policy to attach
-        /// to the endpoint that will control access to the service from your VPC. You can also
+        /// to the endpoint, which will control access to the service from your VPC. You can also
         /// specify the VPC route tables that use the endpoint.
         /// </para>
         ///  
@@ -6137,7 +6139,7 @@ namespace Amazon.EC2
         /// <summary>
         /// Creates a VPC endpoint for a specified service. An endpoint enables you to create
         /// a private connection between your VPC and the service. The service may be provided
-        /// by AWS, an AWS Marketplace partner, or another AWS account. For more information,
+        /// by AWS, an AWS Marketplace Partner, or another AWS account. For more information,
         /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC
         /// Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// 
@@ -6145,7 +6147,7 @@ namespace Amazon.EC2
         /// <para>
         /// A <code>gateway</code> endpoint serves as a target for a route in your route table
         /// for traffic destined for the AWS service. You can specify an endpoint policy to attach
-        /// to the endpoint that will control access to the service from your VPC. You can also
+        /// to the endpoint, which will control access to the service from your VPC. You can also
         /// specify the VPC route tables that use the endpoint.
         /// </para>
         ///  
@@ -6249,6 +6251,13 @@ namespace Amazon.EC2
         /// Balancer for your service. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC
         /// Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. 
         /// </para>
+        ///  
+        /// <para>
+        /// If you set the private DNS name, you must prove that you own the private DNS domain
+        /// name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC
+        /// Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private
+        /// Cloud User Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpcEndpointServiceConfiguration service method.</param>
         /// 
@@ -6274,6 +6283,13 @@ namespace Amazon.EC2
         /// To create an endpoint service configuration, you must first create a Network Load
         /// Balancer for your service. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC
         /// Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// If you set the private DNS name, you must prove that you own the private DNS domain
+        /// name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC
+        /// Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private
+        /// Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpcEndpointServiceConfiguration service method.</param>
@@ -9567,7 +9583,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// To describe the address pools that were created when you provisioned the address ranges,
-        /// use <a>DescribePublicIpv4Pools</a>.
+        /// use <a>DescribePublicIpv4Pools</a> or <a>DescribeIpv6Pools</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeByoipCidrs service method.</param>
@@ -9590,7 +9606,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// To describe the address pools that were created when you provisioned the address ranges,
-        /// use <a>DescribePublicIpv4Pools</a>.
+        /// use <a>DescribePublicIpv4Pools</a> or <a>DescribeIpv6Pools</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeByoipCidrs service method.</param>
@@ -12010,6 +12026,47 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = DescribeInternetGatewaysResponseUnmarshaller.Instance;
             
             return InvokeAsync<DescribeInternetGatewaysResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeIpv6Pools
+
+
+        /// <summary>
+        /// Describes your IPv6 address pools.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeIpv6Pools service method.</param>
+        /// 
+        /// <returns>The response from the DescribeIpv6Pools service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeIpv6Pools">REST API Reference for DescribeIpv6Pools Operation</seealso>
+        public virtual DescribeIpv6PoolsResponse DescribeIpv6Pools(DescribeIpv6PoolsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeIpv6PoolsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeIpv6PoolsResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeIpv6PoolsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Describes your IPv6 address pools.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeIpv6Pools service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeIpv6Pools service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeIpv6Pools">REST API Reference for DescribeIpv6Pools Operation</seealso>
+        public virtual Task<DescribeIpv6PoolsResponse> DescribeIpv6PoolsAsync(DescribeIpv6PoolsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeIpv6PoolsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeIpv6PoolsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DescribeIpv6PoolsResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -18238,6 +18295,49 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  GetAssociatedIpv6PoolCidrs
+
+
+        /// <summary>
+        /// Gets information about the IPv6 CIDR block associations for a specified IPv6 address
+        /// pool.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetAssociatedIpv6PoolCidrs service method.</param>
+        /// 
+        /// <returns>The response from the GetAssociatedIpv6PoolCidrs service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetAssociatedIpv6PoolCidrs">REST API Reference for GetAssociatedIpv6PoolCidrs Operation</seealso>
+        public virtual GetAssociatedIpv6PoolCidrsResponse GetAssociatedIpv6PoolCidrs(GetAssociatedIpv6PoolCidrsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetAssociatedIpv6PoolCidrsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetAssociatedIpv6PoolCidrsResponseUnmarshaller.Instance;
+
+            return Invoke<GetAssociatedIpv6PoolCidrsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Gets information about the IPv6 CIDR block associations for a specified IPv6 address
+        /// pool.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetAssociatedIpv6PoolCidrs service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetAssociatedIpv6PoolCidrs service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetAssociatedIpv6PoolCidrs">REST API Reference for GetAssociatedIpv6PoolCidrs Operation</seealso>
+        public virtual Task<GetAssociatedIpv6PoolCidrsResponse> GetAssociatedIpv6PoolCidrsAsync(GetAssociatedIpv6PoolCidrsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetAssociatedIpv6PoolCidrsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetAssociatedIpv6PoolCidrsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<GetAssociatedIpv6PoolCidrsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  GetCapacityReservationUsage
 
 
@@ -21394,6 +21494,14 @@ namespace Amazon.EC2
         /// the Network Load Balancers for your service, and you can specify whether acceptance
         /// is required for requests to connect to your endpoint service through an interface
         /// VPC endpoint.
+        /// 
+        ///  
+        /// <para>
+        /// If you set or modify the private DNS name, you must prove that you own the private
+        /// DNS domain name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC
+        /// Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private
+        /// Cloud User Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVpcEndpointServiceConfiguration service method.</param>
         /// 
@@ -21414,6 +21522,14 @@ namespace Amazon.EC2
         /// the Network Load Balancers for your service, and you can specify whether acceptance
         /// is required for requests to connect to your endpoint service through an interface
         /// VPC endpoint.
+        /// 
+        ///  
+        /// <para>
+        /// If you set or modify the private DNS name, you must prove that you own the private
+        /// DNS domain name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC
+        /// Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private
+        /// Cloud User Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVpcEndpointServiceConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -22031,9 +22147,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Provisions an address range for use with your AWS resources through bring your own
-        /// IP addresses (BYOIP) and creates a corresponding address pool. After the address range
-        /// is provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.
+        /// Provisions an IPv4 or IPv6 address range for use with your AWS resources through bring
+        /// your own IP addresses (BYOIP) and creates a corresponding address pool. After the
+        /// address range is provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.
         /// 
         ///  
         /// <para>
@@ -22048,7 +22164,7 @@ namespace Amazon.EC2
         /// Provisioning an address range is an asynchronous operation, so the call returns immediately,
         /// but the address range is not ready to use until its status changes from <code>pending-provision</code>
         /// to <code>provisioned</code>. To monitor the status of an address range, use <a>DescribeByoipCidrs</a>.
-        /// To allocate an Elastic IP address from your address pool, use <a>AllocateAddress</a>
+        /// To allocate an Elastic IP address from your IPv4 address pool, use <a>AllocateAddress</a>
         /// with either the specific address from the address pool or the ID of the address pool.
         /// </para>
         /// </summary>
@@ -22067,9 +22183,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Provisions an address range for use with your AWS resources through bring your own
-        /// IP addresses (BYOIP) and creates a corresponding address pool. After the address range
-        /// is provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.
+        /// Provisions an IPv4 or IPv6 address range for use with your AWS resources through bring
+        /// your own IP addresses (BYOIP) and creates a corresponding address pool. After the
+        /// address range is provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.
         /// 
         ///  
         /// <para>
@@ -22084,7 +22200,7 @@ namespace Amazon.EC2
         /// Provisioning an address range is an asynchronous operation, so the call returns immediately,
         /// but the address range is not ready to use until its status changes from <code>pending-provision</code>
         /// to <code>provisioned</code>. To monitor the status of an address range, use <a>DescribeByoipCidrs</a>.
-        /// To allocate an Elastic IP address from your address pool, use <a>AllocateAddress</a>
+        /// To allocate an Elastic IP address from your IPv4 address pool, use <a>AllocateAddress</a>
         /// with either the specific address from the address pool or the ID of the address pool.
         /// </para>
         /// </summary>
@@ -24675,6 +24791,73 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  StartVpcEndpointServicePrivateDnsVerification
+
+
+        /// <summary>
+        /// Initiates the verification process to prove that the service provider owns the private
+        /// DNS name domain for the endpoint service.
+        /// 
+        ///  
+        /// <para>
+        /// The service provider must successfully perform the verification before the consumer
+        /// can use the name to access the service.
+        /// </para>
+        ///  
+        /// <para>
+        /// Before the service provider runs this command, they must add a record to the DNS server.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/ndpoint-services-dns-validation.html#add-dns-txt-record">Adding
+        /// a TXT Record to Your Domain's DNS Server </a> in the <i>Amazon VPC User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartVpcEndpointServicePrivateDnsVerification service method.</param>
+        /// 
+        /// <returns>The response from the StartVpcEndpointServicePrivateDnsVerification service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/StartVpcEndpointServicePrivateDnsVerification">REST API Reference for StartVpcEndpointServicePrivateDnsVerification Operation</seealso>
+        public virtual StartVpcEndpointServicePrivateDnsVerificationResponse StartVpcEndpointServicePrivateDnsVerification(StartVpcEndpointServicePrivateDnsVerificationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartVpcEndpointServicePrivateDnsVerificationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartVpcEndpointServicePrivateDnsVerificationResponseUnmarshaller.Instance;
+
+            return Invoke<StartVpcEndpointServicePrivateDnsVerificationResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Initiates the verification process to prove that the service provider owns the private
+        /// DNS name domain for the endpoint service.
+        /// 
+        ///  
+        /// <para>
+        /// The service provider must successfully perform the verification before the consumer
+        /// can use the name to access the service.
+        /// </para>
+        ///  
+        /// <para>
+        /// Before the service provider runs this command, they must add a record to the DNS server.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/ndpoint-services-dns-validation.html#add-dns-txt-record">Adding
+        /// a TXT Record to Your Domain's DNS Server </a> in the <i>Amazon VPC User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartVpcEndpointServicePrivateDnsVerification service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartVpcEndpointServicePrivateDnsVerification service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/StartVpcEndpointServicePrivateDnsVerification">REST API Reference for StartVpcEndpointServicePrivateDnsVerification Operation</seealso>
+        public virtual Task<StartVpcEndpointServicePrivateDnsVerificationResponse> StartVpcEndpointServicePrivateDnsVerificationAsync(StartVpcEndpointServicePrivateDnsVerificationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartVpcEndpointServicePrivateDnsVerificationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartVpcEndpointServicePrivateDnsVerificationResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<StartVpcEndpointServicePrivateDnsVerificationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  StopInstances
 
 
@@ -25215,7 +25398,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Stops advertising an IPv4 address range that is provisioned as an address pool.
+        /// Stops advertising an address range that is provisioned as an address pool.
         /// 
         ///  
         /// <para>
@@ -25243,7 +25426,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Stops advertising an IPv4 address range that is provisioned as an address pool.
+        /// Stops advertising an address range that is provisioned as an address pool.
         /// 
         ///  
         /// <para>

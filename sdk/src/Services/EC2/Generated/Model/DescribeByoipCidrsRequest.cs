@@ -34,7 +34,7 @@ namespace Amazon.EC2.Model
     ///  
     /// <para>
     /// To describe the address pools that were created when you provisioned the address ranges,
-    /// use <a>DescribePublicIpv4Pools</a>.
+    /// use <a>DescribePublicIpv4Pools</a> or <a>DescribeIpv6Pools</a>.
     /// </para>
     /// </summary>
     public partial class DescribeByoipCidrsRequest : AmazonEC2Request

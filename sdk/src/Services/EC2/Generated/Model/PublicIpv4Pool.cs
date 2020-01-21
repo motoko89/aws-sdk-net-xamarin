@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.EC2.Model
 {
     /// <summary>
-    /// Describes an address pool.
+    /// Describes an IPv4 address pool.
     /// </summary>
     public partial class PublicIpv4Pool
     {
@@ -77,7 +77,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property PoolId. 
         /// <para>
-        /// The ID of the IPv4 address pool.
+        /// The ID of the address pool.
         /// </para>
         /// </summary>
         public string PoolId

@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.SageMaker.Model
 {
     /// <summary>
-    /// Defines under what conditions SageMaker creates a human loop.
+    /// Defines under what conditions SageMaker creates a human loop. Used within .
     /// </summary>
     public partial class HumanLoopActivationConditionsConfig
     {

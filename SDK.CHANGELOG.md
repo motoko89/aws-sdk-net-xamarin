@@ -1,3 +1,158 @@
+### 3.3.667.1 (2020-01-20 22:11 UTC)
+* S3 (3.3.110.15)
+	* Added check to ensure the TransferUtility parts are all completed in a multipart upload and fix AmazonS3Config to check for the us-east-1 regional flag on minimal circumstances
+
+### 3.3.667.0 (2020-01-20 19:17 UTC)
+* AlexaForBusiness (3.3.108.0)
+	* Add support for CreatedTime and ConnectionStatusUpdatedTime in response of SearchDevices API.
+* ApplicationInsights (3.3.103.0)
+	* This release adds support for a list API to retrieve the configuration events logged during periodic updates to an application by Amazon CloudWatch Application Insights. 
+* CloudWatch (3.3.105.0)
+	* Updating DescribeAnomalyDetectors API to return AnomalyDetector Status value in response.
+* EC2 (3.3.153.0)
+	* This release provides support for a preview of bringing your own IPv6 addresses (BYOIP for IPv6) for use in AWS.
+* KeyManagementService (3.3.104.0)
+	* The ConnectCustomKeyStore operation now provides new error codes (USER_LOGGED_IN and USER_NOT_FOUND) for customers to better troubleshoot if their connect custom key store operation fails. Password length validation during CreateCustomKeyStore now also occurs on the client side. 
+* Lambda (3.3.107.0)
+	* Added reason codes to StateReasonCode (InvalidSubnet, InvalidSecurityGroup) and LastUpdateStatusReasonCode (SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup) for functions that connect to a VPC.
+
+### 3.3.666.0 (2020-01-17 19:16 UTC)
+* Batch (3.3.104.0)
+	* This release ensures INACTIVE job definitions are permanently deleted after 180 days.
+* CloudHSMV2 (3.3.101.0)
+	* This release introduces resource-level and tag-based access control for AWS CloudHSM resources. You can now tag CloudHSM backups, tag CloudHSM clusters on creation, and tag a backup as you copy it to another region.
+* ECS (3.3.113.0)
+	* This release provides a public preview for specifying Amazon EFS file systems as volumes in your Amazon ECS task definitions.
+* MediaConvert (3.3.112.0)
+	* AWS Elemental MediaConvert SDK has added support for MP3 audio only outputs.
+* Neptune (3.3.102.0)
+	* This release includes Deletion Protection for Amazon Neptune databases.
+* Redshift (3.3.105.21)
+	* Documentation updates for redshift
+* Core 3.3.104.18
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.665.0 (2020-01-16 21:20 UTC)
+* DirectoryService (3.3.102.0)
+	* To reduce the number of errors our customers are facing, we have modified the requirements of input parameters for two of Directory Service APIs.
+* EC2 (3.3.152.0)
+	* Client VPN now supports Port Configuration for VPN Endpoints, allowing usage of either port 443 or port 1194.
+* SageMaker (3.3.110.0)
+	* This release adds two new APIs (UpdateWorkforce and DescribeWorkforce) to SageMaker Ground Truth service for workforce IP whitelisting.
+* Core 3.3.104.17
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.664.0 (2020-01-15 20:03 UTC)
+* EC2 (3.3.151.0)
+	* General Update to EC2 Docs and SDKs
+* Organizations (3.3.104.18)
+	* Updated description for PolicyID parameter and ConstraintViolationException.
+* SecurityHub (3.3.106.0)
+	* Add support for DescribeStandardsControls and UpdateStandardsControl. These new Security Hub API operations are used to track and manage whether a compliance standards control is enabled.
+* SimpleSystemsManagement (3.3.117.7)
+	* Document updates for Patch Manager 'NoReboot' feature.
+* Core 3.3.104.16
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.663.0 (2020-01-14 19:16 UTC)
+* EC2 (3.3.150.0)
+	* This release adds support for partition placement groups and instance metadata option in Launch Templates
+
+### 3.3.662.0 (2020-01-13 19:11 UTC)
+* Backup (3.3.101.0)
+	* Cross-region backup is a new AWS Backup feature that allows enterprises to copy backups across multiple AWS services to different regions. 
+* EC2 (3.3.149.1)
+	* Documentation updates for the StopInstances API. You can now stop and start an Amazon EBS-backed Spot Instance at will, instead of relying on the Stop interruption behavior to stop your Spot Instances when interrupted.
+* ElasticFileSystem (3.3.104.0)
+	* This release adds support for managing EFS file system policies and EFS Access Points.
+
+### 3.3.661.0 (2020-01-10 19:16 UTC)
+* Chime (3.3.106.0)
+	* Add shared profile support to new and existing users
+* EC2 (3.3.149.0)
+	* This release introduces the ability to tag egress only internet gateways, local gateways, local gateway route tables, local gateway virtual interfaces, local gateway virtual interface groups, local gateway route table VPC association and local gateway route table virtual interface group association. You can use tags to organize and identify your resources for cost allocation. 
+* RDS (3.3.116.0)
+	* This release adds an operation that enables users to override the system-default SSL/TLS certificate for new Amazon RDS DB instances temporarily, or remove the customer override.
+* SageMaker (3.3.109.0)
+	* SageMaker ListTrialComponents API filter by TrialName and ExperimentName.
+* Transfer (3.3.105.0)
+	* This release introduces a new endpoint type that allows you to attach Elastic IP addresses from your AWS account with your server's endpoint directly and whitelist access to your server by client's internet IP address(es) using VPC Security Groups.
+* WorkSpaces (3.3.108.0)
+	* Added the migrate feature to Amazon WorkSpaces.
+* Core 3.3.104.15
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.660.1 (2020-01-09 19:22 UTC)
+* CloudWatchLogs (3.3.101.71)
+	* Documentation updates for logs
+* SecurityToken (3.3.104.19)
+	* Documentation updates for sts
+
+### 3.3.660.0 (2020-01-08 20:41 UTC)
+* CostExplorer (3.3.106.18)
+	* Documentation updates for CreateCostCategoryDefinition and UpdateCostCategoryDefinition API
+* FMS (3.3.103.0)
+	* AWS Firewall Manager now supports tagging, and tag-based access control, of policies.
+* Translate (3.3.101.0)
+	* This release adds a new family of APIs for asynchronous batch translation service that provides option to translate large collection of text or HTML documents stored in Amazon S3 folder. This service accepts a batch of up to 5 GB in size per API call with each document not exceeding 1 MB size and the number of documents not exceeding 1 million per batch. See documentation for more information. 
+
+### 3.3.659.1 (2020-01-08 00:36 UTC)
+* Lambda (3.3.106.14)
+	* Add ability to clear Layers for a Lambda function
+* S3 (3.3.110.10)
+	* Updated docs for UseSignatureVersion4 property on the AWSConfigs
+* Core 3.3.104.14
+	* Fixed issue resolving AWS credentials using JWT tokens with EKS.
+	* All services packages updated to require new Core
+
+### 3.3.659.0 (2020-01-07 19:37 UTC)
+* CodeBuild (3.3.108.0)
+	* Add encryption key override to StartBuild API in AWS CodeBuild.
+* MigrationHub (3.3.102.0)
+	* ListApplicationStates API provides a list of all application migration states
+* XRay (3.3.101.108)
+	* Documentation updates for xray
+
+### 3.3.658.0 (2020-01-06 19:11 UTC)
+* Comprehend (3.3.108.0)
+	* Amazon Comprehend now supports Multilabel document classification
+* EC2 (3.3.148.0)
+	* This release supports service providers configuring a private DNS name for services other than AWS services and services available in the AWS marketplace. This feature allows consumers to access the service using an existing DNS name without making changes to their applications.
+* MediaPackage (3.3.104.0)
+	* You can now restrict direct access to AWS Elemental MediaPackage by securing requests for live content using CDN authorization. With CDN authorization, content requests require a specific HTTP header and authorization code.
+* Core 3.3.104.13
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.657.0 (2020-01-02 19:14 UTC)
+* CostExplorer (3.3.106.15)
+	* Documentation updates for GetReservationUtilization for the Cost Explorer API.
+* ECR (3.3.103.0)
+	* Adds waiters for ImageScanComplete and LifecyclePolicyPreviewComplete
+* LexModelBuildingService (3.3.102.4)
+	* Documentation updates for Amazon Lex.
+* Lightsail (3.3.102.0)
+	* This release adds support for Certificate Authority (CA) certificate identifier to managed databases in Amazon Lightsail.
+* Core 3.3.104.12
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
 ### 3.3.656.1 (2019-12-25 00:21 UTC)
 * Core 3.3.104.11
 	* Fix support of the role_session_name property in the shared credentials file

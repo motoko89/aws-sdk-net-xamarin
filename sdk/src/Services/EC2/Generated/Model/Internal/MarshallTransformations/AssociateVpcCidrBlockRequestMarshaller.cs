@@ -66,9 +66,17 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                 {
                     request.Parameters.Add("CidrBlock", StringUtils.FromString(publicRequest.CidrBlock));
                 }
+                if(publicRequest.IsSetIpv6CidrBlock())
+                {
+                    request.Parameters.Add("Ipv6CidrBlock", StringUtils.FromString(publicRequest.Ipv6CidrBlock));
+                }
                 if(publicRequest.IsSetIpv6CidrBlockNetworkBorderGroup())
                 {
                     request.Parameters.Add("Ipv6CidrBlockNetworkBorderGroup", StringUtils.FromString(publicRequest.Ipv6CidrBlockNetworkBorderGroup));
+                }
+                if(publicRequest.IsSetIpv6Pool())
+                {
+                    request.Parameters.Add("Ipv6Pool", StringUtils.FromString(publicRequest.Ipv6Pool));
                 }
                 if(publicRequest.IsSetVpcId())
                 {

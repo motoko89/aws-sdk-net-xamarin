@@ -1378,6 +1378,12 @@
     <pattern>^[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.SageMaker.Model.DescribeWorkforceRequest.WorkforceName</property>
+    <min>1</min>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9]([a-zA-Z0-9\-])*$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.SageMaker.Model.DescribeWorkteamRequest.WorkteamName</property>
     <min>1</min>
     <max>63</max>
@@ -1965,6 +1971,12 @@
     <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.SageMaker.Model.ListTrialComponentsRequest.ExperimentName</property>
+    <min>1</min>
+    <max>82</max>
+    <pattern>^[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.SageMaker.Model.ListTrialComponentsRequest.MaxResults</property>
     <min>1</min>
     <max>100</max>
@@ -1977,6 +1989,12 @@
   <property-value-rule>
     <property>Amazon.SageMaker.Model.ListTrialComponentsRequest.SourceArn</property>
     <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SageMaker.Model.ListTrialComponentsRequest.TrialName</property>
+    <min>1</min>
+    <max>82</max>
+    <pattern>^[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SageMaker.Model.ListTrialComponentsResponse.NextToken</property>
@@ -2300,6 +2318,12 @@
     <property>Amazon.SageMaker.Model.UpdateUserProfileResponse.UserProfileArn</property>
     <max>256</max>
     <pattern>arn:aws[a-z\-]*:sagemaker:[a-z0-9\-]*:[0-9]{12}:user-profile/.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SageMaker.Model.UpdateWorkforceRequest.WorkforceName</property>
+    <min>1</min>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9]([a-zA-Z0-9\-])*$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SageMaker.Model.UpdateWorkteamRequest.Description</property>
@@ -2970,7 +2994,7 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SageMaker.Model.HumanTaskConfig.TaskAvailabilityLifetimeInSeconds</property>
-    <min>1</min>
+    <min>60</min>
     <max>864000</max>
   </property-value-rule>
   <property-value-rule>
@@ -4113,6 +4137,17 @@
     <min>20</min>
     <max>2048</max>
     <pattern>^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SageMaker.Model.Workforce.WorkforceArn</property>
+    <max>256</max>
+    <pattern>arn:aws[a-z\-]*:sagemaker:[a-z0-9\-]*:[0-9]{12}:workforce/.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SageMaker.Model.Workforce.WorkforceName</property>
+    <min>1</min>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9]([a-zA-Z0-9\-])*$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SageMaker.Model.Workteam.Description</property>
