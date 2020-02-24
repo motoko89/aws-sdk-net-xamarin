@@ -30,8 +30,12 @@ namespace Amazon.SecurityHub.Model
     /// <summary>
     /// Container for the parameters to the BatchDisableStandards operation.
     /// Disables the standards specified by the provided <code>StandardsSubscriptionArns</code>.
-    /// For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Standards
-    /// Supported in AWS Security Hub</a>.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Compliance
+    /// Standards</a> section of the <i>AWS Security Hub User Guide</i>.
+    /// </para>
     /// </summary>
     public partial class BatchDisableStandardsRequest : AmazonSecurityHubRequest
     {

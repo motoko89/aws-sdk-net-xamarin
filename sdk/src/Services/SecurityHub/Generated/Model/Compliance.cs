@@ -29,7 +29,7 @@ namespace Amazon.SecurityHub.Model
 {
     /// <summary>
     /// Exclusive to findings that are generated as the result of a check run against a specific
-    /// rule in a supported standard (for example, CIS AWS Foundations). Contains compliance-related
+    /// rule in a supported standard, such as CIS AWS Foundations. Contains compliance-related
     /// finding details.
     /// 
     ///  
@@ -55,14 +55,35 @@ namespace Amazon.SecurityHub.Model
     /// </para>
     ///  </li> <li> 
     /// <para>
-    ///  <code>NOT_AVAILABLE</code> - Check could not be performed due to a service outage
-    /// or API error.
+    ///  <code>NOT_AVAILABLE</code> - Check could not be performed due to a service outage,
+    /// API error, or because the result of the AWS Config evaluation was <code>NOT_APPLICABLE</code>.
+    /// If the AWS Config evaluation result was <code> NOT_APPLICABLE</code>, then after 3
+    /// days, Security Hub automatically archives the finding.
     /// </para>
     ///  </li> </ul> </li> </ul>
     /// </summary>
     public partial class Compliance
     {
+        private List<string> _relatedRequirements = new List<string>();
         private ComplianceStatus _status;
+
+        /// <summary>
+        /// Gets and sets the property RelatedRequirements. 
+        /// <para>
+        /// List of requirements that are related to a standards control.
+        /// </para>
+        /// </summary>
+        public List<string> RelatedRequirements
+        {
+            get { return this._relatedRequirements; }
+            set { this._relatedRequirements = value; }
+        }
+
+        // Check to see if RelatedRequirements property is set
+        internal bool IsSetRelatedRequirements()
+        {
+            return this._relatedRequirements != null && this._relatedRequirements.Count > 0; 
+        }
 
         /// <summary>
         /// Gets and sets the property Status. 

@@ -57,6 +57,12 @@ namespace Amazon.Rekognition.Model.Internal.MarshallTransformations
                     response.TextDetections = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("TextModelVersion", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.TextModelVersion = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
 
             return response;

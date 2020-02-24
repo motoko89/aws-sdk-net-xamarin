@@ -57,7 +57,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property Marker. 
         /// <para>
-        /// A pagination token that can be used in a subsequent <code>DescribeDBClusterBacktracks</code>
+        /// A pagination token that can be used in a later <code>DescribeDBClusterBacktracks</code>
         /// request.
         /// </para>
         /// </summary>

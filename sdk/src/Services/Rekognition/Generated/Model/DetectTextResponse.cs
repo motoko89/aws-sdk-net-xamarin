@@ -33,6 +33,7 @@ namespace Amazon.Rekognition.Model
     public partial class DetectTextResponse : AmazonWebServiceResponse
     {
         private List<TextDetection> _textDetections = new List<TextDetection>();
+        private string _textModelVersion;
 
         /// <summary>
         /// Gets and sets the property TextDetections. 
@@ -50,6 +51,24 @@ namespace Amazon.Rekognition.Model
         internal bool IsSetTextDetections()
         {
             return this._textDetections != null && this._textDetections.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property TextModelVersion. 
+        /// <para>
+        /// The model version used to detect text.
+        /// </para>
+        /// </summary>
+        public string TextModelVersion
+        {
+            get { return this._textModelVersion; }
+            set { this._textModelVersion = value; }
+        }
+
+        // Check to see if TextModelVersion property is set
+        internal bool IsSetTextModelVersion()
+        {
+            return this._textModelVersion != null;
         }
 
     }

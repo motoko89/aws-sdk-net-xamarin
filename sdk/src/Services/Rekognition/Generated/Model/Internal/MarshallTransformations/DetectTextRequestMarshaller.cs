@@ -68,6 +68,17 @@ namespace Amazon.Rekognition.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetFilters())
+                {
+                    context.Writer.WritePropertyName("Filters");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = DetectTextFiltersMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.Filters, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetImage())
                 {
                     context.Writer.WritePropertyName("Image");

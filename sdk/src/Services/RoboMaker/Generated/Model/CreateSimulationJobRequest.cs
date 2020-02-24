@@ -75,7 +75,9 @@ namespace Amazon.RoboMaker.Model
         /// <summary>
         /// Gets and sets the property DataSources. 
         /// <para>
-        /// The data sources for the simulation job.
+        /// Specify data sources to mount read-only files from S3 into your simulation. These
+        /// files are available under <code>/opt/robomaker/datasources/data_source_name</code>.
+        /// 
         /// </para>
         ///  <note> 
         /// <para>

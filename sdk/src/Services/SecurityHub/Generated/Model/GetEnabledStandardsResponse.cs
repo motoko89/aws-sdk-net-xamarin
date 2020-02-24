@@ -38,7 +38,7 @@ namespace Amazon.SecurityHub.Model
         /// <summary>
         /// Gets and sets the property NextToken. 
         /// <para>
-        /// The token that is required for pagination.
+        /// The pagination token to use to request the next page of results.
         /// </para>
         /// </summary>
         public string NextToken
@@ -56,7 +56,7 @@ namespace Amazon.SecurityHub.Model
         /// <summary>
         /// Gets and sets the property StandardsSubscriptions. 
         /// <para>
-        /// A list of <code>StandardsSubscriptions</code> objects that include information about
+        /// The list of <code>StandardsSubscriptions</code> objects that include information about
         /// the enabled standards.
         /// </para>
         /// </summary>

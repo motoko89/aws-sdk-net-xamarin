@@ -29,8 +29,8 @@ namespace Amazon.SecurityHub.Model
 {
     /// <summary>
     /// Container for the parameters to the DescribeProducts operation.
-    /// Returns information about the products available that you can subscribe to and integrate
-    /// with Security Hub to consolidate findings.
+    /// Returns information about the available products that you can subscribe to and integrate
+    /// with Security Hub in order to consolidate findings.
     /// </summary>
     public partial class DescribeProductsRequest : AmazonSecurityHubRequest
     {
@@ -59,7 +59,13 @@ namespace Amazon.SecurityHub.Model
         /// <summary>
         /// Gets and sets the property NextToken. 
         /// <para>
-        /// The token that is required for pagination.
+        /// The token that is required for pagination. On your first call to the <code>DescribeProducts</code>
+        /// operation, set the value of this parameter to <code>NULL</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For subsequent calls to the operation, to continue listing data, set the value of
+        /// this parameter to the value returned from the previous response.
         /// </para>
         /// </summary>
         public string NextToken

@@ -72,6 +72,12 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         unmarshalledObject.EventType = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("instanceId", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.InstanceId = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("notAfter", targetDepth))
                     {
                         var unmarshaller = DateTimeUnmarshaller.Instance;

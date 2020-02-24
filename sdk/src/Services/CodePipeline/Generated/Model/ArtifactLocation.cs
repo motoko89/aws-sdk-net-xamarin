@@ -38,7 +38,7 @@ namespace Amazon.CodePipeline.Model
         /// <summary>
         /// Gets and sets the property S3Location. 
         /// <para>
-        /// The Amazon S3 bucket that contains the artifact.
+        /// The S3 bucket that contains the artifact.
         /// </para>
         /// </summary>
         public S3ArtifactLocation S3Location

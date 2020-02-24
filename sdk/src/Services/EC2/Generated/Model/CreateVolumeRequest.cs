@@ -63,6 +63,7 @@ namespace Amazon.EC2.Model
         private bool? _encrypted;
         private int? _iops;
         private string _kmsKeyId;
+        private bool? _multiAttachEnabled;
         private string _outpostArn;
         private int? _size;
         private string _snapshotId;
@@ -78,7 +79,7 @@ namespace Amazon.EC2.Model
         /// Instantiates CreateVolumeRequest with the parameterized properties
         /// </summary>
         /// <param name="availabilityZone">The Availability Zone in which to create the volume.</param>
-        /// <param name="size">The size of the volume, in GiBs. Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for <code>st1</code>, 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size. <note> At least one of Size or SnapshotId is required. </note></param>
+        /// <param name="size">The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for <code>st1</code>, 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.</param>
         public CreateVolumeRequest(string availabilityZone, int size)
         {
             _availabilityZone = availabilityZone;
@@ -89,7 +90,7 @@ namespace Amazon.EC2.Model
         /// Instantiates CreateVolumeRequest with the parameterized properties
         /// </summary>
         /// <param name="availabilityZone">The Availability Zone in which to create the volume.</param>
-        /// <param name="snapshotId">The snapshot from which to create the volume. <note> At least one of Size or SnapshotId are required. </note></param>
+        /// <param name="snapshotId">The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.</param>
         public CreateVolumeRequest(string availabilityZone, string snapshotId)
         {
             _availabilityZone = availabilityZone;
@@ -217,6 +218,27 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property MultiAttachEnabled. 
+        /// <para>
+        /// Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you
+        /// can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+        /// instances</a> in the same Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">
+        /// Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        public bool MultiAttachEnabled
+        {
+            get { return this._multiAttachEnabled.GetValueOrDefault(); }
+            set { this._multiAttachEnabled = value; }
+        }
+
+        // Check to see if MultiAttachEnabled property is set
+        internal bool IsSetMultiAttachEnabled()
+        {
+            return this._multiAttachEnabled.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property OutpostArn. 
         /// <para>
         /// The Amazon Resource Name (ARN) of the Outpost.
@@ -237,7 +259,8 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property Size. 
         /// <para>
-        /// The size of the volume, in GiBs.
+        /// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume
+        /// size.
         /// </para>
         ///  
         /// <para>
@@ -251,11 +274,6 @@ namespace Amazon.EC2.Model
         /// Default: If you're creating the volume from a snapshot and don't specify a volume
         /// size, the default is the snapshot size.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// At least one of Size or SnapshotId is required.
-        /// </para>
-        ///  </note>
         /// </summary>
         public int Size
         {
@@ -272,13 +290,9 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property SnapshotId. 
         /// <para>
-        /// The snapshot from which to create the volume.
+        /// The snapshot from which to create the volume. You must specify either a snapshot ID
+        /// or a volume size.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// At least one of Size or SnapshotId are required.
-        /// </para>
-        ///  </note>
         /// </summary>
         public string SnapshotId
         {
