@@ -121,6 +121,33 @@ namespace Amazon.MediaConnect.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
+                if(publicRequest.IsSetSourceFailoverConfig())
+                {
+                    context.Writer.WritePropertyName("sourceFailoverConfig");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = FailoverConfigMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.SourceFailoverConfig, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetSources())
+                {
+                    context.Writer.WritePropertyName("sources");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestSourcesListValue in publicRequest.Sources)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = SetSourceRequestMarshaller.Instance;
+                        marshaller.Marshall(publicRequestSourcesListValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteArrayEnd();
+                }
+
         
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();

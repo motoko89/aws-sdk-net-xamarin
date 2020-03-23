@@ -64,6 +64,12 @@ namespace Amazon.SecurityHub.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("Label", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.Label = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Normalized", targetDepth))
                 {
                     var unmarshaller = IntUnmarshaller.Instance;

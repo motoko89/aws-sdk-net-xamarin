@@ -32,7 +32,26 @@ namespace Amazon.AppMesh.Model
     /// </summary>
     public partial class VirtualServiceBackend
     {
+        private ClientPolicy _clientPolicy;
         private string _virtualServiceName;
+
+        /// <summary>
+        /// Gets and sets the property ClientPolicy. 
+        /// <para>
+        /// A reference to an object that represents the client policy for a backend.
+        /// </para>
+        /// </summary>
+        public ClientPolicy ClientPolicy
+        {
+            get { return this._clientPolicy; }
+            set { this._clientPolicy = value; }
+        }
+
+        // Check to see if ClientPolicy property is set
+        internal bool IsSetClientPolicy()
+        {
+            return this._clientPolicy != null;
+        }
 
         /// <summary>
         /// Gets and sets the property VirtualServiceName. 

@@ -18,7 +18,8 @@
   <property-value-rule>
     <property>Amazon.ConfigService.Model.DeleteConfigRuleRequest.ConfigRuleName</property>
     <min>1</min>
-    <max>64</max>
+    <max>128</max>
+    <pattern>.*\S.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConfigService.Model.DeleteConfigurationAggregatorRequest.ConfigurationAggregatorName</property>
@@ -394,7 +395,7 @@
   <property-value-rule>
     <property>Amazon.ConfigService.Model.ListTagsForResourceRequest.ResourceArn</property>
     <min>1</min>
-    <max>256</max>
+    <max>1000</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConfigService.Model.PutAggregationAuthorizationRequest.AuthorizedAccountId</property>
@@ -519,6 +520,27 @@
     <max>2557</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.ConfigService.Model.SelectAggregateResourceConfigRequest.ConfigurationAggregatorName</property>
+    <min>1</min>
+    <max>256</max>
+    <pattern>[\w\-]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ConfigService.Model.SelectAggregateResourceConfigRequest.Expression</property>
+    <min>1</min>
+    <max>4096</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ConfigService.Model.SelectAggregateResourceConfigRequest.Limit</property>
+    <min>0</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ConfigService.Model.SelectAggregateResourceConfigRequest.MaxResults</property>
+    <min>0</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.ConfigService.Model.SelectResourceConfigRequest.Expression</property>
     <min>1</min>
     <max>4096</max>
@@ -547,12 +569,12 @@
   <property-value-rule>
     <property>Amazon.ConfigService.Model.TagResourceRequest.ResourceArn</property>
     <min>1</min>
-    <max>256</max>
+    <max>1000</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConfigService.Model.UntagResourceRequest.ResourceArn</property>
     <min>1</min>
-    <max>256</max>
+    <max>1000</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConfigService.Model.AggregateComplianceByConfigRule.AccountId</property>
@@ -651,9 +673,20 @@
     <max>256</max>
   </property-value-rule>
   <property-value-rule>
-    <property>Amazon.ConfigService.Model.ConfigRule.ConfigRuleName</property>
+    <property>Amazon.ConfigService.Model.ConfigRule.ConfigRuleArn</property>
+    <min>1</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ConfigService.Model.ConfigRule.ConfigRuleId</property>
     <min>1</min>
     <max>64</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ConfigService.Model.ConfigRule.ConfigRuleName</property>
+    <min>1</min>
+    <max>128</max>
+    <pattern>.*\S.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConfigService.Model.ConfigRule.CreatedBy</property>
@@ -697,7 +730,8 @@
   <property-value-rule>
     <property>Amazon.ConfigService.Model.ConfigRuleEvaluationStatus.ConfigRuleName</property>
     <min>1</min>
-    <max>64</max>
+    <max>128</max>
+    <pattern>.*\S.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConfigService.Model.ConfigurationAggregator.ConfigurationAggregatorArn</property>
@@ -845,7 +879,8 @@
   <property-value-rule>
     <property>Amazon.ConfigService.Model.EvaluationResultQualifier.ConfigRuleName</property>
     <min>1</min>
-    <max>64</max>
+    <max>128</max>
+    <pattern>.*\S.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConfigService.Model.EvaluationResultQualifier.ResourceId</property>

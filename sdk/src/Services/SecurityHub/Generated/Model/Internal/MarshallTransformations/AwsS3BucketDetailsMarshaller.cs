@@ -45,6 +45,12 @@ namespace Amazon.SecurityHub.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(AwsS3BucketDetails requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetCreatedAt())
+            {
+                context.Writer.WritePropertyName("CreatedAt");
+                context.Writer.Write(requestObject.CreatedAt);
+            }
+
             if(requestObject.IsSetOwnerId())
             {
                 context.Writer.WritePropertyName("OwnerId");
@@ -55,6 +61,17 @@ namespace Amazon.SecurityHub.Model.Internal.MarshallTransformations
             {
                 context.Writer.WritePropertyName("OwnerName");
                 context.Writer.Write(requestObject.OwnerName);
+            }
+
+            if(requestObject.IsSetServerSideEncryptionConfiguration())
+            {
+                context.Writer.WritePropertyName("ServerSideEncryptionConfiguration");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = AwsS3BucketServerSideEncryptionConfigurationMarshaller.Instance;
+                marshaller.Marshall(requestObject.ServerSideEncryptionConfiguration, context);
+
+                context.Writer.WriteObjectEnd();
             }
 
         }

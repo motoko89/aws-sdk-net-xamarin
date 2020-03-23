@@ -229,6 +229,56 @@ namespace Amazon.SecurityHub
 
 
     /// <summary>
+    /// Constants used for properties of type IntegrationType.
+    /// </summary>
+    public class IntegrationType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant RECEIVE_FINDINGS_FROM_SECURITY_HUB for IntegrationType
+        /// </summary>
+        public static readonly IntegrationType RECEIVE_FINDINGS_FROM_SECURITY_HUB = new IntegrationType("RECEIVE_FINDINGS_FROM_SECURITY_HUB");
+        /// <summary>
+        /// Constant SEND_FINDINGS_TO_SECURITY_HUB for IntegrationType
+        /// </summary>
+        public static readonly IntegrationType SEND_FINDINGS_TO_SECURITY_HUB = new IntegrationType("SEND_FINDINGS_TO_SECURITY_HUB");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public IntegrationType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static IntegrationType FindValue(string value)
+        {
+            return FindValue<IntegrationType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator IntegrationType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type MalwareState.
     /// </summary>
     public class MalwareState : ConstantClass
@@ -578,6 +628,68 @@ namespace Amazon.SecurityHub
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator RecordState(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type SeverityLabel.
+    /// </summary>
+    public class SeverityLabel : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CRITICAL for SeverityLabel
+        /// </summary>
+        public static readonly SeverityLabel CRITICAL = new SeverityLabel("CRITICAL");
+        /// <summary>
+        /// Constant HIGH for SeverityLabel
+        /// </summary>
+        public static readonly SeverityLabel HIGH = new SeverityLabel("HIGH");
+        /// <summary>
+        /// Constant INFORMATIONAL for SeverityLabel
+        /// </summary>
+        public static readonly SeverityLabel INFORMATIONAL = new SeverityLabel("INFORMATIONAL");
+        /// <summary>
+        /// Constant LOW for SeverityLabel
+        /// </summary>
+        public static readonly SeverityLabel LOW = new SeverityLabel("LOW");
+        /// <summary>
+        /// Constant MEDIUM for SeverityLabel
+        /// </summary>
+        public static readonly SeverityLabel MEDIUM = new SeverityLabel("MEDIUM");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public SeverityLabel(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static SeverityLabel FindValue(string value)
+        {
+            return FindValue<SeverityLabel>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator SeverityLabel(string value)
         {
             return FindValue(value);
         }
@@ -1070,6 +1182,64 @@ namespace Amazon.SecurityHub
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator WorkflowState(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type WorkflowStatus.
+    /// </summary>
+    public class WorkflowStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant NEW for WorkflowStatus
+        /// </summary>
+        public static readonly WorkflowStatus NEW = new WorkflowStatus("NEW");
+        /// <summary>
+        /// Constant NOTIFIED for WorkflowStatus
+        /// </summary>
+        public static readonly WorkflowStatus NOTIFIED = new WorkflowStatus("NOTIFIED");
+        /// <summary>
+        /// Constant RESOLVED for WorkflowStatus
+        /// </summary>
+        public static readonly WorkflowStatus RESOLVED = new WorkflowStatus("RESOLVED");
+        /// <summary>
+        /// Constant SUPPRESSED for WorkflowStatus
+        /// </summary>
+        public static readonly WorkflowStatus SUPPRESSED = new WorkflowStatus("SUPPRESSED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public WorkflowStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static WorkflowStatus FindValue(string value)
+        {
+            return FindValue<WorkflowStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator WorkflowStatus(string value)
         {
             return FindValue(value);
         }

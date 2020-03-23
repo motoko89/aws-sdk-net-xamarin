@@ -81,6 +81,13 @@ namespace Amazon.CloudWatch.Model.Internal.MarshallTransformations
                 if (context.IsStartElement || context.IsAttribute)
                 {
 
+                    if (context.TestExpression("CompositeAlarms/member", targetDepth))
+                    {
+                        var unmarshaller = CompositeAlarmUnmarshaller.Instance;
+                        var item = unmarshaller.Unmarshall(context);
+                        response.CompositeAlarms.Add(item);
+                        continue;
+                    }
                     if (context.TestExpression("MetricAlarms/member", targetDepth))
                     {
                         var unmarshaller = MetricAlarmUnmarshaller.Instance;

@@ -64,6 +64,12 @@ namespace Amazon.GuardDuty.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("localIpDetails", targetDepth))
+                {
+                    var unmarshaller = LocalIpDetailsUnmarshaller.Instance;
+                    unmarshalledObject.LocalIpDetails = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("localPortDetails", targetDepth))
                 {
                     var unmarshaller = LocalPortDetailsUnmarshaller.Instance;

@@ -39,11 +39,17 @@ namespace Amazon.AppMesh.Model
     /// requests are routed to the         virtual node or virtual router that is specified
     /// as the provider for the virtual         service.
     /// </para>
+    ///          
+    /// <para>
+    /// For more information about virtual services, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_services.html">Virtual
+    /// Services</a>.
+    /// </para>
     /// </summary>
     public partial class CreateVirtualServiceRequest : AmazonAppMeshRequest
     {
         private string _clientToken;
         private string _meshName;
+        private string _meshOwner;
         private VirtualServiceSpec _spec;
         private List<TagRef> _tags = new List<TagRef>();
         private string _virtualServiceName;
@@ -84,6 +90,29 @@ namespace Amazon.AppMesh.Model
         internal bool IsSetMeshName()
         {
             return this._meshName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property MeshOwner. 
+        /// <para>
+        /// The AWS IAM account ID of the service mesh owner. If the account ID is not your own,
+        /// then               the account that you specify must share the mesh with your account
+        /// before you can create              the resource in the service mesh. For more information
+        /// about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
+        /// with Shared Meshes</a>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=12, Max=12)]
+        public string MeshOwner
+        {
+            get { return this._meshOwner; }
+            set { this._meshOwner = value; }
+        }
+
+        // Check to see if MeshOwner property is set
+        internal bool IsSetMeshOwner()
+        {
+            return this._meshOwner != null;
         }
 
         /// <summary>

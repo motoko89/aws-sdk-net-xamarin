@@ -64,6 +64,12 @@ namespace Amazon.AppMesh.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("clientPolicy", targetDepth))
+                {
+                    var unmarshaller = ClientPolicyUnmarshaller.Instance;
+                    unmarshalledObject.ClientPolicy = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("virtualServiceName", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

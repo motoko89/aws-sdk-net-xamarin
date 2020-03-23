@@ -29,7 +29,7 @@ namespace Amazon.MediaConnect.Model
 {
     /// <summary>
     /// Container for the parameters to the AddFlowOutputs operation.
-    /// Adds outputs to an existing flow. You can create up to 20 outputs per flow.
+    /// Adds outputs to an existing flow. You can create up to 50 outputs per flow.
     /// </summary>
     public partial class AddFlowOutputsRequest : AmazonMediaConnectRequest
     {

@@ -116,6 +116,7 @@ namespace Amazon.SecurityHub.Model
         private List<MapFilter> _userDefinedFields = new List<MapFilter>();
         private List<StringFilter> _verificationState = new List<StringFilter>();
         private List<StringFilter> _workflowState = new List<StringFilter>();
+        private List<StringFilter> _workflowStatus = new List<StringFilter>();
 
         /// <summary>
         /// Gets and sets the property AwsAccountId. 
@@ -158,7 +159,7 @@ namespace Amazon.SecurityHub.Model
         /// Gets and sets the property ComplianceStatus. 
         /// <para>
         /// Exclusive to findings that are generated as the result of a check run against a specific
-        /// rule in a supported standard, such as CIS AWS Foundations. Contains compliance-related
+        /// rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related
         /// finding details.
         /// </para>
         /// </summary>
@@ -1638,6 +1639,45 @@ namespace Amazon.SecurityHub.Model
         internal bool IsSetWorkflowState()
         {
             return this._workflowState != null && this._workflowState.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property WorkflowStatus. 
+        /// <para>
+        /// The status of the investigation into a finding. Allowed values are the following.
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>NEW</code> - The initial state of a finding, before it is reviewed.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>NOTIFIED</code> - Indicates that the resource owner has been notified about
+        /// the security issue. Used when the initial reviewer is not the resource owner, and
+        /// needs intervention from the resource owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>SUPPRESSED</code> - The finding will not be reviewed again and will not be
+        /// acted upon.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>RESOLVED</code> - The finding was reviewed and remediated and is now considered
+        /// resolved. 
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        public List<StringFilter> WorkflowStatus
+        {
+            get { return this._workflowStatus; }
+            set { this._workflowStatus = value; }
+        }
+
+        // Check to see if WorkflowStatus property is set
+        internal bool IsSetWorkflowStatus()
+        {
+            return this._workflowStatus != null && this._workflowStatus.Count > 0; 
         }
 
     }

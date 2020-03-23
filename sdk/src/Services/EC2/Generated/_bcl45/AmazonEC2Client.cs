@@ -251,6 +251,7 @@ namespace Amazon.EC2
             pipeline.AddHandlerBefore<Amazon.Runtime.Internal.Marshaller>(new Amazon.EC2.Internal.AmazonEC2PreMarshallHandler(this.Credentials));
             pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new Amazon.EC2.Internal.AmazonEC2PostMarshallHandler());
             pipeline.AddHandlerBefore<Amazon.Runtime.Internal.Unmarshaller>(new Amazon.EC2.Internal.AmazonEC2ResponseHandler());
+            pipeline.ReplaceHandler<Amazon.Runtime.Internal.RetryHandler>(new Amazon.Runtime.Internal.RetryHandler(new Amazon.EC2.Internal.EC2RetryPolicy(this.Config)));
         }    
         /// <summary>
         /// Capture metadata for the service.
@@ -1164,6 +1165,14 @@ namespace Amazon.EC2
         /// in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint.
         /// You can associate only one subnet in each Availability Zone. We recommend that you
         /// associate at least two subnets to provide Availability Zone redundancy.
+        /// 
+        ///  
+        /// <para>
+        /// If you specified a VPC when you created the Client VPN endpoint or if you have previous
+        /// subnet associations, the specified subnet must be in the same VPC. To specify a subnet
+        /// that's in a different VPC, you must first modify the Client VPN endpoint (<a>ModifyClientVpnEndpoint</a>)
+        /// and change the VPC that's associated with it.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateClientVpnTargetNetwork service method.</param>
         /// 
@@ -1184,6 +1193,14 @@ namespace Amazon.EC2
         /// in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint.
         /// You can associate only one subnet in each Availability Zone. We recommend that you
         /// associate at least two subnets to provide Availability Zone redundancy.
+        /// 
+        ///  
+        /// <para>
+        /// If you specified a VPC when you created the Client VPN endpoint or if you have previous
+        /// subnet associations, the specified subnet must be in the same VPC. To specify a subnet
+        /// that's in a different VPC, you must first modify the Client VPN endpoint (<a>ModifyClientVpnEndpoint</a>)
+        /// and change the VPC that's associated with it.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateClientVpnTargetNetwork service method.</param>
         /// <param name="cancellationToken">
@@ -8770,10 +8787,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Deletes the specified virtual private gateway. We recommend that before you delete
-        /// a virtual private gateway, you detach it from the VPC and delete the VPN connection.
-        /// Note that you don't need to delete the virtual private gateway if you plan to delete
-        /// and recreate the VPN connection between your VPC and your network.
+        /// Deletes the specified virtual private gateway. You must first detach the virtual private
+        /// gateway from the VPC. Note that you don't need to delete the virtual private gateway
+        /// if you plan to delete and recreate the VPN connection between your VPC and your network.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVpnGateway service method.</param>
         /// 
@@ -8790,10 +8806,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Deletes the specified virtual private gateway. We recommend that before you delete
-        /// a virtual private gateway, you detach it from the VPC and delete the VPN connection.
-        /// Note that you don't need to delete the virtual private gateway if you plan to delete
-        /// and recreate the VPN connection between your VPC and your network.
+        /// Deletes the specified virtual private gateway. You must first detach the virtual private
+        /// gateway from the VPC. Note that you don't need to delete the virtual private gateway
+        /// if you plan to delete and recreate the VPN connection between your VPC and your network.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVpnGateway service method.</param>
         /// <param name="cancellationToken">
@@ -18311,6 +18326,13 @@ namespace Amazon.EC2
         /// Exports routes from the specified transit gateway route table to the specified S3
         /// bucket. By default, all routes are exported. Alternatively, you can filter by CIDR
         /// range.
+        /// 
+        ///  
+        /// <para>
+        /// The routes are saved to the specified bucket in a JSON file. For more information,
+        /// see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables">Export
+        /// Route Tables to Amazon S3</a> in <i>Transit Gateways</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ExportTransitGatewayRoutes service method.</param>
         /// 
@@ -18330,6 +18352,13 @@ namespace Amazon.EC2
         /// Exports routes from the specified transit gateway route table to the specified S3
         /// bucket. By default, all routes are exported. Alternatively, you can filter by CIDR
         /// range.
+        /// 
+        ///  
+        /// <para>
+        /// The routes are saved to the specified bucket in a JSON file. For more information,
+        /// see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables">Export
+        /// Route Tables to Amazon S3</a> in <i>Transit Gateways</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ExportTransitGatewayRoutes service method.</param>
         /// <param name="cancellationToken">
@@ -19505,6 +19534,59 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  ModifyAvailabilityZoneGroup
+
+
+        /// <summary>
+        /// Enables or disables an Availability Zone group for your account.
+        /// 
+        ///  
+        /// <para>
+        /// Use <a href="https://docs.aws.amazon.com/AWSEC2ApiDocReef/build/server-root/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">describe-availability-zones</a>
+        /// to view the value for <code>GroupName</code>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyAvailabilityZoneGroup service method.</param>
+        /// 
+        /// <returns>The response from the ModifyAvailabilityZoneGroup service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyAvailabilityZoneGroup">REST API Reference for ModifyAvailabilityZoneGroup Operation</seealso>
+        public virtual ModifyAvailabilityZoneGroupResponse ModifyAvailabilityZoneGroup(ModifyAvailabilityZoneGroupRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyAvailabilityZoneGroupRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyAvailabilityZoneGroupResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyAvailabilityZoneGroupResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Enables or disables an Availability Zone group for your account.
+        /// 
+        ///  
+        /// <para>
+        /// Use <a href="https://docs.aws.amazon.com/AWSEC2ApiDocReef/build/server-root/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">describe-availability-zones</a>
+        /// to view the value for <code>GroupName</code>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyAvailabilityZoneGroup service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyAvailabilityZoneGroup service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyAvailabilityZoneGroup">REST API Reference for ModifyAvailabilityZoneGroup Operation</seealso>
+        public virtual Task<ModifyAvailabilityZoneGroupResponse> ModifyAvailabilityZoneGroupAsync(ModifyAvailabilityZoneGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyAvailabilityZoneGroupRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyAvailabilityZoneGroupResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ModifyAvailabilityZoneGroupResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ModifyCapacityReservation
 
 
@@ -19558,9 +19640,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the specified Client VPN endpoint. You can only modify an endpoint's server
-        /// certificate information, client connection logging information, DNS server, and description.
-        /// Modifying the DNS server resets existing client connections.
+        /// Modifies the specified Client VPN endpoint. Modifying the DNS server resets existing
+        /// client connections.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyClientVpnEndpoint service method.</param>
         /// 
@@ -19577,9 +19658,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the specified Client VPN endpoint. You can only modify an endpoint's server
-        /// certificate information, client connection logging information, DNS server, and description.
-        /// Modifying the DNS server resets existing client connections.
+        /// Modifies the specified Client VPN endpoint. Modifying the DNS server resets existing
+        /// client connections.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyClientVpnEndpoint service method.</param>
         /// <param name="cancellationToken">
@@ -21897,8 +21977,8 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// After you perform this operation, the AWS VPN endpoint's IP addresses on the AWS side
-        /// and the tunnel options remain intact. Your s2slong; connection will be temporarily
-        /// unavailable for approximately 10 minutes while we provision the new endpoints 
+        /// and the tunnel options remain intact. Your AWS Site-to-Site VPN connection will be
+        /// temporarily unavailable for a brief period while we provision the new endpoints.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVpnConnection service method.</param>
@@ -21977,8 +22057,8 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// After you perform this operation, the AWS VPN endpoint's IP addresses on the AWS side
-        /// and the tunnel options remain intact. Your s2slong; connection will be temporarily
-        /// unavailable for approximately 10 minutes while we provision the new endpoints 
+        /// and the tunnel options remain intact. Your AWS Site-to-Site VPN connection will be
+        /// temporarily unavailable for a brief period while we provision the new endpoints.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVpnConnection service method.</param>
@@ -23580,9 +23660,9 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// You can specify tags for the Spot Fleet and Spot Instances. You cannot tag other resource
-        /// types in a Spot Fleet request because only the <code>spot-fleet-request</code> and
-        /// <code>instance</code> resource types are supported.
+        /// You can specify tags for the Spot Fleet request and instances launched by the fleet.
+        /// You cannot tag other resource types in a Spot Fleet request because only the <code>spot-fleet-request</code>
+        /// and <code>instance</code> resource types are supported.
         /// </para>
         ///  
         /// <para>
@@ -23633,9 +23713,9 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// You can specify tags for the Spot Fleet and Spot Instances. You cannot tag other resource
-        /// types in a Spot Fleet request because only the <code>spot-fleet-request</code> and
-        /// <code>instance</code> resource types are supported.
+        /// You can specify tags for the Spot Fleet request and instances launched by the fleet.
+        /// You cannot tag other resource types in a Spot Fleet request because only the <code>spot-fleet-request</code>
+        /// and <code>instance</code> resource types are supported.
         /// </para>
         ///  
         /// <para>
@@ -24944,8 +25024,9 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// You can't hibernate Spot Instances, and you can't stop or hibernate instance store-backed
-        /// instances. For information about using hibernation for Spot Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating
+        /// You can't stop or hibernate instance store-backed instances. You can't use the Stop
+        /// action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate
+        /// Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating
         /// Interrupted Spot Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
@@ -25011,8 +25092,9 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// You can't hibernate Spot Instances, and you can't stop or hibernate instance store-backed
-        /// instances. For information about using hibernation for Spot Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating
+        /// You can't stop or hibernate instance store-backed instances. You can't use the Stop
+        /// action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate
+        /// Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating
         /// Interrupted Spot Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  

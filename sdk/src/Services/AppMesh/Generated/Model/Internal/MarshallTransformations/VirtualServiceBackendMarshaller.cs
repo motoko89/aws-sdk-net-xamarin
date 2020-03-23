@@ -45,6 +45,17 @@ namespace Amazon.AppMesh.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(VirtualServiceBackend requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetClientPolicy())
+            {
+                context.Writer.WritePropertyName("clientPolicy");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = ClientPolicyMarshaller.Instance;
+                marshaller.Marshall(requestObject.ClientPolicy, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetVirtualServiceName())
             {
                 context.Writer.WritePropertyName("virtualServiceName");

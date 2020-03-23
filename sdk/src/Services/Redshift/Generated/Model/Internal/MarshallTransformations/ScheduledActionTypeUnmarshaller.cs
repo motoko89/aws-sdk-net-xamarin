@@ -54,10 +54,22 @@ namespace Amazon.Redshift.Model.Internal.MarshallTransformations
             {
                 if (context.IsStartElement || context.IsAttribute)
                 {
+                    if (context.TestExpression("PauseCluster", targetDepth))
+                    {
+                        var unmarshaller = PauseClusterMessageUnmarshaller.Instance;
+                        unmarshalledObject.PauseCluster = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("ResizeCluster", targetDepth))
                     {
                         var unmarshaller = ResizeClusterMessageUnmarshaller.Instance;
                         unmarshalledObject.ResizeCluster = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("ResumeCluster", targetDepth))
+                    {
+                        var unmarshaller = ResumeClusterMessageUnmarshaller.Instance;
+                        unmarshalledObject.ResumeCluster = unmarshaller.Unmarshall(context);
                         continue;
                     }
                 }
