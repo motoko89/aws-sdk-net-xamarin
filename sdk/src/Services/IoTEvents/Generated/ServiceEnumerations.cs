@@ -255,4 +255,104 @@ namespace Amazon.IoTEvents
         }
     }
 
+
+    /// <summary>
+    /// Constants used for properties of type PayloadType.
+    /// </summary>
+    public class PayloadType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant JSON for PayloadType
+        /// </summary>
+        public static readonly PayloadType JSON = new PayloadType("JSON");
+        /// <summary>
+        /// Constant STRING for PayloadType
+        /// </summary>
+        public static readonly PayloadType STRING = new PayloadType("STRING");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public PayloadType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static PayloadType FindValue(string value)
+        {
+            return FindValue<PayloadType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator PayloadType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TagrisStatus.
+    /// </summary>
+    public class TagrisStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ACTIVE for TagrisStatus
+        /// </summary>
+        public static readonly TagrisStatus ACTIVE = new TagrisStatus("ACTIVE");
+        /// <summary>
+        /// Constant NOT_ACTIVE for TagrisStatus
+        /// </summary>
+        public static readonly TagrisStatus NOT_ACTIVE = new TagrisStatus("NOT_ACTIVE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TagrisStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TagrisStatus FindValue(string value)
+        {
+            return FindValue<TagrisStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TagrisStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
 }

@@ -222,6 +222,16 @@
     <pattern>^[A-Za-z]{3}$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.MediaConvert.Model.CaptionSourceFramerate.FramerateDenominator</property>
+    <min>1</min>
+    <max>1001</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.MediaConvert.Model.CaptionSourceFramerate.FramerateNumerator</property>
+    <min>1</min>
+    <max>60000</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.MediaConvert.Model.CmafAdditionalManifest.ManifestNameModifier</property>
     <min>1</min>
   </property-value-rule>
@@ -759,6 +769,11 @@
     <property>Amazon.MediaConvert.Model.HlsGroupSettings.TimestampDeltaMilliseconds</property>
     <min>-2147483648</min>
     <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.MediaConvert.Model.HopDestination.Priority</property>
+    <min>-50</min>
+    <max>50</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MediaConvert.Model.Id3Insertion.Id3</property>

@@ -96,7 +96,7 @@ namespace Amazon.TranscribeService.Model
         /// Gets and sets the property MaxSpeakerLabels. 
         /// <para>
         /// The maximum number of speakers to identify in the input audio. If there are more speakers
-        /// in the audio than this number, multiple speakers will be identified as a single speaker.
+        /// in the audio than this number, multiple speakers are identified as a single speaker.
         /// If you specify the <code>MaxSpeakerLabels</code> field, you must set the <code>ShowSpeakerLabels</code>
         /// field to true.
         /// </para>

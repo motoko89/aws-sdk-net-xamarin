@@ -251,7 +251,18 @@ namespace Amazon.EC2
             pipeline.AddHandlerBefore<Amazon.Runtime.Internal.Marshaller>(new Amazon.EC2.Internal.AmazonEC2PreMarshallHandler(this.Credentials));
             pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new Amazon.EC2.Internal.AmazonEC2PostMarshallHandler());
             pipeline.AddHandlerBefore<Amazon.Runtime.Internal.Unmarshaller>(new Amazon.EC2.Internal.AmazonEC2ResponseHandler());
-            pipeline.ReplaceHandler<Amazon.Runtime.Internal.RetryHandler>(new Amazon.Runtime.Internal.RetryHandler(new Amazon.EC2.Internal.EC2RetryPolicy(this.Config)));
+            if(this.Config.RetryMode == RequestRetryMode.Legacy)
+            {
+                pipeline.ReplaceHandler<Amazon.Runtime.Internal.RetryHandler>(new Amazon.Runtime.Internal.RetryHandler(new Amazon.EC2.Internal.EC2RetryPolicy(this.Config)));
+            }
+            if(this.Config.RetryMode == RequestRetryMode.Standard)
+            {
+                pipeline.ReplaceHandler<Amazon.Runtime.Internal.RetryHandler>(new Amazon.Runtime.Internal.RetryHandler(new Amazon.EC2.Internal.EC2StandardRetryPolicy(this.Config)));
+            }
+            if(this.Config.RetryMode == RequestRetryMode.Adaptive)
+            {
+                pipeline.ReplaceHandler<Amazon.Runtime.Internal.RetryHandler>(new Amazon.Runtime.Internal.RetryHandler(new Amazon.EC2.Internal.EC2AdaptiveRetryPolicy(this.Config)));
+            }
         }    
         /// <summary>
         /// Capture metadata for the service.
@@ -8948,6 +8959,49 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DeregisterInstanceEventNotificationAttributes
+
+
+        /// <summary>
+        /// Deregisters tag keys to prevent tags that have the specified tag keys from being included
+        /// in scheduled event notifications for resources in the Region.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeregisterInstanceEventNotificationAttributes service method.</param>
+        /// 
+        /// <returns>The response from the DeregisterInstanceEventNotificationAttributes service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeregisterInstanceEventNotificationAttributes">REST API Reference for DeregisterInstanceEventNotificationAttributes Operation</seealso>
+        public virtual DeregisterInstanceEventNotificationAttributesResponse DeregisterInstanceEventNotificationAttributes(DeregisterInstanceEventNotificationAttributesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeregisterInstanceEventNotificationAttributesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeregisterInstanceEventNotificationAttributesResponseUnmarshaller.Instance;
+
+            return Invoke<DeregisterInstanceEventNotificationAttributesResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Deregisters tag keys to prevent tags that have the specified tag keys from being included
+        /// in scheduled event notifications for resources in the Region.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeregisterInstanceEventNotificationAttributes service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeregisterInstanceEventNotificationAttributes service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeregisterInstanceEventNotificationAttributes">REST API Reference for DeregisterInstanceEventNotificationAttributes Operation</seealso>
+        public virtual Task<DeregisterInstanceEventNotificationAttributesResponse> DeregisterInstanceEventNotificationAttributesAsync(DeregisterInstanceEventNotificationAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeregisterInstanceEventNotificationAttributesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeregisterInstanceEventNotificationAttributesResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DeregisterInstanceEventNotificationAttributesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeregisterTransitGatewayMulticastGroupMembers
 
 
@@ -11580,6 +11634,49 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = DescribeInstanceCreditSpecificationsResponseUnmarshaller.Instance;
             
             return InvokeAsync<DescribeInstanceCreditSpecificationsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeInstanceEventNotificationAttributes
+
+
+        /// <summary>
+        /// Describes the tag keys that are registered to appear in scheduled event notifications
+        /// for resources in the current Region.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceEventNotificationAttributes service method.</param>
+        /// 
+        /// <returns>The response from the DescribeInstanceEventNotificationAttributes service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceEventNotificationAttributes">REST API Reference for DescribeInstanceEventNotificationAttributes Operation</seealso>
+        public virtual DescribeInstanceEventNotificationAttributesResponse DescribeInstanceEventNotificationAttributes(DescribeInstanceEventNotificationAttributesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeInstanceEventNotificationAttributesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeInstanceEventNotificationAttributesResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeInstanceEventNotificationAttributesResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Describes the tag keys that are registered to appear in scheduled event notifications
+        /// for resources in the current Region.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceEventNotificationAttributes service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeInstanceEventNotificationAttributes service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceEventNotificationAttributes">REST API Reference for DescribeInstanceEventNotificationAttributes Operation</seealso>
+        public virtual Task<DescribeInstanceEventNotificationAttributesResponse> DescribeInstanceEventNotificationAttributesAsync(DescribeInstanceEventNotificationAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeInstanceEventNotificationAttributesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeInstanceEventNotificationAttributesResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DescribeInstanceEventNotificationAttributesResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -14738,8 +14835,8 @@ namespace Amazon.EC2
         /// You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance
         /// by examining the response. If the status of the Spot Instance is <code>fulfilled</code>,
         /// the instance ID appears in the response and contains the identifier of the instance.
-        /// Alternatively, you can use <a>DescribeInstances</a> with a filter to look for instances
-        /// where the instance lifecycle is <code>spot</code>.
+        /// Alternatively, you can use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances">DescribeInstances</a>
+        /// with a filter to look for instances where the instance lifecycle is <code>spot</code>.
         /// </para>
         ///  
         /// <para>
@@ -14773,8 +14870,8 @@ namespace Amazon.EC2
         /// You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance
         /// by examining the response. If the status of the Spot Instance is <code>fulfilled</code>,
         /// the instance ID appears in the response and contains the identifier of the instance.
-        /// Alternatively, you can use <a>DescribeInstances</a> with a filter to look for instances
-        /// where the instance lifecycle is <code>spot</code>.
+        /// Alternatively, you can use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances">DescribeInstances</a>
+        /// with a filter to look for instances where the instance lifecycle is <code>spot</code>.
         /// </para>
         ///  
         /// <para>
@@ -14813,8 +14910,8 @@ namespace Amazon.EC2
         /// You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance
         /// by examining the response. If the status of the Spot Instance is <code>fulfilled</code>,
         /// the instance ID appears in the response and contains the identifier of the instance.
-        /// Alternatively, you can use <a>DescribeInstances</a> with a filter to look for instances
-        /// where the instance lifecycle is <code>spot</code>.
+        /// Alternatively, you can use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances">DescribeInstances</a>
+        /// with a filter to look for instances where the instance lifecycle is <code>spot</code>.
         /// </para>
         ///  
         /// <para>
@@ -14850,8 +14947,8 @@ namespace Amazon.EC2
         /// You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance
         /// by examining the response. If the status of the Spot Instance is <code>fulfilled</code>,
         /// the instance ID appears in the response and contains the identifier of the instance.
-        /// Alternatively, you can use <a>DescribeInstances</a> with a filter to look for instances
-        /// where the instance lifecycle is <code>spot</code>.
+        /// Alternatively, you can use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances">DescribeInstances</a>
+        /// with a filter to look for instances where the instance lifecycle is <code>spot</code>.
         /// </para>
         ///  
         /// <para>
@@ -22777,6 +22874,59 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  RegisterInstanceEventNotificationAttributes
+
+
+        /// <summary>
+        /// Registers a set of tag keys to include in scheduled event notifications for your resources.
+        /// 
+        /// 
+        ///  
+        /// <para>
+        /// To remove tags, use .
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RegisterInstanceEventNotificationAttributes service method.</param>
+        /// 
+        /// <returns>The response from the RegisterInstanceEventNotificationAttributes service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RegisterInstanceEventNotificationAttributes">REST API Reference for RegisterInstanceEventNotificationAttributes Operation</seealso>
+        public virtual RegisterInstanceEventNotificationAttributesResponse RegisterInstanceEventNotificationAttributes(RegisterInstanceEventNotificationAttributesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RegisterInstanceEventNotificationAttributesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RegisterInstanceEventNotificationAttributesResponseUnmarshaller.Instance;
+
+            return Invoke<RegisterInstanceEventNotificationAttributesResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Registers a set of tag keys to include in scheduled event notifications for your resources.
+        /// 
+        /// 
+        ///  
+        /// <para>
+        /// To remove tags, use .
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RegisterInstanceEventNotificationAttributes service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the RegisterInstanceEventNotificationAttributes service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RegisterInstanceEventNotificationAttributes">REST API Reference for RegisterInstanceEventNotificationAttributes Operation</seealso>
+        public virtual Task<RegisterInstanceEventNotificationAttributesResponse> RegisterInstanceEventNotificationAttributesAsync(RegisterInstanceEventNotificationAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RegisterInstanceEventNotificationAttributesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RegisterInstanceEventNotificationAttributesResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<RegisterInstanceEventNotificationAttributesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  RegisterTransitGatewayMulticastGroupMembers
 
 
@@ -24358,7 +24508,6 @@ namespace Amazon.EC2
         /// <summary>
         /// Launches the specified number of instances using an AMI for which you have permissions.
         /// 
-        /// 
         ///  
         /// <para>
         /// You can specify a number of options, or leave the default options. The following rules
@@ -24453,7 +24602,6 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Launches the specified number of instances using an AMI for which you have permissions.
-        /// 
         /// 
         ///  
         /// <para>

@@ -34,6 +34,7 @@ namespace Amazon.FraudDetector.Model
     {
         private List<ModelScores> _modelScores = new List<ModelScores>();
         private List<string> _outcomes = new List<string>();
+        private List<RuleResult> _ruleResults = new List<RuleResult>();
 
         /// <summary>
         /// Gets and sets the property ModelScores. 
@@ -69,6 +70,24 @@ namespace Amazon.FraudDetector.Model
         internal bool IsSetOutcomes()
         {
             return this._outcomes != null && this._outcomes.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property RuleResults. 
+        /// <para>
+        /// The rule results in the prediction.
+        /// </para>
+        /// </summary>
+        public List<RuleResult> RuleResults
+        {
+            get { return this._ruleResults; }
+            set { this._ruleResults = value; }
+        }
+
+        // Check to see if RuleResults property is set
+        internal bool IsSetRuleResults()
+        {
+            return this._ruleResults != null && this._ruleResults.Count > 0; 
         }
 
     }

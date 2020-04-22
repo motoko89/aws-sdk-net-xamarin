@@ -29,7 +29,7 @@ namespace Amazon.Route53Domains.Model
 {
     /// <summary>
     /// A complex type that contains information about whether the specified domain can be
-    /// transferred to Amazon Route 53.
+    /// transferred to Route 53.
     /// </summary>
     public partial class DomainTransferability
     {

@@ -33,8 +33,8 @@ namespace Amazon.IoTEvents
     ///
     /// AWS IoT Events monitors your equipment or device fleets for failures or changes in
     /// operation, and triggers actions when such events occur. You can use AWS IoT Events
-    /// API commands to create, read, update, and delete inputs and detector models, and to
-    /// list their versions.
+    /// API operations to create, read, update, and delete inputs and detector models, and
+    /// to list their versions.
     /// </summary>
     public partial interface IAmazonIoTEvents : IAmazonService, IDisposable
     {
@@ -1033,6 +1033,70 @@ namespace Amazon.IoTEvents
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotevents-2018-07-27/UpdateInput">REST API Reference for UpdateInput Operation</seealso>
         Task<UpdateInputResponse> UpdateInputAsync(UpdateInputRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  VerifyResourcesExistForTagris
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the VerifyResourcesExistForTagris service method.</param>
+        /// 
+        /// <returns>The response from the VerifyResourcesExistForTagris service method, as returned by IoTEvents.</returns>
+        /// <exception cref="Amazon.IoTEvents.Model.TagrisAccessDeniedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IoTEvents.Model.TagrisInternalServiceException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IoTEvents.Model.TagrisInvalidArnException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IoTEvents.Model.TagrisInvalidParameterException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IoTEvents.Model.TagrisPartialResourcesExistResultsException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IoTEvents.Model.TagrisThrottledException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotevents-2018-07-27/VerifyResourcesExistForTagris">REST API Reference for VerifyResourcesExistForTagris Operation</seealso>
+        VerifyResourcesExistForTagrisResponse VerifyResourcesExistForTagris(VerifyResourcesExistForTagrisRequest request);
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the VerifyResourcesExistForTagris service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the VerifyResourcesExistForTagris service method, as returned by IoTEvents.</returns>
+        /// <exception cref="Amazon.IoTEvents.Model.TagrisAccessDeniedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IoTEvents.Model.TagrisInternalServiceException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IoTEvents.Model.TagrisInvalidArnException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IoTEvents.Model.TagrisInvalidParameterException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IoTEvents.Model.TagrisPartialResourcesExistResultsException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IoTEvents.Model.TagrisThrottledException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotevents-2018-07-27/VerifyResourcesExistForTagris">REST API Reference for VerifyResourcesExistForTagris Operation</seealso>
+        Task<VerifyResourcesExistForTagrisResponse> VerifyResourcesExistForTagrisAsync(VerifyResourcesExistForTagrisRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
