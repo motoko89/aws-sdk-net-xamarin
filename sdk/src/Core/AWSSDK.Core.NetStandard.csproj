@@ -30,6 +30,13 @@
     <CodeAnalysisRuleSet>..\..\AWSDotNetSDKForBuild.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DefineConstants>TRACE;AWS_ASYNC_API;DEBUG;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD20</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+    <DefineConstants>TRACE;AWS_ASYNC_API;RELEASE;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD20</DefineConstants>
+  </PropertyGroup>
   <Choose>
     <When Condition=" '$(AWSKeyFile)' == '' ">
       <PropertyGroup>
@@ -79,7 +86,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="$(RunAnalyzersDuringBuild)">
-    <Analyzer Include= "..\..\..\buildtools\CustomRoslynAnalyzers.dll" />
+    <Analyzer Include="..\..\..\buildtools\CustomRoslynAnalyzers.dll" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">

@@ -37,7 +37,6 @@
     <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
     <DocumentationFile>obj\AWSSDK.SecurityToken.NetStandard\Debug\netstandard2.0\AWSSDK.SecurityToken.xml</DocumentationFile>
     <AssemblyName>AWSSDK.SecurityToken.NetStandard</AssemblyName>
-    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
     <NoWarn>1701;1702</NoWarn>
     <NoStdLib>false</NoStdLib>
   </PropertyGroup>
@@ -62,7 +61,7 @@
   </Choose>
 
   <ItemGroup Condition="$(RunAnalyzersDuringBuild)">
-    <Analyzer Include= "..\..\..\..\buildtools\CustomRoslynAnalyzers.dll" />
+    <Analyzer Include="..\..\..\..\buildtools\CustomRoslynAnalyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="**/_pcl/**" />
@@ -85,10 +84,6 @@
     <None Remove="**/obj/**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Core\AWSSDK.Core.NetStandard.csproj" />
-  </ItemGroup>
-
   <ItemGroup Condition="$(RunAnalyzersDuringBuild)">
         <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.3">
             <PrivateAssets>all</PrivateAssets>
@@ -103,4 +98,7 @@
   <ItemGroup>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\AWSSDK.Core.NetStandard.csproj" />
+  </ItemGroup>
 </Project>
