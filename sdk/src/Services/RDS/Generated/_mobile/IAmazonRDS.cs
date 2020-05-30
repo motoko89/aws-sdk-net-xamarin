@@ -4654,6 +4654,19 @@ namespace Amazon.RDS
         /// 
         ///  <note> 
         /// <para>
+        /// This action only restores the DB cluster, not the DB instances for that DB cluster.
+        /// You must invoke the <code>CreateDBInstance</code> action to create DB instances for
+        /// the restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>.
+        /// You can create DB instances only after the <code>RestoreDBClusterFromS3</code> action
+        /// has completed and the DB cluster is available.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+        /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> 
+        /// </para>
+        ///  <note> 
+        /// <para>
         /// This action only applies to Aurora DB clusters.
         /// </para>
         ///  </note>
@@ -4747,6 +4760,11 @@ namespace Amazon.RDS
         /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
         /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> 
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// This action only applies to Aurora DB clusters.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RestoreDBClusterFromSnapshot service method.</param>
         /// <param name="cancellationToken">
@@ -4771,9 +4789,6 @@ namespace Amazon.RDS
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBSnapshotNotFoundException">
         /// <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.
-        /// </exception>
-        /// <exception cref="Amazon.RDS.Model.DBSubnetGroupNotFoundException">
-        /// <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBSubnetGroupNotFoundException">
         /// <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.
@@ -4811,10 +4826,6 @@ namespace Amazon.RDS
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.OptionGroupNotFoundException">
         /// The specified option group could not be found.
-        /// </exception>
-        /// <exception cref="Amazon.RDS.Model.StorageQuotaExceededException">
-        /// The request would result in the user exceeding the allowed amount of storage available
-        /// across all DB instances.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.StorageQuotaExceededException">
         /// The request would result in the user exceeding the allowed amount of storage available

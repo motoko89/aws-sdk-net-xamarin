@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.Text;
 using System.IO;
+using System.Net;
 
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
@@ -199,7 +200,8 @@ namespace Amazon.AccessAnalyzer.Model
         /// <summary>
         /// Gets and sets the property SharedVia. 
         /// <para>
-        /// Indicates how the access that generated the finding is granted.
+        /// Indicates how the access that generated the finding is granted. This is populated
+        /// for Amazon S3 bucket findings.
         /// </para>
         /// </summary>
         public List<string> SharedVia

@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.Text;
 using System.IO;
+using System.Net;
 
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
@@ -29,7 +30,7 @@ namespace Amazon.GuardDuty.Model
 {
     /// <summary>
     /// Container for the parameters to the EnableOrganizationAdminAccount operation.
-    /// Enables GuardDuty administrator permissions for an AWS account within the organization.
+    /// Enables an AWS account within the organization as the GuardDuty delegated administrator.
     /// </summary>
     public partial class EnableOrganizationAdminAccountRequest : AmazonGuardDutyRequest
     {
@@ -38,7 +39,7 @@ namespace Amazon.GuardDuty.Model
         /// <summary>
         /// Gets and sets the property AdminAccountId. 
         /// <para>
-        /// The AWS Account ID for the Organizations account to be enabled as a GuardDuty delegated
+        /// The AWS Account ID for the organization account to be enabled as a GuardDuty delegated
         /// administrator.
         /// </para>
         /// </summary>

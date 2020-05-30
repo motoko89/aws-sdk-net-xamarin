@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.Text;
 using System.IO;
+using System.Net;
 
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
@@ -60,7 +61,7 @@ namespace Amazon.GuardDuty.Model
         /// <summary>
         /// Gets and sets the property Location. 
         /// <para>
-        /// The URI of the file that contains the IPSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
+        /// The URI of the file that contains the IPSet.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=300)]

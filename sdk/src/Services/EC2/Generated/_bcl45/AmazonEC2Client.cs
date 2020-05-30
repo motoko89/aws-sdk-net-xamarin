@@ -4024,7 +4024,10 @@ namespace Amazon.EC2
         /// <summary>
         /// Creates a launch template. A launch template contains the parameters to launch an
         /// instance. When you launch an instance using <a>RunInstances</a>, you can specify a
-        /// launch template instead of providing the launch parameters in the request.
+        /// launch template instead of providing the launch parameters in the request. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching
+        /// an instance from a launch template</a>in the <i>Amazon Elastic Compute Cloud User
+        /// Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLaunchTemplate service method.</param>
         /// 
@@ -4043,7 +4046,10 @@ namespace Amazon.EC2
         /// <summary>
         /// Creates a launch template. A launch template contains the parameters to launch an
         /// instance. When you launch an instance using <a>RunInstances</a>, you can specify a
-        /// launch template instead of providing the launch parameters in the request.
+        /// launch template instead of providing the launch parameters in the request. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching
+        /// an instance from a launch template</a>in the <i>Amazon Elastic Compute Cloud User
+        /// Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLaunchTemplate service method.</param>
         /// <param name="cancellationToken">
@@ -4075,6 +4081,11 @@ namespace Amazon.EC2
         /// Launch template versions are numbered in the order in which they are created. You
         /// cannot specify, change, or replace the numbering of launch template versions.
         /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Managing
+        /// launch template versions</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLaunchTemplateVersion service method.</param>
         /// 
@@ -4098,6 +4109,11 @@ namespace Amazon.EC2
         /// <para>
         /// Launch template versions are numbered in the order in which they are created. You
         /// cannot specify, change, or replace the numbering of launch template versions.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Managing
+        /// launch template versions</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLaunchTemplateVersion service method.</param>
@@ -5278,9 +5294,10 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources.
-        /// Each resource can have a maximum of 50 tags. Each tag consists of a key and optional
-        /// value. Tag keys must be unique per resource.
+        /// Adds or overwrites only the specified tags for the specified Amazon EC2 resource or
+        /// resources. When you specify an existing tag key, the value is overwritten with the
+        /// new value. Each resource can have a maximum of 50 tags. Each tag consists of a key
+        /// and optional value. Tag keys must be unique per resource.
         /// 
         ///  
         /// <para>
@@ -5307,9 +5324,10 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources.
-        /// Each resource can have a maximum of 50 tags. Each tag consists of a key and optional
-        /// value. Tag keys must be unique per resource.
+        /// Adds or overwrites only the specified tags for the specified Amazon EC2 resource or
+        /// resources. When you specify an existing tag key, the value is overwritten with the
+        /// new value. Each resource can have a maximum of 50 tags. Each tag consists of a key
+        /// and optional value. Tag keys must be unique per resource.
         /// 
         ///  
         /// <para>
@@ -8699,8 +8717,14 @@ namespace Amazon.EC2
         /// connection. If you believe that the tunnel credentials for your VPN connection have
         /// been compromised, you can delete the VPN connection and create a new one that has
         /// new keys, without needing to delete the VPC or virtual private gateway. If you create
-        /// a new VPN connection, you must reconfigure the customer gateway using the new configuration
-        /// information returned with the new VPN connection ID.
+        /// a new VPN connection, you must reconfigure the customer gateway device using the new
+        /// configuration information returned with the new VPN connection ID.
+        /// </para>
+        ///  
+        /// <para>
+        /// For certificate-based authentication, delete all AWS Certificate Manager (ACM) private
+        /// certificates used for the AWS-side tunnel endpoints for the VPN connection before
+        /// deleting the VPN connection.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVpnConnection service method.</param>
@@ -8727,8 +8751,14 @@ namespace Amazon.EC2
         /// connection. If you believe that the tunnel credentials for your VPN connection have
         /// been compromised, you can delete the VPN connection and create a new one that has
         /// new keys, without needing to delete the VPC or virtual private gateway. If you create
-        /// a new VPN connection, you must reconfigure the customer gateway using the new configuration
-        /// information returned with the new VPN connection ID.
+        /// a new VPN connection, you must reconfigure the customer gateway device using the new
+        /// configuration information returned with the new VPN connection ID.
+        /// </para>
+        ///  
+        /// <para>
+        /// For certificate-based authentication, delete all AWS Certificate Manager (ACM) private
+        /// certificates used for the AWS-side tunnel endpoints for the VPN connection before
+        /// deleting the VPN connection.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVpnConnection service method.</param>
@@ -11685,15 +11715,21 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the specified instances or all of AWS account's instances.
+        /// Describes the specified instances or all instances.
         /// 
         ///  
         /// <para>
-        /// If you specify one or more instance IDs, Amazon EC2 returns information for those
-        /// instances. If you do not specify instance IDs, Amazon EC2 returns information for
-        /// all relevant instances. If you specify an instance ID that is not valid, an error
-        /// is returned. If you specify an instance that you do not own, it is not included in
-        /// the returned results.
+        /// If you specify instance IDs, the output includes information for only the specified
+        /// instances. If you specify filters, the output includes information for only those
+        /// instances that meet the filter criteria. If you do not specify instance IDs or filters,
+        /// the output includes information for all instances, which can affect performance. We
+        /// recommend that you use pagination to ensure that the operation returns quickly and
+        /// successfully.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you specify an instance ID that is not valid, an error is returned. If you specify
+        /// an instance that you do not own, it is not included in the output.
         /// </para>
         ///  
         /// <para>
@@ -11718,15 +11754,21 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the specified instances or all of AWS account's instances.
+        /// Describes the specified instances or all instances.
         /// 
         ///  
         /// <para>
-        /// If you specify one or more instance IDs, Amazon EC2 returns information for those
-        /// instances. If you do not specify instance IDs, Amazon EC2 returns information for
-        /// all relevant instances. If you specify an instance ID that is not valid, an error
-        /// is returned. If you specify an instance that you do not own, it is not included in
-        /// the returned results.
+        /// If you specify instance IDs, the output includes information for only the specified
+        /// instances. If you specify filters, the output includes information for only those
+        /// instances that meet the filter criteria. If you do not specify instance IDs or filters,
+        /// the output includes information for all instances, which can affect performance. We
+        /// recommend that you use pagination to ensure that the operation returns quickly and
+        /// successfully.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you specify an instance ID that is not valid, an error is returned. If you specify
+        /// an instance that you do not own, it is not included in the output.
         /// </para>
         ///  
         /// <para>
@@ -11756,15 +11798,21 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the specified instances or all of AWS account's instances.
+        /// Describes the specified instances or all instances.
         /// 
         ///  
         /// <para>
-        /// If you specify one or more instance IDs, Amazon EC2 returns information for those
-        /// instances. If you do not specify instance IDs, Amazon EC2 returns information for
-        /// all relevant instances. If you specify an instance ID that is not valid, an error
-        /// is returned. If you specify an instance that you do not own, it is not included in
-        /// the returned results.
+        /// If you specify instance IDs, the output includes information for only the specified
+        /// instances. If you specify filters, the output includes information for only those
+        /// instances that meet the filter criteria. If you do not specify instance IDs or filters,
+        /// the output includes information for all instances, which can affect performance. We
+        /// recommend that you use pagination to ensure that the operation returns quickly and
+        /// successfully.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you specify an instance ID that is not valid, an error is returned. If you specify
+        /// an instance that you do not own, it is not included in the output.
         /// </para>
         ///  
         /// <para>
@@ -11791,15 +11839,21 @@ namespace Amazon.EC2
         }
 
         /// <summary>
-        /// Describes the specified instances or all of AWS account's instances.
+        /// Describes the specified instances or all instances.
         /// 
         ///  
         /// <para>
-        /// If you specify one or more instance IDs, Amazon EC2 returns information for those
-        /// instances. If you do not specify instance IDs, Amazon EC2 returns information for
-        /// all relevant instances. If you specify an instance ID that is not valid, an error
-        /// is returned. If you specify an instance that you do not own, it is not included in
-        /// the returned results.
+        /// If you specify instance IDs, the output includes information for only the specified
+        /// instances. If you specify filters, the output includes information for only those
+        /// instances that meet the filter criteria. If you do not specify instance IDs or filters,
+        /// the output includes information for all instances, which can affect performance. We
+        /// recommend that you use pagination to ensure that the operation returns quickly and
+        /// successfully.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you specify an instance ID that is not valid, an error is returned. If you specify
+        /// an instance that you do not own, it is not included in the output.
         /// </para>
         ///  
         /// <para>
@@ -12064,7 +12118,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Returns a list of all instance types offered in your current AWS Region. The results
+        /// Describes the details of the instance types that are offered in a location. The results
         /// can be filtered by the attributes of the instance types.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceTypes service method.</param>
@@ -12082,7 +12136,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Returns a list of all instance types offered in your current AWS Region. The results
+        /// Describes the details of the instance types that are offered in a location. The results
         /// can be filtered by the attributes of the instance types.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceTypes service method.</param>
@@ -17415,6 +17469,11 @@ namespace Amazon.EC2
         /// public IP addresses when addressed between a linked EC2-Classic instance and instances
         /// in the VPC to which it's linked. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
         /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// You must specify a VPC ID in the request.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisableVpcClassicLinkDnsSupport service method.</param>
         /// 
@@ -17435,6 +17494,11 @@ namespace Amazon.EC2
         /// public IP addresses when addressed between a linked EC2-Classic instance and instances
         /// in the VPC to which it's linked. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
         /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// You must specify a VPC ID in the request.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisableVpcClassicLinkDnsSupport service method.</param>
         /// <param name="cancellationToken">
@@ -17655,7 +17719,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Disassociates a subnet from a route table.
+        /// Disassociates a subnet or gateway from a route table.
         /// 
         ///  
         /// <para>
@@ -17680,7 +17744,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Disassociates a subnet from a route table.
+        /// Disassociates a subnet or gateway from a route table.
         /// 
         ///  
         /// <para>
@@ -18242,6 +18306,11 @@ namespace Amazon.EC2
         /// of an instance in a VPC resolves to its private IP address when addressed from a linked
         /// EC2-Classic instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
         /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// You must specify a VPC ID in the request.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the EnableVpcClassicLinkDnsSupport service method.</param>
         /// 
@@ -18264,6 +18333,11 @@ namespace Amazon.EC2
         /// of an instance in a VPC resolves to its private IP address when addressed from a linked
         /// EC2-Classic instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
         /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// You must specify a VPC ID in the request.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the EnableVpcClassicLinkDnsSupport service method.</param>
         /// <param name="cancellationToken">
@@ -22013,8 +22087,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the target gateway of an AWS Site-to-Site VPN connection. The following migration
-        /// options are available:
+        /// Modifies the customer gateway or the target gateway of an AWS Site-to-Site VPN connection.
+        /// To modify the target gateway, the following migration options are available:
         /// 
         ///  <ul> <li> 
         /// <para>
@@ -22093,8 +22167,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the target gateway of an AWS Site-to-Site VPN connection. The following migration
-        /// options are available:
+        /// Modifies the customer gateway or the target gateway of an AWS Site-to-Site VPN connection.
+        /// To modify the target gateway, the following migration options are available:
         /// 
         ///  <ul> <li> 
         /// <para>

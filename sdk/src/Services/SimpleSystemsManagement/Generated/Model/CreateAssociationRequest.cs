@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.Text;
 using System.IO;
+using System.Net;
 
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
@@ -34,14 +35,10 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// 
     ///  
     /// <para>
-    /// When you associate a document with one or more instances using instance IDs or tags,
-    /// SSM Agent running on the instance processes the document and configures the instance
-    /// as specified.
-    /// </para>
-    ///  
-    /// <para>
-    /// If you associate a document with an instance that already has an associated document,
-    /// the system returns the AssociationAlreadyExists exception.
+    /// When you associate a document with one or more instances, SSM Agent running on the
+    /// instance processes the document and configures the instance as specified. If you associate
+    /// a document with an instance that already has an associated document, the system returns
+    /// the <code>AssociationAlreadyExists</code> exception.
     /// </para>
     /// </summary>
     public partial class CreateAssociationRequest : AmazonSimpleSystemsManagementRequest
@@ -57,6 +54,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         private InstanceAssociationOutputLocation _outputLocation;
         private Dictionary<string, List<string>> _parameters = new Dictionary<string, List<string>>();
         private string _scheduleExpression;
+        private AssociationSyncCompliance _syncCompliance;
         private List<Target> _targets = new List<Target>();
 
         /// <summary>
@@ -292,7 +290,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property OutputLocation. 
         /// <para>
-        /// An Amazon S3 bucket where you want to store the output details of the request.
+        /// An S3 bucket where you want to store the output details of the request.
         /// </para>
         /// </summary>
         public InstanceAssociationOutputLocation OutputLocation
@@ -345,10 +343,46 @@ namespace Amazon.SimpleSystemsManagement.Model
         }
 
         /// <summary>
+        /// Gets and sets the property SyncCompliance. 
+        /// <para>
+        /// The mode for generating association compliance. You can specify <code>AUTO</code>
+        /// or <code>MANUAL</code>. In <code>AUTO</code> mode, the system uses the status of the
+        /// association execution to determine the compliance status. If the association execution
+        /// runs successfully, then the association is <code>COMPLIANT</code>. If the association
+        /// execution doesn't run successfully, the association is <code>NON-COMPLIANT</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// In <code>MANUAL</code> mode, you must specify the <code>AssociationId</code> as a
+        /// parameter for the <a>PutComplianceItems</a> API action. In this case, compliance data
+        /// is not managed by State Manager. It is managed by your direct call to the <a>PutComplianceItems</a>
+        /// API action.
+        /// </para>
+        ///  
+        /// <para>
+        /// By default, all associations use <code>AUTO</code> mode.
+        /// </para>
+        /// </summary>
+        public AssociationSyncCompliance SyncCompliance
+        {
+            get { return this._syncCompliance; }
+            set { this._syncCompliance = value; }
+        }
+
+        // Check to see if SyncCompliance property is set
+        internal bool IsSetSyncCompliance()
+        {
+            return this._syncCompliance != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Targets. 
         /// <para>
-        /// The targets (either instances or tags) for the association. You must specify a value
-        /// for <code>Targets</code> if you don't specify a value for <code>InstanceId</code>.
+        /// The targets for the association. You can target instances by using tags, AWS Resource
+        /// Groups, all instances in an AWS account, or individual instance IDs. For more information
+        /// about choosing targets for an association, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html">Using
+        /// targets and rate controls with State Manager associations</a> in the <i>AWS Systems
+        /// Manager User Guide</i>.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=5)]

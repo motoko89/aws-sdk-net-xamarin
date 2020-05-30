@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.Text;
 using System.IO;
+using System.Net;
 
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
@@ -374,6 +375,10 @@ namespace Amazon.EC2.Model
         /// An elastic inference accelerator to associate with the instance. Elastic inference
         /// accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
         /// your Deep Learning (DL) inference workloads.
+        /// </para>
+        ///  
+        /// <para>
+        /// You cannot specify accelerators from different generations in the same request.
         /// </para>
         /// </summary>
         public List<ElasticInferenceAccelerator> ElasticInferenceAccelerators

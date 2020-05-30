@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.Text;
 using System.IO;
+using System.Net;
 
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
@@ -82,7 +83,6 @@ namespace Amazon.SageMaker.Model
         /// A <code>Template</code> object containing the worker UI template to render.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
         public UiTemplate UiTemplate
         {
             get { return this._uiTemplate; }

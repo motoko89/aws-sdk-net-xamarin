@@ -128,7 +128,8 @@ namespace Amazon.Runtime.Internal
                     var context = unmarshaller.CreateContext(responseContext.HttpResponse,
                         readEntireResponse,
                         responseContext.HttpResponse.ResponseBody.OpenResponse(),
-                        requestContext.Metrics);
+                        requestContext.Metrics,
+                        false);
 
                     try
                     {
@@ -186,7 +187,8 @@ namespace Amazon.Runtime.Internal
                     var context = unmarshaller.CreateContext(responseContext.HttpResponse,
                         readEntireResponse,
                         responseStream,
-                        requestContext.Metrics);
+                        requestContext.Metrics,
+                        false);
 
                     var response = UnmarshallResponse(context, requestContext);
                     responseContext.Response = response;

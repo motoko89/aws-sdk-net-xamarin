@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.Text;
 using System.IO;
+using System.Net;
 
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
@@ -42,7 +43,7 @@ namespace Amazon.SageMaker.Model
         /// Creating Your Custom Labeling Task Template</a>.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Max=1024)]
+        [AWSProperty(Max=1024)]
         public string UiTemplateS3Uri
         {
             get { return this._uiTemplateS3Uri; }

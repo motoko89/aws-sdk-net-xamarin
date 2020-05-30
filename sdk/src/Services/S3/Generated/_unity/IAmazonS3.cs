@@ -94,6 +94,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the AbortMultipartUpload service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AbortMultipartUpload">REST API Reference for AbortMultipartUpload Operation</seealso>
         void AbortMultipartUploadAsync(string bucketName, string key, string uploadId,  AmazonServiceCallback<AbortMultipartUploadRequest, AbortMultipartUploadResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -105,6 +106,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AbortMultipartUpload">REST API Reference for AbortMultipartUpload Operation</seealso>
         void AbortMultipartUploadAsync(AbortMultipartUploadRequest request, AmazonServiceCallback<AbortMultipartUploadRequest, AbortMultipartUploadResponse> callback, AsyncOptions options = null);
 
 
@@ -122,6 +124,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CompleteMultipartUpload">REST API Reference for CompleteMultipartUpload Operation</seealso>
         void CompleteMultipartUploadAsync(CompleteMultipartUploadRequest request, AmazonServiceCallback<CompleteMultipartUploadRequest, CompleteMultipartUploadResponse> callback, AsyncOptions options = null);
 
 
@@ -137,63 +140,17 @@ namespace Amazon.S3
         /// <para>
         /// You can store individual objects of up to 5 TB in Amazon S3. You create a copy of
         /// your object up to 5 GB in size in a single atomic operation using this API. However,
-        /// for copying an object greater than 5 GB, you must use the multipart upload Upload
-        /// Part - Copy API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
+        /// to copy an object greater than 5 GB, you must use the multipart upload Upload Part
+        /// - Copy API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
         /// Object Using the REST Multipart Upload API</a>.
         /// </para>
         ///  </note> 
-        /// <para>
-        /// When copying an object, you can preserve all metadata (default) or specify new metadata.
-        /// However, the ACL is not preserved and is set to private for the user making the request.
-        /// To override the default ACL setting, specify a new ACL when generating a copy request.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using
-        /// ACLs</a>.
-        /// </para>
-        ///  <important> 
-        /// <para>
-        /// Amazon S3 transfer acceleration does not support cross-region copies. If you request
-        /// a cross-region copy using a transfer acceleration endpoint, you get a 400 <code>Bad
-        /// Request</code> error. For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer
-        /// Acceleration</a>.
-        /// </para>
-        ///  </important> 
         /// <para>
         /// All copy requests must be authenticated. Additionally, you must have <i>read</i> access
         /// to the source object and <i>write</i> access to the destination bucket. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST
         /// Authentication</a>. Both the Region that you want to copy the object from and the
         /// Region that you want to copy the object to must be enabled for your account.
-        /// </para>
-        ///  
-        /// <para>
-        /// To only copy an object under certain conditions, such as whether the <code>Etag</code>
-        /// matches or whether the object was modified before or after a specified date, use the
-        /// request parameters <code>x-amz-copy-source-if-match</code>, <code>x-amz-copy-source-if-none-match</code>,
-        /// <code>x-amz-copy-source-if-unmodified-since</code>, or <code> x-amz-copy-source-if-modified-since</code>.
-        /// </para>
-        ///  <note> 
-        /// <para>
-        /// All headers with the <code>x-amz-</code> prefix, including <code>x-amz-copy-source</code>,
-        /// must be signed.
-        /// </para>
-        ///  </note> 
-        /// <para>
-        /// You can use this operation to change the storage class of an object that is already
-        /// stored in Amazon S3 using the <code>StorageClass</code> parameter. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
-        /// Classes</a>.
-        /// </para>
-        ///  
-        /// <para>
-        /// The source object that you are copying can be encrypted or unencrypted. If the source
-        /// object is encrypted, it can be encrypted by server-side encryption using AWS managed
-        /// encryption keys or by using a customer-provided encryption key. When copying an object,
-        /// you can request that Amazon S3 encrypt the target object by using either the AWS managed
-        /// encryption keys or by using your own encryption key. You can do this regardless of
-        /// the form of server-side encryption that was used to encrypt the source, or even if
-        /// the source object was not encrypted. For more information about server-side encryption,
-        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using
-        /// Server-Side Encryption</a>.
         /// </para>
         ///  
         /// <para>
@@ -216,13 +173,71 @@ namespace Amazon.S3
         /// </para>
         ///  </note> 
         /// <para>
-        /// Consider the following when using request headers:
+        /// The copy request charge is based on the storage class and Region that you specify
+        /// for the destination object. For pricing information, see <a href="https://aws.amazon.com/s3/pricing/">Amazon
+        /// S3 pricing</a>.
+        /// </para>
+        ///  <important> 
+        /// <para>
+        /// Amazon S3 transfer acceleration does not support cross-Region copies. If you request
+        /// a cross-Region copy using a transfer acceleration endpoint, you get a 400 <code>Bad
+        /// Request</code> error. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer
+        /// Acceleration</a>.
+        /// </para>
+        ///  </important> 
+        /// <para>
+        ///  <b>Metadata</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// When copying an object, you can preserve all metadata (default) or specify new metadata.
+        /// However, the ACL is not preserved and is set to private for the user making the request.
+        /// To override the default ACL setting, specify a new ACL when generating a copy request.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using
+        /// ACLs</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// To specify whether you want the object metadata copied from the source object or replaced
+        /// with metadata provided in the request, you can optionally add the <code>x-amz-metadata-directive</code>
+        /// header. When you grant permissions, you can use the <code>s3:x-amz-metadata-directive</code>
+        /// condition key to enforce certain metadata behavior when objects are uploaded. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/amazon-s3-policy-keys.html">Specifying
+        /// Conditions in a Policy</a> in the <i>Amazon S3 Developer Guide</i>. For a complete
+        /// list of Amazon S3-specific condition keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions,
+        /// Resources, and Condition Keys for Amazon S3</a>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b> <code>x-amz-copy-source-if</code> Headers</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// To only copy an object under certain conditions, such as whether the <code>Etag</code>
+        /// matches or whether the object was modified before or after a specified date, use the
+        /// following request parameters:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  Consideration 1 – If both the <code>x-amz-copy-source-if-match</code> and <code>x-amz-copy-source-if-unmodified-since</code>
-        /// headers are present in the request and evaluate as follows, Amazon S3 returns 200
-        /// OK and copies the data:
+        ///  <code>x-amz-copy-source-if-match</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>x-amz-copy-source-if-none-match</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>x-amz-copy-source-if-unmodified-since</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>x-amz-copy-source-if-modified-since</code> 
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        ///  If both the <code>x-amz-copy-source-if-match</code> and <code>x-amz-copy-source-if-unmodified-since</code>
+        /// headers are present in the request and evaluate as follows, Amazon S3 returns <code>200
+        /// OK</code> and copies the data:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -232,12 +247,11 @@ namespace Amazon.S3
         /// <para>
         ///  <code>x-amz-copy-source-if-unmodified-since</code> condition evaluates to false
         /// </para>
-        ///  </li> </ul> </li> <li> 
+        ///  </li> </ul> 
         /// <para>
-        ///  Consideration 2 – If both of the <code>x-amz-copy-source-if-none-match</code> and
-        /// <code>x-amz-copy-source-if-modified-since</code> headers are present in the request
-        /// and evaluate as follows, Amazon S3 returns the <code>412 Precondition Failed</code>
-        /// response code:
+        /// If both the <code>x-amz-copy-source-if-none-match</code> and <code>x-amz-copy-source-if-modified-since</code>
+        /// headers are present in the request and evaluate as follows, Amazon S3 returns the
+        /// <code>412 Precondition Failed</code> response code:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -247,21 +261,67 @@ namespace Amazon.S3
         /// <para>
         ///  <code>x-amz-copy-source-if-modified-since</code> condition evaluates to true
         /// </para>
-        ///  </li> </ul> </li> </ul> 
+        ///  </li> </ul> <note> 
         /// <para>
-        /// The copy request charge is based on the storage class and Region you specify for the
-        /// destination object. For pricing information, see <a href="https://aws.amazon.com/s3/pricing/">Amazon
-        /// S3 Pricing</a>.
+        /// All headers with the <code>x-amz-</code> prefix, including <code>x-amz-copy-source</code>,
+        /// must be signed.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        ///  <b>Encryption</b> 
         /// </para>
         ///  
         /// <para>
-        /// Following are other considerations when using <code>CopyObject</code>:
+        /// The source object that you are copying can be encrypted or unencrypted. The source
+        /// object can be encrypted with server-side encryption using AWS managed encryption keys
+        /// (SSE-S3 or SSE-KMS) or by using a customer-provided encryption key. With server-side
+        /// encryption, Amazon S3 encrypts your data as it writes it to disks in its data centers
+        /// and decrypts the data when you access it. 
         /// </para>
-        ///  <dl> <dt>Versioning</dt> <dd> 
+        ///  
+        /// <para>
+        /// You can optionally use the appropriate encryption-related headers to request server-side
+        /// encryption for the target object. You have the option to provide your own encryption
+        /// key or use SSE-S3 or SSE-KMS, regardless of the form of server-side encryption that
+        /// was used to encrypt the source object. You can even request encryption if the source
+        /// object was not encrypted. For more information about server-side encryption, see <a
+        /// href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using
+        /// Server-Side Encryption</a>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Access Control List (ACL)-Specific Request Headers</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// When copying an object, you can optionally use headers to grant ACL-based permissions.
+        /// By default, all objects are private. Only the owner has full access control. When
+        /// adding a new object, you can grant permissions to individual AWS accounts or to predefined
+        /// groups defined by Amazon S3. These permissions are then added to the ACL on the object.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
+        /// Control List (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing
+        /// ACLs Using the REST API</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Storage Class Options</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// You can use the <code>CopyObject</code> operation to change the storage class of an
+        /// object that is already stored in Amazon S3 using the <code>StorageClass</code> parameter.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
+        /// Classes</a> in the <i>Amazon S3 Service Developer Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Versioning</b> 
+        /// </para>
+        ///  
         /// <para>
         /// By default, <code>x-amz-copy-source</code> identifies the current version of an object
-        /// to copy. (If the current version is a delete marker, Amazon S3 behaves as if the object
-        /// was deleted.) To copy a different version, use the <code>versionId</code> subresource.
+        /// to copy. If the current version is a delete marker, Amazon S3 behaves as if the object
+        /// was deleted. To copy a different version, use the <code>versionId</code> subresource.
         /// </para>
         ///  
         /// <para>
@@ -281,189 +341,7 @@ namespace Amazon.S3
         /// before you can use it as a source object for the copy operation. For more information,
         /// see .
         /// </para>
-        ///  </dd> <dt>Access Permissions</dt> <dd> 
-        /// <para>
-        /// When copying an object, you can optionally specify the accounts or groups that should
-        /// be granted specific permissions on the new object. There are two ways to grant the
-        /// permissions using the request headers:
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// Specify a canned ACL with the <code>x-amz-acl</code> request header. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned
-        /// ACL</a>.
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Specify access permissions explicitly with the <code>x-amz-grant-read</code>, <code>x-amz-grant-read-acp</code>,
-        /// <code>x-amz-grant-write-acp</code>, and <code>x-amz-grant-full-control</code> headers.
-        /// These parameters map to the set of permissions that Amazon S3 supports in an ACL.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
-        /// Control List (ACL) Overview</a>.
-        /// </para>
-        ///  </li> </ul> 
-        /// <para>
-        /// You can use either a canned ACL or specify access permissions explicitly. You cannot
-        /// do both.
-        /// </para>
-        ///  </dd> <dt>Server-Side- Encryption-Specific Request Headers</dt> <dd> 
-        /// <para>
-        /// To encrypt the target object, you must provide the appropriate encryption-related
-        /// request headers. The one you use depends on whether you want to use AWS managed encryption
-        /// keys or provide your own encryption key. 
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// To encrypt the target object using server-side encryption with an AWS managed encryption
-        /// key, provide the following request headers, as appropriate.
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        ///  <code>x-amz-server-side​-encryption</code> 
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        ///  <code>x-amz-server-side-encryption-aws-kms-key-id</code> 
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        ///  <code>x-amz-server-side-encryption-context</code> 
-        /// </para>
-        ///  </li> </ul> <note> 
-        /// <para>
-        /// If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but don't provide
-        /// <code>x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3 uses the AWS managed
-        /// CMK in AWS KMS to protect the data. If you want to use a customer managed AWS KMS
-        /// CMK, you must provide the <code>x-amz-server-side-encryption-aws-kms-key-id</code>
-        /// of the symmetric customer managed CMK. Amazon S3 only supports symmetric CMKs and
-        /// not asymmetric CMKs. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
-        /// Symmetric and Asymmetric Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.
-        /// </para>
-        ///  </note> <important> 
-        /// <para>
-        /// All GET and PUT requests for an object protected by AWS KMS fail if you don't make
-        /// them with SSL or by using SigV4.
-        /// </para>
-        ///  </important> 
-        /// <para>
-        /// For more information about server-side encryption with CMKs stored in AWS KMS (SSE-KMS),
-        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting
-        /// Data Using Server-Side Encryption with CMKs stored in KMS</a>.
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// To encrypt the target object using server-side encryption with an encryption key that
-        /// you provide, use the following headers.
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// x-amz-server-side​-encryption​-customer-algorithm
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// x-amz-server-side​-encryption​-customer-key
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// x-amz-server-side​-encryption​-customer-key-MD5
-        /// </para>
-        ///  </li> </ul> </li> <li> 
-        /// <para>
-        /// If the source object is encrypted using server-side encryption with customer-provided
-        /// encryption keys, you must use the following headers.
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// x-amz-copy-source​-server-side​-encryption​-customer-algorithm
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// x-amz-copy-source​-server-side​-encryption​-customer-key
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// x-amz-copy-source-​server-side​-encryption​-customer-key-MD5
-        /// </para>
-        ///  </li> </ul> 
-        /// <para>
-        /// For more information about server-side encryption with CMKs stored in AWS KMS (SSE-KMS),
-        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting
-        /// Data Using Server-Side Encryption with CMKs stored in Amazon KMS</a>.
-        /// </para>
-        ///  </li> </ul> </dd> <dt>Access-Control-List (ACL)-Specific Request Headers</dt> <dd>
-        /// 
-        /// <para>
-        /// You also can use the following access control–related headers with this operation.
-        /// By default, all objects are private. Only the owner has full access control. When
-        /// adding a new object, you can grant permissions to individual AWS accounts or to predefined
-        /// groups defined by Amazon S3. These permissions are then added to the access control
-        /// list (ACL) on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using
-        /// ACLs</a>. With this operation, you can grant access permissions using one of the following
-        /// two methods:
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// Specify a canned ACL (<code>x-amz-acl</code>) — Amazon S3 supports a set of predefined
-        /// ACLs, known as <i>canned ACLs</i>. Each canned ACL has a predefined set of grantees
-        /// and permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned
-        /// ACL</a>.
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Specify access permissions explicitly — To explicitly grant access permissions to
-        /// specific AWS accounts or groups, use the following headers. Each header maps to specific
-        /// permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
-        /// Control List (ACL) Overview</a>. In the header, you specify a list of grantees who
-        /// get the specific permission. To grant permissions explicitly, use:
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// x-amz-grant-read
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// x-amz-grant-write
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// x-amz-grant-read-acp
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// x-amz-grant-write-acp
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// x-amz-grant-full-control
-        /// </para>
-        ///  </li> </ul> 
-        /// <para>
-        /// You specify each grantee as a type=value pair, where the type is one of the following:
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        ///  <code>emailAddress</code> – if the value specified is the email address of an AWS
-        /// account
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        ///  <code>id</code> – if the value specified is the canonical user ID of an AWS account
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        ///  <code>uri</code> – if you are granting permissions to a predefined group
-        /// </para>
-        ///  </li> </ul> 
-        /// <para>
-        /// For example, the following <code>x-amz-grant-read</code> header grants the AWS accounts
-        /// identified by email addresses permissions to read object data and its metadata:
-        /// </para>
         ///  
-        /// <para>
-        ///  <code>x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
-        /// </code> 
-        /// </para>
-        ///  </li> </ul> </dd> </dl> 
         /// <para>
         /// The following operations are related to <code>CopyObject</code>:
         /// </para>
@@ -493,6 +371,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the CopyObject service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CopyObject">REST API Reference for CopyObject Operation</seealso>
         void CopyObjectAsync(string sourceBucket, string sourceKey, string destinationBucket, string destinationKey,  AmazonServiceCallback<CopyObjectRequest, CopyObjectResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -502,63 +381,17 @@ namespace Amazon.S3
         /// <para>
         /// You can store individual objects of up to 5 TB in Amazon S3. You create a copy of
         /// your object up to 5 GB in size in a single atomic operation using this API. However,
-        /// for copying an object greater than 5 GB, you must use the multipart upload Upload
-        /// Part - Copy API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
+        /// to copy an object greater than 5 GB, you must use the multipart upload Upload Part
+        /// - Copy API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
         /// Object Using the REST Multipart Upload API</a>.
         /// </para>
         ///  </note> 
-        /// <para>
-        /// When copying an object, you can preserve all metadata (default) or specify new metadata.
-        /// However, the ACL is not preserved and is set to private for the user making the request.
-        /// To override the default ACL setting, specify a new ACL when generating a copy request.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using
-        /// ACLs</a>.
-        /// </para>
-        ///  <important> 
-        /// <para>
-        /// Amazon S3 transfer acceleration does not support cross-region copies. If you request
-        /// a cross-region copy using a transfer acceleration endpoint, you get a 400 <code>Bad
-        /// Request</code> error. For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer
-        /// Acceleration</a>.
-        /// </para>
-        ///  </important> 
         /// <para>
         /// All copy requests must be authenticated. Additionally, you must have <i>read</i> access
         /// to the source object and <i>write</i> access to the destination bucket. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST
         /// Authentication</a>. Both the Region that you want to copy the object from and the
         /// Region that you want to copy the object to must be enabled for your account.
-        /// </para>
-        ///  
-        /// <para>
-        /// To only copy an object under certain conditions, such as whether the <code>Etag</code>
-        /// matches or whether the object was modified before or after a specified date, use the
-        /// request parameters <code>x-amz-copy-source-if-match</code>, <code>x-amz-copy-source-if-none-match</code>,
-        /// <code>x-amz-copy-source-if-unmodified-since</code>, or <code> x-amz-copy-source-if-modified-since</code>.
-        /// </para>
-        ///  <note> 
-        /// <para>
-        /// All headers with the <code>x-amz-</code> prefix, including <code>x-amz-copy-source</code>,
-        /// must be signed.
-        /// </para>
-        ///  </note> 
-        /// <para>
-        /// You can use this operation to change the storage class of an object that is already
-        /// stored in Amazon S3 using the <code>StorageClass</code> parameter. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
-        /// Classes</a>.
-        /// </para>
-        ///  
-        /// <para>
-        /// The source object that you are copying can be encrypted or unencrypted. If the source
-        /// object is encrypted, it can be encrypted by server-side encryption using AWS managed
-        /// encryption keys or by using a customer-provided encryption key. When copying an object,
-        /// you can request that Amazon S3 encrypt the target object by using either the AWS managed
-        /// encryption keys or by using your own encryption key. You can do this regardless of
-        /// the form of server-side encryption that was used to encrypt the source, or even if
-        /// the source object was not encrypted. For more information about server-side encryption,
-        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using
-        /// Server-Side Encryption</a>.
         /// </para>
         ///  
         /// <para>
@@ -581,13 +414,71 @@ namespace Amazon.S3
         /// </para>
         ///  </note> 
         /// <para>
-        /// Consider the following when using request headers:
+        /// The copy request charge is based on the storage class and Region that you specify
+        /// for the destination object. For pricing information, see <a href="https://aws.amazon.com/s3/pricing/">Amazon
+        /// S3 pricing</a>.
+        /// </para>
+        ///  <important> 
+        /// <para>
+        /// Amazon S3 transfer acceleration does not support cross-Region copies. If you request
+        /// a cross-Region copy using a transfer acceleration endpoint, you get a 400 <code>Bad
+        /// Request</code> error. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer
+        /// Acceleration</a>.
+        /// </para>
+        ///  </important> 
+        /// <para>
+        ///  <b>Metadata</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// When copying an object, you can preserve all metadata (default) or specify new metadata.
+        /// However, the ACL is not preserved and is set to private for the user making the request.
+        /// To override the default ACL setting, specify a new ACL when generating a copy request.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using
+        /// ACLs</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// To specify whether you want the object metadata copied from the source object or replaced
+        /// with metadata provided in the request, you can optionally add the <code>x-amz-metadata-directive</code>
+        /// header. When you grant permissions, you can use the <code>s3:x-amz-metadata-directive</code>
+        /// condition key to enforce certain metadata behavior when objects are uploaded. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/amazon-s3-policy-keys.html">Specifying
+        /// Conditions in a Policy</a> in the <i>Amazon S3 Developer Guide</i>. For a complete
+        /// list of Amazon S3-specific condition keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions,
+        /// Resources, and Condition Keys for Amazon S3</a>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b> <code>x-amz-copy-source-if</code> Headers</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// To only copy an object under certain conditions, such as whether the <code>Etag</code>
+        /// matches or whether the object was modified before or after a specified date, use the
+        /// following request parameters:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  Consideration 1 – If both the <code>x-amz-copy-source-if-match</code> and <code>x-amz-copy-source-if-unmodified-since</code>
-        /// headers are present in the request and evaluate as follows, Amazon S3 returns 200
-        /// OK and copies the data:
+        ///  <code>x-amz-copy-source-if-match</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>x-amz-copy-source-if-none-match</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>x-amz-copy-source-if-unmodified-since</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>x-amz-copy-source-if-modified-since</code> 
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        ///  If both the <code>x-amz-copy-source-if-match</code> and <code>x-amz-copy-source-if-unmodified-since</code>
+        /// headers are present in the request and evaluate as follows, Amazon S3 returns <code>200
+        /// OK</code> and copies the data:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -597,12 +488,11 @@ namespace Amazon.S3
         /// <para>
         ///  <code>x-amz-copy-source-if-unmodified-since</code> condition evaluates to false
         /// </para>
-        ///  </li> </ul> </li> <li> 
+        ///  </li> </ul> 
         /// <para>
-        ///  Consideration 2 – If both of the <code>x-amz-copy-source-if-none-match</code> and
-        /// <code>x-amz-copy-source-if-modified-since</code> headers are present in the request
-        /// and evaluate as follows, Amazon S3 returns the <code>412 Precondition Failed</code>
-        /// response code:
+        /// If both the <code>x-amz-copy-source-if-none-match</code> and <code>x-amz-copy-source-if-modified-since</code>
+        /// headers are present in the request and evaluate as follows, Amazon S3 returns the
+        /// <code>412 Precondition Failed</code> response code:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -612,21 +502,67 @@ namespace Amazon.S3
         /// <para>
         ///  <code>x-amz-copy-source-if-modified-since</code> condition evaluates to true
         /// </para>
-        ///  </li> </ul> </li> </ul> 
+        ///  </li> </ul> <note> 
         /// <para>
-        /// The copy request charge is based on the storage class and Region you specify for the
-        /// destination object. For pricing information, see <a href="https://aws.amazon.com/s3/pricing/">Amazon
-        /// S3 Pricing</a>.
+        /// All headers with the <code>x-amz-</code> prefix, including <code>x-amz-copy-source</code>,
+        /// must be signed.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        ///  <b>Encryption</b> 
         /// </para>
         ///  
         /// <para>
-        /// Following are other considerations when using <code>CopyObject</code>:
+        /// The source object that you are copying can be encrypted or unencrypted. The source
+        /// object can be encrypted with server-side encryption using AWS managed encryption keys
+        /// (SSE-S3 or SSE-KMS) or by using a customer-provided encryption key. With server-side
+        /// encryption, Amazon S3 encrypts your data as it writes it to disks in its data centers
+        /// and decrypts the data when you access it. 
         /// </para>
-        ///  <dl> <dt>Versioning</dt> <dd> 
+        ///  
+        /// <para>
+        /// You can optionally use the appropriate encryption-related headers to request server-side
+        /// encryption for the target object. You have the option to provide your own encryption
+        /// key or use SSE-S3 or SSE-KMS, regardless of the form of server-side encryption that
+        /// was used to encrypt the source object. You can even request encryption if the source
+        /// object was not encrypted. For more information about server-side encryption, see <a
+        /// href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using
+        /// Server-Side Encryption</a>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Access Control List (ACL)-Specific Request Headers</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// When copying an object, you can optionally use headers to grant ACL-based permissions.
+        /// By default, all objects are private. Only the owner has full access control. When
+        /// adding a new object, you can grant permissions to individual AWS accounts or to predefined
+        /// groups defined by Amazon S3. These permissions are then added to the ACL on the object.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
+        /// Control List (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing
+        /// ACLs Using the REST API</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Storage Class Options</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// You can use the <code>CopyObject</code> operation to change the storage class of an
+        /// object that is already stored in Amazon S3 using the <code>StorageClass</code> parameter.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
+        /// Classes</a> in the <i>Amazon S3 Service Developer Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Versioning</b> 
+        /// </para>
+        ///  
         /// <para>
         /// By default, <code>x-amz-copy-source</code> identifies the current version of an object
-        /// to copy. (If the current version is a delete marker, Amazon S3 behaves as if the object
-        /// was deleted.) To copy a different version, use the <code>versionId</code> subresource.
+        /// to copy. If the current version is a delete marker, Amazon S3 behaves as if the object
+        /// was deleted. To copy a different version, use the <code>versionId</code> subresource.
         /// </para>
         ///  
         /// <para>
@@ -646,189 +582,7 @@ namespace Amazon.S3
         /// before you can use it as a source object for the copy operation. For more information,
         /// see .
         /// </para>
-        ///  </dd> <dt>Access Permissions</dt> <dd> 
-        /// <para>
-        /// When copying an object, you can optionally specify the accounts or groups that should
-        /// be granted specific permissions on the new object. There are two ways to grant the
-        /// permissions using the request headers:
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// Specify a canned ACL with the <code>x-amz-acl</code> request header. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned
-        /// ACL</a>.
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Specify access permissions explicitly with the <code>x-amz-grant-read</code>, <code>x-amz-grant-read-acp</code>,
-        /// <code>x-amz-grant-write-acp</code>, and <code>x-amz-grant-full-control</code> headers.
-        /// These parameters map to the set of permissions that Amazon S3 supports in an ACL.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
-        /// Control List (ACL) Overview</a>.
-        /// </para>
-        ///  </li> </ul> 
-        /// <para>
-        /// You can use either a canned ACL or specify access permissions explicitly. You cannot
-        /// do both.
-        /// </para>
-        ///  </dd> <dt>Server-Side- Encryption-Specific Request Headers</dt> <dd> 
-        /// <para>
-        /// To encrypt the target object, you must provide the appropriate encryption-related
-        /// request headers. The one you use depends on whether you want to use AWS managed encryption
-        /// keys or provide your own encryption key. 
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// To encrypt the target object using server-side encryption with an AWS managed encryption
-        /// key, provide the following request headers, as appropriate.
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        ///  <code>x-amz-server-side​-encryption</code> 
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        ///  <code>x-amz-server-side-encryption-aws-kms-key-id</code> 
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        ///  <code>x-amz-server-side-encryption-context</code> 
-        /// </para>
-        ///  </li> </ul> <note> 
-        /// <para>
-        /// If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but don't provide
-        /// <code>x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3 uses the AWS managed
-        /// CMK in AWS KMS to protect the data. If you want to use a customer managed AWS KMS
-        /// CMK, you must provide the <code>x-amz-server-side-encryption-aws-kms-key-id</code>
-        /// of the symmetric customer managed CMK. Amazon S3 only supports symmetric CMKs and
-        /// not asymmetric CMKs. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
-        /// Symmetric and Asymmetric Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.
-        /// </para>
-        ///  </note> <important> 
-        /// <para>
-        /// All GET and PUT requests for an object protected by AWS KMS fail if you don't make
-        /// them with SSL or by using SigV4.
-        /// </para>
-        ///  </important> 
-        /// <para>
-        /// For more information about server-side encryption with CMKs stored in AWS KMS (SSE-KMS),
-        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting
-        /// Data Using Server-Side Encryption with CMKs stored in KMS</a>.
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// To encrypt the target object using server-side encryption with an encryption key that
-        /// you provide, use the following headers.
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// x-amz-server-side​-encryption​-customer-algorithm
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// x-amz-server-side​-encryption​-customer-key
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// x-amz-server-side​-encryption​-customer-key-MD5
-        /// </para>
-        ///  </li> </ul> </li> <li> 
-        /// <para>
-        /// If the source object is encrypted using server-side encryption with customer-provided
-        /// encryption keys, you must use the following headers.
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// x-amz-copy-source​-server-side​-encryption​-customer-algorithm
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// x-amz-copy-source​-server-side​-encryption​-customer-key
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// x-amz-copy-source-​server-side​-encryption​-customer-key-MD5
-        /// </para>
-        ///  </li> </ul> 
-        /// <para>
-        /// For more information about server-side encryption with CMKs stored in AWS KMS (SSE-KMS),
-        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting
-        /// Data Using Server-Side Encryption with CMKs stored in Amazon KMS</a>.
-        /// </para>
-        ///  </li> </ul> </dd> <dt>Access-Control-List (ACL)-Specific Request Headers</dt> <dd>
-        /// 
-        /// <para>
-        /// You also can use the following access control–related headers with this operation.
-        /// By default, all objects are private. Only the owner has full access control. When
-        /// adding a new object, you can grant permissions to individual AWS accounts or to predefined
-        /// groups defined by Amazon S3. These permissions are then added to the access control
-        /// list (ACL) on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using
-        /// ACLs</a>. With this operation, you can grant access permissions using one of the following
-        /// two methods:
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// Specify a canned ACL (<code>x-amz-acl</code>) — Amazon S3 supports a set of predefined
-        /// ACLs, known as <i>canned ACLs</i>. Each canned ACL has a predefined set of grantees
-        /// and permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned
-        /// ACL</a>.
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Specify access permissions explicitly — To explicitly grant access permissions to
-        /// specific AWS accounts or groups, use the following headers. Each header maps to specific
-        /// permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
-        /// Control List (ACL) Overview</a>. In the header, you specify a list of grantees who
-        /// get the specific permission. To grant permissions explicitly, use:
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// x-amz-grant-read
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// x-amz-grant-write
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// x-amz-grant-read-acp
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// x-amz-grant-write-acp
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// x-amz-grant-full-control
-        /// </para>
-        ///  </li> </ul> 
-        /// <para>
-        /// You specify each grantee as a type=value pair, where the type is one of the following:
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        ///  <code>emailAddress</code> – if the value specified is the email address of an AWS
-        /// account
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        ///  <code>id</code> – if the value specified is the canonical user ID of an AWS account
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        ///  <code>uri</code> – if you are granting permissions to a predefined group
-        /// </para>
-        ///  </li> </ul> 
-        /// <para>
-        /// For example, the following <code>x-amz-grant-read</code> header grants the AWS accounts
-        /// identified by email addresses permissions to read object data and its metadata:
-        /// </para>
         ///  
-        /// <para>
-        ///  <code>x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
-        /// </code> 
-        /// </para>
-        ///  </li> </ul> </dd> </dl> 
         /// <para>
         /// The following operations are related to <code>CopyObject</code>:
         /// </para>
@@ -859,6 +613,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the CopyObject service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CopyObject">REST API Reference for CopyObject Operation</seealso>
         void CopyObjectAsync(string sourceBucket, string sourceKey, string sourceVersionId, string destinationBucket, string destinationKey,  AmazonServiceCallback<CopyObjectRequest, CopyObjectResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -870,6 +625,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CopyObject">REST API Reference for CopyObject Operation</seealso>
         void CopyObjectAsync(CopyObjectRequest request, AmazonServiceCallback<CopyObjectRequest, CopyObjectResponse> callback, AsyncOptions options = null);
 
 
@@ -1074,6 +830,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the CopyPart service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPartCopy">REST API Reference for CopyPart Operation</seealso>
         void CopyPartAsync(string sourceBucket, string sourceKey, string destinationBucket, string destinationKey, string uploadId,  AmazonServiceCallback<CopyPartRequest, CopyPartResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -1273,6 +1030,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the CopyPart service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPartCopy">REST API Reference for CopyPart Operation</seealso>
         void CopyPartAsync(string sourceBucket, string sourceKey, string sourceVersionId, string destinationBucket, string destinationKey, string uploadId,  AmazonServiceCallback<CopyPartRequest, CopyPartResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -1284,6 +1042,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPartCopy">REST API Reference for CopyPart Operation</seealso>
         void CopyPartAsync(CopyPartRequest request, AmazonServiceCallback<CopyPartRequest, CopyPartResponse> callback, AsyncOptions options = null);
 
 
@@ -1317,6 +1076,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the DeleteBucket service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucket">REST API Reference for DeleteBucket Operation</seealso>
         void DeleteBucketAsync(string bucketName,  AmazonServiceCallback<DeleteBucketRequest, DeleteBucketResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -1328,6 +1088,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucket">REST API Reference for DeleteBucket Operation</seealso>
         void DeleteBucketAsync(DeleteBucketRequest request, AmazonServiceCallback<DeleteBucketRequest, DeleteBucketResponse> callback, AsyncOptions options = null);
 
 
@@ -1345,6 +1106,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketAnalyticsConfiguration">REST API Reference for DeleteBucketAnalyticsConfiguration Operation</seealso>
         void DeleteBucketAnalyticsConfigurationAsync(DeleteBucketAnalyticsConfigurationRequest request, AmazonServiceCallback<DeleteBucketAnalyticsConfigurationRequest, DeleteBucketAnalyticsConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -1362,6 +1124,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketEncryption">REST API Reference for DeleteBucketEncryption Operation</seealso>
         void DeleteBucketEncryptionAsync(DeleteBucketEncryptionRequest request, AmazonServiceCallback<DeleteBucketEncryptionRequest, DeleteBucketEncryptionResponse> callback, AsyncOptions options = null);
 
 
@@ -1379,6 +1142,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketInventoryConfiguration">REST API Reference for DeleteBucketInventoryConfiguration Operation</seealso>
         void DeleteBucketInventoryConfigurationAsync(DeleteBucketInventoryConfigurationRequest request, AmazonServiceCallback<DeleteBucketInventoryConfigurationRequest, DeleteBucketInventoryConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -1396,6 +1160,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketMetricsConfiguration">REST API Reference for DeleteBucketMetricsConfiguration Operation</seealso>
         void DeleteBucketMetricsConfigurationAsync(DeleteBucketMetricsConfigurationRequest request, AmazonServiceCallback<DeleteBucketMetricsConfigurationRequest, DeleteBucketMetricsConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -1452,6 +1217,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the DeleteBucketPolicy service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketPolicy">REST API Reference for DeleteBucketPolicy Operation</seealso>
         void DeleteBucketPolicyAsync(string bucketName,  AmazonServiceCallback<DeleteBucketPolicyRequest, DeleteBucketPolicyResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -1463,6 +1229,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketPolicy">REST API Reference for DeleteBucketPolicy Operation</seealso>
         void DeleteBucketPolicyAsync(DeleteBucketPolicyRequest request, AmazonServiceCallback<DeleteBucketPolicyRequest, DeleteBucketPolicyResponse> callback, AsyncOptions options = null);
 
 
@@ -1480,6 +1247,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketReplication">REST API Reference for DeleteBucketReplication Operation</seealso>
         void DeleteBucketReplicationAsync(DeleteBucketReplicationRequest request, AmazonServiceCallback<DeleteBucketReplicationRequest, DeleteBucketReplicationResponse> callback, AsyncOptions options = null);
 
 
@@ -1520,6 +1288,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the DeleteBucketTagging service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketTagging">REST API Reference for DeleteBucketTagging Operation</seealso>
         void DeleteBucketTaggingAsync(string bucketName,  AmazonServiceCallback<DeleteBucketTaggingRequest, DeleteBucketTaggingResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -1531,6 +1300,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketTagging">REST API Reference for DeleteBucketTagging Operation</seealso>
         void DeleteBucketTaggingAsync(DeleteBucketTaggingRequest request, AmazonServiceCallback<DeleteBucketTaggingRequest, DeleteBucketTaggingResponse> callback, AsyncOptions options = null);
 
 
@@ -1582,6 +1352,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the DeleteBucketWebsite service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketWebsite">REST API Reference for DeleteBucketWebsite Operation</seealso>
         void DeleteBucketWebsiteAsync(string bucketName,  AmazonServiceCallback<DeleteBucketWebsiteRequest, DeleteBucketWebsiteResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -1593,6 +1364,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketWebsite">REST API Reference for DeleteBucketWebsite Operation</seealso>
         void DeleteBucketWebsiteAsync(DeleteBucketWebsiteRequest request, AmazonServiceCallback<DeleteBucketWebsiteRequest, DeleteBucketWebsiteResponse> callback, AsyncOptions options = null);
 
 
@@ -1637,6 +1409,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the DeleteCORSConfiguration service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketCors">REST API Reference for DeleteCORSConfiguration Operation</seealso>
         void DeleteCORSConfigurationAsync(string bucketName,  AmazonServiceCallback<DeleteCORSConfigurationRequest, DeleteCORSConfigurationResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -1648,6 +1421,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketCors">REST API Reference for DeleteCORSConfiguration Operation</seealso>
         void DeleteCORSConfigurationAsync(DeleteCORSConfigurationRequest request, AmazonServiceCallback<DeleteCORSConfigurationRequest, DeleteCORSConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -1701,6 +1475,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the DeleteLifecycleConfiguration service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketLifecycle">REST API Reference for DeleteLifecycleConfiguration Operation</seealso>
         void DeleteLifecycleConfigurationAsync(string bucketName,  AmazonServiceCallback<DeleteLifecycleConfigurationRequest, DeleteLifecycleConfigurationResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -1712,6 +1487,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketLifecycle">REST API Reference for DeleteLifecycleConfiguration Operation</seealso>
         void DeleteLifecycleConfigurationAsync(DeleteLifecycleConfigurationRequest request, AmazonServiceCallback<DeleteLifecycleConfigurationRequest, DeleteLifecycleConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -1773,6 +1549,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the DeleteObject service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObject">REST API Reference for DeleteObject Operation</seealso>
         void DeleteObjectAsync(string bucketName, string key,  AmazonServiceCallback<DeleteObjectRequest, DeleteObjectResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -1829,6 +1606,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the DeleteObject service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObject">REST API Reference for DeleteObject Operation</seealso>
         void DeleteObjectAsync(string bucketName, string key, string versionId,  AmazonServiceCallback<DeleteObjectRequest, DeleteObjectResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -1840,6 +1618,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObject">REST API Reference for DeleteObject Operation</seealso>
         void DeleteObjectAsync(DeleteObjectRequest request, AmazonServiceCallback<DeleteObjectRequest, DeleteObjectResponse> callback, AsyncOptions options = null);
 
 
@@ -1856,6 +1635,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjects">REST API Reference for DeleteObjects Operation</seealso>
         void DeleteObjectsAsync(DeleteObjectsRequest request, AmazonServiceCallback<DeleteObjectsRequest, DeleteObjectsResponse> callback, AsyncOptions options = null);
 
 
@@ -1873,6 +1653,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjectTagging">REST API Reference for DeleteObjectTagging Operation</seealso>
         void DeleteObjectTaggingAsync(DeleteObjectTaggingRequest request, AmazonServiceCallback<DeleteObjectTaggingRequest, DeleteObjectTaggingResponse> callback, AsyncOptions options = null);
 
 
@@ -1890,6 +1671,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeletePublicAccessBlock">REST API Reference for DeletePublicAccessBlock Operation</seealso>
         void DeletePublicAccessBlockAsync(DeletePublicAccessBlockRequest request, AmazonServiceCallback<DeletePublicAccessBlockRequest, DeletePublicAccessBlockResponse> callback, AsyncOptions options = null);
 
 
@@ -1921,6 +1703,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the GetACL service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAcl">REST API Reference for GetACL Operation</seealso>
         void GetACLAsync(string bucketName,  AmazonServiceCallback<GetACLRequest, GetACLResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -1931,6 +1714,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAcl">REST API Reference for GetACL Operation</seealso>
         void GetACLAsync(GetACLRequest request, AmazonServiceCallback<GetACLRequest, GetACLResponse> callback, AsyncOptions options = null);
 
 
@@ -1949,8 +1733,8 @@ namespace Amazon.S3
         /// <para>
         /// To use this operation, you must have permission to perform the <code>s3:GetAccelerateConfiguration</code>
         /// action. The bucket owner has this permission by default. The bucket owner can grant
-        /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
-        /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//s3-access-control.html">Managing
+        /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+        /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
         /// Access Permissions to your Amazon S3 Resources</a> in the <i>Amazon Simple Storage
         /// Service Developer Guide</i>.
         /// </para>
@@ -1968,7 +1752,7 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//transfer-acceleration.html">Transfer
+        /// For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer
         /// Acceleration</a> in the Amazon Simple Storage Service Developer Guide.
         /// </para>
         ///  <p class="title"> <b>Related Resources</b> 
@@ -1987,6 +1771,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the GetBucketAccelerateConfiguration service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAccelerateConfiguration">REST API Reference for GetBucketAccelerateConfiguration Operation</seealso>
         void GetBucketAccelerateConfigurationAsync(string bucketName,  AmazonServiceCallback<GetBucketAccelerateConfigurationRequest, GetBucketAccelerateConfigurationResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -1997,6 +1782,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAccelerateConfiguration">REST API Reference for GetBucketAccelerateConfiguration Operation</seealso>
         void GetBucketAccelerateConfigurationAsync(GetBucketAccelerateConfigurationRequest request, AmazonServiceCallback<GetBucketAccelerateConfigurationRequest, GetBucketAccelerateConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -2013,6 +1799,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAnalyticsConfiguration">REST API Reference for GetBucketAnalyticsConfiguration Operation</seealso>
         void GetBucketAnalyticsConfigurationAsync(GetBucketAnalyticsConfigurationRequest request, AmazonServiceCallback<GetBucketAnalyticsConfigurationRequest, GetBucketAnalyticsConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -2029,6 +1816,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketEncryption">REST API Reference for GetBucketEncryption Operation</seealso>
         void GetBucketEncryptionAsync(GetBucketEncryptionRequest request, AmazonServiceCallback<GetBucketEncryptionRequest, GetBucketEncryptionResponse> callback, AsyncOptions options = null);
 
 
@@ -2045,6 +1833,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketInventoryConfiguration">REST API Reference for GetBucketInventoryConfiguration Operation</seealso>
         void GetBucketInventoryConfigurationAsync(GetBucketInventoryConfigurationRequest request, AmazonServiceCallback<GetBucketInventoryConfigurationRequest, GetBucketInventoryConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -2084,6 +1873,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the GetBucketLocation service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLocation">REST API Reference for GetBucketLocation Operation</seealso>
         void GetBucketLocationAsync(string bucketName,  AmazonServiceCallback<GetBucketLocationRequest, GetBucketLocationResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -2094,6 +1884,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLocation">REST API Reference for GetBucketLocation Operation</seealso>
         void GetBucketLocationAsync(GetBucketLocationRequest request, AmazonServiceCallback<GetBucketLocationRequest, GetBucketLocationResponse> callback, AsyncOptions options = null);
 
 
@@ -2128,6 +1919,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the GetBucketLogging service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLogging">REST API Reference for GetBucketLogging Operation</seealso>
         void GetBucketLoggingAsync(string bucketName,  AmazonServiceCallback<GetBucketLoggingRequest, GetBucketLoggingResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -2138,6 +1930,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLogging">REST API Reference for GetBucketLogging Operation</seealso>
         void GetBucketLoggingAsync(GetBucketLoggingRequest request, AmazonServiceCallback<GetBucketLoggingRequest, GetBucketLoggingResponse> callback, AsyncOptions options = null);
 
 
@@ -2154,6 +1947,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketMetricsConfiguration">REST API Reference for GetBucketMetricsConfiguration Operation</seealso>
         void GetBucketMetricsConfigurationAsync(GetBucketMetricsConfigurationRequest request, AmazonServiceCallback<GetBucketMetricsConfigurationRequest, GetBucketMetricsConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -2195,7 +1989,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">Name of the bucket for which to get the notification configuration</param>
+        /// <param name="bucketName">Name of the bucket for which to get the notification configuration.</param>
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">
         ///     A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
@@ -2203,6 +1997,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the GetBucketNotification service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketNotificationConfiguration">REST API Reference for GetBucketNotification Operation</seealso>
         void GetBucketNotificationAsync(string bucketName,  AmazonServiceCallback<GetBucketNotificationRequest, GetBucketNotificationResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -2213,6 +2008,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketNotificationConfiguration">REST API Reference for GetBucketNotification Operation</seealso>
         void GetBucketNotificationAsync(GetBucketNotificationRequest request, AmazonServiceCallback<GetBucketNotificationRequest, GetBucketNotificationResponse> callback, AsyncOptions options = null);
 
 
@@ -2263,6 +2059,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the GetBucketPolicy service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketPolicy">REST API Reference for GetBucketPolicy Operation</seealso>
         void GetBucketPolicyAsync(string bucketName,  AmazonServiceCallback<GetBucketPolicyRequest, GetBucketPolicyResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -2273,6 +2070,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketPolicy">REST API Reference for GetBucketPolicy Operation</seealso>
         void GetBucketPolicyAsync(GetBucketPolicyRequest request, AmazonServiceCallback<GetBucketPolicyRequest, GetBucketPolicyResponse> callback, AsyncOptions options = null);
 
 
@@ -2289,6 +2087,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketPolicyStatus">REST API Reference for GetBucketPolicyStatus Operation</seealso>
         void GetBucketPolicyStatusAsync(GetBucketPolicyStatusRequest request, AmazonServiceCallback<GetBucketPolicyStatusRequest, GetBucketPolicyStatusResponse> callback, AsyncOptions options = null);
 
 
@@ -2306,6 +2105,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketReplication">REST API Reference for GetBucketReplication Operation</seealso>
         void GetBucketReplicationAsync(GetBucketReplicationRequest request, AmazonServiceCallback<GetBucketReplicationRequest, GetBucketReplicationResponse> callback, AsyncOptions options = null);
 
 
@@ -2337,6 +2137,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the GetBucketRequestPayment service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketRequestPayment">REST API Reference for GetBucketRequestPayment Operation</seealso>
         void GetBucketRequestPaymentAsync(string bucketName,  AmazonServiceCallback<GetBucketRequestPaymentRequest, GetBucketRequestPaymentResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -2347,6 +2148,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketRequestPayment">REST API Reference for GetBucketRequestPayment Operation</seealso>
         void GetBucketRequestPaymentAsync(GetBucketRequestPaymentRequest request, AmazonServiceCallback<GetBucketRequestPaymentRequest, GetBucketRequestPaymentResponse> callback, AsyncOptions options = null);
 
 
@@ -2363,6 +2165,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketTagging">REST API Reference for GetBucketTagging Operation</seealso>
         void GetBucketTaggingAsync(GetBucketTaggingRequest request, AmazonServiceCallback<GetBucketTaggingRequest, GetBucketTaggingResponse> callback, AsyncOptions options = null);
 
 
@@ -2410,6 +2213,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the GetBucketVersioning service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketVersioning">REST API Reference for GetBucketVersioning Operation</seealso>
         void GetBucketVersioningAsync(string bucketName,  AmazonServiceCallback<GetBucketVersioningRequest, GetBucketVersioningResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -2420,6 +2224,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketVersioning">REST API Reference for GetBucketVersioning Operation</seealso>
         void GetBucketVersioningAsync(GetBucketVersioningRequest request, AmazonServiceCallback<GetBucketVersioningRequest, GetBucketVersioningResponse> callback, AsyncOptions options = null);
 
 
@@ -2463,6 +2268,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the GetBucketWebsite service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketWebsite">REST API Reference for GetBucketWebsite Operation</seealso>
         void GetBucketWebsiteAsync(string bucketName,  AmazonServiceCallback<GetBucketWebsiteRequest, GetBucketWebsiteResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -2473,6 +2279,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketWebsite">REST API Reference for GetBucketWebsite Operation</seealso>
         void GetBucketWebsiteAsync(GetBucketWebsiteRequest request, AmazonServiceCallback<GetBucketWebsiteRequest, GetBucketWebsiteResponse> callback, AsyncOptions options = null);
 
 
@@ -2516,6 +2323,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the GetCORSConfiguration service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketCors">REST API Reference for GetCORSConfiguration Operation</seealso>
         void GetCORSConfigurationAsync(string bucketName,  AmazonServiceCallback<GetCORSConfigurationRequest, GetCORSConfigurationResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -2526,6 +2334,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketCors">REST API Reference for GetCORSConfiguration Operation</seealso>
         void GetCORSConfigurationAsync(GetCORSConfigurationRequest request, AmazonServiceCallback<GetCORSConfigurationRequest, GetCORSConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -2580,7 +2389,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul> </li> </ul> 
         /// <para>
-        /// The following operations are related to <code>DeleteBucketMetricsConfiguration</code>:
+        /// The following operations are related to <code>GetBucketLifecycleConfiguration</code>:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -2604,6 +2413,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the GetLifecycleConfiguration service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLifecycleConfiguration">REST API Reference for GetLifecycleConfiguration Operation</seealso>
         void GetLifecycleConfigurationAsync(string bucketName,  AmazonServiceCallback<GetLifecycleConfigurationRequest, GetLifecycleConfigurationResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -2614,6 +2424,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLifecycleConfiguration">REST API Reference for GetLifecycleConfiguration Operation</seealso>
         void GetLifecycleConfigurationAsync(GetLifecycleConfigurationRequest request, AmazonServiceCallback<GetLifecycleConfigurationRequest, GetLifecycleConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -2832,6 +2643,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the GetObject service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject">REST API Reference for GetObject Operation</seealso>
         void GetObjectAsync(string bucketName, string key,  AmazonServiceCallback<GetObjectRequest, GetObjectResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -3045,6 +2857,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the GetObject service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject">REST API Reference for GetObject Operation</seealso>
         void GetObjectAsync(string bucketName, string key, string versionId,  AmazonServiceCallback<GetObjectRequest, GetObjectResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -3055,6 +2868,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject">REST API Reference for GetObject Operation</seealso>
         void GetObjectAsync(GetObjectRequest request, AmazonServiceCallback<GetObjectRequest, GetObjectResponse> callback, AsyncOptions options = null);
 
 
@@ -3071,6 +2885,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectLegalHold">REST API Reference for GetObjectLegalHold Operation</seealso>
         void GetObjectLegalHoldAsync(GetObjectLegalHoldRequest request, AmazonServiceCallback<GetObjectLegalHoldRequest, GetObjectLegalHoldResponse> callback, AsyncOptions options = null);
 
 
@@ -3087,6 +2902,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectLockConfiguration">REST API Reference for GetObjectLockConfiguration Operation</seealso>
         void GetObjectLockConfigurationAsync(GetObjectLockConfigurationRequest request, AmazonServiceCallback<GetObjectLockConfigurationRequest, GetObjectLockConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -3226,6 +3042,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the GetObjectMetadata service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject">REST API Reference for GetObjectMetadata Operation</seealso>
         void GetObjectMetadataAsync(string bucketName, string key,  AmazonServiceCallback<GetObjectMetadataRequest, GetObjectMetadataResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -3360,6 +3177,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the GetObjectMetadata service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject">REST API Reference for GetObjectMetadata Operation</seealso>
         void GetObjectMetadataAsync(string bucketName, string key, string versionId,  AmazonServiceCallback<GetObjectMetadataRequest, GetObjectMetadataResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -3371,6 +3189,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject">REST API Reference for GetObjectMetadata Operation</seealso>
         void GetObjectMetadataAsync(GetObjectMetadataRequest request, AmazonServiceCallback<GetObjectMetadataRequest, GetObjectMetadataResponse> callback, AsyncOptions options = null);
 
 
@@ -3387,6 +3206,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectRetention">REST API Reference for GetObjectRetention Operation</seealso>
         void GetObjectRetentionAsync(GetObjectRetentionRequest request, AmazonServiceCallback<GetObjectRetentionRequest, GetObjectRetentionResponse> callback, AsyncOptions options = null);
 
 
@@ -3403,6 +3223,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectTagging">REST API Reference for GetObjectTagging Operation</seealso>
         void GetObjectTaggingAsync(GetObjectTaggingRequest request, AmazonServiceCallback<GetObjectTaggingRequest, GetObjectTaggingResponse> callback, AsyncOptions options = null);
 
 
@@ -3444,6 +3265,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the GetObjectTorrent service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectTorrent">REST API Reference for GetObjectTorrent Operation</seealso>
         void GetObjectTorrentAsync(string bucketName, string key,  AmazonServiceCallback<GetObjectTorrentRequest, GetObjectTorrentResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -3454,6 +3276,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectTorrent">REST API Reference for GetObjectTorrent Operation</seealso>
         void GetObjectTorrentAsync(GetObjectTorrentRequest request, AmazonServiceCallback<GetObjectTorrentRequest, GetObjectTorrentResponse> callback, AsyncOptions options = null);
 
 
@@ -3470,6 +3293,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetPublicAccessBlock">REST API Reference for GetPublicAccessBlock Operation</seealso>
         void GetPublicAccessBlockAsync(GetPublicAccessBlockRequest request, AmazonServiceCallback<GetPublicAccessBlockRequest, GetPublicAccessBlockResponse> callback, AsyncOptions options = null);
 
 
@@ -3694,26 +3518,67 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>emailAddress</code> – if the value specified is the email address of an AWS
-        /// account
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
         ///  <code>id</code> – if the value specified is the canonical user ID of an AWS account
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>uri</code> – if you are granting permissions to a predefined group
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>emailAddress</code> – if the value specified is the email address of an AWS
+        /// account
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// Using email addresses to specify a grantee is only supported in the following AWS
+        /// Regions: 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// US East (N. Virginia)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// US West (N. California)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  US West (Oregon)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  Asia Pacific (Singapore)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Asia Pacific (Sydney)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Asia Pacific (Tokyo)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Europe (Ireland)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// South America (São Paulo)
+        /// </para>
         ///  </li> </ul> 
         /// <para>
+        /// For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions
+        /// and Endpoints</a> in the AWS General Reference.
+        /// </para>
+        ///  </note> </li> </ul> 
+        /// <para>
         /// For example, the following <code>x-amz-grant-read</code> header grants the AWS accounts
-        /// identified by email addresses permissions to read object data and its metadata:
+        /// identified by account IDs permissions to read object data and its metadata:
         /// </para>
         ///  
         /// <para>
-        ///  <code>x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
-        /// </code> 
+        ///  <code>x-amz-grant-read: id="11112222333", id="444455556666" </code> 
         /// </para>
         ///  </li> </ul> </dd> </dl> 
         /// <para>
@@ -3751,6 +3616,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the InitiateMultipartUpload service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateMultipartUpload">REST API Reference for InitiateMultipartUpload Operation</seealso>
         void InitiateMultipartUploadAsync(string bucketName, string key,  AmazonServiceCallback<InitiateMultipartUploadRequest, InitiateMultipartUploadResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -3762,6 +3628,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateMultipartUpload">REST API Reference for InitiateMultipartUpload Operation</seealso>
         void InitiateMultipartUploadAsync(InitiateMultipartUploadRequest request, AmazonServiceCallback<InitiateMultipartUploadRequest, InitiateMultipartUploadResponse> callback, AsyncOptions options = null);
 
 
@@ -3778,6 +3645,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketAnalyticsConfigurations">REST API Reference for ListBucketAnalyticsConfigurations Operation</seealso>
         void ListBucketAnalyticsConfigurationsAsync(ListBucketAnalyticsConfigurationsRequest request, AmazonServiceCallback<ListBucketAnalyticsConfigurationsRequest, ListBucketAnalyticsConfigurationsResponse> callback, AsyncOptions options = null);
 
 
@@ -3794,6 +3662,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketInventoryConfigurations">REST API Reference for ListBucketInventoryConfigurations Operation</seealso>
         void ListBucketInventoryConfigurationsAsync(ListBucketInventoryConfigurationsRequest request, AmazonServiceCallback<ListBucketInventoryConfigurationsRequest, ListBucketInventoryConfigurationsResponse> callback, AsyncOptions options = null);
 
 
@@ -3810,6 +3679,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketMetricsConfigurations">REST API Reference for ListBucketMetricsConfigurations Operation</seealso>
         void ListBucketMetricsConfigurationsAsync(ListBucketMetricsConfigurationsRequest request, AmazonServiceCallback<ListBucketMetricsConfigurationsRequest, ListBucketMetricsConfigurationsResponse> callback, AsyncOptions options = null);
 
 
@@ -3826,6 +3696,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets">REST API Reference for ListBuckets Operation</seealso>
         void ListBucketsAsync(ListBucketsRequest request, AmazonServiceCallback<ListBucketsRequest, ListBucketsResponse> callback, AsyncOptions options = null);
 
 
@@ -3901,6 +3772,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the ListMultipartUploads service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads">REST API Reference for ListMultipartUploads Operation</seealso>
         void ListMultipartUploadsAsync(string bucketName,  AmazonServiceCallback<ListMultipartUploadsRequest, ListMultipartUploadsResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -3971,6 +3843,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the ListMultipartUploads service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads">REST API Reference for ListMultipartUploads Operation</seealso>
         void ListMultipartUploadsAsync(string bucketName, string prefix,  AmazonServiceCallback<ListMultipartUploadsRequest, ListMultipartUploadsResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -3982,6 +3855,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads">REST API Reference for ListMultipartUploads Operation</seealso>
         void ListMultipartUploadsAsync(ListMultipartUploadsRequest request, AmazonServiceCallback<ListMultipartUploadsRequest, ListMultipartUploadsResponse> callback, AsyncOptions options = null);
 
 
@@ -4036,6 +3910,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the ListObjects service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects">REST API Reference for ListObjects Operation</seealso>
         void ListObjectsAsync(string bucketName,  AmazonServiceCallback<ListObjectsRequest, ListObjectsResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -4085,6 +3960,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the ListObjects service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects">REST API Reference for ListObjects Operation</seealso>
         void ListObjectsAsync(string bucketName, string prefix,  AmazonServiceCallback<ListObjectsRequest, ListObjectsResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -4095,6 +3971,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects">REST API Reference for ListObjects Operation</seealso>
         void ListObjectsAsync(ListObjectsRequest request, AmazonServiceCallback<ListObjectsRequest, ListObjectsResponse> callback, AsyncOptions options = null);
 
 
@@ -4111,6 +3988,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectsV2">REST API Reference for ListObjectsV2 Operation</seealso>
         void ListObjectsV2Async(ListObjectsV2Request request, AmazonServiceCallback<ListObjectsV2Request, ListObjectsV2Response> callback, AsyncOptions options = null);
 
 
@@ -4178,6 +4056,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the ListParts service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts">REST API Reference for ListParts Operation</seealso>
         void ListPartsAsync(string bucketName, string key, string uploadId,  AmazonServiceCallback<ListPartsRequest, ListPartsResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -4189,6 +4068,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts">REST API Reference for ListParts Operation</seealso>
         void ListPartsAsync(ListPartsRequest request, AmazonServiceCallback<ListPartsRequest, ListPartsResponse> callback, AsyncOptions options = null);
 
 
@@ -4241,6 +4121,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the ListVersions service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions">REST API Reference for ListVersions Operation</seealso>
         void ListVersionsAsync(string bucketName,  AmazonServiceCallback<ListVersionsRequest, ListVersionsResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -4288,6 +4169,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the ListVersions service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions">REST API Reference for ListVersions Operation</seealso>
         void ListVersionsAsync(string bucketName, string prefix,  AmazonServiceCallback<ListVersionsRequest, ListVersionsResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -4298,6 +4180,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions">REST API Reference for ListVersions Operation</seealso>
         void ListVersionsAsync(ListVersionsRequest request, AmazonServiceCallback<ListVersionsRequest, ListVersionsResponse> callback, AsyncOptions options = null);
 
 
@@ -4315,6 +4198,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAcl">REST API Reference for PutACL Operation</seealso>
         void PutACLAsync(PutACLRequest request, AmazonServiceCallback<PutACLRequest, PutACLResponse> callback, AsyncOptions options = null);
 
 
@@ -4339,7 +4223,7 @@ namespace Amazon.S3
         /// By default, the bucket is created in the US East (N. Virginia) Region. You can optionally
         /// specify a Region in the request body. You might choose a Region to optimize latency,
         /// minimize costs, or address regulatory requirements. For example, if you reside in
-        /// Europe, you will probably find it advantageous to create buckets in the EU (Ireland)
+        /// Europe, you will probably find it advantageous to create buckets in the Europe (Ireland)
         /// Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro">How
         /// to Select a Region for Your Buckets</a>.
         /// </para>
@@ -4380,26 +4264,67 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>emailAddress</code> – if the value specified is the email address of an AWS
-        /// account
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
         ///  <code>id</code> – if the value specified is the canonical user ID of an AWS account
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>uri</code> – if you are granting permissions to a predefined group
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>emailAddress</code> – if the value specified is the email address of an AWS
+        /// account
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// Using email addresses to specify a grantee is only supported in the following AWS
+        /// Regions: 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// US East (N. Virginia)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// US West (N. California)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  US West (Oregon)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  Asia Pacific (Singapore)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Asia Pacific (Sydney)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Asia Pacific (Tokyo)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Europe (Ireland)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// South America (São Paulo)
+        /// </para>
         ///  </li> </ul> 
         /// <para>
+        /// For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions
+        /// and Endpoints</a> in the AWS General Reference.
+        /// </para>
+        ///  </note> </li> </ul> 
+        /// <para>
         /// For example, the following <code>x-amz-grant-read</code> header grants the AWS accounts
-        /// identified by email addresses permissions to read object data and its metadata:
+        /// identified by account IDs permissions to read object data and its metadata:
         /// </para>
         ///  
         /// <para>
-        ///  <code>x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
-        /// </code> 
+        ///  <code>x-amz-grant-read: id="11112222333", id="444455556666" </code> 
         /// </para>
         ///  </li> </ul> <note> 
         /// <para>
@@ -4429,6 +4354,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the PutBucket service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateBucket">REST API Reference for PutBucket Operation</seealso>
         void PutBucketAsync(string bucketName,  AmazonServiceCallback<PutBucketRequest, PutBucketResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -4440,6 +4366,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateBucket">REST API Reference for PutBucket Operation</seealso>
         void PutBucketAsync(PutBucketRequest request, AmazonServiceCallback<PutBucketRequest, PutBucketResponse> callback, AsyncOptions options = null);
 
 
@@ -4457,6 +4384,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAccelerateConfiguration">REST API Reference for PutBucketAccelerateConfiguration Operation</seealso>
         void PutBucketAccelerateConfigurationAsync(PutBucketAccelerateConfigurationRequest request, AmazonServiceCallback<PutBucketAccelerateConfigurationRequest, PutBucketAccelerateConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -4474,6 +4402,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAnalyticsConfiguration">REST API Reference for PutBucketAnalyticsConfiguration Operation</seealso>
         void PutBucketAnalyticsConfigurationAsync(PutBucketAnalyticsConfigurationRequest request, AmazonServiceCallback<PutBucketAnalyticsConfigurationRequest, PutBucketAnalyticsConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -4491,6 +4420,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketEncryption">REST API Reference for PutBucketEncryption Operation</seealso>
         void PutBucketEncryptionAsync(PutBucketEncryptionRequest request, AmazonServiceCallback<PutBucketEncryptionRequest, PutBucketEncryptionResponse> callback, AsyncOptions options = null);
 
 
@@ -4508,6 +4438,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketInventoryConfiguration">REST API Reference for PutBucketInventoryConfiguration Operation</seealso>
         void PutBucketInventoryConfigurationAsync(PutBucketInventoryConfigurationRequest request, AmazonServiceCallback<PutBucketInventoryConfigurationRequest, PutBucketInventoryConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -4525,6 +4456,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLogging">REST API Reference for PutBucketLogging Operation</seealso>
         void PutBucketLoggingAsync(PutBucketLoggingRequest request, AmazonServiceCallback<PutBucketLoggingRequest, PutBucketLoggingResponse> callback, AsyncOptions options = null);
 
 
@@ -4542,6 +4474,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketMetricsConfiguration">REST API Reference for PutBucketMetricsConfiguration Operation</seealso>
         void PutBucketMetricsConfigurationAsync(PutBucketMetricsConfigurationRequest request, AmazonServiceCallback<PutBucketMetricsConfigurationRequest, PutBucketMetricsConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -4559,6 +4492,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketNotificationConfiguration">REST API Reference for PutBucketNotification Operation</seealso>
         void PutBucketNotificationAsync(PutBucketNotificationRequest request, AmazonServiceCallback<PutBucketNotificationRequest, PutBucketNotificationResponse> callback, AsyncOptions options = null);
 
 
@@ -4575,7 +4509,7 @@ namespace Amazon.S3
         /// 
         ///  
         /// <para>
-        /// If you don't have <code>PutBucketPolic</code>y permissions, Amazon S3 returns a <code>403
+        /// If you don't have <code>PutBucketPolicy</code> permissions, Amazon S3 returns a <code>403
         /// Access Denied</code> error. If you have the correct permissions, but you're not using
         /// an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405
         /// Method Not Allowed</code> error.
@@ -4615,6 +4549,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the PutBucketPolicy service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketPolicy">REST API Reference for PutBucketPolicy Operation</seealso>
         void PutBucketPolicyAsync(string bucketName, string policy,  AmazonServiceCallback<PutBucketPolicyRequest, PutBucketPolicyResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -4625,7 +4560,7 @@ namespace Amazon.S3
         /// 
         ///  
         /// <para>
-        /// If you don't have <code>PutBucketPolic</code>y permissions, Amazon S3 returns a <code>403
+        /// If you don't have <code>PutBucketPolicy</code> permissions, Amazon S3 returns a <code>403
         /// Access Denied</code> error. If you have the correct permissions, but you're not using
         /// an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405
         /// Method Not Allowed</code> error.
@@ -4666,6 +4601,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the PutBucketPolicy service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketPolicy">REST API Reference for PutBucketPolicy Operation</seealso>
         void PutBucketPolicyAsync(string bucketName, string policy, string contentMD5,  AmazonServiceCallback<PutBucketPolicyRequest, PutBucketPolicyResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -4677,6 +4613,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketPolicy">REST API Reference for PutBucketPolicy Operation</seealso>
         void PutBucketPolicyAsync(PutBucketPolicyRequest request, AmazonServiceCallback<PutBucketPolicyRequest, PutBucketPolicyResponse> callback, AsyncOptions options = null);
 
 
@@ -4694,6 +4631,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketReplication">REST API Reference for PutBucketReplication Operation</seealso>
         void PutBucketReplicationAsync(PutBucketReplicationRequest request, AmazonServiceCallback<PutBucketReplicationRequest, PutBucketReplicationResponse> callback, AsyncOptions options = null);
 
 
@@ -4733,6 +4671,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the PutBucketRequestPayment service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketRequestPayment">REST API Reference for PutBucketRequestPayment Operation</seealso>
         void PutBucketRequestPaymentAsync(string bucketName, RequestPaymentConfiguration requestPaymentConfiguration,  AmazonServiceCallback<PutBucketRequestPaymentRequest, PutBucketRequestPaymentResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -4744,6 +4683,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketRequestPayment">REST API Reference for PutBucketRequestPayment Operation</seealso>
         void PutBucketRequestPaymentAsync(PutBucketRequestPaymentRequest request, AmazonServiceCallback<PutBucketRequestPaymentRequest, PutBucketRequestPaymentResponse> callback, AsyncOptions options = null);
 
 
@@ -4790,8 +4730,8 @@ namespace Amazon.S3
         ///  <ul> <li> 
         /// <para>
         /// Description: The tag provided was not a valid tag. This error can occur if the tag
-        /// did not pass input validation. For information about tag restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2//allocation-tag-restrictions.html">User-Defined
-        /// Tag Restrictions</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2//aws-tag-restrictions.html">AWS-Generated
+        /// did not pass input validation. For information about tag restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined
+        /// Tag Restrictions</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html">AWS-Generated
         /// Cost Allocation Tag Restrictions</a>.
         /// </para>
         ///  </li> </ul> </li> <li> 
@@ -4843,6 +4783,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the PutBucketTagging service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketTagging">REST API Reference for PutBucketTagging Operation</seealso>
         void PutBucketTaggingAsync(string bucketName, List<Tag> tagSet,  AmazonServiceCallback<PutBucketTaggingRequest, PutBucketTaggingResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -4854,6 +4795,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketTagging">REST API Reference for PutBucketTagging Operation</seealso>
         void PutBucketTaggingAsync(PutBucketTaggingRequest request, AmazonServiceCallback<PutBucketTaggingRequest, PutBucketTaggingResponse> callback, AsyncOptions options = null);
 
 
@@ -4871,6 +4813,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketVersioning">REST API Reference for PutBucketVersioning Operation</seealso>
         void PutBucketVersioningAsync(PutBucketVersioningRequest request, AmazonServiceCallback<PutBucketVersioningRequest, PutBucketVersioningResponse> callback, AsyncOptions options = null);
 
 
@@ -4986,7 +4929,13 @@ namespace Amazon.S3
         /// <para>
         ///  <code>HttpRedirectCode</code> 
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> 
+        /// <para>
+        /// Amazon S3 has a limitation of 50 routing rules per website configuration. If you require
+        /// more than 50 routing rules, you can use object redirect. For more information, see
+        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">Configuring
+        /// an Object Redirect</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
+        /// </para>
         /// This API is supported only when AWSConfigs.HttpClient is set to AWSConfigs.HttpClientOption.UnityWebRequest, the default value of this configuration option is AWSConfigs.HttpClientOption.UnityWWW
         /// </summary>
         /// <param name="bucketName">The bucket name.</param>
@@ -4998,6 +4947,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the PutBucketWebsite service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketWebsite">REST API Reference for PutBucketWebsite Operation</seealso>
         void PutBucketWebsiteAsync(string bucketName, WebsiteConfiguration websiteConfiguration,  AmazonServiceCallback<PutBucketWebsiteRequest, PutBucketWebsiteResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -5009,6 +4959,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketWebsite">REST API Reference for PutBucketWebsite Operation</seealso>
         void PutBucketWebsiteAsync(PutBucketWebsiteRequest request, AmazonServiceCallback<PutBucketWebsiteRequest, PutBucketWebsiteResponse> callback, AsyncOptions options = null);
 
 
@@ -5087,7 +5038,7 @@ namespace Amazon.S3
         /// This API is supported only when AWSConfigs.HttpClient is set to AWSConfigs.HttpClientOption.UnityWebRequest, the default value of this configuration option is AWSConfigs.HttpClientOption.UnityWWW
         /// </summary>
         /// <param name="bucketName">Specifies the bucket impacted by the <code>cors</code>configuration.</param>
-        /// <param name="configuration">Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//cors.html">Enabling Cross-Origin Resource Sharing</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</param>
+        /// <param name="configuration">Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling Cross-Origin Resource Sharing</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</param>
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">
         ///     A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
@@ -5095,6 +5046,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the PutCORSConfiguration service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketCors">REST API Reference for PutCORSConfiguration Operation</seealso>
         void PutCORSConfigurationAsync(string bucketName, CORSConfiguration configuration,  AmazonServiceCallback<PutCORSConfigurationRequest, PutCORSConfigurationResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -5106,6 +5058,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketCors">REST API Reference for PutCORSConfiguration Operation</seealso>
         void PutCORSConfigurationAsync(PutCORSConfigurationRequest request, AmazonServiceCallback<PutCORSConfigurationRequest, PutCORSConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -5224,6 +5177,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the PutLifecycleConfiguration service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLifecycleConfiguration">REST API Reference for PutLifecycleConfiguration Operation</seealso>
         void PutLifecycleConfigurationAsync(string bucketName, LifecycleConfiguration configuration,  AmazonServiceCallback<PutLifecycleConfigurationRequest, PutLifecycleConfigurationResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -5235,6 +5189,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLifecycleConfiguration">REST API Reference for PutLifecycleConfiguration Operation</seealso>
         void PutLifecycleConfigurationAsync(PutLifecycleConfigurationRequest request, AmazonServiceCallback<PutLifecycleConfigurationRequest, PutLifecycleConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -5252,6 +5207,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObject">REST API Reference for PutObject Operation</seealso>
         void PutObjectAsync(PutObjectRequest request, AmazonServiceCallback<PutObjectRequest, PutObjectResponse> callback, AsyncOptions options = null);
 
 
@@ -5269,6 +5225,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectLegalHold">REST API Reference for PutObjectLegalHold Operation</seealso>
         void PutObjectLegalHoldAsync(PutObjectLegalHoldRequest request, AmazonServiceCallback<PutObjectLegalHoldRequest, PutObjectLegalHoldResponse> callback, AsyncOptions options = null);
 
 
@@ -5286,6 +5243,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectLockConfiguration">REST API Reference for PutObjectLockConfiguration Operation</seealso>
         void PutObjectLockConfigurationAsync(PutObjectLockConfigurationRequest request, AmazonServiceCallback<PutObjectLockConfigurationRequest, PutObjectLockConfigurationResponse> callback, AsyncOptions options = null);
 
 
@@ -5303,6 +5261,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectRetention">REST API Reference for PutObjectRetention Operation</seealso>
         void PutObjectRetentionAsync(PutObjectRetentionRequest request, AmazonServiceCallback<PutObjectRetentionRequest, PutObjectRetentionResponse> callback, AsyncOptions options = null);
 
 
@@ -5320,6 +5279,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectTagging">REST API Reference for PutObjectTagging Operation</seealso>
         void PutObjectTaggingAsync(PutObjectTaggingRequest request, AmazonServiceCallback<PutObjectTaggingRequest, PutObjectTaggingResponse> callback, AsyncOptions options = null);
 
 
@@ -5337,6 +5297,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutPublicAccessBlock">REST API Reference for PutPublicAccessBlock Operation</seealso>
         void PutPublicAccessBlockAsync(PutPublicAccessBlockRequest request, AmazonServiceCallback<PutPublicAccessBlockRequest, PutPublicAccessBlockResponse> callback, AsyncOptions options = null);
 
 
@@ -5363,9 +5324,8 @@ namespace Amazon.S3
         ///  </li> </ul> 
         /// <para>
         /// To use this operation, you must have permissions to perform the <code>s3:RestoreObject</code>
-        /// and <code>s3:GetObject</code> actions. The bucket owner has this permission by default
-        /// and can grant this permission to others. For more information about permissions, see
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+        /// action. The bucket owner has this permission by default and can grant this permission
+        /// to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
         /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
         /// Access Permissions to Your Amazon S3 Resources</a> in the <i>Amazon Simple Storage
         /// Service Developer Guide</i>.
@@ -5453,8 +5413,8 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul> </li> </ul> 
         /// <para>
-        /// For more information about using SQL with Glacier Select restore, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL
-        /// Reference for Amazon S3 Select and Glacier Select</a> in the <i>Amazon Simple Storage
+        /// For more information about using SQL with S3 Glacier Select restore, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL
+        /// Reference for Amazon S3 Select and S3 Glacier Select</a> in the <i>Amazon Simple Storage
         /// Service Developer Guide</i>. 
         /// </para>
         ///  
@@ -5531,9 +5491,9 @@ namespace Amazon.S3
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Standard</code> </b> - Standard retrievals allow you to access any of your
-        /// archived objects within several hours. This is the default option for the GLACIER
-        /// and DEEP_ARCHIVE retrieval requests that do not specify the retrieval option. Standard
+        ///  <b> <code>Standard</code> </b> - S3 Standard retrievals allow you to access any of
+        /// your archived objects within several hours. This is the default option for the GLACIER
+        /// and DEEP_ARCHIVE retrieval requests that do not specify the retrieval option. S3 Standard
         /// retrievals typically complete within 3-5 hours from the GLACIER storage class and
         /// typically complete within 12 hours from the DEEP_ARCHIVE storage class. 
         /// </para>
@@ -5639,9 +5599,9 @@ namespace Amazon.S3
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <i>Cause: Glacier expedited retrievals are currently not available. Try again later.
-        /// (Returned if there is insufficient capacity to process the Expedited request. This
-        /// error applies only to Expedited retrievals and not to Standard or Bulk retrievals.)</i>
+        ///  <i>Cause: S3 Glacier expedited retrievals are currently not available. Try again
+        /// later. (Returned if there is insufficient capacity to process the Expedited request.
+        /// This error applies only to Expedited retrievals and not to S3 Standard or Bulk retrievals.)</i>
         /// 
         /// </para>
         ///  </li> <li> 
@@ -5665,8 +5625,8 @@ namespace Amazon.S3
         ///  </li> <li> 
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL
-        /// Reference for Amazon S3 Select and Glacier Select </a> in the <i>Amazon Simple Storage
-        /// Service Developer Guide</i> 
+        /// Reference for Amazon S3 Select and S3 Glacier Select </a> in the <i>Amazon Simple
+        /// Storage Service Developer Guide</i> 
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -5679,6 +5639,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the RestoreObject service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/RestoreObject">REST API Reference for RestoreObject Operation</seealso>
         void RestoreObjectAsync(string bucketName, string key,  AmazonServiceCallback<RestoreObjectRequest, RestoreObjectResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -5699,9 +5660,8 @@ namespace Amazon.S3
         ///  </li> </ul> 
         /// <para>
         /// To use this operation, you must have permissions to perform the <code>s3:RestoreObject</code>
-        /// and <code>s3:GetObject</code> actions. The bucket owner has this permission by default
-        /// and can grant this permission to others. For more information about permissions, see
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+        /// action. The bucket owner has this permission by default and can grant this permission
+        /// to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
         /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
         /// Access Permissions to Your Amazon S3 Resources</a> in the <i>Amazon Simple Storage
         /// Service Developer Guide</i>.
@@ -5789,8 +5749,8 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul> </li> </ul> 
         /// <para>
-        /// For more information about using SQL with Glacier Select restore, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL
-        /// Reference for Amazon S3 Select and Glacier Select</a> in the <i>Amazon Simple Storage
+        /// For more information about using SQL with S3 Glacier Select restore, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL
+        /// Reference for Amazon S3 Select and S3 Glacier Select</a> in the <i>Amazon Simple Storage
         /// Service Developer Guide</i>. 
         /// </para>
         ///  
@@ -5867,9 +5827,9 @@ namespace Amazon.S3
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Standard</code> </b> - Standard retrievals allow you to access any of your
-        /// archived objects within several hours. This is the default option for the GLACIER
-        /// and DEEP_ARCHIVE retrieval requests that do not specify the retrieval option. Standard
+        ///  <b> <code>Standard</code> </b> - S3 Standard retrievals allow you to access any of
+        /// your archived objects within several hours. This is the default option for the GLACIER
+        /// and DEEP_ARCHIVE retrieval requests that do not specify the retrieval option. S3 Standard
         /// retrievals typically complete within 3-5 hours from the GLACIER storage class and
         /// typically complete within 12 hours from the DEEP_ARCHIVE storage class. 
         /// </para>
@@ -5975,9 +5935,9 @@ namespace Amazon.S3
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <i>Cause: Glacier expedited retrievals are currently not available. Try again later.
-        /// (Returned if there is insufficient capacity to process the Expedited request. This
-        /// error applies only to Expedited retrievals and not to Standard or Bulk retrievals.)</i>
+        ///  <i>Cause: S3 Glacier expedited retrievals are currently not available. Try again
+        /// later. (Returned if there is insufficient capacity to process the Expedited request.
+        /// This error applies only to Expedited retrievals and not to S3 Standard or Bulk retrievals.)</i>
         /// 
         /// </para>
         ///  </li> <li> 
@@ -6001,8 +5961,8 @@ namespace Amazon.S3
         ///  </li> <li> 
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL
-        /// Reference for Amazon S3 Select and Glacier Select </a> in the <i>Amazon Simple Storage
-        /// Service Developer Guide</i> 
+        /// Reference for Amazon S3 Select and S3 Glacier Select </a> in the <i>Amazon Simple
+        /// Storage Service Developer Guide</i> 
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -6016,6 +5976,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the RestoreObject service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/RestoreObject">REST API Reference for RestoreObject Operation</seealso>
         void RestoreObjectAsync(string bucketName, string key, int days,  AmazonServiceCallback<RestoreObjectRequest, RestoreObjectResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -6036,9 +5997,8 @@ namespace Amazon.S3
         ///  </li> </ul> 
         /// <para>
         /// To use this operation, you must have permissions to perform the <code>s3:RestoreObject</code>
-        /// and <code>s3:GetObject</code> actions. The bucket owner has this permission by default
-        /// and can grant this permission to others. For more information about permissions, see
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+        /// action. The bucket owner has this permission by default and can grant this permission
+        /// to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
         /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
         /// Access Permissions to Your Amazon S3 Resources</a> in the <i>Amazon Simple Storage
         /// Service Developer Guide</i>.
@@ -6126,8 +6086,8 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul> </li> </ul> 
         /// <para>
-        /// For more information about using SQL with Glacier Select restore, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL
-        /// Reference for Amazon S3 Select and Glacier Select</a> in the <i>Amazon Simple Storage
+        /// For more information about using SQL with S3 Glacier Select restore, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL
+        /// Reference for Amazon S3 Select and S3 Glacier Select</a> in the <i>Amazon Simple Storage
         /// Service Developer Guide</i>. 
         /// </para>
         ///  
@@ -6204,9 +6164,9 @@ namespace Amazon.S3
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Standard</code> </b> - Standard retrievals allow you to access any of your
-        /// archived objects within several hours. This is the default option for the GLACIER
-        /// and DEEP_ARCHIVE retrieval requests that do not specify the retrieval option. Standard
+        ///  <b> <code>Standard</code> </b> - S3 Standard retrievals allow you to access any of
+        /// your archived objects within several hours. This is the default option for the GLACIER
+        /// and DEEP_ARCHIVE retrieval requests that do not specify the retrieval option. S3 Standard
         /// retrievals typically complete within 3-5 hours from the GLACIER storage class and
         /// typically complete within 12 hours from the DEEP_ARCHIVE storage class. 
         /// </para>
@@ -6312,9 +6272,9 @@ namespace Amazon.S3
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <i>Cause: Glacier expedited retrievals are currently not available. Try again later.
-        /// (Returned if there is insufficient capacity to process the Expedited request. This
-        /// error applies only to Expedited retrievals and not to Standard or Bulk retrievals.)</i>
+        ///  <i>Cause: S3 Glacier expedited retrievals are currently not available. Try again
+        /// later. (Returned if there is insufficient capacity to process the Expedited request.
+        /// This error applies only to Expedited retrievals and not to S3 Standard or Bulk retrievals.)</i>
         /// 
         /// </para>
         ///  </li> <li> 
@@ -6338,8 +6298,8 @@ namespace Amazon.S3
         ///  </li> <li> 
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL
-        /// Reference for Amazon S3 Select and Glacier Select </a> in the <i>Amazon Simple Storage
-        /// Service Developer Guide</i> 
+        /// Reference for Amazon S3 Select and S3 Glacier Select </a> in the <i>Amazon Simple
+        /// Storage Service Developer Guide</i> 
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -6353,6 +6313,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the RestoreObject service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/RestoreObject">REST API Reference for RestoreObject Operation</seealso>
         void RestoreObjectAsync(string bucketName, string key, string versionId,  AmazonServiceCallback<RestoreObjectRequest, RestoreObjectResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -6373,9 +6334,8 @@ namespace Amazon.S3
         ///  </li> </ul> 
         /// <para>
         /// To use this operation, you must have permissions to perform the <code>s3:RestoreObject</code>
-        /// and <code>s3:GetObject</code> actions. The bucket owner has this permission by default
-        /// and can grant this permission to others. For more information about permissions, see
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+        /// action. The bucket owner has this permission by default and can grant this permission
+        /// to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
         /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
         /// Access Permissions to Your Amazon S3 Resources</a> in the <i>Amazon Simple Storage
         /// Service Developer Guide</i>.
@@ -6463,8 +6423,8 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul> </li> </ul> 
         /// <para>
-        /// For more information about using SQL with Glacier Select restore, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL
-        /// Reference for Amazon S3 Select and Glacier Select</a> in the <i>Amazon Simple Storage
+        /// For more information about using SQL with S3 Glacier Select restore, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL
+        /// Reference for Amazon S3 Select and S3 Glacier Select</a> in the <i>Amazon Simple Storage
         /// Service Developer Guide</i>. 
         /// </para>
         ///  
@@ -6541,9 +6501,9 @@ namespace Amazon.S3
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Standard</code> </b> - Standard retrievals allow you to access any of your
-        /// archived objects within several hours. This is the default option for the GLACIER
-        /// and DEEP_ARCHIVE retrieval requests that do not specify the retrieval option. Standard
+        ///  <b> <code>Standard</code> </b> - S3 Standard retrievals allow you to access any of
+        /// your archived objects within several hours. This is the default option for the GLACIER
+        /// and DEEP_ARCHIVE retrieval requests that do not specify the retrieval option. S3 Standard
         /// retrievals typically complete within 3-5 hours from the GLACIER storage class and
         /// typically complete within 12 hours from the DEEP_ARCHIVE storage class. 
         /// </para>
@@ -6649,9 +6609,9 @@ namespace Amazon.S3
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <i>Cause: Glacier expedited retrievals are currently not available. Try again later.
-        /// (Returned if there is insufficient capacity to process the Expedited request. This
-        /// error applies only to Expedited retrievals and not to Standard or Bulk retrievals.)</i>
+        ///  <i>Cause: S3 Glacier expedited retrievals are currently not available. Try again
+        /// later. (Returned if there is insufficient capacity to process the Expedited request.
+        /// This error applies only to Expedited retrievals and not to S3 Standard or Bulk retrievals.)</i>
         /// 
         /// </para>
         ///  </li> <li> 
@@ -6675,8 +6635,8 @@ namespace Amazon.S3
         ///  </li> <li> 
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL
-        /// Reference for Amazon S3 Select and Glacier Select </a> in the <i>Amazon Simple Storage
-        /// Service Developer Guide</i> 
+        /// Reference for Amazon S3 Select and S3 Glacier Select </a> in the <i>Amazon Simple
+        /// Storage Service Developer Guide</i> 
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -6691,6 +6651,7 @@ namespace Amazon.S3
         /// </param>
         /// 
         /// <returns>The response from the RestoreObject service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/RestoreObject">REST API Reference for RestoreObject Operation</seealso>
         void RestoreObjectAsync(string bucketName, string key, string versionId, int days,  AmazonServiceCallback<RestoreObjectRequest, RestoreObjectResponse> callback, AsyncOptions options = null);
 
         /// <summary>
@@ -6701,6 +6662,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/RestoreObject">REST API Reference for RestoreObject Operation</seealso>
         void RestoreObjectAsync(RestoreObjectRequest request, AmazonServiceCallback<RestoreObjectRequest, RestoreObjectResponse> callback, AsyncOptions options = null);
 
 
@@ -6717,6 +6679,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/SelectObjectContent">REST API Reference for SelectObjectContent Operation</seealso>
         void SelectObjectContentAsync(SelectObjectContentRequest request, AmazonServiceCallback<SelectObjectContentRequest, SelectObjectContentResponse> callback, AsyncOptions options = null);
 
 
@@ -6734,6 +6697,7 @@ namespace Amazon.S3
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPart">REST API Reference for UploadPart Operation</seealso>
         void UploadPartAsync(UploadPartRequest request, AmazonServiceCallback<UploadPartRequest, UploadPartResponse> callback, AsyncOptions options = null);
 
 

@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.Text;
 using System.IO;
+using System.Net;
 
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
@@ -51,6 +52,11 @@ namespace Amazon.RDS.Model
     /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
     /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> 
     /// </para>
+    ///  <note> 
+    /// <para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class RestoreDBClusterFromSnapshotRequest : AmazonRDSRequest
     {

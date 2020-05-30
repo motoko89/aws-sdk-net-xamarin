@@ -3384,6 +3384,64 @@ namespace Amazon.Chime
 
         #endregion
         
+        #region  GetRetentionSettings
+
+        internal virtual GetRetentionSettingsResponse GetRetentionSettings(GetRetentionSettingsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetRetentionSettingsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetRetentionSettingsResponseUnmarshaller.Instance;
+
+            return Invoke<GetRetentionSettingsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Gets the retention settings for the specified Amazon Chime Enterprise account. For
+        /// more information about retention settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing
+        /// Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetRetentionSettings service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetRetentionSettings service method, as returned by Chime.</returns>
+        /// <exception cref="Amazon.Chime.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request. For example, when a user
+        /// tries to create an account from an unsupported Region.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.NotFoundException">
+        /// One or more of the resources in the request does not exist in the system.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetRetentionSettings">REST API Reference for GetRetentionSettings Operation</seealso>
+        public virtual Task<GetRetentionSettingsResponse> GetRetentionSettingsAsync(GetRetentionSettingsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetRetentionSettingsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetRetentionSettingsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetRetentionSettingsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  GetRoom
 
         internal virtual GetRoomResponse GetRoom(GetRoomRequest request)
@@ -5077,6 +5135,78 @@ namespace Amazon.Chime
 
         #endregion
         
+        #region  PutRetentionSettings
+
+        internal virtual PutRetentionSettingsResponse PutRetentionSettings(PutRetentionSettingsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutRetentionSettingsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutRetentionSettingsResponseUnmarshaller.Instance;
+
+            return Invoke<PutRetentionSettingsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Puts retention settings for the specified Amazon Chime Enterprise account. We recommend
+        /// using AWS CloudTrail to monitor usage of this API for your account. For more information,
+        /// see <a href="https://docs.aws.amazon.com/chime/latest/ag/cloudtrail.html">Logging
+        /// Amazon Chime API Calls with AWS CloudTrail</a> in the <i>Amazon Chime Administration
+        /// Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// To turn off existing retention settings, remove the number of days from the corresponding
+        /// <b>RetentionDays</b> field in the <b>RetentionSettings</b> object. For more information
+        /// about retention settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing
+        /// Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the PutRetentionSettings service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the PutRetentionSettings service method, as returned by Chime.</returns>
+        /// <exception cref="Amazon.Chime.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ConflictException">
+        /// The request could not be processed because of conflict in the current state of the
+        /// resource.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request. For example, when a user
+        /// tries to create an account from an unsupported Region.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.NotFoundException">
+        /// One or more of the resources in the request does not exist in the system.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutRetentionSettings">REST API Reference for PutRetentionSettings Operation</seealso>
+        public virtual Task<PutRetentionSettingsResponse> PutRetentionSettingsAsync(PutRetentionSettingsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutRetentionSettingsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutRetentionSettingsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<PutRetentionSettingsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  PutVoiceConnectorLoggingConfiguration
 
         internal virtual PutVoiceConnectorLoggingConfigurationResponse PutVoiceConnectorLoggingConfiguration(PutVoiceConnectorLoggingConfigurationRequest request)
@@ -5420,6 +5550,118 @@ namespace Amazon.Chime
             options.ResponseUnmarshaller = PutVoiceConnectorTerminationCredentialsResponseUnmarshaller.Instance;
 
             return InvokeAsync<PutVoiceConnectorTerminationCredentialsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  RedactConversationMessage
+
+        internal virtual RedactConversationMessageResponse RedactConversationMessage(RedactConversationMessageRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RedactConversationMessageRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RedactConversationMessageResponseUnmarshaller.Instance;
+
+            return Invoke<RedactConversationMessageResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Redacts the specified message from the specified Amazon Chime conversation.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RedactConversationMessage service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the RedactConversationMessage service method, as returned by Chime.</returns>
+        /// <exception cref="Amazon.Chime.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request. For example, when a user
+        /// tries to create an account from an unsupported Region.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.NotFoundException">
+        /// One or more of the resources in the request does not exist in the system.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/RedactConversationMessage">REST API Reference for RedactConversationMessage Operation</seealso>
+        public virtual Task<RedactConversationMessageResponse> RedactConversationMessageAsync(RedactConversationMessageRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RedactConversationMessageRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RedactConversationMessageResponseUnmarshaller.Instance;
+
+            return InvokeAsync<RedactConversationMessageResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  RedactRoomMessage
+
+        internal virtual RedactRoomMessageResponse RedactRoomMessage(RedactRoomMessageRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RedactRoomMessageRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RedactRoomMessageResponseUnmarshaller.Instance;
+
+            return Invoke<RedactRoomMessageResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Redacts the specified message from the specified Amazon Chime chat room.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RedactRoomMessage service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the RedactRoomMessage service method, as returned by Chime.</returns>
+        /// <exception cref="Amazon.Chime.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request. For example, when a user
+        /// tries to create an account from an unsupported Region.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.NotFoundException">
+        /// One or more of the resources in the request does not exist in the system.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/RedactRoomMessage">REST API Reference for RedactRoomMessage Operation</seealso>
+        public virtual Task<RedactRoomMessageResponse> RedactRoomMessageAsync(RedactRoomMessageRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RedactRoomMessageRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RedactRoomMessageResponseUnmarshaller.Instance;
+
+            return InvokeAsync<RedactRoomMessageResponse>(request, options, cancellationToken);
         }
 
         #endregion

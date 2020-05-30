@@ -3737,6 +3737,9 @@ namespace Amazon.IoT
         /// <exception cref="Amazon.IoT.Model.InternalFailureException">
         /// An unexpected error has occurred.
         /// </exception>
+        /// <exception cref="Amazon.IoT.Model.InvalidRequestException">
+        /// The request is not valid.
+        /// </exception>
         /// <exception cref="Amazon.IoT.Model.ResourceNotFoundException">
         /// The specified resource does not exist.
         /// </exception>
@@ -7088,6 +7091,48 @@ namespace Amazon.IoT
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/RegisterCertificate">REST API Reference for RegisterCertificate Operation</seealso>
         Task<RegisterCertificateResponse> RegisterCertificateAsync(RegisterCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  RegisterCertificateWithoutCA
+
+
+
+        /// <summary>
+        /// Register a certificate that does not have a certificate authority (CA).
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RegisterCertificateWithoutCA service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the RegisterCertificateWithoutCA service method, as returned by IoT.</returns>
+        /// <exception cref="Amazon.IoT.Model.CertificateStateException">
+        /// The certificate operation is not allowed.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.CertificateValidationException">
+        /// The certificate is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.InternalFailureException">
+        /// An unexpected error has occurred.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.InvalidRequestException">
+        /// The request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.ResourceAlreadyExistsException">
+        /// The resource already exists.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.ServiceUnavailableException">
+        /// The service is temporarily unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.ThrottlingException">
+        /// The rate exceeds the limit.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.UnauthorizedException">
+        /// You are not authorized to perform this operation.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/RegisterCertificateWithoutCA">REST API Reference for RegisterCertificateWithoutCA Operation</seealso>
+        Task<RegisterCertificateWithoutCAResponse> RegisterCertificateWithoutCAAsync(RegisterCertificateWithoutCARequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 

@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.Text;
 using System.IO;
+using System.Net;
 
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
@@ -111,6 +112,10 @@ namespace Amazon.GuardDuty.Model
         ///  </li> <li> 
         /// <para>
         /// resource.instanceDetails.instanceId
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// resource.instanceDetails.outpostArn
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -211,6 +216,10 @@ namespace Amazon.GuardDuty.Model
         ///  </li> <li> 
         /// <para>
         /// service.action.networkConnectionAction.protocol
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// service.action.networkConnectionAction.localIpDetails.ipAddressV4
         /// </para>
         ///  </li> <li> 
         /// <para>
