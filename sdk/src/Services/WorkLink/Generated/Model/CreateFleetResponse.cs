@@ -38,7 +38,7 @@ namespace Amazon.WorkLink.Model
         /// <summary>
         /// Gets and sets the property FleetArn. 
         /// <para>
-        /// The ARN of the fleet.
+        /// The Amazon Resource Name (ARN) of the fleet.
         /// </para>
         /// </summary>
         [AWSProperty(Min=20, Max=2048)]

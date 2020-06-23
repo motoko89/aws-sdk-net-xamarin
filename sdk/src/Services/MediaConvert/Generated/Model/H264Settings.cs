@@ -234,8 +234,9 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property FramerateConversionAlgorithm. When set to INTERPOLATE,
-        /// produces smoother motion during frame rate conversion.
+        /// Gets and sets the property FramerateConversionAlgorithm. Optional. Specify how the
+        /// transcoder performs framerate conversion. The default behavior is to use duplicate
+        /// drop conversion.
         /// </summary>
         public H264FramerateConversionAlgorithm FramerateConversionAlgorithm
         {
@@ -488,9 +489,13 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property ParControl. Using the API, enable ParFollowSource if you
-        /// want the service to use the pixel aspect ratio from the input. Using the console,
-        /// do this by choosing Follow source for Pixel aspect ratio.
+        /// Gets and sets the property ParControl. Optional. Specify how the service determines
+        /// the pixel aspect ratio (PAR) for this output. The default behavior, Follow source
+        /// (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your output. To specify
+        /// a different PAR in the console, choose any value other than Follow source. To specify
+        /// a different PAR by editing the JSON job specification, choose SPECIFIED. When you
+        /// choose SPECIFIED for this setting, you must also specify values for the parNumerator
+        /// and parDenominator settings.
         /// </summary>
         public H264ParControl ParControl
         {
@@ -505,7 +510,12 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property ParDenominator. Pixel Aspect Ratio denominator.
+        /// Gets and sets the property ParDenominator. Required when you set Pixel aspect ratio
+        /// (parControl) to SPECIFIED. On the console, this corresponds to any value other than
+        /// Follow source. When you specify an output pixel aspect ratio (PAR) that is different
+        /// from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV
+        /// NTSC widescreen, you would specify the ratio 40:33. In this example, the value for
+        /// parDenominator is 33.
         /// </summary>
         [AWSProperty(Min=1, Max=2147483647)]
         public int ParDenominator
@@ -521,7 +531,12 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property ParNumerator. Pixel Aspect Ratio numerator.
+        /// Gets and sets the property ParNumerator. Required when you set Pixel aspect ratio
+        /// (parControl) to SPECIFIED. On the console, this corresponds to any value other than
+        /// Follow source. When you specify an output pixel aspect ratio (PAR) that is different
+        /// from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV
+        /// NTSC widescreen, you would specify the ratio 40:33. In this example, the value for
+        /// parNumerator is 40.
         /// </summary>
         [AWSProperty(Min=1, Max=2147483647)]
         public int ParNumerator
@@ -537,9 +552,9 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property QualityTuningLevel. Use Quality tuning level (H264QualityTuningLevel)
-        /// to specifiy whether to use fast single-pass, high-quality singlepass, or high-quality
-        /// multipass video encoding.
+        /// Gets and sets the property QualityTuningLevel. Optional. Use Quality tuning level
+        /// (qualityTuningLevel) to choose how you want to trade off encoding speed for output
+        /// video quality. The default behavior is faster, lower quality, single-pass encoding.
         /// </summary>
         public H264QualityTuningLevel QualityTuningLevel
         {

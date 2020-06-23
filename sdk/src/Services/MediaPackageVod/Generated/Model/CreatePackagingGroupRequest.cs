@@ -34,8 +34,24 @@ namespace Amazon.MediaPackageVod.Model
     /// </summary>
     public partial class CreatePackagingGroupRequest : AmazonMediaPackageVodRequest
     {
+        private Authorization _authorization;
         private string _id;
         private Dictionary<string, string> _tags = new Dictionary<string, string>();
+
+        /// <summary>
+        /// Gets and sets the property Authorization.
+        /// </summary>
+        public Authorization Authorization
+        {
+            get { return this._authorization; }
+            set { this._authorization = value; }
+        }
+
+        // Check to see if Authorization property is set
+        internal bool IsSetAuthorization()
+        {
+            return this._authorization != null;
+        }
 
         /// <summary>
         /// Gets and sets the property Id. The ID of the PackagingGroup.

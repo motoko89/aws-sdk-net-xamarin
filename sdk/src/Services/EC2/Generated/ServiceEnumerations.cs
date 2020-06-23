@@ -2719,6 +2719,60 @@ namespace Amazon.EC2
 
 
     /// <summary>
+    /// Constants used for properties of type EbsNvmeSupport.
+    /// </summary>
+    public class EbsNvmeSupport : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Required for EbsNvmeSupport
+        /// </summary>
+        public static readonly EbsNvmeSupport Required = new EbsNvmeSupport("required");
+        /// <summary>
+        /// Constant Supported for EbsNvmeSupport
+        /// </summary>
+        public static readonly EbsNvmeSupport Supported = new EbsNvmeSupport("supported");
+        /// <summary>
+        /// Constant Unsupported for EbsNvmeSupport
+        /// </summary>
+        public static readonly EbsNvmeSupport Unsupported = new EbsNvmeSupport("unsupported");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public EbsNvmeSupport(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static EbsNvmeSupport FindValue(string value)
+        {
+            return FindValue<EbsNvmeSupport>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator EbsNvmeSupport(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type EbsOptimizedSupport.
     /// </summary>
     public class EbsOptimizedSupport : ConstantClass
@@ -4987,6 +5041,38 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType C59xlarge = new InstanceType("c5.9xlarge");
         /// <summary>
+        /// Constant C5a12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5a12xlarge = new InstanceType("c5a.12xlarge");
+        /// <summary>
+        /// Constant C5a16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5a16xlarge = new InstanceType("c5a.16xlarge");
+        /// <summary>
+        /// Constant C5a24xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5a24xlarge = new InstanceType("c5a.24xlarge");
+        /// <summary>
+        /// Constant C5a2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5a2xlarge = new InstanceType("c5a.2xlarge");
+        /// <summary>
+        /// Constant C5a4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5a4xlarge = new InstanceType("c5a.4xlarge");
+        /// <summary>
+        /// Constant C5a8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5a8xlarge = new InstanceType("c5a.8xlarge");
+        /// <summary>
+        /// Constant C5aLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5aLarge = new InstanceType("c5a.large");
+        /// <summary>
+        /// Constant C5aXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5aXlarge = new InstanceType("c5a.xlarge");
+        /// <summary>
         /// Constant C5d12xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType C5d12xlarge = new InstanceType("c5d.12xlarge");
@@ -5058,6 +5144,42 @@ namespace Amazon.EC2
         /// Constant C5Xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType C5Xlarge = new InstanceType("c5.xlarge");
+        /// <summary>
+        /// Constant C6g12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6g12xlarge = new InstanceType("c6g.12xlarge");
+        /// <summary>
+        /// Constant C6g16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6g16xlarge = new InstanceType("c6g.16xlarge");
+        /// <summary>
+        /// Constant C6g2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6g2xlarge = new InstanceType("c6g.2xlarge");
+        /// <summary>
+        /// Constant C6g4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6g4xlarge = new InstanceType("c6g.4xlarge");
+        /// <summary>
+        /// Constant C6g8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6g8xlarge = new InstanceType("c6g.8xlarge");
+        /// <summary>
+        /// Constant C6gLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6gLarge = new InstanceType("c6g.large");
+        /// <summary>
+        /// Constant C6gMedium for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6gMedium = new InstanceType("c6g.medium");
+        /// <summary>
+        /// Constant C6gMetal for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6gMetal = new InstanceType("c6g.metal");
+        /// <summary>
+        /// Constant C6gXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6gXlarge = new InstanceType("c6g.xlarge");
         /// <summary>
         /// Constant Cc14xlarge for InstanceType
         /// </summary>
@@ -5146,6 +5268,10 @@ namespace Amazon.EC2
         /// Constant G4dn8xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType G4dn8xlarge = new InstanceType("g4dn.8xlarge");
+        /// <summary>
+        /// Constant G4dnMetal for InstanceType
+        /// </summary>
+        public static readonly InstanceType G4dnMetal = new InstanceType("g4dn.metal");
         /// <summary>
         /// Constant G4dnXlarge for InstanceType
         /// </summary>
@@ -5842,6 +5968,42 @@ namespace Amazon.EC2
         /// Constant R5Xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType R5Xlarge = new InstanceType("r5.xlarge");
+        /// <summary>
+        /// Constant R6g12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6g12xlarge = new InstanceType("r6g.12xlarge");
+        /// <summary>
+        /// Constant R6g16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6g16xlarge = new InstanceType("r6g.16xlarge");
+        /// <summary>
+        /// Constant R6g2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6g2xlarge = new InstanceType("r6g.2xlarge");
+        /// <summary>
+        /// Constant R6g4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6g4xlarge = new InstanceType("r6g.4xlarge");
+        /// <summary>
+        /// Constant R6g8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6g8xlarge = new InstanceType("r6g.8xlarge");
+        /// <summary>
+        /// Constant R6gLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6gLarge = new InstanceType("r6g.large");
+        /// <summary>
+        /// Constant R6gMedium for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6gMedium = new InstanceType("r6g.medium");
+        /// <summary>
+        /// Constant R6gMetal for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6gMetal = new InstanceType("r6g.metal");
+        /// <summary>
+        /// Constant R6gXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6gXlarge = new InstanceType("r6g.xlarge");
         /// <summary>
         /// Constant T1Micro for InstanceType
         /// </summary>
@@ -8445,9 +8607,21 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly ResourceType DhcpOptions = new ResourceType("dhcp-options");
         /// <summary>
+        /// Constant ElasticGpu for ResourceType
+        /// </summary>
+        public static readonly ResourceType ElasticGpu = new ResourceType("elastic-gpu");
+        /// <summary>
         /// Constant ElasticIp for ResourceType
         /// </summary>
         public static readonly ResourceType ElasticIp = new ResourceType("elastic-ip");
+        /// <summary>
+        /// Constant ExportImageTask for ResourceType
+        /// </summary>
+        public static readonly ResourceType ExportImageTask = new ResourceType("export-image-task");
+        /// <summary>
+        /// Constant ExportInstanceTask for ResourceType
+        /// </summary>
+        public static readonly ResourceType ExportInstanceTask = new ResourceType("export-instance-task");
         /// <summary>
         /// Constant Fleet for ResourceType
         /// </summary>
@@ -8465,6 +8639,14 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly ResourceType Image = new ResourceType("image");
         /// <summary>
+        /// Constant ImportImageTask for ResourceType
+        /// </summary>
+        public static readonly ResourceType ImportImageTask = new ResourceType("import-image-task");
+        /// <summary>
+        /// Constant ImportSnapshotTask for ResourceType
+        /// </summary>
+        public static readonly ResourceType ImportSnapshotTask = new ResourceType("import-snapshot-task");
+        /// <summary>
         /// Constant Instance for ResourceType
         /// </summary>
         public static readonly ResourceType Instance = new ResourceType("instance");
@@ -8480,6 +8662,10 @@ namespace Amazon.EC2
         /// Constant LaunchTemplate for ResourceType
         /// </summary>
         public static readonly ResourceType LaunchTemplate = new ResourceType("launch-template");
+        /// <summary>
+        /// Constant LocalGatewayRouteTableVpcAssociation for ResourceType
+        /// </summary>
+        public static readonly ResourceType LocalGatewayRouteTableVpcAssociation = new ResourceType("local-gateway-route-table-vpc-association");
         /// <summary>
         /// Constant Natgateway for ResourceType
         /// </summary>

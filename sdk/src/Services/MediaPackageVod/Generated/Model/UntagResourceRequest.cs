@@ -30,7 +30,7 @@ namespace Amazon.MediaPackageVod.Model
 {
     /// <summary>
     /// Container for the parameters to the UntagResource operation.
-    /// Delete tags for a given MediaPackage VOD resource
+    /// Removes tags from the specified resource. You can specify one or more tags to remove.
     /// </summary>
     public partial class UntagResourceRequest : AmazonMediaPackageVodRequest
     {
@@ -38,7 +38,8 @@ namespace Amazon.MediaPackageVod.Model
         private List<string> _tagKeys = new List<string>();
 
         /// <summary>
-        /// Gets and sets the property ResourceArn.
+        /// Gets and sets the property ResourceArn. The Amazon Resource Name (ARN) for the resource.
+        /// You can get this from the response to any request to the resource.
         /// </summary>
         [AWSProperty(Required=true)]
         public string ResourceArn
@@ -54,7 +55,8 @@ namespace Amazon.MediaPackageVod.Model
         }
 
         /// <summary>
-        /// Gets and sets the property TagKeys. The key(s) of tag to be deleted
+        /// Gets and sets the property TagKeys. A comma-separated list of the tag keys to remove
+        /// from the resource.
         /// </summary>
         [AWSProperty(Required=true)]
         public List<string> TagKeys

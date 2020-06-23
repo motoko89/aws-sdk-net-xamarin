@@ -30,19 +30,20 @@ namespace Amazon.SimpleSystemsManagement.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateAssociation operation.
-    /// Associates the specified Systems Manager document with the specified instances or
-    /// targets.
-    /// 
-    ///  
-    /// <para>
-    /// When you associate a document with one or more instances, SSM Agent running on the
-    /// instance processes the document and configures the instance as specified. If you associate
-    /// a document with an instance that already has an associated document, the system returns
-    /// the <code>AssociationAlreadyExists</code> exception.
-    /// </para>
+    /// A State Manager association defines the state that you want to maintain on your instances.
+    /// For example, an association can specify that anti-virus software must be installed
+    /// and running on your instances, or that certain ports must be closed. For static targets,
+    /// the association specifies a schedule for when the configuration is reapplied. For
+    /// dynamic targets, such as an AWS Resource Group or an AWS Autoscaling Group, State
+    /// Manager applies the configuration when new instances are added to the group. The association
+    /// also specifies actions to take when applying the configuration. For example, an association
+    /// for anti-virus software might run once a day. If the software is not installed, then
+    /// State Manager installs it. If the software is installed, but the service is not running,
+    /// then the association might instruct State Manager to start the service.
     /// </summary>
     public partial class CreateAssociationRequest : AmazonSimpleSystemsManagementRequest
     {
+        private bool? _applyOnlyAtCronInterval;
         private string _associationName;
         private string _automationTargetParameterName;
         private AssociationComplianceSeverity _complianceSeverity;
@@ -71,6 +72,26 @@ namespace Amazon.SimpleSystemsManagement.Model
         {
             _instanceId = instanceId;
             _name = name;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ApplyOnlyAtCronInterval. 
+        /// <para>
+        /// By default, when you create a new associations, the system runs it immediately after
+        /// it is created and then according to the schedule you specified. Specify this option
+        /// if you don't want an association to run immediately after you create it.
+        /// </para>
+        /// </summary>
+        public bool ApplyOnlyAtCronInterval
+        {
+            get { return this._applyOnlyAtCronInterval.GetValueOrDefault(); }
+            set { this._applyOnlyAtCronInterval = value; }
+        }
+
+        // Check to see if ApplyOnlyAtCronInterval property is set
+        internal bool IsSetApplyOnlyAtCronInterval()
+        {
+            return this._applyOnlyAtCronInterval.HasValue; 
         }
 
         /// <summary>

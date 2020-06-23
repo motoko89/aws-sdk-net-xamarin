@@ -199,6 +199,11 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Associates the specified product with the specified portfolio.
+        /// 
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateProductWithPortfolio service method.</param>
         /// 
@@ -220,6 +225,11 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Associates the specified product with the specified portfolio.
+        /// 
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateProductWithPortfolio service method.</param>
         /// <param name="cancellationToken">
@@ -497,6 +507,11 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Creates a constraint.
+        /// 
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateConstraint service method.</param>
         /// 
@@ -521,6 +536,11 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Creates a constraint.
+        /// 
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateConstraint service method.</param>
         /// <param name="cancellationToken">
@@ -551,6 +571,11 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Creates a portfolio.
+        /// 
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreatePortfolio service method.</param>
         /// 
@@ -574,6 +599,11 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Creates a portfolio.
+        /// 
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreatePortfolio service method.</param>
         /// <param name="cancellationToken">
@@ -603,9 +633,20 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Shares the specified portfolio with the specified account or organization node. Shares
-        /// to an organization node can only be created by the master account of an Organization.
-        /// AWSOrganizationsAccess must be enabled in order to create a portfolio share to an
-        /// organization node.
+        /// to an organization node can only be created by the master account of an organization
+        /// or by a delegated administrator. You can share portfolios to an organization, an organizational
+        /// unit, or a specific account.
+        /// 
+        ///  
+        /// <para>
+        /// Note that if a delegated admin is de-registered, they can no longer create portfolio
+        /// shares.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>AWSOrganizationsAccess</code> must be enabled in order to create a portfolio
+        /// share to an organization node.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreatePortfolioShare service method.</param>
         /// 
@@ -634,9 +675,20 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Shares the specified portfolio with the specified account or organization node. Shares
-        /// to an organization node can only be created by the master account of an Organization.
-        /// AWSOrganizationsAccess must be enabled in order to create a portfolio share to an
-        /// organization node.
+        /// to an organization node can only be created by the master account of an organization
+        /// or by a delegated administrator. You can share portfolios to an organization, an organizational
+        /// unit, or a specific account.
+        /// 
+        ///  
+        /// <para>
+        /// Note that if a delegated admin is de-registered, they can no longer create portfolio
+        /// shares.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>AWSOrganizationsAccess</code> must be enabled in order to create a portfolio
+        /// share to an organization node.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreatePortfolioShare service method.</param>
         /// <param name="cancellationToken">
@@ -671,6 +723,11 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Creates a product.
+        /// 
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateProduct service method.</param>
         /// 
@@ -694,6 +751,11 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Creates a product.
+        /// 
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateProduct service method.</param>
         /// <param name="cancellationToken">
@@ -949,6 +1011,11 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Deletes the specified constraint.
+        /// 
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteConstraint service method.</param>
         /// 
@@ -966,6 +1033,11 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Deletes the specified constraint.
+        /// 
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteConstraint service method.</param>
         /// <param name="cancellationToken">
@@ -994,6 +1066,10 @@ namespace Amazon.ServiceCatalog
         /// <para>
         /// You cannot delete a portfolio if it was shared with you or if it has associated products,
         /// users, constraints, or shared accounts.
+        /// </para>
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeletePortfolio service method.</param>
@@ -1027,6 +1103,10 @@ namespace Amazon.ServiceCatalog
         /// You cannot delete a portfolio if it was shared with you or if it has associated products,
         /// users, constraints, or shared accounts.
         /// </para>
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeletePortfolio service method.</param>
         /// <param name="cancellationToken">
@@ -1059,7 +1139,14 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Stops sharing the specified portfolio with the specified account or organization node.
-        /// Shares to an organization node can only be deleted by the master account of an Organization.
+        /// Shares to an organization node can only be deleted by the master account of an organization
+        /// or by a delegated administrator.
+        /// 
+        ///  
+        /// <para>
+        /// Note that if a delegated admin is de-registered, portfolio shares created from that
+        /// account are removed.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeletePortfolioShare service method.</param>
         /// 
@@ -1084,7 +1171,14 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Stops sharing the specified portfolio with the specified account or organization node.
-        /// Shares to an organization node can only be deleted by the master account of an Organization.
+        /// Shares to an organization node can only be deleted by the master account of an organization
+        /// or by a delegated administrator.
+        /// 
+        ///  
+        /// <para>
+        /// Note that if a delegated admin is de-registered, portfolio shares created from that
+        /// account are removed.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeletePortfolioShare service method.</param>
         /// <param name="cancellationToken">
@@ -1120,6 +1214,10 @@ namespace Amazon.ServiceCatalog
         /// <para>
         /// You cannot delete a product if it was shared with you or is associated with a portfolio.
         /// </para>
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteProduct service method.</param>
         /// 
@@ -1150,6 +1248,10 @@ namespace Amazon.ServiceCatalog
         ///  
         /// <para>
         /// You cannot delete a product if it was shared with you or is associated with a portfolio.
+        /// </para>
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteProduct service method.</param>
@@ -1459,6 +1561,11 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Gets information about the specified portfolio.
+        /// 
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribePortfolio service method.</param>
         /// 
@@ -1473,6 +1580,11 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Gets information about the specified portfolio.
+        /// 
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribePortfolio service method.</param>
         /// <param name="cancellationToken">
@@ -1493,7 +1605,7 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Gets the status of the specified portfolio share operation. This API can only be called
-        /// by the master account in the organization.
+        /// by the master account in the organization or by a delegated admin.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribePortfolioShareStatus service method.</param>
         /// 
@@ -1514,7 +1626,7 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Gets the status of the specified portfolio share operation. This API can only be called
-        /// by the master account in the organization.
+        /// by the master account in the organization or by a delegated admin.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribePortfolioShareStatus service method.</param>
         /// <param name="cancellationToken">
@@ -1586,6 +1698,9 @@ namespace Amazon.ServiceCatalog
         /// <param name="request">Container for the necessary parameters to execute the DescribeProductAsAdmin service method.</param>
         /// 
         /// <returns>The response from the DescribeProductAsAdmin service method, as returned by ServiceCatalog.</returns>
+        /// <exception cref="Amazon.ServiceCatalog.Model.InvalidParametersException">
+        /// One or more parameters provided to the operation are not valid.
+        /// </exception>
         /// <exception cref="Amazon.ServiceCatalog.Model.ResourceNotFoundException">
         /// The specified resource was not found.
         /// </exception>
@@ -1604,6 +1719,9 @@ namespace Amazon.ServiceCatalog
         /// </param>
         /// 
         /// <returns>The response from the DescribeProductAsAdmin service method, as returned by ServiceCatalog.</returns>
+        /// <exception cref="Amazon.ServiceCatalog.Model.InvalidParametersException">
+        /// One or more parameters provided to the operation are not valid.
+        /// </exception>
         /// <exception cref="Amazon.ServiceCatalog.Model.ResourceNotFoundException">
         /// The specified resource was not found.
         /// </exception>
@@ -1736,6 +1854,9 @@ namespace Amazon.ServiceCatalog
         /// <param name="request">Container for the necessary parameters to execute the DescribeProvisioningArtifact service method.</param>
         /// 
         /// <returns>The response from the DescribeProvisioningArtifact service method, as returned by ServiceCatalog.</returns>
+        /// <exception cref="Amazon.ServiceCatalog.Model.InvalidParametersException">
+        /// One or more parameters provided to the operation are not valid.
+        /// </exception>
         /// <exception cref="Amazon.ServiceCatalog.Model.ResourceNotFoundException">
         /// The specified resource was not found.
         /// </exception>
@@ -1754,6 +1875,9 @@ namespace Amazon.ServiceCatalog
         /// </param>
         /// 
         /// <returns>The response from the DescribeProvisioningArtifact service method, as returned by ServiceCatalog.</returns>
+        /// <exception cref="Amazon.ServiceCatalog.Model.InvalidParametersException">
+        /// One or more parameters provided to the operation are not valid.
+        /// </exception>
         /// <exception cref="Amazon.ServiceCatalog.Model.ResourceNotFoundException">
         /// The specified resource was not found.
         /// </exception>
@@ -2015,6 +2139,15 @@ namespace Amazon.ServiceCatalog
         /// your organization. Current shares will not be in sync with your organization structure
         /// if it changes after calling this API. This API can only be called by the master account
         /// in the organization.
+        /// 
+        ///  
+        /// <para>
+        /// This API can't be invoked if there are active delegated administrators in the organization.
+        /// </para>
+        ///  
+        /// <para>
+        /// Note that a delegated administrator is not authorized to invoke <code>DisableAWSOrganizationsAccess</code>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisableAWSOrganizationsAccess service method.</param>
         /// 
@@ -2040,6 +2173,15 @@ namespace Amazon.ServiceCatalog
         /// your organization. Current shares will not be in sync with your organization structure
         /// if it changes after calling this API. This API can only be called by the master account
         /// in the organization.
+        /// 
+        ///  
+        /// <para>
+        /// This API can't be invoked if there are active delegated administrators in the organization.
+        /// </para>
+        ///  
+        /// <para>
+        /// Note that a delegated administrator is not authorized to invoke <code>DisableAWSOrganizationsAccess</code>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisableAWSOrganizationsAccess service method.</param>
         /// <param name="cancellationToken">
@@ -2140,7 +2282,12 @@ namespace Amazon.ServiceCatalog
 
 
         /// <summary>
-        /// Disassociates the specified product from the specified portfolio.
+        /// Disassociates the specified product from the specified portfolio. 
+        /// 
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociateProductFromPortfolio service method.</param>
         /// 
@@ -2161,7 +2308,12 @@ namespace Amazon.ServiceCatalog
 
 
         /// <summary>
-        /// Disassociates the specified product from the specified portfolio.
+        /// Disassociates the specified product from the specified portfolio. 
+        /// 
+        ///  
+        /// <para>
+        /// A delegated admin is authorized to invoke this command.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociateProductFromPortfolio service method.</param>
         /// <param name="cancellationToken">
@@ -2278,6 +2430,10 @@ namespace Amazon.ServiceCatalog
         /// on your behalf so that your shares can be in sync with any changes in your AWS Organizations
         /// structure.
         /// </para>
+        ///  
+        /// <para>
+        /// Note that a delegated administrator is not authorized to invoke <code>EnableAWSOrganizationsAccess</code>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the EnableAWSOrganizationsAccess service method.</param>
         /// 
@@ -2307,6 +2463,10 @@ namespace Amazon.ServiceCatalog
         /// By calling this API Service Catalog will make a call to organizations:EnableAWSServiceAccess
         /// on your behalf so that your shares can be in sync with any changes in your AWS Organizations
         /// structure.
+        /// </para>
+        ///  
+        /// <para>
+        /// Note that a delegated administrator is not authorized to invoke <code>EnableAWSOrganizationsAccess</code>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the EnableAWSOrganizationsAccess service method.</param>
@@ -2431,7 +2591,7 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Get the Access Status for AWS Organization portfolio share feature. This API can only
-        /// be called by the master account in the organization.
+        /// be called by the master account in the organization or by a delegated admin.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAWSOrganizationsAccessStatus service method.</param>
         /// 
@@ -2449,7 +2609,7 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Get the Access Status for AWS Organization portfolio share feature. This API can only
-        /// be called by the master account in the organization.
+        /// be called by the master account in the organization or by a delegated admin.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAWSOrganizationsAccessStatus service method.</param>
         /// <param name="cancellationToken">
@@ -2637,7 +2797,12 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Lists the organization nodes that have access to the specified portfolio. This API
-        /// can only be called by the master account in the organization.
+        /// can only be called by the master account in the organization or by a delegated admin.
+        /// 
+        ///  
+        /// <para>
+        /// If a delegated admin is de-registered, they can no longer perform this operation.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListOrganizationPortfolioAccess service method.</param>
         /// 
@@ -2658,7 +2823,12 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Lists the organization nodes that have access to the specified portfolio. This API
-        /// can only be called by the master account in the organization.
+        /// can only be called by the master account in the organization or by a delegated admin.
+        /// 
+        ///  
+        /// <para>
+        /// If a delegated admin is de-registered, they can no longer perform this operation.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListOrganizationPortfolioAccess service method.</param>
         /// <param name="cancellationToken">
@@ -2685,6 +2855,12 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Lists the account IDs that have access to the specified portfolio.
+        /// 
+        ///  
+        /// <para>
+        /// A delegated admin can list the accounts that have access to the shared portfolio.
+        /// Note that if a delegated admin is de-registered, they can no longer perform this operation.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListPortfolioAccess service method.</param>
         /// 
@@ -2702,6 +2878,12 @@ namespace Amazon.ServiceCatalog
 
         /// <summary>
         /// Lists the account IDs that have access to the specified portfolio.
+        /// 
+        ///  
+        /// <para>
+        /// A delegated admin can list the accounts that have access to the shared portfolio.
+        /// Note that if a delegated admin is de-registered, they can no longer perform this operation.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListPortfolioAccess service method.</param>
         /// <param name="cancellationToken">

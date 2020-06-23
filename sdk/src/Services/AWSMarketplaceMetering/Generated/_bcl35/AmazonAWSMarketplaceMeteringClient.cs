@@ -46,6 +46,12 @@ namespace Amazon.AWSMarketplaceMetering
     /// </para>
     ///  
     /// <para>
+    /// For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/iam-user-policy-for-aws-marketplace-actions.html">AWS
+    /// Marketing metering and entitlement API permissions</a> in the <i>AWS Marketplace Seller
+    /// Guide.</i> 
+    /// </para>
+    ///  
+    /// <para>
     ///  <b>Submitting Metering Records</b> 
     /// </para>
     ///  <ul> <li> 
@@ -537,7 +543,7 @@ namespace Amazon.AWSMarketplaceMetering
         /// </exception>
         /// <exception cref="Amazon.AWSMarketplaceMetering.Model.PlatformNotSupportedException">
         /// AWS Marketplace does not support metering usage from the underlying platform. Currently,
-        /// only Amazon ECS is supported.
+        /// Amazon ECS, Amazon EKS, and AWS Fargate are supported.
         /// </exception>
         /// <exception cref="Amazon.AWSMarketplaceMetering.Model.ThrottlingException">
         /// The calls to the API are throttled.
