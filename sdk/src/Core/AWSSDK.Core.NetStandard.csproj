@@ -37,6 +37,19 @@
     <DebugType></DebugType>
     <DefineConstants>TRACE;AWS_ASYNC_API;RELEASE;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD20</DefineConstants>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|AnyCPU' ">
+    <DebugType></DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Test</OutputPath>
+    <DefineConstants></DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile></DocumentationFile>
+    <AssemblyName>AWSSDK.Core.NetStandard</AssemblyName>
+    <NoStdLib>true</NoStdLib>
+    <IntermediateOutputPath>obj\AWSSDK.Core.NetStandard\Test</IntermediateOutputPath>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+    <NoWarn></NoWarn>
+  </PropertyGroup>
   <Choose>
     <When Condition=" '$(AWSKeyFile)' == '' ">
       <PropertyGroup>
