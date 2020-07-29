@@ -546,6 +546,15 @@
       "input":{"shape":"CreateLocalGatewayRouteTableVpcAssociationRequest"},
       "output":{"shape":"CreateLocalGatewayRouteTableVpcAssociationResult"}
     },
+    "CreateManagedPrefixList":{
+      "name":"CreateManagedPrefixList",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"CreateManagedPrefixListRequest"},
+      "output":{"shape":"CreateManagedPrefixListResult"}
+    },
     "CreateNatGateway":{
       "name":"CreateNatGateway",
       "http":{
@@ -970,6 +979,15 @@
       },
       "input":{"shape":"DeleteLocalGatewayRouteTableVpcAssociationRequest"},
       "output":{"shape":"DeleteLocalGatewayRouteTableVpcAssociationResult"}
+    },
+    "DeleteManagedPrefixList":{
+      "name":"DeleteManagedPrefixList",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DeleteManagedPrefixListRequest"},
+      "output":{"shape":"DeleteManagedPrefixListResult"}
     },
     "DeleteNatGateway":{
       "name":"DeleteNatGateway",
@@ -1799,6 +1817,15 @@
       },
       "input":{"shape":"DescribeLocalGatewaysRequest"},
       "output":{"shape":"DescribeLocalGatewaysResult"}
+    },
+    "DescribeManagedPrefixLists":{
+      "name":"DescribeManagedPrefixLists",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DescribeManagedPrefixListsRequest"},
+      "output":{"shape":"DescribeManagedPrefixListsResult"}
     },
     "DescribeMovingAddresses":{
       "name":"DescribeMovingAddresses",
@@ -2665,6 +2692,24 @@
       "input":{"shape":"GetLaunchTemplateDataRequest"},
       "output":{"shape":"GetLaunchTemplateDataResult"}
     },
+    "GetManagedPrefixListAssociations":{
+      "name":"GetManagedPrefixListAssociations",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetManagedPrefixListAssociationsRequest"},
+      "output":{"shape":"GetManagedPrefixListAssociationsResult"}
+    },
+    "GetManagedPrefixListEntries":{
+      "name":"GetManagedPrefixListEntries",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetManagedPrefixListEntriesRequest"},
+      "output":{"shape":"GetManagedPrefixListEntriesResult"}
+    },
     "GetPasswordData":{
       "name":"GetPasswordData",
       "http":{
@@ -2930,6 +2975,15 @@
       },
       "input":{"shape":"ModifyLaunchTemplateRequest"},
       "output":{"shape":"ModifyLaunchTemplateResult"}
+    },
+    "ModifyManagedPrefixList":{
+      "name":"ModifyManagedPrefixList",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ModifyManagedPrefixListRequest"},
+      "output":{"shape":"ModifyManagedPrefixListResult"}
     },
     "ModifyNetworkInterfaceAttribute":{
       "name":"ModifyNetworkInterfaceAttribute",
@@ -3403,6 +3457,15 @@
       "input":{"shape":"RestoreAddressToClassicRequest"},
       "output":{"shape":"RestoreAddressToClassicResult"}
     },
+    "RestoreManagedPrefixListVersion":{
+      "name":"RestoreManagedPrefixListVersion",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"RestoreManagedPrefixListVersionRequest"},
+      "output":{"shape":"RestoreManagedPrefixListVersionResult"}
+    },
     "RevokeClientVpnIngress":{
       "name":"RevokeClientVpnIngress",
       "http":{
@@ -3772,6 +3835,20 @@
         "fulfilled"
       ]
     },
+    "AddPrefixListEntries":{
+      "type":"list",
+      "member":{"shape":"AddPrefixListEntry"},
+      "max":1000,
+      "min":0
+    },
+    "AddPrefixListEntry":{
+      "type":"structure",
+      "required":["Cidr"],
+      "members":{
+        "Cidr":{"shape":"String"},
+        "Description":{"shape":"String"}
+      }
+    },
     "Address":{
       "type":"structure",
       "members":{
@@ -3864,7 +3941,7 @@
       "type":"structure",
       "members":{
         "Domain":{"shape":"DomainType"},
-        "Address":{"shape":"String"},
+        "Address":{"shape":"PublicIpAddress"},
         "PublicIpv4Pool":{"shape":"String"},
         "NetworkBorderGroup":{"shape":"String"},
         "CustomerOwnedIpv4Pool":{"shape":"String"},
@@ -4755,6 +4832,18 @@
         "NetworkBorderGroup":{
           "shape":"String",
           "locationName":"networkBorderGroup"
+        },
+        "ZoneType":{
+          "shape":"String",
+          "locationName":"zoneType"
+        },
+        "ParentZoneName":{
+          "shape":"String",
+          "locationName":"parentZoneName"
+        },
+        "ParentZoneId":{
+          "shape":"String",
+          "locationName":"parentZoneId"
         }
       }
     },
@@ -6013,6 +6102,10 @@
         "Tags":{
           "shape":"TagList",
           "locationName":"tagSet"
+        },
+        "PoolArn":{
+          "shape":"ResourceArn",
+          "locationName":"poolArn"
         }
       }
     },
@@ -6114,6 +6207,13 @@
       }
     },
     "ConnectionNotificationId":{"type":"string"},
+    "ConnectionNotificationIdsList":{
+      "type":"list",
+      "member":{
+        "shape":"ConnectionNotificationId",
+        "locationName":"item"
+      }
+    },
     "ConnectionNotificationSet":{
       "type":"list",
       "member":{
@@ -6194,7 +6294,7 @@
       ],
       "members":{
         "DryRun":{"shape":"Boolean"},
-        "SourceFpgaImageId":{"shape":"FpgaImageId"},
+        "SourceFpgaImageId":{"shape":"String"},
         "Description":{"shape":"String"},
         "Name":{"shape":"String"},
         "SourceRegion":{"shape":"String"},
@@ -6456,6 +6556,10 @@
         },
         "CertificateArn":{"shape":"String"},
         "Type":{"shape":"GatewayType"},
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
+        },
         "DeviceName":{"shape":"String"},
         "DryRun":{
           "shape":"Boolean",
@@ -6512,6 +6616,10 @@
           "shape":"NewDhcpConfigurationList",
           "locationName":"dhcpConfiguration"
         },
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
+        },
         "DryRun":{
           "shape":"Boolean",
           "locationName":"dryRun"
@@ -6533,7 +6641,11 @@
       "members":{
         "ClientToken":{"shape":"String"},
         "DryRun":{"shape":"Boolean"},
-        "VpcId":{"shape":"VpcId"}
+        "VpcId":{"shape":"VpcId"},
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
+        }
       }
     },
     "CreateEgressOnlyInternetGatewayResult":{
@@ -6805,6 +6917,10 @@
     "CreateInternetGatewayRequest":{
       "type":"structure",
       "members":{
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
+        },
         "DryRun":{
           "shape":"Boolean",
           "locationName":"dryRun"
@@ -6940,6 +7056,41 @@
         }
       }
     },
+    "CreateManagedPrefixListRequest":{
+      "type":"structure",
+      "required":[
+        "PrefixListName",
+        "MaxEntries",
+        "AddressFamily"
+      ],
+      "members":{
+        "DryRun":{"shape":"Boolean"},
+        "PrefixListName":{"shape":"String"},
+        "Entries":{
+          "shape":"AddPrefixListEntries",
+          "locationName":"Entry"
+        },
+        "MaxEntries":{"shape":"Integer"},
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
+        },
+        "AddressFamily":{"shape":"String"},
+        "ClientToken":{
+          "shape":"String",
+          "idempotencyToken":true
+        }
+      }
+    },
+    "CreateManagedPrefixListResult":{
+      "type":"structure",
+      "members":{
+        "PrefixList":{
+          "shape":"ManagedPrefixList",
+          "locationName":"prefixList"
+        }
+      }
+    },
     "CreateNatGatewayRequest":{
       "type":"structure",
       "required":[
@@ -7036,6 +7187,10 @@
         "VpcId":{
           "shape":"VpcId",
           "locationName":"vpcId"
+        },
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
         }
       }
     },
@@ -7111,6 +7266,10 @@
         "SubnetId":{
           "shape":"SubnetId",
           "locationName":"subnetId"
+        },
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
         }
       }
     },
@@ -7202,6 +7361,7 @@
           "shape":"String",
           "locationName":"destinationIpv6CidrBlock"
         },
+        "DestinationPrefixListId":{"shape":"PrefixListResourceId"},
         "DryRun":{
           "shape":"Boolean",
           "locationName":"dryRun"
@@ -7258,6 +7418,10 @@
         "VpcId":{
           "shape":"VpcId",
           "locationName":"vpcId"
+        },
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
         }
       }
     },
@@ -7283,6 +7447,10 @@
         },
         "GroupName":{"shape":"String"},
         "VpcId":{"shape":"VpcId"},
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
+        },
         "DryRun":{
           "shape":"Boolean",
           "locationName":"dryRun"
@@ -7295,6 +7463,10 @@
         "GroupId":{
           "shape":"String",
           "locationName":"groupId"
+        },
+        "Tags":{
+          "shape":"TagList",
+          "locationName":"tagSet"
         }
       }
     },
@@ -7371,6 +7543,10 @@
         "VpcId"
       ],
       "members":{
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
+        },
         "AvailabilityZone":{"shape":"String"},
         "AvailabilityZoneId":{"shape":"String"},
         "CidrBlock":{"shape":"String"},
@@ -7872,7 +8048,11 @@
           "shape":"VpcId",
           "locationName":"vpcId"
         },
-        "PeerRegion":{"shape":"String"}
+        "PeerRegion":{"shape":"String"},
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
+        }
       }
     },
     "CreateVpcPeeringConnectionResult":{
@@ -7903,7 +8083,11 @@
           "shape":"Tenancy",
           "locationName":"instanceTenancy"
         },
-        "Ipv6CidrBlockNetworkBorderGroup":{"shape":"String"}
+        "Ipv6CidrBlockNetworkBorderGroup":{"shape":"String"},
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
+        }
       }
     },
     "CreateVpcResult":{
@@ -7933,6 +8117,10 @@
         "Options":{
           "shape":"VpnConnectionOptionsSpecification",
           "locationName":"options"
+        },
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
         }
       }
     },
@@ -7962,6 +8150,10 @@
       "members":{
         "AvailabilityZone":{"shape":"String"},
         "Type":{"shape":"GatewayType"},
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
+        },
         "AmazonSideAsn":{"shape":"Long"},
         "DryRun":{
           "shape":"Boolean",
@@ -8460,6 +8652,23 @@
         }
       }
     },
+    "DeleteManagedPrefixListRequest":{
+      "type":"structure",
+      "required":["PrefixListId"],
+      "members":{
+        "DryRun":{"shape":"Boolean"},
+        "PrefixListId":{"shape":"PrefixListResourceId"}
+      }
+    },
+    "DeleteManagedPrefixListResult":{
+      "type":"structure",
+      "members":{
+        "PrefixList":{
+          "shape":"ManagedPrefixList",
+          "locationName":"prefixList"
+        }
+      }
+    },
     "DeleteNatGatewayRequest":{
       "type":"structure",
       "required":["NatGatewayId"],
@@ -8629,6 +8838,7 @@
           "shape":"String",
           "locationName":"destinationIpv6CidrBlock"
         },
+        "DestinationPrefixListId":{"shape":"PrefixListResourceId"},
         "DryRun":{
           "shape":"Boolean",
           "locationName":"dryRun"
@@ -8904,7 +9114,7 @@
       "members":{
         "DryRun":{"shape":"Boolean"},
         "ConnectionNotificationIds":{
-          "shape":"ValueStringList",
+          "shape":"ConnectionNotificationIdsList",
           "locationName":"ConnectionNotificationId"
         }
       }
@@ -10884,6 +11094,35 @@
         "NextToken":{
           "shape":"String",
           "locationName":"nextToken"
+        }
+      }
+    },
+    "DescribeManagedPrefixListsRequest":{
+      "type":"structure",
+      "members":{
+        "DryRun":{"shape":"Boolean"},
+        "Filters":{
+          "shape":"FilterList",
+          "locationName":"Filter"
+        },
+        "MaxResults":{"shape":"PrefixListMaxResults"},
+        "NextToken":{"shape":"NextToken"},
+        "PrefixListIds":{
+          "shape":"ValueStringList",
+          "locationName":"PrefixListId"
+        }
+      }
+    },
+    "DescribeManagedPrefixListsResult":{
+      "type":"structure",
+      "members":{
+        "NextToken":{
+          "shape":"NextToken",
+          "locationName":"nextToken"
+        },
+        "PrefixLists":{
+          "shape":"ManagedPrefixListSet",
+          "locationName":"prefixListSet"
         }
       }
     },
@@ -15320,6 +15559,58 @@
         }
       }
     },
+    "GetManagedPrefixListAssociationsMaxResults":{
+      "type":"integer",
+      "max":255,
+      "min":5
+    },
+    "GetManagedPrefixListAssociationsRequest":{
+      "type":"structure",
+      "required":["PrefixListId"],
+      "members":{
+        "DryRun":{"shape":"Boolean"},
+        "PrefixListId":{"shape":"PrefixListResourceId"},
+        "MaxResults":{"shape":"GetManagedPrefixListAssociationsMaxResults"},
+        "NextToken":{"shape":"NextToken"}
+      }
+    },
+    "GetManagedPrefixListAssociationsResult":{
+      "type":"structure",
+      "members":{
+        "PrefixListAssociations":{
+          "shape":"PrefixListAssociationSet",
+          "locationName":"prefixListAssociationSet"
+        },
+        "NextToken":{
+          "shape":"String",
+          "locationName":"nextToken"
+        }
+      }
+    },
+    "GetManagedPrefixListEntriesRequest":{
+      "type":"structure",
+      "required":["PrefixListId"],
+      "members":{
+        "DryRun":{"shape":"Boolean"},
+        "PrefixListId":{"shape":"PrefixListResourceId"},
+        "TargetVersion":{"shape":"Long"},
+        "MaxResults":{"shape":"PrefixListMaxResults"},
+        "NextToken":{"shape":"NextToken"}
+      }
+    },
+    "GetManagedPrefixListEntriesResult":{
+      "type":"structure",
+      "members":{
+        "Entries":{
+          "shape":"PrefixListEntrySet",
+          "locationName":"entrySet"
+        },
+        "NextToken":{
+          "shape":"NextToken",
+          "locationName":"nextToken"
+        }
+      }
+    },
     "GetPasswordDataRequest":{
       "type":"structure",
       "required":["InstanceId"],
@@ -17313,7 +17604,7 @@
     "InstanceIdSet":{
       "type":"list",
       "member":{
-        "shape":"String",
+        "shape":"InstanceId",
         "locationName":"item"
       }
     },
@@ -17974,6 +18265,15 @@
         "r6g.8xlarge",
         "r6g.12xlarge",
         "r6g.16xlarge",
+        "r6gd.metal",
+        "r6gd.medium",
+        "r6gd.large",
+        "r6gd.xlarge",
+        "r6gd.2xlarge",
+        "r6gd.4xlarge",
+        "r6gd.8xlarge",
+        "r6gd.12xlarge",
+        "r6gd.16xlarge",
         "x1.16xlarge",
         "x1.32xlarge",
         "x1e.xlarge",
@@ -18056,6 +18356,15 @@
         "c6g.8xlarge",
         "c6g.12xlarge",
         "c6g.16xlarge",
+        "c6gd.metal",
+        "c6gd.medium",
+        "c6gd.large",
+        "c6gd.xlarge",
+        "c6gd.2xlarge",
+        "c6gd.4xlarge",
+        "c6gd.8xlarge",
+        "c6gd.12xlarge",
+        "c6gd.16xlarge",
         "cc1.4xlarge",
         "cc2.8xlarge",
         "g2.2xlarge",
@@ -18186,7 +18495,16 @@
         "m6g.4xlarge",
         "m6g.8xlarge",
         "m6g.12xlarge",
-        "m6g.16xlarge"
+        "m6g.16xlarge",
+        "m6gd.metal",
+        "m6gd.medium",
+        "m6gd.large",
+        "m6gd.xlarge",
+        "m6gd.2xlarge",
+        "m6gd.4xlarge",
+        "m6gd.8xlarge",
+        "m6gd.12xlarge",
+        "m6gd.16xlarge"
       ]
     },
     "InstanceTypeHypervisor":{
@@ -19928,6 +20246,58 @@
       ]
     },
     "Long":{"type":"long"},
+    "ManagedPrefixList":{
+      "type":"structure",
+      "members":{
+        "PrefixListId":{
+          "shape":"PrefixListResourceId",
+          "locationName":"prefixListId"
+        },
+        "AddressFamily":{
+          "shape":"String",
+          "locationName":"addressFamily"
+        },
+        "State":{
+          "shape":"PrefixListState",
+          "locationName":"state"
+        },
+        "StateMessage":{
+          "shape":"String",
+          "locationName":"stateMessage"
+        },
+        "PrefixListArn":{
+          "shape":"ResourceArn",
+          "locationName":"prefixListArn"
+        },
+        "PrefixListName":{
+          "shape":"String",
+          "locationName":"prefixListName"
+        },
+        "MaxEntries":{
+          "shape":"Integer",
+          "locationName":"maxEntries"
+        },
+        "Version":{
+          "shape":"Long",
+          "locationName":"version"
+        },
+        "Tags":{
+          "shape":"TagList",
+          "locationName":"tagSet"
+        },
+        "OwnerId":{
+          "shape":"String",
+          "locationName":"ownerId"
+        }
+      }
+    },
+    "ManagedPrefixListSet":{
+      "type":"list",
+      "member":{
+        "shape":"ManagedPrefixList",
+        "locationName":"item"
+      }
+    },
     "MarketType":{
       "type":"string",
       "enum":["spot"]
@@ -20431,6 +20801,33 @@
         "LaunchTemplate":{
           "shape":"LaunchTemplate",
           "locationName":"launchTemplate"
+        }
+      }
+    },
+    "ModifyManagedPrefixListRequest":{
+      "type":"structure",
+      "required":["PrefixListId"],
+      "members":{
+        "DryRun":{"shape":"Boolean"},
+        "PrefixListId":{"shape":"PrefixListResourceId"},
+        "CurrentVersion":{"shape":"Long"},
+        "PrefixListName":{"shape":"String"},
+        "AddEntries":{
+          "shape":"AddPrefixListEntries",
+          "locationName":"AddEntry"
+        },
+        "RemoveEntries":{
+          "shape":"RemovePrefixListEntries",
+          "locationName":"RemoveEntry"
+        }
+      }
+    },
+    "ModifyManagedPrefixListResult":{
+      "type":"structure",
+      "members":{
+        "PrefixList":{
+          "shape":"ManagedPrefixList",
+          "locationName":"prefixList"
         }
       }
     },
@@ -22195,6 +22592,46 @@
         }
       }
     },
+    "PrefixListAssociation":{
+      "type":"structure",
+      "members":{
+        "ResourceId":{
+          "shape":"String",
+          "locationName":"resourceId"
+        },
+        "ResourceOwner":{
+          "shape":"String",
+          "locationName":"resourceOwner"
+        }
+      }
+    },
+    "PrefixListAssociationSet":{
+      "type":"list",
+      "member":{
+        "shape":"PrefixListAssociation",
+        "locationName":"item"
+      }
+    },
+    "PrefixListEntry":{
+      "type":"structure",
+      "members":{
+        "Cidr":{
+          "shape":"String",
+          "locationName":"cidr"
+        },
+        "Description":{
+          "shape":"String",
+          "locationName":"description"
+        }
+      }
+    },
+    "PrefixListEntrySet":{
+      "type":"list",
+      "member":{
+        "shape":"PrefixListEntry",
+        "locationName":"item"
+      }
+    },
     "PrefixListId":{
       "type":"structure",
       "members":{
@@ -22222,6 +22659,11 @@
         "locationName":"item"
       }
     },
+    "PrefixListMaxResults":{
+      "type":"integer",
+      "max":1000,
+      "min":1
+    },
     "PrefixListResourceId":{"type":"string"},
     "PrefixListResourceIdStringList":{
       "type":"list",
@@ -22236,6 +22678,23 @@
         "shape":"PrefixList",
         "locationName":"item"
       }
+    },
+    "PrefixListState":{
+      "type":"string",
+      "enum":[
+        "create-in-progress",
+        "create-complete",
+        "create-failed",
+        "modify-in-progress",
+        "modify-complete",
+        "modify-failed",
+        "restore-in-progress",
+        "restore-complete",
+        "restore-failed",
+        "delete-in-progress",
+        "delete-complete",
+        "delete-failed"
+      ]
     },
     "PriceSchedule":{
       "type":"structure",
@@ -22512,6 +22971,7 @@
         }
       }
     },
+    "PublicIpAddress":{"type":"string"},
     "PublicIpStringList":{
       "type":"list",
       "member":{
@@ -22642,7 +23102,11 @@
         "CurrencyCode":{"shape":"CurrencyCodeValues"},
         "HostIdSet":{"shape":"RequestHostIdSet"},
         "LimitPrice":{"shape":"String"},
-        "OfferingId":{"shape":"OfferingId"}
+        "OfferingId":{"shape":"OfferingId"},
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
+        }
       }
     },
     "PurchaseHostReservationResult":{
@@ -23084,6 +23548,19 @@
         }
       }
     },
+    "RemovePrefixListEntries":{
+      "type":"list",
+      "member":{"shape":"RemovePrefixListEntry"},
+      "max":1000,
+      "min":0
+    },
+    "RemovePrefixListEntry":{
+      "type":"structure",
+      "required":["Cidr"],
+      "members":{
+        "Cidr":{"shape":"String"}
+      }
+    },
     "ReplaceIamInstanceProfileAssociationRequest":{
       "type":"structure",
       "required":[
@@ -23198,6 +23675,7 @@
           "shape":"String",
           "locationName":"destinationIpv6CidrBlock"
         },
+        "DestinationPrefixListId":{"shape":"PrefixListResourceId"},
         "DryRun":{
           "shape":"Boolean",
           "locationName":"dryRun"
@@ -23492,6 +23970,10 @@
         "ValidUntil":{
           "shape":"DateTime",
           "locationName":"validUntil"
+        },
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
         },
         "InstanceInterruptionBehavior":{"shape":"InstanceInterruptionBehavior"}
       }
@@ -24153,6 +24635,11 @@
         }
       }
     },
+    "ResourceArn":{
+      "type":"string",
+      "max":1283,
+      "min":1
+    },
     "ResourceIdList":{
       "type":"list",
       "member":{"shape":"TaggableResourceId"}
@@ -24376,6 +24863,29 @@
         "Status":{
           "shape":"Status",
           "locationName":"status"
+        }
+      }
+    },
+    "RestoreManagedPrefixListVersionRequest":{
+      "type":"structure",
+      "required":[
+        "PrefixListId",
+        "PreviousVersion",
+        "CurrentVersion"
+      ],
+      "members":{
+        "DryRun":{"shape":"Boolean"},
+        "PrefixListId":{"shape":"PrefixListResourceId"},
+        "PreviousVersion":{"shape":"Long"},
+        "CurrentVersion":{"shape":"Long"}
+      }
+    },
+    "RestoreManagedPrefixListVersionResult":{
+      "type":"structure",
+      "members":{
+        "PrefixList":{
+          "shape":"ManagedPrefixList",
+          "locationName":"prefixList"
         }
       }
     },

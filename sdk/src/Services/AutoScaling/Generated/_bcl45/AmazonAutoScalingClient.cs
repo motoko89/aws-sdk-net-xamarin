@@ -860,7 +860,7 @@ namespace Amazon.AutoScaling
 
 
         /// <summary>
-        /// Creates an Auto Scaling group with the specified name and attributes.
+        /// Creates an Auto Scaling group with the specified name and attributes. 
         /// 
         ///  
         /// <para>
@@ -876,6 +876,14 @@ namespace Amazon.AutoScaling
         /// Set Up a Scaled and Load-Balanced Application</a> in the <i>Amazon EC2 Auto Scaling
         /// User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">Auto
         /// Scaling Groups</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Every Auto Scaling group has three size parameters (<code>DesiredCapacity</code>,
+        /// <code>MaxSize</code>, and <code>MinSize</code>). Usually, you set these sizes based
+        /// on a specific number of instances. However, if you configure a mixed instances policy
+        /// that defines weights for the instance types, you must specify these sizes with the
+        /// same units that you use for weighting instances.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateAutoScalingGroup service method.</param>
@@ -909,7 +917,7 @@ namespace Amazon.AutoScaling
 
 
         /// <summary>
-        /// Creates an Auto Scaling group with the specified name and attributes.
+        /// Creates an Auto Scaling group with the specified name and attributes. 
         /// 
         ///  
         /// <para>
@@ -925,6 +933,14 @@ namespace Amazon.AutoScaling
         /// Set Up a Scaled and Load-Balanced Application</a> in the <i>Amazon EC2 Auto Scaling
         /// User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">Auto
         /// Scaling Groups</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Every Auto Scaling group has three size parameters (<code>DesiredCapacity</code>,
+        /// <code>MaxSize</code>, and <code>MinSize</code>). Usually, you set these sizes based
+        /// on a specific number of instances. However, if you configure a mixed instances policy
+        /// that defines weights for the instance types, you must specify these sizes with the
+        /// same units that you use for weighting instances.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateAutoScalingGroup service method.</param>
@@ -2195,7 +2211,11 @@ namespace Amazon.AutoScaling
         /// <para>
         ///  <code>Cancelled</code> - The operation is cancelled. 
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing
+        /// Auto Scaling Instances Based on an Instance Refresh</a>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceRefreshes service method.</param>
         /// 
@@ -2253,7 +2273,11 @@ namespace Amazon.AutoScaling
         /// <para>
         ///  <code>Cancelled</code> - The operation is cancelled. 
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing
+        /// Auto Scaling Instances Based on an Instance Refresh</a>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceRefreshes service method.</param>
         /// <param name="cancellationToken">
@@ -3901,7 +3925,8 @@ namespace Amazon.AutoScaling
 
 
         /// <summary>
-        /// Executes the specified policy.
+        /// Executes the specified policy. This can be useful for testing the design of your scaling
+        /// policy.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ExecutePolicy service method.</param>
         /// 
@@ -3925,7 +3950,8 @@ namespace Amazon.AutoScaling
 
 
         /// <summary>
-        /// Executes the specified policy.
+        /// Executes the specified policy. This can be useful for testing the design of your scaling
+        /// policy.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ExecutePolicy service method.</param>
         /// <param name="cancellationToken">
@@ -4872,8 +4898,8 @@ namespace Amazon.AutoScaling
         /// If successful, this call creates a new instance refresh request with a unique ID that
         /// you can use to track its progress. To query its status, call the <a>DescribeInstanceRefreshes</a>
         /// API. To describe the instance refreshes that have already run, call the <a>DescribeInstanceRefreshes</a>
-        /// API. To cancel an active instance refresh operation, use the <a>CancelInstanceRefresh</a>
-        /// API.
+        /// API. To cancel an instance refresh operation in progress, use the <a>CancelInstanceRefresh</a>
+        /// API. 
         /// </para>
         ///  
         /// <para>
@@ -4918,8 +4944,8 @@ namespace Amazon.AutoScaling
         /// If successful, this call creates a new instance refresh request with a unique ID that
         /// you can use to track its progress. To query its status, call the <a>DescribeInstanceRefreshes</a>
         /// API. To describe the instance refreshes that have already run, call the <a>DescribeInstanceRefreshes</a>
-        /// API. To cancel an active instance refresh operation, use the <a>CancelInstanceRefresh</a>
-        /// API.
+        /// API. To cancel an instance refresh operation in progress, use the <a>CancelInstanceRefresh</a>
+        /// API. 
         /// </para>
         ///  
         /// <para>

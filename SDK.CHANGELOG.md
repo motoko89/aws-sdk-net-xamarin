@@ -1,3 +1,339 @@
+### 3.3.786.0 (2020-07-28 20:33 UTC)
+* AutoScaling (3.3.104.0)
+	* Now you can enable Instance Metadata Service Version 2 (IMDSv2) or disable the instance metadata endpoint with Launch Configurations.
+* EC2 (3.3.193.0)
+	* Introduces support for tag-on-create capability for the following APIs: CreateVpnConnection, CreateVpnGateway, and CreateCustomerGateway. A user can now add tags while creating these resources. For further detail, please see AWS Tagging Strategies.
+* Imagebuilder (3.3.107.0)
+	* This release updates distribution configurations to allow periods in AMI names.
+* IVS (3.3.101.0)
+	* Added a new error code, PendingVerification, to differentiate between errors caused by insufficient IAM permissions and errors caused by account verification.
+* MediaLive (3.3.114.0)
+	* AWS Elemental MediaLive now supports several new features: EBU-TT-D captions in Microsoft Smooth outputs; interlaced video in HEVC outputs; video noise reduction (using temporal filtering) in HEVC outputs.
+* RDS (3.3.127.0)
+	* Adds reporting of manual cluster snapshot quota to DescribeAccountAttributes API
+* SecurityHub (3.3.115.0)
+	* Added UpdateSecurityHubConfiguration API. Security Hub now allows customers to choose whether to automatically enable new controls that are added to an existing standard that the customer enabled. For example, if you enabled Foundational Security Best Practices for an account, you can automatically enable new controls as we add them to that standard. By default, new controls are enabled.
+* Core 3.3.107.29
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.785.0 (2020-07-27 18:13 UTC)
+* DatabaseMigrationService (3.3.106.0)
+	* Basic endpoint settings for relational databases, Preflight validation API.
+* DataSync (3.3.109.0)
+	* Today AWS DataSync releases support for self-managed object storage Locations and the new TransferMode Option.
+* EC2 (3.3.192.0)
+	* m6gd, c6gd, r6gd instances are powered by AWS Graviton2 processors and support local NVMe instance storage
+* FraudDetector (3.3.104.0)
+	* Moved the eventTypeName attribute for PutExternalModel API to inputConfiguration. Model ID's no longer allow hyphens.
+* Glue (3.3.124.0)
+	* Add ability to manually resume workflows in AWS Glue providing customers further control over the orchestration of ETL workloads.
+* SimpleSystemsManagement (3.3.126.17)
+	* Assorted doc ticket-fix updates for Systems Manager.
+
+### 3.3.784.0 (2020-07-24 18:14 UTC)
+* CloudWatch (3.3.108.0)
+	* AWS CloudWatch ListMetrics now supports an optional parameter (RecentlyActive) to filter results by only metrics that have received new datapoints in the past 3 hours. This enables more targeted metric data retrieval through the Get APIs
+* FraudDetector (3.3.103.0)
+	* GetPrediction has been replaced with GetEventPrediction. PutExternalModel has been simplified to accept a role ARN.
+* FSx (3.3.108.1)
+	* Documentation update for FSx for Lustre
+* Kendra (3.3.104.0)
+	* Amazon Kendra now supports sorting query results based on document attributes. Amazon Kendra also introduced an option to enclose table and column names with double quotes for database data sources. 
+* Macie2 (3.3.103.0)
+	* This release of the Amazon Macie API introduces additional criteria for sorting and filtering query results for account quotas and usage statistics.
+* MediaConnect (3.3.109.0)
+	* You can now disable an entitlement to stop streaming content to the subscriber's flow temporarily. When you are ready to allow content to start streaming to the subscriber's flow again, you can enable the entitlement.
+* MediaPackage (3.3.105.0)
+	* The release adds daterange as a new ad marker option. This option enables MediaPackage to insert EXT-X-DATERANGE tags in HLS and CMAF manifests. The EXT-X-DATERANGE tag is used to signal ad and program transition events.
+* MQ (3.3.106.0)
+	* Amazon MQ now supports LDAP (Lightweight Directory Access Protocol), providing authentication and authorization of Amazon MQ users via a customer designated LDAP server.
+* SageMaker (3.3.119.0)
+	* Sagemaker Ground Truth:Added support for OIDC (OpenID Connect) to authenticate workers via their own identity provider instead of through Amazon Cognito. This release adds new APIs (CreateWorkforce, DeleteWorkforce, and ListWorkforces) to SageMaker Ground Truth service.  Sagemaker Neo: Added support for detailed target device description by using TargetPlatform fields - OS, architecture, and accelerator. Added support for additional compilation parameters by using JSON field CompilerOptions.  Sagemaker Search: SageMaker Search supports transform job details in trial components.
+
+### 3.3.783.0 (2020-07-23 18:16 UTC)
+* ConfigService (3.3.109.0)
+	* Adding service linked configuration aggregation support along with new enums for config resource coverage
+* DirectConnect (3.3.105.23)
+	* Documentation updates for AWS Direct Connect
+* FSx (3.3.108.0)
+	* Adds support for AutoImport, a new FSx for Lustre feature that allows customers to configure their FSx file system to automatically update its contents when new objects are added to S3 or existing objects are overwritten.
+* Glue (3.3.123.0)
+	* Added new ConnectionProperties: "KAFKA_SSL_ENABLED" (to toggle SSL connections) and "KAFKA_CUSTOM_CERT" (import CA certificate file)
+* Lightsail (3.3.106.0)
+	* This release adds support for Amazon Lightsail content delivery network (CDN) distributions and SSL/TLS certificates.
+* WorkSpaces (3.3.109.0)
+	* Added UpdateWorkspaceImagePermission API to share Amazon WorkSpaces images across AWS accounts.
+* Core 3.3.107.28
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.782.0 (2020-07-22 18:15 UTC)
+* MediaLive (3.3.113.0)
+	* The AWS Elemental MediaLive APIs and SDKs now support the ability to get thumbnails for MediaLive devices that are attached or not attached to a channel. Previously, this thumbnail feature was available only on the console.
+* QuickSight (3.3.107.0)
+	* New API operations - GetSessionEmbedUrl, CreateNamespace, DescribeNamespace, ListNamespaces, DeleteNamespace, DescribeAccountSettings, UpdateAccountSettings, CreateAccountCustomization, DescribeAccountCustomization, UpdateAccountCustomization, DeleteAccountCustomization. Modified API operations to support custom permissions restrictions - RegisterUser, UpdateUser, UpdateDashboardPermissions
+* Core 3.3.107.27
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.781.1 (2020-07-21 22:26 UTC)
+* S3 (3.3.111.28)
+	* Make IAmazonS3Encryption publicly accessible
+
+### 3.3.781.0 (2020-07-21 18:10 UTC)
+* CodeGuruProfiler (3.3.103.0)
+	* Amazon CodeGuru Profiler now supports resource tagging APIs, tags-on-create and tag-based access control features. You can now tag profiling groups for better resource and access control management.
+
+### 3.3.780.0 (2020-07-20 18:17 UTC)
+* CloudFront (3.3.104.0)
+	* CloudFront adds support for cache policies and origin request policies. With these new policies, you can now more granularly control the query string, header, and cookie values that are included in the cache key and in requests that CloudFront sends to your origin.
+* CodeBuild (3.3.113.0)
+	* AWS CodeBuild adds support for Session Manager and Windows 2019 Environment type
+* EC2 (3.3.191.0)
+	* Added support for tag-on-create for CreateVpcPeeringConnection and CreateRouteTable. You can now specify tags when creating any of these resources. For more information about tagging, see AWS Tagging Strategies. Add poolArn to the response of DescribeCoipPools.
+* FMS (3.3.106.0)
+	* Added managed policies for auditing security group rules, including the use of managed application and protocol lists.
+* FraudDetector (3.3.102.0)
+	* Introduced flexible model training dataset requirements for Online Fraud Insights so that customers can choose any two inputs to train a model instead of being required to use 'email' and 'IP address' at minimum. Added support for resource ARNs, resource tags, resource-based IAM policies and identity-based policies that limit access to a resource based on tags. Added support for customer-managed customer master key (CMK) data encryption. Added new Event Type, Entity Type, and Label APIs. An event type defines the structure for an event sent to Amazon Fraud Detector, including the variables sent as part of the event, the entity performing the event, and the labels that classify the event. Introduced the GetEventPrediction API.
+* GroundStation (3.3.102.0)
+	* Adds optional MTU property to DataflowEndpoint and adds contact source and destination details to DescribeContact response.
+* RDS (3.3.126.0)
+	* Add a new SupportsParallelQuery output field to DescribeDBEngineVersions. This field shows whether the engine version supports parallelquery. Add a new SupportsGlobalDatabases output field to DescribeDBEngineVersions and DescribeOrderableDBInstanceOptions. This field shows whether global database is supported by engine version or the combination of engine version and instance class.
+
+### 3.3.779.0 (2020-07-17 18:14 UTC)
+* ApplicationAutoScaling (3.3.105.45)
+	* Documentation updates for Application Auto Scaling
+* AppSync (3.3.105.7)
+	* Documentation update to Cachingconfig.cachingKeys to include $context.source as a valid value.
+* Connect (3.3.104.0)
+	* This release adds a set of Amazon Connect APIs to programmatically control call recording with start, stop, pause and resume functions.
+* EC2 (3.3.190.0)
+	* Documentation updates for EC2
+* ElasticBeanstalk (3.3.103.0)
+	* Add waiters for `EnvironmentExists`, `EnvironmentUpdated`, and `EnvironmentTerminated`. Add paginators for `DescribeEnvironmentManagedActionHistory` and `ListPlatformVersions`.
+* Macie2 (3.3.102.0)
+	* This release of the Amazon Macie API includes miscellaneous updates and improvements to the documentation.
+* Core 3.3.107.26
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.778.0 (2020-07-15 18:16 UTC)
+* IVS (3.3.100.0)
+	* Introducing Amazon Interactive Video Service - a managed live streaming solution that is quick and easy to set up, and ideal for creating interactive video experiences.
+* Core 3.3.107.25
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.777.1 (2020-07-09 21:59 UTC)
+* Core 3.3.107.24
+	* Consistently apply ConfigureAwait(false)
+	* All services packages updated to require new Core
+
+### 3.3.777.0 (2020-07-09 18:16 UTC)
+* AlexaForBusiness (3.3.110.0)
+	* Added support for registering an AVS device directly to a room using RegisterAVSDevice with a room ARN
+* Amplify (3.3.105.8)
+	* Documentation update to the introduction text to specify that this is the Amplify Console API.
+* AppMesh (3.3.111.0)
+	* AppMesh now supports Ingress which allows resources outside a mesh to communicate to resources that are inside the mesh. See https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html
+* CloudHSMV2 (3.3.101.81)
+	* Documentation updates for cloudhsmv2
+* CloudWatchEvents (3.3.103.0)
+	* Amazon CloudWatch Events/EventBridge adds support for API Gateway as a target.
+* Comprehend (3.3.109.0)
+	* AWS Comprehend now supports Real-time Analysis with Custom Entity Recognition. 
+* EBS (3.3.101.0)
+	* This release introduces the following set of actions for the EBS direct APIs: 1. StartSnapshot, which creates a new Amazon EBS snapshot. 2. PutSnapshotBlock, which writes a block of data to a snapshot. 3. CompleteSnapshot, which seals and completes a snapshot after blocks of data have been written to it.
+* EventBridge (3.3.102.0)
+	* Amazon EventBridge adds support for API Gateway as a target.
+* SageMaker (3.3.118.0)
+	* This release adds the DeleteHumanTaskUi API to Amazon Augmented AI
+* SecretsManager (3.3.103.0)
+	* Adds support for filters on the ListSecrets API to allow filtering results by name, tag key, tag value, or description.  Adds support for the BlockPublicPolicy option on the PutResourcePolicy API to block resource policies which grant a wide range of IAM principals access to secrets. Adds support for the ValidateResourcePolicy API to validate resource policies for syntax and prevent lockout error scenarios and wide access to secrets. 
+* SimpleNotificationService (3.3.102.0)
+	* This release adds support for SMS origination number as an attribute in the MessageAttributes parameter for the SNS Publish API.
+* WAFV2 (3.3.102.0)
+	* Added the option to use IP addresses from an HTTP header that you specify, instead of using the web request origin. Available for IP set matching, geo matching, and rate-based rule count aggregation.
+* Core 3.3.107.23
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.776.0 (2020-07-08 18:11 UTC)
+* CostExplorer (3.3.110.0)
+	* Customers can now see Instance Name alongside each rightsizing recommendation.
+* EC2 (3.3.189.0)
+	* EC2 Spot now enables customers to tag their Spot Instances Requests on creation.
+* ForecastService (3.3.102.0)
+	* With this release, Amazon Forecast now supports the ability to add a tag to any resource via the launch of three new APIs: TagResouce, UntagResource and ListTagsForResource. A tag is a simple label consisting of a customer-defined key and an optional value allowing for easier resource management.
+* Organizations (3.3.108.0)
+	* We have launched a self-service option to make it easier for customers to manage the use of their content by AI services. Certain AI services (Amazon CodeGuru Profiler, Amazon Comprehend, Amazon Lex, Amazon Polly, Amazon Rekognition, Amazon Textract, Amazon Transcribe, and Amazon Translate) may use content to improve the service. Customers have been able to opt out of this use by contacting AWS Support, and now they can opt out on a self-service basis by setting an Organizations policy for all or an individual AI service listed above. Please refer to the technical documentation in the online AWS Organizations User Guide for more details.
+* Core 3.3.107.22
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.775.0 (2020-07-07 18:32 UTC)
+* CloudFront (3.3.103.0)
+	* Amazon CloudFront adds support for a new security policy, TLSv1.2_2019.
+* EC2 (3.3.188.0)
+	* DescribeAvailabilityZones now returns additional data about Availability Zones and Local Zones.
+* ElasticFileSystem (3.3.106.0)
+	* This release adds support for automatic backups of Amazon EFS file systems to further simplify backup management. 
+* Glue (3.3.122.0)
+	* AWS Glue Data Catalog supports cross account sharing of tables through AWS Lake Formation
+* LakeFormation (3.3.101.0)
+	*  AWS Lake Formation supports sharing tables with other AWS accounts and organizations
+* StorageGateway (3.3.116.0)
+	* Adding support for file-system driven directory refresh, Case Sensitivity toggle for SMB File Shares, and S3 Prefixes and custom File Share names
+* Core 3.3.107.21
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.774.0 (2020-07-06 18:11 UTC)
+* IoTSiteWise (3.3.102.0)
+	* This release supports optional start date and end date parameters for the GetAssetPropertyValueHistory API.
+* QuickSight (3.3.106.0)
+	* Add Theme APIs and update Dashboard APIs to support theme overrides.
+* RDS (3.3.125.0)
+	* Adds support for Amazon RDS on AWS Outposts.
+
+### 3.3.773.1 (2020-07-02 18:09 UTC)
+* Connect (3.3.103.101)
+	* Documentation updates for Amazon Connect.
+* ElastiCache (3.3.111.15)
+	* Documentation updates for elasticache
+* Core 3.3.107.20
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.773.0 (2020-07-01 18:18 UTC)
+* AppSync (3.3.105.0)
+	* AWS AppSync supports new 12xlarge instance for server-side API caching
+* Chime (3.3.114.0)
+	* This release supports third party emergency call routing configuration for Amazon Chime Voice Connectors.
+* CodeBuild (3.3.112.0)
+	* Support build status config in project source
+* Imagebuilder (3.3.106.0)
+	* EC2 Image Builder adds support for encrypted AMI distribution.
+* RDS (3.3.124.0)
+	* This release adds the exceptions KMSKeyNotAccessibleFault and InvalidDBClusterStateFault to the Amazon RDS ModifyDBInstance API.
+* SecurityHub (3.3.114.0)
+	* This release adds additional details for findings. There are now finding details for auto scaling groups, EC2 volumes, and EC2 VPCs. You can identify detected vulnerabilities and provide related network paths.
+
+### 3.3.772.0 (2020-06-30 18:14 UTC)
+* CodeGuruReviewer (3.3.104.0)
+	* Release GitHub Enterprise Server source provider integration
+* ComprehendMedical (3.3.105.0)
+	* This release adds the relationships between MedicalCondition and Anatomy in DetectEntitiesV2 API.
+* EC2 (3.3.187.0)
+	* Added support for tag-on-create for CreateVpc, CreateEgressOnlyInternetGateway, CreateSecurityGroup, CreateSubnet, CreateNetworkInterface, CreateNetworkAcl, CreateDhcpOptions and CreateInternetGateway. You can now specify tags when creating any of these resources. For more information about tagging, see AWS Tagging Strategies.
+* ECR (3.3.106.0)
+	* Add a new parameter (ImageDigest) and a new exception (ImageDigestDoesNotMatchException) to PutImage API to support pushing image by digest.
+* RDS (3.3.123.7)
+	* Documentation updates for rds
+
+### 3.3.771.0 (2020-06-29 18:15 UTC)
+* AutoScaling (3.3.103.9)
+	* Documentation updates for Amazon EC2 Auto Scaling.
+* CodeGuruProfiler (3.3.102.0)
+	* Amazon CodeGuru Profiler is now generally available. The Profiler helps developers to optimize their software, troubleshoot issues in production, and identify their most expensive lines of code. As part of general availability, we are launching: Profiling of AWS Lambda functions, Anomaly detection in CPU profiles, Color My Code on flame graphs, Expanding presence to 10 AWS regions.
+* CodeStarconnections (3.3.102.0)
+	* Updated and new APIs in support of hosts for connections to installed provider types. New integration with the GitHub Enterprise Server provider type.
+* EC2 (3.3.186.0)
+	* Virtual Private Cloud (VPC) customers can now create and manage their own Prefix Lists to simplify VPC configurations.
+* Core 3.3.107.19
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.770.0 (2020-06-26 18:21 UTC)
+* CloudFormation (3.3.106.0)
+	* ListStackInstances and DescribeStackInstance now return a new `StackInstanceStatus` object that contains `DetailedStatus` values: a disambiguation of the more generic `Status` value. ListStackInstances output can now be filtered on `DetailedStatus` using the new `Filters` parameter.
+* CognitoIdentityProvider (3.3.111.0)
+	* Don't require Authorization for InitiateAuth and RespondToAuthChallenge.
+* DatabaseMigrationService (3.3.105.34)
+	* This release contains miscellaneous API documentation updates for AWS DMS in response to several customer reported issues.
+* QuickSight (3.3.105.0)
+	* Added support for cross-region DataSource credentials copying.
+* SageMaker (3.3.117.0)
+	* The new 'ModelClientConfig' parameter being added for CreateTransformJob and DescribeTransformJob api actions enable customers to configure model invocation related parameters such as timeout and retry.
+* Core 3.3.107.18
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.769.0 (2020-06-25 18:44 UTC)
+* EC2 (3.3.185.0)
+	* Added support for tag-on-create for Host Reservations in Dedicated Hosts. You can now specify tags when you create a Host Reservation for a Dedicated Host. For more information about tagging, see AWS Tagging Strategies.
+* Glue (3.3.121.0)
+	* This release adds new APIs to support column level statistics in AWS Glue Data Catalog
+* Core 3.3.107.17
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.768.1 (2020-06-24 21:08 UTC)
+* Core 3.3.107.16
+	* Fixed async issue hanging the UI thread
+	* All services packages updated to require new Core
+
+### 3.3.768.0 (2020-06-24 18:13 UTC)
+* Amplify (3.3.105.0)
+	* This release of AWS Amplify Console introduces support for automatically creating custom subdomains for branches based on user-defined glob patterns, as well as automatically cleaning up Amplify branches when their corresponding git branches are deleted.
+* AutoScaling (3.3.103.5)
+	* Documentation updates for Amazon EC2 Auto Scaling.
+* Backup (3.3.103.0)
+	* Customers can now manage and monitor their backups in a policied manner across their AWS accounts, via an integration between AWS Backup and AWS Organizations
+* CodeCommit (3.3.107.0)
+	* This release introduces support for reactions to CodeCommit comments. Users will be able to select from a pre-defined list of emojis to express their reaction to any comments.
+* ElasticMapReduce (3.3.108.0)
+	* Amazon EMR customers can now set allocation strategies for On-Demand and Spot instances in their EMR clusters with instance fleets. These allocation strategies use real-time capacity insights to provision clusters faster and make the most efficient use of available spare capacity to allocate Spot instances to reduce interruptions. 
+* FSx (3.3.107.0)
+	* This release adds the capability to take highly-durable, incremental backups of your FSx for Lustre persistent file systems. This capability makes it easy to further protect your file system data and to meet business and regulatory compliance requirements.
+* Honeycode (3.3.100.0)
+	* Introducing Amazon Honeycode - a fully managed service that allows you to quickly build mobile and web apps for teams without programming.
+* IdentityManagement (3.3.106.10)
+	* Documentation updates for iam
+* Organizations (3.3.107.0)
+	* This release adds support for a new backup policy type for AWS Organizations.
+* Core 3.3.107.15
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.3.767.0 (2020-06-23 18:44 UTC)
+* MediaTailor (3.3.105.0)
+	* AWS Elemental MediaTailor SDK now allows configuration of Bumper.
+* Organizations (3.3.106.0)
+	* Added a new error message to support the requirement for a Business License on AWS accounts in China to create an organization.
+* Core 3.3.107.14
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
 ### 3.3.766.0 (2020-06-22 18:15 UTC)
 * EC2 (3.3.184.0)
 	* This release adds Tag On Create feature support for the ImportImage, ImportSnapshot, ExportImage and CreateInstanceExportTask APIs.

@@ -36,9 +36,11 @@ namespace Amazon.CodeBuild.Model
     {
         private ProjectArtifacts _artifactsOverride;
         private string _buildspecOverride;
+        private BuildStatusConfig _buildStatusConfigOverride;
         private ProjectCache _cacheOverride;
         private string _certificateOverride;
         private ComputeType _computeTypeOverride;
+        private bool? _debugSessionEnabled;
         private string _encryptionKeyOverride;
         private EnvironmentType _environmentTypeOverride;
         private List<EnvironmentVariable> _environmentVariablesOverride = new List<EnvironmentVariable>();
@@ -114,6 +116,26 @@ namespace Amazon.CodeBuild.Model
         }
 
         /// <summary>
+        /// Gets and sets the property BuildStatusConfigOverride. 
+        /// <para>
+        /// Contains information that defines how the build project reports the build status to
+        /// the source provider. This option is only used when the source provider is <code>GITHUB</code>,
+        /// <code>GITHUB_ENTERPRISE</code>, or <code>BITBUCKET</code>.
+        /// </para>
+        /// </summary>
+        public BuildStatusConfig BuildStatusConfigOverride
+        {
+            get { return this._buildStatusConfigOverride; }
+            set { this._buildStatusConfigOverride = value; }
+        }
+
+        // Check to see if BuildStatusConfigOverride property is set
+        internal bool IsSetBuildStatusConfigOverride()
+        {
+            return this._buildStatusConfigOverride != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property CacheOverride. 
         /// <para>
         /// A ProjectCache object specified for this build that overrides the one defined in the
@@ -168,6 +190,26 @@ namespace Amazon.CodeBuild.Model
         internal bool IsSetComputeTypeOverride()
         {
             return this._computeTypeOverride != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property DebugSessionEnabled. 
+        /// <para>
+        /// Specifies if session debugging is enabled for this build. For more information, see
+        /// <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html">Viewing
+        /// a running build in Session Manager</a>.
+        /// </para>
+        /// </summary>
+        public bool DebugSessionEnabled
+        {
+            get { return this._debugSessionEnabled.GetValueOrDefault(); }
+            set { this._debugSessionEnabled = value; }
+        }
+
+        // Check to see if DebugSessionEnabled property is set
+        internal bool IsSetDebugSessionEnabled()
+        {
+            return this._debugSessionEnabled.HasValue; 
         }
 
         /// <summary>
@@ -280,7 +322,7 @@ namespace Amazon.CodeBuild.Model
         /// Gets and sets the property IdempotencyToken. 
         /// <para>
         /// A unique, case sensitive identifier you provide to ensure the idempotency of the StartBuild
-        /// request. The token is included in the StartBuild request and is valid for 12 hours.
+        /// request. The token is included in the StartBuild request and is valid for 5 minutes.
         /// If you repeat the StartBuild request with the same token, but change a parameter,
         /// AWS CodeBuild returns a parameter mismatch error. 
         /// </para>

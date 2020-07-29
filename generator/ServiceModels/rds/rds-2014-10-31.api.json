@@ -1573,7 +1573,9 @@
         {"shape":"AuthorizationNotFoundFault"},
         {"shape":"CertificateNotFoundFault"},
         {"shape":"DomainNotFoundFault"},
-        {"shape":"BackupPolicyNotFoundFault"}
+        {"shape":"BackupPolicyNotFoundFault"},
+        {"shape":"KMSKeyNotAccessibleFault"},
+        {"shape":"InvalidDBClusterStateFault"}
       ]
     },
     "ModifyDBParameterGroup":{
@@ -3591,7 +3593,9 @@
         "SupportsReadReplica":{"shape":"Boolean"},
         "SupportedEngineModes":{"shape":"EngineModeList"},
         "SupportedFeatureNames":{"shape":"FeatureNameList"},
-        "Status":{"shape":"String"}
+        "Status":{"shape":"String"},
+        "SupportsParallelQuery":{"shape":"Boolean"},
+        "SupportsGlobalDatabases":{"shape":"Boolean"}
       }
     },
     "DBEngineVersionList":{
@@ -6410,7 +6414,9 @@
         "AvailableProcessorFeatures":{"shape":"AvailableProcessorFeatureList"},
         "SupportedEngineModes":{"shape":"EngineModeList"},
         "SupportsStorageAutoscaling":{"shape":"BooleanOptional"},
-        "SupportsKerberosAuthentication":{"shape":"BooleanOptional"}
+        "SupportsKerberosAuthentication":{"shape":"BooleanOptional"},
+        "OutpostCapable":{"shape":"Boolean"},
+        "SupportsGlobalDatabases":{"shape":"Boolean"}
       },
       "wrapper":true
     },
@@ -6426,6 +6432,12 @@
       "members":{
         "OrderableDBInstanceOptions":{"shape":"OrderableDBInstanceOptionsList"},
         "Marker":{"shape":"String"}
+      }
+    },
+    "Outpost":{
+      "type":"structure",
+      "members":{
+        "Arn":{"shape":"String"}
       }
     },
     "Parameter":{
@@ -7459,6 +7471,7 @@
       "members":{
         "SubnetIdentifier":{"shape":"String"},
         "SubnetAvailabilityZone":{"shape":"AvailabilityZone"},
+        "SubnetOutpost":{"shape":"Outpost"},
         "SubnetStatus":{"shape":"String"}
       }
     },

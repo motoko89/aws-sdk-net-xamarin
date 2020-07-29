@@ -82,7 +82,7 @@ namespace Amazon.EC2.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>message</code> - The Availability Zone or Local Zone message.
+        ///  <code>message</code> - The Zone message.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -91,8 +91,12 @@ namespace Amazon.EC2.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>region-name</code> - The name of the Region for the Availability Zone or Local
-        /// Zone (for example, <code>us-east-1</code>).
+        /// The ID of the zone that handles some of the Local Zone control plane operations, such
+        /// as API calls.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>region-name</code> - The name of the Region for the Zone (for example, <code>us-east-1</code>).
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -106,8 +110,16 @@ namespace Amazon.EC2.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
+        ///  <code>zone-type</code> - The type of zone, for example, <code>local-zone</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         ///  <code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>)
         /// or the Local Zone (for example, use <code>us-west-2-lax-1a</code>).
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>zone-type</code> - The type of zone, for example, <code>local-zone</code>.
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -126,7 +138,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property ZoneIds. 
         /// <para>
-        /// The IDs of the Availability Zones and Local Zones.
+        /// The IDs of the Zones.
         /// </para>
         /// </summary>
         public List<string> ZoneIds
@@ -144,7 +156,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property ZoneNames. 
         /// <para>
-        /// The names of the Availability Zones and Local Zones.
+        /// The names of the Zones.
         /// </para>
         /// </summary>
         public List<string> ZoneNames

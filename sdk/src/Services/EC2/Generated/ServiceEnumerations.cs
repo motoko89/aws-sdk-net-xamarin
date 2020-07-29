@@ -5165,6 +5165,42 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType C6g8xlarge = new InstanceType("c6g.8xlarge");
         /// <summary>
+        /// Constant C6gd12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6gd12xlarge = new InstanceType("c6gd.12xlarge");
+        /// <summary>
+        /// Constant C6gd16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6gd16xlarge = new InstanceType("c6gd.16xlarge");
+        /// <summary>
+        /// Constant C6gd2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6gd2xlarge = new InstanceType("c6gd.2xlarge");
+        /// <summary>
+        /// Constant C6gd4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6gd4xlarge = new InstanceType("c6gd.4xlarge");
+        /// <summary>
+        /// Constant C6gd8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6gd8xlarge = new InstanceType("c6gd.8xlarge");
+        /// <summary>
+        /// Constant C6gdLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6gdLarge = new InstanceType("c6gd.large");
+        /// <summary>
+        /// Constant C6gdMedium for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6gdMedium = new InstanceType("c6gd.medium");
+        /// <summary>
+        /// Constant C6gdMetal for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6gdMetal = new InstanceType("c6gd.metal");
+        /// <summary>
+        /// Constant C6gdXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6gdXlarge = new InstanceType("c6gd.xlarge");
+        /// <summary>
         /// Constant C6gLarge for InstanceType
         /// </summary>
         public static readonly InstanceType C6gLarge = new InstanceType("c6g.large");
@@ -5681,6 +5717,42 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType M6g8xlarge = new InstanceType("m6g.8xlarge");
         /// <summary>
+        /// Constant M6gd12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6gd12xlarge = new InstanceType("m6gd.12xlarge");
+        /// <summary>
+        /// Constant M6gd16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6gd16xlarge = new InstanceType("m6gd.16xlarge");
+        /// <summary>
+        /// Constant M6gd2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6gd2xlarge = new InstanceType("m6gd.2xlarge");
+        /// <summary>
+        /// Constant M6gd4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6gd4xlarge = new InstanceType("m6gd.4xlarge");
+        /// <summary>
+        /// Constant M6gd8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6gd8xlarge = new InstanceType("m6gd.8xlarge");
+        /// <summary>
+        /// Constant M6gdLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6gdLarge = new InstanceType("m6gd.large");
+        /// <summary>
+        /// Constant M6gdMedium for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6gdMedium = new InstanceType("m6gd.medium");
+        /// <summary>
+        /// Constant M6gdMetal for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6gdMetal = new InstanceType("m6gd.metal");
+        /// <summary>
+        /// Constant M6gdXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6gdXlarge = new InstanceType("m6gd.xlarge");
+        /// <summary>
         /// Constant M6gLarge for InstanceType
         /// </summary>
         public static readonly InstanceType M6gLarge = new InstanceType("m6g.large");
@@ -5988,6 +6060,42 @@ namespace Amazon.EC2
         /// Constant R6g8xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType R6g8xlarge = new InstanceType("r6g.8xlarge");
+        /// <summary>
+        /// Constant R6gd12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6gd12xlarge = new InstanceType("r6gd.12xlarge");
+        /// <summary>
+        /// Constant R6gd16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6gd16xlarge = new InstanceType("r6gd.16xlarge");
+        /// <summary>
+        /// Constant R6gd2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6gd2xlarge = new InstanceType("r6gd.2xlarge");
+        /// <summary>
+        /// Constant R6gd4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6gd4xlarge = new InstanceType("r6gd.4xlarge");
+        /// <summary>
+        /// Constant R6gd8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6gd8xlarge = new InstanceType("r6gd.8xlarge");
+        /// <summary>
+        /// Constant R6gdLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6gdLarge = new InstanceType("r6gd.large");
+        /// <summary>
+        /// Constant R6gdMedium for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6gdMedium = new InstanceType("r6gd.medium");
+        /// <summary>
+        /// Constant R6gdMetal for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6gdMetal = new InstanceType("r6gd.metal");
+        /// <summary>
+        /// Constant R6gdXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6gdXlarge = new InstanceType("r6gd.xlarge");
         /// <summary>
         /// Constant R6gLarge for InstanceType
         /// </summary>
@@ -8072,6 +8180,96 @@ namespace Amazon.EC2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator PlatformValues(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type PrefixListState.
+    /// </summary>
+    public class PrefixListState : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CreateComplete for PrefixListState
+        /// </summary>
+        public static readonly PrefixListState CreateComplete = new PrefixListState("create-complete");
+        /// <summary>
+        /// Constant CreateFailed for PrefixListState
+        /// </summary>
+        public static readonly PrefixListState CreateFailed = new PrefixListState("create-failed");
+        /// <summary>
+        /// Constant CreateInProgress for PrefixListState
+        /// </summary>
+        public static readonly PrefixListState CreateInProgress = new PrefixListState("create-in-progress");
+        /// <summary>
+        /// Constant DeleteComplete for PrefixListState
+        /// </summary>
+        public static readonly PrefixListState DeleteComplete = new PrefixListState("delete-complete");
+        /// <summary>
+        /// Constant DeleteFailed for PrefixListState
+        /// </summary>
+        public static readonly PrefixListState DeleteFailed = new PrefixListState("delete-failed");
+        /// <summary>
+        /// Constant DeleteInProgress for PrefixListState
+        /// </summary>
+        public static readonly PrefixListState DeleteInProgress = new PrefixListState("delete-in-progress");
+        /// <summary>
+        /// Constant ModifyComplete for PrefixListState
+        /// </summary>
+        public static readonly PrefixListState ModifyComplete = new PrefixListState("modify-complete");
+        /// <summary>
+        /// Constant ModifyFailed for PrefixListState
+        /// </summary>
+        public static readonly PrefixListState ModifyFailed = new PrefixListState("modify-failed");
+        /// <summary>
+        /// Constant ModifyInProgress for PrefixListState
+        /// </summary>
+        public static readonly PrefixListState ModifyInProgress = new PrefixListState("modify-in-progress");
+        /// <summary>
+        /// Constant RestoreComplete for PrefixListState
+        /// </summary>
+        public static readonly PrefixListState RestoreComplete = new PrefixListState("restore-complete");
+        /// <summary>
+        /// Constant RestoreFailed for PrefixListState
+        /// </summary>
+        public static readonly PrefixListState RestoreFailed = new PrefixListState("restore-failed");
+        /// <summary>
+        /// Constant RestoreInProgress for PrefixListState
+        /// </summary>
+        public static readonly PrefixListState RestoreInProgress = new PrefixListState("restore-in-progress");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public PrefixListState(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static PrefixListState FindValue(string value)
+        {
+            return FindValue<PrefixListState>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator PrefixListState(string value)
         {
             return FindValue(value);
         }
