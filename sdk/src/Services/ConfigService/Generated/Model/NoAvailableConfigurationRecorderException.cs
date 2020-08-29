@@ -32,7 +32,7 @@ namespace Amazon.ConfigService.Model
     /// There are no configuration recorders available to provide the role needed to describe
     /// your resources. Create a configuration recorder.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NoAvailableConfigurationRecorderException : AmazonConfigServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NoAvailableConfigurationRecorderException class with serialized data.
         /// </summary>

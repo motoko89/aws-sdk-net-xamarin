@@ -31,7 +31,7 @@ namespace Amazon.ElasticBeanstalk.Model
     /// <summary>
     /// AWS CodeBuild is not available in the specified region.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CodeBuildNotInServiceRegionException : AmazonElasticBeanstalkException
@@ -86,7 +86,7 @@ namespace Amazon.ElasticBeanstalk.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CodeBuildNotInServiceRegionException class with serialized data.
         /// </summary>

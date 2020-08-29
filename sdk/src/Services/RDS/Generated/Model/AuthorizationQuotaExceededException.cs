@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// The DB security group authorization quota has been reached.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AuthorizationQuotaExceededException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AuthorizationQuotaExceededException class with serialized data.
         /// </summary>

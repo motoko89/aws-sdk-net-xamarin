@@ -32,7 +32,7 @@ namespace Amazon.StorageGateway.Model
     /// An exception occurred because an invalid gateway request was issued to the service.
     /// For more information, see the error and message fields.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidGatewayRequestException : AmazonStorageGatewayException
@@ -88,7 +88,7 @@ namespace Amazon.StorageGateway.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidGatewayRequestException class with serialized data.
         /// </summary>

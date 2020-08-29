@@ -32,7 +32,7 @@ namespace Amazon.ElasticFileSystem.Model
     /// Returned if the file system you are trying to create already exists, with the creation
     /// token you provided.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FileSystemAlreadyExistsException : AmazonElasticFileSystemException
@@ -89,7 +89,7 @@ namespace Amazon.ElasticFileSystem.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FileSystemAlreadyExistsException class with serialized data.
         /// </summary>

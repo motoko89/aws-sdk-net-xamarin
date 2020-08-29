@@ -32,7 +32,7 @@ namespace Amazon.AppMesh.Model
     /// The request contains a client token that was used for a previous update resource call
     ///         with different specifications. Try the request again with a new client token.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConflictException : AmazonAppMeshException
@@ -87,7 +87,7 @@ namespace Amazon.AppMesh.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConflictException class with serialized data.
         /// </summary>

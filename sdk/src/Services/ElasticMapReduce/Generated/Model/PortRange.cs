@@ -44,7 +44,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// The smallest port number in a specified range of port numbers.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=0, Max=65535)]
+        [AWSProperty(Min=-1, Max=65535)]
         public int MaxRange
         {
             get { return this._maxRange.GetValueOrDefault(); }
@@ -63,7 +63,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// The smallest port number in a specified range of port numbers.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=0, Max=65535)]
+        [AWSProperty(Required=true, Min=-1, Max=65535)]
         public int MinRange
         {
             get { return this._minRange.GetValueOrDefault(); }

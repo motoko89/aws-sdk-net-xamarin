@@ -31,7 +31,7 @@ namespace Amazon.SimpleNotificationService.Model
     /// <summary>
     /// Can't add more than 50 tags to a topic.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TagLimitExceededException : AmazonSimpleNotificationServiceException
@@ -86,7 +86,7 @@ namespace Amazon.SimpleNotificationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TagLimitExceededException class with serialized data.
         /// </summary>

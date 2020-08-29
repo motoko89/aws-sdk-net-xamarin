@@ -32,7 +32,7 @@ namespace Amazon.WAFRegional.Model
     /// The operation failed because you tried to create, update, or delete an object by using
     /// a change token that has already been used.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFStaleDataException : AmazonWAFRegionalException
@@ -87,7 +87,7 @@ namespace Amazon.WAFRegional.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFStaleDataException class with serialized data.
         /// </summary>

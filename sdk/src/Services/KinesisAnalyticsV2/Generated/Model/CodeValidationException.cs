@@ -32,7 +32,7 @@ namespace Amazon.KinesisAnalyticsV2.Model
     /// The user-provided application code (query) is not valid. This can be a simple syntax
     /// error.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CodeValidationException : AmazonKinesisAnalyticsV2Exception
@@ -87,7 +87,7 @@ namespace Amazon.KinesisAnalyticsV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CodeValidationException class with serialized data.
         /// </summary>

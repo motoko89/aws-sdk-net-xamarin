@@ -31,7 +31,7 @@ namespace Amazon.CloudDirectory.Model
     /// <summary>
     /// Indicates that the provided <code>SchemaDoc</code> value is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidSchemaDocException : AmazonCloudDirectoryException
@@ -86,7 +86,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidSchemaDocException class with serialized data.
         /// </summary>

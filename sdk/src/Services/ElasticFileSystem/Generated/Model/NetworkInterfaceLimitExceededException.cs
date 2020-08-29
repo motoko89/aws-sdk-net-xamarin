@@ -35,7 +35,7 @@ namespace Amazon.ElasticFileSystem.Model
     /// VPC Limits</a> in the <i>Amazon VPC User Guide </i> (see the Network interfaces per
     /// VPC entry in the table).
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NetworkInterfaceLimitExceededException : AmazonElasticFileSystemException
@@ -91,7 +91,7 @@ namespace Amazon.ElasticFileSystem.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NetworkInterfaceLimitExceededException class with serialized data.
         /// </summary>

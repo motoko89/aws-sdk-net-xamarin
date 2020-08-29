@@ -42,7 +42,7 @@ namespace Amazon.SimpleEmail.Model
     /// </para>
     ///  </li> </ul>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidTrackingOptionsException : AmazonSimpleEmailServiceException
@@ -97,7 +97,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidTrackingOptionsException class with serialized data.
         /// </summary>

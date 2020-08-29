@@ -32,7 +32,7 @@ namespace Amazon.QLDBSession.Model
     /// Returned when a transaction cannot be written to the journal due to a failure in the
     /// verification phase of <i>optimistic concurrency control</i> (OCC).
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OccConflictException : AmazonQLDBSessionException
@@ -87,7 +87,7 @@ namespace Amazon.QLDBSession.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OccConflictException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.CodeStarNotifications.Model
     /// <summary>
     /// Some or all of the configuration is incomplete, missing, or not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConfigurationException : AmazonCodeStarNotificationsException
@@ -86,7 +86,7 @@ namespace Amazon.CodeStarNotifications.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConfigurationException class with serialized data.
         /// </summary>

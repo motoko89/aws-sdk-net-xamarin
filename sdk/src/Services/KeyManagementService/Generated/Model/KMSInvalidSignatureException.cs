@@ -33,7 +33,7 @@ namespace Amazon.KeyManagementService.Model
     /// fails when it cannot confirm that signature was produced by signing the specified
     /// message with the specified CMK and signing algorithm.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class KMSInvalidSignatureException : AmazonKeyManagementServiceException
@@ -88,7 +88,7 @@ namespace Amazon.KeyManagementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the KMSInvalidSignatureException class with serialized data.
         /// </summary>

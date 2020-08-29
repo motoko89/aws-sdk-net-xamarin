@@ -31,7 +31,7 @@ namespace Amazon.Backup.Model
     /// <summary>
     /// The request failed due to a temporary failure of the server.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceUnavailableException : AmazonBackupException
@@ -89,7 +89,7 @@ namespace Amazon.Backup.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceUnavailableException class with serialized data.
         /// </summary>

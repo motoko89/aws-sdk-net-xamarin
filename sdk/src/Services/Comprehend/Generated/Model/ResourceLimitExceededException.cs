@@ -32,7 +32,7 @@ namespace Amazon.Comprehend.Model
     /// The maximum number of resources per account has been exceeded. Review the resources,
     /// and then try your request again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceLimitExceededException : AmazonComprehendException
@@ -87,7 +87,7 @@ namespace Amazon.Comprehend.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceLimitExceededException class with serialized data.
         /// </summary>

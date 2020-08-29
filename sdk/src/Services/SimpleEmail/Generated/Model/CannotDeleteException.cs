@@ -31,7 +31,7 @@ namespace Amazon.SimpleEmail.Model
     /// <summary>
     /// Indicates that the delete operation could not be completed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CannotDeleteException : AmazonSimpleEmailServiceException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CannotDeleteException class with serialized data.
         /// </summary>

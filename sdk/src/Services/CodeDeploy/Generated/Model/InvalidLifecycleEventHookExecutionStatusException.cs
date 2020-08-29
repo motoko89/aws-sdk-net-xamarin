@@ -32,7 +32,7 @@ namespace Amazon.CodeDeploy.Model
     /// The result of a Lambda validation function that verifies a lifecycle event is invalid.
     /// It should return <code>Succeeded</code> or <code>Failed</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidLifecycleEventHookExecutionStatusException : AmazonCodeDeployException
@@ -87,7 +87,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidLifecycleEventHookExecutionStatusException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.Kafka.Model
     /// <summary>
     /// Returns information about an error.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerErrorException : AmazonKafkaException
@@ -87,7 +87,7 @@ namespace Amazon.Kafka.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerErrorException class with serialized data.
         /// </summary>

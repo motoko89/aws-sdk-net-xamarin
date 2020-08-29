@@ -32,7 +32,7 @@ namespace Amazon.ConfigService.Model
     /// One or more of the specified parameters are invalid. Verify that your parameters are
     /// valid and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterValueException : AmazonConfigServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterValueException class with serialized data.
         /// </summary>

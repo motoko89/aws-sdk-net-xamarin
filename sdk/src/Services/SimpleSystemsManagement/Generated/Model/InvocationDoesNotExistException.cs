@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The command ID and instance ID you specified did not match any invocations. Verify
     /// the command ID and the instance ID and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvocationDoesNotExistException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvocationDoesNotExistException class with serialized data.
         /// </summary>

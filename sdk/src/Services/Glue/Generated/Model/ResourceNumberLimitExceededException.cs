@@ -31,7 +31,7 @@ namespace Amazon.Glue.Model
     /// <summary>
     /// A resource numerical limit was exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNumberLimitExceededException : AmazonGlueException
@@ -86,7 +86,7 @@ namespace Amazon.Glue.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNumberLimitExceededException class with serialized data.
         /// </summary>

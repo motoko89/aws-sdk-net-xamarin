@@ -32,7 +32,7 @@ namespace Amazon.StepFunctions.Model
     /// You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html">
     /// Limits Topic</a> in the AWS Step Functions Developer Guide.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyTagsException : AmazonStepFunctionsException
@@ -88,7 +88,7 @@ namespace Amazon.StepFunctions.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyTagsException class with serialized data.
         /// </summary>

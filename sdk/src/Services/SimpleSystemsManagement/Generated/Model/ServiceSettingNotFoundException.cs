@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The specified service setting was not found. Either the service name or the setting
     /// has not been provisioned by the AWS service team.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceSettingNotFoundException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceSettingNotFoundException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.DirectoryService.Model
     /// <summary>
     /// The user provided a username that does not exist in your directory.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UserDoesNotExistException : AmazonDirectoryServiceException
@@ -87,7 +87,7 @@ namespace Amazon.DirectoryService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UserDoesNotExistException class with serialized data.
         /// </summary>

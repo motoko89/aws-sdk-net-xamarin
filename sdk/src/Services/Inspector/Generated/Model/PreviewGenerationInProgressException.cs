@@ -32,7 +32,7 @@ namespace Amazon.Inspector.Model
     /// The request is rejected. The specified assessment template is currently generating
     /// an exclusions preview.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PreviewGenerationInProgressException : AmazonInspectorException
@@ -87,7 +87,7 @@ namespace Amazon.Inspector.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PreviewGenerationInProgressException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.EventBridge.Model
     /// <summary>
     /// There is concurrent modification on a rule or target.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentModificationException : AmazonEventBridgeException
@@ -86,7 +86,7 @@ namespace Amazon.EventBridge.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentModificationException class with serialized data.
         /// </summary>

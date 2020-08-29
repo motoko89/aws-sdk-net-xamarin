@@ -31,7 +31,7 @@ namespace Amazon.EKS.Model
     /// <summary>
     /// The service is unavailable. Back off and retry the operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceUnavailableException : AmazonEKSException
@@ -86,7 +86,7 @@ namespace Amazon.EKS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceUnavailableException class with serialized data.
         /// </summary>

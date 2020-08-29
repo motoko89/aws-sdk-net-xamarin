@@ -31,7 +31,7 @@ namespace Amazon.PinpointSMSVoice.Model
     /// <summary>
     /// There are too many instances of the specified resource type.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonPinpointSMSVoiceException
@@ -86,7 +86,7 @@ namespace Amazon.PinpointSMSVoice.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

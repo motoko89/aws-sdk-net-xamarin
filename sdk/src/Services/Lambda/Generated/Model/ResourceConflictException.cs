@@ -31,7 +31,7 @@ namespace Amazon.Lambda.Model
     /// <summary>
     /// The resource already exists, or another operation is in progress.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceConflictException : AmazonLambdaException
@@ -87,7 +87,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceConflictException class with serialized data.
         /// </summary>

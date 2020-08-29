@@ -37,7 +37,7 @@ namespace Amazon.RDS.Model
     /// Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AuthorizationNotFoundException : AmazonRDSException
@@ -92,7 +92,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AuthorizationNotFoundException class with serialized data.
         /// </summary>

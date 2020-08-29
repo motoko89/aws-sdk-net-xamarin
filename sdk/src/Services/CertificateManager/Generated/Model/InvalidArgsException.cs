@@ -31,7 +31,7 @@ namespace Amazon.CertificateManager.Model
     /// <summary>
     /// One or more of of request parameters specified is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidArgsException : AmazonCertificateManagerException
@@ -86,7 +86,7 @@ namespace Amazon.CertificateManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidArgsException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.CloudFormation.Model
     /// <summary>
     /// The specified type does not exist in the CloudFormation registry.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TypeNotFoundException : AmazonCloudFormationException
@@ -86,7 +86,7 @@ namespace Amazon.CloudFormation.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TypeNotFoundException class with serialized data.
         /// </summary>

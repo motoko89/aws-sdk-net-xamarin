@@ -31,7 +31,7 @@ namespace Amazon.DeviceFarm.Model
     /// <summary>
     /// Exception gets thrown when a user is not eligible to perform the specified transaction.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NotEligibleException : AmazonDeviceFarmException
@@ -86,7 +86,7 @@ namespace Amazon.DeviceFarm.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NotEligibleException class with serialized data.
         /// </summary>

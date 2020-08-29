@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The approval rule cannot be modified for the pull request because it was created by
     /// an approval rule template and applied to the pull request automatically.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CannotModifyApprovalRuleFromTemplateException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CannotModifyApprovalRuleFromTemplateException class with serialized data.
         /// </summary>

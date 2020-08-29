@@ -31,7 +31,7 @@ namespace Amazon.CertificateManager.Model
     /// <summary>
     /// A specified tag did not comply with an existing tag policy and was rejected.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TagPolicyException : AmazonCertificateManagerException
@@ -86,7 +86,7 @@ namespace Amazon.CertificateManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TagPolicyException class with serialized data.
         /// </summary>

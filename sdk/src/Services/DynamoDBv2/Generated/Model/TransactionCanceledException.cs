@@ -268,7 +268,7 @@ namespace Amazon.DynamoDBv2.Model
     /// </para>
     ///  </li> </ul> </li> </ul> </li> </ul>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TransactionCanceledException : AmazonDynamoDBException
@@ -324,7 +324,7 @@ namespace Amazon.DynamoDBv2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TransactionCanceledException class with serialized data.
         /// </summary>

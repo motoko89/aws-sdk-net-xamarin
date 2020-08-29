@@ -31,7 +31,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// <summary>
     /// You have exceeded the allowed maximum sync configurations.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceDataSyncCountExceededException : AmazonSimpleSystemsManagementException
@@ -86,7 +86,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceDataSyncCountExceededException class with serialized data.
         /// </summary>

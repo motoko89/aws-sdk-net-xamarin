@@ -32,7 +32,7 @@ namespace Amazon.ConfigService.Model
     /// Failed to add the AWS Config rule because the account already contains the maximum
     /// number of 150 rules. Consider deleting any deactivated rules before you add new rules.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MaxNumberOfConfigRulesExceededException : AmazonConfigServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MaxNumberOfConfigRulesExceededException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.SecurityToken.Model
     /// The web identity token that was passed could not be validated by AWS. Get a new identity
     /// token from the identity provider and then retry the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidIdentityTokenException : AmazonSecurityTokenServiceException
@@ -87,7 +87,7 @@ namespace Amazon.SecurityToken.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidIdentityTokenException class with serialized data.
         /// </summary>

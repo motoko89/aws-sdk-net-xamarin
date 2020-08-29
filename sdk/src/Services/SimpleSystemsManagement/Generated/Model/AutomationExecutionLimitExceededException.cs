@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The number of simultaneously running Automation executions exceeded the allowable
     /// limit.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AutomationExecutionLimitExceededException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AutomationExecutionLimitExceededException class with serialized data.
         /// </summary>

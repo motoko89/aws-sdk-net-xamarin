@@ -33,7 +33,7 @@ namespace Amazon.DataPipeline.Model
     /// signature was generated with the correct credentials, and that you haven't exceeded
     /// any of the service limits for your account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRequestException : AmazonDataPipelineException
@@ -88,7 +88,7 @@ namespace Amazon.DataPipeline.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRequestException class with serialized data.
         /// </summary>

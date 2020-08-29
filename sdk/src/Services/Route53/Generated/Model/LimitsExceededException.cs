@@ -38,7 +38,7 @@ namespace Amazon.Route53.Model
     /// To request a higher limit, <a href="http://aws.amazon.com/route53-request">create
     /// a case</a> with the AWS Support Center.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitsExceededException : AmazonRoute53Exception
@@ -93,7 +93,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitsExceededException class with serialized data.
         /// </summary>

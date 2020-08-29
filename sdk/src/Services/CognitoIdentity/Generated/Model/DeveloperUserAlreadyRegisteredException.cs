@@ -32,7 +32,7 @@ namespace Amazon.CognitoIdentity.Model
     /// The provided developer user identifier is already registered with Cognito under a
     /// different identity ID.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DeveloperUserAlreadyRegisteredException : AmazonCognitoIdentityException
@@ -87,7 +87,7 @@ namespace Amazon.CognitoIdentity.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DeveloperUserAlreadyRegisteredException class with serialized data.
         /// </summary>

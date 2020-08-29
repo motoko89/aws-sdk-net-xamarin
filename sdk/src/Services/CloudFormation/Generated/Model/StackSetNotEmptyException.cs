@@ -32,7 +32,7 @@ namespace Amazon.CloudFormation.Model
     /// You can't yet delete this stack set, because it still contains one or more stack instances.
     /// Delete all stack instances from the stack set before deleting the stack set.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class StackSetNotEmptyException : AmazonCloudFormationException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFormation.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the StackSetNotEmptyException class with serialized data.
         /// </summary>

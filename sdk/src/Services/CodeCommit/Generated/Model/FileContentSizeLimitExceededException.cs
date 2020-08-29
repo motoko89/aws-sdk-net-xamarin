@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// the combined file content change size is 7 MB. Consider making these changes using
     /// a Git client.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FileContentSizeLimitExceededException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FileContentSizeLimitExceededException class with serialized data.
         /// </summary>

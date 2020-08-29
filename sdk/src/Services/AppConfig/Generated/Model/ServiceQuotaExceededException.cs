@@ -32,7 +32,7 @@ namespace Amazon.AppConfig.Model
     /// The number of hosted configuration versions exceeds the limit for the AppConfig configuration
     /// store. Delete one or more versions and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceQuotaExceededException : AmazonAppConfigException
@@ -87,7 +87,7 @@ namespace Amazon.AppConfig.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceQuotaExceededException class with serialized data.
         /// </summary>

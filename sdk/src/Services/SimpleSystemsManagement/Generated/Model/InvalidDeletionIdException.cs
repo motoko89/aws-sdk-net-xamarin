@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The ID specified for the delete operation does not exist or is not valid. Verify the
     /// ID and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDeletionIdException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDeletionIdException class with serialized data.
         /// </summary>

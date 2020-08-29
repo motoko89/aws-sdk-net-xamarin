@@ -31,7 +31,7 @@ namespace Amazon.RAM.Model
     /// <summary>
     /// The Amazon Resource Name (ARN) for an invitation was not found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceShareInvitationArnNotFoundException : AmazonRAMException
@@ -86,7 +86,7 @@ namespace Amazon.RAM.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceShareInvitationArnNotFoundException class with serialized data.
         /// </summary>

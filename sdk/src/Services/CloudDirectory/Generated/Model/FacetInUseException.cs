@@ -32,7 +32,7 @@ namespace Amazon.CloudDirectory.Model
     /// Occurs when deleting a facet that contains an attribute that is a target to an attribute
     /// reference in a different facet.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FacetInUseException : AmazonCloudDirectoryException
@@ -87,7 +87,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FacetInUseException class with serialized data.
         /// </summary>

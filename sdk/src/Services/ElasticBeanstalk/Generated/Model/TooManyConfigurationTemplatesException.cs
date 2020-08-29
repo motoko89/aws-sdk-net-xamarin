@@ -31,7 +31,7 @@ namespace Amazon.ElasticBeanstalk.Model
     /// <summary>
     /// The specified account has reached its limit of configuration templates.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyConfigurationTemplatesException : AmazonElasticBeanstalkException
@@ -86,7 +86,7 @@ namespace Amazon.ElasticBeanstalk.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyConfigurationTemplatesException class with serialized data.
         /// </summary>

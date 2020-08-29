@@ -32,7 +32,7 @@ namespace Amazon.Shield.Model
     /// Exception that indicates the specified <code>AttackId</code> does not exist, or the
     /// requester does not have the appropriate permissions to access the <code>AttackId</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedException : AmazonShieldException
@@ -87,7 +87,7 @@ namespace Amazon.Shield.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedException class with serialized data.
         /// </summary>

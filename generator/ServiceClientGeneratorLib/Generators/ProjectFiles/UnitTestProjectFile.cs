@@ -19,7 +19,7 @@ namespace ServiceClientGenerator.Generators.ProjectFiles
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+    #line 1 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class UnitTestProjectFile : UnitTestProjectFileBase
     {
@@ -36,7 +36,7 @@ namespace ServiceClientGenerator.Generators.ProjectFiles
     <Platform Condition="" '$(Platform)' == '' "">AnyCPU</Platform>
     <ProjectGuid>");
             
-            #line 11 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 11 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Session["ProjectGuid"]));
             
             #line default
@@ -44,14 +44,14 @@ namespace ServiceClientGenerator.Generators.ProjectFiles
             this.Write("</ProjectGuid>\r\n    <OutputType>Library</OutputType>\r\n    <AppDesignerFolder>Prop" +
                     "erties</AppDesignerFolder>\r\n    <RootNamespace>");
             
-            #line 14 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 14 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Session["RootNamespace"]));
             
             #line default
             #line hidden
             this.Write("</RootNamespace>\r\n    <AssemblyName>");
             
-            #line 15 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 15 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Session["AssemblyName"]));
             
             #line default
@@ -74,14 +74,14 @@ namespace ServiceClientGenerator.Generators.ProjectFiles
     <Optimize>false</Optimize>
     <OutputPath>");
             
-            #line 31 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 31 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Session["DebugOutputPath"]));
             
             #line default
             #line hidden
             this.Write("</OutputPath>\r\n    <DefineConstants>");
             
-            #line 32 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 32 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Session["DebugDefineConstants"]));
             
             #line default
@@ -96,14 +96,14 @@ namespace ServiceClientGenerator.Generators.ProjectFiles
     <Optimize>true</Optimize>
     <OutputPath>");
             
-            #line 40 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 40 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Session["ReleaseOutputPath"]));
             
             #line default
             #line hidden
             this.Write("</OutputPath>\r\n    <DefineConstants>");
             
-            #line 41 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 41 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Session["ReleaseDefineConstants"]));
             
             #line default
@@ -120,7 +120,7 @@ namespace ServiceClientGenerator.Generators.ProjectFiles
     <Reference Include=""System.Xml.Linq"" />
 ");
             
-            #line 51 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 51 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
 
 	IList<string> references = this.Session["Reference"] as IList<string>;
 	if (references != null)
@@ -133,14 +133,14 @@ namespace ServiceClientGenerator.Generators.ProjectFiles
             #line hidden
             this.Write("    <Reference Include=\"");
             
-            #line 58 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 58 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(reference));
             
             #line default
             #line hidden
             this.Write("\" />\r\n");
             
-            #line 59 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 59 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
 
 		}
 	}
@@ -160,7 +160,7 @@ namespace ServiceClientGenerator.Generators.ProjectFiles
     <Compile Include=""Custom\*.cs"" />
 ");
             
-            #line 73 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 73 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
  
 	IList<string> compileInclude =  this.Session["CompileInclude"] as IList<string>;
 	if(compileInclude != null)
@@ -173,14 +173,14 @@ namespace ServiceClientGenerator.Generators.ProjectFiles
             #line hidden
             this.Write("    <Compile Include=\"");
             
-            #line 80 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 80 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entry));
             
             #line default
             #line hidden
             this.Write("\" />\r\n");
             
-            #line 81 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 81 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
 
 		}
 	}
@@ -190,7 +190,7 @@ namespace ServiceClientGenerator.Generators.ProjectFiles
             #line hidden
             this.Write("  </ItemGroup>\r\n");
             
-            #line 86 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 86 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
 
 	IList<ProjectFileCreator.ProjectReference> commonReferences = this.Session["CommonReferences"] as IList<ProjectFileCreator.ProjectReference>;
 	if (commonReferences != null)
@@ -201,7 +201,7 @@ namespace ServiceClientGenerator.Generators.ProjectFiles
             #line hidden
             this.Write("  <ItemGroup>\r\n");
             
-            #line 92 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 92 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
 
 		foreach(var reference in commonReferences)
 		{
@@ -211,28 +211,28 @@ namespace ServiceClientGenerator.Generators.ProjectFiles
             #line hidden
             this.Write("    <ProjectReference Include=\"");
             
-            #line 96 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 96 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(reference.IncludePath));
             
             #line default
             #line hidden
             this.Write("\">\r\n      <Project>");
             
-            #line 97 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 97 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(reference.ProjectGuid));
             
             #line default
             #line hidden
             this.Write("</Project>\r\n      <Name>");
             
-            #line 98 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 98 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(reference.Name));
             
             #line default
             #line hidden
             this.Write("</Name>\r\n    </ProjectReference>\r\n");
             
-            #line 100 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 100 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
 
 		}
 
@@ -241,7 +241,7 @@ namespace ServiceClientGenerator.Generators.ProjectFiles
             #line hidden
             this.Write("  </ItemGroup>\r\n");
             
-            #line 104 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 104 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
 
 	}
 	
@@ -254,7 +254,7 @@ namespace ServiceClientGenerator.Generators.ProjectFiles
             #line hidden
             this.Write("  <ItemGroup>\r\n");
             
-            #line 112 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 112 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
 
 		foreach(var reference in serviceReferences)
 		{
@@ -264,28 +264,28 @@ namespace ServiceClientGenerator.Generators.ProjectFiles
             #line hidden
             this.Write("    <ProjectReference Include=\"");
             
-            #line 116 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 116 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(reference.IncludePath));
             
             #line default
             #line hidden
             this.Write("\">\r\n      <Project>");
             
-            #line 117 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 117 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(reference.ProjectGuid));
             
             #line default
             #line hidden
             this.Write("</Project>\r\n      <Name>");
             
-            #line 118 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 118 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(reference.Name));
             
             #line default
             #line hidden
             this.Write("</Name>\r\n    </ProjectReference>\r\n");
             
-            #line 120 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 120 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
 
 		}
 
@@ -294,7 +294,7 @@ namespace ServiceClientGenerator.Generators.ProjectFiles
             #line hidden
             this.Write("  </ItemGroup>\r\n");
             
-            #line 124 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
+            #line 124 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\ProjectFiles\UnitTestProjectFile.tt"
 
 	}
 

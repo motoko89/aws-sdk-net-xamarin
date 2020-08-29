@@ -31,7 +31,7 @@ namespace Amazon.CodeCommit.Model
     /// <summary>
     /// The content for the approval rule is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidApprovalRuleContentException : AmazonCodeCommitException
@@ -86,7 +86,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidApprovalRuleContentException class with serialized data.
         /// </summary>

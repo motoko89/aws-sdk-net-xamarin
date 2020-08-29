@@ -31,7 +31,7 @@ namespace Amazon.ElasticLoadBalancing.Model
     /// <summary>
     /// A policy with the specified name already exists for this load balancer.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DuplicatePolicyNameException : AmazonElasticLoadBalancingException
@@ -86,7 +86,7 @@ namespace Amazon.ElasticLoadBalancing.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DuplicatePolicyNameException class with serialized data.
         /// </summary>

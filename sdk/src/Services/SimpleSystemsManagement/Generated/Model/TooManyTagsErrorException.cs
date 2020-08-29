@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The <code>Targets</code> parameter includes too many tags. Remove one or more tags
     /// and try the command again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyTagsErrorException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyTagsErrorException class with serialized data.
         /// </summary>

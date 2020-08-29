@@ -31,7 +31,7 @@ namespace Amazon.Rekognition.Model
     /// <summary>
     /// The provided image format is not supported.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidImageFormatException : AmazonRekognitionException
@@ -86,7 +86,7 @@ namespace Amazon.Rekognition.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidImageFormatException class with serialized data.
         /// </summary>

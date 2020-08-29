@@ -31,7 +31,7 @@ namespace Amazon.ElasticFileSystem.Model
     /// <summary>
     /// Returned if there is no mount target with the specified ID found in the caller's account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MountTargetNotFoundException : AmazonElasticFileSystemException
@@ -87,7 +87,7 @@ namespace Amazon.ElasticFileSystem.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MountTargetNotFoundException class with serialized data.
         /// </summary>

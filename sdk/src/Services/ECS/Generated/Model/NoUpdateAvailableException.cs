@@ -33,7 +33,7 @@ namespace Amazon.ECS.Model
     /// the agent is already running the latest version, or it is so old that there is no
     /// update path to the current version.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NoUpdateAvailableException : AmazonECSException
@@ -88,7 +88,7 @@ namespace Amazon.ECS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NoUpdateAvailableException class with serialized data.
         /// </summary>

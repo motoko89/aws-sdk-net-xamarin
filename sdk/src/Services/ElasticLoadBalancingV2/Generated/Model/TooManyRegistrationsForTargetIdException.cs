@@ -32,7 +32,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
     /// You've reached the limit on the number of times a target can be registered with a
     /// load balancer.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyRegistrationsForTargetIdException : AmazonElasticLoadBalancingV2Exception
@@ -87,7 +87,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyRegistrationsForTargetIdException class with serialized data.
         /// </summary>

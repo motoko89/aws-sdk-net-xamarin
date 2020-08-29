@@ -32,7 +32,7 @@ namespace Amazon.AutoScaling.Model
     /// You already have a pending update to an Amazon EC2 Auto Scaling resource (for example,
     /// an Auto Scaling group, instance, or load balancer).
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceContentionException : AmazonAutoScalingException
@@ -87,7 +87,7 @@ namespace Amazon.AutoScaling.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceContentionException class with serialized data.
         /// </summary>

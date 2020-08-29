@@ -33,7 +33,7 @@ namespace Amazon.Organizations.Model
     /// for <code>organizations.amazonaws.com</code> permission so that AWS Organizations
     /// can create the required service-linked role. You don't have that permission.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedForDependencyException : AmazonOrganizationsException
@@ -89,7 +89,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedForDependencyException class with serialized data.
         /// </summary>

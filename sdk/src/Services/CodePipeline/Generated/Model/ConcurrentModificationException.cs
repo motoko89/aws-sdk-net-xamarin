@@ -31,7 +31,7 @@ namespace Amazon.CodePipeline.Model
     /// <summary>
     /// Unable to modify the tag due to a simultaneous update request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentModificationException : AmazonCodePipelineException
@@ -86,7 +86,7 @@ namespace Amazon.CodePipeline.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentModificationException class with serialized data.
         /// </summary>

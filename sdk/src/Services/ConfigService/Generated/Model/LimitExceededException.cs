@@ -39,7 +39,7 @@ namespace Amazon.ConfigService.Model
     /// of accounts and aggregators exceeds the limit.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonConfigServiceException
@@ -94,7 +94,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

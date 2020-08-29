@@ -31,7 +31,7 @@ namespace Amazon.Organizations.Model
     /// <summary>
     /// We can't find a policy with the <code>PolicyId</code> that you specified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PolicyNotFoundException : AmazonOrganizationsException
@@ -86,7 +86,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PolicyNotFoundException class with serialized data.
         /// </summary>

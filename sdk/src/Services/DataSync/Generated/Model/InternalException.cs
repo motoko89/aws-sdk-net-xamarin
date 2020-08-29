@@ -31,7 +31,7 @@ namespace Amazon.DataSync.Model
     /// <summary>
     /// This exception is thrown when an error occurs in the AWS DataSync service.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalException : AmazonDataSyncException
@@ -87,7 +87,7 @@ namespace Amazon.DataSync.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalException class with serialized data.
         /// </summary>

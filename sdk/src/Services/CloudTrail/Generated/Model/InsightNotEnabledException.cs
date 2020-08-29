@@ -32,7 +32,7 @@ namespace Amazon.CloudTrail.Model
     /// If you run <code>GetInsightSelectors</code> on a trail that does not have Insights
     /// events enabled, the operation throws the exception <code>InsightNotEnabledException</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InsightNotEnabledException : AmazonCloudTrailException
@@ -87,7 +87,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InsightNotEnabledException class with serialized data.
         /// </summary>

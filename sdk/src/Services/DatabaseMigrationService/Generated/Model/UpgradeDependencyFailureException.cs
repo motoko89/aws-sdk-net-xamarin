@@ -31,7 +31,7 @@ namespace Amazon.DatabaseMigrationService.Model
     /// <summary>
     /// An upgrade dependency is preventing the database migration.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UpgradeDependencyFailureException : AmazonDatabaseMigrationServiceException
@@ -86,7 +86,7 @@ namespace Amazon.DatabaseMigrationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UpgradeDependencyFailureException class with serialized data.
         /// </summary>

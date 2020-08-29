@@ -31,7 +31,7 @@ namespace Amazon.Imagebuilder.Model
     /// <summary>
     /// Your version number is out of bounds or does not follow the required syntax.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidVersionNumberException : AmazonImagebuilderException
@@ -86,7 +86,7 @@ namespace Amazon.Imagebuilder.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidVersionNumberException class with serialized data.
         /// </summary>

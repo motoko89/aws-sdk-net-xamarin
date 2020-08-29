@@ -31,7 +31,7 @@ namespace Amazon.ApiGatewayV2.Model
     /// <summary>
     /// A limit has been exceeded. See the accompanying error message for details.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyRequestsException : AmazonApiGatewayV2Exception
@@ -87,7 +87,7 @@ namespace Amazon.ApiGatewayV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyRequestsException class with serialized data.
         /// </summary>

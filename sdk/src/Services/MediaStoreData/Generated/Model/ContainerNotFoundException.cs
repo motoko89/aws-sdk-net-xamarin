@@ -31,7 +31,7 @@ namespace Amazon.MediaStoreData.Model
     /// <summary>
     /// The specified container was not found for the specified account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ContainerNotFoundException : AmazonMediaStoreDataException
@@ -86,7 +86,7 @@ namespace Amazon.MediaStoreData.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ContainerNotFoundException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CertificateManager.Model
     /// The certificate request is in process and the certificate in your account has not
     /// yet been issued.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RequestInProgressException : AmazonCertificateManagerException
@@ -87,7 +87,7 @@ namespace Amazon.CertificateManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RequestInProgressException class with serialized data.
         /// </summary>

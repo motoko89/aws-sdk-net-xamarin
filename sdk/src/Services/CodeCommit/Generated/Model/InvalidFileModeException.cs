@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The specified file mode permission is not valid. For a list of valid file mode permissions,
     /// see <a>PutFile</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidFileModeException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidFileModeException class with serialized data.
         /// </summary>

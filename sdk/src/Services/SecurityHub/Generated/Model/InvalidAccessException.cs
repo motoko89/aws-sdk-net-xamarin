@@ -31,7 +31,7 @@ namespace Amazon.SecurityHub.Model
     /// <summary>
     /// AWS Security Hub isn't enabled for the account used to make this request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidAccessException : AmazonSecurityHubException
@@ -87,7 +87,7 @@ namespace Amazon.SecurityHub.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidAccessException class with serialized data.
         /// </summary>

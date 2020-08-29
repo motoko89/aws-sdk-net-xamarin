@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// The proxy is already associated with the specified RDS DB instance or Aurora DB cluster.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBProxyTargetAlreadyRegisteredException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBProxyTargetAlreadyRegisteredException class with serialized data.
         /// </summary>

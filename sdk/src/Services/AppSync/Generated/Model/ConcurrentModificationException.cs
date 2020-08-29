@@ -32,7 +32,7 @@ namespace Amazon.AppSync.Model
     /// Another modification is in progress at this time and it must complete before you can
     /// make your change.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentModificationException : AmazonAppSyncException
@@ -87,7 +87,7 @@ namespace Amazon.AppSync.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentModificationException class with serialized data.
         /// </summary>

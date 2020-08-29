@@ -32,7 +32,7 @@ namespace Amazon.CodeStarNotifications.Model
     /// AWS CodeStar Notifications can't complete the request because the resource is being
     /// modified by another process. Wait a few minutes and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentModificationException : AmazonCodeStarNotificationsException
@@ -87,7 +87,7 @@ namespace Amazon.CodeStarNotifications.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentModificationException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.ElastiCache.Model
     /// The requested cache security group name does not refer to an existing cache security
     /// group.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CacheSecurityGroupNotFoundException : AmazonElastiCacheException
@@ -87,7 +87,7 @@ namespace Amazon.ElastiCache.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CacheSecurityGroupNotFoundException class with serialized data.
         /// </summary>

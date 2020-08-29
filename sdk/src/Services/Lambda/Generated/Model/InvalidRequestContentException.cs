@@ -31,7 +31,7 @@ namespace Amazon.Lambda.Model
     /// <summary>
     /// The request body could not be parsed as JSON.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRequestContentException : AmazonLambdaException
@@ -87,7 +87,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRequestContentException class with serialized data.
         /// </summary>

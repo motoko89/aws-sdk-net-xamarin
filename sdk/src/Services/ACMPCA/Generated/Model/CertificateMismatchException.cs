@@ -32,7 +32,7 @@ namespace Amazon.ACMPCA.Model
     /// The certificate authority certificate you are importing does not comply with conditions
     /// specified in the certificate that signed it.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CertificateMismatchException : AmazonACMPCAException
@@ -87,7 +87,7 @@ namespace Amazon.ACMPCA.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CertificateMismatchException class with serialized data.
         /// </summary>

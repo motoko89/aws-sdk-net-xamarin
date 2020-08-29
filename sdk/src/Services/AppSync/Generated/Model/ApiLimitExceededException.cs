@@ -31,7 +31,7 @@ namespace Amazon.AppSync.Model
     /// <summary>
     /// The GraphQL API exceeded a limit. Try your request again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ApiLimitExceededException : AmazonAppSyncException
@@ -86,7 +86,7 @@ namespace Amazon.AppSync.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ApiLimitExceededException class with serialized data.
         /// </summary>

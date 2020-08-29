@@ -32,7 +32,7 @@ namespace Amazon.CloudFront.Model
     /// An origin request policy with this name already exists. You must provide a unique
     /// name. To modify an existing origin request policy, use <code>UpdateOriginRequestPolicy</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OriginRequestPolicyAlreadyExistsException : AmazonCloudFrontException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OriginRequestPolicyAlreadyExistsException class with serialized data.
         /// </summary>

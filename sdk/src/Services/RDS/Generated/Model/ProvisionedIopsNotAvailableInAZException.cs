@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// Provisioned IOPS not available in the specified Availability Zone.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ProvisionedIopsNotAvailableInAZException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ProvisionedIopsNotAvailableInAZException class with serialized data.
         /// </summary>

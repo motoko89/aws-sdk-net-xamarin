@@ -31,7 +31,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// <summary>
     /// A parameter version can have a maximum of ten labels.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ParameterVersionLabelLimitExceededException : AmazonSimpleSystemsManagementException
@@ -86,7 +86,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ParameterVersionLabelLimitExceededException class with serialized data.
         /// </summary>

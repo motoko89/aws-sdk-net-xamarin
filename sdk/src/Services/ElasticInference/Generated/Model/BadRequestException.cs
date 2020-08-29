@@ -31,7 +31,7 @@ namespace Amazon.ElasticInference.Model
     /// <summary>
     /// Raised when a malformed input has been provided to the API.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadRequestException : AmazonElasticInferenceException
@@ -86,7 +86,7 @@ namespace Amazon.ElasticInference.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadRequestException class with serialized data.
         /// </summary>

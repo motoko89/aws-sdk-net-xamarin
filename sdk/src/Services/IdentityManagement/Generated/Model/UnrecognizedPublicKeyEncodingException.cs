@@ -32,7 +32,7 @@ namespace Amazon.IdentityManagement.Model
     /// The request was rejected because the public key encoding format is unsupported or
     /// unrecognized.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnrecognizedPublicKeyEncodingException : AmazonIdentityManagementServiceException
@@ -87,7 +87,7 @@ namespace Amazon.IdentityManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnrecognizedPublicKeyEncodingException class with serialized data.
         /// </summary>

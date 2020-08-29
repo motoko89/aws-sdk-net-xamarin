@@ -32,7 +32,7 @@ namespace Amazon.Elasticsearch.Model
     /// An exception for trying to create more than allowed resources or sub-resources. Gives
     /// http status code of 409.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonElasticsearchException
@@ -87,7 +87,7 @@ namespace Amazon.Elasticsearch.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

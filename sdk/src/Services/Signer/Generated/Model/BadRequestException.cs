@@ -32,7 +32,7 @@ namespace Amazon.Signer.Model
     /// The request contains invalid parameters for the ARN or tags. This exception also occurs
     /// when you call a tagging API on a cancelled signing profile.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadRequestException : AmazonSignerException
@@ -87,7 +87,7 @@ namespace Amazon.Signer.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadRequestException class with serialized data.
         /// </summary>

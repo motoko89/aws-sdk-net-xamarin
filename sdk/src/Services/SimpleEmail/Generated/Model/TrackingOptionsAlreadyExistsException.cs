@@ -32,7 +32,7 @@ namespace Amazon.SimpleEmail.Model
     /// Indicates that the configuration set you specified already contains a TrackingOptions
     /// object.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TrackingOptionsAlreadyExistsException : AmazonSimpleEmailServiceException
@@ -88,7 +88,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TrackingOptionsAlreadyExistsException class with serialized data.
         /// </summary>

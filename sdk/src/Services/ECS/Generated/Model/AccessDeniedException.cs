@@ -31,7 +31,7 @@ namespace Amazon.ECS.Model
     /// <summary>
     /// You do not have authorization to perform the requested action.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedException : AmazonECSException
@@ -86,7 +86,7 @@ namespace Amazon.ECS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedException class with serialized data.
         /// </summary>

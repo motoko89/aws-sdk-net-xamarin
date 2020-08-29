@@ -31,7 +31,7 @@ namespace Amazon.DeviceFarm.Model
     /// <summary>
     /// An entity with the same name already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IdempotencyException : AmazonDeviceFarmException
@@ -86,7 +86,7 @@ namespace Amazon.DeviceFarm.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IdempotencyException class with serialized data.
         /// </summary>

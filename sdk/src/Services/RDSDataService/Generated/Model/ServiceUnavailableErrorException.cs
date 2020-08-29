@@ -31,7 +31,7 @@ namespace Amazon.RDSDataService.Model
     /// <summary>
     /// The service specified by the <code>resourceArn</code> parameter is not available.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceUnavailableErrorException : AmazonRDSDataServiceException
@@ -86,7 +86,7 @@ namespace Amazon.RDSDataService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceUnavailableErrorException class with serialized data.
         /// </summary>

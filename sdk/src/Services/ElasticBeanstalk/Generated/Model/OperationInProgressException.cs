@@ -32,7 +32,7 @@ namespace Amazon.ElasticBeanstalk.Model
     /// Unable to perform the specified operation because another operation that effects an
     /// element in this activity is already in progress.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OperationInProgressException : AmazonElasticBeanstalkException
@@ -87,7 +87,7 @@ namespace Amazon.ElasticBeanstalk.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OperationInProgressException class with serialized data.
         /// </summary>

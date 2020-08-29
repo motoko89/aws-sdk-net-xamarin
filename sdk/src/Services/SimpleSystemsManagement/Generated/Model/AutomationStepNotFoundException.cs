@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The specified step name and execution ID don't exist. Verify the information and try
     /// again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AutomationStepNotFoundException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AutomationStepNotFoundException class with serialized data.
         /// </summary>

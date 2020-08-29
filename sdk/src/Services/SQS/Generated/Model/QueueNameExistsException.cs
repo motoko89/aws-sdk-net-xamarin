@@ -32,7 +32,7 @@ namespace Amazon.SQS.Model
     /// A queue with this name already exists. Amazon SQS returns this error only if the request
     /// includes attributes whose values differ from those of the existing queue.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class QueueNameExistsException : AmazonSQSException
@@ -87,7 +87,7 @@ namespace Amazon.SQS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the QueueNameExistsException class with serialized data.
         /// </summary>

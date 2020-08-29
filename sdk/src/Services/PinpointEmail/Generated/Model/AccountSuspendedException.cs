@@ -32,7 +32,7 @@ namespace Amazon.PinpointEmail.Model
     /// The message can't be sent because the account's ability to send email has been permanently
     /// restricted.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccountSuspendedException : AmazonPinpointEmailException
@@ -87,7 +87,7 @@ namespace Amazon.PinpointEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccountSuspendedException class with serialized data.
         /// </summary>

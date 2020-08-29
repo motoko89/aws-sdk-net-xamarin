@@ -31,7 +31,7 @@ namespace Amazon.RDSDataService.Model
     /// <summary>
     /// There is an error in the call or in a SQL statement.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadRequestException : AmazonRDSDataServiceException
@@ -86,7 +86,7 @@ namespace Amazon.RDSDataService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadRequestException class with serialized data.
         /// </summary>

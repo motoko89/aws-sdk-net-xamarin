@@ -31,7 +31,7 @@ namespace Amazon.CodeDeploy.Model
     /// <summary>
     /// An IAM user ARN was not specified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IamUserArnRequiredException : AmazonCodeDeployException
@@ -86,7 +86,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IamUserArnRequiredException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The permission type is not supported. <i>Share</i> is the only supported permission
     /// type.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidPermissionTypeException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidPermissionTypeException class with serialized data.
         /// </summary>

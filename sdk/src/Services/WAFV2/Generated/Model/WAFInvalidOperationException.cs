@@ -31,7 +31,7 @@ namespace Amazon.WAFV2.Model
     /// <summary>
     /// The operation isn't valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFInvalidOperationException : AmazonWAFV2Exception
@@ -86,7 +86,7 @@ namespace Amazon.WAFV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFInvalidOperationException class with serialized data.
         /// </summary>

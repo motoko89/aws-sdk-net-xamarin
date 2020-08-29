@@ -46,6 +46,22 @@ namespace Amazon.Glue
     public partial class AmazonGlueClient : AmazonServiceClient, IAmazonGlue
     {
         private static IServiceMetadata serviceMetadata = new AmazonGlueMetadata();
+        private IGluePaginatorFactory _paginators;
+
+        /// <summary>
+        /// Paginators for the service
+        /// </summary>
+        public IGluePaginatorFactory Paginators 
+        {
+            get 
+            {
+                if (this._paginators == null) 
+                {
+                    this._paginators = new GluePaginatorFactory(this);
+                }
+                return this._paginators;
+            }
+        }
         #region Constructors
 
         /// <summary>
@@ -7248,7 +7264,9 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Restarts any completed nodes in a workflow run and resumes the run execution.
+        /// Restarts selected nodes of a previous partially completed workflow run and resumes
+        /// the workflow run. The selected nodes and all nodes that are downstream from the selected
+        /// nodes are run.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ResumeWorkflowRun service method.</param>
         /// 
@@ -7283,7 +7301,9 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Restarts any completed nodes in a workflow run and resumes the run execution.
+        /// Restarts selected nodes of a previous partially completed workflow run and resumes
+        /// the workflow run. The selected nodes and all nodes that are downstream from the selected
+        /// nodes are run.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ResumeWorkflowRun service method.</param>
         /// <param name="cancellationToken">

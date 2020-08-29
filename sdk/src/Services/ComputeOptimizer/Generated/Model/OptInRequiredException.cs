@@ -31,7 +31,7 @@ namespace Amazon.ComputeOptimizer.Model
     /// <summary>
     /// The account is not opted in to AWS Compute Optimizer.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OptInRequiredException : AmazonComputeOptimizerException
@@ -86,7 +86,7 @@ namespace Amazon.ComputeOptimizer.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OptInRequiredException class with serialized data.
         /// </summary>

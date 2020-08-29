@@ -31,7 +31,7 @@ namespace Amazon.WAFV2.Model
     /// <summary>
     /// AWS WAF couldn’t perform the operation because your resource doesn’t exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFNonexistentItemException : AmazonWAFV2Exception
@@ -86,7 +86,7 @@ namespace Amazon.WAFV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFNonexistentItemException class with serialized data.
         /// </summary>

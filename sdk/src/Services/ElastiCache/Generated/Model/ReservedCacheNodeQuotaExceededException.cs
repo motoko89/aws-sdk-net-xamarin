@@ -31,7 +31,7 @@ namespace Amazon.ElastiCache.Model
     /// <summary>
     /// The request cannot be processed because it would exceed the user's cache node quota.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ReservedCacheNodeQuotaExceededException : AmazonElastiCacheException
@@ -86,7 +86,7 @@ namespace Amazon.ElastiCache.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ReservedCacheNodeQuotaExceededException class with serialized data.
         /// </summary>

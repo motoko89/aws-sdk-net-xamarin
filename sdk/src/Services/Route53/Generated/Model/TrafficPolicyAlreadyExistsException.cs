@@ -31,7 +31,7 @@ namespace Amazon.Route53.Model
     /// <summary>
     /// A traffic policy that has the same value for <code>Name</code> already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TrafficPolicyAlreadyExistsException : AmazonRoute53Exception
@@ -86,7 +86,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TrafficPolicyAlreadyExistsException class with serialized data.
         /// </summary>

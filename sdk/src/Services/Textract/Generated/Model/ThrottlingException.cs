@@ -31,7 +31,7 @@ namespace Amazon.Textract.Model
     /// <summary>
     /// Amazon Textract is temporarily unable to process the request. Try your call again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ThrottlingException : AmazonTextractException
@@ -86,7 +86,7 @@ namespace Amazon.Textract.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ThrottlingException class with serialized data.
         /// </summary>

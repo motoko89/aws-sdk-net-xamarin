@@ -32,7 +32,7 @@ namespace Amazon.Redshift.Model
     /// The cluster does not have read bucket or put object permissions on the S3 bucket specified
     /// when enabling logging.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InsufficientS3BucketPolicyException : AmazonRedshiftException
@@ -87,7 +87,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InsufficientS3BucketPolicyException class with serialized data.
         /// </summary>

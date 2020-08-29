@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The commit cannot be created because no files have been specified as added, updated,
     /// or changed (PutFile or DeleteFile) for the commit.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FileEntryRequiredException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FileEntryRequiredException class with serialized data.
         /// </summary>

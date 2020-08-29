@@ -32,7 +32,7 @@ namespace Amazon.CertificateManager.Model
     /// The certificate is in use by another AWS service in the caller's account. Remove the
     /// association and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceInUseException : AmazonCertificateManagerException
@@ -87,7 +87,7 @@ namespace Amazon.CertificateManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceInUseException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
     /// One or more frames in the requested clip could not be parsed based on the specified
     /// codec.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidMediaFrameException : AmazonKinesisVideoArchivedMediaException
@@ -87,7 +87,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidMediaFrameException class with serialized data.
         /// </summary>

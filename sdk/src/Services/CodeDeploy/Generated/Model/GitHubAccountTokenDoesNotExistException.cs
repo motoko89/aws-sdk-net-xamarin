@@ -31,7 +31,7 @@ namespace Amazon.CodeDeploy.Model
     /// <summary>
     /// No GitHub account connection exists with the named specified in the call.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class GitHubAccountTokenDoesNotExistException : AmazonCodeDeployException
@@ -86,7 +86,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the GitHubAccountTokenDoesNotExistException class with serialized data.
         /// </summary>

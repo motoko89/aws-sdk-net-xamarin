@@ -32,7 +32,7 @@ namespace Amazon.SimpleDB.Model
     /// A timeout occurred when attempting to query the specified domain with specified query
     /// expression.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RequestTimeoutException : AmazonSimpleDBException
@@ -88,7 +88,7 @@ namespace Amazon.SimpleDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RequestTimeoutException class with serialized data.
         /// </summary>

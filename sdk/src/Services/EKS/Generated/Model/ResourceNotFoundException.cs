@@ -33,7 +33,7 @@ namespace Amazon.EKS.Model
     /// <a>ListClusters</a>. You can view your available managed node groups with <a>ListNodegroups</a>.
     /// Amazon EKS clusters and node groups are Region-specific.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonEKSException
@@ -91,7 +91,7 @@ namespace Amazon.EKS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

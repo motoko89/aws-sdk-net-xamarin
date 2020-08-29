@@ -31,7 +31,7 @@ namespace Amazon.DirectoryService.Model
     /// <summary>
     /// The LDAP activities could not be performed because they are limited by the LDAPS status.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidLDAPSStatusException : AmazonDirectoryServiceException
@@ -87,7 +87,7 @@ namespace Amazon.DirectoryService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidLDAPSStatusException class with serialized data.
         /// </summary>

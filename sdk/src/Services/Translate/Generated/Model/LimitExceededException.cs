@@ -32,7 +32,7 @@ namespace Amazon.Translate.Model
     /// The specified limit has been exceeded. Review your request and retry it with a quantity
     /// below the stated limit.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonTranslateException
@@ -87,7 +87,7 @@ namespace Amazon.Translate.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

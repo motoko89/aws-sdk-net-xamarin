@@ -32,7 +32,7 @@ namespace Amazon.WAFV2.Model
     /// AWS WAF couldn’t perform the operation because your resource is being used by another
     /// resource or it’s associated with another resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFAssociatedItemException : AmazonWAFV2Exception
@@ -87,7 +87,7 @@ namespace Amazon.WAFV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFAssociatedItemException class with serialized data.
         /// </summary>

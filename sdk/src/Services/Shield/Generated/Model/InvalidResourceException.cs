@@ -32,7 +32,7 @@ namespace Amazon.Shield.Model
     /// Exception that indicates that the resource is invalid. You might not have access to
     /// the resource, or the resource might not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidResourceException : AmazonShieldException
@@ -87,7 +87,7 @@ namespace Amazon.Shield.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidResourceException class with serialized data.
         /// </summary>

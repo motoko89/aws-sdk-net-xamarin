@@ -35,7 +35,7 @@ namespace Amazon.CodePipeline.Model
     /// sequence tasks. If you already chose to stop and abandon, you cannot make that request
     /// again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DuplicatedStopRequestException : AmazonCodePipelineException
@@ -90,7 +90,7 @@ namespace Amazon.CodePipeline.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DuplicatedStopRequestException class with serialized data.
         /// </summary>

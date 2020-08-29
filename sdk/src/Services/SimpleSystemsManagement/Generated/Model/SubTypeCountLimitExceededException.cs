@@ -31,7 +31,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// <summary>
     /// The sub-type count exceeded the limit for the inventory type.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SubTypeCountLimitExceededException : AmazonSimpleSystemsManagementException
@@ -86,7 +86,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SubTypeCountLimitExceededException class with serialized data.
         /// </summary>

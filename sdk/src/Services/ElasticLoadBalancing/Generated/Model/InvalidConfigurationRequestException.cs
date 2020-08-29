@@ -31,7 +31,7 @@ namespace Amazon.ElasticLoadBalancing.Model
     /// <summary>
     /// The requested configuration change is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidConfigurationRequestException : AmazonElasticLoadBalancingException
@@ -86,7 +86,7 @@ namespace Amazon.ElasticLoadBalancing.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidConfigurationRequestException class with serialized data.
         /// </summary>

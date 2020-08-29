@@ -32,7 +32,7 @@ namespace Amazon.Translate.Model
     /// You have made too many requests within a short period of time. Wait for a short time
     /// and then try your request again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyRequestsException : AmazonTranslateException
@@ -87,7 +87,7 @@ namespace Amazon.Translate.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyRequestsException class with serialized data.
         /// </summary>

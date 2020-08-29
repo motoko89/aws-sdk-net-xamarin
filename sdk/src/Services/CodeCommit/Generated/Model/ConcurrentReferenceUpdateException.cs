@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// user might have modified the target branch while the merge was in progress. Wait a
     /// few minutes, and then try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentReferenceUpdateException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentReferenceUpdateException class with serialized data.
         /// </summary>

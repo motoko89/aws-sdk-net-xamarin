@@ -31,7 +31,7 @@ namespace Amazon.SQS.Model
     /// <summary>
     /// The batch request contains more entries than permissible.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyEntriesInBatchRequestException : AmazonSQSException
@@ -86,7 +86,7 @@ namespace Amazon.SQS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyEntriesInBatchRequestException class with serialized data.
         /// </summary>

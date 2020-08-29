@@ -32,7 +32,7 @@ namespace Amazon.GameLift.Model
     /// A game session with this custom ID string already exists in this fleet. Resolve this
     /// conflict before retrying this request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IdempotentParameterMismatchException : AmazonGameLiftException
@@ -87,7 +87,7 @@ namespace Amazon.GameLift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IdempotentParameterMismatchException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.ElasticFileSystem.Model
     /// Returned if the size of <code>SecurityGroups</code> specified in the request is greater
     /// than five.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SecurityGroupLimitExceededException : AmazonElasticFileSystemException
@@ -88,7 +88,7 @@ namespace Amazon.ElasticFileSystem.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SecurityGroupLimitExceededException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.ImportExport.Model
     /// <summary>
     /// The address specified in the manifest is invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidAddressException : AmazonImportExportException
@@ -86,7 +86,7 @@ namespace Amazon.ImportExport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidAddressException class with serialized data.
         /// </summary>

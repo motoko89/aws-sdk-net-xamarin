@@ -31,7 +31,7 @@ namespace Amazon.CodeDeploy.Model
     /// <summary>
     /// More applications were attempted to be created than are allowed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ApplicationLimitExceededException : AmazonCodeDeployException
@@ -86,7 +86,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ApplicationLimitExceededException class with serialized data.
         /// </summary>

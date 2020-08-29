@@ -39,9 +39,7 @@ namespace Amazon.Util.Internal
 
         public bool CorrectForClockSkew { get; set; }
 
-#if BCL || NETSTANDARD
         public bool UseAlternateUserAgentHeader { get; set; }
-#endif
 
         public string ApplicationName { get; set; }
 
@@ -63,7 +61,7 @@ namespace Amazon.Util.Internal
             UseSdkCache = AWSConfigs._useSdkCache;
             CorrectForClockSkew = true;
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
             var root = AWSConfigs.GetSection<AWSSection>(_rootAwsSectionName);
 
             Logging.Configure(root.Logging);

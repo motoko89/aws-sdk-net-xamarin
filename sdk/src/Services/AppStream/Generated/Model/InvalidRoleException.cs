@@ -31,7 +31,7 @@ namespace Amazon.AppStream.Model
     /// <summary>
     /// The specified role is invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRoleException : AmazonAppStreamException
@@ -86,7 +86,7 @@ namespace Amazon.AppStream.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRoleException class with serialized data.
         /// </summary>

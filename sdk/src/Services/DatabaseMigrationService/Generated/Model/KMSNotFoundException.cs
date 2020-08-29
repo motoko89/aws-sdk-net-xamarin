@@ -31,7 +31,7 @@ namespace Amazon.DatabaseMigrationService.Model
     /// <summary>
     /// The specified AWS KMS entity or resource can't be found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class KMSNotFoundException : AmazonDatabaseMigrationServiceException
@@ -86,7 +86,7 @@ namespace Amazon.DatabaseMigrationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the KMSNotFoundException class with serialized data.
         /// </summary>

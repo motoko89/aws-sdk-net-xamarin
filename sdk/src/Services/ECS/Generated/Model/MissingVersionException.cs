@@ -34,7 +34,7 @@ namespace Amazon.ECS.Model
     /// an update. This could be because the agent running on the container instance is an
     /// older or custom version that does not use our version information.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MissingVersionException : AmazonECSException
@@ -89,7 +89,7 @@ namespace Amazon.ECS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MissingVersionException class with serialized data.
         /// </summary>

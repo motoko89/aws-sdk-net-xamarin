@@ -32,7 +32,7 @@ namespace Amazon.Route53.Model
     /// You're trying to associate a VPC with a public hosted zone. Amazon Route 53 doesn't
     /// support associating a VPC with a public hosted zone.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PublicZoneVPCAssociationException : AmazonRoute53Exception
@@ -87,7 +87,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PublicZoneVPCAssociationException class with serialized data.
         /// </summary>

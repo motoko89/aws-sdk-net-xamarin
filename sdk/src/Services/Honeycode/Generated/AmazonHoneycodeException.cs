@@ -28,7 +28,7 @@ namespace Amazon.Honeycode
     ///<summary>
     /// Common exception for the Honeycode service.
     /// </summary>
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
     [Serializable]
 #endif
     public partial class AmazonHoneycodeException : AmazonServiceException
@@ -88,7 +88,7 @@ namespace Amazon.Honeycode
         {
         }
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AmazonHoneycodeException class with serialized data.
         /// </summary>

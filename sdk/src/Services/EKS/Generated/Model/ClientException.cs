@@ -33,7 +33,7 @@ namespace Amazon.EKS.Model
     /// or resource on behalf of a user that doesn't have permissions to use the action or
     /// resource or specifying an identifier that is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ClientException : AmazonEKSException
@@ -90,7 +90,7 @@ namespace Amazon.EKS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ClientException class with serialized data.
         /// </summary>

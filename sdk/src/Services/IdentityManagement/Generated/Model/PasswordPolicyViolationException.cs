@@ -32,7 +32,7 @@ namespace Amazon.IdentityManagement.Model
     /// The request was rejected because the provided password did not meet the requirements
     /// imposed by the account password policy.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PasswordPolicyViolationException : AmazonIdentityManagementServiceException
@@ -87,7 +87,7 @@ namespace Amazon.IdentityManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PasswordPolicyViolationException class with serialized data.
         /// </summary>

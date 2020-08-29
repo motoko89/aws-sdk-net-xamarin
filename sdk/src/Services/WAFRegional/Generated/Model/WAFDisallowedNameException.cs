@@ -31,7 +31,7 @@ namespace Amazon.WAFRegional.Model
     /// <summary>
     /// The name specified is invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFDisallowedNameException : AmazonWAFRegionalException
@@ -86,7 +86,7 @@ namespace Amazon.WAFRegional.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFDisallowedNameException class with serialized data.
         /// </summary>

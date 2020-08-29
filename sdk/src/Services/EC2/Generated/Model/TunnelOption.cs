@@ -33,6 +33,7 @@ namespace Amazon.EC2.Model
     /// </summary>
     public partial class TunnelOption
     {
+        private string _dpdTimeoutAction;
         private int? _dpdTimeoutSeconds;
         private List<IKEVersionsListValue> _ikeVersions = new List<IKEVersionsListValue>();
         private string _outsideIpAddress;
@@ -48,7 +49,27 @@ namespace Amazon.EC2.Model
         private int? _rekeyFuzzPercentage;
         private int? _rekeyMarginTimeSeconds;
         private int? _replayWindowSize;
+        private string _startupAction;
         private string _tunnelInsideCidr;
+        private string _tunnelInsideIpv6Cidr;
+
+        /// <summary>
+        /// Gets and sets the property DpdTimeoutAction. 
+        /// <para>
+        /// The action to take after a DPD timeout occurs.
+        /// </para>
+        /// </summary>
+        public string DpdTimeoutAction
+        {
+            get { return this._dpdTimeoutAction; }
+            set { this._dpdTimeoutAction = value; }
+        }
+
+        // Check to see if DpdTimeoutAction property is set
+        internal bool IsSetDpdTimeoutAction()
+        {
+            return this._dpdTimeoutAction != null;
+        }
 
         /// <summary>
         /// Gets and sets the property DpdTimeoutSeconds. 
@@ -324,9 +345,27 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property StartupAction. 
+        /// <para>
+        /// The action to take when the establishing the VPN tunnels for a VPN connection.
+        /// </para>
+        /// </summary>
+        public string StartupAction
+        {
+            get { return this._startupAction; }
+            set { this._startupAction = value; }
+        }
+
+        // Check to see if StartupAction property is set
+        internal bool IsSetStartupAction()
+        {
+            return this._startupAction != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property TunnelInsideCidr. 
         /// <para>
-        /// The range of inside IP addresses for the tunnel.
+        /// The range of inside IPv4 addresses for the tunnel.
         /// </para>
         /// </summary>
         public string TunnelInsideCidr
@@ -339,6 +378,24 @@ namespace Amazon.EC2.Model
         internal bool IsSetTunnelInsideCidr()
         {
             return this._tunnelInsideCidr != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property TunnelInsideIpv6Cidr. 
+        /// <para>
+        /// The range of inside IPv6 addresses for the tunnel.
+        /// </para>
+        /// </summary>
+        public string TunnelInsideIpv6Cidr
+        {
+            get { return this._tunnelInsideIpv6Cidr; }
+            set { this._tunnelInsideIpv6Cidr = value; }
+        }
+
+        // Check to see if TunnelInsideIpv6Cidr property is set
+        internal bool IsSetTunnelInsideIpv6Cidr()
+        {
+            return this._tunnelInsideIpv6Cidr != null;
         }
 
     }

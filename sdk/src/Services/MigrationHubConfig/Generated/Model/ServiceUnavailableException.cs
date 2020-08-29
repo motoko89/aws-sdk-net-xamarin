@@ -31,7 +31,7 @@ namespace Amazon.MigrationHubConfig.Model
     /// <summary>
     /// Exception raised when a request fails due to temporary unavailability of the service.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceUnavailableException : AmazonMigrationHubConfigException
@@ -86,7 +86,7 @@ namespace Amazon.MigrationHubConfig.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceUnavailableException class with serialized data.
         /// </summary>

@@ -64,7 +64,7 @@ namespace Amazon.WAFV2.Model
     /// Policies</a>. 
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFInvalidPermissionPolicyException : AmazonWAFV2Exception
@@ -119,7 +119,7 @@ namespace Amazon.WAFV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFInvalidPermissionPolicyException class with serialized data.
         /// </summary>

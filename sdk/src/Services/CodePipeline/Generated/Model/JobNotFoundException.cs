@@ -31,7 +31,7 @@ namespace Amazon.CodePipeline.Model
     /// <summary>
     /// The job was specified in an invalid format or cannot be found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class JobNotFoundException : AmazonCodePipelineException
@@ -86,7 +86,7 @@ namespace Amazon.CodePipeline.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the JobNotFoundException class with serialized data.
         /// </summary>

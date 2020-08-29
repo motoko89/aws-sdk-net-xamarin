@@ -31,7 +31,7 @@ namespace Amazon.CloudFront.Model
     /// <summary>
     /// The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidOriginException : AmazonCloudFrontException
@@ -86,7 +86,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidOriginException class with serialized data.
         /// </summary>

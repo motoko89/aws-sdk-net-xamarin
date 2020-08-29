@@ -32,7 +32,7 @@ namespace Amazon.Rekognition.Model
     /// Input parameter violated a constraint. Validate your parameter before calling the
     /// API operation again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterException : AmazonRekognitionException
@@ -87,7 +87,7 @@ namespace Amazon.Rekognition.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterException class with serialized data.
         /// </summary>

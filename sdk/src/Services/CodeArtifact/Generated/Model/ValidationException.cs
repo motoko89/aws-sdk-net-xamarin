@@ -32,7 +32,7 @@ namespace Amazon.CodeArtifact.Model
     /// The operation did not succeed because a parameter in the request was sent with an
     /// invalid value.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ValidationException : AmazonCodeArtifactException
@@ -88,7 +88,7 @@ namespace Amazon.CodeArtifact.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ValidationException class with serialized data.
         /// </summary>

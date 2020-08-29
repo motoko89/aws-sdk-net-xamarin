@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// delete a template that is associated with a repository. Remove all associations, and
     /// then try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ApprovalRuleTemplateInUseException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ApprovalRuleTemplateInUseException class with serialized data.
         /// </summary>

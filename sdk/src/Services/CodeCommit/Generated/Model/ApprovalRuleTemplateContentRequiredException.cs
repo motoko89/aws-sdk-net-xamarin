@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The content for the approval rule template is empty. You must provide some content
     /// for an approval rule template. The content cannot be null.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ApprovalRuleTemplateContentRequiredException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ApprovalRuleTemplateContentRequiredException class with serialized data.
         /// </summary>

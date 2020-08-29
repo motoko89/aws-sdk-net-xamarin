@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// The specified custom endpoint can't be created because it already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBClusterEndpointAlreadyExistsException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBClusterEndpointAlreadyExistsException class with serialized data.
         /// </summary>

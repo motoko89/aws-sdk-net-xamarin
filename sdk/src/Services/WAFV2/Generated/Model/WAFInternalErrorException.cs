@@ -32,7 +32,7 @@ namespace Amazon.WAFV2.Model
     /// Your request is valid, but AWS WAF couldn’t perform the operation because of a system
     /// problem. Retry your request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFInternalErrorException : AmazonWAFV2Exception
@@ -87,7 +87,7 @@ namespace Amazon.WAFV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFInternalErrorException class with serialized data.
         /// </summary>

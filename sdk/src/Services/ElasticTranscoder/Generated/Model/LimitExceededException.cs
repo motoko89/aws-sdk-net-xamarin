@@ -32,7 +32,7 @@ namespace Amazon.ElasticTranscoder.Model
     /// Too many operations for a given AWS account. For example, the number of pipelines
     /// exceeds the maximum allowed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonElasticTranscoderException
@@ -87,7 +87,7 @@ namespace Amazon.ElasticTranscoder.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

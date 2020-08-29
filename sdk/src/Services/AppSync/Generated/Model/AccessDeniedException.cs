@@ -31,7 +31,7 @@ namespace Amazon.AppSync.Model
     /// <summary>
     /// You do not have access to perform this operation on this resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedException : AmazonAppSyncException
@@ -86,7 +86,7 @@ namespace Amazon.AppSync.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedException class with serialized data.
         /// </summary>

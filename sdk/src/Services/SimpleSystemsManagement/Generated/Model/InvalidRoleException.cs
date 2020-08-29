@@ -34,7 +34,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// about configuring the IAM role for Run Command notifications, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html">Configuring
     /// Amazon SNS Notifications for Run Command</a> in the <i>AWS Systems Manager User Guide</i>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRoleException : AmazonSimpleSystemsManagementException
@@ -89,7 +89,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRoleException class with serialized data.
         /// </summary>

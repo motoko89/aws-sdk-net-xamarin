@@ -35,7 +35,7 @@ namespace Amazon.CodeCommit.Model
     /// and a token is included, the request returns information about the initial request
     /// that used that token.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ClientRequestTokenRequiredException : AmazonCodeCommitException
@@ -90,7 +90,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ClientRequestTokenRequiredException class with serialized data.
         /// </summary>

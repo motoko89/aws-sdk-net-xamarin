@@ -38,7 +38,7 @@ namespace Amazon.ElasticBeanstalk.Model
     /// has and the tags this operation would add if it succeeded.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyTagsException : AmazonElasticBeanstalkException
@@ -93,7 +93,7 @@ namespace Amazon.ElasticBeanstalk.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyTagsException class with serialized data.
         /// </summary>

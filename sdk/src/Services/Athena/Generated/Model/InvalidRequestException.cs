@@ -32,7 +32,7 @@ namespace Amazon.Athena.Model
     /// Indicates that something is wrong with the input to the request. For example, a required
     /// parameter may be missing or out of range.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRequestException : AmazonAthenaException
@@ -88,7 +88,7 @@ namespace Amazon.Athena.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRequestException class with serialized data.
         /// </summary>

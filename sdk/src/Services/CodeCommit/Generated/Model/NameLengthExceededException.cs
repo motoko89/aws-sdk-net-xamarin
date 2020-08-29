@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The user name is not valid because it has exceeded the character limit for author
     /// names.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NameLengthExceededException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NameLengthExceededException class with serialized data.
         /// </summary>

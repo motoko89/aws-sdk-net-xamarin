@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// You can't start an export task that's already running.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ExportTaskAlreadyExistsException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ExportTaskAlreadyExistsException class with serialized data.
         /// </summary>

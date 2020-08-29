@@ -31,7 +31,7 @@ namespace Amazon.CloudFront.Model
     /// <summary>
     /// The query string parameters specified are not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidQueryStringParametersException : AmazonCloudFrontException
@@ -86,7 +86,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidQueryStringParametersException class with serialized data.
         /// </summary>

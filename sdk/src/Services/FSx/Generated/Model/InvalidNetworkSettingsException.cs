@@ -35,7 +35,7 @@ namespace Amazon.FSx.Model
     /// specified. <code>InvalidSecurityGroupIds</code> returns the list of IDs for security
     /// groups that are either invalid or not part of the VPC specified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidNetworkSettingsException : AmazonFSxException
@@ -92,7 +92,7 @@ namespace Amazon.FSx.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidNetworkSettingsException class with serialized data.
         /// </summary>

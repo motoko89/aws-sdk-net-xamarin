@@ -29,10 +29,10 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ACMPCA.Model
 {
     /// <summary>
-    /// A resource such as a private CA, S3 bucket, certificate, or audit report cannot be
-    /// found.
+    /// A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot
+    /// be found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonACMPCAException
@@ -87,7 +87,7 @@ namespace Amazon.ACMPCA.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

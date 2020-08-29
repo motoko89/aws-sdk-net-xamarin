@@ -32,7 +32,7 @@ namespace Amazon.KeyManagementService.Model
     /// The request was rejected because AWS KMS cannot find a custom key store with the specified
     /// key store name or ID.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CustomKeyStoreNotFoundException : AmazonKeyManagementServiceException
@@ -87,7 +87,7 @@ namespace Amazon.KeyManagementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CustomKeyStoreNotFoundException class with serialized data.
         /// </summary>

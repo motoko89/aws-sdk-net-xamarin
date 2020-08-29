@@ -31,7 +31,7 @@ namespace Amazon.WorkDocs.Model
     /// <summary>
     /// The password is invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidPasswordException : AmazonWorkDocsException
@@ -86,7 +86,7 @@ namespace Amazon.WorkDocs.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidPasswordException class with serialized data.
         /// </summary>

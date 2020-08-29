@@ -32,7 +32,7 @@ namespace Amazon.StepFunctions.Model
     /// The maximum number of state machines has been reached. Existing state machines must
     /// be deleted before a new state machine can be created.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class StateMachineLimitExceededException : AmazonStepFunctionsException
@@ -87,7 +87,7 @@ namespace Amazon.StepFunctions.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the StateMachineLimitExceededException class with serialized data.
         /// </summary>

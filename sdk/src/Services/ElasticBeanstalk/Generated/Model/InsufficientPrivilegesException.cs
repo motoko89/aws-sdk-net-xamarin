@@ -31,7 +31,7 @@ namespace Amazon.ElasticBeanstalk.Model
     /// <summary>
     /// The specified account does not have sufficient privileges for one or more AWS services.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InsufficientPrivilegesException : AmazonElasticBeanstalkException
@@ -86,7 +86,7 @@ namespace Amazon.ElasticBeanstalk.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InsufficientPrivilegesException class with serialized data.
         /// </summary>

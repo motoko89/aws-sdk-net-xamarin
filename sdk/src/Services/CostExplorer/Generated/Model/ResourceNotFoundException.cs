@@ -31,7 +31,7 @@ namespace Amazon.CostExplorer.Model
     /// <summary>
     /// The specified ARN in the request doesn't exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonCostExplorerException
@@ -86,7 +86,7 @@ namespace Amazon.CostExplorer.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

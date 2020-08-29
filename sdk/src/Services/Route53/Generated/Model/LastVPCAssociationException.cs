@@ -33,7 +33,7 @@ namespace Amazon.Route53.Model
     /// VPC that is associated with the hosted zone. Amazon Route 53 doesn't support disassociating
     /// the last VPC from a hosted zone.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LastVPCAssociationException : AmazonRoute53Exception
@@ -88,7 +88,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LastVPCAssociationException class with serialized data.
         /// </summary>

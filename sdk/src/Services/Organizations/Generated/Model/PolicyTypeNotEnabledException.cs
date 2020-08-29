@@ -34,7 +34,7 @@ namespace Amazon.Organizations.Model
     /// For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling
     /// All Features in Your Organization</a> in the <i>AWS Organizations User Guide.</i>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PolicyTypeNotEnabledException : AmazonOrganizationsException
@@ -89,7 +89,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PolicyTypeNotEnabledException class with serialized data.
         /// </summary>

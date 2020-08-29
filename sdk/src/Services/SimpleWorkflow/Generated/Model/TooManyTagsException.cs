@@ -31,7 +31,7 @@ namespace Amazon.SimpleWorkflow.Model
     /// <summary>
     /// You've exceeded the number of tags allowed for a domain.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyTagsException : AmazonSimpleWorkflowException
@@ -86,7 +86,7 @@ namespace Amazon.SimpleWorkflow.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyTagsException class with serialized data.
         /// </summary>

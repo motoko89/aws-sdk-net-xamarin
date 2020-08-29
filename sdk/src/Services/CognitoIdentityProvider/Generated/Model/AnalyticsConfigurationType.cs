@@ -33,18 +33,41 @@ namespace Amazon.CognitoIdentityProvider.Model
     /// 
     ///  <note> 
     /// <para>
-    /// Cognito User Pools only supports sending events to Amazon Pinpoint projects in the
-    /// US East (N. Virginia) us-east-1 Region, regardless of the region in which the user
-    /// pool resides.
+    /// In regions where Pinpoint is not available, Cognito User Pools only supports sending
+    /// events to Amazon Pinpoint projects in us-east-1. In regions where Pinpoint is available,
+    /// Cognito User Pools will support sending events to Amazon Pinpoint projects within
+    /// that same region. 
     /// </para>
     ///  </note>
     /// </summary>
     public partial class AnalyticsConfigurationType
     {
+        private string _applicationArn;
         private string _applicationId;
         private string _externalId;
         private string _roleArn;
         private bool? _userDataShared;
+
+        /// <summary>
+        /// Gets and sets the property ApplicationArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon
+        /// Pinpoint project for Pinpoint integration with the chosen User Pool Client. Amazon
+        /// Cognito publishes events to the pinpoint project declared by the app ARN.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=20, Max=2048)]
+        public string ApplicationArn
+        {
+            get { return this._applicationArn; }
+            set { this._applicationArn = value; }
+        }
+
+        // Check to see if ApplicationArn property is set
+        internal bool IsSetApplicationArn()
+        {
+            return this._applicationArn != null;
+        }
 
         /// <summary>
         /// Gets and sets the property ApplicationId. 
@@ -52,7 +75,6 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// The application ID for an Amazon Pinpoint application.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
         public string ApplicationId
         {
             get { return this._applicationId; }
@@ -71,7 +93,6 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// The external ID.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
         public string ExternalId
         {
             get { return this._externalId; }
@@ -91,7 +112,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// Pinpoint analytics.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=20, Max=2048)]
+        [AWSProperty(Min=20, Max=2048)]
         public string RoleArn
         {
             get { return this._roleArn; }

@@ -32,7 +32,7 @@ namespace Amazon.Elasticsearch.Model
     /// An exception for trying to create or access sub-resource that is either invalid or
     /// not supported. Gives http status code of 409.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidTypeException : AmazonElasticsearchException
@@ -87,7 +87,7 @@ namespace Amazon.Elasticsearch.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidTypeException class with serialized data.
         /// </summary>

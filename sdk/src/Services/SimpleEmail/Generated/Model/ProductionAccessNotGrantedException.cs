@@ -31,7 +31,7 @@ namespace Amazon.SimpleEmail.Model
     /// <summary>
     /// Indicates that the account has not been granted production access.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ProductionAccessNotGrantedException : AmazonSimpleEmailServiceException
@@ -86,7 +86,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ProductionAccessNotGrantedException class with serialized data.
         /// </summary>

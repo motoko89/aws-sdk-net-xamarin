@@ -31,7 +31,7 @@ namespace Amazon.DataPipeline.Model
     /// <summary>
     /// The specified task was not found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TaskNotFoundException : AmazonDataPipelineException
@@ -86,7 +86,7 @@ namespace Amazon.DataPipeline.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TaskNotFoundException class with serialized data.
         /// </summary>

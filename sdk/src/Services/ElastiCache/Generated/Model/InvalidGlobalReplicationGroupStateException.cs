@@ -31,7 +31,7 @@ namespace Amazon.ElastiCache.Model
     /// <summary>
     /// The Global Datastore is not available or in primary-only state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidGlobalReplicationGroupStateException : AmazonElastiCacheException
@@ -86,7 +86,7 @@ namespace Amazon.ElastiCache.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidGlobalReplicationGroupStateException class with serialized data.
         /// </summary>

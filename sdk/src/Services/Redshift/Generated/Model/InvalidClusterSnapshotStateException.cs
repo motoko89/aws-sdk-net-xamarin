@@ -32,7 +32,7 @@ namespace Amazon.Redshift.Model
     /// The specified cluster snapshot is not in the <code>available</code> state, or other
     /// accounts are authorized to access the snapshot.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidClusterSnapshotStateException : AmazonRedshiftException
@@ -87,7 +87,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidClusterSnapshotStateException class with serialized data.
         /// </summary>

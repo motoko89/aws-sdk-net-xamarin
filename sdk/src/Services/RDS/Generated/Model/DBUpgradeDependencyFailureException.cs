@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// The DB upgrade failed because a resource the DB depends on can't be modified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBUpgradeDependencyFailureException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBUpgradeDependencyFailureException class with serialized data.
         /// </summary>

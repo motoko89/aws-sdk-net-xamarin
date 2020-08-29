@@ -31,7 +31,7 @@ namespace Amazon.SimpleEmailV2.Model
     /// <summary>
     /// The specified request includes an invalid or expired token.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidNextTokenException : AmazonSimpleEmailServiceV2Exception
@@ -86,7 +86,7 @@ namespace Amazon.SimpleEmailV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidNextTokenException class with serialized data.
         /// </summary>

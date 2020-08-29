@@ -33,7 +33,7 @@ namespace Amazon.MigrationHub.Model
     /// configuration, update stream, migration task, etc.) that does not exist in Application
     /// Discovery Service (Application Discovery Service) or in Migration Hub's repository.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonMigrationHubException
@@ -88,7 +88,7 @@ namespace Amazon.MigrationHub.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

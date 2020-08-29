@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// The DBSubnetGroup doesn't belong to the same VPC as that of an existing cross-region
     /// read replica of the same source instance.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDBSubnetGroupException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDBSubnetGroupException class with serialized data.
         /// </summary>

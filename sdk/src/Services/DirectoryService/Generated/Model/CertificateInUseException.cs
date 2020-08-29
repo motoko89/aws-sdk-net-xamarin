@@ -32,7 +32,7 @@ namespace Amazon.DirectoryService.Model
     /// The certificate is being used for the LDAP security connection and cannot be removed
     /// without disabling LDAP security.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CertificateInUseException : AmazonDirectoryServiceException
@@ -88,7 +88,7 @@ namespace Amazon.DirectoryService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CertificateInUseException class with serialized data.
         /// </summary>

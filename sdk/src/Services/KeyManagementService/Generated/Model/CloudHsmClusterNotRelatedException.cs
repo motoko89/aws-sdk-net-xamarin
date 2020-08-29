@@ -46,7 +46,7 @@ namespace Amazon.KeyManagementService.Model
     /// operation.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CloudHsmClusterNotRelatedException : AmazonKeyManagementServiceException
@@ -101,7 +101,7 @@ namespace Amazon.KeyManagementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CloudHsmClusterNotRelatedException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.SecretsManager.Model
     /// <summary>
     /// You provided an invalid value for a parameter.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterException : AmazonSecretsManagerException
@@ -86,7 +86,7 @@ namespace Amazon.SecretsManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterException class with serialized data.
         /// </summary>

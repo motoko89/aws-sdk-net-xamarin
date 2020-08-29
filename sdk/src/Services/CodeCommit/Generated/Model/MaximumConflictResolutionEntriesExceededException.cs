@@ -31,7 +31,7 @@ namespace Amazon.CodeCommit.Model
     /// <summary>
     /// The number of allowed conflict resolution entries was exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MaximumConflictResolutionEntriesExceededException : AmazonCodeCommitException
@@ -86,7 +86,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MaximumConflictResolutionEntriesExceededException class with serialized data.
         /// </summary>

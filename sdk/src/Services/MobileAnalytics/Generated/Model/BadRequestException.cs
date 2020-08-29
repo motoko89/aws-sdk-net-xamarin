@@ -31,7 +31,7 @@ namespace Amazon.MobileAnalytics.Model
     /// <summary>
     /// An exception object returned when a request fails.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadRequestException : AmazonMobileAnalyticsException
@@ -86,7 +86,7 @@ namespace Amazon.MobileAnalytics.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadRequestException class with serialized data.
         /// </summary>

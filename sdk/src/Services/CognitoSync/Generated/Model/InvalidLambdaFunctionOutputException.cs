@@ -31,7 +31,7 @@ namespace Amazon.CognitoSync.Model
     /// <summary>
     /// The AWS Lambda function returned invalid output or an exception.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidLambdaFunctionOutputException : AmazonCognitoSyncException
@@ -86,7 +86,7 @@ namespace Amazon.CognitoSync.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidLambdaFunctionOutputException class with serialized data.
         /// </summary>

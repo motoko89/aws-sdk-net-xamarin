@@ -31,7 +31,7 @@ namespace Amazon.ApiGatewayManagementApi.Model
     /// <summary>
     /// The connection with the provided id no longer exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class GoneException : AmazonApiGatewayManagementApiException
@@ -86,7 +86,7 @@ namespace Amazon.ApiGatewayManagementApi.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the GoneException class with serialized data.
         /// </summary>

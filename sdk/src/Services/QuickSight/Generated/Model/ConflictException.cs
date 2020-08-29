@@ -31,7 +31,7 @@ namespace Amazon.QuickSight.Model
     /// <summary>
     /// Updating or deleting a resource can cause an inconsistent state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConflictException : AmazonQuickSightException
@@ -87,7 +87,7 @@ namespace Amazon.QuickSight.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConflictException class with serialized data.
         /// </summary>

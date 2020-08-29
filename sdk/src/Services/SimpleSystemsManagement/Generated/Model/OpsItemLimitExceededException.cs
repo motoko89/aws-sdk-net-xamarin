@@ -33,7 +33,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What
     /// are the resource limits for OpsCenter?</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OpsItemLimitExceededException : AmazonSimpleSystemsManagementException
@@ -91,7 +91,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OpsItemLimitExceededException class with serialized data.
         /// </summary>

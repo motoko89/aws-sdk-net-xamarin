@@ -31,7 +31,7 @@ namespace Amazon.EKS.Model
     /// <summary>
     /// You have encountered a service limit on the specified resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceLimitExceededException : AmazonEKSException
@@ -88,7 +88,7 @@ namespace Amazon.EKS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceLimitExceededException class with serialized data.
         /// </summary>

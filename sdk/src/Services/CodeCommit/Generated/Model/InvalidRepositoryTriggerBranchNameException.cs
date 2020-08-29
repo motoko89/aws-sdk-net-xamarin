@@ -31,7 +31,7 @@ namespace Amazon.CodeCommit.Model
     /// <summary>
     /// One or more branch names specified for the trigger is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRepositoryTriggerBranchNameException : AmazonCodeCommitException
@@ -86,7 +86,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRepositoryTriggerBranchNameException class with serialized data.
         /// </summary>

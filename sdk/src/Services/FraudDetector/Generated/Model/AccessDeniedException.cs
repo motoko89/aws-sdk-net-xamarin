@@ -33,7 +33,7 @@ namespace Amazon.FraudDetector.Model
     /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
     /// specifies a role that is not in your account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedException : AmazonFraudDetectorException
@@ -88,7 +88,7 @@ namespace Amazon.FraudDetector.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedException class with serialized data.
         /// </summary>

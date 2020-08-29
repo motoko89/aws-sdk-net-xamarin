@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The version name has already been used in this document. Specify a different version
     /// name, and then try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DuplicateDocumentVersionNameException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DuplicateDocumentVersionNameException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CodeStar.Model
     /// The project creation request was valid, but a nonspecific exception or error occurred
     /// during project creation. The project could not be created in AWS CodeStar.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ProjectCreationFailedException : AmazonCodeStarException
@@ -87,7 +87,7 @@ namespace Amazon.CodeStar.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ProjectCreationFailedException class with serialized data.
         /// </summary>

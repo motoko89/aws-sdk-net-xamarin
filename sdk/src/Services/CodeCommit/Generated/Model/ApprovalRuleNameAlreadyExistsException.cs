@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// An approval rule with that name already exists. Approval rule names must be unique
     /// within the scope of a pull request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ApprovalRuleNameAlreadyExistsException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ApprovalRuleNameAlreadyExistsException class with serialized data.
         /// </summary>

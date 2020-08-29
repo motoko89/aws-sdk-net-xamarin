@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// There is no automation execution information for the requested automation execution
     /// ID.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AutomationExecutionNotFoundException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AutomationExecutionNotFoundException class with serialized data.
         /// </summary>

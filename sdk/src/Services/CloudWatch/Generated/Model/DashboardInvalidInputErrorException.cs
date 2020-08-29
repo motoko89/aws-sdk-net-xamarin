@@ -31,7 +31,7 @@ namespace Amazon.CloudWatch.Model
     /// <summary>
     /// Some part of the dashboard data is invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DashboardInvalidInputErrorException : AmazonCloudWatchException
@@ -87,7 +87,7 @@ namespace Amazon.CloudWatch.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DashboardInvalidInputErrorException class with serialized data.
         /// </summary>

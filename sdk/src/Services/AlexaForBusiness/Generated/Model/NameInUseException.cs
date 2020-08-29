@@ -31,7 +31,7 @@ namespace Amazon.AlexaForBusiness.Model
     /// <summary>
     /// The name sent in the request is already in use.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NameInUseException : AmazonAlexaForBusinessException
@@ -86,7 +86,7 @@ namespace Amazon.AlexaForBusiness.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NameInUseException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.SimpleEmail.Model
     /// Indicates that a custom verification email template with the name you specified does
     /// not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CustomVerificationEmailTemplateDoesNotExistException : AmazonSimpleEmailServiceException
@@ -88,7 +88,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CustomVerificationEmailTemplateDoesNotExistException class with serialized data.
         /// </summary>

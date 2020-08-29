@@ -32,7 +32,7 @@ namespace Amazon.ECS.Model
     /// The specified service could not be found. You can view your available services with
     /// <a>ListServices</a>. Amazon ECS services are cluster-specific and Region-specific.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceNotFoundException : AmazonECSException
@@ -87,7 +87,7 @@ namespace Amazon.ECS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceNotFoundException class with serialized data.
         /// </summary>

@@ -100,22 +100,12 @@ namespace Amazon.Runtime
         public ICollection<WebExceptionStatus> WebExceptionStatusesToRetryOn { get; protected set; } = new HashSet<WebExceptionStatus>
         {
             WebExceptionStatus.ConnectFailure,
-
-#if !PCL // These statuses are not available on WinRT
             WebExceptionStatus.ConnectionClosed,
             WebExceptionStatus.KeepAliveFailure,
             WebExceptionStatus.NameResolutionFailure,
             WebExceptionStatus.ReceiveFailure,
             WebExceptionStatus.SendFailure,
             WebExceptionStatus.Timeout,
-#else // WinRT does not expose the status as public enums so we hard code the status numbers.
-            (WebExceptionStatus)8,
-            (WebExceptionStatus)12,
-            (WebExceptionStatus)1,
-            (WebExceptionStatus)3,
-            (WebExceptionStatus)4,
-            (WebExceptionStatus)14,
-#endif
         };
 
         #endregion
@@ -278,7 +268,7 @@ namespace Amazon.Runtime
             if (exception is IOException)
             {
 
-#if !PCL && !NETSTANDARD  // ThreadAbortException is not PCL and NetStandard
+#if !NETSTANDARD  // ThreadAbortException is not NetStandard
 
                 // Don't retry IOExceptions that are caused by a ThreadAbortException
                 if (ExceptionUtils.IsInnerException<ThreadAbortException>(exception))

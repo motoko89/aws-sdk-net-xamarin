@@ -32,7 +32,7 @@ namespace Amazon.Lambda.Model
     /// AWS Lambda received an unexpected EC2 client exception while setting up for the Lambda
     /// function.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EC2UnexpectedException : AmazonLambdaException
@@ -89,7 +89,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EC2UnexpectedException class with serialized data.
         /// </summary>

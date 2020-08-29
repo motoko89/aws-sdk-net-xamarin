@@ -36,7 +36,7 @@ namespace Amazon.SimpleEmail.Model
     /// You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConfigurationSetSendingPausedException : AmazonSimpleEmailServiceException
@@ -92,7 +92,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConfigurationSetSendingPausedException class with serialized data.
         /// </summary>

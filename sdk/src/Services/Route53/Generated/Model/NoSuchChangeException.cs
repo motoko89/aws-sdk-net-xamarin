@@ -31,7 +31,7 @@ namespace Amazon.Route53.Model
     /// <summary>
     /// A change with the specified change ID does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NoSuchChangeException : AmazonRoute53Exception
@@ -86,7 +86,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NoSuchChangeException class with serialized data.
         /// </summary>

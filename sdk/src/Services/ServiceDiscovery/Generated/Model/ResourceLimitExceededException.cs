@@ -29,9 +29,9 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ServiceDiscovery.Model
 {
     /// <summary>
-    /// The resource can't be created because you've reached the limit on the number of resources.
+    /// The resource can't be created because you've reached the quota on the number of resources.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceLimitExceededException : AmazonServiceDiscoveryException
@@ -86,7 +86,7 @@ namespace Amazon.ServiceDiscovery.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceLimitExceededException class with serialized data.
         /// </summary>

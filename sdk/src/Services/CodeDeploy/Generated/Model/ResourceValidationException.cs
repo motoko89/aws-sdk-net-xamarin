@@ -31,7 +31,7 @@ namespace Amazon.CodeDeploy.Model
     /// <summary>
     /// The specified resource could not be validated.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceValidationException : AmazonCodeDeployException
@@ -86,7 +86,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceValidationException class with serialized data.
         /// </summary>

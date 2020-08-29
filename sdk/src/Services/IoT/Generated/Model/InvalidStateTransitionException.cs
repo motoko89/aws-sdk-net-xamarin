@@ -32,7 +32,7 @@ namespace Amazon.IoT.Model
     /// An attempt was made to change to an invalid state, for example by deleting a job or
     /// a job execution which is "IN_PROGRESS" without setting the <code>force</code> parameter.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidStateTransitionException : AmazonIoTException
@@ -87,7 +87,7 @@ namespace Amazon.IoT.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidStateTransitionException class with serialized data.
         /// </summary>

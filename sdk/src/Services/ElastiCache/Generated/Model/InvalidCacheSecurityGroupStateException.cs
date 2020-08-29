@@ -31,7 +31,7 @@ namespace Amazon.ElastiCache.Model
     /// <summary>
     /// The current state of the cache security group does not allow deletion.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidCacheSecurityGroupStateException : AmazonElastiCacheException
@@ -86,7 +86,7 @@ namespace Amazon.ElastiCache.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidCacheSecurityGroupStateException class with serialized data.
         /// </summary>

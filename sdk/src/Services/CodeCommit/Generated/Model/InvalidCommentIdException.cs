@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The comment ID is not in a valid format. Make sure that you have provided the full
     /// comment ID.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidCommentIdException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidCommentIdException class with serialized data.
         /// </summary>

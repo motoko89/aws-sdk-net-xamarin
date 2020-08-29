@@ -31,7 +31,7 @@ namespace Amazon.CloudTrail.Model
     /// <summary>
     /// This exception is no longer in use.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TrailNotProvidedException : AmazonCloudTrailException
@@ -86,7 +86,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TrailNotProvidedException class with serialized data.
         /// </summary>

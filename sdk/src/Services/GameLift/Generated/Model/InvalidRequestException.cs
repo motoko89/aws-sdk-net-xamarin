@@ -32,7 +32,7 @@ namespace Amazon.GameLift.Model
     /// One or more parameter values in the request are invalid. Correct the invalid parameter
     /// values before retrying.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRequestException : AmazonGameLiftException
@@ -87,7 +87,7 @@ namespace Amazon.GameLift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRequestException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.Route53.Model
     /// <summary>
     /// Associating the specified VPC with the specified hosted zone has not been authorized.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NotAuthorizedException : AmazonRoute53Exception
@@ -86,7 +86,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NotAuthorizedException class with serialized data.
         /// </summary>

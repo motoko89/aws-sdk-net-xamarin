@@ -32,7 +32,7 @@ namespace Amazon.CloudFront.Model
     /// The caller reference you attempted to create the streaming distribution with is associated
     /// with another distribution
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class StreamingDistributionAlreadyExistsException : AmazonCloudFrontException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the StreamingDistributionAlreadyExistsException class with serialized data.
         /// </summary>

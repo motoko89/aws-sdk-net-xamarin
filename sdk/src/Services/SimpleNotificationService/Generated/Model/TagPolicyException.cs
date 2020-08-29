@@ -32,7 +32,7 @@ namespace Amazon.SimpleNotificationService.Model
     /// The request doesn't comply with the IAM tag policy. Correct your request and then
     /// retry it.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TagPolicyException : AmazonSimpleNotificationServiceException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleNotificationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TagPolicyException class with serialized data.
         /// </summary>

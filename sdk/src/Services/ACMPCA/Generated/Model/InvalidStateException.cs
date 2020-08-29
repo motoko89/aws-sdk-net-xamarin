@@ -29,9 +29,9 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ACMPCA.Model
 {
     /// <summary>
-    /// The private CA is in a state during which a report or certificate cannot be generated.
+    /// The state of the private CA does not allow this action to occur.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidStateException : AmazonACMPCAException
@@ -86,7 +86,7 @@ namespace Amazon.ACMPCA.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidStateException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.ConfigService.Model
     /// The specified time range is not valid. The earlier time is not chronologically before
     /// the later time.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidTimeRangeException : AmazonConfigServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidTimeRangeException class with serialized data.
         /// </summary>

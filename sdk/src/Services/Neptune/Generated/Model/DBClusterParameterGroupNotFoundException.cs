@@ -32,7 +32,7 @@ namespace Amazon.Neptune.Model
     /// <i>DBClusterParameterGroupName</i> does not refer to an existing DB Cluster parameter
     /// group.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBClusterParameterGroupNotFoundException : AmazonNeptuneException
@@ -87,7 +87,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBClusterParameterGroupNotFoundException class with serialized data.
         /// </summary>

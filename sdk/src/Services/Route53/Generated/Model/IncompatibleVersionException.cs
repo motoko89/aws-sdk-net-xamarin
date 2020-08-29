@@ -31,7 +31,7 @@ namespace Amazon.Route53.Model
     /// <summary>
     /// The resource you're trying to access is unsupported on this Amazon Route 53 endpoint.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IncompatibleVersionException : AmazonRoute53Exception
@@ -86,7 +86,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IncompatibleVersionException class with serialized data.
         /// </summary>

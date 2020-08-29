@@ -34,7 +34,7 @@ namespace Amazon.CloudTrail.Model
     /// Trusted Access with Other AWS Services</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare
     /// For Creating a Trail For Your Organization</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CloudTrailAccessNotEnabledException : AmazonCloudTrailException
@@ -89,7 +89,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CloudTrailAccessNotEnabledException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.Organizations.Model
     /// <summary>
     /// The selected policy is already attached to the specified target.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DuplicatePolicyAttachmentException : AmazonOrganizationsException
@@ -86,7 +86,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DuplicatePolicyAttachmentException class with serialized data.
         /// </summary>

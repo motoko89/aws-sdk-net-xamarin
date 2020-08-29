@@ -32,7 +32,7 @@ namespace Amazon.CloudTrail.Model
     /// This exception is thrown when the specified tag key or values are not valid. It can
     /// also occur if there are duplicate tags or too many tags on the resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidTagParameterException : AmazonCloudTrailException
@@ -87,7 +87,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidTagParameterException class with serialized data.
         /// </summary>

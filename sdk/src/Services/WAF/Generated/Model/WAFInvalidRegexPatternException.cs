@@ -32,7 +32,7 @@ namespace Amazon.WAF.Model
     /// The regular expression (regex) you specified in <code>RegexPatternString</code> is
     /// invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFInvalidRegexPatternException : AmazonWAFException
@@ -87,7 +87,7 @@ namespace Amazon.WAF.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFInvalidRegexPatternException class with serialized data.
         /// </summary>

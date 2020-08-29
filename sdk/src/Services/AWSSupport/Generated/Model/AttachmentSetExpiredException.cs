@@ -32,7 +32,7 @@ namespace Amazon.AWSSupport.Model
     /// The expiration time of the attachment set has passed. The set expires 1 hour after
     /// it is created.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AttachmentSetExpiredException : AmazonAWSSupportException
@@ -87,7 +87,7 @@ namespace Amazon.AWSSupport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AttachmentSetExpiredException class with serialized data.
         /// </summary>

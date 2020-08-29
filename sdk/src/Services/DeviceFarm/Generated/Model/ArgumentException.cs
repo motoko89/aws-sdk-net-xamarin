@@ -31,7 +31,7 @@ namespace Amazon.DeviceFarm.Model
     /// <summary>
     /// An invalid argument was specified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ArgumentException : AmazonDeviceFarmException
@@ -86,7 +86,7 @@ namespace Amazon.DeviceFarm.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ArgumentException class with serialized data.
         /// </summary>

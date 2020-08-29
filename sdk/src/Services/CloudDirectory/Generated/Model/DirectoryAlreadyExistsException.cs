@@ -32,7 +32,7 @@ namespace Amazon.CloudDirectory.Model
     /// Indicates that a <a>Directory</a> could not be created due to a naming conflict. Choose
     /// a different name and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DirectoryAlreadyExistsException : AmazonCloudDirectoryException
@@ -87,7 +87,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DirectoryAlreadyExistsException class with serialized data.
         /// </summary>

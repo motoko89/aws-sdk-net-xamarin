@@ -31,7 +31,7 @@ namespace Amazon.FSx.Model
     /// <summary>
     /// The resource specified does not support tagging.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceDoesNotSupportTaggingException : AmazonFSxException
@@ -87,7 +87,7 @@ namespace Amazon.FSx.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceDoesNotSupportTaggingException class with serialized data.
         /// </summary>

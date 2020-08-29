@@ -32,7 +32,7 @@ namespace Amazon.Comprehend.Model
     /// The request contains more tag keys than can be associated with a resource (50 tag
     /// keys per resource).
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyTagKeysException : AmazonComprehendException
@@ -87,7 +87,7 @@ namespace Amazon.Comprehend.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyTagKeysException class with serialized data.
         /// </summary>

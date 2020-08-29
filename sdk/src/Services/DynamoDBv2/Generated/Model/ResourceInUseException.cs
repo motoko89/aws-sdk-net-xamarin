@@ -33,7 +33,7 @@ namespace Amazon.DynamoDBv2.Model
     /// to recreate an existing table, or tried to delete a table currently in the <code>CREATING</code>
     /// state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceInUseException : AmazonDynamoDBException
@@ -88,7 +88,7 @@ namespace Amazon.DynamoDBv2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceInUseException class with serialized data.
         /// </summary>

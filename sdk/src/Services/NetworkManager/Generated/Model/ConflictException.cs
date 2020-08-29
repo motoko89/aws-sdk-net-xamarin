@@ -32,7 +32,7 @@ namespace Amazon.NetworkManager.Model
     /// There was a conflict processing the request. Updating or deleting the resource can
     /// cause an inconsistent state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConflictException : AmazonNetworkManagerException
@@ -89,7 +89,7 @@ namespace Amazon.NetworkManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConflictException class with serialized data.
         /// </summary>

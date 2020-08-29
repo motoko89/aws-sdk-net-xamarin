@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// Error returned if an attempt is made to delete a patch baseline that is registered
     /// for a patch group.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceInUseException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceInUseException class with serialized data.
         /// </summary>

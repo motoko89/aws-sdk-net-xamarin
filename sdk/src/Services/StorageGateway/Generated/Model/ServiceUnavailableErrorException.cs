@@ -32,7 +32,7 @@ namespace Amazon.StorageGateway.Model
     /// An internal server error has occurred because the service is unavailable. For more
     /// information, see the error and message fields.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceUnavailableErrorException : AmazonStorageGatewayException
@@ -88,7 +88,7 @@ namespace Amazon.StorageGateway.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceUnavailableErrorException class with serialized data.
         /// </summary>

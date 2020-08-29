@@ -32,7 +32,7 @@ namespace Amazon.Lambda.Model
     /// The permissions policy for the resource is too large. <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Learn
     /// more</a>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PolicyLengthExceededException : AmazonLambdaException
@@ -88,7 +88,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PolicyLengthExceededException class with serialized data.
         /// </summary>

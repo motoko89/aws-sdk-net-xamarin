@@ -32,7 +32,7 @@ namespace Amazon.AlexaForBusiness.Model
     /// The request failed because this device is no longer registered and therefore no longer
     /// managed by this account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DeviceNotRegisteredException : AmazonAlexaForBusinessException
@@ -87,7 +87,7 @@ namespace Amazon.AlexaForBusiness.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DeviceNotRegisteredException class with serialized data.
         /// </summary>

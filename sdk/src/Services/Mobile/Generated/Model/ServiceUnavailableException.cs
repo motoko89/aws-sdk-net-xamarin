@@ -32,7 +32,7 @@ namespace Amazon.Mobile.Model
     /// The service is temporarily unavailable. The request should be retried after some
     /// time delay.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceUnavailableException : AmazonMobileException
@@ -88,7 +88,7 @@ namespace Amazon.Mobile.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceUnavailableException class with serialized data.
         /// </summary>

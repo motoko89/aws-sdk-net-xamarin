@@ -31,7 +31,7 @@ namespace Amazon.CloudDirectory.Model
     /// <summary>
     /// An attempt to modify a <a>Facet</a> resulted in an invalid schema exception.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidFacetUpdateException : AmazonCloudDirectoryException
@@ -86,7 +86,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidFacetUpdateException class with serialized data.
         /// </summary>

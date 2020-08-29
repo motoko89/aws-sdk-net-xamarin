@@ -31,7 +31,7 @@ namespace Amazon.Textract.Model
     /// <summary>
     /// An invalid job identifier was passed to <a>GetDocumentAnalysis</a> or to <a>GetDocumentAnalysis</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidJobIdException : AmazonTextractException
@@ -86,7 +86,7 @@ namespace Amazon.Textract.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidJobIdException class with serialized data.
         /// </summary>

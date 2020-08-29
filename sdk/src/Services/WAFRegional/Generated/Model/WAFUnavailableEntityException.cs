@@ -32,7 +32,7 @@ namespace Amazon.WAFRegional.Model
     /// The operation failed because the entity referenced is temporarily unavailable. Retry
     /// your request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFUnavailableEntityException : AmazonWAFRegionalException
@@ -87,7 +87,7 @@ namespace Amazon.WAFRegional.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFUnavailableEntityException class with serialized data.
         /// </summary>

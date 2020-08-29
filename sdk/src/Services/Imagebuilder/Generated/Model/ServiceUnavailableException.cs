@@ -31,7 +31,7 @@ namespace Amazon.Imagebuilder.Model
     /// <summary>
     /// The service is unable to process your request at this time.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceUnavailableException : AmazonImagebuilderException
@@ -86,7 +86,7 @@ namespace Amazon.Imagebuilder.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceUnavailableException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.WorkDocs.Model
     /// This exception is thrown when a valid checkout ID is not presented on document version
     /// upload calls for a document that has been checked out from Web client.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DraftUploadOutOfSyncException : AmazonWorkDocsException
@@ -87,7 +87,7 @@ namespace Amazon.WorkDocs.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DraftUploadOutOfSyncException class with serialized data.
         /// </summary>

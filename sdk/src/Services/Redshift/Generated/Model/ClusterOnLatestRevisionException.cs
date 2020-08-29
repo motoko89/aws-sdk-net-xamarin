@@ -31,7 +31,7 @@ namespace Amazon.Redshift.Model
     /// <summary>
     /// Cluster is already on the latest database revision.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ClusterOnLatestRevisionException : AmazonRedshiftException
@@ -86,7 +86,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ClusterOnLatestRevisionException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The commit cannot be created because no source files or file content have been specified
     /// for the commit.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SourceFileOrContentRequiredException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SourceFileOrContentRequiredException class with serialized data.
         /// </summary>

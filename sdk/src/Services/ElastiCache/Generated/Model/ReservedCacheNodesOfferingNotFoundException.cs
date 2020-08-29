@@ -31,7 +31,7 @@ namespace Amazon.ElastiCache.Model
     /// <summary>
     /// The requested cache node offering does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ReservedCacheNodesOfferingNotFoundException : AmazonElastiCacheException
@@ -86,7 +86,7 @@ namespace Amazon.ElastiCache.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ReservedCacheNodesOfferingNotFoundException class with serialized data.
         /// </summary>

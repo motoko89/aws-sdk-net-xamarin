@@ -32,7 +32,7 @@ namespace Amazon.ServerMigrationService.Model
     /// You lack permissions needed to perform this operation. Check your IAM policies, and
     /// ensure that you are using the correct access keys.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnauthorizedOperationException : AmazonServerMigrationServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ServerMigrationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnauthorizedOperationException class with serialized data.
         /// </summary>

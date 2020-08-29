@@ -31,7 +31,7 @@ namespace Amazon.IoTSiteWise.Model
     /// <summary>
     /// AWS IoT SiteWise can't process your request right now. Try again later.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalFailureException : AmazonIoTSiteWiseException
@@ -86,7 +86,7 @@ namespace Amazon.IoTSiteWise.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalFailureException class with serialized data.
         /// </summary>

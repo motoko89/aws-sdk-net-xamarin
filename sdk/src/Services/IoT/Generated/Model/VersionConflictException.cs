@@ -32,7 +32,7 @@ namespace Amazon.IoT.Model
     /// An exception thrown when the version of an entity specified with the <code>expectedVersion</code>
     /// parameter does not match the latest version in the system.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class VersionConflictException : AmazonIoTException
@@ -87,7 +87,7 @@ namespace Amazon.IoT.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the VersionConflictException class with serialized data.
         /// </summary>

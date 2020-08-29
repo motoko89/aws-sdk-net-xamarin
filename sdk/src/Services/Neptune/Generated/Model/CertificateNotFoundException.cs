@@ -31,7 +31,7 @@ namespace Amazon.Neptune.Model
     /// <summary>
     /// <i>CertificateIdentifier</i> does not refer to an existing certificate.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CertificateNotFoundException : AmazonNeptuneException
@@ -86,7 +86,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CertificateNotFoundException class with serialized data.
         /// </summary>

@@ -29,11 +29,12 @@ using Amazon.Runtime.Internal;
 namespace Amazon.AWSHealth.Model
 {
     /// <summary>
-    /// <a>EnableHealthServiceAccessForOrganization</a> is already in progress. Wait for
-    /// the action to complete before trying again. To get the current status, use the <a>DescribeHealthServiceStatusForOrganization</a>
+    /// <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
+    /// is already in progress. Wait for the action to complete before trying again. To get
+    /// the current status, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html">DescribeHealthServiceStatusForOrganization</a>
     /// operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentModificationException : AmazonAWSHealthException
@@ -88,7 +89,7 @@ namespace Amazon.AWSHealth.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentModificationException class with serialized data.
         /// </summary>

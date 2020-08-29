@@ -35,6 +35,15 @@ namespace Amazon.FSx
     public partial interface IAmazonFSx : IAmazonService, IDisposable
     {
 
+
+#if BCL45 || AWS_ASYNC_ENUMERABLES_API
+        /// <summary>
+        /// Paginators for the service
+        /// </summary>
+        IFSxPaginatorFactory Paginators { get; }
+#endif
+
+
         
         #region  CancelDataRepositoryTask
 
@@ -127,7 +136,7 @@ namespace Amazon.FSx
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// is <i>not</i> linked to an Amazon S3 data respository.
+        /// is <i>not</i> linked to a data respository.
         /// </para>
         ///  </li> </ul> 
         /// <para>

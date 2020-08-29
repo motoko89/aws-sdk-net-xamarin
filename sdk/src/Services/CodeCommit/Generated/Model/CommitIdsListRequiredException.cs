@@ -31,7 +31,7 @@ namespace Amazon.CodeCommit.Model
     /// <summary>
     /// A list of commit IDs is required, but was either not specified or the list was empty.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CommitIdsListRequiredException : AmazonCodeCommitException
@@ -86,7 +86,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CommitIdsListRequiredException class with serialized data.
         /// </summary>

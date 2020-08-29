@@ -31,7 +31,7 @@ namespace Amazon.Detective.Model
     /// <summary>
     /// The request was valid but failed because of a problem with the service.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerException : AmazonDetectiveException
@@ -86,7 +86,7 @@ namespace Amazon.Detective.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerException class with serialized data.
         /// </summary>

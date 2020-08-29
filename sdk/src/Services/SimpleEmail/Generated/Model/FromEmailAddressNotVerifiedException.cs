@@ -32,7 +32,7 @@ namespace Amazon.SimpleEmail.Model
     /// Indicates that the sender address specified for a custom verification email is not
     /// verified, and is therefore not eligible to send the custom verification email.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FromEmailAddressNotVerifiedException : AmazonSimpleEmailServiceException
@@ -88,7 +88,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FromEmailAddressNotVerifiedException class with serialized data.
         /// </summary>

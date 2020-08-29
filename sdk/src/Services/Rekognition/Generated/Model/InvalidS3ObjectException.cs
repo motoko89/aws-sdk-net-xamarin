@@ -31,7 +31,7 @@ namespace Amazon.Rekognition.Model
     /// <summary>
     /// Amazon Rekognition is unable to access the S3 object specified in the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidS3ObjectException : AmazonRekognitionException
@@ -86,7 +86,7 @@ namespace Amazon.Rekognition.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidS3ObjectException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.CognitoIdentity.Model
     /// <summary>
     /// Thrown when a request is throttled.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyRequestsException : AmazonCognitoIdentityException
@@ -86,7 +86,7 @@ namespace Amazon.CognitoIdentity.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyRequestsException class with serialized data.
         /// </summary>

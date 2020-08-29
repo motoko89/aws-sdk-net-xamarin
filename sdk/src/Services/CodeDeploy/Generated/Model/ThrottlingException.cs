@@ -31,7 +31,7 @@ namespace Amazon.CodeDeploy.Model
     /// <summary>
     /// An API function was called too frequently.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ThrottlingException : AmazonCodeDeployException
@@ -86,7 +86,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ThrottlingException class with serialized data.
         /// </summary>

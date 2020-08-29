@@ -32,7 +32,7 @@ namespace Amazon.Elasticsearch.Model
     /// An error occured because the client wanted to access a not supported operation. Gives
     /// http status code of 409.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DisabledOperationException : AmazonElasticsearchException
@@ -87,7 +87,7 @@ namespace Amazon.Elasticsearch.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DisabledOperationException class with serialized data.
         /// </summary>

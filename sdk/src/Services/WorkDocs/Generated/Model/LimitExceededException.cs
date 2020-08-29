@@ -31,7 +31,7 @@ namespace Amazon.WorkDocs.Model
     /// <summary>
     /// The maximum of 100,000 folders under the parent folder has been exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonWorkDocsException
@@ -86,7 +86,7 @@ namespace Amazon.WorkDocs.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

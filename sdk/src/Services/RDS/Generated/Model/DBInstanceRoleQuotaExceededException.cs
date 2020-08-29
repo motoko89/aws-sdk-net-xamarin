@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// You can't associate any more AWS Identity and Access Management (IAM) roles with the
     /// DB instance because the quota has been reached.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBInstanceRoleQuotaExceededException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBInstanceRoleQuotaExceededException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.ECS.Model
     /// <summary>
     /// You cannot delete a cluster that has active tasks.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ClusterContainsTasksException : AmazonECSException
@@ -86,7 +86,7 @@ namespace Amazon.ECS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ClusterContainsTasksException class with serialized data.
         /// </summary>

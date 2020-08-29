@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
     /// the specified AWS Region.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBProxyNotFoundException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBProxyNotFoundException class with serialized data.
         /// </summary>

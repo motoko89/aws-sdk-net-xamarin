@@ -33,7 +33,7 @@ namespace Amazon.AppMesh.Model
     ///         account. For best results, use an increasing or variable sleep interval between
     ///         requests.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyRequestsException : AmazonAppMeshException
@@ -88,7 +88,7 @@ namespace Amazon.AppMesh.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyRequestsException class with serialized data.
         /// </summary>

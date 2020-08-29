@@ -32,7 +32,7 @@ namespace Amazon.MigrationHub.Model
     /// Exception raised to indicate a successfully authorized action when the <code>DryRun</code>
     /// flag is set to "true".
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DryRunOperationException : AmazonMigrationHubException
@@ -87,7 +87,7 @@ namespace Amazon.MigrationHub.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DryRunOperationException class with serialized data.
         /// </summary>

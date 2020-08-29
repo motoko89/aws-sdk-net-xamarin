@@ -31,7 +31,7 @@ namespace Amazon.ServiceDiscovery.Model
     /// <summary>
     /// The namespace that you're trying to create already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NamespaceAlreadyExistsException : AmazonServiceDiscoveryException
@@ -88,7 +88,7 @@ namespace Amazon.ServiceDiscovery.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NamespaceAlreadyExistsException class with serialized data.
         /// </summary>

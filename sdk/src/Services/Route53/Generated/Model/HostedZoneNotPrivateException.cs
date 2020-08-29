@@ -31,7 +31,7 @@ namespace Amazon.Route53.Model
     /// <summary>
     /// The specified hosted zone is a public hosted zone, not a private hosted zone.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class HostedZoneNotPrivateException : AmazonRoute53Exception
@@ -86,7 +86,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the HostedZoneNotPrivateException class with serialized data.
         /// </summary>

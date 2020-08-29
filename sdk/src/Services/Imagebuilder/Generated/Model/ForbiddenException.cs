@@ -31,7 +31,7 @@ namespace Amazon.Imagebuilder.Model
     /// <summary>
     /// You are not authorized to perform the requested operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ForbiddenException : AmazonImagebuilderException
@@ -86,7 +86,7 @@ namespace Amazon.Imagebuilder.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ForbiddenException class with serialized data.
         /// </summary>

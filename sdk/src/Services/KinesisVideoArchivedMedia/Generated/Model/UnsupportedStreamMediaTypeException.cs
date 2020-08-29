@@ -34,7 +34,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
     /// session. The codec ID for track 1 should be <code>V_MPEG/ISO/AVC</code> and, optionally,
     /// the codec ID for track 2 should be <code>A_AAC</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedStreamMediaTypeException : AmazonKinesisVideoArchivedMediaException
@@ -89,7 +89,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedStreamMediaTypeException class with serialized data.
         /// </summary>

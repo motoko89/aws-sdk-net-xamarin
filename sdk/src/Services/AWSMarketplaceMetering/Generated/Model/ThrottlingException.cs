@@ -31,7 +31,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
     /// <summary>
     /// The calls to the API are throttled.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ThrottlingException : AmazonAWSMarketplaceMeteringException
@@ -86,7 +86,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ThrottlingException class with serialized data.
         /// </summary>

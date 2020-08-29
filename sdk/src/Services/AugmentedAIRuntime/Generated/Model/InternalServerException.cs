@@ -31,7 +31,7 @@ namespace Amazon.AugmentedAIRuntime.Model
     /// <summary>
     /// We couldn't process your request because of an issue with the server. Try again later.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerException : AmazonAugmentedAIRuntimeException
@@ -86,7 +86,7 @@ namespace Amazon.AugmentedAIRuntime.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerException class with serialized data.
         /// </summary>

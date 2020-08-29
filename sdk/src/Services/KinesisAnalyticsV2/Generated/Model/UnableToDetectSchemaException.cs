@@ -32,7 +32,7 @@ namespace Amazon.KinesisAnalyticsV2.Model
     /// The data format is not valid. Amazon Kinesis Data Analytics cannot detect the schema
     /// for the given streaming source.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnableToDetectSchemaException : AmazonKinesisAnalyticsV2Exception
@@ -89,7 +89,7 @@ namespace Amazon.KinesisAnalyticsV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnableToDetectSchemaException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.WorkLink.Model
     /// <summary>
     /// The number of requests exceeds the limit.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyRequestsException : AmazonWorkLinkException
@@ -86,7 +86,7 @@ namespace Amazon.WorkLink.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyRequestsException class with serialized data.
         /// </summary>

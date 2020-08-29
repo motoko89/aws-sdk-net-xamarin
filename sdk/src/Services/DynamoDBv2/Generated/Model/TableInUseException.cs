@@ -31,7 +31,7 @@ namespace Amazon.DynamoDBv2.Model
     /// <summary>
     /// A target table with the specified name is either being created or deleted.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TableInUseException : AmazonDynamoDBException
@@ -86,7 +86,7 @@ namespace Amazon.DynamoDBv2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TableInUseException class with serialized data.
         /// </summary>

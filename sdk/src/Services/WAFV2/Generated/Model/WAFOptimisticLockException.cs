@@ -33,7 +33,7 @@ namespace Amazon.WAFV2.Model
     /// that has changed since you last retrieved it. Get the resource again, make any changes
     /// you need to make to the new copy, and retry your operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFOptimisticLockException : AmazonWAFV2Exception
@@ -88,7 +88,7 @@ namespace Amazon.WAFV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFOptimisticLockException class with serialized data.
         /// </summary>

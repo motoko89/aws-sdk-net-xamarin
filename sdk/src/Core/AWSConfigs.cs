@@ -431,7 +431,6 @@ namespace Amazon
         /// </summary>
         public static ProxyConfig ProxyConfig { get { return _rootConfig.Proxy; } }
 
-#if BCL || NETSTANDARD
         /// <summary>
         /// When set to true, the service client will use the  x-amz-user-agent
         /// header instead of the User-Agent header to report version and
@@ -445,7 +444,6 @@ namespace Amazon
             get { return _rootConfig.UseAlternateUserAgentHeader; }
             set { _rootConfig.UseAlternateUserAgentHeader = value; }
         }
-#endif
 
         /// <summary>
         /// Configuration for the region endpoint section of AWS configuration.
@@ -604,20 +602,6 @@ namespace Amazon
         /// Log to the console
         /// </summary>
         Console = 16
-#if PCL 
-        ,
-        /// <summary>
-        /// Log to a file
-        /// </summary>
-        File = 4
-#endif
-#if UNITY
-        ,
-        /// <summary>
-        /// Log using UnityEngine.Debug.
-        /// </summary>
-        UnityLogger = 8
-#endif
     }
 
     /// <summary>

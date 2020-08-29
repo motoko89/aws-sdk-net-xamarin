@@ -31,7 +31,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
     /// <summary>
     /// Public Key version is invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidPublicKeyVersionException : AmazonAWSMarketplaceMeteringException
@@ -86,7 +86,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidPublicKeyVersionException class with serialized data.
         /// </summary>

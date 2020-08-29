@@ -31,7 +31,7 @@ namespace Amazon.ElasticLoadBalancing.Model
     /// <summary>
     /// This operation is not allowed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OperationNotPermittedException : AmazonElasticLoadBalancingException
@@ -86,7 +86,7 @@ namespace Amazon.ElasticLoadBalancing.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OperationNotPermittedException class with serialized data.
         /// </summary>

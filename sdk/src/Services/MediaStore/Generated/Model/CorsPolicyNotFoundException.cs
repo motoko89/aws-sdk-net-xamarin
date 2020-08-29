@@ -31,7 +31,7 @@ namespace Amazon.MediaStore.Model
     /// <summary>
     /// The CORS policy that you specified in the request does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CorsPolicyNotFoundException : AmazonMediaStoreException
@@ -86,7 +86,7 @@ namespace Amazon.MediaStore.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CorsPolicyNotFoundException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.Redshift.Model
     /// <summary>
     /// A cluster parameter group with the same name already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ClusterParameterGroupAlreadyExistsException : AmazonRedshiftException
@@ -86,7 +86,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ClusterParameterGroupAlreadyExistsException class with serialized data.
         /// </summary>

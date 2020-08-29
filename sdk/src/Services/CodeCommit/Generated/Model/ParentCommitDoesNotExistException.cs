@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The parent commit ID is not valid because it does not exist. The specified parent
     /// commit ID does not exist in the specified branch of the repository.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ParentCommitDoesNotExistException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ParentCommitDoesNotExistException class with serialized data.
         /// </summary>

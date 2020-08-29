@@ -32,7 +32,7 @@ namespace Amazon.ComprehendMedical.Model
     /// The request that you made is invalid. Check your request to determine why it's invalid
     /// and then retry the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRequestException : AmazonComprehendMedicalException
@@ -87,7 +87,7 @@ namespace Amazon.ComprehendMedical.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRequestException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The document does not support the platform type of the given instance ID(s). For example,
     /// you sent an document for a Windows instance to a Linux instance.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedPlatformTypeException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedPlatformTypeException class with serialized data.
         /// </summary>

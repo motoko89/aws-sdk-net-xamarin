@@ -32,7 +32,7 @@ namespace Amazon.CognitoIdentityProvider.Model
     /// This exception is thrown when Amazon Cognito encounters a user name that already exists
     /// in the user pool.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UsernameExistsException : AmazonCognitoIdentityProviderException
@@ -87,7 +87,7 @@ namespace Amazon.CognitoIdentityProvider.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UsernameExistsException class with serialized data.
         /// </summary>

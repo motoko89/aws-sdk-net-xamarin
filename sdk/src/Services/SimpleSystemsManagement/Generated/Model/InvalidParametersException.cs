@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// You must specify values for all required parameters in the Systems Manager document.
     /// You can only supply values to parameters defined in the Systems Manager document.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParametersException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParametersException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.Textract.Model
     /// <summary>
     /// Amazon Textract isn't able to read the document.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadDocumentException : AmazonTextractException
@@ -86,7 +86,7 @@ namespace Amazon.Textract.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadDocumentException class with serialized data.
         /// </summary>

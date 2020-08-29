@@ -31,7 +31,7 @@ namespace Amazon.AccessAnalyzer.Model
     /// <summary>
     /// Service quote met error.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceQuotaExceededException : AmazonAccessAnalyzerException
@@ -88,7 +88,7 @@ namespace Amazon.AccessAnalyzer.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceQuotaExceededException class with serialized data.
         /// </summary>

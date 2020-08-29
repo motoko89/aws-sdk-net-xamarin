@@ -33,7 +33,7 @@ namespace Amazon.CodeDeploy.Model
     /// is expected. For EC2/On-premises deployments, <code>true</code> or <code>false</code>
     /// is expected.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidIgnoreApplicationStopFailuresValueException : AmazonCodeDeployException
@@ -88,7 +88,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidIgnoreApplicationStopFailuresValueException class with serialized data.
         /// </summary>

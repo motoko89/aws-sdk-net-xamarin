@@ -32,7 +32,7 @@ namespace Amazon.CloudFront.Model
     /// Processing your request would cause the maximum number of distributions with Lambda
     /// function associations per owner to be exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyDistributionsWithLambdaAssociationsException : AmazonCloudFrontException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyDistributionsWithLambdaAssociationsException class with serialized data.
         /// </summary>

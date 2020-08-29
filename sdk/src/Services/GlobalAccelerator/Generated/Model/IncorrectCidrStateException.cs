@@ -32,7 +32,7 @@ namespace Amazon.GlobalAccelerator.Model
     /// The CIDR that you specified is not valid for this action. For example, the state of
     /// the CIDR might be incorrect for this action.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IncorrectCidrStateException : AmazonGlobalAcceleratorException
@@ -87,7 +87,7 @@ namespace Amazon.GlobalAccelerator.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IncorrectCidrStateException class with serialized data.
         /// </summary>

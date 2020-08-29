@@ -31,7 +31,7 @@ namespace Amazon.CodePipeline.Model
     /// <summary>
     /// Exceeded the total size limit for all variables in the pipeline.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OutputVariablesSizeExceededException : AmazonCodePipelineException
@@ -86,7 +86,7 @@ namespace Amazon.CodePipeline.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OutputVariablesSizeExceededException class with serialized data.
         /// </summary>

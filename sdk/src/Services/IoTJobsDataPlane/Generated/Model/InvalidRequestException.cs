@@ -33,7 +33,7 @@ namespace Amazon.IoTJobsDataPlane.Model
     /// an UpdateJobExecution request contains invalid status details. The message contains
     /// details about the error.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRequestException : AmazonIoTJobsDataPlaneException
@@ -88,7 +88,7 @@ namespace Amazon.IoTJobsDataPlane.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRequestException class with serialized data.
         /// </summary>

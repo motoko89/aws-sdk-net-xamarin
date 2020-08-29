@@ -31,7 +31,7 @@ namespace Amazon.CognitoIdentity.Model
     /// <summary>
     /// Thrown when the total number of user pools has exceeded a preset limit.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonCognitoIdentityException
@@ -86,7 +86,7 @@ namespace Amazon.CognitoIdentity.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

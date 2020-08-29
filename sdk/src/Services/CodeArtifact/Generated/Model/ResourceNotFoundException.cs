@@ -32,7 +32,7 @@ namespace Amazon.CodeArtifact.Model
     /// The operation did not succeed because the resource requested is not found in the
     /// service.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonCodeArtifactException
@@ -89,7 +89,7 @@ namespace Amazon.CodeArtifact.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.AutoScalingPlans.Model
     /// <summary>
     /// An exception was thrown for a validation issue. Review the parameters provided.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ValidationException : AmazonAutoScalingPlansException
@@ -86,7 +86,7 @@ namespace Amazon.AutoScalingPlans.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ValidationException class with serialized data.
         /// </summary>

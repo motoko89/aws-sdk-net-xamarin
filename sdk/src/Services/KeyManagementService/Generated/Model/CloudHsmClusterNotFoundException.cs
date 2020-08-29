@@ -32,7 +32,7 @@ namespace Amazon.KeyManagementService.Model
     /// The request was rejected because AWS KMS cannot find the AWS CloudHSM cluster with
     /// the specified cluster ID. Retry the request with a different cluster ID.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CloudHsmClusterNotFoundException : AmazonKeyManagementServiceException
@@ -87,7 +87,7 @@ namespace Amazon.KeyManagementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CloudHsmClusterNotFoundException class with serialized data.
         /// </summary>

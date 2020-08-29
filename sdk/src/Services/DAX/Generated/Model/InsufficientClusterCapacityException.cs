@@ -32,7 +32,7 @@ namespace Amazon.DAX.Model
     /// There are not enough system resources to create the cluster you requested (or to resize
     /// an already-existing cluster).
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InsufficientClusterCapacityException : AmazonDAXException
@@ -87,7 +87,7 @@ namespace Amazon.DAX.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InsufficientClusterCapacityException class with serialized data.
         /// </summary>

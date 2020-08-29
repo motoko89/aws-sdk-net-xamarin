@@ -13,7 +13,8 @@ namespace ServiceClientGenerator
     {
         private const string amazonDotPrefix = "Amazon.";
 
-        string _modelPath;
+        private string _modelPath;
+        private string _paginatorsPath;
 
         /// <summary>
         /// The name of the model, taken from the "model" entry in the service models 
@@ -34,6 +35,18 @@ namespace ServiceClientGenerator
             }
         }
 
+        /// <summary>
+        /// Path to the paginators for a service
+        /// </summary>
+        public string PaginatorsPath
+        {
+            get { return this._paginatorsPath; }
+            set
+            {
+                this._paginatorsPath = value;
+            }
+        }
+
         ServiceModel _serviceModel;
 
         /// <summary>
@@ -45,7 +58,8 @@ namespace ServiceClientGenerator
             {
                 if (this._serviceModel == null)
                 {
-                    this._serviceModel = new ServiceModel(this.ModelPath, this.CustomizationsPath);
+                    this._serviceModel = this._paginatorsPath != null ? new ServiceModel(this.ModelPath, this.CustomizationsPath, this._paginatorsPath) : 
+                        new ServiceModel(this.ModelPath, this.CustomizationsPath);
                 }
 
                 return this._serviceModel;
@@ -225,16 +239,12 @@ namespace ServiceClientGenerator
         public string LockedApiVersion { get; set; }
         public string Synopsis { get; set; }
         public Dictionary<string, string> ServiceDependencies { get; set; }
-        public bool UsePclProjectDependencies { get; set; }
         public string LicenseUrl { get; set; }
         public bool RequireLicenseAcceptance { get; set; }
         public Dictionary<string, List<Dependency>> ReferenceDependencies { get; set; }
         public Dictionary<string, List<Dependency>> NugetDependencies { get; set; }
-        public List<string> PclVariants { get; set; }
         public List<string> Tags { get; set; }
         public bool NetStandardSupport { get; set; }
-
-        public bool EnableXamarinComponent { get; set; }
 
         public string ServiceVersion
         {
@@ -257,29 +267,6 @@ namespace ServiceClientGenerator
         public string ServiceAssemblyVersionOverride { get; set; }
 
         public bool SkipV1 { get; set; }
-
-        public IEnumerable<string> SupportedMobilePlatforms
-        {
-            set
-            {
-                if (value == null)
-                    return;
-
-                foreach (var platform in value)
-                {
-                    if (string.Equals(platform, "Unity", StringComparison.OrdinalIgnoreCase)) 
-                    {
-                        this.SupportedInUnity = true;
-                    }
-                }
-            }
-        }
-
-        public bool SupportedInUnity
-        {
-            get;
-            private set;
-        }
 
         public bool IsChildConfig
         {

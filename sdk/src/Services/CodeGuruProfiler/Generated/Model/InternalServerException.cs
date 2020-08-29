@@ -31,7 +31,7 @@ namespace Amazon.CodeGuruProfiler.Model
     /// <summary>
     /// The server encountered an internal error and is unable to complete the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerException : AmazonCodeGuruProfilerException
@@ -86,7 +86,7 @@ namespace Amazon.CodeGuruProfiler.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerException class with serialized data.
         /// </summary>

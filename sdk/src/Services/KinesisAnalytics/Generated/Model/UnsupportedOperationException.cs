@@ -32,7 +32,7 @@ namespace Amazon.KinesisAnalytics.Model
     /// The request was rejected because a specified parameter is not supported or a specified
     /// resource is not valid for this operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedOperationException : AmazonKinesisAnalyticsException
@@ -87,7 +87,7 @@ namespace Amazon.KinesisAnalytics.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedOperationException class with serialized data.
         /// </summary>

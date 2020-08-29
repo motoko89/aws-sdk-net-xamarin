@@ -32,7 +32,7 @@ namespace Amazon.Comprehend.Model
     /// The specified resource name is already in use. Use a different name and try your request
     /// again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceInUseException : AmazonComprehendException
@@ -87,7 +87,7 @@ namespace Amazon.Comprehend.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceInUseException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.DocDB.Model
     /// The subnet group doesn't cover all Availability Zones after it is created because
     /// of changes that were made.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidVPCNetworkStateException : AmazonDocDBException
@@ -87,7 +87,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidVPCNetworkStateException class with serialized data.
         /// </summary>

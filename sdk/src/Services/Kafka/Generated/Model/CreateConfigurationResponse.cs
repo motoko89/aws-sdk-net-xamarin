@@ -37,6 +37,7 @@ namespace Amazon.Kafka.Model
         private DateTime? _creationTime;
         private ConfigurationRevision _latestRevision;
         private string _name;
+        private ConfigurationState _state;
 
         /// <summary>
         /// Gets and sets the property Arn.             
@@ -108,6 +109,25 @@ namespace Amazon.Kafka.Model
         internal bool IsSetName()
         {
             return this._name != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property State.             
+        /// <para>
+        /// The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED.
+        /// 
+        /// </para>
+        /// </summary>
+        public ConfigurationState State
+        {
+            get { return this._state; }
+            set { this._state = value; }
+        }
+
+        // Check to see if State property is set
+        internal bool IsSetState()
+        {
+            return this._state != null;
         }
 
     }

@@ -32,7 +32,7 @@ namespace Amazon.KinesisVideo.Model
     /// You have reached the maximum limit of active signaling channels for this AWS account
     /// in this region.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccountChannelLimitExceededException : AmazonKinesisVideoException
@@ -87,7 +87,7 @@ namespace Amazon.KinesisVideo.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccountChannelLimitExceededException class with serialized data.
         /// </summary>

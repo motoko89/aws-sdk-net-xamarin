@@ -32,7 +32,7 @@ namespace Amazon.ElasticFileSystem.Model
     /// The service timed out trying to fulfill the request, and the client should try the
     /// call again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DependencyTimeoutException : AmazonElasticFileSystemException
@@ -88,7 +88,7 @@ namespace Amazon.ElasticFileSystem.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DependencyTimeoutException class with serialized data.
         /// </summary>

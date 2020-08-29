@@ -32,7 +32,7 @@ namespace Amazon.Lambda.Model
     /// Lambda was unable to decrypt the environment variables because the KMS key used is
     /// in an invalid state for Decrypt. Check the function's KMS key settings.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class KMSInvalidStateException : AmazonLambdaException
@@ -88,7 +88,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the KMSInvalidStateException class with serialized data.
         /// </summary>

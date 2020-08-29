@@ -32,7 +32,7 @@ namespace Amazon.CodeDeploy.Model
     /// The number of tag groups included in the tag set list exceeded the maximum allowed
     /// limit of 3.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TagSetListLimitExceededException : AmazonCodeDeployException
@@ -87,7 +87,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TagSetListLimitExceededException class with serialized data.
         /// </summary>

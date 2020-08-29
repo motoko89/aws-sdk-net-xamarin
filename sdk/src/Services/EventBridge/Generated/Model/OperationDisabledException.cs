@@ -31,7 +31,7 @@ namespace Amazon.EventBridge.Model
     /// <summary>
     /// The operation you are attempting is not available in this region.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OperationDisabledException : AmazonEventBridgeException
@@ -86,7 +86,7 @@ namespace Amazon.EventBridge.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OperationDisabledException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.Elasticsearch.Model
     /// An error occurred because user does not have permissions to access the resource. Returns
     /// HTTP status code 403.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedException : AmazonElasticsearchException
@@ -87,7 +87,7 @@ namespace Amazon.Elasticsearch.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedException class with serialized data.
         /// </summary>

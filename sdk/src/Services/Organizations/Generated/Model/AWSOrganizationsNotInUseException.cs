@@ -32,7 +32,7 @@ namespace Amazon.Organizations.Model
     /// Your account isn't a member of an organization. To make this request, you must use
     /// the credentials of an account that belongs to an organization.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AWSOrganizationsNotInUseException : AmazonOrganizationsException
@@ -87,7 +87,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AWSOrganizationsNotInUseException class with serialized data.
         /// </summary>

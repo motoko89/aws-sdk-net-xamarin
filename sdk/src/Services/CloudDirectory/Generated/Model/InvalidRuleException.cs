@@ -31,7 +31,7 @@ namespace Amazon.CloudDirectory.Model
     /// <summary>
     /// Occurs when any of the rule parameter keys or values are invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRuleException : AmazonCloudDirectoryException
@@ -86,7 +86,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRuleException class with serialized data.
         /// </summary>

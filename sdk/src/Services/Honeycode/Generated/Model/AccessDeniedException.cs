@@ -33,7 +33,7 @@ namespace Amazon.Honeycode.Model
     /// is owned by you and your IAM policy allows access to the screen/automation in the
     /// request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedException : AmazonHoneycodeException
@@ -88,7 +88,7 @@ namespace Amazon.Honeycode.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedException class with serialized data.
         /// </summary>

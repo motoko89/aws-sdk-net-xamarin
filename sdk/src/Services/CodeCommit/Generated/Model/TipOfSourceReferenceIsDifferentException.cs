@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// of the source branch specified in your request. The pull request might have been updated.
     /// Make sure that you have the latest changes.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TipOfSourceReferenceIsDifferentException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TipOfSourceReferenceIsDifferentException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.DocDB.Model
     /// <summary>
     /// The request would cause you to exceed the allowed number of subnet groups.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBSubnetGroupQuotaExceededException : AmazonDocDBException
@@ -86,7 +86,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBSubnetGroupQuotaExceededException class with serialized data.
         /// </summary>

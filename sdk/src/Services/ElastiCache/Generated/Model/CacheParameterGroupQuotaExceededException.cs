@@ -32,7 +32,7 @@ namespace Amazon.ElastiCache.Model
     /// The request cannot be processed because it would exceed the maximum number of cache
     /// security groups.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CacheParameterGroupQuotaExceededException : AmazonElastiCacheException
@@ -87,7 +87,7 @@ namespace Amazon.ElastiCache.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CacheParameterGroupQuotaExceededException class with serialized data.
         /// </summary>

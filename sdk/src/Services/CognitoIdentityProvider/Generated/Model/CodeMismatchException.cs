@@ -31,7 +31,7 @@ namespace Amazon.CognitoIdentityProvider.Model
     /// <summary>
     /// This exception is thrown if the provided code does not match what the server was expecting.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CodeMismatchException : AmazonCognitoIdentityProviderException
@@ -86,7 +86,7 @@ namespace Amazon.CognitoIdentityProvider.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CodeMismatchException class with serialized data.
         /// </summary>

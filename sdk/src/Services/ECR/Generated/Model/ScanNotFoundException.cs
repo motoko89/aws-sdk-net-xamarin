@@ -32,7 +32,7 @@ namespace Amazon.ECR.Model
     /// The specified image scan could not be found. Ensure that image scanning is enabled
     /// on the repository and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ScanNotFoundException : AmazonECRException
@@ -87,7 +87,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ScanNotFoundException class with serialized data.
         /// </summary>

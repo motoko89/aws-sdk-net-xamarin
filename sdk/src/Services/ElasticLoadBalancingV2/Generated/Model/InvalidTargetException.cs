@@ -32,7 +32,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
     /// The specified target does not exist, is not in the same VPC as the target group, or
     /// has an unsupported instance type.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidTargetException : AmazonElasticLoadBalancingV2Exception
@@ -87,7 +87,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidTargetException class with serialized data.
         /// </summary>

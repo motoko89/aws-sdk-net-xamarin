@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// The most common reason for this error is that the ARN does not meet the requirements
     /// for the service type.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRepositoryTriggerDestinationArnException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRepositoryTriggerDestinationArnException class with serialized data.
         /// </summary>

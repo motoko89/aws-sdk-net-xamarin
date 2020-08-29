@@ -31,7 +31,7 @@ namespace Amazon.ServiceQuotas.Model
     /// <summary>
     /// Invalid input was provided.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IllegalArgumentException : AmazonServiceQuotasException
@@ -86,7 +86,7 @@ namespace Amazon.ServiceQuotas.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IllegalArgumentException class with serialized data.
         /// </summary>

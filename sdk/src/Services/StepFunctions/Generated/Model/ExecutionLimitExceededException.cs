@@ -32,7 +32,7 @@ namespace Amazon.StepFunctions.Model
     /// The maximum number of running executions has been reached. Running executions must
     /// end or be stopped before a new execution can be started.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ExecutionLimitExceededException : AmazonStepFunctionsException
@@ -87,7 +87,7 @@ namespace Amazon.StepFunctions.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ExecutionLimitExceededException class with serialized data.
         /// </summary>

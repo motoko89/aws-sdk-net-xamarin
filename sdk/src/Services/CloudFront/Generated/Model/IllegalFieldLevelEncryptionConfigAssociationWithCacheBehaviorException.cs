@@ -32,7 +32,7 @@ namespace Amazon.CloudFront.Model
     /// The specified configuration for field-level encryption can't be associated with the
     /// specified cache behavior.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IllegalFieldLevelEncryptionConfigAssociationWithCacheBehaviorException : AmazonCloudFrontException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IllegalFieldLevelEncryptionConfigAssociationWithCacheBehaviorException class with serialized data.
         /// </summary>

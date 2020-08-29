@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The specified parameter version was not found. Verify the parameter name and version,
     /// and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ParameterVersionNotFoundException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ParameterVersionNotFoundException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.ServiceQuotas.Model
     /// The action you attempted is not allowed unless Service Access with Service Quotas
     /// is enabled in your organization. To enable, call <a>AssociateServiceQuotaTemplate</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AWSServiceAccessNotEnabledException : AmazonServiceQuotasException
@@ -87,7 +87,7 @@ namespace Amazon.ServiceQuotas.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AWSServiceAccessNotEnabledException class with serialized data.
         /// </summary>

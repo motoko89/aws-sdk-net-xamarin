@@ -32,7 +32,7 @@ namespace Amazon.ConfigService.Model
     /// AWS Config resource cannot be created because your organization does not have all
     /// features enabled.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OrganizationAllFeaturesNotEnabledException : AmazonConfigServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OrganizationAllFeaturesNotEnabledException class with serialized data.
         /// </summary>

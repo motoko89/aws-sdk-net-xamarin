@@ -33,7 +33,7 @@ namespace Amazon.Translate.Model
     /// for and see if a different resource will accomplish your needs before retrying the
     /// revised request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonTranslateException
@@ -88,7 +88,7 @@ namespace Amazon.Translate.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

@@ -67,24 +67,10 @@ namespace ServiceClientGenerator
         public bool Clean { get; set; }
 
         /// <summary>
-        /// The path to the Unity installation directory. Defaults to 'C:\Program Files\Unity'.
-        /// </summary>
-        public string UnityPath { get; set; }
-
-        /// <summary>
-        /// The Root folder beneath which all the samples are present. Samples are used for xamarin components.
-        /// </summary>
-        public string SamplesRootFolder { get; set; }
-
-        /// <summary>
         /// If set the solution files will be rebuilt even if no new projects were added.
         /// </summary>
         public bool ForceSolutionRebuilt { get; set; }
 
-        /// <summary>
-        /// If true the nuspec files will be generated without including references to PCL versions.
-        /// </summary>
-        public bool DisablePCLSupport { get; set; }
         public string SelfServiceModel { get; set; }
         public string SelfServiceBaseName { get; set; }
         public string SelfServiceEndpointPrefix { get; set; }
@@ -94,7 +80,6 @@ namespace ServiceClientGenerator
         {
             Verbose = false;
             WaitOnExit = false;
-            DisablePCLSupport = false;
 
             // default paths are relative to executing generator assembly
             // in bin/debug or bin/release
@@ -102,11 +87,6 @@ namespace ServiceClientGenerator
             Versions = Path.Combine("..", "..", "..", "ServiceModels", "_sdk-versions.json");
             ModelsFolder = Path.Combine("..", "..", "..", "ServiceModels");
             SdkRootFolder = Path.Combine("..", "..", "..", "..", "sdk");
-            SamplesRootFolder = Path.Combine("..", "..", "..", "..", "aws-sdk-net-samples");
-
-            //TODO: fix for OSX environments
-            UnityPath = Path.Combine("C:\\", "Program Files", "Unity");
-
             ServiceModels = string.Empty; // process all services
             CompileCustomizations = true;
             Clean = false;

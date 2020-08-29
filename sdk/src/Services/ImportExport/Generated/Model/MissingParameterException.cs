@@ -31,7 +31,7 @@ namespace Amazon.ImportExport.Model
     /// <summary>
     /// One or more required parameters was missing from the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MissingParameterException : AmazonImportExportException
@@ -86,7 +86,7 @@ namespace Amazon.ImportExport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MissingParameterException class with serialized data.
         /// </summary>

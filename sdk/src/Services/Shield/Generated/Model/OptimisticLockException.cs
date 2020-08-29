@@ -32,7 +32,7 @@ namespace Amazon.Shield.Model
     /// Exception that indicates that the resource state has been modified by another client.
     /// Retrieve the resource and then retry your request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OptimisticLockException : AmazonShieldException
@@ -87,7 +87,7 @@ namespace Amazon.Shield.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OptimisticLockException class with serialized data.
         /// </summary>

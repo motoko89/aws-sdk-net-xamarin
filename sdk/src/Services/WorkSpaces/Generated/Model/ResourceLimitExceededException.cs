@@ -31,7 +31,7 @@ namespace Amazon.WorkSpaces.Model
     /// <summary>
     /// Your resource limits have been exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceLimitExceededException : AmazonWorkSpacesException
@@ -86,7 +86,7 @@ namespace Amazon.WorkSpaces.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceLimitExceededException class with serialized data.
         /// </summary>

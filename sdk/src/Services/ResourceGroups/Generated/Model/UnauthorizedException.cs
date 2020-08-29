@@ -29,10 +29,10 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ResourceGroups.Model
 {
     /// <summary>
-    /// The request has not been applied because it lacks valid authentication credentials
-    /// for the target resource.
+    /// The request was rejected because it doesn't have valid credentials for the target
+    /// resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnauthorizedException : AmazonResourceGroupsException
@@ -87,7 +87,7 @@ namespace Amazon.ResourceGroups.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnauthorizedException class with serialized data.
         /// </summary>

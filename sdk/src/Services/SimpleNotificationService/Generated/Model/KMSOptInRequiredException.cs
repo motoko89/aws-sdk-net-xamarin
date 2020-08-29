@@ -31,7 +31,7 @@ namespace Amazon.SimpleNotificationService.Model
     /// <summary>
     /// The AWS access key ID needs a subscription for the service.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class KMSOptInRequiredException : AmazonSimpleNotificationServiceException
@@ -86,7 +86,7 @@ namespace Amazon.SimpleNotificationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the KMSOptInRequiredException class with serialized data.
         /// </summary>

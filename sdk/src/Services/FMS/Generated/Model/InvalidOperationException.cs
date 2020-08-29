@@ -36,7 +36,7 @@ namespace Amazon.FMS.Model
     /// need to enable for the Firewall Manager administrator account and for AWS Organizations
     /// before you can access it.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidOperationException : AmazonFMSException
@@ -91,7 +91,7 @@ namespace Amazon.FMS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidOperationException class with serialized data.
         /// </summary>

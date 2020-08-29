@@ -31,7 +31,7 @@ namespace Amazon.ECS.Model
     /// <summary>
     /// The specified task is not supported in this Region.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedFeatureException : AmazonECSException
@@ -86,7 +86,7 @@ namespace Amazon.ECS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedFeatureException class with serialized data.
         /// </summary>

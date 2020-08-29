@@ -32,7 +32,7 @@ namespace Amazon.Redshift.Model
     /// The maximum number for a batch delete of snapshots has been reached. The limit is
     /// 100.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BatchDeleteRequestSizeExceededException : AmazonRedshiftException
@@ -87,7 +87,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BatchDeleteRequestSizeExceededException class with serialized data.
         /// </summary>

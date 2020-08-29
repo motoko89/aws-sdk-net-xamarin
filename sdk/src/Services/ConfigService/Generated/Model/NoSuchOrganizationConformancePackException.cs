@@ -37,7 +37,7 @@ namespace Amazon.ConfigService.Model
     /// pack that does not exist.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NoSuchOrganizationConformancePackException : AmazonConfigServiceException
@@ -92,7 +92,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NoSuchOrganizationConformancePackException class with serialized data.
         /// </summary>

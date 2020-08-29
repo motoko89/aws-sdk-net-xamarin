@@ -32,7 +32,7 @@ namespace Amazon.ResourceGroupsTaggingAPI.Model
     /// A <code>PaginationToken</code> is valid for a maximum of 15 minutes. Your request
     /// was denied because the specified <code>PaginationToken</code> has expired.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PaginationTokenExpiredException : AmazonResourceGroupsTaggingAPIException
@@ -87,7 +87,7 @@ namespace Amazon.ResourceGroupsTaggingAPI.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PaginationTokenExpiredException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.KinesisFirehose.Model
     /// <summary>
     /// You have already reached the limit for a requested resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonKinesisFirehoseException
@@ -86,7 +86,7 @@ namespace Amazon.KinesisFirehose.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

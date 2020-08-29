@@ -32,7 +32,7 @@ namespace Amazon.CognitoSync.Model
     /// An exception thrown when a bulk publish operation is requested less than 24 hours
     /// after a previous bulk publish operation completed successfully.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AlreadyStreamedException : AmazonCognitoSyncException
@@ -87,7 +87,7 @@ namespace Amazon.CognitoSync.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AlreadyStreamedException class with serialized data.
         /// </summary>

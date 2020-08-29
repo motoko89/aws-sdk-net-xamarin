@@ -31,7 +31,7 @@ namespace Amazon.CloudHSM.Model
     /// <summary>
     /// Indicates that an exception occurred in the AWS CloudHSM service.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CloudHsmServiceException : AmazonCloudHSMException
@@ -87,7 +87,7 @@ namespace Amazon.CloudHSM.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CloudHsmServiceException class with serialized data.
         /// </summary>

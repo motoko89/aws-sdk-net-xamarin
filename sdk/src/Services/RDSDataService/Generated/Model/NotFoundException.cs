@@ -32,7 +32,7 @@ namespace Amazon.RDSDataService.Model
     /// The <code>resourceArn</code>, <code>secretArn</code>, or <code>transactionId</code>
     /// value can't be found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NotFoundException : AmazonRDSDataServiceException
@@ -87,7 +87,7 @@ namespace Amazon.RDSDataService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NotFoundException class with serialized data.
         /// </summary>

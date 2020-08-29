@@ -32,7 +32,7 @@ namespace Amazon.StepFunctions.Model
     /// The maximum number of activities has been reached. Existing activities must be deleted
     /// before a new activity can be created.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ActivityLimitExceededException : AmazonStepFunctionsException
@@ -87,7 +87,7 @@ namespace Amazon.StepFunctions.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ActivityLimitExceededException class with serialized data.
         /// </summary>

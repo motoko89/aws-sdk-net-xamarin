@@ -31,7 +31,7 @@ namespace Amazon.ApplicationDiscoveryService.Model
     /// <summary>
     /// The server experienced an internal error. Try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServerInternalErrorException : AmazonApplicationDiscoveryServiceException
@@ -86,7 +86,7 @@ namespace Amazon.ApplicationDiscoveryService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServerInternalErrorException class with serialized data.
         /// </summary>

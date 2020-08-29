@@ -32,7 +32,7 @@ namespace Amazon.CloudDirectory.Model
     /// Occurs when any invalid operations are performed on an object that is not a node,
     /// such as calling <code>ListObjectChildren</code> for a leaf node object.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NotNodeException : AmazonCloudDirectoryException
@@ -87,7 +87,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NotNodeException class with serialized data.
         /// </summary>

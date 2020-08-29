@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The specified branch name is not valid because it is a tag name. Enter the name of
     /// a branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BranchNameIsTagNameException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BranchNameIsTagNameException class with serialized data.
         /// </summary>

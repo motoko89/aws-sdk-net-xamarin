@@ -31,7 +31,7 @@ namespace Amazon.OpsWorksCM.Model
     /// <summary>
     /// The requested resource cannot be created because it already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceAlreadyExistsException : AmazonOpsWorksCMException
@@ -86,7 +86,7 @@ namespace Amazon.OpsWorksCM.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceAlreadyExistsException class with serialized data.
         /// </summary>

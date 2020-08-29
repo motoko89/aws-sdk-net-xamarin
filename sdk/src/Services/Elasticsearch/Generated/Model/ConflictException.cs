@@ -32,7 +32,7 @@ namespace Amazon.Elasticsearch.Model
     /// An error occurred because the client attempts to remove a resource that is currently
     /// in use. Returns HTTP status code 409.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConflictException : AmazonElasticsearchException
@@ -87,7 +87,7 @@ namespace Amazon.Elasticsearch.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConflictException class with serialized data.
         /// </summary>

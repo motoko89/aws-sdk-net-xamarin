@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Json.LitJson;
 
 namespace ServiceClientGenerator
@@ -18,7 +16,6 @@ namespace ServiceClientGenerator
     {
         abstract class ModelsSectionKeys
         {
-            public const string ModelsKey = "models";
             public const string ActiveKey = "active";
             public const string NamespaceKey = "namespace";
             public const string BaseNameKey = "base-name";
@@ -30,17 +27,13 @@ namespace ServiceClientGenerator
             public const string SynopsisKey = "synopsis";
             public const string NetStandardSupportKey = "netstandard-support";
             public const string DependenciesKey = "dependencies";
-            public const string PlatformsKey = "platforms";
             public const string ReferenceDependenciesKey = "reference-dependencies";
             public const string NugetDependenciesKey = "nuget-dependencies";
-            public const string PclVariantsKey = "pcl-variants";
             public const string DependencyNameKey = "name";
             public const string DependencyVersionKey = "version";
             public const string DependencyHintPathKey = "hint-path";
             public const string ParentBaseNameKey = "parent-base-name";
-            public const string EnableXamarinComponent = "enable-xamarin-component";
             public const string TagsKey = "tags";
-            public const string UsePclProjectDependenciesKey = "use-pcl-project-dependencies";
             public const string LicenseUrlKey = "license-url";
 
         }
@@ -56,13 +49,10 @@ namespace ServiceClientGenerator
             public const string TemplateKey = "template";
             public const string PlatformCodeFoldersKey = "platformCodeFolders";
             public const string ExtraTestProjects = "extraTestProjects";
-            public const string ParentProfile = "parentProfile";
             public const string NuGetTargetFrameworkKey = "nugetTargetPlatform";
-            public const string SharedNugetTargetFrameworksKey = "sharedNugetTargetFrameworks";
             public const string PlatformExcludeFoldersKey = "excludeFolders";
             public const string FrameworkPathOverrideKey = "frameworkPathOverride";
             public const string FrameworkRefernecesKey = "frameworkReferences";
-            public const string VisualStudioServicesKey = "visualStudioServices";
             public const string EmbeddedResourcesKey = "embeddedResources";
             public const string UnitTestProjectsKey = "unittestprojects";
             public const string NoWarn = "noWarn";
@@ -90,14 +80,9 @@ namespace ServiceClientGenerator
 
         public IEnumerable<ProjectFileConfiguration> UnitTestProjectFileConfigurations { get; private set; }
 
-        public string CoreVersion
-        {
-            get
-            {
-                return Utils.GetVersion(CoreFileVersion);
-            }
-        }
         public string CoreFileVersion { get; private set; }
+
+        public string CoreVersion { get; private set; }
 
         public bool DefaultToPreview
         {
@@ -112,7 +97,7 @@ namespace ServiceClientGenerator
         }
 
         //This should be the same version number as SdkVersioning.DefaultAssemblyVersion in BuildTasks
-        private const string DefaultAssemblyVersion = "3.3.100.0";
+        private const string DefaultAssemblyVersion = "3.3";
  
         /// <summary>
         /// Processes the control manifest to yield the set of services available to
@@ -129,6 +114,8 @@ namespace ServiceClientGenerator
             var versionsManifest = LoadJsonFromFile(versionsPath);
 
             generationManifest.CoreFileVersion = versionsManifest["CoreVersion"].ToString();
+            generationManifest.CoreVersion = Utils.GetVersion(versionsManifest["OverrideCoreVersion"]?.ToString() ?? generationManifest.CoreFileVersion);
+
             generationManifest.DefaultToPreview = (bool)versionsManifest["DefaultToPreview"];
             if (generationManifest.DefaultToPreview)
             {
@@ -173,7 +160,9 @@ namespace ServiceClientGenerator
                     }
 
                     var serviceModelFileName = GetLatestModel(serviceDirectory);
-                    var config = CreateServiceConfiguration(metadataNode, serviceVersions, serviceDirectory, serviceModelFileName);
+                    string paginatorsFileName = GetLatestPaginators(serviceDirectory);
+                    
+                    var config = CreateServiceConfiguration(metadataNode, serviceVersions, serviceDirectory, serviceModelFileName, paginatorsFileName);
                     serviceConfigurations.Add(config);
 
                     modelConfigList.Add(new Tuple<JsonData, ServiceConfiguration>(metadataNode, config));
@@ -219,9 +208,16 @@ namespace ServiceClientGenerator
                 .ToList();
         }
 
+        /// <summary>
+        /// Use the date order of the models combined with default string sort
+        /// to find the latest models file
+        /// </summary>
+        /// <param name="serviceDirectory"></param>
+        /// <returns></returns>
         private static string GetLatestModel(string serviceDirectory)
         {
-            string latestModelName="";
+            string latestModelName = string.Empty;
+
             foreach (string modelName in Directory.GetFiles(serviceDirectory, "*.normal.json", SearchOption.TopDirectoryOnly))
             {
                 if (string.Compare(latestModelName, modelName) < 0)
@@ -238,9 +234,23 @@ namespace ServiceClientGenerator
             return Path.GetFileName(latestModelName);
         }
 
-        private ServiceConfiguration CreateServiceConfiguration(JsonData modelNode, JsonData serviceVersions, string serviceDirectoryPath, string serviceModelFileName)
+        /// <summary>
+        /// Use the date order of the paginators combined with default string sort
+        /// to find the latest paginators file
+        /// </summary>
+        /// <param name="serviceDirectory"></param>
+        /// <returns></returns>
+        private static string GetLatestPaginators(string serviceDirectory)
+        {
+            var latestPaginatorsName = Directory.GetFiles(serviceDirectory, "*.paginators.json", SearchOption.TopDirectoryOnly)
+                .OrderBy(x => x).FirstOrDefault() ?? "";
+            return Path.GetFileName(latestPaginatorsName);
+        }
+
+        private ServiceConfiguration CreateServiceConfiguration(JsonData modelNode, JsonData serviceVersions, string serviceDirectoryPath, string serviceModelFileName, string servicePaginatorsFileName)
         {
             var modelFullPath = Path.Combine(serviceDirectoryPath, serviceModelFileName);
+            var paginatorsFullPath = Path.Combine(serviceDirectoryPath, servicePaginatorsFileName);
 
             JsonData metadata = JsonMapper.ToObject(File.ReadAllText(modelFullPath))[ServiceModel.MetadataKey];
 
@@ -250,20 +260,12 @@ namespace ServiceClientGenerator
             {
                 ModelName = modelName,
                 ModelPath = modelFullPath,
+                PaginatorsPath = paginatorsFullPath,
                 Namespace = Utils.JsonDataToString(modelNode[ModelsSectionKeys.NamespaceKey]), // Namespace of the service if it's different from basename
                 ClassNameOverride = Utils.JsonDataToString(modelNode[ModelsSectionKeys.BaseNameKey]),
                 DefaultRegion = Utils.JsonDataToString(modelNode[ModelsSectionKeys.DefaultRegionKey]),
                 GenerateConstructors = modelNode[ModelsSectionKeys.GenerateClientConstructorsKey] == null || (bool)modelNode[ModelsSectionKeys.GenerateClientConstructorsKey], // A way to prevent generating basic constructors
-                SupportedMobilePlatforms = modelNode[ModelsSectionKeys.PlatformsKey] == null ? new List<string>() : (from object pcf in modelNode[ModelsSectionKeys.PlatformsKey]
-                                                                                                                        select pcf.ToString()).ToList(),
-                EnableXamarinComponent = modelNode.PropertyNames.Contains(ModelsSectionKeys.EnableXamarinComponent) && (bool)modelNode[ModelsSectionKeys.EnableXamarinComponent]
             };
-
-            if (modelNode[ModelsSectionKeys.PclVariantsKey] != null)
-            {
-                config.PclVariants = (from object pcf in modelNode[ModelsSectionKeys.PclVariantsKey]
-                    select pcf.ToString()).ToList();
-            }
 
             if (modelNode[ModelsSectionKeys.NugetPackageTitleSuffix] != null)
                 config.NugetPackageTitleSuffix = modelNode[ModelsSectionKeys.NugetPackageTitleSuffix].ToString();
@@ -342,11 +344,6 @@ namespace ServiceClientGenerator
                 }
             }
 
-            if (modelNode[ModelsSectionKeys.UsePclProjectDependenciesKey] != null && modelNode[ModelsSectionKeys.UsePclProjectDependenciesKey].IsBoolean)
-                config.UsePclProjectDependencies = bool.Parse(modelNode[ModelsSectionKeys.UsePclProjectDependenciesKey].ToString());
-            else
-                config.UsePclProjectDependencies = false;
-
             if (modelNode[ModelsSectionKeys.LicenseUrlKey] != null && modelNode[ModelsSectionKeys.LicenseUrlKey].IsString)
             {
                 config.LicenseUrl = modelNode[ModelsSectionKeys.LicenseUrlKey].ToString();
@@ -388,7 +385,7 @@ namespace ServiceClientGenerator
 
                 config.ServiceFileVersion = DefaultAssemblyVersion;
                 var versionTokens = CoreVersion.Split('.');
-                if (!DefaultAssemblyVersion.StartsWith($"{versionTokens[0]}.{versionTokens[1]}."))
+                if (!DefaultAssemblyVersion.StartsWith($"{versionTokens[0]}.{versionTokens[1]}"))
                 {
                     throw new NotImplementedException($"{nameof(DefaultAssemblyVersion)} should be updated to match the AWSSDK.Core minor version number.");
                 }
@@ -458,7 +455,6 @@ namespace ServiceClientGenerator
             var projectsNode = document[ProjectsSectionKeys.ProjectsKey];
             foreach (JsonData projectNode in projectsNode)
             {
-                var projectTypeName = projectNode.SafeGetString(ProjectsSectionKeys.NameKey);
                 var config = LoadProjectFileConfiguration(projectNode);
 
                 var extraTestProjects = projectNode.SafeGet(ProjectsSectionKeys.ExtraTestProjects);
@@ -470,27 +466,6 @@ namespace ServiceClientGenerator
                 {
                     config.ExtraTestProjects = (from object etp in extraTestProjects
                                                 select etp.ToString()).ToList();
-                }
-
-                var sharedNugetFrameworks = projectNode.SafeGet(ProjectsSectionKeys.SharedNugetTargetFrameworksKey);
-                config.SharedNugetTargetFrameworks = sharedNugetFrameworks == null ? new List<string>() : (from object bc in sharedNugetFrameworks select bc.ToString()).ToList();
-
-                // This code assumes that the parent profile (project configuration) is defined in the manifest
-                // before it's being referred by a sub profile.
-                if (projectNode.PropertyNames.Contains(ProjectsSectionKeys.ParentProfile))
-                {
-                    var parentProfileName = projectNode[ProjectsSectionKeys.ParentProfile].ToString();
-                    if (!string.IsNullOrEmpty(parentProfileName))
-                    {
-                        var parentProfile = projectConfigurations.SingleOrDefault(
-                            p => p.Name.Equals(parentProfileName, StringComparison.InvariantCulture));
-                        if (parentProfile == null)
-                        {
-                            throw new KeyNotFoundException(string.Format("Parent profile {0} referred by current profile {1} does not exist.",
-                                parentProfile, config.Name));
-                        }
-                        config.ParentProfile = parentProfile;
-                    }
                 }
 
                 projectConfigurations.Add(config);

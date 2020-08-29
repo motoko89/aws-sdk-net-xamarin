@@ -31,7 +31,7 @@ namespace Amazon.ConfigService.Model
     /// <summary>
     /// Your Amazon S3 bucket policy does not permit AWS Config to write to it.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InsufficientDeliveryPolicyException : AmazonConfigServiceException
@@ -86,7 +86,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InsufficientDeliveryPolicyException class with serialized data.
         /// </summary>

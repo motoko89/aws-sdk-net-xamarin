@@ -32,7 +32,7 @@ namespace Amazon.IoT.Model
     /// This exception occurs if you attempt to start a task with the same task-id as an existing
     /// task but with a different clientRequestToken.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TaskAlreadyExistsException : AmazonIoTException
@@ -87,7 +87,7 @@ namespace Amazon.IoT.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TaskAlreadyExistsException class with serialized data.
         /// </summary>

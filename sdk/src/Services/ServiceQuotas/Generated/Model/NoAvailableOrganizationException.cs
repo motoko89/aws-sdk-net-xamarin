@@ -31,7 +31,7 @@ namespace Amazon.ServiceQuotas.Model
     /// <summary>
     /// The account making this call is not a member of an organization.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NoAvailableOrganizationException : AmazonServiceQuotasException
@@ -86,7 +86,7 @@ namespace Amazon.ServiceQuotas.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NoAvailableOrganizationException class with serialized data.
         /// </summary>

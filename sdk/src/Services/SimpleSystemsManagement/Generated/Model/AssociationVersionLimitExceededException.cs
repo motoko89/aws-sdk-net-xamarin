@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// You have reached the maximum number versions allowed for an association. Each association
     /// has a limit of 1,000 versions.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AssociationVersionLimitExceededException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AssociationVersionLimitExceededException class with serialized data.
         /// </summary>

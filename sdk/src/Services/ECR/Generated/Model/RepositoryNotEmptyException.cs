@@ -32,7 +32,7 @@ namespace Amazon.ECR.Model
     /// The specified repository contains images. To delete a repository that contains images,
     /// you must force the deletion with the <code>force</code> parameter.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RepositoryNotEmptyException : AmazonECRException
@@ -87,7 +87,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RepositoryNotEmptyException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.CognitoIdentityProvider.Model
     /// <summary>
     /// This exception is thrown when a verification code fails to deliver successfully.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CodeDeliveryFailureException : AmazonCognitoIdentityProviderException
@@ -86,7 +86,7 @@ namespace Amazon.CognitoIdentityProvider.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CodeDeliveryFailureException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.ElasticFileSystem.Model
     /// Returned if the AWS account has already created the maximum number of file systems
     /// allowed per account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FileSystemLimitExceededException : AmazonElasticFileSystemException
@@ -88,7 +88,7 @@ namespace Amazon.ElasticFileSystem.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FileSystemLimitExceededException class with serialized data.
         /// </summary>

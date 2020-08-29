@@ -33,7 +33,7 @@ namespace Amazon.Redshift.Model
     /// progress that involves the parameter group. Wait a few moments and try the operation
     /// again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidClusterParameterGroupStateException : AmazonRedshiftException
@@ -88,7 +88,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidClusterParameterGroupStateException class with serialized data.
         /// </summary>

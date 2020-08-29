@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// Either the enum is not in a valid format, or the specified file version enum is not
     /// valid in respect to the current file version.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRelativeFileVersionEnumException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRelativeFileVersionEnumException class with serialized data.
         /// </summary>

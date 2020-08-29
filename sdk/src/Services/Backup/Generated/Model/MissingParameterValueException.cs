@@ -31,7 +31,7 @@ namespace Amazon.Backup.Model
     /// <summary>
     /// Indicates that a required parameter is missing.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MissingParameterValueException : AmazonBackupException
@@ -89,7 +89,7 @@ namespace Amazon.Backup.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MissingParameterValueException class with serialized data.
         /// </summary>

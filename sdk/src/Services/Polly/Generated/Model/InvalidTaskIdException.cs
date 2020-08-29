@@ -31,7 +31,7 @@ namespace Amazon.Polly.Model
     /// <summary>
     /// The provided Task ID is not valid. Please provide a valid Task ID and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidTaskIdException : AmazonPollyException
@@ -86,7 +86,7 @@ namespace Amazon.Polly.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidTaskIdException class with serialized data.
         /// </summary>

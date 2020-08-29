@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// <code>Domain</code> doesn't refer to an existing Active Directory domain.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DomainNotFoundException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DomainNotFoundException class with serialized data.
         /// </summary>

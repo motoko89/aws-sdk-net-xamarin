@@ -31,7 +31,7 @@ namespace Amazon.SecretsManager.Model
     /// <summary>
     /// The resource policy did not prevent broad access to the secret.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PublicPolicyException : AmazonSecretsManagerException
@@ -86,7 +86,7 @@ namespace Amazon.SecretsManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PublicPolicyException class with serialized data.
         /// </summary>

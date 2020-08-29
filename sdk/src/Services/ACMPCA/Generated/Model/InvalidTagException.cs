@@ -32,7 +32,7 @@ namespace Amazon.ACMPCA.Model
     /// The tag associated with the CA is not valid. The invalid argument is contained in
     /// the message field.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidTagException : AmazonACMPCAException
@@ -87,7 +87,7 @@ namespace Amazon.ACMPCA.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidTagException class with serialized data.
         /// </summary>

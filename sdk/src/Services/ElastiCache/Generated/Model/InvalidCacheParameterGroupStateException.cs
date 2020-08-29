@@ -32,7 +32,7 @@ namespace Amazon.ElastiCache.Model
     /// The current state of the cache parameter group does not allow the requested operation
     /// to occur.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidCacheParameterGroupStateException : AmazonElastiCacheException
@@ -87,7 +87,7 @@ namespace Amazon.ElastiCache.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidCacheParameterGroupStateException class with serialized data.
         /// </summary>

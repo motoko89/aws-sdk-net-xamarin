@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// <code>DBSubnetGroupName</code> is already used by an existing DB subnet group.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBSubnetGroupAlreadyExistsException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBSubnetGroupAlreadyExistsException class with serialized data.
         /// </summary>

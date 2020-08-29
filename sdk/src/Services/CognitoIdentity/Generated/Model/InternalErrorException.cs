@@ -31,7 +31,7 @@ namespace Amazon.CognitoIdentity.Model
     /// <summary>
     /// Thrown when the service encounters an error during processing the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalErrorException : AmazonCognitoIdentityException
@@ -86,7 +86,7 @@ namespace Amazon.CognitoIdentity.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalErrorException class with serialized data.
         /// </summary>

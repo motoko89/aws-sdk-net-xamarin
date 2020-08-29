@@ -31,7 +31,7 @@ namespace Amazon.RDSDataService.Model
     /// <summary>
     /// The execution of the SQL statement timed out.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class StatementTimeoutException : AmazonRDSDataServiceException
@@ -87,7 +87,7 @@ namespace Amazon.RDSDataService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the StatementTimeoutException class with serialized data.
         /// </summary>

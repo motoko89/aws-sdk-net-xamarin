@@ -31,7 +31,7 @@ namespace Amazon.CloudFront.Model
     /// <summary>
     /// The maximum number of field patterns for field-level encryption have been created.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyFieldLevelEncryptionFieldPatternsException : AmazonCloudFrontException
@@ -86,7 +86,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyFieldLevelEncryptionFieldPatternsException class with serialized data.
         /// </summary>

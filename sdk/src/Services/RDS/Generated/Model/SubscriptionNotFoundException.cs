@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// The subscription name does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SubscriptionNotFoundException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SubscriptionNotFoundException class with serialized data.
         /// </summary>

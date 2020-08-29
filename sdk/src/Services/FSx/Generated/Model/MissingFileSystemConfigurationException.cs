@@ -31,7 +31,7 @@ namespace Amazon.FSx.Model
     /// <summary>
     /// A file system configuration is required for this operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MissingFileSystemConfigurationException : AmazonFSxException
@@ -86,7 +86,7 @@ namespace Amazon.FSx.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MissingFileSystemConfigurationException class with serialized data.
         /// </summary>

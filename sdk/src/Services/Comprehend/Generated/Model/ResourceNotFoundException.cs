@@ -31,7 +31,7 @@ namespace Amazon.Comprehend.Model
     /// <summary>
     /// The specified resource ARN was not found. Check the ARN and try your request again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonComprehendException
@@ -86,7 +86,7 @@ namespace Amazon.Comprehend.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

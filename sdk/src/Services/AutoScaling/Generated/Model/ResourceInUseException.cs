@@ -31,7 +31,7 @@ namespace Amazon.AutoScaling.Model
     /// <summary>
     /// The operation can't be performed because the resource is in use.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceInUseException : AmazonAutoScalingException
@@ -86,7 +86,7 @@ namespace Amazon.AutoScaling.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceInUseException class with serialized data.
         /// </summary>

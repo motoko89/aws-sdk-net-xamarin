@@ -33,7 +33,7 @@ namespace Amazon.MigrationHub.Model
     /// Discovery Service); most likely due to a misconfigured policy or the <code>migrationhub-discovery</code>
     /// role is missing or not configured correctly.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PolicyErrorException : AmazonMigrationHubException
@@ -88,7 +88,7 @@ namespace Amazon.MigrationHub.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PolicyErrorException class with serialized data.
         /// </summary>

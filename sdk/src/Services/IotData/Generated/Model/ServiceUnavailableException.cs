@@ -31,7 +31,7 @@ namespace Amazon.IotData.Model
     /// <summary>
     /// The service is temporarily unavailable.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceUnavailableException : AmazonIotDataException
@@ -86,7 +86,7 @@ namespace Amazon.IotData.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceUnavailableException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// The specified proxy name must be unique for all proxies owned by your AWS account
     /// in the specified AWS Region.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBProxyAlreadyExistsException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBProxyAlreadyExistsException class with serialized data.
         /// </summary>

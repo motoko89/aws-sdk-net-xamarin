@@ -32,7 +32,7 @@ namespace Amazon.SimpleNotificationService.Model
     /// Indicates that the rate at which requests have been submitted for this action exceeds
     /// the limit for your account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ThrottledException : AmazonSimpleNotificationServiceException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleNotificationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ThrottledException class with serialized data.
         /// </summary>

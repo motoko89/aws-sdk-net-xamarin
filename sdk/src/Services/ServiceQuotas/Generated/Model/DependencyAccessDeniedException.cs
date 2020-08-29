@@ -31,7 +31,7 @@ namespace Amazon.ServiceQuotas.Model
     /// <summary>
     /// You can't perform this action because a dependency does not have access.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DependencyAccessDeniedException : AmazonServiceQuotasException
@@ -86,7 +86,7 @@ namespace Amazon.ServiceQuotas.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DependencyAccessDeniedException class with serialized data.
         /// </summary>

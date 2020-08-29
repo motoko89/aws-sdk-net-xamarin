@@ -31,7 +31,7 @@ namespace Amazon.RAM.Model
     /// <summary>
     /// The invitation was already accepted.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceShareInvitationAlreadyAcceptedException : AmazonRAMException
@@ -86,7 +86,7 @@ namespace Amazon.RAM.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceShareInvitationAlreadyAcceptedException class with serialized data.
         /// </summary>

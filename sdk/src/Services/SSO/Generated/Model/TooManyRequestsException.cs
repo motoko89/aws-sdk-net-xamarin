@@ -32,7 +32,7 @@ namespace Amazon.SSO.Model
     /// Indicates that the request is being made too frequently and is more than what the
     /// server can handle.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyRequestsException : AmazonSSOException
@@ -87,7 +87,7 @@ namespace Amazon.SSO.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyRequestsException class with serialized data.
         /// </summary>

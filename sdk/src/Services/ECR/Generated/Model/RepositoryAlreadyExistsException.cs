@@ -31,7 +31,7 @@ namespace Amazon.ECR.Model
     /// <summary>
     /// The specified repository already exists in the specified registry.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RepositoryAlreadyExistsException : AmazonECRException
@@ -86,7 +86,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RepositoryAlreadyExistsException class with serialized data.
         /// </summary>

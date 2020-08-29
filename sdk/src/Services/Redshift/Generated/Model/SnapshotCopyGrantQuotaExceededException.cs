@@ -31,7 +31,7 @@ namespace Amazon.Redshift.Model
     /// <summary>
     /// The AWS account has exceeded the maximum number of snapshot copy grants in this region.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SnapshotCopyGrantQuotaExceededException : AmazonRedshiftException
@@ -86,7 +86,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SnapshotCopyGrantQuotaExceededException class with serialized data.
         /// </summary>

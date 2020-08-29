@@ -31,7 +31,7 @@ namespace Amazon.SecurityHub.Model
     /// <summary>
     /// You don't have permission to perform the action specified in the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedException : AmazonSecurityHubException
@@ -87,7 +87,7 @@ namespace Amazon.SecurityHub.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedException class with serialized data.
         /// </summary>

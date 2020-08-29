@@ -31,7 +31,7 @@ namespace Amazon.SimpleNotificationService.Model
     /// <summary>
     /// Exception error indicating platform application disabled.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PlatformApplicationDisabledException : AmazonSimpleNotificationServiceException
@@ -86,7 +86,7 @@ namespace Amazon.SimpleNotificationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PlatformApplicationDisabledException class with serialized data.
         /// </summary>

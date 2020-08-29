@@ -31,7 +31,7 @@ namespace Amazon.Redshift.Model
     /// <summary>
     /// The request would result in the user exceeding the allowed number of cluster snapshots.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ClusterSnapshotQuotaExceededException : AmazonRedshiftException
@@ -86,7 +86,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ClusterSnapshotQuotaExceededException class with serialized data.
         /// </summary>

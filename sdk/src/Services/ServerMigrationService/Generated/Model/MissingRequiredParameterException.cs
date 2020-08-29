@@ -31,7 +31,7 @@ namespace Amazon.ServerMigrationService.Model
     /// <summary>
     /// A required parameter is missing.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MissingRequiredParameterException : AmazonServerMigrationServiceException
@@ -86,7 +86,7 @@ namespace Amazon.ServerMigrationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MissingRequiredParameterException class with serialized data.
         /// </summary>

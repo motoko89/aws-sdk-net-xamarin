@@ -31,7 +31,7 @@ namespace Amazon.CodeBuild.Model
     /// <summary>
     /// There was a problem with the underlying OAuth provider.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OAuthProviderException : AmazonCodeBuildException
@@ -86,7 +86,7 @@ namespace Amazon.CodeBuild.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OAuthProviderException class with serialized data.
         /// </summary>

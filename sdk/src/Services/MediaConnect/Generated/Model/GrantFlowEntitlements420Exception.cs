@@ -32,7 +32,7 @@ namespace Amazon.MediaConnect.Model
     /// Exception raised by AWS Elemental MediaConnect. See the error message and documentation
     /// for the operation for more information on the cause of this exception.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class GrantFlowEntitlements420Exception : AmazonMediaConnectException
@@ -87,7 +87,7 @@ namespace Amazon.MediaConnect.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the GrantFlowEntitlements420Exception class with serialized data.
         /// </summary>

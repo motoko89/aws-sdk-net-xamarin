@@ -31,7 +31,7 @@ namespace Amazon.ElasticTranscoder.Model
     /// <summary>
     /// One or more required parameter values were not provided in the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ValidationException : AmazonElasticTranscoderException
@@ -86,7 +86,7 @@ namespace Amazon.ElasticTranscoder.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ValidationException class with serialized data.
         /// </summary>

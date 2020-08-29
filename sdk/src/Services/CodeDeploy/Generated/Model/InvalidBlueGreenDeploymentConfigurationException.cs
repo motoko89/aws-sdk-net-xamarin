@@ -32,7 +32,7 @@ namespace Amazon.CodeDeploy.Model
     /// The configuration for the blue/green deployment group was provided in an invalid format.
     /// For information about deployment configuration format, see <a>CreateDeploymentConfig</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidBlueGreenDeploymentConfigurationException : AmazonCodeDeployException
@@ -87,7 +87,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidBlueGreenDeploymentConfigurationException class with serialized data.
         /// </summary>

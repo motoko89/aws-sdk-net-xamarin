@@ -31,7 +31,7 @@ namespace Amazon.CloudTrail.Model
     /// <summary>
     /// This exception is thrown when the provided S3 bucket name is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidS3BucketNameException : AmazonCloudTrailException
@@ -86,7 +86,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidS3BucketNameException class with serialized data.
         /// </summary>

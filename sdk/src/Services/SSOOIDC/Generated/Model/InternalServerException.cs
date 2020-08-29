@@ -31,7 +31,7 @@ namespace Amazon.SSOOIDC.Model
     /// <summary>
     /// Indicates that an error from the service occurred while trying to process a request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerException : AmazonSSOOIDCException
@@ -88,7 +88,7 @@ namespace Amazon.SSOOIDC.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerException class with serialized data.
         /// </summary>

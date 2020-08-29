@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// You specified too many custom compliance types. You can specify a maximum of 10 different
     /// types.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ComplianceTypeCountLimitExceededException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ComplianceTypeCountLimitExceededException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.CloudFormation.Model
     /// <summary>
     /// The specified resource exists, but has been changed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CreatedButModifiedException : AmazonCloudFormationException
@@ -86,7 +86,7 @@ namespace Amazon.CloudFormation.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CreatedButModifiedException class with serialized data.
         /// </summary>

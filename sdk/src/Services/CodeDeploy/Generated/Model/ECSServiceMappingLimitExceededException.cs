@@ -32,7 +32,7 @@ namespace Amazon.CodeDeploy.Model
     /// The Amazon ECS service is associated with more than one deployment groups. An Amazon
     /// ECS service can be associated with only one deployment group.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ECSServiceMappingLimitExceededException : AmazonCodeDeployException
@@ -87,7 +87,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ECSServiceMappingLimitExceededException class with serialized data.
         /// </summary>

@@ -33,7 +33,7 @@ namespace Amazon.Redshift.Model
     /// or <code>sourceTableName</code> parameter, or a combination of these, doesn't exist
     /// in the snapshot.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidTableRestoreArgumentException : AmazonRedshiftException
@@ -88,7 +88,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidTableRestoreArgumentException class with serialized data.
         /// </summary>

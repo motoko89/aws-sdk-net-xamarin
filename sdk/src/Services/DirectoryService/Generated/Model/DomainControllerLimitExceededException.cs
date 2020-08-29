@@ -32,7 +32,7 @@ namespace Amazon.DirectoryService.Model
     /// The maximum allowed number of domain controllers per directory was exceeded. The default
     /// limit per directory is 20 domain controllers.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DomainControllerLimitExceededException : AmazonDirectoryServiceException
@@ -88,7 +88,7 @@ namespace Amazon.DirectoryService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DomainControllerLimitExceededException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.ConfigService.Model
     /// AWS Config throws an exception if the recording group does not contain a valid list
     /// of resource types. Invalid values might also be incorrectly formatted.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRecordingGroupException : AmazonConfigServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRecordingGroupException class with serialized data.
         /// </summary>

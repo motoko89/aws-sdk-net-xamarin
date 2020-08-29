@@ -32,7 +32,7 @@ namespace Amazon.ECR.Model
     /// The specified image has already been pushed, and there were no changes to the manifest
     /// or image tag after the last push.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ImageAlreadyExistsException : AmazonECRException
@@ -87,7 +87,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ImageAlreadyExistsException class with serialized data.
         /// </summary>

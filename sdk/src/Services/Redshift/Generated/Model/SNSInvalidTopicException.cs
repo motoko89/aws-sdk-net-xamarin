@@ -31,7 +31,7 @@ namespace Amazon.Redshift.Model
     /// <summary>
     /// Amazon SNS has responded that there is a problem with the specified Amazon SNS topic.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SNSInvalidTopicException : AmazonRedshiftException
@@ -86,7 +86,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SNSInvalidTopicException class with serialized data.
         /// </summary>

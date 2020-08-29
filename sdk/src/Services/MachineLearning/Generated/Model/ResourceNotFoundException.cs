@@ -31,7 +31,7 @@ namespace Amazon.MachineLearning.Model
     /// <summary>
     /// A specified resource cannot be located.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonMachineLearningException
@@ -87,7 +87,7 @@ namespace Amazon.MachineLearning.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

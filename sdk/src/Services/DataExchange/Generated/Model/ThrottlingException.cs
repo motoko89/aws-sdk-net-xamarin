@@ -31,7 +31,7 @@ namespace Amazon.DataExchange.Model
     /// <summary>
     /// The limit on the number of requests per second was exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ThrottlingException : AmazonDataExchangeException
@@ -86,7 +86,7 @@ namespace Amazon.DataExchange.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ThrottlingException class with serialized data.
         /// </summary>

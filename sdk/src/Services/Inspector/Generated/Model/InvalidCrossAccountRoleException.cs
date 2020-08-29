@@ -32,7 +32,7 @@ namespace Amazon.Inspector.Model
     /// Amazon Inspector cannot assume the cross-account role that it needs to list your EC2
     /// instances during the assessment run.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidCrossAccountRoleException : AmazonInspectorException
@@ -89,7 +89,7 @@ namespace Amazon.Inspector.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidCrossAccountRoleException class with serialized data.
         /// </summary>

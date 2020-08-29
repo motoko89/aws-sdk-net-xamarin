@@ -31,7 +31,7 @@ namespace Amazon.Lambda.Model
     /// <summary>
     /// The runtime or runtime version specified is not supported.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRuntimeException : AmazonLambdaException
@@ -87,7 +87,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRuntimeException class with serialized data.
         /// </summary>

@@ -40,7 +40,7 @@ namespace Amazon.Route53.Model
     /// to create a new traffic policy using the traffic policy document.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyTrafficPolicyVersionsForCurrentPolicyException : AmazonRoute53Exception
@@ -95,7 +95,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyTrafficPolicyVersionsForCurrentPolicyException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// 
     /// </summary>
     [Obsolete("Please avoid using this fault")]
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BackupPolicyNotFoundException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BackupPolicyNotFoundException class with serialized data.
         /// </summary>

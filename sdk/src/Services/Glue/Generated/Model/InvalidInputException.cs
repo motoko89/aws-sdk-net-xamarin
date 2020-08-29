@@ -31,7 +31,7 @@ namespace Amazon.Glue.Model
     /// <summary>
     /// The input provided was not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidInputException : AmazonGlueException
@@ -86,7 +86,7 @@ namespace Amazon.Glue.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidInputException class with serialized data.
         /// </summary>

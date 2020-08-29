@@ -31,7 +31,7 @@ namespace Amazon.CloudWatchEvents.Model
     /// <summary>
     /// The event pattern is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidEventPatternException : AmazonCloudWatchEventsException
@@ -86,7 +86,7 @@ namespace Amazon.CloudWatchEvents.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidEventPatternException class with serialized data.
         /// </summary>

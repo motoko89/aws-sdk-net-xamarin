@@ -32,7 +32,7 @@ namespace Amazon.WorkDocs.Model
     /// The AWS Directory Service cannot reach an on-premises instance. Or a dependency under
     /// the control of the organization is failing, such as a connected Active Directory.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FailedDependencyException : AmazonWorkDocsException
@@ -87,7 +87,7 @@ namespace Amazon.WorkDocs.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FailedDependencyException class with serialized data.
         /// </summary>

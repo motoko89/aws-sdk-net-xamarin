@@ -31,7 +31,7 @@ namespace Amazon.Chime.Model
     /// <summary>
     /// The client is not currently authorized to make the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnauthorizedClientException : AmazonChimeException
@@ -87,7 +87,7 @@ namespace Amazon.Chime.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnauthorizedClientException class with serialized data.
         /// </summary>

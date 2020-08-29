@@ -34,7 +34,7 @@ namespace Amazon.Route53.Model
     /// name. If you get this error, Amazon Route 53 has reached that limit. If you own the
     /// domain name and Route 53 generates this error, contact Customer Support.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DelegationSetNotAvailableException : AmazonRoute53Exception
@@ -89,7 +89,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DelegationSetNotAvailableException class with serialized data.
         /// </summary>

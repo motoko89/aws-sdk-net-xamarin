@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The pull request cannot be merged automatically into the destination branch. You must
     /// manually merge the branches and resolve any conflicts.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ManualMergeRequiredException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ManualMergeRequiredException class with serialized data.
         /// </summary>

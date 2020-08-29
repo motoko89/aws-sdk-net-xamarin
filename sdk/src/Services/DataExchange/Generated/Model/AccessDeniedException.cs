@@ -31,7 +31,7 @@ namespace Amazon.DataExchange.Model
     /// <summary>
     /// Access to the resource is denied.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedException : AmazonDataExchangeException
@@ -86,7 +86,7 @@ namespace Amazon.DataExchange.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedException class with serialized data.
         /// </summary>

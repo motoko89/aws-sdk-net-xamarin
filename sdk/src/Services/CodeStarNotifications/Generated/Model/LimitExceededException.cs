@@ -33,7 +33,7 @@ namespace Amazon.CodeStarNotifications.Model
     /// notification rules, notifications, resources, and targets. For more information, see
     /// Limits.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonCodeStarNotificationsException
@@ -88,7 +88,7 @@ namespace Amazon.CodeStarNotifications.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

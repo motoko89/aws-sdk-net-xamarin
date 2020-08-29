@@ -31,7 +31,7 @@ namespace Amazon.ElasticBeanstalk.Model
     /// <summary>
     /// The specified account has reached its limit of applications.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyApplicationsException : AmazonElasticBeanstalkException
@@ -86,7 +86,7 @@ namespace Amazon.ElasticBeanstalk.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyApplicationsException class with serialized data.
         /// </summary>

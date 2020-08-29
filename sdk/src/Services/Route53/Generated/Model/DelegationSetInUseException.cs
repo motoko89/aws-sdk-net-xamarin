@@ -32,7 +32,7 @@ namespace Amazon.Route53.Model
     /// The specified delegation contains associated hosted zones which must be deleted before
     /// the reusable delegation set can be deleted.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DelegationSetInUseException : AmazonRoute53Exception
@@ -87,7 +87,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DelegationSetInUseException class with serialized data.
         /// </summary>

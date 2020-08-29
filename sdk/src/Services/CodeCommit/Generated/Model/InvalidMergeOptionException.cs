@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The specified merge option is not valid for this operation. Not all merge strategies
     /// are supported for all operations.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidMergeOptionException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidMergeOptionException class with serialized data.
         /// </summary>

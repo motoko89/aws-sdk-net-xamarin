@@ -31,7 +31,7 @@ namespace Amazon.ECR.Model
     /// <summary>
     /// The image requested does not exist in the specified repository.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ImageNotFoundException : AmazonECRException
@@ -86,7 +86,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ImageNotFoundException class with serialized data.
         /// </summary>

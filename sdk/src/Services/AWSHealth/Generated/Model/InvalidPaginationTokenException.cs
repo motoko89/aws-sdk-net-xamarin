@@ -31,7 +31,7 @@ namespace Amazon.AWSHealth.Model
     /// <summary>
     /// The specified pagination token (<code>nextToken</code>) is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidPaginationTokenException : AmazonAWSHealthException
@@ -86,7 +86,7 @@ namespace Amazon.AWSHealth.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidPaginationTokenException class with serialized data.
         /// </summary>

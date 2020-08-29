@@ -31,7 +31,7 @@ namespace Amazon.ConfigService.Model
     /// <summary>
     /// The specified delivery channel name is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDeliveryChannelNameException : AmazonConfigServiceException
@@ -86,7 +86,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDeliveryChannelNameException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.SecretsManager.Model
     /// <summary>
     /// The request failed because it would exceed one of the Secrets Manager internal limits.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonSecretsManagerException
@@ -86,7 +86,7 @@ namespace Amazon.SecretsManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

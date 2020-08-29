@@ -31,7 +31,7 @@ namespace Amazon.CodePipeline.Model
     /// <summary>
     /// The specified webhook was entered in an invalid format or cannot be found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WebhookNotFoundException : AmazonCodePipelineException
@@ -86,7 +86,7 @@ namespace Amazon.CodePipeline.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WebhookNotFoundException class with serialized data.
         /// </summary>

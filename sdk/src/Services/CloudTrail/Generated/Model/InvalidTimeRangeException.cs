@@ -32,7 +32,7 @@ namespace Amazon.CloudTrail.Model
     /// Occurs if the timestamp values are invalid. Either the start time occurs after the
     /// end time or the time range is outside the range of possible values.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidTimeRangeException : AmazonCloudTrailException
@@ -87,7 +87,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidTimeRangeException class with serialized data.
         /// </summary>

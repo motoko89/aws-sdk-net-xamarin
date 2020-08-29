@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// head commit ID for the branch of the repository where you want to add or update a
     /// file.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParentCommitIdException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParentCommitIdException class with serialized data.
         /// </summary>

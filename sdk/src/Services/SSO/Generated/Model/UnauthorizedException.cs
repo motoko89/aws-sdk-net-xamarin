@@ -32,7 +32,7 @@ namespace Amazon.SSO.Model
     /// Indicates that the request is not authorized. This can happen due to an invalid access
     /// token in the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnauthorizedException : AmazonSSOException
@@ -87,7 +87,7 @@ namespace Amazon.SSO.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnauthorizedException class with serialized data.
         /// </summary>

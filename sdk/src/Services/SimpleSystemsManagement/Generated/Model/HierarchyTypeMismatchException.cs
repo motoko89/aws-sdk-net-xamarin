@@ -33,7 +33,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// you can't change a parameter from a <code>String</code> type to a <code>SecureString</code>
     /// type. You must create a new, unique parameter.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class HierarchyTypeMismatchException : AmazonSimpleSystemsManagementException
@@ -88,7 +88,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the HierarchyTypeMismatchException class with serialized data.
         /// </summary>

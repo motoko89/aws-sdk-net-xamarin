@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// The IAM role requires additional permissions to export to an Amazon S3 bucket.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IamRoleMissingPermissionsException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IamRoleMissingPermissionsException class with serialized data.
         /// </summary>

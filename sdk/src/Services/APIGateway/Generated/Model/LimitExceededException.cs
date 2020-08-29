@@ -31,7 +31,7 @@ namespace Amazon.APIGateway.Model
     /// <summary>
     /// The request exceeded the rate limit. Retry after the specified time period.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonAPIGatewayException
@@ -87,7 +87,7 @@ namespace Amazon.APIGateway.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

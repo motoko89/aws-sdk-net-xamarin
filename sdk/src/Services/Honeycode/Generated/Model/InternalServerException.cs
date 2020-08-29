@@ -31,7 +31,7 @@ namespace Amazon.Honeycode.Model
     /// <summary>
     /// There were unexpected errors from the server.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerException : AmazonHoneycodeException
@@ -86,7 +86,7 @@ namespace Amazon.Honeycode.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerException class with serialized data.
         /// </summary>

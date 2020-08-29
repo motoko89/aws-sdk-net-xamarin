@@ -32,7 +32,7 @@ namespace Amazon.Polly.Model
     /// This engine is not compatible with the voice that you have designated. Choose a new
     /// voice that is compatible with the engine or change the engine and restart the operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EngineNotSupportedException : AmazonPollyException
@@ -87,7 +87,7 @@ namespace Amazon.Polly.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EngineNotSupportedException class with serialized data.
         /// </summary>

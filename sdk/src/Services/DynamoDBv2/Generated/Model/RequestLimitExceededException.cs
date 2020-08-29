@@ -33,7 +33,7 @@ namespace Amazon.DynamoDBv2.Model
     /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a limit
     /// increase.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RequestLimitExceededException : AmazonDynamoDBException
@@ -88,7 +88,7 @@ namespace Amazon.DynamoDBv2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RequestLimitExceededException class with serialized data.
         /// </summary>

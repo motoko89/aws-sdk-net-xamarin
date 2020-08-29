@@ -31,7 +31,7 @@ namespace Amazon.CloudFront.Model
     /// <summary>
     /// You can't change the value of a public key.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CannotChangeImmutablePublicKeyFieldsException : AmazonCloudFrontException
@@ -86,7 +86,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CannotChangeImmutablePublicKeyFieldsException class with serialized data.
         /// </summary>

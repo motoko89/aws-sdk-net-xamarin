@@ -32,7 +32,7 @@ namespace Amazon.KeyManagementService.Model
     /// The request was rejected because the marker that specifies where pagination should
     /// next begin is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidMarkerException : AmazonKeyManagementServiceException
@@ -87,7 +87,7 @@ namespace Amazon.KeyManagementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidMarkerException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.Lex.Model
     /// <summary>
     /// Exceeded a limit.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonLexException
@@ -87,7 +87,7 @@ namespace Amazon.Lex.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

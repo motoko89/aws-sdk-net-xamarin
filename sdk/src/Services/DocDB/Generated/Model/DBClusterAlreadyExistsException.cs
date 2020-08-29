@@ -31,7 +31,7 @@ namespace Amazon.DocDB.Model
     /// <summary>
     /// You already have a cluster with the given identifier.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBClusterAlreadyExistsException : AmazonDocDBException
@@ -86,7 +86,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBClusterAlreadyExistsException class with serialized data.
         /// </summary>

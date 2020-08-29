@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The file was not added or updated because the content of the file is exactly the same
     /// as the content of that file in the repository and branch that you specified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SameFileContentException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SameFileContentException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.CloudFront.Model
     /// <summary>
     /// Your request contains more Lambda function associations than are allowed per distribution.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyLambdaFunctionAssociationsException : AmazonCloudFrontException
@@ -86,7 +86,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyLambdaFunctionAssociationsException class with serialized data.
         /// </summary>

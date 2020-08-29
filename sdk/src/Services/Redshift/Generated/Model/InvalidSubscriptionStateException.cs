@@ -32,7 +32,7 @@ namespace Amazon.Redshift.Model
     /// The subscription request is invalid because it is a duplicate request. This subscription
     /// request is already in progress.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidSubscriptionStateException : AmazonRedshiftException
@@ -87,7 +87,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidSubscriptionStateException class with serialized data.
         /// </summary>

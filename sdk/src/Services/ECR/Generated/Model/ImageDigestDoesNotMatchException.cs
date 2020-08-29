@@ -32,7 +32,7 @@ namespace Amazon.ECR.Model
     /// The specified image digest does not match the digest that Amazon ECR calculated for
     /// the image.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ImageDigestDoesNotMatchException : AmazonECRException
@@ -87,7 +87,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ImageDigestDoesNotMatchException class with serialized data.
         /// </summary>

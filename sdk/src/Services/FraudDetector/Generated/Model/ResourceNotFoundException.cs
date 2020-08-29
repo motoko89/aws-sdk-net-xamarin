@@ -31,7 +31,7 @@ namespace Amazon.FraudDetector.Model
     /// <summary>
     /// An exception indicating the specified resource was not found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonFraudDetectorException
@@ -86,7 +86,7 @@ namespace Amazon.FraudDetector.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

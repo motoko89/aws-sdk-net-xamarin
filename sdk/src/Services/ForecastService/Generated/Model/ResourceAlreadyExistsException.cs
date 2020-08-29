@@ -31,7 +31,7 @@ namespace Amazon.ForecastService.Model
     /// <summary>
     /// There is already a resource with this name. Try again with a different name.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceAlreadyExistsException : AmazonForecastServiceException
@@ -86,7 +86,7 @@ namespace Amazon.ForecastService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceAlreadyExistsException class with serialized data.
         /// </summary>

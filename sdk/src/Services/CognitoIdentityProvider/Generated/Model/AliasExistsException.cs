@@ -33,7 +33,7 @@ namespace Amazon.CognitoIdentityProvider.Model
     /// phone number that has already been supplied as an alias from a different account.
     /// This exception tells user that an account with this email or phone already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AliasExistsException : AmazonCognitoIdentityProviderException
@@ -88,7 +88,7 @@ namespace Amazon.CognitoIdentityProvider.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AliasExistsException class with serialized data.
         /// </summary>

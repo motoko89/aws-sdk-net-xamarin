@@ -32,7 +32,7 @@ namespace Amazon.ApplicationInsights.Model
     /// The number of the provided tags is beyond the limit, or the number of total tags you
     /// are trying to attach to the specified resource exceeds the limit.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyTagsException : AmazonApplicationInsightsException
@@ -88,7 +88,7 @@ namespace Amazon.ApplicationInsights.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyTagsException class with serialized data.
         /// </summary>

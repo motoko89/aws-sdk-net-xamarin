@@ -31,7 +31,7 @@ namespace Amazon.KinesisVideo.Model
     /// <summary>
     /// The format of the <code>StreamARN</code> is invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidResourceFormatException : AmazonKinesisVideoException
@@ -86,7 +86,7 @@ namespace Amazon.KinesisVideo.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidResourceFormatException class with serialized data.
         /// </summary>

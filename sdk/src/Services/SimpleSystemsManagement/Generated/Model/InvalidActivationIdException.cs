@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The activation ID is not valid. Verify the you entered the correct ActivationId or
     /// ActivationCode and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidActivationIdException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidActivationIdException class with serialized data.
         /// </summary>

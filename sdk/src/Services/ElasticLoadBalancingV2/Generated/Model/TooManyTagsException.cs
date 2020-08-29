@@ -31,7 +31,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
     /// <summary>
     /// You've reached the limit on the number of tags per load balancer.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyTagsException : AmazonElasticLoadBalancingV2Exception
@@ -86,7 +86,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyTagsException class with serialized data.
         /// </summary>

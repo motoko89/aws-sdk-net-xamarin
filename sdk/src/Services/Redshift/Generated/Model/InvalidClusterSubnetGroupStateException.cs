@@ -31,7 +31,7 @@ namespace Amazon.Redshift.Model
     /// <summary>
     /// The cluster subnet group cannot be deleted because it is in use.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidClusterSubnetGroupStateException : AmazonRedshiftException
@@ -86,7 +86,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidClusterSubnetGroupStateException class with serialized data.
         /// </summary>

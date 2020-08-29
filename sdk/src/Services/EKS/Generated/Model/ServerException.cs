@@ -31,7 +31,7 @@ namespace Amazon.EKS.Model
     /// <summary>
     /// These errors are usually caused by a server-side issue.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServerException : AmazonEKSException
@@ -88,7 +88,7 @@ namespace Amazon.EKS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServerException class with serialized data.
         /// </summary>

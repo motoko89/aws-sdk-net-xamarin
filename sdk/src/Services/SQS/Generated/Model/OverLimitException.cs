@@ -33,7 +33,7 @@ namespace Amazon.SQS.Model
     /// this error if the maximum number of inflight messages is reached and <code>AddPermission</code>
     /// returns this error if the maximum number of permissions for the queue is reached.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OverLimitException : AmazonSQSException
@@ -88,7 +88,7 @@ namespace Amazon.SQS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OverLimitException class with serialized data.
         /// </summary>

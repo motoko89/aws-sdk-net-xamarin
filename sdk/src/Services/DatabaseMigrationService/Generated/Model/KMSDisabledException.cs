@@ -31,7 +31,7 @@ namespace Amazon.DatabaseMigrationService.Model
     /// <summary>
     /// The specified master key (CMK) isn't enabled.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class KMSDisabledException : AmazonDatabaseMigrationServiceException
@@ -86,7 +86,7 @@ namespace Amazon.DatabaseMigrationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the KMSDisabledException class with serialized data.
         /// </summary>

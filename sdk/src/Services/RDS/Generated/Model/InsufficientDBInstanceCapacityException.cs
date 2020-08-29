@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// The specified DB instance class isn't available in the specified Availability Zone.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InsufficientDBInstanceCapacityException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InsufficientDBInstanceCapacityException class with serialized data.
         /// </summary>

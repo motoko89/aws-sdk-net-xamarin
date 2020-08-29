@@ -32,7 +32,7 @@ namespace Amazon.FSx.Model
     /// An error indicating that a particular service limit was exceeded. You can increase
     /// some service limits by contacting AWS Support.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceLimitExceededException : AmazonFSxException
@@ -88,7 +88,7 @@ namespace Amazon.FSx.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceLimitExceededException class with serialized data.
         /// </summary>

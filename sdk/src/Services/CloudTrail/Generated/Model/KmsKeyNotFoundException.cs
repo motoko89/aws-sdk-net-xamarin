@@ -32,7 +32,7 @@ namespace Amazon.CloudTrail.Model
     /// This exception is thrown when the KMS key does not exist, or when the S3 bucket and
     /// the KMS key are not in the same region.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class KmsKeyNotFoundException : AmazonCloudTrailException
@@ -87,7 +87,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the KmsKeyNotFoundException class with serialized data.
         /// </summary>

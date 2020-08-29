@@ -32,7 +32,7 @@ namespace Amazon.DeviceFarm.Model
     /// The list of tags on the repository is over the limit. The maximum number of tags that
     /// can be applied to a repository is 50.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyTagsException : AmazonDeviceFarmException
@@ -88,7 +88,7 @@ namespace Amazon.DeviceFarm.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyTagsException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.DirectoryService.Model
     /// <summary>
     /// A client exception has occurred.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ClientException : AmazonDirectoryServiceException
@@ -87,7 +87,7 @@ namespace Amazon.DirectoryService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ClientException class with serialized data.
         /// </summary>

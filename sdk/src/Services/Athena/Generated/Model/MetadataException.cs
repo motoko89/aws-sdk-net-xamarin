@@ -35,7 +35,7 @@ namespace Amazon.Athena.Model
     /// Lambda function is missing permissions, the Lambda <code>4XX</code> exception is returned
     /// in a <code>MetadataException</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MetadataException : AmazonAthenaException
@@ -90,7 +90,7 @@ namespace Amazon.Athena.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MetadataException class with serialized data.
         /// </summary>

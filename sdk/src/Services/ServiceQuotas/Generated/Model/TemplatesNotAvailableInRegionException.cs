@@ -32,7 +32,7 @@ namespace Amazon.ServiceQuotas.Model
     /// The Service Quotas template is not available in the Region where you are making the
     /// request. Please make the request in us-east-1.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TemplatesNotAvailableInRegionException : AmazonServiceQuotasException
@@ -87,7 +87,7 @@ namespace Amazon.ServiceQuotas.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TemplatesNotAvailableInRegionException class with serialized data.
         /// </summary>

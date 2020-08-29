@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The number of approvals required for the approval rule exceeds the maximum number
     /// allowed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MaximumNumberOfApprovalsExceededException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MaximumNumberOfApprovalsExceededException class with serialized data.
         /// </summary>

@@ -29,10 +29,9 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ECR.Model
 {
     /// <summary>
-    /// The previous lifecycle policy preview request has not completed. Please try again
-    /// later.
+    /// The previous lifecycle policy preview request has not completed. Wait and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LifecyclePolicyPreviewInProgressException : AmazonECRException
@@ -87,7 +86,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LifecyclePolicyPreviewInProgressException class with serialized data.
         /// </summary>

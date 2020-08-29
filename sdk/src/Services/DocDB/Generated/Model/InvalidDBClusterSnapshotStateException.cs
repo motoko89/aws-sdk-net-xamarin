@@ -31,7 +31,7 @@ namespace Amazon.DocDB.Model
     /// <summary>
     /// The provided value isn't a valid cluster snapshot state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDBClusterSnapshotStateException : AmazonDocDBException
@@ -86,7 +86,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDBClusterSnapshotStateException class with serialized data.
         /// </summary>

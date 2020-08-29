@@ -35,7 +35,7 @@ namespace Amazon.DynamoDBv2.Model
     /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
     /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ProvisionedThroughputExceededException : AmazonDynamoDBException
@@ -90,7 +90,7 @@ namespace Amazon.DynamoDBv2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ProvisionedThroughputExceededException class with serialized data.
         /// </summary>

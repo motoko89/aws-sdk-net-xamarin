@@ -32,7 +32,7 @@ namespace Amazon.Rekognition.Model
     /// The input image size exceeds the allowed limit. For more information, see Limits in
     /// Amazon Rekognition in the Amazon Rekognition Developer Guide.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ImageTooLargeException : AmazonRekognitionException
@@ -87,7 +87,7 @@ namespace Amazon.Rekognition.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ImageTooLargeException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
     /// <summary>
     /// No codec private data was found in at least one of tracks of the video stream.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MissingCodecPrivateDataException : AmazonKinesisVideoArchivedMediaException
@@ -86,7 +86,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MissingCodecPrivateDataException class with serialized data.
         /// </summary>

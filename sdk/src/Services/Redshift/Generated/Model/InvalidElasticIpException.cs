@@ -31,7 +31,7 @@ namespace Amazon.Redshift.Model
     /// <summary>
     /// The Elastic IP (EIP) is invalid or cannot be found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidElasticIpException : AmazonRedshiftException
@@ -86,7 +86,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidElasticIpException class with serialized data.
         /// </summary>

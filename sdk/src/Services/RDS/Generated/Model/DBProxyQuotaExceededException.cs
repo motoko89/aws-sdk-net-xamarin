@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// Your AWS account already has the maximum number of proxies in the specified AWS Region.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBProxyQuotaExceededException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBProxyQuotaExceededException class with serialized data.
         /// </summary>

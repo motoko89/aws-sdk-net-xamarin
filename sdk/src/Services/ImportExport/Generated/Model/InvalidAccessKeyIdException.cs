@@ -33,7 +33,7 @@ namespace Amazon.ImportExport.Model
     /// value. The manifest and the request authentication must use the same AWS Access Key
     /// ID.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidAccessKeyIdException : AmazonImportExportException
@@ -88,7 +88,7 @@ namespace Amazon.ImportExport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidAccessKeyIdException class with serialized data.
         /// </summary>

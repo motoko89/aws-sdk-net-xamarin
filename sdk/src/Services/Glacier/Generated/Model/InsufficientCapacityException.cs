@@ -32,7 +32,7 @@ namespace Amazon.Glacier.Model
     /// Returned if there is insufficient capacity to process this expedited request. This
     /// error only applies to expedited retrievals and not to standard or bulk retrievals.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InsufficientCapacityException : AmazonGlacierException
@@ -89,7 +89,7 @@ namespace Amazon.Glacier.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InsufficientCapacityException class with serialized data.
         /// </summary>

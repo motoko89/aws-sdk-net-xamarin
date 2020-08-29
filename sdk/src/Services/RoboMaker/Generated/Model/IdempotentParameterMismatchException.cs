@@ -32,7 +32,7 @@ namespace Amazon.RoboMaker.Model
     /// The request uses the same client token as a previous, but non-identical request. Do
     /// not reuse a client token with different requests, unless the requests are identical.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IdempotentParameterMismatchException : AmazonRoboMakerException
@@ -87,7 +87,7 @@ namespace Amazon.RoboMaker.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IdempotentParameterMismatchException class with serialized data.
         /// </summary>

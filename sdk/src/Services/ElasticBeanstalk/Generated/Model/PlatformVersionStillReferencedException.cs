@@ -32,7 +32,7 @@ namespace Amazon.ElasticBeanstalk.Model
     /// You cannot delete the platform version because there are still environments running
     /// on it.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PlatformVersionStillReferencedException : AmazonElasticBeanstalkException
@@ -87,7 +87,7 @@ namespace Amazon.ElasticBeanstalk.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PlatformVersionStillReferencedException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.EKS.Model
     /// <summary>
     /// The specified parameter is invalid. Review the available parameters for the API request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterException : AmazonEKSException
@@ -89,7 +89,7 @@ namespace Amazon.EKS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterException class with serialized data.
         /// </summary>

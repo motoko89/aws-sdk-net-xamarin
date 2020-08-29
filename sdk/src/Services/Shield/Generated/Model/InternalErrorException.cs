@@ -32,7 +32,7 @@ namespace Amazon.Shield.Model
     /// Exception that indicates that a problem occurred with the service infrastructure.
     /// You can retry the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalErrorException : AmazonShieldException
@@ -87,7 +87,7 @@ namespace Amazon.Shield.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalErrorException class with serialized data.
         /// </summary>

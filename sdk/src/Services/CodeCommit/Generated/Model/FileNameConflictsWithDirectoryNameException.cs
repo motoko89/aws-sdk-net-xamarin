@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// name as a directory in this repository. Either provide another name for the file,
     /// or add the file in a directory that does not match the file name.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FileNameConflictsWithDirectoryNameException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FileNameConflictsWithDirectoryNameException class with serialized data.
         /// </summary>

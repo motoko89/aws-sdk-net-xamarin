@@ -32,7 +32,7 @@ namespace Amazon.CostExplorer.Model
     /// Cost Explorer was unable to identify the usage unit. Provide <code>UsageType/UsageTypeGroup</code>
     /// filter selections that contain matching units, for example: <code>hours</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnresolvableUsageUnitException : AmazonCostExplorerException
@@ -87,7 +87,7 @@ namespace Amazon.CostExplorer.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnresolvableUsageUnitException class with serialized data.
         /// </summary>

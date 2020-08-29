@@ -32,7 +32,7 @@ namespace Amazon.CodeDeploy.Model
     /// No IAM ARN was included in the request. You must use an IAM session ARN or IAM user
     /// ARN in the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IamArnRequiredException : AmazonCodeDeployException
@@ -87,7 +87,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IamArnRequiredException class with serialized data.
         /// </summary>

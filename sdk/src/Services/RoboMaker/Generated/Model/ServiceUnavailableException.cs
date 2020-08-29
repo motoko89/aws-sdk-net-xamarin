@@ -31,7 +31,7 @@ namespace Amazon.RoboMaker.Model
     /// <summary>
     /// The request has failed due to a temporary failure of the server.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceUnavailableException : AmazonRoboMakerException
@@ -86,7 +86,7 @@ namespace Amazon.RoboMaker.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceUnavailableException class with serialized data.
         /// </summary>

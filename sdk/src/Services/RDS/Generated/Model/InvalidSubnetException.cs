@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// The requested subnet is invalid, or multiple subnets were requested that are not all
     /// in a common VPC.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidSubnetException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidSubnetException class with serialized data.
         /// </summary>

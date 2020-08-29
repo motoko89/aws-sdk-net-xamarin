@@ -32,7 +32,7 @@ namespace Amazon.ElastiCache.Model
     /// The specified Amazon EC2 security group is already authorized for the specified cache
     /// security group.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AuthorizationAlreadyExistsException : AmazonElastiCacheException
@@ -87,7 +87,7 @@ namespace Amazon.ElastiCache.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AuthorizationAlreadyExistsException class with serialized data.
         /// </summary>

@@ -56,15 +56,11 @@ namespace Amazon.Runtime.Internal.Util
             {
 
                 this.partSize = partSize;
-
-#if !PCL && !UNITY
-
                 var encryptionStream = BaseStream as AESEncryptionUploadPartStream;
                 if (encryptionStream != null && (partSize % 16) != 0)
                 {
                     this.partSize = partSize - (partSize % EncryptUploadPartStream.InternalEncryptionBlockSize);
                 }
-#endif
             }
         }
 
@@ -216,7 +212,7 @@ namespace Amazon.Runtime.Internal.Util
         }
 #endif
 
-#if !PCL && !UNITY && !NETSTANDARD
+#if !NETSTANDARD
         public override IAsyncResult BeginRead(byte[] buffer, int offset, int count, AsyncCallback callback, Object state)
         {
             throw new NotSupportedException();

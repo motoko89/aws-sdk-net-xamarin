@@ -32,7 +32,7 @@ namespace Amazon.CloudFront.Model
     /// The maximum number of distributions have been associated with the specified Lambda
     /// function.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyDistributionsWithSingleFunctionARNException : AmazonCloudFrontException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyDistributionsWithSingleFunctionARNException class with serialized data.
         /// </summary>

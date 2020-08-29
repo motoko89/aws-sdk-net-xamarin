@@ -32,7 +32,7 @@ namespace Amazon.Glacier.Model
     /// Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
     /// exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonGlacierException
@@ -89,7 +89,7 @@ namespace Amazon.Glacier.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

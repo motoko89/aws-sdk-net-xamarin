@@ -32,7 +32,7 @@ namespace Amazon.Route53Resolver.Model
     /// The value that you specified for <code>NextToken</code> in a <code>List</code> request
     /// isn't valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidNextTokenException : AmazonRoute53ResolverException
@@ -87,7 +87,7 @@ namespace Amazon.Route53Resolver.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidNextTokenException class with serialized data.
         /// </summary>

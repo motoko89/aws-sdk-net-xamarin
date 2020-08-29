@@ -31,7 +31,7 @@ namespace Amazon.WorkDocs.Model
     /// <summary>
     /// The user is undergoing transfer of ownership.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IllegalUserStateException : AmazonWorkDocsException
@@ -86,7 +86,7 @@ namespace Amazon.WorkDocs.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IllegalUserStateException class with serialized data.
         /// </summary>

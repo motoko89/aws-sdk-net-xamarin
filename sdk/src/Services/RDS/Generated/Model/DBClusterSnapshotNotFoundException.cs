@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster
     /// snapshot.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBClusterSnapshotNotFoundException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBClusterSnapshotNotFoundException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The target is not valid or does not exist. It might not be configured for Systems
     /// Manager or you might not have permission to perform the operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidTargetException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidTargetException class with serialized data.
         /// </summary>

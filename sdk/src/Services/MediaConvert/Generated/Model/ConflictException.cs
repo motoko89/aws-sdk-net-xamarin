@@ -32,7 +32,7 @@ namespace Amazon.MediaConvert.Model
     /// The service couldn't complete your request because there is a conflict with the current
     /// state of the resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConflictException : AmazonMediaConvertException
@@ -87,7 +87,7 @@ namespace Amazon.MediaConvert.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConflictException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.CloudTrail.Model
     /// <summary>
     /// This exception is thrown when the maximum number of trails is reached.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MaximumNumberOfTrailsExceededException : AmazonCloudTrailException
@@ -86,7 +86,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MaximumNumberOfTrailsExceededException class with serialized data.
         /// </summary>

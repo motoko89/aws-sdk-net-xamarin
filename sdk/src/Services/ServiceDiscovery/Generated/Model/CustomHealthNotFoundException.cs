@@ -32,7 +32,7 @@ namespace Amazon.ServiceDiscovery.Model
     /// The health check for the instance that is specified by <code>ServiceId</code> and
     /// <code>InstanceId</code> is not a custom health check.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CustomHealthNotFoundException : AmazonServiceDiscoveryException
@@ -87,7 +87,7 @@ namespace Amazon.ServiceDiscovery.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CustomHealthNotFoundException class with serialized data.
         /// </summary>

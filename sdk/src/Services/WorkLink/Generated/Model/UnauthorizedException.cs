@@ -31,7 +31,7 @@ namespace Amazon.WorkLink.Model
     /// <summary>
     /// You are not authorized to perform this action.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnauthorizedException : AmazonWorkLinkException
@@ -86,7 +86,7 @@ namespace Amazon.WorkLink.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnauthorizedException class with serialized data.
         /// </summary>

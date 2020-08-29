@@ -31,7 +31,7 @@ namespace Amazon.CodePipeline.Model
     /// <summary>
     /// The specified resource ARN is invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidArnException : AmazonCodePipelineException
@@ -86,7 +86,7 @@ namespace Amazon.CodePipeline.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidArnException class with serialized data.
         /// </summary>

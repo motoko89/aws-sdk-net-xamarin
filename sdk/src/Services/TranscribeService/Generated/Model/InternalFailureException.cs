@@ -31,7 +31,7 @@ namespace Amazon.TranscribeService.Model
     /// <summary>
     /// There was an internal error. Check the error message and try your request again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalFailureException : AmazonTranscribeServiceException
@@ -86,7 +86,7 @@ namespace Amazon.TranscribeService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalFailureException class with serialized data.
         /// </summary>

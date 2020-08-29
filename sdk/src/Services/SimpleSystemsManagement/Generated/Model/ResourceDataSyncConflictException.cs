@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// Another <code>UpdateResourceDataSync</code> request is being processed. Wait a few
     /// minutes and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceDataSyncConflictException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceDataSyncConflictException class with serialized data.
         /// </summary>

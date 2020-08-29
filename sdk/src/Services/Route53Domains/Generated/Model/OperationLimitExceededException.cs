@@ -31,7 +31,7 @@ namespace Amazon.Route53Domains.Model
     /// <summary>
     /// The number of operations or jobs running exceeded the allowed threshold for the account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OperationLimitExceededException : AmazonRoute53DomainsException
@@ -86,7 +86,7 @@ namespace Amazon.Route53Domains.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OperationLimitExceededException class with serialized data.
         /// </summary>

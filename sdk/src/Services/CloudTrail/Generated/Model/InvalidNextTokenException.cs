@@ -32,7 +32,7 @@ namespace Amazon.CloudTrail.Model
     /// Invalid token or token that was previously used in a request with different parameters.
     /// This exception is thrown if the token is invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidNextTokenException : AmazonCloudTrailException
@@ -87,7 +87,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidNextTokenException class with serialized data.
         /// </summary>

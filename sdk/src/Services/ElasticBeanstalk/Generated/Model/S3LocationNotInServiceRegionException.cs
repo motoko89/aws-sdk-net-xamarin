@@ -46,7 +46,7 @@ namespace Amazon.ElasticBeanstalk.Model
     /// </para>
     ///  </li> </ul>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class S3LocationNotInServiceRegionException : AmazonElasticBeanstalkException
@@ -101,7 +101,7 @@ namespace Amazon.ElasticBeanstalk.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the S3LocationNotInServiceRegionException class with serialized data.
         /// </summary>

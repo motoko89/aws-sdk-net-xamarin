@@ -31,7 +31,7 @@ namespace Amazon.AppStream.Model
     /// <summary>
     /// The specified resource exists and is not in use, but isn't available.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotAvailableException : AmazonAppStreamException
@@ -86,7 +86,7 @@ namespace Amazon.AppStream.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotAvailableException class with serialized data.
         /// </summary>

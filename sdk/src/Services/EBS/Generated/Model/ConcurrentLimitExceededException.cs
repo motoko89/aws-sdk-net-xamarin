@@ -34,7 +34,7 @@ namespace Amazon.EBS.Model
     /// performance of the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud User
     /// Guide</i>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentLimitExceededException : AmazonEBSException
@@ -89,7 +89,7 @@ namespace Amazon.EBS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentLimitExceededException class with serialized data.
         /// </summary>

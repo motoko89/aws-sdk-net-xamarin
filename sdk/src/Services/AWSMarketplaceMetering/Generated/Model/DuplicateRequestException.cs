@@ -32,7 +32,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
     /// A metering record has already been emitted by the same EC2 instance, ECS task, or
     /// EKS pod for the given {usageDimension, timestamp} with a different usageQuantity.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DuplicateRequestException : AmazonAWSMarketplaceMeteringException
@@ -87,7 +87,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DuplicateRequestException class with serialized data.
         /// </summary>

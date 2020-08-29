@@ -31,7 +31,7 @@ namespace Amazon.LakeFormation.Model
     /// <summary>
     /// A resource to be created or added already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AlreadyExistsException : AmazonLakeFormationException
@@ -86,7 +86,7 @@ namespace Amazon.LakeFormation.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AlreadyExistsException class with serialized data.
         /// </summary>

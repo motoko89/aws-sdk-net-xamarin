@@ -32,7 +32,7 @@ namespace Amazon.Lightsail.Model
     /// Lightsail throws this exception when the user cannot be authenticated or uses invalid
     /// credentials to access a resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedException : AmazonLightsailException
@@ -90,7 +90,7 @@ namespace Amazon.Lightsail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedException class with serialized data.
         /// </summary>

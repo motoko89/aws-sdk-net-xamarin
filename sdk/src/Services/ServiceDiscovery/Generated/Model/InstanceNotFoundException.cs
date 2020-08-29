@@ -32,7 +32,7 @@ namespace Amazon.ServiceDiscovery.Model
     /// No instance exists with the specified ID, or the instance was recently registered,
     /// and information about the instance hasn't propagated yet.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InstanceNotFoundException : AmazonServiceDiscoveryException
@@ -87,7 +87,7 @@ namespace Amazon.ServiceDiscovery.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InstanceNotFoundException class with serialized data.
         /// </summary>

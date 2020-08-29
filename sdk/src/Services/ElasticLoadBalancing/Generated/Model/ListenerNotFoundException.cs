@@ -31,7 +31,7 @@ namespace Amazon.ElasticLoadBalancing.Model
     /// <summary>
     /// The load balancer does not have a listener configured at the specified port.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ListenerNotFoundException : AmazonElasticLoadBalancingException
@@ -86,7 +86,7 @@ namespace Amazon.ElasticLoadBalancing.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ListenerNotFoundException class with serialized data.
         /// </summary>

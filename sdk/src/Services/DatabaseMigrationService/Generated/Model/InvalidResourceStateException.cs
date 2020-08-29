@@ -31,7 +31,7 @@ namespace Amazon.DatabaseMigrationService.Model
     /// <summary>
     /// The resource is in a state that prevents it from being used for database migration.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidResourceStateException : AmazonDatabaseMigrationServiceException
@@ -86,7 +86,7 @@ namespace Amazon.DatabaseMigrationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidResourceStateException class with serialized data.
         /// </summary>

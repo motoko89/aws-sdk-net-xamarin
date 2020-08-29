@@ -217,7 +217,7 @@ namespace ServiceClientGenerator
                 generator.Project = projectProperties;
                 generatedContent = generator.TransformText();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new ArgumentException("Project template name "
                     + TemplateName + " is not recognized");

@@ -31,7 +31,7 @@ namespace Amazon.Glacier.Model
     /// <summary>
     /// Returned if the request results in a vault or account limit being exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonGlacierException
@@ -88,7 +88,7 @@ namespace Amazon.Glacier.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

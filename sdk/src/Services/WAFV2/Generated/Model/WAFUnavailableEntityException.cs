@@ -31,7 +31,7 @@ namespace Amazon.WAFV2.Model
     /// <summary>
     /// AWS WAF couldn’t retrieve the resource that you requested. Retry your request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFUnavailableEntityException : AmazonWAFV2Exception
@@ -86,7 +86,7 @@ namespace Amazon.WAFV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFUnavailableEntityException class with serialized data.
         /// </summary>

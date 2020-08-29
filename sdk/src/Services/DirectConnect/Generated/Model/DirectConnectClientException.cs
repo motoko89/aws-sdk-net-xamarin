@@ -31,7 +31,7 @@ namespace Amazon.DirectConnect.Model
     /// <summary>
     /// One or more parameters are not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DirectConnectClientException : AmazonDirectConnectException
@@ -86,7 +86,7 @@ namespace Amazon.DirectConnect.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DirectConnectClientException class with serialized data.
         /// </summary>

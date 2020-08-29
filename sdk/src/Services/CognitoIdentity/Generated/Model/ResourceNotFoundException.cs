@@ -31,7 +31,7 @@ namespace Amazon.CognitoIdentity.Model
     /// <summary>
     /// Thrown when the requested resource (for example, a dataset or record) does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonCognitoIdentityException
@@ -86,7 +86,7 @@ namespace Amazon.CognitoIdentity.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.LicenseManager.Model
     /// <summary>
     /// A dependency required to run the API is missing.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FailedDependencyException : AmazonLicenseManagerException
@@ -86,7 +86,7 @@ namespace Amazon.LicenseManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FailedDependencyException class with serialized data.
         /// </summary>

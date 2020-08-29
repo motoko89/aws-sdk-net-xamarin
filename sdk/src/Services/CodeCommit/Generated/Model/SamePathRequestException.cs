@@ -34,7 +34,7 @@ namespace Amazon.CodeCommit.Model
     /// to the same file in the same file path twice, or make a delete request and a move
     /// request to the same file as part of the same commit.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SamePathRequestException : AmazonCodeCommitException
@@ -89,7 +89,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SamePathRequestException class with serialized data.
         /// </summary>

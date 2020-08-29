@@ -33,7 +33,7 @@ namespace Amazon.KinesisAnalyticsV2.Model
     /// can be the result of attempting to modify an application without using the current
     /// application ID.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentModificationException : AmazonKinesisAnalyticsV2Exception
@@ -88,7 +88,7 @@ namespace Amazon.KinesisAnalyticsV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentModificationException class with serialized data.
         /// </summary>

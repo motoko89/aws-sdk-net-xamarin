@@ -31,7 +31,7 @@ namespace Amazon.Personalize.Model
     /// <summary>
     /// The specified resource already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceAlreadyExistsException : AmazonPersonalizeException
@@ -86,7 +86,7 @@ namespace Amazon.Personalize.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceAlreadyExistsException class with serialized data.
         /// </summary>

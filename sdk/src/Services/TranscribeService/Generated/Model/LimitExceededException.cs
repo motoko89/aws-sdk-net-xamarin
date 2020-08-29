@@ -32,7 +32,7 @@ namespace Amazon.TranscribeService.Model
     /// Either you have sent too many requests or your input file is too long. Wait before
     /// you resend your request, or use a smaller file and resend the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonTranscribeServiceException
@@ -87,7 +87,7 @@ namespace Amazon.TranscribeService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

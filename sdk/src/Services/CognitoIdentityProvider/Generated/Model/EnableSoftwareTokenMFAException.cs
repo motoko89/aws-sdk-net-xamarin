@@ -32,7 +32,7 @@ namespace Amazon.CognitoIdentityProvider.Model
     /// This exception is thrown when there is a code mismatch and the service fails to configure
     /// the software token TOTP multi-factor authentication (MFA).
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EnableSoftwareTokenMFAException : AmazonCognitoIdentityProviderException
@@ -87,7 +87,7 @@ namespace Amazon.CognitoIdentityProvider.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EnableSoftwareTokenMFAException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.Neptune.Model
     /// <summary>
     /// Request would result in user exceeding the allowed number of DB snapshots.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SnapshotQuotaExceededException : AmazonNeptuneException
@@ -86,7 +86,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SnapshotQuotaExceededException class with serialized data.
         /// </summary>

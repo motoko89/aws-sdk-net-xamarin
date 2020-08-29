@@ -32,7 +32,7 @@ namespace Amazon.MediaConvert.Model
     /// Too many requests have been sent in too short of a time. The service limits the rate
     /// at which it will accept requests.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyRequestsException : AmazonMediaConvertException
@@ -87,7 +87,7 @@ namespace Amazon.MediaConvert.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyRequestsException class with serialized data.
         /// </summary>

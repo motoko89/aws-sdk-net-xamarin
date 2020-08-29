@@ -31,7 +31,7 @@ namespace Amazon.Neptune.Model
     /// <summary>
     /// The ARN of the SNS topic could not be found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SNSTopicArnNotFoundException : AmazonNeptuneException
@@ -86,7 +86,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SNSTopicArnNotFoundException class with serialized data.
         /// </summary>

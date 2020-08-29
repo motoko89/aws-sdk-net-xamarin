@@ -31,7 +31,7 @@ namespace Amazon.SSOOIDC.Model
     /// <summary>
     /// Indicates that the scope provided in the request is invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidScopeException : AmazonSSOOIDCException
@@ -88,7 +88,7 @@ namespace Amazon.SSOOIDC.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidScopeException class with serialized data.
         /// </summary>

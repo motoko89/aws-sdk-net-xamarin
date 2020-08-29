@@ -32,7 +32,7 @@ namespace Amazon.Organizations.Model
     /// We can't find the destination container (a root or OU) with the <code>ParentId</code>
     /// that you specified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DestinationParentNotFoundException : AmazonOrganizationsException
@@ -87,7 +87,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DestinationParentNotFoundException class with serialized data.
         /// </summary>

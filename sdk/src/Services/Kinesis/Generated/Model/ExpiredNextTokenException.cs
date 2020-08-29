@@ -31,7 +31,7 @@ namespace Amazon.Kinesis.Model
     /// <summary>
     /// The pagination token passed to the operation is expired.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ExpiredNextTokenException : AmazonKinesisException
@@ -86,7 +86,7 @@ namespace Amazon.Kinesis.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ExpiredNextTokenException class with serialized data.
         /// </summary>

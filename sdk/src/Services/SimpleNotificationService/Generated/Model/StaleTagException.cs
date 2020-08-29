@@ -32,7 +32,7 @@ namespace Amazon.SimpleNotificationService.Model
     /// A tag has been added to a resource with the same ARN as a deleted resource. Wait a
     /// short while and then retry the operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class StaleTagException : AmazonSimpleNotificationServiceException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleNotificationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the StaleTagException class with serialized data.
         /// </summary>

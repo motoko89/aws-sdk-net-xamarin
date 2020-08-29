@@ -33,7 +33,7 @@ namespace Amazon.KeyManagementService.Model
     /// to another custom key store in the account. Try again with a custom key store name
     /// that is unique in the account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CustomKeyStoreNameInUseException : AmazonKeyManagementServiceException
@@ -88,7 +88,7 @@ namespace Amazon.KeyManagementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CustomKeyStoreNameInUseException class with serialized data.
         /// </summary>

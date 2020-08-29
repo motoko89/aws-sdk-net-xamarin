@@ -31,7 +31,7 @@ namespace Amazon.CodeGuruProfiler.Model
     /// <summary>
     /// The resource specified in the request does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonCodeGuruProfilerException
@@ -86,7 +86,7 @@ namespace Amazon.CodeGuruProfiler.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

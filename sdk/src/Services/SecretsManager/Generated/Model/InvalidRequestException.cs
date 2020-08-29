@@ -46,7 +46,7 @@ namespace Amazon.SecretsManager.Model
     /// </para>
     ///  </li> </ul>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRequestException : AmazonSecretsManagerException
@@ -101,7 +101,7 @@ namespace Amazon.SecretsManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRequestException class with serialized data.
         /// </summary>

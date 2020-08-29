@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The revision ID provided in the request does not match the current revision ID. Use
     /// GetPullRequest to retrieve the current revision ID.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RevisionNotCurrentException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RevisionNotCurrentException class with serialized data.
         /// </summary>

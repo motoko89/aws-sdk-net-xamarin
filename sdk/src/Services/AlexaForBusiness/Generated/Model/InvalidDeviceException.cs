@@ -31,7 +31,7 @@ namespace Amazon.AlexaForBusiness.Model
     /// <summary>
     /// The device is in an invalid state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDeviceException : AmazonAlexaForBusinessException
@@ -86,7 +86,7 @@ namespace Amazon.AlexaForBusiness.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDeviceException class with serialized data.
         /// </summary>

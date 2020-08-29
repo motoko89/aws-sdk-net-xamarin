@@ -33,7 +33,7 @@ namespace Amazon.DirectoryService.Model
     /// use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits for a
     /// directory.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SnapshotLimitExceededException : AmazonDirectoryServiceException
@@ -89,7 +89,7 @@ namespace Amazon.DirectoryService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SnapshotLimitExceededException class with serialized data.
         /// </summary>

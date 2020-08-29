@@ -33,7 +33,7 @@ namespace Amazon.ECS.Model
     /// of a resource with <a>ListAttributes</a>. You can remove existing attributes on a
     /// resource with <a>DeleteAttributes</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AttributeLimitExceededException : AmazonECSException
@@ -88,7 +88,7 @@ namespace Amazon.ECS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AttributeLimitExceededException class with serialized data.
         /// </summary>

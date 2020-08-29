@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// The supplied value isn't a valid DB cluster snapshot state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDBClusterSnapshotStateException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDBClusterSnapshotStateException class with serialized data.
         /// </summary>

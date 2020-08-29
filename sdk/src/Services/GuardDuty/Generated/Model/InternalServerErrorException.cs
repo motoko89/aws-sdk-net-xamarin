@@ -31,7 +31,7 @@ namespace Amazon.GuardDuty.Model
     /// <summary>
     /// An internal server error exception object.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerErrorException : AmazonGuardDutyException
@@ -87,7 +87,7 @@ namespace Amazon.GuardDuty.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerErrorException class with serialized data.
         /// </summary>

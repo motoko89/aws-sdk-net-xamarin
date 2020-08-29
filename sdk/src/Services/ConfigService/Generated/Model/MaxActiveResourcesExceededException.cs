@@ -32,7 +32,7 @@ namespace Amazon.ConfigService.Model
     /// You have reached the limit (100,000) of active custom resource types in your account.
     /// Delete unused resources using <code>DeleteResourceConfig</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MaxActiveResourcesExceededException : AmazonConfigServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MaxActiveResourcesExceededException class with serialized data.
         /// </summary>

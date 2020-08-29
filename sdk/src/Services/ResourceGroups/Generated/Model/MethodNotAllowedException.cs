@@ -29,9 +29,9 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ResourceGroups.Model
 {
     /// <summary>
-    /// The request uses an HTTP method which is not allowed for the specified resource.
+    /// The request uses an HTTP method that isn't allowed for the specified resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MethodNotAllowedException : AmazonResourceGroupsException
@@ -86,7 +86,7 @@ namespace Amazon.ResourceGroups.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MethodNotAllowedException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.Elasticsearch.Model
     /// The request processing has failed because of invalid pagination token provided by
     /// customer. Returns an HTTP status code of 400.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidPaginationTokenException : AmazonElasticsearchException
@@ -87,7 +87,7 @@ namespace Amazon.Elasticsearch.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidPaginationTokenException class with serialized data.
         /// </summary>

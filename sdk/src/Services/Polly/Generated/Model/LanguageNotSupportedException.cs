@@ -31,7 +31,7 @@ namespace Amazon.Polly.Model
     /// <summary>
     /// The language specified is not currently supported by Amazon Polly in this capacity.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LanguageNotSupportedException : AmazonPollyException
@@ -86,7 +86,7 @@ namespace Amazon.Polly.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LanguageNotSupportedException class with serialized data.
         /// </summary>

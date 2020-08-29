@@ -32,7 +32,7 @@ namespace Amazon.SimpleEmail.Model
     /// Indicates that the Amazon Kinesis Firehose destination is invalid. See the error message
     /// for details.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidFirehoseDestinationException : AmazonSimpleEmailServiceException
@@ -89,7 +89,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidFirehoseDestinationException class with serialized data.
         /// </summary>

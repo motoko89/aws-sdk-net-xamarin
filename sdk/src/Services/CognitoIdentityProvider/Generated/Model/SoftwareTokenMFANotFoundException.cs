@@ -32,7 +32,7 @@ namespace Amazon.CognitoIdentityProvider.Model
     /// This exception is thrown when the software token TOTP multi-factor authentication
     /// (MFA) is not enabled for the user pool.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SoftwareTokenMFANotFoundException : AmazonCognitoIdentityProviderException
@@ -87,7 +87,7 @@ namespace Amazon.CognitoIdentityProvider.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SoftwareTokenMFANotFoundException class with serialized data.
         /// </summary>

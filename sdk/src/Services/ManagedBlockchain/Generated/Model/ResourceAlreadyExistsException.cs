@@ -31,7 +31,7 @@ namespace Amazon.ManagedBlockchain.Model
     /// <summary>
     /// A resource request is issued for a resource that already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceAlreadyExistsException : AmazonManagedBlockchainException
@@ -86,7 +86,7 @@ namespace Amazon.ManagedBlockchain.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceAlreadyExistsException class with serialized data.
         /// </summary>

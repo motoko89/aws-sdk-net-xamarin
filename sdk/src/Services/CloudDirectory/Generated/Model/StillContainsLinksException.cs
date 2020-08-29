@@ -32,7 +32,7 @@ namespace Amazon.CloudDirectory.Model
     /// The object could not be deleted because links still exist. Remove the links and then
     /// try the operation again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class StillContainsLinksException : AmazonCloudDirectoryException
@@ -87,7 +87,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the StillContainsLinksException class with serialized data.
         /// </summary>

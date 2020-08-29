@@ -31,7 +31,7 @@ namespace Amazon.SecretsManager.Model
     /// <summary>
     /// The request failed because you did not complete all the prerequisite steps.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PreconditionNotMetException : AmazonSecretsManagerException
@@ -86,7 +86,7 @@ namespace Amazon.SecretsManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PreconditionNotMetException class with serialized data.
         /// </summary>

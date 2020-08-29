@@ -9,16 +9,13 @@
 // ------------------------------------------------------------------------------
 namespace ServiceClientGenerator.Generators.SourceFiles
 {
-    using System.Linq;
-    using System.Text;
-    using System.Collections.Generic;
     using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\SourceFiles\CoreAssemblyInfo.tt"
+    #line 1 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\SourceFiles\CoreAssemblyInfo.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class CoreAssemblyInfo : BaseGenerator
     {
@@ -35,45 +32,40 @@ namespace ServiceClientGenerator.Generators.SourceFiles
                     "bly: AssemblyTitle(\"AWSSDK.Core\")]\r\n#if BCL35\r\n[assembly: AssemblyDescription(\"T" +
                     "he Amazon Web Services SDK for .NET (3.5) - Core Runtime\")]\r\n#elif BCL45\r\n[assem" +
                     "bly: AssemblyDescription(\"The Amazon Web Services SDK for .NET (4.5) - Core Runt" +
-                    "ime\")]\r\n#elif PCL\r\n[assembly: AssemblyDescription(\"The Amazon Web Services SDK f" +
-                    "or .NET (PCL)- Core Runtime\")]\r\n#elif UNITY\r\n[assembly: AssemblyDescription(\"The" +
-                    " Amazon Web Services SDK for .NET (Unity)- Core Runtime\")]\r\n#elif NETSTANDARD13\r" +
-                    "\n[assembly: AssemblyDescription(\"The Amazon Web Services SDK for .NET (NetStanda" +
-                    "rd 1.3)- Core Runtime\")]\r\n#elif NETSTANDARD20\r\n[assembly: AssemblyDescription(\"T" +
-                    "he Amazon Web Services SDK for .NET (NetStandard 2.0)- Core Runtime\")]\r\n#else\r\n#" +
-                    "error Unknown platform constant - unable to set correct AssemblyDescription\r\n#en" +
-                    "dif\r\n\r\n[assembly: AssemblyConfiguration(\"\")]\r\n[assembly: AssemblyProduct(\"Amazon" +
-                    " Web Services SDK for .NET\")]\r\n[assembly: AssemblyCompany(\"Amazon.com, Inc\")]\r\n[" +
-                    "assembly: AssemblyCopyright(\"Copyright 2009-2015 Amazon.com, Inc. or its affilia" +
-                    "tes. All Rights Reserved.\")]\r\n[assembly: AssemblyTrademark(\"\")]\r\n[assembly: Asse" +
-                    "mblyCulture(\"\")]\r\n\r\n// Setting ComVisible to false makes the types in this assem" +
-                    "bly not visible \r\n// to COM components.  If you need to access a type in this as" +
-                    "sembly from \r\n// COM, set the ComVisible attribute to true on that type.\r\n[assem" +
-                    "bly: ComVisible(false)]\r\n\r\n// Version information for an assembly consists of th" +
-                    "e following four values:\r\n//\r\n//      Major Version\r\n//      Minor Version \r\n// " +
-                    "     Build Number\r\n//      Revision\r\n//\r\n// You can specify all the values or yo" +
-                    "u can default the Build and Revision Numbers \r\n// by using the \'*\' as shown belo" +
-                    "w:\r\n// [assembly: AssemblyVersion(\"1.0.*\")]\r\n[assembly: AssemblyVersion(\"");
+                    "ime\")]\r\n#elif NETSTANDARD13\r\n[assembly: AssemblyDescription(\"The Amazon Web Serv" +
+                    "ices SDK for .NET (NetStandard 1.3) - Core Runtime\")]\r\n#elif NETSTANDARD20\r\n[ass" +
+                    "embly: AssemblyDescription(\"The Amazon Web Services SDK for .NET (NetStandard 2." +
+                    "0) - Core Runtime\")]\r\n#elif NETCOREAPP3_1\r\n[assembly: AssemblyDescription(\"The A" +
+                    "mazon Web Services SDK for .NET (.NET Core 3.1) - Core Runtime\")]\r\n#else\r\n#error" +
+                    " Unknown platform constant - unable to set correct AssemblyDescription\r\n#endif\r\n" +
+                    "\r\n[assembly: AssemblyConfiguration(\"\")]\r\n[assembly: AssemblyProduct(\"Amazon Web " +
+                    "Services SDK for .NET\")]\r\n[assembly: AssemblyCompany(\"Amazon.com, Inc\")]\r\n[assem" +
+                    "bly: AssemblyCopyright(\"Copyright 2009-2015 Amazon.com, Inc. or its affiliates. " +
+                    "All Rights Reserved.\")]\r\n[assembly: AssemblyTrademark(\"\")]\r\n[assembly: AssemblyC" +
+                    "ulture(\"\")]\r\n\r\n// Setting ComVisible to false makes the types in this assembly n" +
+                    "ot visible \r\n// to COM components.  If you need to access a type in this assembl" +
+                    "y from \r\n// COM, set the ComVisible attribute to true on that type.\r\n[assembly: " +
+                    "ComVisible(false)]\r\n\r\n// Version information for an assembly consists of the fol" +
+                    "lowing four values:\r\n//\r\n//      Major Version\r\n//      Minor Version \r\n//      " +
+                    "Build Number\r\n//      Revision\r\n//\r\n// You can specify all the values or you can" +
+                    " default the Build and Revision Numbers \r\n// by using the \'*\' as shown below:\r\n/" +
+                    "/ [assembly: AssemblyVersion(\"1.0.*\")]\r\n[assembly: AssemblyVersion(\"");
             
-            #line 54 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\SourceFiles\CoreAssemblyInfo.tt"
+            #line 49 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\SourceFiles\CoreAssemblyInfo.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Session["Version"]));
             
             #line default
             #line hidden
             this.Write("\")]\r\n[assembly: AssemblyFileVersion(\"");
             
-            #line 55 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\SourceFiles\CoreAssemblyInfo.tt"
+            #line 50 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\SourceFiles\CoreAssemblyInfo.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Session["FileVersion"]));
             
             #line default
             #line hidden
             this.Write(@""")]
 
-#if WINDOWS_PHONE || UNITY
-[assembly: System.CLSCompliant(false)]
-# else
 [assembly: System.CLSCompliant(true)]
-#endif
 
 #if BCL
 [assembly: System.Security.AllowPartiallyTrustedCallers]
@@ -83,22 +75,6 @@ namespace ServiceClientGenerator.Generators.SourceFiles
 // Setting SecurityRules to level 1 to match .NET 2.0 rules and allow the
 // Amazon.Util.Settings.UserCrypto methods to work in .NET 4.5
 [assembly: System.Security.SecurityRules(System.Security.SecurityRuleSet.Level1)]
-#endif
-
-
-//declare the permission we use in the manifest
-#if __ANDROID__
-//network permission
-[assembly: Android.App.UsesPermission(Name=""android.permission.INTERNET"")]
-
-//for network reachability
-[assembly: Android.App.UsesPermission(Name=""android.permission.ACCESS_NETWORK_STATE"")]
-[assembly: Android.App.UsesPermission(Name=""android.permission.ACCESS_WIFI_STATE"")]
-
-//for storage
-[assembly: Android.App.UsesPermission(Name=""android.permission.READ_EXTERNAL_STORAGE"")]
-[assembly: Android.App.UsesPermission(Name=""android.permission.WRITE_EXTERNAL_STORAGE"")]
-
 #endif");
             return this.GenerationEnvironment.ToString();
         }

@@ -31,7 +31,7 @@ namespace Amazon.WorkDocs.Model
     /// <summary>
     /// You've reached the limit on the number of subscriptions for the WorkDocs instance.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManySubscriptionsException : AmazonWorkDocsException
@@ -86,7 +86,7 @@ namespace Amazon.WorkDocs.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManySubscriptionsException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.SecurityHub.Model
     /// <summary>
     /// Internal server error.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalException : AmazonSecurityHubException
@@ -87,7 +87,7 @@ namespace Amazon.SecurityHub.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The commit cannot be created because no changes will be made to the repository as
     /// a result of this commit. A commit must contain at least one change.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NoChangeException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NoChangeException class with serialized data.
         /// </summary>

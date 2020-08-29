@@ -34,7 +34,7 @@ namespace Amazon.WorkSpaces.Model
     /// before you can register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">Creating
     /// the workspaces_DefaultRole Role</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WorkspacesDefaultRoleNotFoundException : AmazonWorkSpacesException
@@ -89,7 +89,7 @@ namespace Amazon.WorkSpaces.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WorkspacesDefaultRoleNotFoundException class with serialized data.
         /// </summary>

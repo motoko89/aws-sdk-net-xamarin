@@ -32,7 +32,7 @@ namespace Amazon.ECR.Model
     /// The specified image is tagged with a tag that already exists. The repository is configured
     /// for tag immutability.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ImageTagAlreadyExistsException : AmazonECRException
@@ -87,7 +87,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ImageTagAlreadyExistsException class with serialized data.
         /// </summary>

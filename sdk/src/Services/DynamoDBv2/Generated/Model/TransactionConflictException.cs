@@ -31,7 +31,7 @@ namespace Amazon.DynamoDBv2.Model
     /// <summary>
     /// Operation was rejected because there is an ongoing transaction for the item.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TransactionConflictException : AmazonDynamoDBException
@@ -86,7 +86,7 @@ namespace Amazon.DynamoDBv2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TransactionConflictException class with serialized data.
         /// </summary>

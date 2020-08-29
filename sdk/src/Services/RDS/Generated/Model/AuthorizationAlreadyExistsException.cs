@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// The specified CIDR IP range or Amazon EC2 security group is already authorized for
     /// the specified DB security group.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AuthorizationAlreadyExistsException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AuthorizationAlreadyExistsException class with serialized data.
         /// </summary>

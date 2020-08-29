@@ -31,7 +31,7 @@ namespace Amazon.CloudDirectory.Model
     /// <summary>
     /// A <code>BatchWrite</code> exception has occurred.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BatchWriteException : AmazonCloudDirectoryException
@@ -88,7 +88,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BatchWriteException class with serialized data.
         /// </summary>

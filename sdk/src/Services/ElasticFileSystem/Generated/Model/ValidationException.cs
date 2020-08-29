@@ -32,7 +32,7 @@ namespace Amazon.ElasticFileSystem.Model
     /// Returned if the AWS Backup service is not available in the region that the request
     /// was made.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ValidationException : AmazonElasticFileSystemException
@@ -88,7 +88,7 @@ namespace Amazon.ElasticFileSystem.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ValidationException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.GlobalAccelerator.Model
     /// The accelerator that you specified has a listener associated with it. You must remove
     /// all dependent resources from an accelerator before you can delete it.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AssociatedListenerFoundException : AmazonGlobalAcceleratorException
@@ -87,7 +87,7 @@ namespace Amazon.GlobalAccelerator.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AssociatedListenerFoundException class with serialized data.
         /// </summary>

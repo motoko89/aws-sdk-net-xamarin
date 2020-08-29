@@ -31,7 +31,7 @@ namespace Amazon.DirectoryService.Model
     /// <summary>
     /// The specified directory is unavailable or could not be found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DirectoryUnavailableException : AmazonDirectoryServiceException
@@ -87,7 +87,7 @@ namespace Amazon.DirectoryService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DirectoryUnavailableException class with serialized data.
         /// </summary>

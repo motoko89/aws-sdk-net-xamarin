@@ -32,7 +32,7 @@ namespace Amazon.Lambda.Model
     /// The function couldn't mount the configured file system due to a permission or configuration
     /// issue.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EFSMountFailureException : AmazonLambdaException
@@ -88,7 +88,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EFSMountFailureException class with serialized data.
         /// </summary>

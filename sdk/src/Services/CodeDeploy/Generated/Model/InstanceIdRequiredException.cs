@@ -32,7 +32,7 @@ namespace Amazon.CodeDeploy.Model
     /// The instance ID was not specified.
     /// </summary>
     [Obsolete("This exception is deprecated, use DeploymentTargetIdRequiredException instead.")]
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InstanceIdRequiredException : AmazonCodeDeployException
@@ -87,7 +87,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InstanceIdRequiredException class with serialized data.
         /// </summary>

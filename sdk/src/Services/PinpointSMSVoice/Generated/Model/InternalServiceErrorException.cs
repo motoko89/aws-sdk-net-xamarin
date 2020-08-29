@@ -32,7 +32,7 @@ namespace Amazon.PinpointSMSVoice.Model
     /// The API encountered an unexpected error and couldn't complete the request. You might
     /// be able to successfully issue the request again in the future.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServiceErrorException : AmazonPinpointSMSVoiceException
@@ -87,7 +87,7 @@ namespace Amazon.PinpointSMSVoice.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServiceErrorException class with serialized data.
         /// </summary>

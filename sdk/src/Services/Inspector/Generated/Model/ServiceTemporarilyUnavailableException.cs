@@ -31,7 +31,7 @@ namespace Amazon.Inspector.Model
     /// <summary>
     /// The serice is temporary unavailable.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceTemporarilyUnavailableException : AmazonInspectorException
@@ -87,7 +87,7 @@ namespace Amazon.Inspector.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceTemporarilyUnavailableException class with serialized data.
         /// </summary>

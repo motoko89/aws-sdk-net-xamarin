@@ -32,7 +32,7 @@ namespace Amazon.CloudFront.Model
     /// You cannot specify SSLv3 as the minimum protocol version if you only want to support
     /// only clients that support Server Name Indication (SNI).
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidProtocolSettingsException : AmazonCloudFrontException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidProtocolSettingsException class with serialized data.
         /// </summary>

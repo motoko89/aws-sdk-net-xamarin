@@ -32,7 +32,7 @@ namespace Amazon.DirectoryService.Model
     /// The maximum number of directories in the region has been reached. You can use the
     /// <a>GetDirectoryLimits</a> operation to determine your directory limits in the region.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DirectoryLimitExceededException : AmazonDirectoryServiceException
@@ -88,7 +88,7 @@ namespace Amazon.DirectoryService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DirectoryLimitExceededException class with serialized data.
         /// </summary>

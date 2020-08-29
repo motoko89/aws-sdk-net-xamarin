@@ -31,7 +31,7 @@ namespace Amazon.Glue.Model
     /// <summary>
     /// The specified crawler is stopping.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CrawlerStoppingException : AmazonGlueException
@@ -86,7 +86,7 @@ namespace Amazon.Glue.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CrawlerStoppingException class with serialized data.
         /// </summary>

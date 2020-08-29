@@ -33,7 +33,7 @@ namespace Amazon.Snowball.Model
     /// stopped. Run the operation without changing the <code>NextToken</code> string, and
     /// try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidNextTokenException : AmazonSnowballException
@@ -88,7 +88,7 @@ namespace Amazon.Snowball.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidNextTokenException class with serialized data.
         /// </summary>

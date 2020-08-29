@@ -32,7 +32,7 @@ namespace Amazon.CloudDirectory.Model
     /// An object has been attempted to be attached to an object that does not have the appropriate
     /// attribute value.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IndexedAttributeMissingException : AmazonCloudDirectoryException
@@ -87,7 +87,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IndexedAttributeMissingException class with serialized data.
         /// </summary>

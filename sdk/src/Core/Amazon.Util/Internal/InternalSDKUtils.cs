@@ -15,9 +15,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Globalization;
-using System.Text;
 
 using Amazon.Runtime.Internal.Util;
 using Amazon.Util.Internal.PlatformServices;
@@ -27,9 +25,6 @@ namespace Amazon.Util.Internal
     public static partial class InternalSDKUtils
     {
         #region UserAgent
-        internal const string UnknownVersion = "Unknown";
-        internal const string UnknownNetFrameworkVersion = ".NET_Runtime/Unknown .NET_Framework/Unknown";
-
         static string _versionNumber;
         static string _customSdkUserAgent;
         static string _customData;
@@ -57,9 +52,7 @@ namespace Amazon.Util.Internal
 
             var environmentInfo = ServiceFactory.Instance.GetService<IEnvironmentInfo>();
             string executionEnvironmentString = "";
-#if BCL || NETSTANDARD
             executionEnvironmentString = GetExecutionEnvironmentUserAgentString();
-#endif 
 
             if (string.IsNullOrEmpty(executionEnvironmentString))
             {
@@ -100,23 +93,6 @@ namespace Amazon.Util.Internal
                 environmentInfo.FrameworkUserAgent,
                 environmentInfo.PlatformUserAgent,
                 GetExecutionEnvironmentUserAgentString(),
-                _customData).Trim();
-#elif PCL
-            return string.Format(CultureInfo.InvariantCulture, "{0}/{1} aws-sdk-dotnet-core/{2} {3} OS/{4} {5} {6}",
-                _userAgentBaseName,
-                serviceSdkVersion,
-                CoreVersionNumber,
-                environmentInfo.FrameworkUserAgent,
-                environmentInfo.PlatformUserAgent,
-                environmentInfo.PclPlatform,
-                _customData).Trim();
-#elif UNITY
-            return string.Format(CultureInfo.InvariantCulture, "{0}/{1} aws-sdk-core/{2} {3} OS/{4} {5}",
-                _userAgentBaseName,
-                serviceSdkVersion,
-                CoreVersionNumber,
-                environmentInfo.FrameworkUserAgent,
-                environmentInfo.PlatformUserAgent,
                 _customData).Trim();
 #elif NETSTANDARD
             return string.Format(CultureInfo.InvariantCulture, "{0}/{1} aws-sdk-dotnet-core/{2} {3} OS/{4} {5} {6}",
@@ -219,7 +195,6 @@ namespace Amazon.Util.Internal
             return false;
         }
 
-#if BCL || NETSTANDARD
         internal static string EXECUTION_ENVIRONMENT_ENVVAR = "AWS_EXECUTION_ENV";
         internal static string GetExecutionEnvironment()
         {
@@ -238,7 +213,6 @@ namespace Amazon.Util.Internal
 
             return userAgentString;
         }
-#endif
 
         #region IsSet methods
 

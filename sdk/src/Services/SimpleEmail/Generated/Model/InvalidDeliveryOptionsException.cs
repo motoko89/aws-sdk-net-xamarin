@@ -31,7 +31,7 @@ namespace Amazon.SimpleEmail.Model
     /// <summary>
     /// Indicates that provided delivery option is invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDeliveryOptionsException : AmazonSimpleEmailServiceException
@@ -86,7 +86,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDeliveryOptionsException class with serialized data.
         /// </summary>

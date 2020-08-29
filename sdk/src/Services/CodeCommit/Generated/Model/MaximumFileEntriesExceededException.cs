@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// number of files that can be changed in a single commit. Consider using a Git client
     /// for these changes.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MaximumFileEntriesExceededException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MaximumFileEntriesExceededException class with serialized data.
         /// </summary>

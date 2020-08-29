@@ -31,7 +31,7 @@ namespace Amazon.WorkDocs.Model
     /// <summary>
     /// The specified document version is not in the INITIALIZED state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ProhibitedStateException : AmazonWorkDocsException
@@ -86,7 +86,7 @@ namespace Amazon.WorkDocs.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ProhibitedStateException class with serialized data.
         /// </summary>

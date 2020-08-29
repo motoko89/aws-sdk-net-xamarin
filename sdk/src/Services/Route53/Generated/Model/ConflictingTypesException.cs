@@ -33,7 +33,7 @@ namespace Amazon.Route53.Model
     /// has a different DNS type than the current type for the instance. You specified the
     /// type in the JSON document in the <code>CreateTrafficPolicy</code> or <code>CreateTrafficPolicyVersion</code>request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConflictingTypesException : AmazonRoute53Exception
@@ -88,7 +88,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConflictingTypesException class with serialized data.
         /// </summary>

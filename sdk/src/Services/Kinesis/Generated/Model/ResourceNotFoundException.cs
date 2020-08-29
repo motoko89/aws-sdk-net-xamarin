@@ -31,7 +31,7 @@ namespace Amazon.Kinesis.Model
     /// <summary>
     /// The requested resource could not be found. The stream might not be specified correctly.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonKinesisException
@@ -86,7 +86,7 @@ namespace Amazon.Kinesis.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

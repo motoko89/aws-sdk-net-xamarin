@@ -36,7 +36,7 @@ namespace Amazon.Redshift.Model
     /// The value must be either -1 or an integer between 1 and 3,653.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRetentionPeriodException : AmazonRedshiftException
@@ -91,7 +91,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRetentionPeriodException class with serialized data.
         /// </summary>

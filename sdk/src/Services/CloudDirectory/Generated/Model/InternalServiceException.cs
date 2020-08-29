@@ -34,7 +34,7 @@ namespace Amazon.CloudDirectory.Model
     /// go to the <a href="http://status.aws.amazon.com/">AWS Service Health Dashboard</a>
     /// site to see if there are any operational issues with the service.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServiceException : AmazonCloudDirectoryException
@@ -89,7 +89,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServiceException class with serialized data.
         /// </summary>

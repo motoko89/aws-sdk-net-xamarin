@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// and that you are signed in to the AWS Region where the template was created, and then
     /// try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ApprovalRuleTemplateDoesNotExistException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ApprovalRuleTemplateDoesNotExistException class with serialized data.
         /// </summary>

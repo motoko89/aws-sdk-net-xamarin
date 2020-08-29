@@ -31,7 +31,7 @@ namespace Amazon.CloudSearch.Model
     /// <summary>
     /// The request was rejected because it attempted an operation which is not enabled.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DisabledOperationException : AmazonCloudSearchException
@@ -86,7 +86,7 @@ namespace Amazon.CloudSearch.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DisabledOperationException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// An override status is required, but no value was provided. Valid values include OVERRIDE
     /// and REVOKE.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OverrideStatusRequiredException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OverrideStatusRequiredException class with serialized data.
         /// </summary>

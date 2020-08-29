@@ -32,7 +32,7 @@ namespace Amazon.ElasticFileSystem.Model
     /// Returned if <code>IpAddress</code> was not specified in the request and there are
     /// no free IP addresses in the subnet.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NoFreeAddressesInSubnetException : AmazonElasticFileSystemException
@@ -88,7 +88,7 @@ namespace Amazon.ElasticFileSystem.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NoFreeAddressesInSubnetException class with serialized data.
         /// </summary>

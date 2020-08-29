@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// full ARN for the user who initiated the change for the pull request, and then try
     /// again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidActorArnException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidActorArnException class with serialized data.
         /// </summary>

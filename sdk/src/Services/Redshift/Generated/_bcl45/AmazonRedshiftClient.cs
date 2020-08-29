@@ -77,6 +77,22 @@ namespace Amazon.Redshift
     public partial class AmazonRedshiftClient : AmazonServiceClient, IAmazonRedshift
     {
         private static IServiceMetadata serviceMetadata = new AmazonRedshiftMetadata();
+        private IRedshiftPaginatorFactory _paginators;
+
+        /// <summary>
+        /// Paginators for the service
+        /// </summary>
+        public IRedshiftPaginatorFactory Paginators 
+        {
+            get 
+            {
+                if (this._paginators == null) 
+                {
+                    this._paginators = new RedshiftPaginatorFactory(this);
+                }
+                return this._paginators;
+            }
+        }
         #region Constructors
 
         /// <summary>
@@ -7826,6 +7842,14 @@ namespace Amazon.Redshift
         /// </para>
         ///  <ul> <li> 
         /// <para>
+        /// dc1.large (if your cluster is in a VPC)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// dc1.8xlarge (if your cluster is in a VPC)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// dc2.large
         /// </para>
         ///  </li> <li> 
@@ -7912,6 +7936,14 @@ namespace Amazon.Redshift
         /// You can only resize clusters of the following types:
         /// </para>
         ///  <ul> <li> 
+        /// <para>
+        /// dc1.large (if your cluster is in a VPC)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// dc1.8xlarge (if your cluster is in a VPC)
+        /// </para>
+        ///  </li> <li> 
         /// <para>
         /// dc2.large
         /// </para>

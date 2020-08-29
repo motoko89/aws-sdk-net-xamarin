@@ -32,7 +32,7 @@ namespace Amazon.ForecastService.Model
     /// We can't process the request because it includes an invalid value or a value that
     /// exceeds the valid range.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidInputException : AmazonForecastServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ForecastService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidInputException class with serialized data.
         /// </summary>

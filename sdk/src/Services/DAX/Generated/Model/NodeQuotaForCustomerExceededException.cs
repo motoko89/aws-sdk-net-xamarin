@@ -31,7 +31,7 @@ namespace Amazon.DAX.Model
     /// <summary>
     /// You have attempted to exceed the maximum number of nodes for your AWS account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NodeQuotaForCustomerExceededException : AmazonDAXException
@@ -86,7 +86,7 @@ namespace Amazon.DAX.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NodeQuotaForCustomerExceededException class with serialized data.
         /// </summary>

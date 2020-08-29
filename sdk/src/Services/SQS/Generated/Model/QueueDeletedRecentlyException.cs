@@ -32,7 +32,7 @@ namespace Amazon.SQS.Model
     /// You must wait 60 seconds after deleting a queue before you can create another queue
     /// with the same name.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class QueueDeletedRecentlyException : AmazonSQSException
@@ -87,7 +87,7 @@ namespace Amazon.SQS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the QueueDeletedRecentlyException class with serialized data.
         /// </summary>

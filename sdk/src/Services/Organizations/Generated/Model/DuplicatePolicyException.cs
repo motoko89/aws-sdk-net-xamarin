@@ -31,7 +31,7 @@ namespace Amazon.Organizations.Model
     /// <summary>
     /// A policy with the same name already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DuplicatePolicyException : AmazonOrganizationsException
@@ -86,7 +86,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DuplicatePolicyException class with serialized data.
         /// </summary>

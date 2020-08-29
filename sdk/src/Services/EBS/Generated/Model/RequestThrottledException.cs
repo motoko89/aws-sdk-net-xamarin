@@ -31,7 +31,7 @@ namespace Amazon.EBS.Model
     /// <summary>
     /// The number of API requests has exceed the maximum allowed API request throttling limit.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RequestThrottledException : AmazonEBSException
@@ -87,7 +87,7 @@ namespace Amazon.EBS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RequestThrottledException class with serialized data.
         /// </summary>

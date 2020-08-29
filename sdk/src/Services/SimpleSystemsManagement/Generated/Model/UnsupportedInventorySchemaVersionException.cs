@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// Inventory item type schema version has to match supported versions in the service.
     /// Check output of GetInventorySchema to see the available schema version for each type.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedInventorySchemaVersionException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedInventorySchemaVersionException class with serialized data.
         /// </summary>

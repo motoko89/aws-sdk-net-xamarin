@@ -31,7 +31,7 @@ namespace Amazon.FSx.Model
     /// <summary>
     /// You can't delete a backup while it's being used to restore a file system.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BackupRestoringException : AmazonFSxException
@@ -87,7 +87,7 @@ namespace Amazon.FSx.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BackupRestoringException class with serialized data.
         /// </summary>

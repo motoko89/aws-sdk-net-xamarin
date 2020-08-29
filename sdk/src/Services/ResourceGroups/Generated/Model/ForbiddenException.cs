@@ -29,9 +29,9 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ResourceGroups.Model
 {
     /// <summary>
-    /// The caller is not authorized to make the request.
+    /// The caller isn't authorized to make the request. Check permissions.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ForbiddenException : AmazonResourceGroupsException
@@ -86,7 +86,7 @@ namespace Amazon.ResourceGroups.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ForbiddenException class with serialized data.
         /// </summary>

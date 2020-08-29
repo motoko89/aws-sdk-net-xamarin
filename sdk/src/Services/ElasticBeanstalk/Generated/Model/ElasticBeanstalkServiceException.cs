@@ -31,7 +31,7 @@ namespace Amazon.ElasticBeanstalk.Model
     /// <summary>
     /// A generic service exception has occurred.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ElasticBeanstalkServiceException : AmazonElasticBeanstalkException
@@ -86,7 +86,7 @@ namespace Amazon.ElasticBeanstalk.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ElasticBeanstalkServiceException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// One or more events specified for the trigger is not valid. Check to make sure that
     /// all events specified match the requirements for allowed events.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRepositoryTriggerEventsException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRepositoryTriggerEventsException class with serialized data.
         /// </summary>

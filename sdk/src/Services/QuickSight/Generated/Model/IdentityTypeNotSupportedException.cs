@@ -32,7 +32,7 @@ namespace Amazon.QuickSight.Model
     /// The identity type specified isn't supported. Supported identity types include <code>IAM</code>
     /// and <code>QUICKSIGHT</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IdentityTypeNotSupportedException : AmazonQuickSightException
@@ -88,7 +88,7 @@ namespace Amazon.QuickSight.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IdentityTypeNotSupportedException class with serialized data.
         /// </summary>

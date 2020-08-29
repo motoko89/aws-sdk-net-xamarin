@@ -32,7 +32,7 @@ namespace Amazon.KinesisFirehose.Model
     /// Another modification has already happened. Fetch <code>VersionId</code> again and
     /// use it to update the destination.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentModificationException : AmazonKinesisFirehoseException
@@ -87,7 +87,7 @@ namespace Amazon.KinesisFirehose.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentModificationException class with serialized data.
         /// </summary>

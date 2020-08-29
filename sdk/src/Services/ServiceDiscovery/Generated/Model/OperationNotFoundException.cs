@@ -31,7 +31,7 @@ namespace Amazon.ServiceDiscovery.Model
     /// <summary>
     /// No operation exists with the specified ID.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OperationNotFoundException : AmazonServiceDiscoveryException
@@ -86,7 +86,7 @@ namespace Amazon.ServiceDiscovery.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OperationNotFoundException class with serialized data.
         /// </summary>

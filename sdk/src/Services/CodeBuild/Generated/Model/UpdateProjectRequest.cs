@@ -36,6 +36,7 @@ namespace Amazon.CodeBuild.Model
     {
         private ProjectArtifacts _artifacts;
         private bool? _badgeEnabled;
+        private ProjectBuildBatchConfig _buildBatchConfig;
         private ProjectCache _cache;
         private string _description;
         private string _encryptionKey;
@@ -91,6 +92,21 @@ namespace Amazon.CodeBuild.Model
         }
 
         /// <summary>
+        /// Gets and sets the property BuildBatchConfig.
+        /// </summary>
+        public ProjectBuildBatchConfig BuildBatchConfig
+        {
+            get { return this._buildBatchConfig; }
+            set { this._buildBatchConfig = value; }
+        }
+
+        // Check to see if BuildBatchConfig property is set
+        internal bool IsSetBuildBatchConfig()
+        {
+            return this._buildBatchConfig != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Cache. 
         /// <para>
         /// Stores recently used information so that it can be quickly accessed at a later time.
@@ -141,7 +157,7 @@ namespace Amazon.CodeBuild.Model
         ///  </note> 
         /// <para>
         /// You can specify either the Amazon Resource Name (ARN) of the CMK or, if available,
-        /// the CMK's alias (using the format <code>alias/<i>alias-name</i> </code>).
+        /// the CMK's alias (using the format <code>alias/&lt;alias-name&gt;</code>).
         /// </para>
         /// </summary>
         [AWSProperty(Min=1)]

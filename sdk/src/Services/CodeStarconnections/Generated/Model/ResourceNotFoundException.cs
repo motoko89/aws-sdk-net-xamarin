@@ -31,7 +31,7 @@ namespace Amazon.CodeStarconnections.Model
     /// <summary>
     /// Resource not found. Verify the connection resource ARN and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonCodeStarconnectionsException
@@ -86,7 +86,7 @@ namespace Amazon.CodeStarconnections.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

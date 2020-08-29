@@ -32,7 +32,7 @@ namespace Amazon.CloudFront.Model
     /// Your request contains more cookie names in the whitelist than are allowed per cache
     /// behavior.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyCookieNamesInWhiteListException : AmazonCloudFrontException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyCookieNamesInWhiteListException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.ElasticMapReduce.Model
     /// <summary>
     /// This exception occurs when there is an internal failure in the EMR service.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerException : AmazonElasticMapReduceException
@@ -86,7 +86,7 @@ namespace Amazon.ElasticMapReduce.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerException class with serialized data.
         /// </summary>

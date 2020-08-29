@@ -113,6 +113,22 @@ namespace Amazon.Cloud9
     public partial class AmazonCloud9Client : AmazonServiceClient, IAmazonCloud9
     {
         private static IServiceMetadata serviceMetadata = new AmazonCloud9Metadata();
+        private ICloud9PaginatorFactory _paginators;
+
+        /// <summary>
+        /// Paginators for the service
+        /// </summary>
+        public ICloud9PaginatorFactory Paginators 
+        {
+            get 
+            {
+                if (this._paginators == null) 
+                {
+                    this._paginators = new Cloud9PaginatorFactory(this);
+                }
+                return this._paginators;
+            }
+        }
         #region Constructors
 
         /// <summary>
@@ -1054,6 +1070,9 @@ namespace Amazon.Cloud9
         /// <exception cref="Amazon.Cloud9.Model.BadRequestException">
         /// The target request is invalid.
         /// </exception>
+        /// <exception cref="Amazon.Cloud9.Model.ConcurrentAccessException">
+        /// A concurrent access issue occurred.
+        /// </exception>
         /// <exception cref="Amazon.Cloud9.Model.InternalServerErrorException">
         /// An internal server error occurred.
         /// </exception>
@@ -1090,6 +1109,9 @@ namespace Amazon.Cloud9
         /// <exception cref="Amazon.Cloud9.Model.BadRequestException">
         /// The target request is invalid.
         /// </exception>
+        /// <exception cref="Amazon.Cloud9.Model.ConcurrentAccessException">
+        /// A concurrent access issue occurred.
+        /// </exception>
         /// <exception cref="Amazon.Cloud9.Model.InternalServerErrorException">
         /// An internal server error occurred.
         /// </exception>
@@ -1120,6 +1142,9 @@ namespace Amazon.Cloud9
         /// <exception cref="Amazon.Cloud9.Model.BadRequestException">
         /// The target request is invalid.
         /// </exception>
+        /// <exception cref="Amazon.Cloud9.Model.ConcurrentAccessException">
+        /// A concurrent access issue occurred.
+        /// </exception>
         /// <exception cref="Amazon.Cloud9.Model.InternalServerErrorException">
         /// An internal server error occurred.
         /// </exception>
@@ -1148,6 +1173,9 @@ namespace Amazon.Cloud9
         /// <returns>The response from the UntagResource service method, as returned by Cloud9.</returns>
         /// <exception cref="Amazon.Cloud9.Model.BadRequestException">
         /// The target request is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.Cloud9.Model.ConcurrentAccessException">
+        /// A concurrent access issue occurred.
         /// </exception>
         /// <exception cref="Amazon.Cloud9.Model.InternalServerErrorException">
         /// An internal server error occurred.

@@ -31,7 +31,7 @@ namespace Amazon.Shield.Model
     /// <summary>
     /// Exception that indicates that the parameters passed to the API are invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterException : AmazonShieldException
@@ -86,7 +86,7 @@ namespace Amazon.Shield.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterException class with serialized data.
         /// </summary>

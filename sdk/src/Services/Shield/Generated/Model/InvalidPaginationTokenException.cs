@@ -32,7 +32,7 @@ namespace Amazon.Shield.Model
     /// Exception that indicates that the NextToken specified in the request is invalid. Submit
     /// the request using the NextToken value that was returned in the response.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidPaginationTokenException : AmazonShieldException
@@ -87,7 +87,7 @@ namespace Amazon.Shield.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidPaginationTokenException class with serialized data.
         /// </summary>

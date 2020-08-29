@@ -32,7 +32,7 @@ namespace Amazon.WorkDocs.Model
     /// The response is too large to return. The request must include a filter to reduce the
     /// size of the response.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RequestedEntityTooLargeException : AmazonWorkDocsException
@@ -87,7 +87,7 @@ namespace Amazon.WorkDocs.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RequestedEntityTooLargeException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CloudFront.Model
     /// Processing your request would cause you to exceed the maximum number of origin access
     /// identities allowed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyCloudFrontOriginAccessIdentitiesException : AmazonCloudFrontException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyCloudFrontOriginAccessIdentitiesException class with serialized data.
         /// </summary>

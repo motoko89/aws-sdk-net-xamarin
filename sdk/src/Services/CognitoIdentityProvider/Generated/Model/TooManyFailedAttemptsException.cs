@@ -32,7 +32,7 @@ namespace Amazon.CognitoIdentityProvider.Model
     /// This exception is thrown when the user has made too many failed attempts for a given
     /// action (e.g., sign in).
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyFailedAttemptsException : AmazonCognitoIdentityProviderException
@@ -87,7 +87,7 @@ namespace Amazon.CognitoIdentityProvider.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyFailedAttemptsException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.WAF.Model
     /// The operation failed because you tried to create, update, or delete an object by using
     /// an invalid account identifier.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFInvalidAccountException : AmazonWAFException
@@ -87,7 +87,7 @@ namespace Amazon.WAF.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFInvalidAccountException class with serialized data.
         /// </summary>

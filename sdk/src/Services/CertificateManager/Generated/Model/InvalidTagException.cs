@@ -32,7 +32,7 @@ namespace Amazon.CertificateManager.Model
     /// One or both of the values that make up the key-value pair is not valid. For example,
     /// you cannot specify a tag value that begins with <code>aws:</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidTagException : AmazonCertificateManagerException
@@ -87,7 +87,7 @@ namespace Amazon.CertificateManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidTagException class with serialized data.
         /// </summary>

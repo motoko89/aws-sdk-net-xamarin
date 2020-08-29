@@ -32,7 +32,7 @@ namespace Amazon.Rekognition.Model
     /// The number of requests exceeded your throughput limit. If you want to increase this
     /// limit, contact Amazon Rekognition.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ProvisionedThroughputExceededException : AmazonRekognitionException
@@ -87,7 +87,7 @@ namespace Amazon.Rekognition.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ProvisionedThroughputExceededException class with serialized data.
         /// </summary>

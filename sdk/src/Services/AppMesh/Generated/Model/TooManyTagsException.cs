@@ -33,7 +33,7 @@ namespace Amazon.AppMesh.Model
     ///         limit is 50 user tags per resource. You must reduce the number of tags in
     /// the request. None         of the tags in this request were applied.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyTagsException : AmazonAppMeshException
@@ -88,7 +88,7 @@ namespace Amazon.AppMesh.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyTagsException class with serialized data.
         /// </summary>

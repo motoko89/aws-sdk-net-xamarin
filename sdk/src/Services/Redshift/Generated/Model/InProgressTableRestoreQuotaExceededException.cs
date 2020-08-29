@@ -32,7 +32,7 @@ namespace Amazon.Redshift.Model
     /// You have exceeded the allowed number of table restore requests. Wait for your current
     /// table restore requests to complete before making a new request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InProgressTableRestoreQuotaExceededException : AmazonRedshiftException
@@ -87,7 +87,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InProgressTableRestoreQuotaExceededException class with serialized data.
         /// </summary>

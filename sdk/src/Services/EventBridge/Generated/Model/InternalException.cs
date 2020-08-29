@@ -31,7 +31,7 @@ namespace Amazon.EventBridge.Model
     /// <summary>
     /// This exception occurs due to unexpected causes.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalException : AmazonEventBridgeException
@@ -86,7 +86,7 @@ namespace Amazon.EventBridge.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalException class with serialized data.
         /// </summary>

@@ -29,9 +29,9 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ResourceGroups.Model
 {
     /// <summary>
-    /// One or more resources specified in the request do not exist.
+    /// One or more of the specified resources don't exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NotFoundException : AmazonResourceGroupsException
@@ -86,7 +86,7 @@ namespace Amazon.ResourceGroups.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NotFoundException class with serialized data.
         /// </summary>

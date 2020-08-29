@@ -32,7 +32,7 @@ namespace Amazon.AppStream.Model
     /// The resource cannot be created because your AWS account is suspended. For assistance,
     /// contact AWS Support.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidAccountStatusException : AmazonAppStreamException
@@ -87,7 +87,7 @@ namespace Amazon.AppStream.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidAccountStatusException class with serialized data.
         /// </summary>

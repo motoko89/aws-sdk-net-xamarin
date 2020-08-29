@@ -31,7 +31,7 @@ namespace Amazon.DLM.Model
     /// <summary>
     /// The request failed because a limit was exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonDLMException
@@ -88,7 +88,7 @@ namespace Amazon.DLM.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

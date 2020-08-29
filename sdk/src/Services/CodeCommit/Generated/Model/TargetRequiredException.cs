@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// must contain the full values for the repository name, source branch, and destination
     /// branch for the pull request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TargetRequiredException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TargetRequiredException class with serialized data.
         /// </summary>

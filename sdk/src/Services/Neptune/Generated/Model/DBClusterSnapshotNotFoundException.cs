@@ -31,7 +31,7 @@ namespace Amazon.Neptune.Model
     /// <summary>
     /// <i>DBClusterSnapshotIdentifier</i> does not refer to an existing DB cluster snapshot.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBClusterSnapshotNotFoundException : AmazonNeptuneException
@@ -86,7 +86,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBClusterSnapshotNotFoundException class with serialized data.
         /// </summary>

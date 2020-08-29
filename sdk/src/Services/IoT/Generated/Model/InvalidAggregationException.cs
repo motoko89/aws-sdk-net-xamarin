@@ -31,7 +31,7 @@ namespace Amazon.IoT.Model
     /// <summary>
     /// The aggregation is invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidAggregationException : AmazonIoTException
@@ -86,7 +86,7 @@ namespace Amazon.IoT.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidAggregationException class with serialized data.
         /// </summary>

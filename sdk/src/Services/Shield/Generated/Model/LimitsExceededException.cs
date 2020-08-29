@@ -40,7 +40,7 @@ namespace Amazon.Shield.Model
     ///  <code>Limit</code> is the threshold that would be exceeded.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitsExceededException : AmazonShieldException
@@ -97,7 +97,7 @@ namespace Amazon.Shield.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitsExceededException class with serialized data.
         /// </summary>

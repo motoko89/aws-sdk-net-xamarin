@@ -32,7 +32,7 @@ namespace Amazon.ECS.Model
     /// The specified service is not active. You can't update a service that is inactive.
     /// If you have previously deleted a service, you can re-create it with <a>CreateService</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceNotActiveException : AmazonECSException
@@ -87,7 +87,7 @@ namespace Amazon.ECS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceNotActiveException class with serialized data.
         /// </summary>

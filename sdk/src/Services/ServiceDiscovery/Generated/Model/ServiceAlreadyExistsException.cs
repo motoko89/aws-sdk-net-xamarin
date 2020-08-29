@@ -31,7 +31,7 @@ namespace Amazon.ServiceDiscovery.Model
     /// <summary>
     /// The service can't be created because a service with the same name already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceAlreadyExistsException : AmazonServiceDiscoveryException
@@ -88,7 +88,7 @@ namespace Amazon.ServiceDiscovery.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceAlreadyExistsException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.Pricing.Model
     /// <summary>
     /// An error on the server occurred during the processing of your request. Try again later.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalErrorException : AmazonPricingException
@@ -86,7 +86,7 @@ namespace Amazon.Pricing.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalErrorException class with serialized data.
         /// </summary>

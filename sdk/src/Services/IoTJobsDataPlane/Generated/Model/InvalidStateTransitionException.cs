@@ -34,7 +34,7 @@ namespace Amazon.IoTJobsDataPlane.Model
     /// in state SUCCESS to state IN_PROGRESS). In this case, the body of the error message
     /// also contains the executionState field.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidStateTransitionException : AmazonIoTJobsDataPlaneException
@@ -89,7 +89,7 @@ namespace Amazon.IoTJobsDataPlane.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidStateTransitionException class with serialized data.
         /// </summary>

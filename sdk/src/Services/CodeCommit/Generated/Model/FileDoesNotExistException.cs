@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The specified file does not exist. Verify that you have used the correct file name,
     /// full path, and extension.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FileDoesNotExistException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FileDoesNotExistException class with serialized data.
         /// </summary>

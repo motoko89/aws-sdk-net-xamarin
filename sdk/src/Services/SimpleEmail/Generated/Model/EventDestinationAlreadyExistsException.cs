@@ -31,7 +31,7 @@ namespace Amazon.SimpleEmail.Model
     /// <summary>
     /// Indicates that the event destination could not be created because of a naming conflict.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EventDestinationAlreadyExistsException : AmazonSimpleEmailServiceException
@@ -88,7 +88,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EventDestinationAlreadyExistsException class with serialized data.
         /// </summary>

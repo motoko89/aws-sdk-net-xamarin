@@ -38,7 +38,7 @@ namespace Amazon.SecurityToken.Model
     /// it can also mean that the claim has expired or has been explicitly revoked. 
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IDPRejectedClaimException : AmazonSecurityTokenServiceException
@@ -93,7 +93,7 @@ namespace Amazon.SecurityToken.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IDPRejectedClaimException class with serialized data.
         /// </summary>

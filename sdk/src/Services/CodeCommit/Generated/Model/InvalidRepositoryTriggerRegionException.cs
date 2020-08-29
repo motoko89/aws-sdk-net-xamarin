@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The AWS Region for the trigger target does not match the AWS Region for the repository.
     /// Triggers must be created in the same Region as the target for the trigger.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRepositoryTriggerRegionException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRepositoryTriggerRegionException class with serialized data.
         /// </summary>

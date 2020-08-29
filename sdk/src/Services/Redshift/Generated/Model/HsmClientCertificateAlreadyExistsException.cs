@@ -32,7 +32,7 @@ namespace Amazon.Redshift.Model
     /// There is already an existing Amazon Redshift HSM client certificate with the specified
     /// identifier.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class HsmClientCertificateAlreadyExistsException : AmazonRedshiftException
@@ -87,7 +87,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the HsmClientCertificateAlreadyExistsException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The pull request cannot be merged because one or more approval rules applied to the
     /// pull request have conditions that have not been met.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PullRequestApprovalRulesNotSatisfiedException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PullRequestApprovalRulesNotSatisfiedException class with serialized data.
         /// </summary>

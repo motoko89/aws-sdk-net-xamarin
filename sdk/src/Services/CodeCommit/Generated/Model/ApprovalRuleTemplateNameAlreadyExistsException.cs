@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// that name already exists in this AWS Region for your AWS account. Approval rule template
     /// names must be unique.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ApprovalRuleTemplateNameAlreadyExistsException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ApprovalRuleTemplateNameAlreadyExistsException class with serialized data.
         /// </summary>

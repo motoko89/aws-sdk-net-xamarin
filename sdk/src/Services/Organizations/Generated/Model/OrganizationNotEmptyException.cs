@@ -32,7 +32,7 @@ namespace Amazon.Organizations.Model
     /// The organization isn't empty. To delete an organization, you must first remove all
     /// accounts except the master account, delete all OUs, and delete all policies.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OrganizationNotEmptyException : AmazonOrganizationsException
@@ -87,7 +87,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OrganizationNotEmptyException class with serialized data.
         /// </summary>

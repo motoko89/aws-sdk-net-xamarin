@@ -15,10 +15,7 @@
 using Amazon.Runtime;
 using System;
 using System.Globalization;
-
-#if BCL || NETSTANDARD
 using Amazon.Runtime.CredentialManagement;
-#endif
 
 namespace Amazon.S3
 {
@@ -40,9 +37,7 @@ namespace Amazon.S3
         private S3UsEast1RegionalEndpointValue? s3UsEast1RegionalEndpointValue;
         private readonly RegionEndpoint legacyUSEast1GlobalRegion = RegionEndpoint.USEast1;
 
-#if BCL || NETSTANDARD
         private static CredentialProfileStoreChain credentialProfileChain = new CredentialProfileStoreChain();
-#endif
          
         /// <summary>
         /// When true, requests will always use path style addressing.
@@ -83,7 +78,6 @@ namespace Amazon.S3
             {
                 if (!this._useArnRegion.HasValue)
                 {
-#if BCL || NETSTANDARD
                     var profileName = Environment.GetEnvironmentVariable(AwsProfileEnvironmentVariable) ?? DefaultProfileName;
                     if (credentialProfileChain.TryGetProfile(profileName, out var profile))
                     {
@@ -97,7 +91,6 @@ namespace Amazon.S3
                             this._useArnRegion = value;
                         }
                     }
-#endif
 
                     if (!this._useArnRegion.HasValue)
                     {
@@ -143,11 +136,6 @@ namespace Amazon.S3
             // timeouts are not supported.
             this.Timeout = ClientConfig.MaxTimeout;
             this.ReadWriteTimeout = ClientConfig.MaxTimeout;
-#elif PCL
-            // Only Timeout property is supported for WinRT and Windows Phone.
-            // Set Timeout for S3 to max timeout as per-request
-            // timeouts are not supported.
-            this.Timeout = ClientConfig.MaxTimeout;
 #endif
         }
 
@@ -242,7 +230,6 @@ namespace Amazon.S3
         /// <returns>A nullable of S3UsEast1RegionalEndpointValue</returns>
         private static S3UsEast1RegionalEndpointValue? CheckS3EnvironmentVariable()
         {
-#if BCL || NETSTANDARD
             string s3RegionalFlag = Environment.GetEnvironmentVariable(AwsS3UsEast1RegionalEndpointsEnvironmentVariable);
             if (!string.IsNullOrEmpty(s3RegionalFlag))
             {
@@ -264,7 +251,6 @@ namespace Amazon.S3
 #endif
                 return s3RegionalFlagValue;
             }
-#endif
             return null;
         }
 
@@ -274,15 +260,10 @@ namespace Amazon.S3
         /// <returns>A nullable of S3UsEast1RegionalEndpointValue</returns>
         private static S3UsEast1RegionalEndpointValue? CheckCredentialsFile()
         {
-#if BCL || NETSTANDARD
             CredentialProfile profile;
             var profileName = Environment.GetEnvironmentVariable(AwsProfileEnvironmentVariable) ?? DefaultProfileName;
             credentialProfileChain.TryGetProfile(profileName, out profile);
             return profile?.S3RegionalEndpoint;
-#else
-             return null;
-#endif
-
         }
 
         internal string AccelerateEndpoint

@@ -32,7 +32,7 @@ namespace Amazon.Inspector.Model
     /// You started an assessment run, but one of the instances is already participating in
     /// another assessment run.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AgentsAlreadyRunningAssessmentException : AmazonInspectorException
@@ -90,7 +90,7 @@ namespace Amazon.Inspector.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AgentsAlreadyRunningAssessmentException class with serialized data.
         /// </summary>

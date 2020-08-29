@@ -32,7 +32,7 @@ namespace Amazon.WorkMail.Model
     /// The supplied password doesn't match the minimum security constraints, such as length
     /// or use of special characters.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidPasswordException : AmazonWorkMailException
@@ -87,7 +87,7 @@ namespace Amazon.WorkMail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidPasswordException class with serialized data.
         /// </summary>

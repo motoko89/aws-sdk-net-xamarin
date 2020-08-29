@@ -31,7 +31,7 @@ namespace Amazon.Neptune.Model
     /// <summary>
     /// Error accessing KMS key.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class KMSKeyNotAccessibleException : AmazonNeptuneException
@@ -86,7 +86,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the KMSKeyNotAccessibleException class with serialized data.
         /// </summary>

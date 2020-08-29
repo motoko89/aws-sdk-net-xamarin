@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// A parent commit ID is required. To view the full commit ID of a branch in a repository,
     /// use <a>GetBranch</a> or a Git command (for example, git pull or git log).
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ParentCommitIdRequiredException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ParentCommitIdRequiredException class with serialized data.
         /// </summary>

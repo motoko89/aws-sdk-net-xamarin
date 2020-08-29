@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The number of reactions has been exceeded. Reactions are limited to one reaction per
     /// user for each individual comment ID.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ReactionLimitExceededException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ReactionLimitExceededException class with serialized data.
         /// </summary>

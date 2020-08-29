@@ -32,7 +32,7 @@ namespace Amazon.Backup.Model
     /// A dependent AWS service or resource returned an error to the AWS Backup service, and
     /// the action cannot be completed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DependencyFailureException : AmazonBackupException
@@ -90,7 +90,7 @@ namespace Amazon.Backup.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DependencyFailureException class with serialized data.
         /// </summary>

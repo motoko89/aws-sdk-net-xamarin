@@ -31,7 +31,7 @@ namespace Amazon.KinesisVideo.Model
     /// <summary>
     /// Amazon Kinesis Video Streams can't find the stream that you specified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonKinesisVideoException
@@ -86,7 +86,7 @@ namespace Amazon.KinesisVideo.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

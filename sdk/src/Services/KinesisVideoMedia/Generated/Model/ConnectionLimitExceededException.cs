@@ -32,7 +32,7 @@ namespace Amazon.KinesisVideoMedia.Model
     /// Kinesis Video Streams has throttled the request because you have exceeded the limit
     /// of allowed client connections.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConnectionLimitExceededException : AmazonKinesisVideoMediaException
@@ -87,7 +87,7 @@ namespace Amazon.KinesisVideoMedia.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConnectionLimitExceededException class with serialized data.
         /// </summary>

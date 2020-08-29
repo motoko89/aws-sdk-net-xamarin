@@ -45,19 +45,10 @@ namespace Amazon.Runtime.Internal.Util
             InternalLog4netLogger log4netLogger = new InternalLog4netLogger(type);
             loggers.Add(log4netLogger);
             loggers.Add(new InternalConsoleLogger(type));
-#if BCL || (NETSTANDARD && !NETSTANDARD13)
+#if !NETSTANDARD13
             InternalSystemDiagnosticsLogger sdLogger = new InternalSystemDiagnosticsLogger(type);
             loggers.Add(sdLogger);
 #endif
-#if UNITY
-            UnityDebugLogger debugLogger = new UnityDebugLogger(type);
-            loggers.Add(debugLogger);
-#endif
-#if PCL
-            InternalFileLogger fileLogger = new InternalFileLogger(type);
-            loggers.Add(fileLogger);
-#endif
-
             ConfigureLoggers();
             AWSConfigs.PropertyChanged += ConfigsChanged;
         }
@@ -77,23 +68,10 @@ namespace Amazon.Runtime.Internal.Util
                     il.IsEnabled = (logging & LoggingOptions.Log4Net) == LoggingOptions.Log4Net;
                 if (il is InternalConsoleLogger)
                     il.IsEnabled = (logging & LoggingOptions.Console) == LoggingOptions.Console;
-#if BCL || (NETSTANDARD && !NETSTANDARD13)
+#if !NETSTANDARD13
                 if (il is InternalSystemDiagnosticsLogger)
                     il.IsEnabled = (logging & LoggingOptions.SystemDiagnostics) == LoggingOptions.SystemDiagnostics;
 #endif
-#if UNITY
-                if (il is UnityDebugLogger)
-                    il.IsEnabled = (logging & LoggingOptions.UnityLogger) == LoggingOptions.UnityLogger;
-#endif
-#if __ANDROID__ || __IOS__
-                if (il is InternalConsoleLogger)
-                    il.IsEnabled = (logging & LoggingOptions.SystemDiagnostics) == LoggingOptions.SystemDiagnostics;
-#endif
-#if PCL
-                if (il is InternalFileLogger)
-                    il.IsEnabled = (logging & LoggingOptions.File) == LoggingOptions.File;
-#endif
-
             }
         }
 

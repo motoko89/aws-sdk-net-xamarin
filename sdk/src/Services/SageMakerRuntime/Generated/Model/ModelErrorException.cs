@@ -31,7 +31,7 @@ namespace Amazon.SageMakerRuntime.Model
     /// <summary>
     /// Model (owned by the customer in the container) returned 4xx or 5xx error code.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ModelErrorException : AmazonSageMakerRuntimeException
@@ -89,7 +89,7 @@ namespace Amazon.SageMakerRuntime.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ModelErrorException class with serialized data.
         /// </summary>

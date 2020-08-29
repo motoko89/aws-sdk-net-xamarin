@@ -31,7 +31,7 @@ namespace Amazon.SecurityHub.Model
     /// <summary>
     /// The request was rejected because we can't find the specified resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonSecurityHubException
@@ -87,7 +87,7 @@ namespace Amazon.SecurityHub.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

@@ -33,7 +33,7 @@ namespace Amazon.ImportExport.Model
     /// bucket, exportBucket, or logBucket field to a bucket that the account, as specified
     /// by the manifest's Access Key ID, has write permissions to.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NoSuchBucketException : AmazonImportExportException
@@ -88,7 +88,7 @@ namespace Amazon.ImportExport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NoSuchBucketException class with serialized data.
         /// </summary>

@@ -44,6 +44,22 @@ namespace Amazon.FSx
     public partial class AmazonFSxClient : AmazonServiceClient, IAmazonFSx
     {
         private static IServiceMetadata serviceMetadata = new AmazonFSxMetadata();
+        private IFSxPaginatorFactory _paginators;
+
+        /// <summary>
+        /// Paginators for the service
+        /// </summary>
+        public IFSxPaginatorFactory Paginators 
+        {
+            get 
+            {
+                if (this._paginators == null) 
+                {
+                    this._paginators = new FSxPaginatorFactory(this);
+                }
+                return this._paginators;
+            }
+        }
         #region Constructors
 
         /// <summary>
@@ -363,7 +379,7 @@ namespace Amazon.FSx
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// is <i>not</i> linked to an Amazon S3 data respository.
+        /// is <i>not</i> linked to a data respository.
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -463,7 +479,7 @@ namespace Amazon.FSx
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// is <i>not</i> linked to an Amazon S3 data respository.
+        /// is <i>not</i> linked to a data respository.
         /// </para>
         ///  </li> </ul> 
         /// <para>

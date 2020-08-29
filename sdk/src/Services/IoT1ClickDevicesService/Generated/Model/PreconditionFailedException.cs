@@ -31,7 +31,7 @@ namespace Amazon.IoT1ClickDevicesService.Model
     /// <summary>
     /// 
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PreconditionFailedException : AmazonIoT1ClickDevicesServiceException
@@ -87,7 +87,7 @@ namespace Amazon.IoT1ClickDevicesService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PreconditionFailedException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.ResourceGroupsTaggingAPI.Model
     /// The request processing failed because of an unknown error, exception, or failure.
     /// You can retry the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServiceException : AmazonResourceGroupsTaggingAPIException
@@ -87,7 +87,7 @@ namespace Amazon.ResourceGroupsTaggingAPI.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServiceException class with serialized data.
         /// </summary>

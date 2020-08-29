@@ -31,7 +31,7 @@ namespace Amazon.Transfer.Model
     /// <summary>
     /// The <code>NextToken</code> parameter that was passed is invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidNextTokenException : AmazonTransferException
@@ -86,7 +86,7 @@ namespace Amazon.Transfer.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidNextTokenException class with serialized data.
         /// </summary>

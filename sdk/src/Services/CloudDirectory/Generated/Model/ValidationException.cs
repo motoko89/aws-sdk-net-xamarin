@@ -31,7 +31,7 @@ namespace Amazon.CloudDirectory.Model
     /// <summary>
     /// Indicates that your request is malformed in some manner. See the exception message.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ValidationException : AmazonCloudDirectoryException
@@ -86,7 +86,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ValidationException class with serialized data.
         /// </summary>

@@ -33,7 +33,7 @@ namespace Amazon.CloudFront.Model
     /// in your request, or omit the <code>RequiredProtocols</code> element from your distribution
     /// configuration.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRequiredProtocolException : AmazonCloudFrontException
@@ -88,7 +88,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRequiredProtocolException class with serialized data.
         /// </summary>

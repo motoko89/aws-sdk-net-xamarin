@@ -32,7 +32,7 @@ namespace Amazon.ECS.Model
     /// Your AWS account has been blocked. For more information, contact <a href="http://aws.amazon.com/contact-us/">AWS
     /// Support</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BlockedException : AmazonECSException
@@ -87,7 +87,7 @@ namespace Amazon.ECS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BlockedException class with serialized data.
         /// </summary>

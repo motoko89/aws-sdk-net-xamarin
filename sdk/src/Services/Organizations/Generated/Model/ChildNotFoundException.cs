@@ -32,7 +32,7 @@ namespace Amazon.Organizations.Model
     /// We can't find an organizational unit (OU) or AWS account with the <code>ChildId</code>
     /// that you specified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ChildNotFoundException : AmazonOrganizationsException
@@ -87,7 +87,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ChildNotFoundException class with serialized data.
         /// </summary>

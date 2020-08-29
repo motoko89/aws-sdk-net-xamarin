@@ -31,7 +31,7 @@ namespace Amazon.Athena.Model
     /// <summary>
     /// Indicates that the request was throttled.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyRequestsException : AmazonAthenaException
@@ -87,7 +87,7 @@ namespace Amazon.Athena.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyRequestsException class with serialized data.
         /// </summary>

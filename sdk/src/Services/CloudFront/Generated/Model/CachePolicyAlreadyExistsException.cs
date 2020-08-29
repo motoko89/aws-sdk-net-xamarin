@@ -32,7 +32,7 @@ namespace Amazon.CloudFront.Model
     /// A cache policy with this name already exists. You must provide a unique name. To modify
     /// an existing cache policy, use <code>UpdateCachePolicy</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CachePolicyAlreadyExistsException : AmazonCloudFrontException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CachePolicyAlreadyExistsException class with serialized data.
         /// </summary>

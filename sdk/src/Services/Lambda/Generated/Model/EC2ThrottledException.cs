@@ -32,7 +32,7 @@ namespace Amazon.Lambda.Model
     /// AWS Lambda was throttled by Amazon EC2 during Lambda function initialization using
     /// the execution role provided for the Lambda function.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EC2ThrottledException : AmazonLambdaException
@@ -88,7 +88,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EC2ThrottledException class with serialized data.
         /// </summary>

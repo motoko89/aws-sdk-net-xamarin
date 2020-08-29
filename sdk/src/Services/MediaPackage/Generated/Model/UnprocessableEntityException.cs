@@ -31,7 +31,7 @@ namespace Amazon.MediaPackage.Model
     /// <summary>
     /// The parameters sent in the request are not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnprocessableEntityException : AmazonMediaPackageException
@@ -86,7 +86,7 @@ namespace Amazon.MediaPackage.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnprocessableEntityException class with serialized data.
         /// </summary>

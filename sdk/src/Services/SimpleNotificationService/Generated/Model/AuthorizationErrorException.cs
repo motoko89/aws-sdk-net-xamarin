@@ -31,7 +31,7 @@ namespace Amazon.SimpleNotificationService.Model
     /// <summary>
     /// Indicates that the user has been denied access to the requested resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AuthorizationErrorException : AmazonSimpleNotificationServiceException
@@ -86,7 +86,7 @@ namespace Amazon.SimpleNotificationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AuthorizationErrorException class with serialized data.
         /// </summary>

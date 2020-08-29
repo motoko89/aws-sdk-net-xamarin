@@ -33,7 +33,7 @@ namespace Amazon.Snowball.Model
     /// <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>,
     /// and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidInputCombinationException : AmazonSnowballException
@@ -88,7 +88,7 @@ namespace Amazon.Snowball.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidInputCombinationException class with serialized data.
         /// </summary>

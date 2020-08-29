@@ -33,7 +33,7 @@ namespace Amazon.CloudDirectory.Model
     /// two nodes with a link type that is not applicable to the nodes or attempting to apply
     /// a schema to a directory a second time.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidAttachmentException : AmazonCloudDirectoryException
@@ -88,7 +88,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidAttachmentException class with serialized data.
         /// </summary>

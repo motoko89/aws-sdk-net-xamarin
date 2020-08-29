@@ -32,7 +32,7 @@ namespace Amazon.CodeStarNotifications.Model
     /// A resource with the same name or ID already exists. Notification rule names must be
     /// unique in your AWS account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceAlreadyExistsException : AmazonCodeStarNotificationsException
@@ -87,7 +87,7 @@ namespace Amazon.CodeStarNotifications.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceAlreadyExistsException class with serialized data.
         /// </summary>

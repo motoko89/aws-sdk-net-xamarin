@@ -32,7 +32,7 @@ namespace Amazon.QLDBSession.Model
     /// Returned if the request is malformed or contains an error such as an invalid parameter
     /// value or a missing required parameter.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadRequestException : AmazonQLDBSessionException
@@ -88,7 +88,7 @@ namespace Amazon.QLDBSession.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadRequestException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.IoTAnalytics.Model
     /// <summary>
     /// A resource with the specified name could not be found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonIoTAnalyticsException
@@ -86,7 +86,7 @@ namespace Amazon.IoTAnalytics.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

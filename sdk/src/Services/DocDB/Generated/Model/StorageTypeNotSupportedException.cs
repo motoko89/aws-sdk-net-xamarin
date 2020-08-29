@@ -32,7 +32,7 @@ namespace Amazon.DocDB.Model
     /// Storage of the specified <code>StorageType</code> can't be associated with the DB
     /// instance.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class StorageTypeNotSupportedException : AmazonDocDBException
@@ -87,7 +87,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the StorageTypeNotSupportedException class with serialized data.
         /// </summary>

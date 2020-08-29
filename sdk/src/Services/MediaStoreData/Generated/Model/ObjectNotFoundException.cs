@@ -31,7 +31,7 @@ namespace Amazon.MediaStoreData.Model
     /// <summary>
     /// Could not perform an operation on an object that does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ObjectNotFoundException : AmazonMediaStoreDataException
@@ -86,7 +86,7 @@ namespace Amazon.MediaStoreData.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ObjectNotFoundException class with serialized data.
         /// </summary>

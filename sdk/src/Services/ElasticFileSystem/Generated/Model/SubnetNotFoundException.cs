@@ -31,7 +31,7 @@ namespace Amazon.ElasticFileSystem.Model
     /// <summary>
     /// Returned if there is no subnet with ID <code>SubnetId</code> provided in the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SubnetNotFoundException : AmazonElasticFileSystemException
@@ -87,7 +87,7 @@ namespace Amazon.ElasticFileSystem.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SubnetNotFoundException class with serialized data.
         /// </summary>

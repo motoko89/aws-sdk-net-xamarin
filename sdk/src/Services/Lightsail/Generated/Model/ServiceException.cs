@@ -31,7 +31,7 @@ namespace Amazon.Lightsail.Model
     /// <summary>
     /// A general service exception.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceException : AmazonLightsailException
@@ -89,7 +89,7 @@ namespace Amazon.Lightsail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceException class with serialized data.
         /// </summary>

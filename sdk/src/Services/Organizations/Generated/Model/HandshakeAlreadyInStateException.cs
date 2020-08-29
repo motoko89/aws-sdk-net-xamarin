@@ -32,7 +32,7 @@ namespace Amazon.Organizations.Model
     /// The specified handshake is already in the requested state. For example, you can't
     /// accept a handshake that was already accepted.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class HandshakeAlreadyInStateException : AmazonOrganizationsException
@@ -87,7 +87,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the HandshakeAlreadyInStateException class with serialized data.
         /// </summary>

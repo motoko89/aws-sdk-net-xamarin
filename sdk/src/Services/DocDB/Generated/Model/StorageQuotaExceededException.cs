@@ -32,7 +32,7 @@ namespace Amazon.DocDB.Model
     /// The request would cause you to exceed the allowed amount of storage available across
     /// all instances.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class StorageQuotaExceededException : AmazonDocDBException
@@ -87,7 +87,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the StorageQuotaExceededException class with serialized data.
         /// </summary>

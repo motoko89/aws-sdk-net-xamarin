@@ -32,7 +32,7 @@ namespace Amazon.Lambda.Model
     /// The function is inactive and its VPC connection is no longer available. Wait for the
     /// VPC connection to reestablish and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotReadyException : AmazonLambdaException
@@ -88,7 +88,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotReadyException class with serialized data.
         /// </summary>

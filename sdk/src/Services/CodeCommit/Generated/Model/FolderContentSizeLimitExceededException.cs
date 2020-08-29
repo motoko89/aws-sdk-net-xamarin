@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// results in a folder whose contents exceed the limit of 6 MB. Either reduce the number
     /// and size of your changes, or split the changes across multiple folders.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FolderContentSizeLimitExceededException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FolderContentSizeLimitExceededException class with serialized data.
         /// </summary>

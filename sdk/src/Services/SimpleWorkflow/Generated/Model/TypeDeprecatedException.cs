@@ -31,7 +31,7 @@ namespace Amazon.SimpleWorkflow.Model
     /// <summary>
     /// Returned when the specified activity or workflow type was already deprecated.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TypeDeprecatedException : AmazonSimpleWorkflowException
@@ -86,7 +86,7 @@ namespace Amazon.SimpleWorkflow.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TypeDeprecatedException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CloudDirectory.Model
     /// Indicates a failure occurred while performing a check for backward compatibility between
     /// the specified schema and the schema that is currently applied to the directory.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IncompatibleSchemaException : AmazonCloudDirectoryException
@@ -87,7 +87,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IncompatibleSchemaException class with serialized data.
         /// </summary>

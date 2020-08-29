@@ -32,7 +32,7 @@ namespace Amazon.KinesisVideoMedia.Model
     /// Status Code: 403, The caller is not authorized to perform an operation on the given
     /// stream, or the token has expired.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NotAuthorizedException : AmazonKinesisVideoMediaException
@@ -87,7 +87,7 @@ namespace Amazon.KinesisVideoMedia.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NotAuthorizedException class with serialized data.
         /// </summary>

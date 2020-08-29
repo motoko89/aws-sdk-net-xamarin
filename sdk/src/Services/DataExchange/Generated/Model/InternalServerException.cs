@@ -31,7 +31,7 @@ namespace Amazon.DataExchange.Model
     /// <summary>
     /// An exception occurred with the service.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerException : AmazonDataExchangeException
@@ -86,7 +86,7 @@ namespace Amazon.DataExchange.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerException class with serialized data.
         /// </summary>

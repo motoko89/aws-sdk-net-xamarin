@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The position is not valid. Make sure that the line number exists in the version of
     /// the file you want to comment on.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidFilePositionException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidFilePositionException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.Polly.Model
     /// The SSML you provided is invalid. Verify the SSML syntax, spelling of tags and values,
     /// and then try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidSsmlException : AmazonPollyException
@@ -87,7 +87,7 @@ namespace Amazon.Polly.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidSsmlException class with serialized data.
         /// </summary>

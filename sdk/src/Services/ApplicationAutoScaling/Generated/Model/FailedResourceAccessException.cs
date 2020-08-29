@@ -35,7 +35,7 @@ namespace Amazon.ApplicationAutoScaling.Model
     /// not have permission to call the CloudWatch <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a>
     /// on your behalf.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FailedResourceAccessException : AmazonApplicationAutoScalingException
@@ -90,7 +90,7 @@ namespace Amazon.ApplicationAutoScaling.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FailedResourceAccessException class with serialized data.
         /// </summary>

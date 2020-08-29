@@ -31,7 +31,7 @@ namespace Amazon.DAX.Model
     /// <summary>
     /// One or more parameters in a parameter group are in an invalid state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterGroupStateException : AmazonDAXException
@@ -86,7 +86,7 @@ namespace Amazon.DAX.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterGroupStateException class with serialized data.
         /// </summary>

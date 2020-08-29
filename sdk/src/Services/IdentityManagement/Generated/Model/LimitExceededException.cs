@@ -32,7 +32,7 @@ namespace Amazon.IdentityManagement.Model
     /// The request was rejected because it attempted to create resources beyond the current
     /// AWS account limitations. The error message describes the limit exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonIdentityManagementServiceException
@@ -87,7 +87,7 @@ namespace Amazon.IdentityManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

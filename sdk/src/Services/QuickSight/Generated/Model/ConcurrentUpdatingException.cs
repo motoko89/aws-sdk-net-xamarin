@@ -29,10 +29,10 @@ using Amazon.Runtime.Internal;
 namespace Amazon.QuickSight.Model
 {
     /// <summary>
-    /// A resource is already in a state that indicates an action is happening that must complete
-    /// before a new update can be applied.
+    /// A resource is already in a state that indicates an operation is happening that must
+    /// complete before a new update can be applied.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentUpdatingException : AmazonQuickSightException
@@ -88,7 +88,7 @@ namespace Amazon.QuickSight.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentUpdatingException class with serialized data.
         /// </summary>

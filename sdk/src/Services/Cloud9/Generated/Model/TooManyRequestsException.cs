@@ -31,7 +31,7 @@ namespace Amazon.Cloud9.Model
     /// <summary>
     /// Too many service requests were made over the given time period.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyRequestsException : AmazonCloud9Exception
@@ -86,7 +86,7 @@ namespace Amazon.Cloud9.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyRequestsException class with serialized data.
         /// </summary>

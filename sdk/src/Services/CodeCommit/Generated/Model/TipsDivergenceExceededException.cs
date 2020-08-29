@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// determine whether there might be any merge conflicts. Locally compare the specifiers
     /// using <code>git diff</code> or a diff tool.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TipsDivergenceExceededException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TipsDivergenceExceededException class with serialized data.
         /// </summary>

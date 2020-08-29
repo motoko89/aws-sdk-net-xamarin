@@ -31,7 +31,7 @@ namespace Amazon.ElasticLoadBalancing.Model
     /// <summary>
     /// The specified VPC has no associated Internet gateway.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidSubnetException : AmazonElasticLoadBalancingException
@@ -86,7 +86,7 @@ namespace Amazon.ElasticLoadBalancing.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidSubnetException class with serialized data.
         /// </summary>

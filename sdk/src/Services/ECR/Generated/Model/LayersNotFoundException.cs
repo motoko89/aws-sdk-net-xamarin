@@ -32,7 +32,7 @@ namespace Amazon.ECR.Model
     /// The specified layers could not be found, or the specified layer is not valid for this
     /// repository.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LayersNotFoundException : AmazonECRException
@@ -87,7 +87,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LayersNotFoundException class with serialized data.
         /// </summary>

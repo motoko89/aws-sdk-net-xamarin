@@ -74,6 +74,7 @@ namespace Amazon.Redshift
     public partial class AmazonRedshiftClient : AmazonServiceClient, IAmazonRedshift
     {
         private static IServiceMetadata serviceMetadata = new AmazonRedshiftMetadata();
+
         #region Constructors
 
         /// <summary>
@@ -6874,6 +6875,14 @@ namespace Amazon.Redshift
         /// You can only resize clusters of the following types:
         /// </para>
         ///  <ul> <li> 
+        /// <para>
+        /// dc1.large (if your cluster is in a VPC)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// dc1.8xlarge (if your cluster is in a VPC)
+        /// </para>
+        ///  </li> <li> 
         /// <para>
         /// dc2.large
         /// </para>

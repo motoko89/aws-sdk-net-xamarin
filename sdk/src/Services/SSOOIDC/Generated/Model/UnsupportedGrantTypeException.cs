@@ -31,7 +31,7 @@ namespace Amazon.SSOOIDC.Model
     /// <summary>
     /// Indicates that the grant type in the request is not supported by the service.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedGrantTypeException : AmazonSSOOIDCException
@@ -88,7 +88,7 @@ namespace Amazon.SSOOIDC.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedGrantTypeException class with serialized data.
         /// </summary>

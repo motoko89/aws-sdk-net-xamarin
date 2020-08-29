@@ -32,7 +32,7 @@ namespace Amazon.ImportExport.Model
     /// One or more required fields were missing from the manifest file. Please correct and
     /// resubmit.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MissingManifestFieldException : AmazonImportExportException
@@ -87,7 +87,7 @@ namespace Amazon.ImportExport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MissingManifestFieldException class with serialized data.
         /// </summary>

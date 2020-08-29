@@ -32,7 +32,7 @@ namespace Amazon.CloudFront.Model
     /// This operation requires a body. Ensure that the body is present and the <code>Content-Type</code>
     /// header is set.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MissingBodyException : AmazonCloudFrontException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MissingBodyException class with serialized data.
         /// </summary>

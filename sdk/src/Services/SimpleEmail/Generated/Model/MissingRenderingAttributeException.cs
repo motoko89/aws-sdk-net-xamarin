@@ -33,7 +33,7 @@ namespace Amazon.SimpleEmail.Model
     /// not specified. Ensure that the TemplateData object contains references to all of the
     /// replacement tags in the specified template.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MissingRenderingAttributeException : AmazonSimpleEmailServiceException
@@ -89,7 +89,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MissingRenderingAttributeException class with serialized data.
         /// </summary>

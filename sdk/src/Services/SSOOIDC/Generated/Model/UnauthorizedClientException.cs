@@ -32,7 +32,7 @@ namespace Amazon.SSOOIDC.Model
     /// Indicates that the client is not currently authorized to make the request. This can
     /// happen when a <code>clientId</code> is not issued for a public client.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnauthorizedClientException : AmazonSSOOIDCException
@@ -89,7 +89,7 @@ namespace Amazon.SSOOIDC.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnauthorizedClientException class with serialized data.
         /// </summary>

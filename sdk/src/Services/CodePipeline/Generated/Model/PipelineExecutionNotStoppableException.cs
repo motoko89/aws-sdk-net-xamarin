@@ -32,7 +32,7 @@ namespace Amazon.CodePipeline.Model
     /// Unable to stop the pipeline execution. The execution might already be in a <code>Stopped</code>
     /// state, or it might no longer be in progress.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PipelineExecutionNotStoppableException : AmazonCodePipelineException
@@ -87,7 +87,7 @@ namespace Amazon.CodePipeline.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PipelineExecutionNotStoppableException class with serialized data.
         /// </summary>

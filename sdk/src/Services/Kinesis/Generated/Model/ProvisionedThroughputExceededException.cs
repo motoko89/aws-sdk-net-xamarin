@@ -31,11 +31,11 @@ namespace Amazon.Kinesis.Model
     /// <summary>
     /// The request rate for the stream is too high, or the requested data is too large for
     /// the available throughput. Reduce the frequency or size of your requests. For more
-    /// information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams
-    /// Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>, and <a href="http://docs.aws.amazon.com/general/latest/gr/api-retries.html">Error
+    /// information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams
+    /// Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>, and <a href="https://docs.aws.amazon.com/general/latest/gr/api-retries.html">Error
     /// Retries and Exponential Backoff in AWS</a> in the <i>AWS General Reference</i>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ProvisionedThroughputExceededException : AmazonKinesisException
@@ -90,7 +90,7 @@ namespace Amazon.Kinesis.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ProvisionedThroughputExceededException class with serialized data.
         /// </summary>

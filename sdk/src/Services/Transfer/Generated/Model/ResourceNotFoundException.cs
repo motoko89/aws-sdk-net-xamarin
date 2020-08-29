@@ -31,7 +31,7 @@ namespace Amazon.Transfer.Model
     /// <summary>
     /// This exception is thrown when a resource is not found by the AWS Transfer Family service.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonTransferException
@@ -88,7 +88,7 @@ namespace Amazon.Transfer.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

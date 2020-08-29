@@ -31,7 +31,7 @@ namespace Amazon.CognitoIdentityProvider.Model
     /// <summary>
     /// This exception is thrown when the user has made too many requests for a given operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyRequestsException : AmazonCognitoIdentityProviderException
@@ -86,7 +86,7 @@ namespace Amazon.CognitoIdentityProvider.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyRequestsException class with serialized data.
         /// </summary>

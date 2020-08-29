@@ -32,7 +32,7 @@ namespace Amazon.ECR.Model
     /// The specified repository could not be found. Check the spelling of the specified repository
     /// and ensure that you are performing operations on the correct registry.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RepositoryNotFoundException : AmazonECRException
@@ -87,7 +87,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RepositoryNotFoundException class with serialized data.
         /// </summary>

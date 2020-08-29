@@ -31,7 +31,7 @@ namespace Amazon.IoTSiteWise.Model
     /// <summary>
     /// The requested resource can't be found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonIoTSiteWiseException
@@ -86,7 +86,7 @@ namespace Amazon.IoTSiteWise.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

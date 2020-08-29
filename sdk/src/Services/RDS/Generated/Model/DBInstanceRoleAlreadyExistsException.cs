@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// The specified <code>RoleArn</code> or <code>FeatureName</code> value is already associated
     /// with the DB instance.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBInstanceRoleAlreadyExistsException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBInstanceRoleAlreadyExistsException class with serialized data.
         /// </summary>

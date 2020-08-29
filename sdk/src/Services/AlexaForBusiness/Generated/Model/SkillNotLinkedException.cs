@@ -31,7 +31,7 @@ namespace Amazon.AlexaForBusiness.Model
     /// <summary>
     /// The skill must be linked to a third-party account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SkillNotLinkedException : AmazonAlexaForBusinessException
@@ -86,7 +86,7 @@ namespace Amazon.AlexaForBusiness.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SkillNotLinkedException class with serialized data.
         /// </summary>

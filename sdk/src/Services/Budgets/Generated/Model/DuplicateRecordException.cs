@@ -31,7 +31,7 @@ namespace Amazon.Budgets.Model
     /// <summary>
     /// The budget name already exists. Budget names must be unique within an account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DuplicateRecordException : AmazonBudgetsException
@@ -86,7 +86,7 @@ namespace Amazon.Budgets.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DuplicateRecordException class with serialized data.
         /// </summary>

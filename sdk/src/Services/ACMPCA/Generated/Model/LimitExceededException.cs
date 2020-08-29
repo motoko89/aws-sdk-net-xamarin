@@ -29,10 +29,10 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ACMPCA.Model
 {
     /// <summary>
-    /// An ACM Private CA limit has been exceeded. See the exception message returned to determine
-    /// the limit that was exceeded.
+    /// An ACM Private CA quota has been exceeded. See the exception message returned to determine
+    /// the quota that was exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonACMPCAException
@@ -87,7 +87,7 @@ namespace Amazon.ACMPCA.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

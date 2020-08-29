@@ -32,7 +32,7 @@ namespace Amazon.Macie2.Model
     /// Provides information about an error that occurred due to an unknown internal server
     /// error, exception, or failure.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerException : AmazonMacie2Exception
@@ -87,7 +87,7 @@ namespace Amazon.Macie2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerException class with serialized data.
         /// </summary>

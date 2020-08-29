@@ -31,7 +31,7 @@ namespace Amazon.DAX.Model
     /// <summary>
     /// None of the nodes in the cluster have the given node ID.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NodeNotFoundException : AmazonDAXException
@@ -86,7 +86,7 @@ namespace Amazon.DAX.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NodeNotFoundException class with serialized data.
         /// </summary>

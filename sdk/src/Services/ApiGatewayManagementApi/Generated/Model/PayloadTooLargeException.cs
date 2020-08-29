@@ -31,7 +31,7 @@ namespace Amazon.ApiGatewayManagementApi.Model
     /// <summary>
     /// The data has exceeded the maximum size allowed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PayloadTooLargeException : AmazonApiGatewayManagementApiException
@@ -86,7 +86,7 @@ namespace Amazon.ApiGatewayManagementApi.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PayloadTooLargeException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.AccessAnalyzer.Model
     /// <summary>
     /// Throttling limit exceeded error.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ThrottlingException : AmazonAccessAnalyzerException
@@ -87,7 +87,7 @@ namespace Amazon.AccessAnalyzer.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ThrottlingException class with serialized data.
         /// </summary>

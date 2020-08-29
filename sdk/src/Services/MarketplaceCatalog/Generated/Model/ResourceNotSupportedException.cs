@@ -31,7 +31,7 @@ namespace Amazon.MarketplaceCatalog.Model
     /// <summary>
     /// Currently, the specified resource is not supported.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotSupportedException : AmazonMarketplaceCatalogException
@@ -86,7 +86,7 @@ namespace Amazon.MarketplaceCatalog.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotSupportedException class with serialized data.
         /// </summary>

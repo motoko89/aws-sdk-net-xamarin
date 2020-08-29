@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// The cluster already has the maximum number of custom endpoints.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBClusterEndpointQuotaExceededException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBClusterEndpointQuotaExceededException class with serialized data.
         /// </summary>

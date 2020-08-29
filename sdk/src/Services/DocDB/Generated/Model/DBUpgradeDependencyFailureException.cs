@@ -31,7 +31,7 @@ namespace Amazon.DocDB.Model
     /// <summary>
     /// The upgrade failed because a resource that the depends on can't be modified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBUpgradeDependencyFailureException : AmazonDocDBException
@@ -86,7 +86,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBUpgradeDependencyFailureException class with serialized data.
         /// </summary>

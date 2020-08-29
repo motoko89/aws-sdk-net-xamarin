@@ -9,16 +9,13 @@
 // ------------------------------------------------------------------------------
 namespace ServiceClientGenerator.Generators.NuGet
 {
-    using System.Linq;
-    using System.Text;
-    using System.Collections.Generic;
     using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\NuGet\CoreNuspec.tt"
+    #line 1 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\NuGet\CoreNuspec.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class CoreNuspec : CoreNuspecBase
     {
@@ -31,177 +28,50 @@ namespace ServiceClientGenerator.Generators.NuGet
             this.Write("\r\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<package> \r\n  <metadata> \r\n    <id>AWSS" +
                     "DK.Core</id>\r\n    <title>AWSSDK - Core Runtime</title>\r\n    <version>");
             
-            #line 12 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\NuGet\CoreNuspec.tt"
+            #line 9 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\NuGet\CoreNuspec.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Session["FileVersion"]));
             
             #line default
             #line hidden
             
-            #line 12 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\NuGet\CoreNuspec.tt"
+            #line 9 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\NuGet\CoreNuspec.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Session["NuGetPreviewFlag"]));
             
             #line default
             #line hidden
-            this.Write(@"</version> 
-    <authors>Amazon Web Services</authors>
-    <description>The Amazon Web Services SDK for .NET - Core Runtime</description>
-    <language>en-US</language>
-    <licenseUrl>http://aws.amazon.com/apache2.0/</licenseUrl>
-    <projectUrl>https://github.com/aws/aws-sdk-net/</projectUrl>
-    <tags>AWS Amazon cloud aws-sdk-v3</tags>
-    <iconUrl>https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png</iconUrl>
-    <dependencies>
-      <group targetFramework=""net35"">
-      </group>
-      <group targetFramework=""net45"">
-      </group>
-");
-            
-            #line 25 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\NuGet\CoreNuspec.tt"
-	
-	if(!Convert.ToBoolean(this.Session["DisablePCLSupport"]))
-	{
-		List<string> windowsPCLTargets = new List<string>{"portable-net45+win8+wpa81+wp8"};
-		List<string> xamarinPCLTargets = new List<string>{"MonoAndroid10", "Xamarin.iOS10", "MonoTouch10"};
-		List<string> pclTargets = new List<string>();
-
-		pclTargets.AddRange(windowsPCLTargets);
-		pclTargets.AddRange(xamarinPCLTargets);
-
-		foreach(var target in pclTargets)
-		{
-
-            
-            #line default
-            #line hidden
-            this.Write("\r\n      <group targetFramework=\"");
-            
-            #line 39 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\NuGet\CoreNuspec.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(target));
-            
-            #line default
-            #line hidden
-            this.Write("\">\r\n");
-            
-            #line 40 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\NuGet\CoreNuspec.tt"
-	
-			if(windowsPCLTargets.Contains(target))
-			{
-
-            
-            #line default
-            #line hidden
-            this.Write("        <dependency id=\"Microsoft.Net.Http\" version=\"2.2.29\" />\r\n");
-            
-            #line 45 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\NuGet\CoreNuspec.tt"
-
-			}
-
-            
-            #line default
-            #line hidden
-            this.Write("        <dependency id=\"PCLStorage\" version=\"1.0.2\" />\r\n        <dependency id=\"P" +
-                    "CLCrypto\" version=\"1.0.2.15130\" />\r\n      </group>\r\n");
-            
-            #line 51 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\NuGet\CoreNuspec.tt"
-
-		}
-
-            
-            #line default
-            #line hidden
-            this.Write(@"      <group targetFramework=""uap"">
-        <dependency id=""Microsoft.NETCore.UniversalWindowsPlatform"" version=""5.2.2"" />
-        <dependency id=""PCLStorage"" version=""1.0.2"" />
-        <dependency id=""PCLCrypto"" version=""1.0.2.15130"" />
-      </group>
-");
-            
-            #line 59 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\NuGet\CoreNuspec.tt"
-
-	}
-
-            
-            #line default
-            #line hidden
-            this.Write(@"      <group targetFramework=""netstandard1.3"">
-        <dependency id=""System.Net.Requests"" version=""4.0.11"" />
-        <dependency id=""System.Reflection.TypeExtensions"" version=""4.1.0"" />
-        <dependency id=""System.Security.Cryptography.Csp"" version=""4.0.0"" />
-        <dependency id=""System.Threading.Thread"" version=""4.0.0"" />
-        <dependency id=""Microsoft.CSharp"" version=""4.0.1"" />
-      </group>
-
-	    <group targetFramework=""netstandard2.0"">
-      </group>
-    </dependencies>
-  </metadata> 
-  <files>
-
-    <file src=""..\..\nuget-content\account-management.ps1"" target=""tools"" />
-
-    <file src="".\bin\Release\net35\AWSSDK.Core.dll"" target=""lib\net35"" />
-    <file src="".\bin\Release\net35\AWSSDK.Core.xml"" target=""lib\net35"" />
-    <file src="".\bin\Release\net35\AWSSDK.Core.pdb"" target=""lib\net35"" />
-
-    <file src="".\bin\Release\net45\AWSSDK.Core.dll"" target=""lib\net45"" />
-    <file src="".\bin\Release\net45\AWSSDK.Core.xml"" target=""lib\net45"" />
-    <file src="".\bin\Release\net45\AWSSDK.Core.pdb"" target=""lib\net45"" />
-
-");
-            
-            #line 86 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\NuGet\CoreNuspec.tt"
-	
-	if(!Convert.ToBoolean(this.Session["DisablePCLSupport"]))
-	{
-
-            
-            #line default
-            #line hidden
-            this.Write("    <file src=\".\\bin\\Release\\pcl\\AWSSDK.Core.dll\" target=\"lib\\portable-net45+win8" +
-                    "+wpa81+wp8\" />\r\n    <file src=\".\\bin\\Release\\pcl\\AWSSDK.Core.xml\" target=\"lib\\po" +
-                    "rtable-net45+win8+wpa81+wp8\" />\r\n    <file src=\".\\bin\\Release\\pcl\\AWSSDK.Core.pd" +
-                    "b\" target=\"lib\\portable-net45+win8+wpa81+wp8\" />\r\n    \r\n    <file src=\".\\bin\\Rel" +
-                    "ease\\wpa81\\AWSSDK.Core.dll\" target=\"lib\\uap\" />\r\n    <file src=\".\\bin\\Release\\wp" +
-                    "a81\\AWSSDK.Core.xml\" target=\"lib\\uap\" />\r\n    <file src=\".\\bin\\Release\\wpa81\\AWS" +
-                    "SDK.Core.pdb\" target=\"lib\\uap\" />\r\n\r\n    <file src=\".\\bin\\Release\\Xamarin.iOS10\\" +
-                    "AWSSDK.Core.dll\" target=\"lib\\Xamarin.iOS10\" />\r\n    <file src=\".\\bin\\Release\\Xam" +
-                    "arin.iOS10\\AWSSDK.Core.xml\" target=\"lib\\Xamarin.iOS10\" />\r\n\r\n    <file src=\".\\bi" +
-                    "n\\Release\\Xamarin.iOS10\\AWSSDK.Core.dll\" target=\"lib\\Xamarin.Mac20\" />\r\n    <fil" +
-                    "e src=\".\\bin\\Release\\Xamarin.iOS10\\AWSSDK.Core.xml\" target=\"lib\\Xamarin.Mac20\" /" +
-                    ">\r\n\r\n    <file src=\".\\bin\\Release\\Xamarin.iOS10\\AWSSDK.Core.dll\" target=\"lib\\Mon" +
-                    "oTouch10\" />\r\n    <file src=\".\\bin\\Release\\Xamarin.iOS10\\AWSSDK.Core.xml\" target" +
-                    "=\"lib\\MonoTouch10\" />\r\n\r\n    <file src=\".\\bin\\Release\\monoandroid\\AWSSDK.Core.dl" +
-                    "l\" target=\"lib\\MonoAndroid10\" />\r\n    <file src=\".\\bin\\Release\\monoandroid\\AWSSD" +
-                    "K.Core.xml\" target=\"lib\\MonoAndroid10\" />\r\n    <file src=\".\\bin\\Release\\monoandr" +
-                    "oid\\AWSSDK.Core.pdb\" target=\"lib\\MonoAndroid10\" />\r\n\r\n    <file src=\".\\bin\\Relea" +
-                    "se\\windows8\\AWSSDK.Core.dll\" target=\"lib\\win8\" />\r\n    <file src=\".\\bin\\Release\\" +
-                    "windows8\\AWSSDK.Core.xml\" target=\"lib\\win8\" />\r\n    <file src=\".\\bin\\Release\\win" +
-                    "dows8\\AWSSDK.Core.pdb\" target=\"lib\\win8\" />\r\n\r\n    <file src=\".\\bin\\Release\\wpa8" +
-                    "1\\AWSSDK.Core.dll\" target=\"lib\\wpa81\" />\r\n    <file src=\".\\bin\\Release\\wpa81\\AWS" +
-                    "SDK.Core.xml\" target=\"lib\\wpa81\" />\r\n    <file src=\".\\bin\\Release\\wpa81\\AWSSDK.C" +
-                    "ore.pdb\" target=\"lib\\wpa81\" />\r\n\r\n    <file src=\".\\bin\\Release\\wp8\\AWSSDK.Core.d" +
-                    "ll\" target=\"lib\\wp8\" />\r\n    <file src=\".\\bin\\Release\\wp8\\AWSSDK.Core.xml\" targe" +
-                    "t=\"lib\\wp8\" />\r\n    <file src=\".\\bin\\Release\\wp8\\AWSSDK.Core.pdb\" target=\"lib\\wp" +
-                    "8\" />\r\n\r\n");
-            
-            #line 123 "C:\codebase\v3\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\NuGet\CoreNuspec.tt"
-	
-	}
-
-            
-            #line default
-            #line hidden
-            this.Write(@"	<file src="".\bin\Release\netstandard1.3\AWSSDK.Core.dll"" target=""lib\netstandard1.3""/>
-	<file src="".\bin\Release\netstandard1.3\AWSSDK.Core.xml"" target=""lib\netstandard1.3""/>
-	<file src="".\bin\Release\netstandard1.3\AWSSDK.Core.pdb"" target=""lib\netstandard1.3""/>
-
-	<file src="".\bin\Release\netstandard2.0\AWSSDK.Core.dll"" target=""lib\netstandard2.0""/>
-	<file src="".\bin\Release\netstandard2.0\AWSSDK.Core.xml"" target=""lib\netstandard2.0""/>
-	<file src="".\bin\Release\netstandard2.0\AWSSDK.Core.pdb"" target=""lib\netstandard2.0""/>
-
-  </files>
-</package>");
+            this.Write("</version> \r\n    <authors>Amazon Web Services</authors>\r\n    <description>The Ama" +
+                    "zon Web Services SDK for .NET - Core Runtime</description>\r\n    <language>en-US<" +
+                    "/language>\r\n    <licenseUrl>http://aws.amazon.com/apache2.0/</licenseUrl>\r\n    <" +
+                    "projectUrl>https://github.com/aws/aws-sdk-net/</projectUrl>\r\n    <tags>AWS Amazo" +
+                    "n cloud aws-sdk-v3</tags>\r\n    <iconUrl>https://sdk-for-net.amazonwebservices.co" +
+                    "m/images/AWSLogo128x128.png</iconUrl>\r\n    <dependencies>\r\n      <group targetFr" +
+                    "amework=\"net35\">\r\n      </group>\r\n      <group targetFramework=\"net45\">\r\n      <" +
+                    "/group>\r\n      <group targetFramework=\"netstandard1.3\">\r\n        <dependency id=" +
+                    "\"System.Net.Requests\" version=\"4.0.11\" />\r\n        <dependency id=\"System.Reflec" +
+                    "tion.TypeExtensions\" version=\"4.1.0\" />\r\n        <dependency id=\"System.Security" +
+                    ".Cryptography.Csp\" version=\"4.0.0\" />\r\n        <dependency id=\"System.Threading." +
+                    "Thread\" version=\"4.0.0\" />\r\n        <dependency id=\"Microsoft.CSharp\" version=\"4" +
+                    ".0.1\" />\r\n      </group>\r\n\t    <group targetFramework=\"netstandard2.0\">\r\n       " +
+                    " <dependency id=\"Microsoft.Bcl.AsyncInterfaces\" version=\"1.1.0\" />\r\n      </grou" +
+                    "p>\r\n      <group targetFramework=\"netcoreapp3.1\">\r\n      </group>\r\n    </depende" +
+                    "ncies>\r\n  </metadata> \r\n  <files>\r\n    <file src=\"..\\..\\nuget-content\\account-ma" +
+                    "nagement.ps1\" target=\"tools\" />\r\n\r\n    <file src=\".\\bin\\Release\\net35\\AWSSDK.Cor" +
+                    "e.dll\" target=\"lib\\net35\" />\r\n    <file src=\".\\bin\\Release\\net35\\AWSSDK.Core.xml" +
+                    "\" target=\"lib\\net35\" />\r\n    <file src=\".\\bin\\Release\\net35\\AWSSDK.Core.pdb\" tar" +
+                    "get=\"lib\\net35\" />\r\n\r\n    <file src=\".\\bin\\Release\\net45\\AWSSDK.Core.dll\" target" +
+                    "=\"lib\\net45\" />\r\n    <file src=\".\\bin\\Release\\net45\\AWSSDK.Core.xml\" target=\"lib" +
+                    "\\net45\" />\r\n    <file src=\".\\bin\\Release\\net45\\AWSSDK.Core.pdb\" target=\"lib\\net4" +
+                    "5\" />\r\n\r\n    <file src=\".\\bin\\Release\\netstandard1.3\\AWSSDK.Core.dll\" target=\"li" +
+                    "b\\netstandard1.3\"/>\r\n    <file src=\".\\bin\\Release\\netstandard1.3\\AWSSDK.Core.xml" +
+                    "\" target=\"lib\\netstandard1.3\"/>\r\n    <file src=\".\\bin\\Release\\netstandard1.3\\AWS" +
+                    "SDK.Core.pdb\" target=\"lib\\netstandard1.3\"/>\r\n  \r\n    <file src=\".\\bin\\Release\\ne" +
+                    "tstandard2.0\\AWSSDK.Core.dll\" target=\"lib\\netstandard2.0\"/>\r\n    <file src=\".\\bi" +
+                    "n\\Release\\netstandard2.0\\AWSSDK.Core.xml\" target=\"lib\\netstandard2.0\"/>\r\n    <fi" +
+                    "le src=\".\\bin\\Release\\netstandard2.0\\AWSSDK.Core.pdb\" target=\"lib\\netstandard2.0" +
+                    "\"/>\r\n\r\n    <file src=\".\\bin\\Release\\netcoreapp3.1\\AWSSDK.Core.dll\" target=\"lib\\n" +
+                    "etcoreapp3.1\"/>\r\n    <file src=\".\\bin\\Release\\netcoreapp3.1\\AWSSDK.Core.xml\" tar" +
+                    "get=\"lib\\netcoreapp3.1\"/>\r\n    <file src=\".\\bin\\Release\\netcoreapp3.1\\AWSSDK.Cor" +
+                    "e.pdb\" target=\"lib\\netcoreapp3.1\"/>\r\n  </files>\r\n</package>");
             return this.GenerationEnvironment.ToString();
         }
     }

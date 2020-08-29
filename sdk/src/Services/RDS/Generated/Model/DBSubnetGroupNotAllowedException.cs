@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// The DBSubnetGroup shouldn't be specified while creating read replicas that lie in
     /// the same region as the source instance.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBSubnetGroupNotAllowedException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBSubnetGroupNotAllowedException class with serialized data.
         /// </summary>

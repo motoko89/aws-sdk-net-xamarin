@@ -41,7 +41,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
     /// is requested for a stream that has no fragments within the last 30 seconds.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonKinesisVideoArchivedMediaException
@@ -96,7 +96,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

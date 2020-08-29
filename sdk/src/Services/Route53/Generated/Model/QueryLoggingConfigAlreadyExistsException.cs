@@ -32,7 +32,7 @@ namespace Amazon.Route53.Model
     /// You can create only one query logging configuration for a hosted zone, and a query
     /// logging configuration already exists for this hosted zone.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class QueryLoggingConfigAlreadyExistsException : AmazonRoute53Exception
@@ -87,7 +87,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the QueryLoggingConfigAlreadyExistsException class with serialized data.
         /// </summary>

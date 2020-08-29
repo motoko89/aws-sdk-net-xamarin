@@ -32,7 +32,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
     /// The codec private data in at least one of the tracks of the video stream is not valid
     /// for this operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidCodecPrivateDataException : AmazonKinesisVideoArchivedMediaException
@@ -87,7 +87,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidCodecPrivateDataException class with serialized data.
         /// </summary>

@@ -37,7 +37,7 @@ namespace Amazon.WAFV2.Model
     /// wait at least 15 minutes and try the request again. If you receive this same exception
     /// again, you will have to wait additional time until the role is unlocked.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFServiceLinkedRoleErrorException : AmazonWAFV2Exception
@@ -92,7 +92,7 @@ namespace Amazon.WAFV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFServiceLinkedRoleErrorException class with serialized data.
         /// </summary>

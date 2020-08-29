@@ -32,7 +32,7 @@ namespace Amazon.GameLift.Model
     /// The requested tagging operation did not succeed. This may be due to invalid tag format
     /// or the maximum tag limit may have been exceeded. Resolve the issue before retrying.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TaggingFailedException : AmazonGameLiftException
@@ -87,7 +87,7 @@ namespace Amazon.GameLift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TaggingFailedException class with serialized data.
         /// </summary>

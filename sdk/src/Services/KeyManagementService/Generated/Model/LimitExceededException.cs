@@ -33,7 +33,7 @@ namespace Amazon.KeyManagementService.Model
     /// href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a>
     /// in the <i>AWS Key Management Service Developer Guide</i>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonKeyManagementServiceException
@@ -88,7 +88,7 @@ namespace Amazon.KeyManagementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.CloudFormation.Model
     /// <summary>
     /// The specified stack instance doesn't exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class StackInstanceNotFoundException : AmazonCloudFormationException
@@ -86,7 +86,7 @@ namespace Amazon.CloudFormation.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the StackInstanceNotFoundException class with serialized data.
         /// </summary>

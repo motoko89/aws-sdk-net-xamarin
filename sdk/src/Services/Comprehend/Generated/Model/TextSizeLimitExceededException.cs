@@ -31,7 +31,7 @@ namespace Amazon.Comprehend.Model
     /// <summary>
     /// The size of the input text exceeds the limit. Use a smaller document.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TextSizeLimitExceededException : AmazonComprehendException
@@ -86,7 +86,7 @@ namespace Amazon.Comprehend.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TextSizeLimitExceededException class with serialized data.
         /// </summary>

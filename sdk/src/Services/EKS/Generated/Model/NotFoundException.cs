@@ -32,7 +32,7 @@ namespace Amazon.EKS.Model
     /// A service resource associated with the request could not be found. Clients should
     /// not retry such requests.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NotFoundException : AmazonEKSException
@@ -87,7 +87,7 @@ namespace Amazon.EKS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NotFoundException class with serialized data.
         /// </summary>

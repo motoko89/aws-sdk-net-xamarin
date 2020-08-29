@@ -31,7 +31,7 @@ namespace Amazon.MachineLearning.Model
     /// <summary>
     /// An error on the client occurred. Typically, the cause is an invalid input value.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidInputException : AmazonMachineLearningException
@@ -87,7 +87,7 @@ namespace Amazon.MachineLearning.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidInputException class with serialized data.
         /// </summary>

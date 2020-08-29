@@ -31,7 +31,7 @@ namespace Amazon.SSOOIDC.Model
     /// <summary>
     /// Indicates that the token issued by the service is expired and is no longer valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ExpiredTokenException : AmazonSSOOIDCException
@@ -88,7 +88,7 @@ namespace Amazon.SSOOIDC.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ExpiredTokenException class with serialized data.
         /// </summary>

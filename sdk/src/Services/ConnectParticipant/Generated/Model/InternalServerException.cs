@@ -31,7 +31,7 @@ namespace Amazon.ConnectParticipant.Model
     /// <summary>
     /// This exception occurs when there is an internal failure in the Amazon Connect service.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerException : AmazonConnectParticipantException
@@ -86,7 +86,7 @@ namespace Amazon.ConnectParticipant.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerException class with serialized data.
         /// </summary>

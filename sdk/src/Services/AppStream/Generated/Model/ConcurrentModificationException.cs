@@ -31,7 +31,7 @@ namespace Amazon.AppStream.Model
     /// <summary>
     /// An API error occurred. Wait a few minutes and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentModificationException : AmazonAppStreamException
@@ -86,7 +86,7 @@ namespace Amazon.AppStream.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentModificationException class with serialized data.
         /// </summary>

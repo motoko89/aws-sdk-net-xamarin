@@ -31,7 +31,7 @@ namespace Amazon.ACMPCA.Model
     /// <summary>
     /// One or more fields in the certificate are invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MalformedCertificateException : AmazonACMPCAException
@@ -86,7 +86,7 @@ namespace Amazon.ACMPCA.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MalformedCertificateException class with serialized data.
         /// </summary>

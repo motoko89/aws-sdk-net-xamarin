@@ -33,7 +33,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// of an association according to the association ID. Or, use the <code>$LATEST</code>
     /// parameter to view the latest version of the association.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidAssociationVersionException : AmazonSimpleSystemsManagementException
@@ -88,7 +88,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidAssociationVersionException class with serialized data.
         /// </summary>

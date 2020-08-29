@@ -32,7 +32,7 @@ namespace Amazon.Lambda.Model
     /// AWS Lambda was not able to set up VPC access for the Lambda function because one or
     /// more configured subnets has no available IP addresses.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SubnetIPAddressLimitReachedException : AmazonLambdaException
@@ -88,7 +88,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SubnetIPAddressLimitReachedException class with serialized data.
         /// </summary>

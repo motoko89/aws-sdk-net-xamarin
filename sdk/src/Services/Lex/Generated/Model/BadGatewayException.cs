@@ -32,7 +32,7 @@ namespace Amazon.Lex.Model
     /// Either the Amazon Lex bot is still building, or one of the dependent services (Amazon
     /// Polly, AWS Lambda) failed with an internal service error.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadGatewayException : AmazonLexException
@@ -87,7 +87,7 @@ namespace Amazon.Lex.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadGatewayException class with serialized data.
         /// </summary>

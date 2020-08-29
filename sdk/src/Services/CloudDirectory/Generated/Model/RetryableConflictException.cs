@@ -36,7 +36,7 @@ namespace Amazon.CloudDirectory.Model
     /// request. A retry (with appropriate backoff logic) is the recommended response to this
     /// exception.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RetryableConflictException : AmazonCloudDirectoryException
@@ -91,7 +91,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RetryableConflictException class with serialized data.
         /// </summary>

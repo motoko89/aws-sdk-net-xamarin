@@ -31,7 +31,7 @@ namespace Amazon.MediaConvert.Model
     /// <summary>
     /// The service encountered an unexpected condition and can't fulfill your request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerErrorException : AmazonMediaConvertException
@@ -86,7 +86,7 @@ namespace Amazon.MediaConvert.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerErrorException class with serialized data.
         /// </summary>

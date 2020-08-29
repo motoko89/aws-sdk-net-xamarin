@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The maximum number of allowed repository names was exceeded. Currently, this number
     /// is 100.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MaximumRepositoryNamesExceededException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MaximumRepositoryNamesExceededException class with serialized data.
         /// </summary>

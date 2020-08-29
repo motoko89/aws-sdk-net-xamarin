@@ -32,7 +32,7 @@ namespace Amazon.Glacier.Model
     /// Returned if a retrieval job would exceed the current data policy's retrieval rate
     /// limit. For more information about data retrieval policies,
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PolicyEnforcedException : AmazonGlacierException
@@ -89,7 +89,7 @@ namespace Amazon.Glacier.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PolicyEnforcedException class with serialized data.
         /// </summary>

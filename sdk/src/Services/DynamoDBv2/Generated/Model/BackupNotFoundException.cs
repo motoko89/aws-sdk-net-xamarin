@@ -31,7 +31,7 @@ namespace Amazon.DynamoDBv2.Model
     /// <summary>
     /// Backup not found for the given BackupARN.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BackupNotFoundException : AmazonDynamoDBException
@@ -86,7 +86,7 @@ namespace Amazon.DynamoDBv2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BackupNotFoundException class with serialized data.
         /// </summary>

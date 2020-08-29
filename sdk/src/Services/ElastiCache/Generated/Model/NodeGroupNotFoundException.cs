@@ -33,7 +33,7 @@ namespace Amazon.ElastiCache.Model
     /// Please verify that the node group exists and that you spelled the <code>NodeGroupId</code>
     /// value correctly.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NodeGroupNotFoundException : AmazonElastiCacheException
@@ -88,7 +88,7 @@ namespace Amazon.ElastiCache.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NodeGroupNotFoundException class with serialized data.
         /// </summary>

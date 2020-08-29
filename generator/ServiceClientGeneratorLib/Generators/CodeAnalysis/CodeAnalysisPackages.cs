@@ -18,7 +18,7 @@ namespace ServiceClientGenerator.Generators.CodeAnalysis
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\costleya\Work\AWSDotNetPublic\generator\ServiceClientGeneratorLib\Generators\CodeAnalysis\CodeAnalysisPackages.tt"
+    #line 1 "C:\Users\costleya\Work\aws-sdk-net\generator\ServiceClientGeneratorLib\Generators\CodeAnalysis\CodeAnalysisPackages.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class CodeAnalysisPackages : CodeAnalysisPackagesBase
     {

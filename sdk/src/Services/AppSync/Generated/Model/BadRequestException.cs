@@ -32,7 +32,7 @@ namespace Amazon.AppSync.Model
     /// The request is not well formed. For example, a value is invalid or a required field
     /// is missing. Check the field values, and then try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadRequestException : AmazonAppSyncException
@@ -87,7 +87,7 @@ namespace Amazon.AppSync.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadRequestException class with serialized data.
         /// </summary>

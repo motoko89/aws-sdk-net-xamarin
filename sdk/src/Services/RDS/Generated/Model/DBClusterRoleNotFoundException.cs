@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// The specified IAM role Amazon Resource Name (ARN) isn't associated with the specified
     /// DB cluster.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBClusterRoleNotFoundException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBClusterRoleNotFoundException class with serialized data.
         /// </summary>

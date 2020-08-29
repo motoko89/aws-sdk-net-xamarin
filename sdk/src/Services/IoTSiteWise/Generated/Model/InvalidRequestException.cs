@@ -32,7 +32,7 @@ namespace Amazon.IoTSiteWise.Model
     /// The request isn't valid. This can occur if your request contains malformed JSON or
     /// unsupported characters. Check your request and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRequestException : AmazonIoTSiteWiseException
@@ -87,7 +87,7 @@ namespace Amazon.IoTSiteWise.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRequestException class with serialized data.
         /// </summary>

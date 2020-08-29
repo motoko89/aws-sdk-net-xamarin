@@ -33,7 +33,7 @@ namespace Amazon.ElasticFileSystem.Model
     /// such as an invalid parameter value or a missing required parameter. Returned in the
     /// case of a policy lockout safety check error.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidPolicyException : AmazonElasticFileSystemException
@@ -89,7 +89,7 @@ namespace Amazon.ElasticFileSystem.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidPolicyException class with serialized data.
         /// </summary>

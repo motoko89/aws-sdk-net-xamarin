@@ -32,7 +32,7 @@ namespace Amazon.Route53.Model
     /// A delegation set with the same owner and caller reference combination has already
     /// been created.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DelegationSetAlreadyCreatedException : AmazonRoute53Exception
@@ -87,7 +87,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DelegationSetAlreadyCreatedException class with serialized data.
         /// </summary>

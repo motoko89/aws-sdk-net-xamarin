@@ -31,7 +31,7 @@ namespace Amazon.OpsWorksCM.Model
     /// <summary>
     /// This occurs when the provided nextToken is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidNextTokenException : AmazonOpsWorksCMException
@@ -86,7 +86,7 @@ namespace Amazon.OpsWorksCM.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidNextTokenException class with serialized data.
         /// </summary>

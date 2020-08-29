@@ -32,7 +32,7 @@ namespace Amazon.Lambda.Model
     /// The request payload exceeded the <code>Invoke</code> request body JSON input limit.
     /// For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Limits</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RequestTooLargeException : AmazonLambdaException
@@ -88,7 +88,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RequestTooLargeException class with serialized data.
         /// </summary>

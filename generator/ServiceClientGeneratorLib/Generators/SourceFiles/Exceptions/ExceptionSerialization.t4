@@ -1,4 +1,4 @@
-﻿#if !PCL && !NETSTANDARD
+﻿#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the <#=this.Structure.Name#> class with serialized data.
         /// </summary>

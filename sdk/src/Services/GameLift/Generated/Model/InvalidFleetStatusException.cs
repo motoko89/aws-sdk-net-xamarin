@@ -32,7 +32,7 @@ namespace Amazon.GameLift.Model
     /// The requested operation would cause a conflict with the current state of a resource
     /// associated with the request and/or the fleet. Resolve the conflict before retrying.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidFleetStatusException : AmazonGameLiftException
@@ -87,7 +87,7 @@ namespace Amazon.GameLift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidFleetStatusException class with serialized data.
         /// </summary>

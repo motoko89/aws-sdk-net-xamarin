@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// You cannot include more than one repository in a pull request. Make sure you have
     /// specified only one repository name in your request, and then try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MultipleRepositoriesInPullRequestException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MultipleRepositoriesInPullRequestException class with serialized data.
         /// </summary>

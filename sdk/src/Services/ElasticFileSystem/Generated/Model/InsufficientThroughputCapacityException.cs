@@ -35,7 +35,7 @@ namespace Amazon.ElasticFileSystem.Model
     /// or when you attempt to change an existing file system from bursting to provisioned
     /// throughput mode.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InsufficientThroughputCapacityException : AmazonElasticFileSystemException
@@ -91,7 +91,7 @@ namespace Amazon.ElasticFileSystem.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InsufficientThroughputCapacityException class with serialized data.
         /// </summary>

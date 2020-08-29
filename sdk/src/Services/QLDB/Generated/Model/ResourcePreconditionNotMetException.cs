@@ -31,7 +31,7 @@ namespace Amazon.QLDB.Model
     /// <summary>
     /// The operation failed because a condition wasn't satisfied in advance.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourcePreconditionNotMetException : AmazonQLDBException
@@ -88,7 +88,7 @@ namespace Amazon.QLDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourcePreconditionNotMetException class with serialized data.
         /// </summary>

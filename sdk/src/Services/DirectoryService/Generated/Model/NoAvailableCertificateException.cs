@@ -32,7 +32,7 @@ namespace Amazon.DirectoryService.Model
     /// The LDAP activities could not be performed because at least one valid certificate
     /// must be registered with the system.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NoAvailableCertificateException : AmazonDirectoryServiceException
@@ -88,7 +88,7 @@ namespace Amazon.DirectoryService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NoAvailableCertificateException class with serialized data.
         /// </summary>

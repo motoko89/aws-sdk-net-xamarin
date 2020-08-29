@@ -32,7 +32,7 @@ namespace Amazon.ComprehendMedical.Model
     /// The size of the text you submitted exceeds the size limit. Reduce the size of the
     /// text or use a smaller document and then retry your request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TextSizeLimitExceededException : AmazonComprehendMedicalException
@@ -87,7 +87,7 @@ namespace Amazon.ComprehendMedical.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TextSizeLimitExceededException class with serialized data.
         /// </summary>

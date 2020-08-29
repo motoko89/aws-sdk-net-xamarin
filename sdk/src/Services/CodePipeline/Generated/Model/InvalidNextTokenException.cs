@@ -32,7 +32,7 @@ namespace Amazon.CodePipeline.Model
     /// The next token was specified in an invalid format. Make sure that the next token you
     /// provide is the token returned by a previous call.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidNextTokenException : AmazonCodePipelineException
@@ -87,7 +87,7 @@ namespace Amazon.CodePipeline.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidNextTokenException class with serialized data.
         /// </summary>

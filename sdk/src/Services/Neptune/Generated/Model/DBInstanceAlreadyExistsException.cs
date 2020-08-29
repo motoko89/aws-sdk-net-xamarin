@@ -31,7 +31,7 @@ namespace Amazon.Neptune.Model
     /// <summary>
     /// User already has a DB instance with the given identifier.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBInstanceAlreadyExistsException : AmazonNeptuneException
@@ -86,7 +86,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBInstanceAlreadyExistsException class with serialized data.
         /// </summary>

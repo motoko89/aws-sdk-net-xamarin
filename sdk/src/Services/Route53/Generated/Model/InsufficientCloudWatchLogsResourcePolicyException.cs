@@ -47,7 +47,7 @@ namespace Amazon.Route53.Model
     /// </para>
     ///  </li> </ul>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InsufficientCloudWatchLogsResourcePolicyException : AmazonRoute53Exception
@@ -102,7 +102,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InsufficientCloudWatchLogsResourcePolicyException class with serialized data.
         /// </summary>

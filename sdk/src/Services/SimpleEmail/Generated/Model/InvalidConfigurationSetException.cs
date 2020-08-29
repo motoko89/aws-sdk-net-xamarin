@@ -31,7 +31,7 @@ namespace Amazon.SimpleEmail.Model
     /// <summary>
     /// Indicates that the configuration set is invalid. See the error message for details.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidConfigurationSetException : AmazonSimpleEmailServiceException
@@ -86,7 +86,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidConfigurationSetException class with serialized data.
         /// </summary>

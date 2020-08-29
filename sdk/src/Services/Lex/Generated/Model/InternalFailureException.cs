@@ -31,7 +31,7 @@ namespace Amazon.Lex.Model
     /// <summary>
     /// Internal service error. Retry the call.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalFailureException : AmazonLexException
@@ -86,7 +86,7 @@ namespace Amazon.Lex.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalFailureException class with serialized data.
         /// </summary>

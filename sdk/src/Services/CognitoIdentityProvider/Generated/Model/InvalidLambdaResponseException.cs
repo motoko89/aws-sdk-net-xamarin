@@ -32,7 +32,7 @@ namespace Amazon.CognitoIdentityProvider.Model
     /// This exception is thrown when the Amazon Cognito service encounters an invalid AWS
     /// Lambda response.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidLambdaResponseException : AmazonCognitoIdentityProviderException
@@ -87,7 +87,7 @@ namespace Amazon.CognitoIdentityProvider.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidLambdaResponseException class with serialized data.
         /// </summary>

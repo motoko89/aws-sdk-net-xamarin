@@ -33,7 +33,7 @@ namespace Amazon.CloudSearch.Model
     /// report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service
     /// Health Dashboard</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalException : AmazonCloudSearchException
@@ -88,7 +88,7 @@ namespace Amazon.CloudSearch.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalException class with serialized data.
         /// </summary>

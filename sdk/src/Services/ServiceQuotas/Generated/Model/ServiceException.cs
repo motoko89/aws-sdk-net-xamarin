@@ -31,7 +31,7 @@ namespace Amazon.ServiceQuotas.Model
     /// <summary>
     /// Something went wrong.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceException : AmazonServiceQuotasException
@@ -86,7 +86,7 @@ namespace Amazon.ServiceQuotas.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.DynamoDBv2.Model
     /// DynamoDB rejected the request because you retried a request with a different payload
     /// but with an idempotent token that was already used.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IdempotentParameterMismatchException : AmazonDynamoDBException
@@ -87,7 +87,7 @@ namespace Amazon.DynamoDBv2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IdempotentParameterMismatchException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CloudDirectory.Model
     /// Indicates that the requested operation cannot be completed because the object has
     /// not been detached from the tree.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ObjectNotDetachedException : AmazonCloudDirectoryException
@@ -87,7 +87,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ObjectNotDetachedException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.AlexaForBusiness.Model
     /// <summary>
     /// The attempt to update a user is invalid due to the user's current status.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidUserStatusException : AmazonAlexaForBusinessException
@@ -86,7 +86,7 @@ namespace Amazon.AlexaForBusiness.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidUserStatusException class with serialized data.
         /// </summary>

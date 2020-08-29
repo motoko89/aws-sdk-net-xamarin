@@ -31,7 +31,7 @@ namespace Amazon.DynamoDBv2.Model
     /// <summary>
     /// The operation tried to access a nonexistent index.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IndexNotFoundException : AmazonDynamoDBException
@@ -86,7 +86,7 @@ namespace Amazon.DynamoDBv2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IndexNotFoundException class with serialized data.
         /// </summary>

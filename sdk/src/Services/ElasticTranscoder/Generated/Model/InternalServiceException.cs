@@ -32,7 +32,7 @@ namespace Amazon.ElasticTranscoder.Model
     /// Elastic Transcoder encountered an unexpected exception while trying to fulfill the
     /// request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServiceException : AmazonElasticTranscoderException
@@ -87,7 +87,7 @@ namespace Amazon.ElasticTranscoder.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServiceException class with serialized data.
         /// </summary>

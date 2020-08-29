@@ -32,7 +32,7 @@ namespace Amazon.CloudDirectory.Model
     /// A directory that has been deleted and to which access has been attempted. Note: The
     /// requested resource will eventually cease to exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DirectoryDeletedException : AmazonCloudDirectoryException
@@ -87,7 +87,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DirectoryDeletedException class with serialized data.
         /// </summary>

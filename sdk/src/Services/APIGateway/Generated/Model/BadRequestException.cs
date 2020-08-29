@@ -32,7 +32,7 @@ namespace Amazon.APIGateway.Model
     /// The submitted request is not valid, for example, the input is incomplete or incorrect.
     /// See the accompanying error message for details.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadRequestException : AmazonAPIGatewayException
@@ -87,7 +87,7 @@ namespace Amazon.APIGateway.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadRequestException class with serialized data.
         /// </summary>

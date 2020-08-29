@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the
     /// full ARN for the author of the pull request, and then try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidAuthorArnException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidAuthorArnException class with serialized data.
         /// </summary>

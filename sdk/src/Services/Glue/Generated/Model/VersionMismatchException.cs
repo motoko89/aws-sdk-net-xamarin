@@ -31,7 +31,7 @@ namespace Amazon.Glue.Model
     /// <summary>
     /// There was a version conflict.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class VersionMismatchException : AmazonGlueException
@@ -86,7 +86,7 @@ namespace Amazon.Glue.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the VersionMismatchException class with serialized data.
         /// </summary>

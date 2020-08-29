@@ -31,7 +31,7 @@ namespace Amazon.Kinesis.Model
     /// <summary>
     /// The request was rejected because the specified customer master key (CMK) isn't enabled.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class KMSDisabledException : AmazonKinesisException
@@ -86,7 +86,7 @@ namespace Amazon.Kinesis.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the KMSDisabledException class with serialized data.
         /// </summary>

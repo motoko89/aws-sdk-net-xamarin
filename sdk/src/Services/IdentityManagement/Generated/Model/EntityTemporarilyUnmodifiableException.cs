@@ -34,7 +34,7 @@ namespace Amazon.IdentityManagement.Model
     /// the request is likely to succeed if you try again after waiting several minutes. The
     /// error message describes the entity.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EntityTemporarilyUnmodifiableException : AmazonIdentityManagementServiceException
@@ -89,7 +89,7 @@ namespace Amazon.IdentityManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EntityTemporarilyUnmodifiableException class with serialized data.
         /// </summary>

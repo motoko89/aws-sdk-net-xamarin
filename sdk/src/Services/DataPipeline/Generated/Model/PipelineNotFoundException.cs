@@ -32,7 +32,7 @@ namespace Amazon.DataPipeline.Model
     /// The specified pipeline was not found. Verify that you used the correct user and account
     /// identifiers.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PipelineNotFoundException : AmazonDataPipelineException
@@ -87,7 +87,7 @@ namespace Amazon.DataPipeline.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PipelineNotFoundException class with serialized data.
         /// </summary>

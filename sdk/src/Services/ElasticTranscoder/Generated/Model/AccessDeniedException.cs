@@ -31,7 +31,7 @@ namespace Amazon.ElasticTranscoder.Model
     /// <summary>
     /// General authentication failure. The request was not signed correctly.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedException : AmazonElasticTranscoderException
@@ -86,7 +86,7 @@ namespace Amazon.ElasticTranscoder.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedException class with serialized data.
         /// </summary>

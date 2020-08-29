@@ -32,7 +32,7 @@ namespace Amazon.ResourceGroupsTaggingAPI.Model
     /// The target of the operation is currently being modified by a different request. Try
     /// again later.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentModificationException : AmazonResourceGroupsTaggingAPIException
@@ -87,7 +87,7 @@ namespace Amazon.ResourceGroupsTaggingAPI.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentModificationException class with serialized data.
         /// </summary>

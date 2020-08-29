@@ -33,7 +33,7 @@ namespace Amazon.ServiceDiscovery.Model
     /// missing, a numeric value might be outside the allowed range, or a string value might
     /// exceed length constraints.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidInputException : AmazonServiceDiscoveryException
@@ -88,7 +88,7 @@ namespace Amazon.ServiceDiscovery.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidInputException class with serialized data.
         /// </summary>

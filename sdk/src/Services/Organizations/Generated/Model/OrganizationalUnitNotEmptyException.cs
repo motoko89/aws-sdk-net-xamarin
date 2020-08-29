@@ -32,7 +32,7 @@ namespace Amazon.Organizations.Model
     /// The specified OU is not empty. Move all accounts to another root or to other OUs,
     /// remove all child OUs, and try the operation again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OrganizationalUnitNotEmptyException : AmazonOrganizationsException
@@ -87,7 +87,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OrganizationalUnitNotEmptyException class with serialized data.
         /// </summary>

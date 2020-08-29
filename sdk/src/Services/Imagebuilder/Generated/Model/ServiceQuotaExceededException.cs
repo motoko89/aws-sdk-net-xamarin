@@ -33,7 +33,7 @@ namespace Amazon.Imagebuilder.Model
     /// For service quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder">EC2
     /// Image Builder endpoints and quotas</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceQuotaExceededException : AmazonImagebuilderException
@@ -88,7 +88,7 @@ namespace Amazon.Imagebuilder.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceQuotaExceededException class with serialized data.
         /// </summary>

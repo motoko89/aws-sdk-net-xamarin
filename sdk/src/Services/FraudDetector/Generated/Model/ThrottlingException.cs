@@ -31,7 +31,7 @@ namespace Amazon.FraudDetector.Model
     /// <summary>
     /// An exception indicating a throttling error.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ThrottlingException : AmazonFraudDetectorException
@@ -86,7 +86,7 @@ namespace Amazon.FraudDetector.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ThrottlingException class with serialized data.
         /// </summary>

@@ -34,7 +34,7 @@ namespace Amazon.Organizations.Model
     /// in the organization. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html#enable_policies_on_root">Managing
     /// AWS Organizations Policies</a>in the <i>AWS Organizations User Guide.</i>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PolicyTypeNotAvailableForOrganizationException : AmazonOrganizationsException
@@ -89,7 +89,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PolicyTypeNotAvailableForOrganizationException class with serialized data.
         /// </summary>

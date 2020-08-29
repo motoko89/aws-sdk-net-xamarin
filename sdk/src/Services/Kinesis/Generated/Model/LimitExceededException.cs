@@ -32,7 +32,7 @@ namespace Amazon.Kinesis.Model
     /// The requested resource exceeds the maximum number allowed, or the number of concurrent
     /// stream requests exceeds the maximum number allowed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonKinesisException
@@ -87,7 +87,7 @@ namespace Amazon.Kinesis.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

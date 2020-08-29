@@ -32,7 +32,7 @@ namespace Amazon.EC2InstanceConnect.Model
     /// Indicates that either your AWS credentials are invalid or you do not have access to
     /// the EC2 instance.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AuthException : AmazonEC2InstanceConnectException
@@ -87,7 +87,7 @@ namespace Amazon.EC2InstanceConnect.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AuthException class with serialized data.
         /// </summary>

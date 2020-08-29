@@ -32,7 +32,7 @@ namespace Amazon.CloudFormation.Model
     /// Another operation has been performed on this stack set since the specified operation
     /// was performed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class StaleRequestException : AmazonCloudFormationException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFormation.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the StaleRequestException class with serialized data.
         /// </summary>

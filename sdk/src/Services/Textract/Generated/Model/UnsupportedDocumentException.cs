@@ -33,7 +33,7 @@ namespace Amazon.Textract.Model
     /// can be in PNG or JPEG format. Documents for asynchronous operations can also be in
     /// PDF format.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedDocumentException : AmazonTextractException
@@ -88,7 +88,7 @@ namespace Amazon.Textract.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedDocumentException class with serialized data.
         /// </summary>

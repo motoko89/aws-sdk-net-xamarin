@@ -31,7 +31,7 @@ namespace Amazon.AppConfig.Model
     /// <summary>
     /// The input fails to satisfy the constraints specified by an AWS service.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadRequestException : AmazonAppConfigException
@@ -86,7 +86,7 @@ namespace Amazon.AppConfig.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadRequestException class with serialized data.
         /// </summary>

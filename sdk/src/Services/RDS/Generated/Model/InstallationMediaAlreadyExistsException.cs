@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// The specified installation medium has already been imported.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InstallationMediaAlreadyExistsException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InstallationMediaAlreadyExistsException class with serialized data.
         /// </summary>

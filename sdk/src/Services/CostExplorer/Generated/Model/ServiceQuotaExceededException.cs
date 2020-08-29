@@ -32,7 +32,7 @@ namespace Amazon.CostExplorer.Model
     /// You've reached the limit on the number of resources you can create, or exceeded the
     /// size of an individual resources.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceQuotaExceededException : AmazonCostExplorerException
@@ -87,7 +87,7 @@ namespace Amazon.CostExplorer.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceQuotaExceededException class with serialized data.
         /// </summary>

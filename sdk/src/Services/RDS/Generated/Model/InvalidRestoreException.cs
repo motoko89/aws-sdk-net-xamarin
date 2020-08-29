@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// Cannot restore from VPC backup to non-VPC DB instance.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRestoreException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRestoreException class with serialized data.
         /// </summary>

@@ -34,7 +34,7 @@ namespace Amazon.CodeDeploy.Model
     /// weren't part of the previous successful deployment. Valid values include "DISALLOW,"
     /// "OVERWRITE," and "RETAIN."
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidFileExistsBehaviorException : AmazonCodeDeployException
@@ -89,7 +89,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidFileExistsBehaviorException class with serialized data.
         /// </summary>

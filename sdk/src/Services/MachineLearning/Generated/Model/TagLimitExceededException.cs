@@ -31,7 +31,7 @@ namespace Amazon.MachineLearning.Model
     /// <summary>
     /// 
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TagLimitExceededException : AmazonMachineLearningException
@@ -86,7 +86,7 @@ namespace Amazon.MachineLearning.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TagLimitExceededException class with serialized data.
         /// </summary>

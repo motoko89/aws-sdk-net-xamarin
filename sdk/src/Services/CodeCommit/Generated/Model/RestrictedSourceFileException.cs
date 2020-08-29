@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The commit cannot be created because one of the changes specifies copying or moving
     /// a .gitkeep file.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RestrictedSourceFileException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RestrictedSourceFileException class with serialized data.
         /// </summary>

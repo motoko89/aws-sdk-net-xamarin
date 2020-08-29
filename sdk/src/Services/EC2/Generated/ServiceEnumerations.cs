@@ -1421,6 +1421,64 @@ namespace Amazon.EC2
 
 
     /// <summary>
+    /// Constants used for properties of type CarrierGatewayState.
+    /// </summary>
+    public class CarrierGatewayState : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Available for CarrierGatewayState
+        /// </summary>
+        public static readonly CarrierGatewayState Available = new CarrierGatewayState("available");
+        /// <summary>
+        /// Constant Deleted for CarrierGatewayState
+        /// </summary>
+        public static readonly CarrierGatewayState Deleted = new CarrierGatewayState("deleted");
+        /// <summary>
+        /// Constant Deleting for CarrierGatewayState
+        /// </summary>
+        public static readonly CarrierGatewayState Deleting = new CarrierGatewayState("deleting");
+        /// <summary>
+        /// Constant Pending for CarrierGatewayState
+        /// </summary>
+        public static readonly CarrierGatewayState Pending = new CarrierGatewayState("pending");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public CarrierGatewayState(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static CarrierGatewayState FindValue(string value)
+        {
+            return FindValue<CarrierGatewayState>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator CarrierGatewayState(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ClientCertificateRevocationListStatusCode.
     /// </summary>
     public class ClientCertificateRevocationListStatusCode : ConstantClass
@@ -5064,6 +5122,38 @@ namespace Amazon.EC2
         /// Constant C5a8xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType C5a8xlarge = new InstanceType("c5a.8xlarge");
+        /// <summary>
+        /// Constant C5ad12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5ad12xlarge = new InstanceType("c5ad.12xlarge");
+        /// <summary>
+        /// Constant C5ad16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5ad16xlarge = new InstanceType("c5ad.16xlarge");
+        /// <summary>
+        /// Constant C5ad24xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5ad24xlarge = new InstanceType("c5ad.24xlarge");
+        /// <summary>
+        /// Constant C5ad2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5ad2xlarge = new InstanceType("c5ad.2xlarge");
+        /// <summary>
+        /// Constant C5ad4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5ad4xlarge = new InstanceType("c5ad.4xlarge");
+        /// <summary>
+        /// Constant C5ad8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5ad8xlarge = new InstanceType("c5ad.8xlarge");
+        /// <summary>
+        /// Constant C5adLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5adLarge = new InstanceType("c5ad.large");
+        /// <summary>
+        /// Constant C5adXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C5adXlarge = new InstanceType("c5ad.xlarge");
         /// <summary>
         /// Constant C5aLarge for InstanceType
         /// </summary>
@@ -11055,6 +11145,64 @@ namespace Amazon.EC2
 
 
     /// <summary>
+    /// Constants used for properties of type TransitGatewayPrefixListReferenceState.
+    /// </summary>
+    public class TransitGatewayPrefixListReferenceState : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Available for TransitGatewayPrefixListReferenceState
+        /// </summary>
+        public static readonly TransitGatewayPrefixListReferenceState Available = new TransitGatewayPrefixListReferenceState("available");
+        /// <summary>
+        /// Constant Deleting for TransitGatewayPrefixListReferenceState
+        /// </summary>
+        public static readonly TransitGatewayPrefixListReferenceState Deleting = new TransitGatewayPrefixListReferenceState("deleting");
+        /// <summary>
+        /// Constant Modifying for TransitGatewayPrefixListReferenceState
+        /// </summary>
+        public static readonly TransitGatewayPrefixListReferenceState Modifying = new TransitGatewayPrefixListReferenceState("modifying");
+        /// <summary>
+        /// Constant Pending for TransitGatewayPrefixListReferenceState
+        /// </summary>
+        public static readonly TransitGatewayPrefixListReferenceState Pending = new TransitGatewayPrefixListReferenceState("pending");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TransitGatewayPrefixListReferenceState(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TransitGatewayPrefixListReferenceState FindValue(string value)
+        {
+            return FindValue<TransitGatewayPrefixListReferenceState>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TransitGatewayPrefixListReferenceState(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type TransitGatewayPropagationState.
     /// </summary>
     public class TransitGatewayPropagationState : ConstantClass
@@ -11388,6 +11536,56 @@ namespace Amazon.EC2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator TransportProtocol(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TunnelInsideIpVersion.
+    /// </summary>
+    public class TunnelInsideIpVersion : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Ipv4 for TunnelInsideIpVersion
+        /// </summary>
+        public static readonly TunnelInsideIpVersion Ipv4 = new TunnelInsideIpVersion("ipv4");
+        /// <summary>
+        /// Constant Ipv6 for TunnelInsideIpVersion
+        /// </summary>
+        public static readonly TunnelInsideIpVersion Ipv6 = new TunnelInsideIpVersion("ipv6");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TunnelInsideIpVersion(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TunnelInsideIpVersion FindValue(string value)
+        {
+            return FindValue<TunnelInsideIpVersion>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TunnelInsideIpVersion(string value)
         {
             return FindValue(value);
         }
@@ -11960,6 +12158,10 @@ namespace Amazon.EC2
         /// Constant Io1 for VolumeType
         /// </summary>
         public static readonly VolumeType Io1 = new VolumeType("io1");
+        /// <summary>
+        /// Constant Io2 for VolumeType
+        /// </summary>
+        public static readonly VolumeType Io2 = new VolumeType("io2");
         /// <summary>
         /// Constant Sc1 for VolumeType
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.Rekognition.Model
     /// <summary>
     /// Pagination token in the request is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidPaginationTokenException : AmazonRekognitionException
@@ -86,7 +86,7 @@ namespace Amazon.Rekognition.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidPaginationTokenException class with serialized data.
         /// </summary>

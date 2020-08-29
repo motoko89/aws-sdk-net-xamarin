@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// You cannot modify or delete this comment. Only comment authors can modify or delete
     /// their comments.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CommentNotCreatedByCallerException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CommentNotCreatedByCallerException class with serialized data.
         /// </summary>

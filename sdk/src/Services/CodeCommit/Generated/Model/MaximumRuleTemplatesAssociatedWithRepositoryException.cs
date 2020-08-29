@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The maximum number of approval rule templates for a repository has been exceeded.
     /// You cannot associate more than 25 approval rule templates with a repository.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MaximumRuleTemplatesAssociatedWithRepositoryException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MaximumRuleTemplatesAssociatedWithRepositoryException class with serialized data.
         /// </summary>

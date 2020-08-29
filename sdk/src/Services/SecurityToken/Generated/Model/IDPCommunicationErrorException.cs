@@ -35,7 +35,7 @@ namespace Amazon.SecurityToken.Model
     /// that you don't exceed the request rate. If the error persists, the identity provider
     /// might be down or not responding.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IDPCommunicationErrorException : AmazonSecurityTokenServiceException
@@ -90,7 +90,7 @@ namespace Amazon.SecurityToken.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IDPCommunicationErrorException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.IotData.Model
     /// <summary>
     /// The document encoding is not supported.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedDocumentEncodingException : AmazonIotDataException
@@ -86,7 +86,7 @@ namespace Amazon.IotData.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedDocumentEncodingException class with serialized data.
         /// </summary>

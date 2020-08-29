@@ -31,7 +31,7 @@ namespace Amazon.ACMPCA.Model
     /// <summary>
     /// Your request is already in progress.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RequestInProgressException : AmazonACMPCAException
@@ -86,7 +86,7 @@ namespace Amazon.ACMPCA.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RequestInProgressException class with serialized data.
         /// </summary>

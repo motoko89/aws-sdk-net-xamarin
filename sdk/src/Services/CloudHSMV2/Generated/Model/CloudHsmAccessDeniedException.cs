@@ -32,7 +32,7 @@ namespace Amazon.CloudHSMV2.Model
     /// The request was rejected because the requester does not have permission to perform
     /// the requested operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CloudHsmAccessDeniedException : AmazonCloudHSMV2Exception
@@ -87,7 +87,7 @@ namespace Amazon.CloudHSMV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CloudHsmAccessDeniedException class with serialized data.
         /// </summary>

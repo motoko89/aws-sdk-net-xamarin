@@ -31,7 +31,7 @@ namespace Amazon.FSx.Model
     /// <summary>
     /// The path provided for data repository import isn't valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidImportPathException : AmazonFSxException
@@ -86,7 +86,7 @@ namespace Amazon.FSx.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidImportPathException class with serialized data.
         /// </summary>

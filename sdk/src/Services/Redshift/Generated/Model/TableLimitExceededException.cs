@@ -32,7 +32,7 @@ namespace Amazon.Redshift.Model
     /// The number of tables in the cluster exceeds the limit for the requested new cluster
     /// node type.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TableLimitExceededException : AmazonRedshiftException
@@ -87,7 +87,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TableLimitExceededException class with serialized data.
         /// </summary>

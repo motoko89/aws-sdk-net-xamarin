@@ -31,7 +31,7 @@ namespace Amazon.Polly.Model
     /// <summary>
     /// SSML speech marks are not supported for plain text-type input.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SsmlMarksNotSupportedForTextTypeException : AmazonPollyException
@@ -86,7 +86,7 @@ namespace Amazon.Polly.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SsmlMarksNotSupportedForTextTypeException class with serialized data.
         /// </summary>

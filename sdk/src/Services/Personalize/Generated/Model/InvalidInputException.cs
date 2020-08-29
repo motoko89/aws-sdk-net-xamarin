@@ -31,7 +31,7 @@ namespace Amazon.Personalize.Model
     /// <summary>
     /// Provide a valid value for the field or parameter.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidInputException : AmazonPersonalizeException
@@ -86,7 +86,7 @@ namespace Amazon.Personalize.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidInputException class with serialized data.
         /// </summary>

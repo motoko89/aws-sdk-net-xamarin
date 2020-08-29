@@ -32,7 +32,7 @@ namespace Amazon.WorkMail.Model
     /// An operation received a valid organization identifier that either doesn't belong or
     /// exist in the system.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OrganizationNotFoundException : AmazonWorkMailException
@@ -87,7 +87,7 @@ namespace Amazon.WorkMail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OrganizationNotFoundException class with serialized data.
         /// </summary>

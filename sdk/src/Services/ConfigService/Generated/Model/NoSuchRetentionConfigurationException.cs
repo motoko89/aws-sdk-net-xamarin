@@ -31,7 +31,7 @@ namespace Amazon.ConfigService.Model
     /// <summary>
     /// You have specified a retention configuration that does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NoSuchRetentionConfigurationException : AmazonConfigServiceException
@@ -86,7 +86,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NoSuchRetentionConfigurationException class with serialized data.
         /// </summary>

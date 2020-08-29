@@ -31,7 +31,7 @@ namespace Amazon.QLDBSession.Model
     /// <summary>
     /// Returned when the rate of requests exceeds the allowed throughput.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RateExceededException : AmazonQLDBSessionException
@@ -86,7 +86,7 @@ namespace Amazon.QLDBSession.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RateExceededException class with serialized data.
         /// </summary>

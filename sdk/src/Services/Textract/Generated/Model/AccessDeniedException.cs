@@ -31,7 +31,7 @@ namespace Amazon.Textract.Model
     /// <summary>
     /// You aren't authorized to perform the action.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedException : AmazonTextractException
@@ -86,7 +86,7 @@ namespace Amazon.Textract.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedException class with serialized data.
         /// </summary>

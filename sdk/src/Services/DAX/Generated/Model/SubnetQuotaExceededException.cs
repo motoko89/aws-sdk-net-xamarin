@@ -32,7 +32,7 @@ namespace Amazon.DAX.Model
     /// The request cannot be processed because it would exceed the allowed number of subnets
     /// in a subnet group.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SubnetQuotaExceededException : AmazonDAXException
@@ -87,7 +87,7 @@ namespace Amazon.DAX.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SubnetQuotaExceededException class with serialized data.
         /// </summary>

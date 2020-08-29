@@ -31,7 +31,7 @@ namespace Amazon.IoT.Model
     /// <summary>
     /// You can't delete the resource because it is attached to one or more resources.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DeleteConflictException : AmazonIoTException
@@ -86,7 +86,7 @@ namespace Amazon.IoT.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DeleteConflictException class with serialized data.
         /// </summary>

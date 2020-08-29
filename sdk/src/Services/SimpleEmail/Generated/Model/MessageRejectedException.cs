@@ -32,7 +32,7 @@ namespace Amazon.SimpleEmail.Model
     /// Indicates that the action failed, and the message could not be sent. Check the error
     /// stack for more information about what caused the error.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MessageRejectedException : AmazonSimpleEmailServiceException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MessageRejectedException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// The DB instance isn't in a valid state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDBInstanceStateException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDBInstanceStateException class with serialized data.
         /// </summary>

@@ -38,7 +38,7 @@ namespace Amazon.DocDB.Model
     /// behalf using IAM.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AuthorizationNotFoundException : AmazonDocDBException
@@ -93,7 +93,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AuthorizationNotFoundException class with serialized data.
         /// </summary>

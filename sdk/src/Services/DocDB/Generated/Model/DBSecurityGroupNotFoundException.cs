@@ -31,7 +31,7 @@ namespace Amazon.DocDB.Model
     /// <summary>
     /// <code>DBSecurityGroupName</code> doesn't refer to an existing security group.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBSecurityGroupNotFoundException : AmazonDocDBException
@@ -86,7 +86,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBSecurityGroupNotFoundException class with serialized data.
         /// </summary>

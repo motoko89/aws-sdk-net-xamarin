@@ -31,7 +31,7 @@ namespace Amazon.MarketplaceCatalog.Model
     /// <summary>
     /// There was an internal service exception.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServiceException : AmazonMarketplaceCatalogException
@@ -86,7 +86,7 @@ namespace Amazon.MarketplaceCatalog.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServiceException class with serialized data.
         /// </summary>

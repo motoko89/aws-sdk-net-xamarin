@@ -33,7 +33,7 @@ namespace Amazon.RDS.Model
     /// to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and
     /// <b>S3IngestionRoleArn</b> values and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidS3BucketException : AmazonRDSException
@@ -88,7 +88,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidS3BucketException class with serialized data.
         /// </summary>

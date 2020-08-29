@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// The user attempted to create a new DB cluster and the user has already reached the
     /// maximum allowed DB cluster quota.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBClusterQuotaExceededException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBClusterQuotaExceededException class with serialized data.
         /// </summary>

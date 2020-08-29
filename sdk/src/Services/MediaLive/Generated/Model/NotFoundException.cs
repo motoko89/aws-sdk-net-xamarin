@@ -31,7 +31,7 @@ namespace Amazon.MediaLive.Model
     /// <summary>
     /// Placeholder documentation for NotFoundException
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NotFoundException : AmazonMediaLiveException
@@ -86,7 +86,7 @@ namespace Amazon.MediaLive.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NotFoundException class with serialized data.
         /// </summary>

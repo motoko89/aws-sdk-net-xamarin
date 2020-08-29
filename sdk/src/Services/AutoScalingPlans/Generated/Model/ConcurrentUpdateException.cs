@@ -32,7 +32,7 @@ namespace Amazon.AutoScalingPlans.Model
     /// Concurrent updates caused an exception, for example, if you request an update to a
     /// scaling plan that already has a pending update.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentUpdateException : AmazonAutoScalingPlansException
@@ -87,7 +87,7 @@ namespace Amazon.AutoScalingPlans.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentUpdateException class with serialized data.
         /// </summary>

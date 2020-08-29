@@ -40,6 +40,7 @@ namespace Amazon.LicenseManager
     public partial interface IAmazonLicenseManager : IAmazonService, IDisposable
     {
 
+
         
         #region  CreateLicenseConfiguration
 
@@ -52,9 +53,9 @@ namespace Amazon.LicenseManager
         /// A license configuration is an abstraction of a customer license agreement that can
         /// be consumed and enforced by License Manager. Components include specifications for
         /// the license type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared
-        /// tenancy, Dedicated Instance, Dedicated Host, or all of these), host affinity (how
-        /// long a VM must be associated with a host), and the number of licenses purchased and
-        /// used.
+        /// tenancy, Dedicated Instance, Dedicated Host, or all of these), license affinity to
+        /// host (how long a license must be associated with a host), and the number of licenses
+        /// purchased and used.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLicenseConfiguration service method.</param>
@@ -92,9 +93,9 @@ namespace Amazon.LicenseManager
         /// A license configuration is an abstraction of a customer license agreement that can
         /// be consumed and enforced by License Manager. Components include specifications for
         /// the license type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared
-        /// tenancy, Dedicated Instance, Dedicated Host, or all of these), host affinity (how
-        /// long a VM must be associated with a host), and the number of licenses purchased and
-        /// used.
+        /// tenancy, Dedicated Instance, Dedicated Host, or all of these), license affinity to
+        /// host (how long a license must be associated with a host), and the number of licenses
+        /// purchased and used.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLicenseConfiguration service method.</param>
@@ -904,16 +905,6 @@ namespace Amazon.LicenseManager
 
         /// <summary>
         /// Modifies the attributes of an existing license configuration.
-        /// 
-        ///  
-        /// <para>
-        /// A license configuration is an abstraction of a customer license agreement that can
-        /// be consumed and enforced by License Manager. Components include specifications for
-        /// the license type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared
-        /// tenancy, Dedicated Instance, Dedicated Host, or all of these), host affinity (how
-        /// long a VM must be associated with a host), and the number of licenses purchased and
-        /// used.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateLicenseConfiguration service method.</param>
         /// 
@@ -941,16 +932,6 @@ namespace Amazon.LicenseManager
 
         /// <summary>
         /// Modifies the attributes of an existing license configuration.
-        /// 
-        ///  
-        /// <para>
-        /// A license configuration is an abstraction of a customer license agreement that can
-        /// be consumed and enforced by License Manager. Components include specifications for
-        /// the license type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared
-        /// tenancy, Dedicated Instance, Dedicated Host, or all of these), host affinity (how
-        /// long a VM must be associated with a host), and the number of licenses purchased and
-        /// used.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateLicenseConfiguration service method.</param>
         /// <param name="cancellationToken">

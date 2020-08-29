@@ -62,7 +62,7 @@ namespace Amazon.ConfigService.Model
     /// </para>
     ///  </li> </ul> </li> </ul>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InsufficientPermissionsException : AmazonConfigServiceException
@@ -117,7 +117,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InsufficientPermissionsException class with serialized data.
         /// </summary>

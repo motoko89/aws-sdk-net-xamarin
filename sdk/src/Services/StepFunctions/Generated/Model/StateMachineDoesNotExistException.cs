@@ -31,7 +31,7 @@ namespace Amazon.StepFunctions.Model
     /// <summary>
     /// The specified state machine does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class StateMachineDoesNotExistException : AmazonStepFunctionsException
@@ -86,7 +86,7 @@ namespace Amazon.StepFunctions.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the StateMachineDoesNotExistException class with serialized data.
         /// </summary>

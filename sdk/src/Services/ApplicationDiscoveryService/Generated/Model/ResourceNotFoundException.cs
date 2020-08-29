@@ -32,7 +32,7 @@ namespace Amazon.ApplicationDiscoveryService.Model
     /// The specified configuration ID was not located. Verify the configuration ID and try
     /// again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonApplicationDiscoveryServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ApplicationDiscoveryService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

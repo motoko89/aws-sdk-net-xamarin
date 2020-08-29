@@ -32,7 +32,7 @@ namespace Amazon.SimpleEmail.Model
     /// Indicates that the template that you specified could not be rendered. This issue may
     /// occur when a template refers to a partial that does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidTemplateException : AmazonSimpleEmailServiceException
@@ -88,7 +88,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidTemplateException class with serialized data.
         /// </summary>

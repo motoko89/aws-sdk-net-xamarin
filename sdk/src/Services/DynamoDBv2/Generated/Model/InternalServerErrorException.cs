@@ -31,7 +31,7 @@ namespace Amazon.DynamoDBv2.Model
     /// <summary>
     /// An error occurred on the server side.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerErrorException : AmazonDynamoDBException
@@ -86,7 +86,7 @@ namespace Amazon.DynamoDBv2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerErrorException class with serialized data.
         /// </summary>

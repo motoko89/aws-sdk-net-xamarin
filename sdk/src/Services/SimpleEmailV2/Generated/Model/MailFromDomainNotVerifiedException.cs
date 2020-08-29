@@ -31,7 +31,7 @@ namespace Amazon.SimpleEmailV2.Model
     /// <summary>
     /// The message can't be sent because the sending domain isn't verified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MailFromDomainNotVerifiedException : AmazonSimpleEmailServiceV2Exception
@@ -86,7 +86,7 @@ namespace Amazon.SimpleEmailV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MailFromDomainNotVerifiedException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.ECR.Model
     /// The specified repository and registry combination does not have an associated repository
     /// policy.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RepositoryPolicyNotFoundException : AmazonECRException
@@ -87,7 +87,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RepositoryPolicyNotFoundException class with serialized data.
         /// </summary>

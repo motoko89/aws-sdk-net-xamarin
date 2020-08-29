@@ -31,7 +31,7 @@ namespace Amazon.AppMesh.Model
     /// <summary>
     /// The request syntax was malformed. Check your request syntax and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadRequestException : AmazonAppMeshException
@@ -86,7 +86,7 @@ namespace Amazon.AppMesh.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadRequestException class with serialized data.
         /// </summary>

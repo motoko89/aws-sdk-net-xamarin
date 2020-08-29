@@ -32,7 +32,7 @@ namespace Amazon.KinesisAnalytics.Model
     /// Exception thrown as a result of concurrent modification to an application. For example,
     /// two individuals attempting to edit the same application at the same time.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentModificationException : AmazonKinesisAnalyticsException
@@ -87,7 +87,7 @@ namespace Amazon.KinesisAnalytics.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentModificationException class with serialized data.
         /// </summary>

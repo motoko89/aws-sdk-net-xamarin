@@ -31,7 +31,7 @@ namespace Amazon.XRay.Model
     /// <summary>
     /// The request exceeds the maximum number of requests per second.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ThrottledException : AmazonXRayException
@@ -86,7 +86,7 @@ namespace Amazon.XRay.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ThrottledException class with serialized data.
         /// </summary>

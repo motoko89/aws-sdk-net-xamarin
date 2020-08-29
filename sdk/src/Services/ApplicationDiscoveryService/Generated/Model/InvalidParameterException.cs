@@ -31,7 +31,7 @@ namespace Amazon.ApplicationDiscoveryService.Model
     /// <summary>
     /// One or more parameters are not valid. Verify the parameters and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterException : AmazonApplicationDiscoveryServiceException
@@ -86,7 +86,7 @@ namespace Amazon.ApplicationDiscoveryService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterException class with serialized data.
         /// </summary>

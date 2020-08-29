@@ -31,7 +31,7 @@ namespace Amazon.WAF.Model
     /// <summary>
     /// The specified subscription does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFSubscriptionNotFoundException : AmazonWAFException
@@ -86,7 +86,7 @@ namespace Amazon.WAF.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFSubscriptionNotFoundException class with serialized data.
         /// </summary>

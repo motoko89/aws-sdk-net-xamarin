@@ -32,7 +32,7 @@ namespace Amazon.CodeDeploy.Model
     /// A lifecycle event hook is invalid. Review the <code>hooks</code> section in your AppSpec
     /// file to ensure the lifecycle events and <code>hooks</code> functions are valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidLifecycleEventHookExecutionIdException : AmazonCodeDeployException
@@ -87,7 +87,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidLifecycleEventHookExecutionIdException class with serialized data.
         /// </summary>

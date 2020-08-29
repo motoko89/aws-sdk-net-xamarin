@@ -31,7 +31,7 @@ namespace Amazon.ElasticInference.Model
     /// <summary>
     /// Raised when the requested resource cannot be found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonElasticInferenceException
@@ -86,7 +86,7 @@ namespace Amazon.ElasticInference.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.SSOOIDC.Model
     /// Indicates that the client is making the request too frequently and is more than the
     /// service can handle.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SlowDownException : AmazonSSOOIDCException
@@ -89,7 +89,7 @@ namespace Amazon.SSOOIDC.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SlowDownException class with serialized data.
         /// </summary>

@@ -60,10 +60,40 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         unmarshalledObject.EnableAcceleration = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("localIpv4NetworkCidr", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.LocalIpv4NetworkCidr = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("localIpv6NetworkCidr", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.LocalIpv6NetworkCidr = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("remoteIpv4NetworkCidr", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.RemoteIpv4NetworkCidr = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("remoteIpv6NetworkCidr", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.RemoteIpv6NetworkCidr = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("staticRoutesOnly", targetDepth))
                     {
                         var unmarshaller = BoolUnmarshaller.Instance;
                         unmarshalledObject.StaticRoutesOnly = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("tunnelInsideIpVersion", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.TunnelInsideIpVersion = unmarshaller.Unmarshall(context);
                         continue;
                     }
                     if (context.TestExpression("tunnelOptionSet/item", targetDepth))

@@ -32,7 +32,7 @@ namespace Amazon.CodePipeline.Model
     /// The stage has failed in a later run of the pipeline and the pipelineExecutionId associated
     /// with the request is out of date.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NotLatestPipelineExecutionException : AmazonCodePipelineException
@@ -87,7 +87,7 @@ namespace Amazon.CodePipeline.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NotLatestPipelineExecutionException class with serialized data.
         /// </summary>

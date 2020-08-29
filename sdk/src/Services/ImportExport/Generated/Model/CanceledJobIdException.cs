@@ -31,7 +31,7 @@ namespace Amazon.ImportExport.Model
     /// <summary>
     /// The specified job ID has been canceled and is no longer valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CanceledJobIdException : AmazonImportExportException
@@ -86,7 +86,7 @@ namespace Amazon.ImportExport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CanceledJobIdException class with serialized data.
         /// </summary>

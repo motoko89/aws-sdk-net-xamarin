@@ -31,7 +31,7 @@ namespace Amazon.CostExplorer.Model
     /// <summary>
     /// You made too many calls in a short period of time. Try again later.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonCostExplorerException
@@ -86,7 +86,7 @@ namespace Amazon.CostExplorer.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

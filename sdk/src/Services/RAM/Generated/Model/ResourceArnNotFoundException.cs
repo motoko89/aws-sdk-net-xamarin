@@ -31,7 +31,7 @@ namespace Amazon.RAM.Model
     /// <summary>
     /// An Amazon Resource Name (ARN) was not found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceArnNotFoundException : AmazonRAMException
@@ -86,7 +86,7 @@ namespace Amazon.RAM.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceArnNotFoundException class with serialized data.
         /// </summary>

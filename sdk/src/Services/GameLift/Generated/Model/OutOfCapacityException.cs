@@ -32,7 +32,7 @@ namespace Amazon.GameLift.Model
     /// The specified game server group has no available game servers to fulfill a <code>ClaimGameServer</code>
     /// request. Clients can retry such requests immediately or after a waiting period.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OutOfCapacityException : AmazonGameLiftException
@@ -87,7 +87,7 @@ namespace Amazon.GameLift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OutOfCapacityException class with serialized data.
         /// </summary>

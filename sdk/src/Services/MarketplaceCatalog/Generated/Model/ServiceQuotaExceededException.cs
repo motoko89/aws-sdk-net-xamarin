@@ -31,7 +31,7 @@ namespace Amazon.MarketplaceCatalog.Model
     /// <summary>
     /// The maximum number of open requests per account has been exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceQuotaExceededException : AmazonMarketplaceCatalogException
@@ -86,7 +86,7 @@ namespace Amazon.MarketplaceCatalog.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceQuotaExceededException class with serialized data.
         /// </summary>

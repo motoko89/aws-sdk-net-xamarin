@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The repository does not contain any pull requests with that pull request ID. Use GetPullRequest
     /// to verify the correct repository name for the pull request ID.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RepositoryNotAssociatedWithPullRequestException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RepositoryNotAssociatedWithPullRequestException class with serialized data.
         /// </summary>

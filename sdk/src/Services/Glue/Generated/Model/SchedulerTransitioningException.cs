@@ -31,7 +31,7 @@ namespace Amazon.Glue.Model
     /// <summary>
     /// The specified scheduler is transitioning.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SchedulerTransitioningException : AmazonGlueException
@@ -86,7 +86,7 @@ namespace Amazon.Glue.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SchedulerTransitioningException class with serialized data.
         /// </summary>

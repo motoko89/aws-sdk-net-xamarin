@@ -31,7 +31,7 @@ namespace Amazon.KinesisAnalyticsV2.Model
     /// <summary>
     /// The specified input parameter value is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidArgumentException : AmazonKinesisAnalyticsV2Exception
@@ -86,7 +86,7 @@ namespace Amazon.KinesisAnalyticsV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidArgumentException class with serialized data.
         /// </summary>

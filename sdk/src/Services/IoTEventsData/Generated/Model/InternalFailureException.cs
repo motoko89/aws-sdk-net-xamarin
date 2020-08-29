@@ -31,7 +31,7 @@ namespace Amazon.IoTEventsData.Model
     /// <summary>
     /// An internal failure occured.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalFailureException : AmazonIoTEventsDataException
@@ -86,7 +86,7 @@ namespace Amazon.IoTEventsData.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalFailureException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.Chime.Model
     /// <summary>
     /// You don't have permissions to perform the requested operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedException : AmazonChimeException
@@ -87,7 +87,7 @@ namespace Amazon.Chime.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedException class with serialized data.
         /// </summary>

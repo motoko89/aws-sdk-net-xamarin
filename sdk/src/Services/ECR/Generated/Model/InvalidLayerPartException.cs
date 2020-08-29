@@ -32,7 +32,7 @@ namespace Amazon.ECR.Model
     /// The layer part size is not valid, or the first byte specified is not consecutive to
     /// the last byte of a previous layer part upload.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidLayerPartException : AmazonECRException
@@ -91,7 +91,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidLayerPartException class with serialized data.
         /// </summary>

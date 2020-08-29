@@ -31,7 +31,7 @@ namespace Amazon.SimpleWorkflow.Model
     /// <summary>
     /// Returned when the caller doesn't have sufficient permissions to invoke the action.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OperationNotPermittedException : AmazonSimpleWorkflowException
@@ -86,7 +86,7 @@ namespace Amazon.SimpleWorkflow.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OperationNotPermittedException class with serialized data.
         /// </summary>

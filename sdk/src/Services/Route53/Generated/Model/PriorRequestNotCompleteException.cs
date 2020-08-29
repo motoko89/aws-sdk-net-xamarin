@@ -35,7 +35,7 @@ namespace Amazon.Route53.Model
     /// request, we recommend that you wait, in intervals of increasing duration, before you
     /// try the request again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PriorRequestNotCompleteException : AmazonRoute53Exception
@@ -90,7 +90,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PriorRequestNotCompleteException class with serialized data.
         /// </summary>

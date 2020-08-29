@@ -2,7 +2,7 @@
   <PropertyGroup>
    <RunAnalyzersDuringBuild Condition="'$(RunAnalyzersDuringBuild)'==''">true</RunAnalyzersDuringBuild>
     <TargetFramework>net45</TargetFramework>
-    <DefineConstants>$(DefineConstants);TRACE;;BCL;BCL35;AWS_APM_API;LOCAL_FILE;DEBUG</DefineConstants>
+    <DefineConstants>$(DefineConstants);TRACE;BCL;BCL35;AWS_APM_API;DEBUG</DefineConstants>
     <DebugType>portable</DebugType>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>AWSSDK.UnitTests.CodeGuruReviewer.Net35</AssemblyName>
@@ -25,6 +25,7 @@
     <Compile Remove="**/_bcl45/**"/>
     <Compile Remove="**/obj/**"/>
     <None Remove="**/obj/**" />
+    <Compile Remove="**/_bcl45+netstandard/**"/>
   </ItemGroup>
 
   <ItemGroup>

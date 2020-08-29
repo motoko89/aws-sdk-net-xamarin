@@ -31,7 +31,7 @@ namespace Amazon.EBS.Model
     /// <summary>
     /// You do not have sufficient access to perform this action.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedException : AmazonEBSException
@@ -87,7 +87,7 @@ namespace Amazon.EBS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedException class with serialized data.
         /// </summary>

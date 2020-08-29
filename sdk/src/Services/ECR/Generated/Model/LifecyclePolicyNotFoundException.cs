@@ -31,7 +31,7 @@ namespace Amazon.ECR.Model
     /// <summary>
     /// The lifecycle policy could not be found, and no policy is set to the repository.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LifecyclePolicyNotFoundException : AmazonECRException
@@ -86,7 +86,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LifecyclePolicyNotFoundException class with serialized data.
         /// </summary>

@@ -33,7 +33,7 @@ namespace Amazon.ApiGatewayV2.Model
     /// resource associated with the request. Resolve the conflict before retrying this request.
     /// See the accompanying error message for details.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConflictException : AmazonApiGatewayV2Exception
@@ -88,7 +88,7 @@ namespace Amazon.ApiGatewayV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConflictException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.Redshift.Model
     /// The specified snapshot copy grant can't be found. Make sure that the name is typed
     /// correctly and that the grant exists in the destination region.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SnapshotCopyGrantNotFoundException : AmazonRedshiftException
@@ -87,7 +87,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SnapshotCopyGrantNotFoundException class with serialized data.
         /// </summary>

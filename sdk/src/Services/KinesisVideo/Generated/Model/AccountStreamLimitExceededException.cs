@@ -31,7 +31,7 @@ namespace Amazon.KinesisVideo.Model
     /// <summary>
     /// The number of streams created for the account is too high.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccountStreamLimitExceededException : AmazonKinesisVideoException
@@ -86,7 +86,7 @@ namespace Amazon.KinesisVideo.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccountStreamLimitExceededException class with serialized data.
         /// </summary>

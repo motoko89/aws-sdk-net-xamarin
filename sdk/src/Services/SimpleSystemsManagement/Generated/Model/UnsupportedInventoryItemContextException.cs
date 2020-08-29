@@ -33,7 +33,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// is not allowed for this inventory type. You can only use the <code>Context</code>
     /// attribute with inventory types like <code>AWS:ComplianceItem</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedInventoryItemContextException : AmazonSimpleSystemsManagementException
@@ -89,7 +89,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedInventoryItemContextException class with serialized data.
         /// </summary>

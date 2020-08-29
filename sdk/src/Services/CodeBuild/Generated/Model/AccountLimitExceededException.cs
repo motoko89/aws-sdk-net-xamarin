@@ -31,7 +31,7 @@ namespace Amazon.CodeBuild.Model
     /// <summary>
     /// An AWS service limit was exceeded for the calling AWS account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccountLimitExceededException : AmazonCodeBuildException
@@ -86,7 +86,7 @@ namespace Amazon.CodeBuild.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccountLimitExceededException class with serialized data.
         /// </summary>

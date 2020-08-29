@@ -32,7 +32,7 @@ namespace Amazon.ElasticLoadBalancing.Model
     /// A listener already exists for the specified load balancer name and port, but with
     /// a different instance port, protocol, or SSL certificate.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DuplicateListenerException : AmazonElasticLoadBalancingException
@@ -87,7 +87,7 @@ namespace Amazon.ElasticLoadBalancing.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DuplicateListenerException class with serialized data.
         /// </summary>

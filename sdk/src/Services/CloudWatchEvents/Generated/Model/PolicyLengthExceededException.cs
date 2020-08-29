@@ -31,7 +31,7 @@ namespace Amazon.CloudWatchEvents.Model
     /// <summary>
     /// The event bus policy is too long. For more information, see the limits.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PolicyLengthExceededException : AmazonCloudWatchEventsException
@@ -86,7 +86,7 @@ namespace Amazon.CloudWatchEvents.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PolicyLengthExceededException class with serialized data.
         /// </summary>

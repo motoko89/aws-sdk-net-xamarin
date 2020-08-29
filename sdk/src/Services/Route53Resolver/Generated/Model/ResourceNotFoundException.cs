@@ -31,7 +31,7 @@ namespace Amazon.Route53Resolver.Model
     /// <summary>
     /// The specified resource doesn't exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonRoute53ResolverException
@@ -87,7 +87,7 @@ namespace Amazon.Route53Resolver.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

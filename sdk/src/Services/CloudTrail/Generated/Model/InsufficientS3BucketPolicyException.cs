@@ -31,7 +31,7 @@ namespace Amazon.CloudTrail.Model
     /// <summary>
     /// This exception is thrown when the policy on the S3 bucket is not sufficient.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InsufficientS3BucketPolicyException : AmazonCloudTrailException
@@ -86,7 +86,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InsufficientS3BucketPolicyException class with serialized data.
         /// </summary>

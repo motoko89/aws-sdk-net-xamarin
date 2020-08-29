@@ -35,7 +35,7 @@ namespace Amazon.ApplicationAutoScaling.Model
     /// that deletes or deregisters a resource, this exception is thrown if the resource cannot
     /// be found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ObjectNotFoundException : AmazonApplicationAutoScalingException
@@ -90,7 +90,7 @@ namespace Amazon.ApplicationAutoScaling.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ObjectNotFoundException class with serialized data.
         /// </summary>

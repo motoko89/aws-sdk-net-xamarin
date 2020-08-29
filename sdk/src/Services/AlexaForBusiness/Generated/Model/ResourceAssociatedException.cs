@@ -31,7 +31,7 @@ namespace Amazon.AlexaForBusiness.Model
     /// <summary>
     /// Another resource is associated with the resource in the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceAssociatedException : AmazonAlexaForBusinessException
@@ -86,7 +86,7 @@ namespace Amazon.AlexaForBusiness.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceAssociatedException class with serialized data.
         /// </summary>

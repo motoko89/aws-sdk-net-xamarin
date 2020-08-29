@@ -33,7 +33,7 @@ namespace Amazon.Organizations.Model
     /// or the account whose credentials you used to make this request isn't a member of an
     /// organization.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccountNotFoundException : AmazonOrganizationsException
@@ -88,7 +88,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccountNotFoundException class with serialized data.
         /// </summary>

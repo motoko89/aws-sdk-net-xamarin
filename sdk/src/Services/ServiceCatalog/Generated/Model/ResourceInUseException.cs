@@ -32,7 +32,7 @@ namespace Amazon.ServiceCatalog.Model
     /// A resource that is currently in use. Ensure that the resource is not in use and retry
     /// the operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceInUseException : AmazonServiceCatalogException
@@ -87,7 +87,7 @@ namespace Amazon.ServiceCatalog.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceInUseException class with serialized data.
         /// </summary>

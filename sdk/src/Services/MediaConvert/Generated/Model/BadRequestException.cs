@@ -32,7 +32,7 @@ namespace Amazon.MediaConvert.Model
     /// The service can't process your request because of a problem in the request. Please
     /// check your request form and syntax.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadRequestException : AmazonMediaConvertException
@@ -87,7 +87,7 @@ namespace Amazon.MediaConvert.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadRequestException class with serialized data.
         /// </summary>

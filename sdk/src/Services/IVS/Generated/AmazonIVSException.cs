@@ -28,7 +28,7 @@ namespace Amazon.IVS
     ///<summary>
     /// Common exception for the IVS service.
     /// </summary>
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
     [Serializable]
 #endif
     public partial class AmazonIVSException : AmazonServiceException
@@ -88,7 +88,7 @@ namespace Amazon.IVS
         {
         }
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AmazonIVSException class with serialized data.
         /// </summary>

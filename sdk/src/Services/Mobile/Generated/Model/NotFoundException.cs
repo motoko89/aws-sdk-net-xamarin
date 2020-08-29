@@ -31,7 +31,7 @@ namespace Amazon.Mobile.Model
     /// <summary>
     /// No entity can be found with the specified identifier.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NotFoundException : AmazonMobileException
@@ -86,7 +86,7 @@ namespace Amazon.Mobile.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NotFoundException class with serialized data.
         /// </summary>

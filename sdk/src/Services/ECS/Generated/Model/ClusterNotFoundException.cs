@@ -32,7 +32,7 @@ namespace Amazon.ECS.Model
     /// The specified cluster could not be found. You can view your available clusters with
     /// <a>ListClusters</a>. Amazon ECS clusters are Region-specific.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ClusterNotFoundException : AmazonECSException
@@ -87,7 +87,7 @@ namespace Amazon.ECS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ClusterNotFoundException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.Lambda.Model
     /// The function was able to make a network connection to the configured file system,
     /// but the mount operation timed out.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EFSMountTimeoutException : AmazonLambdaException
@@ -88,7 +88,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EFSMountTimeoutException class with serialized data.
         /// </summary>

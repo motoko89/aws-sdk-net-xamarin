@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// This error can occur if someone else is modifying a subscription. You should retry
     /// the action.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidEventSubscriptionStateException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidEventSubscriptionStateException class with serialized data.
         /// </summary>

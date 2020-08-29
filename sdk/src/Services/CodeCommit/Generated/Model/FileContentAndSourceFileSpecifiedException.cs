@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// specified for the same file. You cannot provide both. Either specify a source file
     /// or provide the file content directly.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FileContentAndSourceFileSpecifiedException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FileContentAndSourceFileSpecifiedException class with serialized data.
         /// </summary>

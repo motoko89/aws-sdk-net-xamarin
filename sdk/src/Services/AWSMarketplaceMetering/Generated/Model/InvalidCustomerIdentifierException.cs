@@ -31,7 +31,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
     /// <summary>
     /// You have metered usage for a CustomerIdentifier that does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidCustomerIdentifierException : AmazonAWSMarketplaceMeteringException
@@ -86,7 +86,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidCustomerIdentifierException class with serialized data.
         /// </summary>

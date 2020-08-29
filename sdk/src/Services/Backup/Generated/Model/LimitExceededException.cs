@@ -32,7 +32,7 @@ namespace Amazon.Backup.Model
     /// A limit in the request has been exceeded; for example, a maximum number of items allowed
     /// in a request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonBackupException
@@ -90,7 +90,7 @@ namespace Amazon.Backup.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

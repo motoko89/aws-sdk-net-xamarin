@@ -32,7 +32,7 @@ namespace Amazon.IdentityManagement.Model
     /// The request was rejected because multiple requests to change this object were submitted
     /// simultaneously. Wait a few minutes and submit your request again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentModificationException : AmazonIdentityManagementServiceException
@@ -87,7 +87,7 @@ namespace Amazon.IdentityManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentModificationException class with serialized data.
         /// </summary>

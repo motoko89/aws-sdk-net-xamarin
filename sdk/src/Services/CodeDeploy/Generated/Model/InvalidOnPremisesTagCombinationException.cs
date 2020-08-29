@@ -32,7 +32,7 @@ namespace Amazon.CodeDeploy.Model
     /// A call was submitted that specified both OnPremisesTagFilters and OnPremisesTagSet,
     /// but only one of these data types can be used in a single call.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidOnPremisesTagCombinationException : AmazonCodeDeployException
@@ -87,7 +87,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidOnPremisesTagCombinationException class with serialized data.
         /// </summary>

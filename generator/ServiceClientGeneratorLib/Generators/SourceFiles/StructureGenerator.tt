@@ -52,7 +52,7 @@ namespace <#=this.Config.Namespace#>.Model
         if(this.Structure is ExceptionShape)
         {
 #>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
 <#

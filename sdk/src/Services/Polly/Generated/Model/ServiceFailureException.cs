@@ -31,7 +31,7 @@ namespace Amazon.Polly.Model
     /// <summary>
     /// An unknown condition has caused a service failure.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceFailureException : AmazonPollyException
@@ -86,7 +86,7 @@ namespace Amazon.Polly.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceFailureException class with serialized data.
         /// </summary>

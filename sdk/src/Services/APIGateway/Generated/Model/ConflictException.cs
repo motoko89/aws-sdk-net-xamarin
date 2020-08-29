@@ -31,7 +31,7 @@ namespace Amazon.APIGateway.Model
     /// <summary>
     /// The request configuration has conflicts. For details, see the accompanying error message.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConflictException : AmazonAPIGatewayException
@@ -86,7 +86,7 @@ namespace Amazon.APIGateway.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConflictException class with serialized data.
         /// </summary>

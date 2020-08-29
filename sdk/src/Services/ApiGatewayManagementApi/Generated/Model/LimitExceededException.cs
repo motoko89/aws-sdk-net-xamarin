@@ -32,7 +32,7 @@ namespace Amazon.ApiGatewayManagementApi.Model
     /// The client is sending more than the allowed number of requests per unit of time or
     /// the WebSocket client side buffer is full.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonApiGatewayManagementApiException
@@ -87,7 +87,7 @@ namespace Amazon.ApiGatewayManagementApi.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

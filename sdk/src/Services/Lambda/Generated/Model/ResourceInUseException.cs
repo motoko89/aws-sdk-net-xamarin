@@ -33,7 +33,7 @@ namespace Amazon.Lambda.Model
     /// to update an EventSource Mapping in CREATING, or tried to delete a EventSource mapping
     /// currently in the UPDATING state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceInUseException : AmazonLambdaException
@@ -89,7 +89,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceInUseException class with serialized data.
         /// </summary>

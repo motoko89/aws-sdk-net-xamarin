@@ -29,9 +29,9 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Route53Resolver.Model
 {
     /// <summary>
-    /// The specified resolver rule policy is invalid.
+    /// The specified Resolver rule policy is invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidPolicyDocumentException : AmazonRoute53ResolverException
@@ -86,7 +86,7 @@ namespace Amazon.Route53Resolver.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidPolicyDocumentException class with serialized data.
         /// </summary>

@@ -34,7 +34,7 @@ namespace Amazon.Textract.Model
     /// for example) raise a LimitExceededException exception (HTTP status code: 400) until
     /// the number of concurrently running jobs is below the Amazon Textract service limit.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonTextractException
@@ -89,7 +89,7 @@ namespace Amazon.Textract.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

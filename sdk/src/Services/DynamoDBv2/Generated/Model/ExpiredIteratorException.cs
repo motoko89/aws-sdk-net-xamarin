@@ -33,7 +33,7 @@ namespace Amazon.DynamoDBv2.Model
     /// A shard iterator expires 15 minutes after it is retrieved using the <code>GetShardIterator</code>
     /// action.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ExpiredIteratorException : AmazonDynamoDBException
@@ -88,7 +88,7 @@ namespace Amazon.DynamoDBv2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ExpiredIteratorException class with serialized data.
         /// </summary>

@@ -28,7 +28,7 @@ namespace Amazon.Synthetics
     ///<summary>
     /// Common exception for the Synthetics service.
     /// </summary>
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
     [Serializable]
 #endif
     public partial class AmazonSyntheticsException : AmazonServiceException
@@ -88,7 +88,7 @@ namespace Amazon.Synthetics
         {
         }
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AmazonSyntheticsException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CloudHSMV2.Model
     /// The request was rejected because of a tagging failure. Verify the tag conditions in
     /// all applicable policies, and then retry the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CloudHsmTagException : AmazonCloudHSMV2Exception
@@ -87,7 +87,7 @@ namespace Amazon.CloudHSMV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CloudHsmTagException class with serialized data.
         /// </summary>

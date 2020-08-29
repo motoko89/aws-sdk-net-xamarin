@@ -38,7 +38,7 @@ namespace Amazon.ConfigService.Model
     /// organization master account.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OrganizationAccessDeniedException : AmazonConfigServiceException
@@ -93,7 +93,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OrganizationAccessDeniedException class with serialized data.
         /// </summary>

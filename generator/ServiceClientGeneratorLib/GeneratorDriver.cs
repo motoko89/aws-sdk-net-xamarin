@@ -9,7 +9,6 @@ using ServiceClientGenerator.Generators.NuGet;
 using ServiceClientGenerator.Generators.SourceFiles;
 using ServiceClientGenerator.Generators.TestFiles;
 using StructureGenerator = ServiceClientGenerator.Generators.SourceFiles.StructureGenerator;
-using ServiceClientGenerator.Generators.Component;
 
 using Json.LitJson;
 using System.Collections.Concurrent;
@@ -65,11 +64,6 @@ namespace ServiceClientGenerator
         public string GeneratedFilesRoot { get; private set; }
 
         /// <summary>
-        /// The folder where all the xamarin componenets would be present
-        /// </summary>
-        public string ComponentsFilesRoot { get; private set; }
-
-        /// <summary>
         /// The folder where all the sample files are located
         /// </summary>
         public string SampleFilesRoot { get; private set; }
@@ -88,10 +82,13 @@ namespace ServiceClientGenerator
 
         private const string Bcl35SubFolder = "_bcl35";
         private const string Bcl45SubFolder = "_bcl45";
+        private const string NetStandardSubFolder = "_netstandard";
         private const string MobileSubFolder = "_mobile";
         private const string UnitySubFolder = "_unity";
+        private string PaginatorsSubFolder = string.Format("Model{0}_bcl45+netstandard", Path.DirectorySeparatorChar);
         private string MarshallingTestsSubFolder = string.Format("UnitTests{0}Generated{0}Marshalling", Path.DirectorySeparatorChar);
         private string CustomizationTestsSubFolder = string.Format("UnitTests{0}Generated{0}Customizations", Path.DirectorySeparatorChar);
+        private string PaginatorTestsSubFolder = string.Format("UnitTests{0}Generated{0}_bcl45+netstandard{0}Paginators", Path.DirectorySeparatorChar);
 
         public const string SourceSubFoldername = "src";
         public const string TestsSubFoldername = "test";
@@ -103,7 +100,6 @@ namespace ServiceClientGenerator
         public const string CommonTestSubFoldername = "Common";
         public const string UnitTestsSubFoldername = "UnitTests";
         public const string IntegrationTestsSubFolderName = "IntegrationTests";
-        public const string XamarinComponentsSubFolderName = "xamarin-components";
 
 
         // Records any new project files we produce as part of generation. If this collection is
@@ -131,9 +127,6 @@ namespace ServiceClientGenerator
 
             TestFilesRoot = Path.Combine(Options.SdkRootFolder, TestsSubFoldername);
 
-            ComponentsFilesRoot = Path.Combine(Options.SdkRootFolder, XamarinComponentsSubFolderName, Configuration.ServiceFolderName);
-
-            SampleFilesRoot = options.SamplesRootFolder;
             codeGeneratedServiceNames.Add(Configuration.ServiceFolderName);
         }
 
@@ -162,26 +155,17 @@ namespace ServiceClientGenerator
             ExecuteGenerator(new ServiceClients45(), "Amazon" + Configuration.ClassName + "Client.cs", Bcl45SubFolder);
             ExecuteGenerator(new ServiceInterface45(), "IAmazon" + Configuration.ClassName + ".cs", Bcl45SubFolder);
 
-            // Phone/Rt/Portable version
-            ExecuteGenerator(new ServiceClientsMobile(), "Amazon" + Configuration.ClassName + "Client.cs", MobileSubFolder);
-            ExecuteGenerator(new ServiceInterfaceMobile(), "IAmazon" + Configuration.ClassName + ".cs", MobileSubFolder);
+            // .NET Standard version
+            ExecuteGenerator(new ServiceClientsNetStandard(), "Amazon" + Configuration.ClassName + "Client.cs", NetStandardSubFolder);
+            ExecuteGenerator(new ServiceInterfaceNetStandard(), "IAmazon" + Configuration.ClassName + ".cs", NetStandardSubFolder);
 
             if (string.IsNullOrEmpty(Options.SelfServiceModel))
             {
-                //unity version
-                if (Configuration.SupportedInUnity)
-                {
-                    ExecuteGenerator(new ServiceInterfaceUnity(), "IAmazon" + Configuration.ClassName + ".cs", UnitySubFolder);
-                    ExecuteGenerator(new ServiceClientUnity(), "Amazon" + Configuration.ClassName + "Client.cs", UnitySubFolder);
-                }
                 // Do not generate AssemblyInfo.cs and nuspec file for child model.
                 // Use the one generated for the parent model.
                 if (!this.Configuration.IsChildConfig)
                 {
-                    ExecuteNugetFileGenerators();
-
-                    if (this.Configuration.EnableXamarinComponent)
-                        GenerateXamarinComponents();
+                    GenerateNuspec();
 
                     GenerateCodeAnalysisProject();
                 }
@@ -202,7 +186,6 @@ namespace ServiceClientGenerator
                 return;
             }
             
-
             // The top level request that all operation requests are children of
             ExecuteGenerator(new BaseRequest(), "Amazon" + Configuration.ClassName + "Request.cs", "Model");
 
@@ -211,7 +194,20 @@ namespace ServiceClientGenerator
 
             // Any enumerations for the service
             this.ExecuteGenerator(new ServiceEnumerations(), enumFileName);
+#if !BCL35
+            // Any paginators for the service
+            if (Configuration.ServiceModel.HasPaginators)
+            {
+                foreach (var operation in Configuration.ServiceModel.Operations)
+                {
+                    GeneratePaginator(operation);
+                }
+                ExecuteGenerator(new ServicePaginatorFactoryInterface(), $"I{Configuration.ServiceNameRoot}PaginatorFactory.cs", PaginatorsSubFolder);
+                ExecuteGenerator(new ServicePaginatorFactory(), $"{Configuration.ServiceNameRoot}PaginatorFactory.cs", PaginatorsSubFolder);
 
+                GeneratePaginatorTests();
+            }
+#endif
             // Do not generate base exception if this is a child model.
             // We use the base exceptions generated for the parent model.
             if (!this.Configuration.IsChildConfig)
@@ -513,6 +509,25 @@ namespace ServiceClientGenerator
                     }
                 }
             }
+        }
+
+        void GeneratePaginator(Operation operation)
+        {
+            if (operation.Paginators != null && !operation.UnsupportedPaginatorConfig)
+            {
+                // Generate operation paginator
+                BasePaginator paginatorGenerator = new BasePaginator();
+                paginatorGenerator.Operation = operation;
+                this.ExecuteGenerator(paginatorGenerator, $"{operation.Name}Paginator.cs", PaginatorsSubFolder);
+
+
+                // Generate operation paginator interface
+                BasePaginatorInterface paginatorInterfaceGenerator = new BasePaginatorInterface();
+                paginatorInterfaceGenerator.Operation = operation;
+                this.ExecuteGenerator(paginatorInterfaceGenerator, $"I{operation.Name}Paginator.cs", PaginatorsSubFolder);
+
+            }
+            
         }
 
         /// <summary>
@@ -898,114 +913,6 @@ namespace ServiceClientGenerator
             }
         }
 
-        void ExecuteNugetFileGenerators()
-        {
-            GeneratePackagesConfig();
-            GenerateNuspec();
-        }
-
-        void GeneratePackagesConfig()
-        {
-            var assemblyName = Configuration.Namespace.Replace("Amazon.", "AWSSDK.");
-            var session = new Dictionary<string, object>
-            {
-                { "AssemblyName", assemblyName },
-            };
-            var pcGenerator = new PackagesConfig() { Session = session };
-            var text = pcGenerator.TransformText();
-            WriteFile(ServiceFilesRoot, string.Empty, "packages.config", text);
-        }
-
-        void GenerateXamarinComponents()
-        {
-            var coreVersion = GenerationManifest.CoreVersion;
-
-            // we're generating services only, so can automatically add the core runtime
-            // as a dependency
-            var awsDependencies = new Dictionary<string, string>(StringComparer.Ordinal);
-
-            if (Configuration.ServiceDependencies != null)
-            {
-                var dependencies = Configuration.ServiceDependencies;
-                foreach (var kvp in dependencies)
-                {
-                    var service = kvp.Key;
-                    var version = kvp.Value;
-                    var dependentService = GenerationManifest.ServiceConfigurations.FirstOrDefault(x => string.Equals(x.Namespace, "Amazon." + service, StringComparison.InvariantCultureIgnoreCase));
-
-                    string previewFlag;
-                    if (dependentService != null && dependentService.InPreview)
-                    {
-                        previewFlag = GenerationManifest.PreviewLabel;
-                    }
-                    else if (string.Equals(service, "Core", StringComparison.InvariantCultureIgnoreCase) && GenerationManifest.DefaultToPreview)
-                    {
-                        previewFlag = GenerationManifest.PreviewLabel;
-                    }
-                    else
-                    {
-                        previewFlag = string.Empty;
-                    }
-
-                    var verTokens = version.Split('.');
-                    var versionRange = string.Format("[{0}{3}, {1}.{2}{3})", version, verTokens[0], int.Parse(verTokens[1]) + 1, previewFlag);
-
-                    awsDependencies.Add(string.Format("AWSSDK.{0}", service), string.Format("{0}{1}", version, previewFlag));
-                }
-            }
-
-            var assemblyVersion = Configuration.ServiceFileVersion;
-            var assemblyName = Configuration.Namespace.Replace("Amazon.", "AWSSDK.");
-            var assemblyTitle = "AWSSDK - " + Configuration.ServiceModel.ServiceFullName;
-            var componentTitle = assemblyTitle;
-            bool componentUsesAlternateLicense = !string.IsNullOrEmpty(Configuration.LicenseUrl) && Configuration.LicenseUrl != GenerationManifest.ApacheLicenseURL;
-            if (!string.IsNullOrEmpty(Configuration.NugetPackageTitleSuffix))
-                componentTitle += " " + Configuration.NugetPackageTitleSuffix;
-
-            if (string.IsNullOrEmpty(Configuration.ServiceModel.Customizations.XamarinSolutionSamplePath))
-                throw new Exception("Xamarin component flag enabled but samples are missing");
-
-            var session = new Dictionary<string, object>
-            {
-                { "AssemblyName", assemblyName },
-                { "AssemblyTitle",  assemblyTitle },
-                { "ComponentTitle",  componentTitle },
-                { "AssemblyDescription", Configuration.AssemblyDescription },
-                { "AssemblyVersion", assemblyVersion },
-                { "AWSDependencies", awsDependencies },
-                { "BaseName", this.Configuration.ClassName },
-                { "ProjectFileConfigurations", this.ProjectFileConfigurations},
-                { "Documentation",string.IsNullOrEmpty(Configuration.ServiceModel.Documentation)?Configuration.Synopsis:Configuration.ServiceModel.Documentation },
-                { "SolutionFilePath", string.IsNullOrEmpty(Configuration.ServiceModel.Customizations.XamarinSolutionSamplePath)?"":Path.Combine(SampleFilesRoot,Configuration.ServiceModel.Customizations.XamarinSolutionSamplePath) },
-                { "UsesAlternateLicense", componentUsesAlternateLicense },
-                { "Synopsis", Configuration.Synopsis},
-                { "ExtraTags", Configuration.Tags.Count == 0 ? string.Empty : " " + string.Join(" ", Configuration.Tags) }
-            };
-
-            session["NuGetPreviewFlag"] = Configuration.InPreview ? this.GenerationManifest.PreviewLabel : "";
-
-            var componentGenerator = new Component { Session = session };
-            var text = componentGenerator.TransformText();
-            var yamlFilename = "component.yaml";
-            WriteFile(ComponentsFilesRoot, string.Empty, yamlFilename, text);
-
-            var detailsMarkdownGenerator = new Details { Session = session };
-            text = ConvertHtmlToMarkDown(detailsMarkdownGenerator.TransformText());
-
-            // sanitize the line endings from the markup generation, as we can get
-            // odd combinations of line endings
-            var lines = text.Split(new[] { "\r\n", "\n", "\r" }, StringSplitOptions.None);
-            var normalizedText = string.Join(Environment.NewLine, lines);
-
-            var detailsFileName = "Details.md";
-            WriteFile(ComponentsFilesRoot, string.Empty, detailsFileName, normalizedText);
-
-            var gettingStartedMarkdownGenerator = new GettingStarted { Session = session };
-            text = ConvertHtmlToMarkDown(gettingStartedMarkdownGenerator.TransformText());
-            var gettingStartedFileName = "GettingStarted.md";
-            WriteFile(ComponentsFilesRoot, string.Empty, gettingStartedFileName, text);
-        }
-
         string ConvertHtmlToMarkDown(string text)
         {
             var htmlText = text.Replace("<fullname>", "<h1>").Replace("</fullname>", "</h1>");
@@ -1068,16 +975,6 @@ namespace ServiceClientGenerator
             var nugetTitle = assemblyTitle;
             if (!string.IsNullOrEmpty(Configuration.NugetPackageTitleSuffix))
                 nugetTitle += " " + Configuration.NugetPackageTitleSuffix;
-            bool iOSPclVariant = false;
-            bool androidPclVariant = false;
-            if (Configuration.PclVariants != null)
-            {
-                iOSPclVariant = Configuration.PclVariants.Contains("iOS");
-                androidPclVariant = Configuration.PclVariants.Contains("Android");
-            }
-
-
-            var pclTargetFrameworks = ProjectFileConfigurations.Where(pc => pc.Name.Equals("PCL")).First().SharedNugetTargetFrameworks;
 
             var session = new Dictionary<string, object>
             {
@@ -1094,9 +991,7 @@ namespace ServiceClientGenerator
                 { "ProjectFileConfigurations", this.ProjectFileConfigurations},
                 { "ExtraTags", Configuration.Tags == null || Configuration.Tags.Count == 0 ? string.Empty : " " + string.Join(" ", Configuration.Tags) },
                 { "licenseUrl", Configuration.LicenseUrl },
-                { "requireLicenseAcceptance",Configuration.RequireLicenseAcceptance?"true":"false" },
-                { "DisablePCLSupport", this.Options.DisablePCLSupport},
-                { "SharedPCLNugetTargetFrameworks", pclTargetFrameworks}
+                { "requireLicenseAcceptance",Configuration.RequireLicenseAcceptance?"true":"false" }
             };
 
             if (Configuration.NugetDependencies != null)
@@ -1206,6 +1101,24 @@ namespace ServiceClientGenerator
             var text = generator.TransformText();
             var outputSubFolder = subNamespace == null ? CustomizationTestsSubFolder : Path.Combine(CustomizationTestsSubFolder, subNamespace);
             WriteFile(ServiceUnitTestFilesRoot, outputSubFolder, fileName, text);
+        }
+
+        /// <summary>
+        /// Generates unit tests for all of the service's paginators
+        /// </summary>
+        void GeneratePaginatorTests()
+        {
+            if (this.Configuration.ServiceModel.HasPaginators && this.Configuration.GenerateConstructors)
+            {
+                var paginatorTests = new PaginatorTests()
+                {
+                    Config = this.Configuration
+                };
+
+                var text = paginatorTests.TransformText();
+                var outputSubFolder = PaginatorTestsSubFolder;
+                WriteFile(ServiceUnitTestFilesRoot, outputSubFolder, this.Configuration.ClassName + "PaginatorTests.cs", text);
+            }         
         }
 
         internal static bool WriteFile(string baseOutputDir,

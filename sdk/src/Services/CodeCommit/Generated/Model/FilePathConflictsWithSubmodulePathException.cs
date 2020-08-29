@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The commit cannot be created because a specified file path points to a submodule.
     /// Verify that the destination files have valid file paths that do not point to a submodule.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FilePathConflictsWithSubmodulePathException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FilePathConflictsWithSubmodulePathException class with serialized data.
         /// </summary>

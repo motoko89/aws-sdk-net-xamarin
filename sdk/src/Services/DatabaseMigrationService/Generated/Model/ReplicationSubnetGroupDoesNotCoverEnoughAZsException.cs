@@ -32,7 +32,7 @@ namespace Amazon.DatabaseMigrationService.Model
     /// The replication subnet group does not cover enough Availability Zones (AZs). Edit
     /// the replication subnet group and add more AZs.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ReplicationSubnetGroupDoesNotCoverEnoughAZsException : AmazonDatabaseMigrationServiceException
@@ -87,7 +87,7 @@ namespace Amazon.DatabaseMigrationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ReplicationSubnetGroupDoesNotCoverEnoughAZsException class with serialized data.
         /// </summary>

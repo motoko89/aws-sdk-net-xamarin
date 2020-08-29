@@ -30,11 +30,11 @@ namespace Amazon.Kinesis.Model
 {
     /// <summary>
     /// The request was rejected because the state of the specified resource isn't valid for
-    /// this request. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
+    /// this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
     /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
     /// Developer Guide</i>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class KMSInvalidStateException : AmazonKinesisException
@@ -89,7 +89,7 @@ namespace Amazon.Kinesis.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the KMSInvalidStateException class with serialized data.
         /// </summary>

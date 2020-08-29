@@ -33,7 +33,7 @@ namespace Amazon.Transfer.Model
     /// protocol-enabled server that has VPC as the endpoint type and the server's <code>VpcEndpointID</code>
     /// is not in the available state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConflictException : AmazonTransferException
@@ -88,7 +88,7 @@ namespace Amazon.Transfer.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConflictException class with serialized data.
         /// </summary>

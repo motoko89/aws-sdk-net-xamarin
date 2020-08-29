@@ -36,7 +36,7 @@ namespace Amazon.ServiceQuotas.Model
     /// To use the template, call <a>AssociateServiceQuotaTemplate</a>. 
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceQuotaTemplateNotInUseException : AmazonServiceQuotasException
@@ -91,7 +91,7 @@ namespace Amazon.ServiceQuotas.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceQuotaTemplateNotInUseException class with serialized data.
         /// </summary>

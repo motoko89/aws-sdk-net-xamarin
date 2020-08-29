@@ -32,7 +32,7 @@ namespace Amazon.Redshift.Model
     /// The specified HSM client certificate is not in the <code>available</code> state, or
     /// it is still in use by one or more Amazon Redshift clusters.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidHsmClientCertificateStateException : AmazonRedshiftException
@@ -87,7 +87,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidHsmClientCertificateStateException class with serialized data.
         /// </summary>

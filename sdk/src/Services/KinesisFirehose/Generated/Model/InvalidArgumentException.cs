@@ -31,7 +31,7 @@ namespace Amazon.KinesisFirehose.Model
     /// <summary>
     /// The specified input parameter has a value that is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidArgumentException : AmazonKinesisFirehoseException
@@ -86,7 +86,7 @@ namespace Amazon.KinesisFirehose.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidArgumentException class with serialized data.
         /// </summary>

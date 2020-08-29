@@ -32,7 +32,7 @@ namespace Amazon.CloudFormation.Model
     /// Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation
     /// CLI</a>. CloudFormation does not return this error to users.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OperationStatusCheckFailedException : AmazonCloudFormationException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFormation.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OperationStatusCheckFailedException class with serialized data.
         /// </summary>

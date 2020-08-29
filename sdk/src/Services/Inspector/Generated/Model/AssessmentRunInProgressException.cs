@@ -31,7 +31,7 @@ namespace Amazon.Inspector.Model
     /// <summary>
     /// You cannot perform a specified action if an assessment run is currently in progress.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AssessmentRunInProgressException : AmazonInspectorException
@@ -89,7 +89,7 @@ namespace Amazon.Inspector.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AssessmentRunInProgressException class with serialized data.
         /// </summary>

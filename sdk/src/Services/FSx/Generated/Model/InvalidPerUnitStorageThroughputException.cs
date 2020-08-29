@@ -32,7 +32,7 @@ namespace Amazon.FSx.Model
     /// An invalid value for <code>PerUnitStorageThroughput</code> was provided. Please create
     /// your file system again, using a valid value.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidPerUnitStorageThroughputException : AmazonFSxException
@@ -87,7 +87,7 @@ namespace Amazon.FSx.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidPerUnitStorageThroughputException class with serialized data.
         /// </summary>

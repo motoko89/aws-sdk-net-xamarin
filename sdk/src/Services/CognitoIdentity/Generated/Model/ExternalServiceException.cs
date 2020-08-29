@@ -31,7 +31,7 @@ namespace Amazon.CognitoIdentity.Model
     /// <summary>
     /// An exception thrown when a dependent service such as Facebook or Twitter is not responding
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ExternalServiceException : AmazonCognitoIdentityException
@@ -86,7 +86,7 @@ namespace Amazon.CognitoIdentity.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ExternalServiceException class with serialized data.
         /// </summary>

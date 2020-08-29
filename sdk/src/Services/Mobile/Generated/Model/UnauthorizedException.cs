@@ -31,7 +31,7 @@ namespace Amazon.Mobile.Model
     /// <summary>
     /// Credentials of the caller are insufficient to authorize the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnauthorizedException : AmazonMobileException
@@ -86,7 +86,7 @@ namespace Amazon.Mobile.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnauthorizedException class with serialized data.
         /// </summary>

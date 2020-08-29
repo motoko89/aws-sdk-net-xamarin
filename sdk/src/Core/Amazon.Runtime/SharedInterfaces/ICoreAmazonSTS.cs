@@ -34,7 +34,7 @@ namespace Amazon.Runtime.SharedInterfaces
         /// <returns></returns>
         AssumeRoleImmutableCredentials CredentialsFromAssumeRoleAuthentication(string roleArn, string roleSessionName, AssumeRoleAWSCredentialsOptions options);
 
-#if NETSTANDARD20 // In the NETSTANDARD flavors of the SDK ICoreAmazonSTS is declared without CredentialsFromSAMLAuthentication,
+#if NETSTANDARD20 || NETCOREAPP3_1 // In the NETSTANDARD flavors of the SDK ICoreAmazonSTS is declared without CredentialsFromSAMLAuthentication,
     }             // we cannot add a new method to the interface for backward compatibility concerns. 
 
     /// <summary>
@@ -79,7 +79,6 @@ namespace Amazon.Runtime.SharedInterfaces
 #endif
     }
 
-#if BCL || NETSTANDARD
     public interface ICoreAmazonSTS_WebIdentity : IDisposable
     {
         /// <summary>
@@ -126,5 +125,4 @@ namespace Amazon.Runtime.SharedInterfaces
         Task<AssumeRoleImmutableCredentials> CredentialsFromAssumeRoleWithWebIdentityAuthenticationAsync(string webIdentityToken, string roleArn, string roleSessionName, AssumeRoleWithWebIdentityCredentialsOptions options);
 #endif
     }
-#endif
 }

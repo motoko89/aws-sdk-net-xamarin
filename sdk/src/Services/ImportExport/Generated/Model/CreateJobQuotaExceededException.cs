@@ -33,7 +33,7 @@ namespace Amazon.ImportExport.Model
     /// more than this, please contact awsimportexport@amazon.com to explain your particular
     /// use case.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CreateJobQuotaExceededException : AmazonImportExportException
@@ -88,7 +88,7 @@ namespace Amazon.ImportExport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CreateJobQuotaExceededException class with serialized data.
         /// </summary>

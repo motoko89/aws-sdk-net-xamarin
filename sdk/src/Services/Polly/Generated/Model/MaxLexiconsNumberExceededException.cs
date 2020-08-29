@@ -31,7 +31,7 @@ namespace Amazon.Polly.Model
     /// <summary>
     /// The maximum number of lexicons would be exceeded by this operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MaxLexiconsNumberExceededException : AmazonPollyException
@@ -86,7 +86,7 @@ namespace Amazon.Polly.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MaxLexiconsNumberExceededException class with serialized data.
         /// </summary>

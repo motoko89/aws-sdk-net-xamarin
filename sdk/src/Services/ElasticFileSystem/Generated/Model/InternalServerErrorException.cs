@@ -31,7 +31,7 @@ namespace Amazon.ElasticFileSystem.Model
     /// <summary>
     /// Returned if an error occurred on the server side.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerErrorException : AmazonElasticFileSystemException
@@ -87,7 +87,7 @@ namespace Amazon.ElasticFileSystem.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerErrorException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.CloudWatchLogs.Model
     /// <summary>
     /// The most likely cause is an invalid AWS access key ID or secret key.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnrecognizedClientException : AmazonCloudWatchLogsException
@@ -86,7 +86,7 @@ namespace Amazon.CloudWatchLogs.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnrecognizedClientException class with serialized data.
         /// </summary>

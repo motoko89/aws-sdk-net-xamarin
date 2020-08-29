@@ -32,7 +32,7 @@ namespace Amazon.GlobalAccelerator.Model
     /// The listener that you specified has an endpoint group associated with it. You must
     /// remove all dependent resources from a listener before you can delete it.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AssociatedEndpointGroupFoundException : AmazonGlobalAcceleratorException
@@ -87,7 +87,7 @@ namespace Amazon.GlobalAccelerator.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AssociatedEndpointGroupFoundException class with serialized data.
         /// </summary>

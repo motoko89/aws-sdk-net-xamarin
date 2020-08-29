@@ -31,7 +31,7 @@ namespace Amazon.Route53Resolver.Model
     /// <summary>
     /// The resource that you tried to create already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceExistsException : AmazonRoute53ResolverException
@@ -87,7 +87,7 @@ namespace Amazon.Route53Resolver.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceExistsException class with serialized data.
         /// </summary>

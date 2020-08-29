@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// The DB cluster doesn't have enough capacity for the current operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InsufficientDBClusterCapacityException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InsufficientDBClusterCapacityException class with serialized data.
         /// </summary>

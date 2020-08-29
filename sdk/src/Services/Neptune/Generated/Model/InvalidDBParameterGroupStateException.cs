@@ -33,7 +33,7 @@ namespace Amazon.Neptune.Model
     /// to delete the parameter group, you cannot delete it when the parameter group is in
     /// this state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDBParameterGroupStateException : AmazonNeptuneException
@@ -88,7 +88,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDBParameterGroupStateException class with serialized data.
         /// </summary>

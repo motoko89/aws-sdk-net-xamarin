@@ -36,7 +36,7 @@ namespace Amazon.CloudWatchEvents.Model
     /// <code>EnableRule</code>, <code>PutTargets</code>, <code>PutRule</code>, <code>TagResource</code>,
     /// or <code>UntagResource</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ManagedRuleException : AmazonCloudWatchEventsException
@@ -91,7 +91,7 @@ namespace Amazon.CloudWatchEvents.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ManagedRuleException class with serialized data.
         /// </summary>

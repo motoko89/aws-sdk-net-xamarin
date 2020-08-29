@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The pull request status is not valid. The only valid values are <code>OPEN</code>
     /// and <code>CLOSED</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidPullRequestStatusException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidPullRequestStatusException class with serialized data.
         /// </summary>

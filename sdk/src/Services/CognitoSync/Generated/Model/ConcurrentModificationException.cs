@@ -31,7 +31,7 @@ namespace Amazon.CognitoSync.Model
     /// <summary>
     /// Thrown if there are parallel requests to modify a resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentModificationException : AmazonCognitoSyncException
@@ -86,7 +86,7 @@ namespace Amazon.CognitoSync.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentModificationException class with serialized data.
         /// </summary>

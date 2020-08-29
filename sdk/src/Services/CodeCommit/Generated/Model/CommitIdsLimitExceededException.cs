@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The maximum number of allowed commit IDs in a batch request is 100. Verify that your
     /// batch requests contains no more than 100 commit IDs, and then try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CommitIdsLimitExceededException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CommitIdsLimitExceededException class with serialized data.
         /// </summary>

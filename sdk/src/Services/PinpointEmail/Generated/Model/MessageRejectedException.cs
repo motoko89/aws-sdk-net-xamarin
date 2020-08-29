@@ -31,7 +31,7 @@ namespace Amazon.PinpointEmail.Model
     /// <summary>
     /// The message can't be sent because it contains invalid content.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MessageRejectedException : AmazonPinpointEmailException
@@ -86,7 +86,7 @@ namespace Amazon.PinpointEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MessageRejectedException class with serialized data.
         /// </summary>

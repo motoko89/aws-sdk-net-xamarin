@@ -34,7 +34,7 @@ namespace Amazon.KinesisVideoMedia.Model
     /// set to "READ" and use the endpoint Kinesis Video returns in the next <code>GetMedia</code>
     /// call.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidEndpointException : AmazonKinesisVideoMediaException
@@ -89,7 +89,7 @@ namespace Amazon.KinesisVideoMedia.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidEndpointException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The specified email address either contains one or more characters that are not allowed,
     /// or it exceeds the maximum number of characters allowed for an email address.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidEmailException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidEmailException class with serialized data.
         /// </summary>

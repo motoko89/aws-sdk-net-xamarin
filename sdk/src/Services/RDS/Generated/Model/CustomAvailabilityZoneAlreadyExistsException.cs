@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// <code>CustomAvailabilityZoneName</code> is already used by an existing custom Availability
     /// Zone.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CustomAvailabilityZoneAlreadyExistsException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CustomAvailabilityZoneAlreadyExistsException class with serialized data.
         /// </summary>

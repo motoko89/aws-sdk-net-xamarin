@@ -53,6 +53,22 @@ namespace Amazon.Lambda
     public partial class AmazonLambdaClient : AmazonServiceClient, IAmazonLambda
     {
         private static IServiceMetadata serviceMetadata = new AmazonLambdaMetadata();
+        private ILambdaPaginatorFactory _paginators;
+
+        /// <summary>
+        /// Paginators for the service
+        /// </summary>
+        public ILambdaPaginatorFactory Paginators 
+        {
+            get 
+            {
+                if (this._paginators == null) 
+                {
+                    this._paginators = new LambdaPaginatorFactory(this);
+                }
+                return this._paginators;
+            }
+        }
         #region Constructors
 
         /// <summary>
@@ -599,6 +615,11 @@ namespace Amazon.Lambda
         ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda
         /// with Amazon SQS</a> 
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">Using AWS Lambda
+        /// with Amazon MSK</a> 
+        /// </para>
         ///  </li> </ul> 
         /// <para>
         /// The following error handling options are only available for stream sources (DynamoDB
@@ -617,12 +638,13 @@ namespace Amazon.Lambda
         ///  </li> <li> 
         /// <para>
         ///  <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified
-        /// age.
+        /// age. Default -1 (infinite). Minimum 60. Maximum 604800.
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>MaximumRetryAttempts</code> - Discard records after the specified number of
-        /// retries.
+        /// retries. Default -1 (infinite). Minimum 0. Maximum 10000. When infinite, failed records
+        /// will be retried until the record expires.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -682,6 +704,11 @@ namespace Amazon.Lambda
         ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda
         /// with Amazon SQS</a> 
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">Using AWS Lambda
+        /// with Amazon MSK</a> 
+        /// </para>
         ///  </li> </ul> 
         /// <para>
         /// The following error handling options are only available for stream sources (DynamoDB
@@ -700,12 +727,13 @@ namespace Amazon.Lambda
         ///  </li> <li> 
         /// <para>
         ///  <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified
-        /// age.
+        /// age. Default -1 (infinite). Minimum 60. Maximum 604800.
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>MaximumRetryAttempts</code> - Discard records after the specified number of
-        /// retries.
+        /// retries. Default -1 (infinite). Minimum 0. Maximum 10000. When infinite, failed records
+        /// will be retried until the record expires.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -2822,7 +2850,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/InvokeAsync">REST API Reference for InvokeAsync Operation</seealso>
-        [Obsolete("For .NET 3.5/4.5, API InvokeAsyncResponse InvokeAsync(InvokeAsyncRequest) is deprecated, use InvokeResponse Invoke(InvokeRequest), or Task<InvokeResponse> InvokeAsync(InvokeRequest, CancellationToken) instead. For .NET Core and PCL, Task<InvokeAsyncResponse> InvokeAsyncAsync(InvokeAsyncRequest, CancellationToken) is deprecated, use Task<InvokeResponse> InvokeAsync(InvokeRequest, CancellationToken) instead.")]
+        [Obsolete("For .NET 3.5/4.5, API InvokeAsyncResponse InvokeAsync(InvokeAsyncRequest) is deprecated, use InvokeResponse Invoke(InvokeRequest), or Task<InvokeResponse> InvokeAsync(InvokeRequest, CancellationToken) instead. For .NET Core, Task<InvokeAsyncResponse> InvokeAsyncAsync(InvokeAsyncRequest, CancellationToken) is deprecated, use Task<InvokeResponse> InvokeAsync(InvokeRequest, CancellationToken) instead.")]
         public virtual InvokeAsyncResponse InvokeAsync(InvokeAsyncRequest request)
         {
             var options = new InvokeOptions();
@@ -2865,7 +2893,7 @@ namespace Amazon.Lambda
         /// The AWS Lambda service encountered an internal error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/InvokeAsync">REST API Reference for InvokeAsync Operation</seealso>
-        [Obsolete("For .NET 3.5/4.5, API InvokeAsyncResponse InvokeAsync(InvokeAsyncRequest) is deprecated, use InvokeResponse Invoke(InvokeRequest), or Task<InvokeResponse> InvokeAsync(InvokeRequest, CancellationToken) instead. For .NET Core and PCL, Task<InvokeAsyncResponse> InvokeAsyncAsync(InvokeAsyncRequest, CancellationToken) is deprecated, use Task<InvokeResponse> InvokeAsync(InvokeRequest, CancellationToken) instead.")]
+        [Obsolete("For .NET 3.5/4.5, API InvokeAsyncResponse InvokeAsync(InvokeAsyncRequest) is deprecated, use InvokeResponse Invoke(InvokeRequest), or Task<InvokeResponse> InvokeAsync(InvokeRequest, CancellationToken) instead. For .NET Core, Task<InvokeAsyncResponse> InvokeAsyncAsync(InvokeAsyncRequest, CancellationToken) is deprecated, use Task<InvokeResponse> InvokeAsync(InvokeRequest, CancellationToken) instead.")]
         public virtual Task<InvokeAsyncResponse> InvokeAsyncAsync(InvokeAsyncRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var options = new InvokeOptions();
@@ -4454,12 +4482,13 @@ namespace Amazon.Lambda
         ///  </li> <li> 
         /// <para>
         ///  <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified
-        /// age.
+        /// age. Default -1 (infinite). Minimum 60. Maximum 604800.
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>MaximumRetryAttempts</code> - Discard records after the specified number of
-        /// retries.
+        /// retries. Default -1 (infinite). Minimum 0. Maximum 10000. When infinite, failed records
+        /// will be retried until the record expires.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -4523,12 +4552,13 @@ namespace Amazon.Lambda
         ///  </li> <li> 
         /// <para>
         ///  <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified
-        /// age.
+        /// age. Default -1 (infinite). Minimum 60. Maximum 604800.
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>MaximumRetryAttempts</code> - Discard records after the specified number of
-        /// retries.
+        /// retries. Default -1 (infinite). Minimum 0. Maximum 10000. When infinite, failed records
+        /// will be retried until the record expires.
         /// </para>
         ///  </li> <li> 
         /// <para>

@@ -31,7 +31,7 @@ namespace Amazon.SQS.Model
     /// <summary>
     /// The message contains characters outside the allowed set.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidMessageContentsException : AmazonSQSException
@@ -86,7 +86,7 @@ namespace Amazon.SQS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidMessageContentsException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CloudFront.Model
     /// Cannot delete the origin request policy because it is attached to one or more cache
     /// behaviors.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OriginRequestPolicyInUseException : AmazonCloudFrontException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OriginRequestPolicyInUseException class with serialized data.
         /// </summary>

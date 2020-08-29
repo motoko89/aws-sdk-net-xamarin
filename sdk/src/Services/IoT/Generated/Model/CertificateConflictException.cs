@@ -33,7 +33,7 @@ namespace Amazon.IoT.Model
     /// to register. This is happens when you have registered more than one CA certificate
     /// that has the same subject field and public key.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CertificateConflictException : AmazonIoTException
@@ -88,7 +88,7 @@ namespace Amazon.IoT.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CertificateConflictException class with serialized data.
         /// </summary>

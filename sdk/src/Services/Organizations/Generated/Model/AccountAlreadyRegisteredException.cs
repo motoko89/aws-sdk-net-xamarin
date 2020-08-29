@@ -31,7 +31,7 @@ namespace Amazon.Organizations.Model
     /// <summary>
     /// The specified account is already a delegated administrator for this AWS service.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccountAlreadyRegisteredException : AmazonOrganizationsException
@@ -86,7 +86,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccountAlreadyRegisteredException class with serialized data.
         /// </summary>

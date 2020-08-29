@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// More than one conflict resolution entries exists for the conflict. A conflict can
     /// have only one conflict resolution entry.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MultipleConflictResolutionEntriesException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MultipleConflictResolutionEntriesException class with serialized data.
         /// </summary>

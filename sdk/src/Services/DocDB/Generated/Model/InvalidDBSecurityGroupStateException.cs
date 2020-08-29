@@ -31,7 +31,7 @@ namespace Amazon.DocDB.Model
     /// <summary>
     /// The state of the security group doesn't allow deletion.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDBSecurityGroupStateException : AmazonDocDBException
@@ -86,7 +86,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDBSecurityGroupStateException class with serialized data.
         /// </summary>

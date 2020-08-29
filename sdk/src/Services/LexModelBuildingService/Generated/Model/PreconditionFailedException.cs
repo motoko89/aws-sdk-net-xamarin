@@ -32,7 +32,7 @@ namespace Amazon.LexModelBuildingService.Model
     /// The checksum of the resource that you are trying to change does not match the checksum
     /// in the request. Check the resource's checksum and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PreconditionFailedException : AmazonLexModelBuildingServiceException
@@ -87,7 +87,7 @@ namespace Amazon.LexModelBuildingService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PreconditionFailedException class with serialized data.
         /// </summary>

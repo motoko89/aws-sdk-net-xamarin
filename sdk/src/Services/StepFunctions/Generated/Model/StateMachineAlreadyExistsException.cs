@@ -32,7 +32,7 @@ namespace Amazon.StepFunctions.Model
     /// A state machine with the same name but a different definition or role ARN already
     /// exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class StateMachineAlreadyExistsException : AmazonStepFunctionsException
@@ -87,7 +87,7 @@ namespace Amazon.StepFunctions.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the StateMachineAlreadyExistsException class with serialized data.
         /// </summary>

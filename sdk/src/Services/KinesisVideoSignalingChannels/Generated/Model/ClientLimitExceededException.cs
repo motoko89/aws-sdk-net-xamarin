@@ -32,7 +32,7 @@ namespace Amazon.KinesisVideoSignalingChannels.Model
     /// Your request was throttled because you have exceeded the limit of allowed client calls.
     /// Try making the call later.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ClientLimitExceededException : AmazonKinesisVideoSignalingChannelsException
@@ -87,7 +87,7 @@ namespace Amazon.KinesisVideoSignalingChannels.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ClientLimitExceededException class with serialized data.
         /// </summary>

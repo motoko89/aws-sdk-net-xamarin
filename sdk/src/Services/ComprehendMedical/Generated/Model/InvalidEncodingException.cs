@@ -32,7 +32,7 @@ namespace Amazon.ComprehendMedical.Model
     /// The input text was not in valid UTF-8 character encoding. Check your text then retry
     /// your request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidEncodingException : AmazonComprehendMedicalException
@@ -87,7 +87,7 @@ namespace Amazon.ComprehendMedical.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidEncodingException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.Route53.Model
     /// The VPC ID that you specified either isn't a valid ID or the current account is not
     /// authorized to access this VPC.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidVPCIdException : AmazonRoute53Exception
@@ -87,7 +87,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidVPCIdException class with serialized data.
         /// </summary>

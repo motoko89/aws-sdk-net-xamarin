@@ -32,7 +32,7 @@ namespace Amazon.CognitoSync.Model
     /// Thrown if an update can't be applied because the resource was changed by another call
     /// and this would result in a conflict.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceConflictException : AmazonCognitoSyncException
@@ -87,7 +87,7 @@ namespace Amazon.CognitoSync.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceConflictException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.FMS.Model
     /// The operation failed because of a system problem, even though the request was valid.
     /// Retry your request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalErrorException : AmazonFMSException
@@ -87,7 +87,7 @@ namespace Amazon.FMS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalErrorException class with serialized data.
         /// </summary>

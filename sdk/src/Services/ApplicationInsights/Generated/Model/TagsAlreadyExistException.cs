@@ -31,7 +31,7 @@ namespace Amazon.ApplicationInsights.Model
     /// <summary>
     /// Tags are already registered for the specified application ARN.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TagsAlreadyExistException : AmazonApplicationInsightsException
@@ -86,7 +86,7 @@ namespace Amazon.ApplicationInsights.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TagsAlreadyExistException class with serialized data.
         /// </summary>

@@ -50,6 +50,22 @@ namespace Amazon.ServiceCatalog
     public partial class AmazonServiceCatalogClient : AmazonServiceClient, IAmazonServiceCatalog
     {
         private static IServiceMetadata serviceMetadata = new AmazonServiceCatalogMetadata();
+        private IServiceCatalogPaginatorFactory _paginators;
+
+        /// <summary>
+        /// Paginators for the service
+        /// </summary>
+        public IServiceCatalogPaginatorFactory Paginators 
+        {
+            get 
+            {
+                if (this._paginators == null) 
+                {
+                    this._paginators = new ServiceCatalogPaginatorFactory(this);
+                }
+                return this._paginators;
+            }
+        }
         #region Constructors
 
         /// <summary>
@@ -991,6 +1007,11 @@ namespace Amazon.ServiceCatalog
         ///  <code>AWSOrganizationsAccess</code> must be enabled in order to create a portfolio
         /// share to an organization node.
         /// </para>
+        ///  
+        /// <para>
+        /// You can't share a shared resource. This includes portfolios that contain a shared
+        /// product.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreatePortfolioShare service method.</param>
         /// 
@@ -1038,6 +1059,11 @@ namespace Amazon.ServiceCatalog
         /// <para>
         ///  <code>AWSOrganizationsAccess</code> must be enabled in order to create a portfolio
         /// share to an organization node.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can't share a shared resource. This includes portfolios that contain a shared
+        /// product.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreatePortfolioShare service method.</param>

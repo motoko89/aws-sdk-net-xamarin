@@ -31,7 +31,7 @@ namespace Amazon.NetworkManager.Model
     /// <summary>
     /// A service limit was exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceQuotaExceededException : AmazonNetworkManagerException
@@ -90,7 +90,7 @@ namespace Amazon.NetworkManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceQuotaExceededException class with serialized data.
         /// </summary>

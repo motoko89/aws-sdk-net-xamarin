@@ -32,7 +32,7 @@ namespace Amazon.Neptune.Model
     /// You have exceeded the maximum number of IAM roles that can be associated with the
     /// specified DB cluster.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBClusterRoleQuotaExceededException : AmazonNeptuneException
@@ -87,7 +87,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBClusterRoleQuotaExceededException class with serialized data.
         /// </summary>

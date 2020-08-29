@@ -32,7 +32,7 @@ namespace Amazon.SimpleWorkflow.Model
     /// Returned by <a>StartWorkflowExecution</a> when an open execution with the same workflowId
     /// is already running in the specified domain.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WorkflowExecutionAlreadyStartedException : AmazonSimpleWorkflowException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleWorkflow.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WorkflowExecutionAlreadyStartedException class with serialized data.
         /// </summary>

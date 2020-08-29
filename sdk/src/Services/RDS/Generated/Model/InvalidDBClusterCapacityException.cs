@@ -33,7 +33,7 @@ namespace Amazon.RDS.Model
     /// capacity values are <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>,
     /// <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDBClusterCapacityException : AmazonRDSException
@@ -88,7 +88,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDBClusterCapacityException class with serialized data.
         /// </summary>

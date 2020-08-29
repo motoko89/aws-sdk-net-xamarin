@@ -32,7 +32,7 @@ namespace Amazon.Rekognition.Model
     /// The file size or duration of the supplied media is too large. The maximum file size
     /// is 10GB. The maximum duration is 6 hours.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class VideoTooLargeException : AmazonRekognitionException
@@ -87,7 +87,7 @@ namespace Amazon.Rekognition.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the VideoTooLargeException class with serialized data.
         /// </summary>

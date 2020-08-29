@@ -32,7 +32,7 @@ namespace Amazon.IdentityManagement.Model
     /// The request was rejected because the authentication code was not recognized. The error
     /// message describes the specific error.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidAuthenticationCodeException : AmazonIdentityManagementServiceException
@@ -87,7 +87,7 @@ namespace Amazon.IdentityManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidAuthenticationCodeException class with serialized data.
         /// </summary>

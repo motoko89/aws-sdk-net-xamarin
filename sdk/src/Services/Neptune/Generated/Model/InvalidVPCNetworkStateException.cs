@@ -32,7 +32,7 @@ namespace Amazon.Neptune.Model
     /// DB subnet group does not cover all Availability Zones after it is created because
     /// users' change.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidVPCNetworkStateException : AmazonNeptuneException
@@ -87,7 +87,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidVPCNetworkStateException class with serialized data.
         /// </summary>

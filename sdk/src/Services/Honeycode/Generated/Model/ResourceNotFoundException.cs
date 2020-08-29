@@ -31,7 +31,7 @@ namespace Amazon.Honeycode.Model
     /// <summary>
     /// A Workbook, App, Screen or Screen Automation was not found with the given ID.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonHoneycodeException
@@ -86,7 +86,7 @@ namespace Amazon.Honeycode.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

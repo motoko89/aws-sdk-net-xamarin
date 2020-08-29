@@ -32,7 +32,7 @@ namespace Amazon.CodeDeploy.Model
     /// The specified ARN is not supported. For example, it might be an ARN for a resource
     /// that is not expected.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ArnNotSupportedException : AmazonCodeDeployException
@@ -87,7 +87,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ArnNotSupportedException class with serialized data.
         /// </summary>

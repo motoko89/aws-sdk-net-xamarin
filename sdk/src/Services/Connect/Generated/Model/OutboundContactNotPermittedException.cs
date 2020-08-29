@@ -31,7 +31,7 @@ namespace Amazon.Connect.Model
     /// <summary>
     /// The contact is not permitted.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OutboundContactNotPermittedException : AmazonConnectException
@@ -86,7 +86,7 @@ namespace Amazon.Connect.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OutboundContactNotPermittedException class with serialized data.
         /// </summary>

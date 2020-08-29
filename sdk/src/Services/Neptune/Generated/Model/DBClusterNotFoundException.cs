@@ -31,7 +31,7 @@ namespace Amazon.Neptune.Model
     /// <summary>
     /// <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBClusterNotFoundException : AmazonNeptuneException
@@ -86,7 +86,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBClusterNotFoundException class with serialized data.
         /// </summary>

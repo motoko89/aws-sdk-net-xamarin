@@ -32,7 +32,7 @@ namespace Amazon.Kinesis.Model
     /// A specified parameter exceeds its restrictions, is not supported, or can't be used.
     /// For more information, see the returned message.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidArgumentException : AmazonKinesisException
@@ -87,7 +87,7 @@ namespace Amazon.Kinesis.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidArgumentException class with serialized data.
         /// </summary>

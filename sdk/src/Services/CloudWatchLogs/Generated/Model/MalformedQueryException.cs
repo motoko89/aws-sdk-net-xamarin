@@ -30,7 +30,7 @@ namespace Amazon.CloudWatchLogs.Model
 {
     /// <summary>
     /// The query string is not valid. Details about this error are displayed in a <code>QueryCompileError</code>
-    /// object. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_QueryCompileError.html">QueryCompileError</a>"/&gt;.
+    /// object. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_QueryCompileError.html">QueryCompileError</a>.
     /// 
     ///  
     /// <para>
@@ -38,7 +38,7 @@ namespace Amazon.CloudWatchLogs.Model
     /// Logs Insights Query Syntax</a>.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MalformedQueryException : AmazonCloudWatchLogsException
@@ -94,7 +94,7 @@ namespace Amazon.CloudWatchLogs.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MalformedQueryException class with serialized data.
         /// </summary>

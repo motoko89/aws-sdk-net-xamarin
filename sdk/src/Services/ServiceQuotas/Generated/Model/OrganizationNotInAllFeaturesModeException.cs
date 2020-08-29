@@ -32,7 +32,7 @@ namespace Amazon.ServiceQuotas.Model
     /// The organization that your account belongs to, is not in All Features mode. To enable
     /// all features mode, see <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAllFeatures.html">EnableAllFeatures</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OrganizationNotInAllFeaturesModeException : AmazonServiceQuotasException
@@ -87,7 +87,7 @@ namespace Amazon.ServiceQuotas.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OrganizationNotInAllFeaturesModeException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.Cloud9.Model
     /// <summary>
     /// A conflict occurred.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConflictException : AmazonCloud9Exception
@@ -86,7 +86,7 @@ namespace Amazon.Cloud9.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConflictException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.ElastiCache.Model
     /// The request cannot be processed because it would exceed the allowed number of cache
     /// nodes in a single cluster.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NodeQuotaForClusterExceededException : AmazonElastiCacheException
@@ -87,7 +87,7 @@ namespace Amazon.ElastiCache.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NodeQuotaForClusterExceededException class with serialized data.
         /// </summary>

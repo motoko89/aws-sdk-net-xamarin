@@ -33,7 +33,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
     /// This prevents a container from hardcoding a Region (e.g. withRegion(“us-east-1”) when
     /// calling RegisterUsage.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRegionException : AmazonAWSMarketplaceMeteringException
@@ -88,7 +88,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRegionException class with serialized data.
         /// </summary>

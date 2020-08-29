@@ -33,7 +33,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// with a maximum of 20 accounts. You can publicly share up to five documents. If you
     /// need to increase this limit, contact AWS Support.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DocumentPermissionLimitException : AmazonSimpleSystemsManagementException
@@ -88,7 +88,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DocumentPermissionLimitException class with serialized data.
         /// </summary>

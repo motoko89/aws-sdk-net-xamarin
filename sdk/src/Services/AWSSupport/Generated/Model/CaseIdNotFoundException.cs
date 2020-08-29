@@ -31,7 +31,7 @@ namespace Amazon.AWSSupport.Model
     /// <summary>
     /// The requested <code>caseId</code> could not be located.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CaseIdNotFoundException : AmazonAWSSupportException
@@ -86,7 +86,7 @@ namespace Amazon.AWSSupport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CaseIdNotFoundException class with serialized data.
         /// </summary>

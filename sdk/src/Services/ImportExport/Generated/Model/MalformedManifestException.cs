@@ -31,7 +31,7 @@ namespace Amazon.ImportExport.Model
     /// <summary>
     /// Your manifest is not well-formed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MalformedManifestException : AmazonImportExportException
@@ -86,7 +86,7 @@ namespace Amazon.ImportExport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MalformedManifestException class with serialized data.
         /// </summary>

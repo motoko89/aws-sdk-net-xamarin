@@ -32,7 +32,7 @@ namespace Amazon.Mobile.Model
     /// The service has encountered an unexpected error condition which prevents it from
     /// servicing the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalFailureException : AmazonMobileException
@@ -87,7 +87,7 @@ namespace Amazon.Mobile.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalFailureException class with serialized data.
         /// </summary>

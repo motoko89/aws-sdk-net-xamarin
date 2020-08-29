@@ -33,7 +33,7 @@ namespace Amazon.CodeDeploy.Model
     /// deployment was exceeded. The target list of both types of deployments must have exactly
     /// one item. This exception does not apply to EC2/On-premises deployments.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DeploymentTargetListSizeExceededException : AmazonCodeDeployException
@@ -88,7 +88,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DeploymentTargetListSizeExceededException class with serialized data.
         /// </summary>

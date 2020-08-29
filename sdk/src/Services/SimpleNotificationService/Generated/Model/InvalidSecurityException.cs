@@ -32,7 +32,7 @@ namespace Amazon.SimpleNotificationService.Model
     /// The credential signature isn't valid. You must use an HTTPS endpoint and sign your
     /// request using Signature Version 4.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidSecurityException : AmazonSimpleNotificationServiceException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleNotificationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidSecurityException class with serialized data.
         /// </summary>

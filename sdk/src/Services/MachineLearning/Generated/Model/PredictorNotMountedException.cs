@@ -31,7 +31,7 @@ namespace Amazon.MachineLearning.Model
     /// <summary>
     /// The exception is thrown when a predict request is made to an unmounted <code>MLModel</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PredictorNotMountedException : AmazonMachineLearningException
@@ -86,7 +86,7 @@ namespace Amazon.MachineLearning.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PredictorNotMountedException class with serialized data.
         /// </summary>

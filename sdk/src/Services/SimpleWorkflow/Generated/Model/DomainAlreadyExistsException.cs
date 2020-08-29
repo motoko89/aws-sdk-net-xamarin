@@ -33,7 +33,7 @@ namespace Amazon.SimpleWorkflow.Model
     /// a domain that is either already registered or deprecated, or if you undeprecate a
     /// domain that is currently registered.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DomainAlreadyExistsException : AmazonSimpleWorkflowException
@@ -88,7 +88,7 @@ namespace Amazon.SimpleWorkflow.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DomainAlreadyExistsException class with serialized data.
         /// </summary>

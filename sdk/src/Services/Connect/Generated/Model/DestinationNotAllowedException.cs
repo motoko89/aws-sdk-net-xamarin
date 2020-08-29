@@ -31,7 +31,7 @@ namespace Amazon.Connect.Model
     /// <summary>
     /// Outbound calls to the destination number are not allowed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DestinationNotAllowedException : AmazonConnectException
@@ -86,7 +86,7 @@ namespace Amazon.Connect.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DestinationNotAllowedException class with serialized data.
         /// </summary>

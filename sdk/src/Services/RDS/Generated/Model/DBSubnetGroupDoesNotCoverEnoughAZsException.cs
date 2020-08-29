@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// Subnets in the DB subnet group should cover at least two Availability Zones unless
     /// there is only one Availability Zone.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBSubnetGroupDoesNotCoverEnoughAZsException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBSubnetGroupDoesNotCoverEnoughAZsException class with serialized data.
         /// </summary>

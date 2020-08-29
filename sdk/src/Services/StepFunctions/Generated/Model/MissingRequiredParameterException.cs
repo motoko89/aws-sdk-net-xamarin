@@ -32,7 +32,7 @@ namespace Amazon.StepFunctions.Model
     /// Request is missing a required parameter. This error occurs if both <code>definition</code>
     /// and <code>roleArn</code> are not specified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MissingRequiredParameterException : AmazonStepFunctionsException
@@ -87,7 +87,7 @@ namespace Amazon.StepFunctions.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MissingRequiredParameterException class with serialized data.
         /// </summary>

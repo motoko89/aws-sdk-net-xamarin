@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The specified folder does not exist. Either the folder name is not correct, or you
     /// did not enter the full path to the folder.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FolderDoesNotExistException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FolderDoesNotExistException class with serialized data.
         /// </summary>

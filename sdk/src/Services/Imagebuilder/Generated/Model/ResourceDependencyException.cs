@@ -32,7 +32,7 @@ namespace Amazon.Imagebuilder.Model
     /// You have attempted to mutate or delete a resource with a dependency that prohibits
     /// this action. See the error message for more details.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceDependencyException : AmazonImagebuilderException
@@ -87,7 +87,7 @@ namespace Amazon.Imagebuilder.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceDependencyException class with serialized data.
         /// </summary>

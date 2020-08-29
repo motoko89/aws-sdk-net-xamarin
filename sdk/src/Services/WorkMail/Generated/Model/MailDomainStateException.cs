@@ -32,7 +32,7 @@ namespace Amazon.WorkMail.Model
     /// After a domain has been added to the organization, it must be verified. The domain
     /// is not yet verified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MailDomainStateException : AmazonWorkMailException
@@ -87,7 +87,7 @@ namespace Amazon.WorkMail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MailDomainStateException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.Neptune.Model
     /// <summary>
     /// The specified DB instance is not in the <i>available</i> state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDBInstanceStateException : AmazonNeptuneException
@@ -86,7 +86,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDBInstanceStateException class with serialized data.
         /// </summary>

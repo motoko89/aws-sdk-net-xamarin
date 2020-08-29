@@ -31,7 +31,7 @@ namespace Amazon.CodeGuruProfiler.Model
     /// <summary>
     /// The request was denied due to request throttling.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ThrottlingException : AmazonCodeGuruProfilerException
@@ -86,7 +86,7 @@ namespace Amazon.CodeGuruProfiler.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ThrottlingException class with serialized data.
         /// </summary>

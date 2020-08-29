@@ -31,7 +31,7 @@ namespace Amazon.CloudTrail.Model
     /// <summary>
     /// Occurs if an event category that is not valid is specified as a value of <code>EventCategory</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidEventCategoryException : AmazonCloudTrailException
@@ -86,7 +86,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidEventCategoryException class with serialized data.
         /// </summary>

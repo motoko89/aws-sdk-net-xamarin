@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// Automerge was specified for resolving the conflict, but the replacement type is not
     /// valid or content is missing.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidReplacementContentException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidReplacementContentException class with serialized data.
         /// </summary>

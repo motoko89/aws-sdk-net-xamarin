@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// You attempted to delete a document while it is still shared. You must stop sharing
     /// the document before you can delete it.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDocumentOperationException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDocumentOperationException class with serialized data.
         /// </summary>

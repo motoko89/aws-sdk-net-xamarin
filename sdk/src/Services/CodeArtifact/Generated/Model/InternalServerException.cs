@@ -31,7 +31,7 @@ namespace Amazon.CodeArtifact.Model
     /// <summary>
     /// The operation did not succeed because of an error that occurred inside AWS CodeArtifact.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerException : AmazonCodeArtifactException
@@ -86,7 +86,7 @@ namespace Amazon.CodeArtifact.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerException class with serialized data.
         /// </summary>

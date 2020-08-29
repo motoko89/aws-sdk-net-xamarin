@@ -33,7 +33,7 @@ namespace Amazon.Redshift.Model
     /// your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits
     /// in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class HsmClientCertificateQuotaExceededException : AmazonRedshiftException
@@ -88,7 +88,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the HsmClientCertificateQuotaExceededException class with serialized data.
         /// </summary>

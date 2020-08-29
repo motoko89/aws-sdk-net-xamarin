@@ -31,7 +31,7 @@ namespace Amazon.SimpleDB.Model
     /// <summary>
     /// The item name was specified more than once.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DuplicateItemNameException : AmazonSimpleDBException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DuplicateItemNameException class with serialized data.
         /// </summary>

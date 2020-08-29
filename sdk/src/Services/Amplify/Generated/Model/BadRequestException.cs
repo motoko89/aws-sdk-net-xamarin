@@ -31,7 +31,7 @@ namespace Amazon.Amplify.Model
     /// <summary>
     /// A request contains unexpected data.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadRequestException : AmazonAmplifyException
@@ -86,7 +86,7 @@ namespace Amazon.Amplify.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadRequestException class with serialized data.
         /// </summary>

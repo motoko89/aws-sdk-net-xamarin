@@ -33,7 +33,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
     /// task, or EKS pod. The Region of the Metering Service endpoint and the AWS Region of
     /// the resource must match.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidEndpointRegionException : AmazonAWSMarketplaceMeteringException
@@ -88,7 +88,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidEndpointRegionException class with serialized data.
         /// </summary>

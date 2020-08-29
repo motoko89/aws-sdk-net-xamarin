@@ -32,7 +32,7 @@ namespace Amazon.QuickSight.Model
     /// The number of minutes specified for the lifetime of a session isn't valid. The session
     /// lifetime must be 15-600 minutes.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SessionLifetimeInMinutesInvalidException : AmazonQuickSightException
@@ -88,7 +88,7 @@ namespace Amazon.QuickSight.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SessionLifetimeInMinutesInvalidException class with serialized data.
         /// </summary>

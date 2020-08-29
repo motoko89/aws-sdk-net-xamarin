@@ -31,7 +31,7 @@ namespace Amazon.Mobile.Model
     /// <summary>
     /// Account Action is required in order to continue the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccountActionRequiredException : AmazonMobileException
@@ -86,7 +86,7 @@ namespace Amazon.Mobile.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccountActionRequiredException class with serialized data.
         /// </summary>

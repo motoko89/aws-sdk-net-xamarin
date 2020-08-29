@@ -28,7 +28,7 @@ namespace Amazon.IoTSiteWise
     ///<summary>
     /// Common exception for the IoTSiteWise service.
     /// </summary>
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
     [Serializable]
 #endif
     public partial class AmazonIoTSiteWiseException : AmazonServiceException
@@ -88,7 +88,7 @@ namespace Amazon.IoTSiteWise
         {
         }
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AmazonIoTSiteWiseException class with serialized data.
         /// </summary>

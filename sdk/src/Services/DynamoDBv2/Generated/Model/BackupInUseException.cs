@@ -32,7 +32,7 @@ namespace Amazon.DynamoDBv2.Model
     /// There is another ongoing conflicting backup control plane operation on the table.
     /// The backup is either being created, deleted or restored to a table.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BackupInUseException : AmazonDynamoDBException
@@ -87,7 +87,7 @@ namespace Amazon.DynamoDBv2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BackupInUseException class with serialized data.
         /// </summary>

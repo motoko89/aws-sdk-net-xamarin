@@ -29,11 +29,12 @@ using Amazon.Runtime.Internal;
 namespace Amazon.TranscribeService.Model
 {
     /// <summary>
-    /// Your request didn't pass one or more validation tests. For example, if the transcription
-    /// you're trying to delete doesn't exist or if it is in a non-terminal state (for example,
-    /// it's "in progress"). See the exception <code>Message</code> field for more information.
+    /// Your request didn't pass one or more validation tests. For example, if the entity
+    /// that you're trying to delete doesn't exist or if it is in a non-terminal state (for
+    /// example, it's "in progress"). See the exception <code>Message</code> field for more
+    /// information.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadRequestException : AmazonTranscribeServiceException
@@ -88,7 +89,7 @@ namespace Amazon.TranscribeService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadRequestException class with serialized data.
         /// </summary>

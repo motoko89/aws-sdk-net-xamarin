@@ -32,7 +32,7 @@ namespace Amazon.Organizations.Model
     /// This account is already a member of an organization. An account can belong to only
     /// one organization at a time.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AlreadyInOrganizationException : AmazonOrganizationsException
@@ -87,7 +87,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AlreadyInOrganizationException class with serialized data.
         /// </summary>

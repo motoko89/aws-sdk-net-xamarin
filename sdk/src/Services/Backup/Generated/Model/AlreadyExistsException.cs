@@ -31,7 +31,7 @@ namespace Amazon.Backup.Model
     /// <summary>
     /// The required resource already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AlreadyExistsException : AmazonBackupException
@@ -91,7 +91,7 @@ namespace Amazon.Backup.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AlreadyExistsException class with serialized data.
         /// </summary>

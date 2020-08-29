@@ -35,7 +35,7 @@ namespace Amazon.Organizations.Model
     /// ensure that existing handshakes that might be considered duplicates are canceled or
     /// declined.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DuplicateHandshakeException : AmazonOrganizationsException
@@ -90,7 +90,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DuplicateHandshakeException class with serialized data.
         /// </summary>

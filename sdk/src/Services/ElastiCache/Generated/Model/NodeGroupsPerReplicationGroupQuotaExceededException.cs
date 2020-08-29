@@ -32,7 +32,7 @@ namespace Amazon.ElastiCache.Model
     /// The request cannot be processed because it would exceed the maximum allowed number
     /// of node groups (shards) in a single replication group. The default maximum is 90
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NodeGroupsPerReplicationGroupQuotaExceededException : AmazonElastiCacheException
@@ -87,7 +87,7 @@ namespace Amazon.ElastiCache.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NodeGroupsPerReplicationGroupQuotaExceededException class with serialized data.
         /// </summary>

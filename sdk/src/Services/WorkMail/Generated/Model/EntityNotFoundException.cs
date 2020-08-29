@@ -31,7 +31,7 @@ namespace Amazon.WorkMail.Model
     /// <summary>
     /// The identifier supplied for the user, group, or resource does not exist in your organization.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EntityNotFoundException : AmazonWorkMailException
@@ -86,7 +86,7 @@ namespace Amazon.WorkMail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EntityNotFoundException class with serialized data.
         /// </summary>

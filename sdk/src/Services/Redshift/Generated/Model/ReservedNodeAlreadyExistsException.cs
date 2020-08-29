@@ -31,7 +31,7 @@ namespace Amazon.Redshift.Model
     /// <summary>
     /// User already has a reservation with the given identifier.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ReservedNodeAlreadyExistsException : AmazonRedshiftException
@@ -86,7 +86,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ReservedNodeAlreadyExistsException class with serialized data.
         /// </summary>

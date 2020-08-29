@@ -31,7 +31,7 @@ namespace Amazon.ServiceCatalog.Model
     /// <summary>
     /// One or more parameters provided to the operation are not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParametersException : AmazonServiceCatalogException
@@ -86,7 +86,7 @@ namespace Amazon.ServiceCatalog.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParametersException class with serialized data.
         /// </summary>

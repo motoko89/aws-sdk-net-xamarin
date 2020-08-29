@@ -32,7 +32,7 @@ namespace Amazon.AWSSupport.Model
     /// The limit for the number of attachment sets created in a short period of time has
     /// been exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AttachmentLimitExceededException : AmazonAWSSupportException
@@ -87,7 +87,7 @@ namespace Amazon.AWSSupport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AttachmentLimitExceededException class with serialized data.
         /// </summary>

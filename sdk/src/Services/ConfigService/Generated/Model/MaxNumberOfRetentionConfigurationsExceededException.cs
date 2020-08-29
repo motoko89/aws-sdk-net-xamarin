@@ -32,7 +32,7 @@ namespace Amazon.ConfigService.Model
     /// Failed to add the retention configuration because a retention configuration with that
     /// name already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MaxNumberOfRetentionConfigurationsExceededException : AmazonConfigServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MaxNumberOfRetentionConfigurationsExceededException class with serialized data.
         /// </summary>

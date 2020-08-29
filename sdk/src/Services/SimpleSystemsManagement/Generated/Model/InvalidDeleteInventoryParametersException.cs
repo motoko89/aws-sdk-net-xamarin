@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// One or more of the parameters specified for the delete operation is not valid. Verify
     /// all parameters and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDeleteInventoryParametersException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDeleteInventoryParametersException class with serialized data.
         /// </summary>

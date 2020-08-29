@@ -33,7 +33,7 @@ namespace Amazon.CodeDeploy.Model
     /// automatic rollback is enabled, but an invalid triggering event type or no event types
     /// were listed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidAutoRollbackConfigException : AmazonCodeDeployException
@@ -88,7 +88,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidAutoRollbackConfigException class with serialized data.
         /// </summary>

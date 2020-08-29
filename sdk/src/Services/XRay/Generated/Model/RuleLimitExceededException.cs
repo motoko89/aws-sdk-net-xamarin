@@ -31,7 +31,7 @@ namespace Amazon.XRay.Model
     /// <summary>
     /// You have reached the maximum number of sampling rules.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RuleLimitExceededException : AmazonXRayException
@@ -86,7 +86,7 @@ namespace Amazon.XRay.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RuleLimitExceededException class with serialized data.
         /// </summary>

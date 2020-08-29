@@ -32,7 +32,7 @@ namespace Amazon.SimpleEmailV2.Model
     /// The message can't be sent because the account's ability to send email is currently
     /// paused.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SendingPausedException : AmazonSimpleEmailServiceV2Exception
@@ -87,7 +87,7 @@ namespace Amazon.SimpleEmailV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SendingPausedException class with serialized data.
         /// </summary>

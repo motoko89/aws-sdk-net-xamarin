@@ -34,7 +34,7 @@ namespace Amazon.CloudTrail.Model
     /// in a required service. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare
     /// For Creating a Trail For Your Organization</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InsufficientDependencyServiceAccessPermissionException : AmazonCloudTrailException
@@ -89,7 +89,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InsufficientDependencyServiceAccessPermissionException class with serialized data.
         /// </summary>

@@ -33,7 +33,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// Session Manager. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html">Getting
     /// started with Session Manager</a> in the <i>AWS Systems Manager User Guide</i>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TargetNotConnectedException : AmazonSimpleSystemsManagementException
@@ -88,7 +88,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TargetNotConnectedException class with serialized data.
         /// </summary>

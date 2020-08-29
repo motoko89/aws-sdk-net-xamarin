@@ -31,7 +31,7 @@ namespace Amazon.CognitoSync.Model
     /// <summary>
     /// Thrown when a request parameter does not comply with the associated constraints.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterException : AmazonCognitoSyncException
@@ -86,7 +86,7 @@ namespace Amazon.CognitoSync.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterException class with serialized data.
         /// </summary>

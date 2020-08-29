@@ -109,6 +109,10 @@ using System.Diagnostics.CodeAnalysis;
 [module: SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", Scope = "type", Target = "Amazon.Runtime.Internal.AutoConstructedList`1")]
 [module: SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", Scope = "type", Target = "Amazon.Runtime.Internal.ParametersDictionaryFacade")]
 [module: SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", Scope = "type", Target = "Amazon.Runtime.Internal.ParameterCollection")]
+[assembly: SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix", Justification = "Not a collection", Scope = "type", Target = "~T:Amazon.Runtime.PaginatedResultKeyResponse`2")]
+[assembly: SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix", Justification = "Not a collection", Scope = "type", Target = "~T:Amazon.Runtime.IPaginatedEnumerable`1")]
+[assembly: SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix", Justification = "Not a collection", Scope = "type", Target = "~T:Amazon.Runtime.PaginatedResponse`1")]
+
 
 // Interface methods not callable by child types
 [module: SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes", Scope = "member", Target = "Amazon.Runtime.AmazonWebServiceRequest.#Amazon.Runtime.Internal.IRequestEvents.FireBeforeRequestEvent(System.Object,Amazon.Runtime.RequestEventArgs)")]
@@ -512,6 +516,12 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1055:Uri return values should not be strings", Scope = "member", Target = "~M:Amazon.Util.AWSSDKUtils.UrlEncode(System.Int32,System.String,System.Boolean)~System.String")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1060:Move pinvokes to native methods class", Scope = "type", Target = "~T:Amazon.Runtime.Internal.Settings.UserCrypto")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1065:Do not raise exceptions in unexpected locations", Scope = "member", Target = "~P:ThirdParty.Ionic.Zlib.CrcCalculatorStream.Length")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1065:Do not raise exceptions in unexpected locations", Justification = "<Pending>", Scope = "member", Target = "~P:Amazon.Runtime.AssumeRoleAWSCredentialsOptions.MfaTokenCode")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1065:Do not raise exceptions in unexpected locations", Justification = "<Pending>", Scope = "member", Target = "~P:Amazon.Runtime.Internal.Util.DecryptStream.Position")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1065:Do not raise exceptions in unexpected locations", Justification = "<Pending>", Scope = "member", Target = "~P:Amazon.Runtime.Internal.Util.ReadOnlyWrapperStream.Length")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1065:Do not raise exceptions in unexpected locations", Justification = "<Pending>", Scope = "member", Target = "~P:Amazon.Runtime.Internal.Util.ReadOnlyWrapperStream.Position")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1065:Do not raise exceptions in unexpected locations", Justification = "<Pending>", Scope = "member", Target = "~P:Amazon.Runtime.Internal.Util.HashStream.Position")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1065:Do not raise exceptions in unexpected locations", Justification = "<Pending>", Scope = "member", Target = "~P:Amazon.Runtime.Internal.Util.CachingWrapperStream.Position")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1715:Identifiers should have correct prefix", Scope = "type", Target = "~T:ThirdParty.BouncyCastle.Utilities.IO.Pem.PemObjectGenerator")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1715:Identifiers should have correct prefix", Scope = "type", Target = "~T:ThirdParty.BouncyCastle.Utilities.IO.Pem.PemObjectParser")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1720:Identifier contains type name", Scope = "member", Target = "~F:ThirdParty.BouncyCastle.Asn1.Asn1InputStream.Integer")]
@@ -566,7 +576,11 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Scope = "member", Target = "~M:ThirdParty.BouncyCastle.OpenSsl.PemReader.GetAlignmentValue(System.Byte[])~System.Int32")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Scope = "member", Target = "~M:ThirdParty.Ionic.Zlib.CRC32._InternalComputeCrc32(System.UInt32,System.Byte)~System.Int32")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Scope = "member", Target = "~M:ThirdParty.Json.LitJson.JsonData.ToJsonData(System.Object)~ThirdParty.Json.LitJson.JsonData")]
-
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("AwsSdkRules", "CR1003:Do not use DateTime.Now or DateTime.UtcNow, use AWSSDKUtils.CorrectedNow or AWSSDKUtils.CorrectedUtcNow", Justification = "<Pending>", Scope = "member", Target = "~M:Amazon.Runtime.Internal.TokenBucket.GetTimeInSeconds~System.Double")]
-
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2214:Do not call overridable methods in constructors", Justification = "<Pending>", Scope = "member", Target = "~M:Amazon.Runtime.Internal.TokenBucket.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double)")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1065:Do not raise exceptions in unexpected locations", Justification = "Stream does not support property gained through inheritance.", Scope = "member", Target = "~P:Amazon.Runtime.Internal.Util.HashStream.Position")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1065:Do not raise exceptions in unexpected locations", Justification = "Stream does not support property gained through inheritance.", Scope = "member", Target = "~P:Amazon.Runtime.Internal.Util.ReadOnlyWrapperStream.Length")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1065:Do not raise exceptions in unexpected locations", Justification = "Stream does not support property gained through inheritance.", Scope = "member", Target = "~P:Amazon.Runtime.AssumeRoleAWSCredentialsOptions.MfaTokenCode")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1065:Do not raise exceptions in unexpected locations", Justification = "Stream does not support property gained through inheritance.", Scope = "member", Target = "~P:Amazon.Runtime.Internal.Util.CachingWrapperStream.Position")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1065:Do not raise exceptions in unexpected locations", Justification = "Stream does not support property gained through inheritance.", Scope = "member", Target = "~P:Amazon.Runtime.Internal.Util.DecryptStream.Position")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1065:Do not raise exceptions in unexpected locations", Justification = "Stream does not support property gained through inheritance.", Scope = "member", Target = "~P:Amazon.Runtime.Internal.Util.ReadOnlyWrapperStream.Position")]

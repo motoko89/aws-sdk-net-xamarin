@@ -32,7 +32,7 @@ namespace Amazon.Organizations.Model
     /// We can't find an create account request with the <code>CreateAccountRequestId</code>
     /// that you specified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CreateAccountStatusNotFoundException : AmazonOrganizationsException
@@ -87,7 +87,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CreateAccountStatusNotFoundException class with serialized data.
         /// </summary>

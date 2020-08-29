@@ -31,7 +31,7 @@ namespace Amazon.ElasticFileSystem.Model
     /// <summary>
     /// Returned if the file system's lifecycle state is not "available".
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IncorrectFileSystemLifeCycleStateException : AmazonElasticFileSystemException
@@ -87,7 +87,7 @@ namespace Amazon.ElasticFileSystem.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IncorrectFileSystemLifeCycleStateException class with serialized data.
         /// </summary>

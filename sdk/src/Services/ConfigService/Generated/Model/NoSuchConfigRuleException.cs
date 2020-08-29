@@ -32,7 +32,7 @@ namespace Amazon.ConfigService.Model
     /// One or more AWS Config rules in the request are invalid. Verify that the rule names
     /// are correct and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NoSuchConfigRuleException : AmazonConfigServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NoSuchConfigRuleException class with serialized data.
         /// </summary>

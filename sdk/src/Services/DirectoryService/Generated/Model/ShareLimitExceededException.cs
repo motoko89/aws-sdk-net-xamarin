@@ -32,7 +32,7 @@ namespace Amazon.DirectoryService.Model
     /// The maximum number of AWS accounts that you can share with this directory has been
     /// reached.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ShareLimitExceededException : AmazonDirectoryServiceException
@@ -88,7 +88,7 @@ namespace Amazon.DirectoryService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ShareLimitExceededException class with serialized data.
         /// </summary>

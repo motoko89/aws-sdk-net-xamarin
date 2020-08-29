@@ -31,7 +31,7 @@ namespace Amazon.ConfigService.Model
     /// <summary>
     /// The specified Amazon SNS topic does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidSNSTopicARNException : AmazonConfigServiceException
@@ -86,7 +86,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidSNSTopicARNException class with serialized data.
         /// </summary>

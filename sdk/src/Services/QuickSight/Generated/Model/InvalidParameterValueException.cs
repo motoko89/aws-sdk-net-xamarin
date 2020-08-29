@@ -31,7 +31,7 @@ namespace Amazon.QuickSight.Model
     /// <summary>
     /// One or more parameters has a value that isn't valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterValueException : AmazonQuickSightException
@@ -87,7 +87,7 @@ namespace Amazon.QuickSight.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterValueException class with serialized data.
         /// </summary>

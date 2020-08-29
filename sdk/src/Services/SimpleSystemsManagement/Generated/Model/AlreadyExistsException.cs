@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// Error returned if an attempt is made to register a patch group with a patch baseline
     /// that is already registered with a different patch baseline.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AlreadyExistsException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AlreadyExistsException class with serialized data.
         /// </summary>

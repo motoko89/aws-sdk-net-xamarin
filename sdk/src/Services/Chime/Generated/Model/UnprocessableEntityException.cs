@@ -31,7 +31,7 @@ namespace Amazon.Chime.Model
     /// <summary>
     /// The request was well-formed but was unable to be followed due to semantic errors.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnprocessableEntityException : AmazonChimeException
@@ -87,7 +87,7 @@ namespace Amazon.Chime.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnprocessableEntityException class with serialized data.
         /// </summary>

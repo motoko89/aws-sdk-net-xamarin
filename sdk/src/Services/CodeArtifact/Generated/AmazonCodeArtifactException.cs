@@ -28,7 +28,7 @@ namespace Amazon.CodeArtifact
     ///<summary>
     /// Common exception for the CodeArtifact service.
     /// </summary>
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
     [Serializable]
 #endif
     public partial class AmazonCodeArtifactException : AmazonServiceException
@@ -88,7 +88,7 @@ namespace Amazon.CodeArtifact
         {
         }
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AmazonCodeArtifactException class with serialized data.
         /// </summary>

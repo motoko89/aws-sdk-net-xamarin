@@ -31,7 +31,7 @@ namespace Amazon.AppStream.Model
     /// <summary>
     /// The requested limit exceeds the permitted limit for an account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonAppStreamException
@@ -86,7 +86,7 @@ namespace Amazon.AppStream.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

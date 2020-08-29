@@ -32,7 +32,7 @@ namespace Amazon.Redshift.Model
     /// An Amazon Redshift event notification subscription with the specified name does not
     /// exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SubscriptionNotFoundException : AmazonRedshiftException
@@ -87,7 +87,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SubscriptionNotFoundException class with serialized data.
         /// </summary>

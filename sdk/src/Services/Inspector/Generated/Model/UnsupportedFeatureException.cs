@@ -34,7 +34,7 @@ namespace Amazon.Inspector.Model
     /// in Amazon Inspector. You can only generate reports for assessment runs that took place
     /// or will take place after generating reports in Amazon Inspector became available.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedFeatureException : AmazonInspectorException
@@ -90,7 +90,7 @@ namespace Amazon.Inspector.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedFeatureException class with serialized data.
         /// </summary>

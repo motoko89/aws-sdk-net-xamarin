@@ -31,7 +31,7 @@ namespace Amazon.CloudHSMV2.Model
     /// <summary>
     /// The request was rejected because it is not a valid request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CloudHsmInvalidRequestException : AmazonCloudHSMV2Exception
@@ -86,7 +86,7 @@ namespace Amazon.CloudHSMV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CloudHsmInvalidRequestException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.Snowball.Model
     /// The provided AWS Key Management Service key lacks the permissions to perform the specified
     /// <a>CreateJob</a> or <a>UpdateJob</a> action.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class KMSRequestFailedException : AmazonSnowballException
@@ -87,7 +87,7 @@ namespace Amazon.Snowball.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the KMSRequestFailedException class with serialized data.
         /// </summary>

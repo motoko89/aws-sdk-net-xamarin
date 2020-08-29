@@ -31,7 +31,7 @@ namespace Amazon.Route53Resolver.Model
     /// <summary>
     /// The request caused one or more limits to be exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonRoute53ResolverException
@@ -87,7 +87,7 @@ namespace Amazon.Route53Resolver.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

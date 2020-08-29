@@ -33,7 +33,7 @@ namespace Amazon.Lambda.Model
     /// or alias. Call the <code>GetFunction</code> or the <code>GetAlias</code> API to retrieve
     /// the latest RevisionId for your resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PreconditionFailedException : AmazonLambdaException
@@ -89,7 +89,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PreconditionFailedException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.Lambda.Model
     /// <summary>
     /// One of the parameters in the request is invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterValueException : AmazonLambdaException
@@ -87,7 +87,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterValueException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// You attempted to register a LAMBDA or STEP_FUNCTIONS task in a region where the corresponding
     /// service is not available.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FeatureNotAvailableException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FeatureNotAvailableException class with serialized data.
         /// </summary>

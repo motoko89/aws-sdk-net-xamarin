@@ -32,7 +32,7 @@ namespace Amazon.CodeGuruReviewer.Model
     /// The requested operation would cause a conflict with the current state of a service
     /// resource associated with the request. Resolve the conflict before retrying this request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConflictException : AmazonCodeGuruReviewerException
@@ -87,7 +87,7 @@ namespace Amazon.CodeGuruReviewer.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConflictException class with serialized data.
         /// </summary>

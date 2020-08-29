@@ -32,7 +32,7 @@ namespace Amazon.ServiceCatalog.Model
     /// An attempt was made to modify a resource that is in a state that is not valid. Check
     /// your resources to ensure that they are in valid states before retrying the operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidStateException : AmazonServiceCatalogException
@@ -87,7 +87,7 @@ namespace Amazon.ServiceCatalog.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidStateException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.AccessAnalyzer.Model
     /// <summary>
     /// The specified resource could not be found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonAccessAnalyzerException
@@ -88,7 +88,7 @@ namespace Amazon.AccessAnalyzer.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

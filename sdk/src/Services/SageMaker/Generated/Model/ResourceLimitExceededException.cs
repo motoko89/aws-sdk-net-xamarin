@@ -32,7 +32,7 @@ namespace Amazon.SageMaker.Model
     /// You have exceeded an Amazon SageMaker resource limit. For example, you might have
     /// too many training jobs created.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceLimitExceededException : AmazonSageMakerException
@@ -87,7 +87,7 @@ namespace Amazon.SageMaker.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceLimitExceededException class with serialized data.
         /// </summary>

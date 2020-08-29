@@ -31,7 +31,7 @@ namespace Amazon.IdentityManagement.Model
     /// <summary>
     /// The request was rejected because the type of user for the transaction was incorrect.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidUserTypeException : AmazonIdentityManagementServiceException
@@ -86,7 +86,7 @@ namespace Amazon.IdentityManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidUserTypeException class with serialized data.
         /// </summary>

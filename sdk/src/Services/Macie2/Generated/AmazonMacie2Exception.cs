@@ -28,7 +28,7 @@ namespace Amazon.Macie2
     ///<summary>
     /// Common exception for the Macie2 service.
     /// </summary>
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
     [Serializable]
 #endif
     public partial class AmazonMacie2Exception : AmazonServiceException
@@ -88,7 +88,7 @@ namespace Amazon.Macie2
         {
         }
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AmazonMacie2Exception class with serialized data.
         /// </summary>

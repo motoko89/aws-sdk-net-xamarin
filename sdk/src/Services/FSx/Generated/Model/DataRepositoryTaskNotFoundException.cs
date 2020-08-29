@@ -31,7 +31,7 @@ namespace Amazon.FSx.Model
     /// <summary>
     /// The data repository task or tasks you specified could not be found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DataRepositoryTaskNotFoundException : AmazonFSxException
@@ -86,7 +86,7 @@ namespace Amazon.FSx.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DataRepositoryTaskNotFoundException class with serialized data.
         /// </summary>

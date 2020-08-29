@@ -31,7 +31,7 @@ namespace Amazon.NetworkManager.Model
     /// <summary>
     /// The request has failed due to an internal error.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerException : AmazonNetworkManagerException
@@ -87,7 +87,7 @@ namespace Amazon.NetworkManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerException class with serialized data.
         /// </summary>

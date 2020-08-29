@@ -32,7 +32,7 @@ namespace Amazon.KeyManagementService.Model
     /// The request was rejected because the specified CMK was not available. You can retry
     /// the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class KeyUnavailableException : AmazonKeyManagementServiceException
@@ -87,7 +87,7 @@ namespace Amazon.KeyManagementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the KeyUnavailableException class with serialized data.
         /// </summary>

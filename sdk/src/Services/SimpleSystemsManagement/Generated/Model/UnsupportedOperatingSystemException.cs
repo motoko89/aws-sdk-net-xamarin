@@ -33,7 +33,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// for the operating system. Valid operating systems include: Windows, AmazonLinux, RedhatEnterpriseLinux,
     /// and Ubuntu.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedOperatingSystemException : AmazonSimpleSystemsManagementException
@@ -88,7 +88,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedOperatingSystemException class with serialized data.
         /// </summary>

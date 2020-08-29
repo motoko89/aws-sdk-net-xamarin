@@ -31,7 +31,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
     /// <summary>
     /// A load balancer with the specified name already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DuplicateLoadBalancerNameException : AmazonElasticLoadBalancingV2Exception
@@ -86,7 +86,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DuplicateLoadBalancerNameException class with serialized data.
         /// </summary>

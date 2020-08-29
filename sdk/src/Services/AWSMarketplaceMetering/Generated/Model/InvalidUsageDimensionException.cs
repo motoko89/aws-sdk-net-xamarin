@@ -31,7 +31,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
     /// <summary>
     /// The usage dimension does not match one of the UsageDimensions associated with products.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidUsageDimensionException : AmazonAWSMarketplaceMeteringException
@@ -86,7 +86,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidUsageDimensionException class with serialized data.
         /// </summary>

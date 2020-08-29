@@ -32,7 +32,7 @@ namespace Amazon.CloudDirectory.Model
     /// Indicates that a schema could not be created due to a naming conflict. Please select
     /// a different name and then try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SchemaAlreadyExistsException : AmazonCloudDirectoryException
@@ -87,7 +87,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SchemaAlreadyExistsException class with serialized data.
         /// </summary>

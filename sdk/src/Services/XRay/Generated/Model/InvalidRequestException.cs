@@ -31,7 +31,7 @@ namespace Amazon.XRay.Model
     /// <summary>
     /// The request is missing required parameters or has invalid parameters.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRequestException : AmazonXRayException
@@ -86,7 +86,7 @@ namespace Amazon.XRay.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRequestException class with serialized data.
         /// </summary>

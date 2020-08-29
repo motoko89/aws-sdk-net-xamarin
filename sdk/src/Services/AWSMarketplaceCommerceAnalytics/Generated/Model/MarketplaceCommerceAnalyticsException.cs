@@ -31,7 +31,7 @@ namespace Amazon.AWSMarketplaceCommerceAnalytics.Model
     /// <summary>
     /// This exception is thrown when an internal service error occurs.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MarketplaceCommerceAnalyticsException : AmazonAWSMarketplaceCommerceAnalyticsException
@@ -86,7 +86,7 @@ namespace Amazon.AWSMarketplaceCommerceAnalytics.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MarketplaceCommerceAnalyticsException class with serialized data.
         /// </summary>

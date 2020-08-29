@@ -33,7 +33,7 @@ namespace Amazon.Lambda.Model
     /// as part of Lambda function configuration, because the limit for network interfaces
     /// has been reached.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ENILimitReachedException : AmazonLambdaException
@@ -89,7 +89,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ENILimitReachedException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.IoTSecureTunneling.Model
     /// <summary>
     /// Thrown when an operation is attempted on a resource that does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonIoTSecureTunnelingException
@@ -86,7 +86,7 @@ namespace Amazon.IoTSecureTunneling.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

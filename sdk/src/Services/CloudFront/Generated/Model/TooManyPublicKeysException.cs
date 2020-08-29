@@ -32,7 +32,7 @@ namespace Amazon.CloudFront.Model
     /// The maximum number of public keys for field-level encryption have been created. To
     /// create a new public key, delete one of the existing keys.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyPublicKeysException : AmazonCloudFrontException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyPublicKeysException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.Glacier.Model
     /// <summary>
     /// Returned if a required header or parameter is missing from the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MissingParameterValueException : AmazonGlacierException
@@ -88,7 +88,7 @@ namespace Amazon.Glacier.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MissingParameterValueException class with serialized data.
         /// </summary>

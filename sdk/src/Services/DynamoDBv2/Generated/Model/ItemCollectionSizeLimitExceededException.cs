@@ -32,7 +32,7 @@ namespace Amazon.DynamoDBv2.Model
     /// An item collection is too large. This exception is only returned for tables that have
     /// one or more local secondary indexes.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ItemCollectionSizeLimitExceededException : AmazonDynamoDBException
@@ -87,7 +87,7 @@ namespace Amazon.DynamoDBv2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ItemCollectionSizeLimitExceededException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.ElasticLoadBalancing.Model
     /// The specified value for the schema is not valid. You can only specify a scheme for
     /// load balancers in a VPC.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidSchemeException : AmazonElasticLoadBalancingException
@@ -87,7 +87,7 @@ namespace Amazon.ElasticLoadBalancing.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidSchemeException class with serialized data.
         /// </summary>

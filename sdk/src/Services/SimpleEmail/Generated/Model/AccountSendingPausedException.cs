@@ -36,7 +36,7 @@ namespace Amazon.SimpleEmail.Model
     /// You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccountSendingPausedException : AmazonSimpleEmailServiceException
@@ -91,7 +91,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccountSendingPausedException class with serialized data.
         /// </summary>

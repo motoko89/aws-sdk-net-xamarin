@@ -32,7 +32,7 @@ namespace Amazon.CloudFront.Model
     /// Processing your request would cause you to exceed the maximum number of distributions
     /// allowed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyDistributionsException : AmazonCloudFrontException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyDistributionsException class with serialized data.
         /// </summary>

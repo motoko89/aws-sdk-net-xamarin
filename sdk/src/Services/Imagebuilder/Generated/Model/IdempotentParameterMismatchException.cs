@@ -32,7 +32,7 @@ namespace Amazon.Imagebuilder.Model
     /// You have specified a client token for an operation using parameter values that differ
     /// from a previous request that used the same client token.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IdempotentParameterMismatchException : AmazonImagebuilderException
@@ -87,7 +87,7 @@ namespace Amazon.Imagebuilder.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IdempotentParameterMismatchException class with serialized data.
         /// </summary>

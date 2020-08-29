@@ -32,7 +32,7 @@ namespace Amazon.Redshift.Model
     /// The snapshot copy grant can't be created because a grant with the same name already
     /// exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SnapshotCopyGrantAlreadyExistsException : AmazonRedshiftException
@@ -87,7 +87,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SnapshotCopyGrantAlreadyExistsException class with serialized data.
         /// </summary>

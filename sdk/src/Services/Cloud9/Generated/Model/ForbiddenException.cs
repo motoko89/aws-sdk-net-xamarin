@@ -31,7 +31,7 @@ namespace Amazon.Cloud9.Model
     /// <summary>
     /// An access permissions issue occurred.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ForbiddenException : AmazonCloud9Exception
@@ -86,7 +86,7 @@ namespace Amazon.Cloud9.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ForbiddenException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.QLDB.Model
     /// <summary>
     /// You have reached the limit on the maximum number of resources allowed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonQLDBException
@@ -87,7 +87,7 @@ namespace Amazon.QLDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

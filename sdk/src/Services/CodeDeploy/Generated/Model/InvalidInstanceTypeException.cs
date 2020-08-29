@@ -32,7 +32,7 @@ namespace Amazon.CodeDeploy.Model
     /// An invalid instance type was specified for instances in a blue/green deployment. Valid
     /// values include "Blue" for an original environment and "Green" for a replacement environment.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidInstanceTypeException : AmazonCodeDeployException
@@ -87,7 +87,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidInstanceTypeException class with serialized data.
         /// </summary>

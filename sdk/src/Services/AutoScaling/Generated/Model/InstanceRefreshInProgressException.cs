@@ -32,7 +32,7 @@ namespace Amazon.AutoScaling.Model
     /// The request failed because an active instance refresh operation already exists for
     /// the specified Auto Scaling group.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InstanceRefreshInProgressException : AmazonAutoScalingException
@@ -87,7 +87,7 @@ namespace Amazon.AutoScaling.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InstanceRefreshInProgressException class with serialized data.
         /// </summary>

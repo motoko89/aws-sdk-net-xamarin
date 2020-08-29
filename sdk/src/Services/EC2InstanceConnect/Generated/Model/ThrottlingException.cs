@@ -32,7 +32,7 @@ namespace Amazon.EC2InstanceConnect.Model
     /// Indicates you have been making requests too frequently and have been throttled. Wait
     /// for a while and try again. If higher call volume is warranted contact AWS Support.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ThrottlingException : AmazonEC2InstanceConnectException
@@ -87,7 +87,7 @@ namespace Amazon.EC2InstanceConnect.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ThrottlingException class with serialized data.
         /// </summary>

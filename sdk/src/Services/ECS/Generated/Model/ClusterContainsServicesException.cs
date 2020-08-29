@@ -33,7 +33,7 @@ namespace Amazon.ECS.Model
     /// its desired task count to 0 and then delete the service. For more information, see
     /// <a>UpdateService</a> and <a>DeleteService</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ClusterContainsServicesException : AmazonECSException
@@ -88,7 +88,7 @@ namespace Amazon.ECS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ClusterContainsServicesException class with serialized data.
         /// </summary>

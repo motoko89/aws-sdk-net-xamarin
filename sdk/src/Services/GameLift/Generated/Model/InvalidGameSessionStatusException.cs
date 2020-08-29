@@ -33,7 +33,7 @@ namespace Amazon.GameLift.Model
     /// associated with the request and/or the game instance. Resolve the conflict before
     /// retrying.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidGameSessionStatusException : AmazonGameLiftException
@@ -88,7 +88,7 @@ namespace Amazon.GameLift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidGameSessionStatusException class with serialized data.
         /// </summary>

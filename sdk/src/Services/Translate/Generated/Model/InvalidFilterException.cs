@@ -31,7 +31,7 @@ namespace Amazon.Translate.Model
     /// <summary>
     /// The filter specified for the operation is invalid. Specify a different filter.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidFilterException : AmazonTranslateException
@@ -86,7 +86,7 @@ namespace Amazon.Translate.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidFilterException class with serialized data.
         /// </summary>

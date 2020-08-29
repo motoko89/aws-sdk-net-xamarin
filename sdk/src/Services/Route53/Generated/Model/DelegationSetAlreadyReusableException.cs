@@ -31,7 +31,7 @@ namespace Amazon.Route53.Model
     /// <summary>
     /// The specified delegation set has already been marked as reusable.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DelegationSetAlreadyReusableException : AmazonRoute53Exception
@@ -86,7 +86,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DelegationSetAlreadyReusableException class with serialized data.
         /// </summary>

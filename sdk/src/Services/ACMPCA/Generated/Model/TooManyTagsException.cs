@@ -32,7 +32,7 @@ namespace Amazon.ACMPCA.Model
     /// You can associate up to 50 tags with a private CA. Exception information is contained
     /// in the exception message field.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyTagsException : AmazonACMPCAException
@@ -87,7 +87,7 @@ namespace Amazon.ACMPCA.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyTagsException class with serialized data.
         /// </summary>

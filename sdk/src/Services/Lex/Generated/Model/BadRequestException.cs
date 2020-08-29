@@ -32,7 +32,7 @@ namespace Amazon.Lex.Model
     /// Request validation failed, there is no usable message in the context, or the bot
     /// build failed, is still in progress, or contains unbuilt changes.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadRequestException : AmazonLexException
@@ -87,7 +87,7 @@ namespace Amazon.Lex.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadRequestException class with serialized data.
         /// </summary>

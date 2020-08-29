@@ -33,7 +33,7 @@ namespace Amazon.IoTSiteWise.Model
     /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag
     /// naming limits and requirements</a> in the <i>AWS General Reference</i>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyTagsException : AmazonIoTSiteWiseException
@@ -89,7 +89,7 @@ namespace Amazon.IoTSiteWise.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyTagsException class with serialized data.
         /// </summary>

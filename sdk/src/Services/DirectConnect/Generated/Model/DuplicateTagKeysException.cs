@@ -31,7 +31,7 @@ namespace Amazon.DirectConnect.Model
     /// <summary>
     /// A tag key was specified more than once.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DuplicateTagKeysException : AmazonDirectConnectException
@@ -86,7 +86,7 @@ namespace Amazon.DirectConnect.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DuplicateTagKeysException class with serialized data.
         /// </summary>

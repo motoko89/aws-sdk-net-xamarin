@@ -42,6 +42,11 @@ namespace Amazon.ServiceDiscovery
     public partial interface IAmazonServiceDiscovery : IAmazonService, IDisposable
     {
 
+        /// <summary>
+        /// Paginators for the service
+        /// </summary>
+        IServiceDiscoveryPaginatorFactory Paginators { get; }
+
         
         #region  CreateHttpNamespace
 
@@ -53,9 +58,9 @@ namespace Amazon.ServiceDiscovery
         /// 
         ///  
         /// <para>
-        /// For the current limit on the number of namespaces that you can create using the same
+        /// For the current quota on the number of namespaces that you can create using the same
         /// AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
-        /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
+        /// Cloud Map quotas</a> in the <i>AWS Cloud Map Developer Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateHttpNamespace service method.</param>
@@ -73,10 +78,10 @@ namespace Amazon.ServiceDiscovery
         /// The namespace that you're trying to create already exists.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ResourceLimitExceededException">
-        /// The resource can't be created because you've reached the limit on the number of resources.
+        /// The resource can't be created because you've reached the quota on the number of resources.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.TooManyTagsException">
-        /// The list of tags on the resource is over the limit. The maximum number of tags that
+        /// The list of tags on the resource is over the quota. The maximum number of tags that
         /// can be applied to a resource is 50.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/CreateHttpNamespace">REST API Reference for CreateHttpNamespace Operation</seealso>
@@ -91,9 +96,9 @@ namespace Amazon.ServiceDiscovery
         /// 
         ///  
         /// <para>
-        /// For the current limit on the number of namespaces that you can create using the same
+        /// For the current quota on the number of namespaces that you can create using the same
         /// AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
-        /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
+        /// Cloud Map quotas</a> in the <i>AWS Cloud Map Developer Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateHttpNamespace service method.</param>
@@ -114,10 +119,10 @@ namespace Amazon.ServiceDiscovery
         /// The namespace that you're trying to create already exists.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ResourceLimitExceededException">
-        /// The resource can't be created because you've reached the limit on the number of resources.
+        /// The resource can't be created because you've reached the quota on the number of resources.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.TooManyTagsException">
-        /// The list of tags on the resource is over the limit. The maximum number of tags that
+        /// The list of tags on the resource is over the quota. The maximum number of tags that
         /// can be applied to a resource is 50.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/CreateHttpNamespace">REST API Reference for CreateHttpNamespace Operation</seealso>
@@ -133,7 +138,7 @@ namespace Amazon.ServiceDiscovery
         /// Amazon VPC. The namespace defines your service naming scheme. For example, if you
         /// name your namespace <code>example.com</code> and name your service <code>backend</code>,
         /// the resulting DNS name for the service will be <code>backend.example.com</code>. For
-        /// the current limit on the number of namespaces that you can create using the same AWS
+        /// the current quota on the number of namespaces that you can create using the same AWS
         /// account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
         /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
         /// </summary>
@@ -152,10 +157,10 @@ namespace Amazon.ServiceDiscovery
         /// The namespace that you're trying to create already exists.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ResourceLimitExceededException">
-        /// The resource can't be created because you've reached the limit on the number of resources.
+        /// The resource can't be created because you've reached the quota on the number of resources.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.TooManyTagsException">
-        /// The list of tags on the resource is over the limit. The maximum number of tags that
+        /// The list of tags on the resource is over the quota. The maximum number of tags that
         /// can be applied to a resource is 50.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/CreatePrivateDnsNamespace">REST API Reference for CreatePrivateDnsNamespace Operation</seealso>
@@ -168,7 +173,7 @@ namespace Amazon.ServiceDiscovery
         /// Amazon VPC. The namespace defines your service naming scheme. For example, if you
         /// name your namespace <code>example.com</code> and name your service <code>backend</code>,
         /// the resulting DNS name for the service will be <code>backend.example.com</code>. For
-        /// the current limit on the number of namespaces that you can create using the same AWS
+        /// the current quota on the number of namespaces that you can create using the same AWS
         /// account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
         /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
         /// </summary>
@@ -190,10 +195,10 @@ namespace Amazon.ServiceDiscovery
         /// The namespace that you're trying to create already exists.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ResourceLimitExceededException">
-        /// The resource can't be created because you've reached the limit on the number of resources.
+        /// The resource can't be created because you've reached the quota on the number of resources.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.TooManyTagsException">
-        /// The list of tags on the resource is over the limit. The maximum number of tags that
+        /// The list of tags on the resource is over the quota. The maximum number of tags that
         /// can be applied to a resource is 50.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/CreatePrivateDnsNamespace">REST API Reference for CreatePrivateDnsNamespace Operation</seealso>
@@ -209,7 +214,7 @@ namespace Amazon.ServiceDiscovery
         /// namespace defines your service naming scheme. For example, if you name your namespace
         /// <code>example.com</code> and name your service <code>backend</code>, the resulting
         /// DNS name for the service will be <code>backend.example.com</code>. For the current
-        /// limit on the number of namespaces that you can create using the same AWS account,
+        /// quota on the number of namespaces that you can create using the same AWS account,
         /// see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
         /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
         /// </summary>
@@ -228,10 +233,10 @@ namespace Amazon.ServiceDiscovery
         /// The namespace that you're trying to create already exists.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ResourceLimitExceededException">
-        /// The resource can't be created because you've reached the limit on the number of resources.
+        /// The resource can't be created because you've reached the quota on the number of resources.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.TooManyTagsException">
-        /// The list of tags on the resource is over the limit. The maximum number of tags that
+        /// The list of tags on the resource is over the quota. The maximum number of tags that
         /// can be applied to a resource is 50.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/CreatePublicDnsNamespace">REST API Reference for CreatePublicDnsNamespace Operation</seealso>
@@ -244,7 +249,7 @@ namespace Amazon.ServiceDiscovery
         /// namespace defines your service naming scheme. For example, if you name your namespace
         /// <code>example.com</code> and name your service <code>backend</code>, the resulting
         /// DNS name for the service will be <code>backend.example.com</code>. For the current
-        /// limit on the number of namespaces that you can create using the same AWS account,
+        /// quota on the number of namespaces that you can create using the same AWS account,
         /// see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
         /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
         /// </summary>
@@ -266,10 +271,10 @@ namespace Amazon.ServiceDiscovery
         /// The namespace that you're trying to create already exists.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ResourceLimitExceededException">
-        /// The resource can't be created because you've reached the limit on the number of resources.
+        /// The resource can't be created because you've reached the quota on the number of resources.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.TooManyTagsException">
-        /// The list of tags on the resource is over the limit. The maximum number of tags that
+        /// The list of tags on the resource is over the quota. The maximum number of tags that
         /// can be applied to a resource is 50.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/CreatePublicDnsNamespace">REST API Reference for CreatePublicDnsNamespace Operation</seealso>
@@ -286,27 +291,27 @@ namespace Amazon.ServiceDiscovery
         ///  <ul> <li> 
         /// <para>
         /// For public and private DNS namespaces, one of the following combinations of DNS records
-        /// in Amazon Route 53:
+        /// in Amazon Route 53:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// A
+        ///  <code>A</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// AAAA
+        ///  <code>AAAA</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// A and AAAA
+        ///  <code>A</code> and <code>AAAA</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// SRV
+        ///  <code>SRV</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// CNAME
+        ///  <code>CNAME</code> 
         /// </para>
         ///  </li> </ul> </li> <li> 
         /// <para>
@@ -320,7 +325,7 @@ namespace Amazon.ServiceDiscovery
         /// </para>
         ///  
         /// <para>
-        /// For the current limit on the number of instances that you can register using the same
+        /// For the current quota on the number of instances that you can register using the same
         /// namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
         /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
         /// </para>
@@ -337,13 +342,13 @@ namespace Amazon.ServiceDiscovery
         /// No namespace exists with the specified ID.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ResourceLimitExceededException">
-        /// The resource can't be created because you've reached the limit on the number of resources.
+        /// The resource can't be created because you've reached the quota on the number of resources.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ServiceAlreadyExistsException">
         /// The service can't be created because a service with the same name already exists.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.TooManyTagsException">
-        /// The list of tags on the resource is over the limit. The maximum number of tags that
+        /// The list of tags on the resource is over the quota. The maximum number of tags that
         /// can be applied to a resource is 50.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/CreateService">REST API Reference for CreateService Operation</seealso>
@@ -357,27 +362,27 @@ namespace Amazon.ServiceDiscovery
         ///  <ul> <li> 
         /// <para>
         /// For public and private DNS namespaces, one of the following combinations of DNS records
-        /// in Amazon Route 53:
+        /// in Amazon Route 53:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// A
+        ///  <code>A</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// AAAA
+        ///  <code>AAAA</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// A and AAAA
+        ///  <code>A</code> and <code>AAAA</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// SRV
+        ///  <code>SRV</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// CNAME
+        ///  <code>CNAME</code> 
         /// </para>
         ///  </li> </ul> </li> <li> 
         /// <para>
@@ -391,7 +396,7 @@ namespace Amazon.ServiceDiscovery
         /// </para>
         ///  
         /// <para>
-        /// For the current limit on the number of instances that you can register using the same
+        /// For the current quota on the number of instances that you can register using the same
         /// namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
         /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
         /// </para>
@@ -411,13 +416,13 @@ namespace Amazon.ServiceDiscovery
         /// No namespace exists with the specified ID.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ResourceLimitExceededException">
-        /// The resource can't be created because you've reached the limit on the number of resources.
+        /// The resource can't be created because you've reached the quota on the number of resources.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ServiceAlreadyExistsException">
         /// The service can't be created because a service with the same name already exists.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.TooManyTagsException">
-        /// The list of tags on the resource is over the limit. The maximum number of tags that
+        /// The list of tags on the resource is over the quota. The maximum number of tags that
         /// can be applied to a resource is 50.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/CreateService">REST API Reference for CreateService Operation</seealso>
@@ -543,7 +548,7 @@ namespace Amazon.ServiceDiscovery
 
 
         /// <summary>
-        /// Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map
+        /// Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map
         /// created for the specified instance.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeregisterInstance service method.</param>
@@ -574,7 +579,7 @@ namespace Amazon.ServiceDiscovery
 
 
         /// <summary>
-        /// Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map
+        /// Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map
         /// created for the specified instance.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeregisterInstance service method.</param>
@@ -627,8 +632,9 @@ namespace Amazon.ServiceDiscovery
         /// No namespace exists with the specified ID.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.RequestLimitExceededException">
-        /// The operation can't be completed because you've reached the limit on the number of
-        /// requests.
+        /// The operation can't be completed because you've reached the quota for the number of
+        /// requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">AWS
+        /// Cloud Map API request throttling quota</a> in the <i>AWS Cloud Map Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ServiceNotFoundException">
         /// No service exists with the specified ID.
@@ -658,8 +664,9 @@ namespace Amazon.ServiceDiscovery
         /// No namespace exists with the specified ID.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.RequestLimitExceededException">
-        /// The operation can't be completed because you've reached the limit on the number of
-        /// requests.
+        /// The operation can't be completed because you've reached the quota for the number of
+        /// requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">AWS
+        /// Cloud Map API request throttling quota</a> in the <i>AWS Cloud Map Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ServiceNotFoundException">
         /// No service exists with the specified ID.
@@ -1195,7 +1202,7 @@ namespace Amazon.ServiceDiscovery
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// For the current limit on the number of instances that you can register using the same
+        /// For the current quota on the number of instances that you can register using the same
         /// namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
         /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
         /// </para>
@@ -1216,7 +1223,7 @@ namespace Amazon.ServiceDiscovery
         /// you can't delete a service that contains any instances.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ResourceLimitExceededException">
-        /// The resource can't be created because you've reached the limit on the number of resources.
+        /// The resource can't be created because you've reached the quota on the number of resources.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ServiceNotFoundException">
         /// No service exists with the specified ID.
@@ -1275,7 +1282,7 @@ namespace Amazon.ServiceDiscovery
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// For the current limit on the number of instances that you can register using the same
+        /// For the current quota on the number of instances that you can register using the same
         /// namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
         /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
         /// </para>
@@ -1299,7 +1306,7 @@ namespace Amazon.ServiceDiscovery
         /// you can't delete a service that contains any instances.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ResourceLimitExceededException">
-        /// The resource can't be created because you've reached the limit on the number of resources.
+        /// The resource can't be created because you've reached the quota on the number of resources.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ServiceNotFoundException">
         /// No service exists with the specified ID.
@@ -1327,7 +1334,7 @@ namespace Amazon.ServiceDiscovery
         /// The operation can't be completed because the resource was not found.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.TooManyTagsException">
-        /// The list of tags on the resource is over the limit. The maximum number of tags that
+        /// The list of tags on the resource is over the quota. The maximum number of tags that
         /// can be applied to a resource is 50.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/TagResource">REST API Reference for TagResource Operation</seealso>
@@ -1353,7 +1360,7 @@ namespace Amazon.ServiceDiscovery
         /// The operation can't be completed because the resource was not found.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.TooManyTagsException">
-        /// The list of tags on the resource is over the limit. The maximum number of tags that
+        /// The list of tags on the resource is over the quota. The maximum number of tags that
         /// can be applied to a resource is 50.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/TagResource">REST API Reference for TagResource Operation</seealso>
@@ -1416,7 +1423,7 @@ namespace Amazon.ServiceDiscovery
         /// <para>
         /// You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only
         /// for custom health checks, which you define using <code>HealthCheckCustomConfig</code>
-        /// when you create a service. You can't use it to change the status for Route 53 health
+        /// when you create a service. You can't use it to change the status for Route 53 health
         /// checks, which you define using <code>HealthCheckConfig</code>.
         /// </para>
         ///  
@@ -1456,7 +1463,7 @@ namespace Amazon.ServiceDiscovery
         /// <para>
         /// You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only
         /// for custom health checks, which you define using <code>HealthCheckCustomConfig</code>
-        /// when you create a service. You can't use it to change the status for Route 53 health
+        /// when you create a service. You can't use it to change the status for Route 53 health
         /// checks, which you define using <code>HealthCheckConfig</code>.
         /// </para>
         ///  

@@ -32,7 +32,7 @@ namespace Amazon.CloudDirectory.Model
     /// The <a>Facet</a> that you provided was not well formed or could not be validated with
     /// the schema.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FacetValidationException : AmazonCloudDirectoryException
@@ -87,7 +87,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FacetValidationException class with serialized data.
         /// </summary>

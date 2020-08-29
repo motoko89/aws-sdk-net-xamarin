@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// The quota of 20 option groups was exceeded for this AWS account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OptionGroupQuotaExceededException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OptionGroupQuotaExceededException class with serialized data.
         /// </summary>

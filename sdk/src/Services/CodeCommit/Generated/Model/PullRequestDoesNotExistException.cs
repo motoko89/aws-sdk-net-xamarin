@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The pull request ID could not be found. Make sure that you have specified the correct
     /// repository name and pull request ID, and then try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PullRequestDoesNotExistException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PullRequestDoesNotExistException class with serialized data.
         /// </summary>

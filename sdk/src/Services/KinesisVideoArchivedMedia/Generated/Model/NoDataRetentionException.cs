@@ -32,7 +32,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
     /// A streaming session was requested for a stream that does not retain data (that is,
     /// has a <code>DataRetentionInHours</code> of 0).
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NoDataRetentionException : AmazonKinesisVideoArchivedMediaException
@@ -87,7 +87,7 @@ namespace Amazon.KinesisVideoArchivedMedia.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NoDataRetentionException class with serialized data.
         /// </summary>

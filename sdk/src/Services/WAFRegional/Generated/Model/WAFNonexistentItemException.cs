@@ -31,7 +31,7 @@ namespace Amazon.WAFRegional.Model
     /// <summary>
     /// The operation failed because the referenced object doesn't exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFNonexistentItemException : AmazonWAFRegionalException
@@ -86,7 +86,7 @@ namespace Amazon.WAFRegional.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFNonexistentItemException class with serialized data.
         /// </summary>

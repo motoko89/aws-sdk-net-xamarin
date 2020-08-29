@@ -31,7 +31,7 @@ namespace Amazon.Honeycode.Model
     /// <summary>
     /// The automation execution timed out.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AutomationExecutionTimeoutException : AmazonHoneycodeException
@@ -86,7 +86,7 @@ namespace Amazon.Honeycode.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AutomationExecutionTimeoutException class with serialized data.
         /// </summary>

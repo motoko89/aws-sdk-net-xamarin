@@ -43,7 +43,7 @@ namespace Amazon.SecurityToken.Model
     /// and STS Entity Character Limits</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PackedPolicyTooLargeException : AmazonSecurityTokenServiceException
@@ -98,7 +98,7 @@ namespace Amazon.SecurityToken.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PackedPolicyTooLargeException class with serialized data.
         /// </summary>

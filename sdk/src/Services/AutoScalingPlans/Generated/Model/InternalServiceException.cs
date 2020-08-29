@@ -31,7 +31,7 @@ namespace Amazon.AutoScalingPlans.Model
     /// <summary>
     /// The service encountered an internal error.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServiceException : AmazonAutoScalingPlansException
@@ -86,7 +86,7 @@ namespace Amazon.AutoScalingPlans.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServiceException class with serialized data.
         /// </summary>

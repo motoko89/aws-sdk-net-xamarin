@@ -31,7 +31,7 @@ namespace Amazon.CloudWatchLogs.Model
     /// <summary>
     /// You have reached the maximum number of resources that can be created.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonCloudWatchLogsException
@@ -86,7 +86,7 @@ namespace Amazon.CloudWatchLogs.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.AugmentedAIRuntime.Model
     /// You exceeded your service quota. Delete some resources or request an increase in your
     /// service quota.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceQuotaExceededException : AmazonAugmentedAIRuntimeException
@@ -87,7 +87,7 @@ namespace Amazon.AugmentedAIRuntime.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceQuotaExceededException class with serialized data.
         /// </summary>

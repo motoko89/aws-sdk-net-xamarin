@@ -20,9 +20,6 @@
     <NoWarn>CS1591;CS1572;CS1573;CS1570;CS0109;CS0252</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Generators\Component\Component1.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Update="Generators\CodeAnalysis\CodeAnalysisAssemblyInfo.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -52,21 +49,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>VsixTestProfileFile.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Generators\Component\Component.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Component.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Generators\Component\Details.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Details.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Generators\Component\GettingStarted.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GettingStarted.tt</DependentUpon>
     </Compile>
     <Compile Update="Generators\Examples\ExampleCode.cs">
       <AutoGen>True</AutoGen>
@@ -108,11 +90,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>NuGetPackageReadmeSection.tt</DependentUpon>
     </Compile>
-    <Compile Update="Generators\ProjectFiles\AndroidProjectFile.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AndroidProjectFile.tt</DependentUpon>
-    </Compile>
     <Compile Update="Generators\CodeAnalysis\CodeAnalysisProjectFile.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -122,11 +99,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>SolutionFileBclAndNetStandard.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Generators\ProjectFiles\IOSProjectFile.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IOSProjectFile.tt</DependentUpon>
     </Compile>
     <Compile Update="Generators\ProjectFiles\UnitTestProjectFile.cs">
       <DesignTime>True</DesignTime>
@@ -138,30 +110,15 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Update="Generators\ProjectFiles\PCLProjectFile.cs">
-      <AutoGen>True</AutoGen>
+    <Compile Update="Generators\SourceFiles\BasePaginator.cs">
       <DesignTime>True</DesignTime>
-      <DependentUpon>PCLProjectFile.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BasePaginator.tt</DependentUpon>
     </Compile>
-    <Compile Update="Generators\ProjectFiles\UnityProjectFile.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UnityProjectFile.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Generators\ProjectFiles\Win8ProjectFile.cs">
-      <DependentUpon>Win8ProjectFile.tt</DependentUpon>
+    <Compile Update="Generators\SourceFiles\BasePaginatorInterface.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Update="Generators\ProjectFiles\WinPhone81ProjectFile.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WinPhone81ProjectFile.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Generators\ProjectFiles\WinPhoneSilverlight8ProjectFile.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WinPhoneSilverlight8ProjectFile.tt</DependentUpon>
+      <DependentUpon>BasePaginatorInterface.tt</DependentUpon>
     </Compile>
     <Compile Update="Generators\SourceFiles\CoreAssemblyInfo.cs">
       <AutoGen>True</AutoGen>
@@ -173,16 +130,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InternalSDKUtils.tt</DependentUpon>
     </Compile>
-    <Compile Update="Generators\SourceFiles\ServiceClientUnity.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ServiceClientUnity.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Generators\SourceFiles\ServiceInterfaceUnity.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ServiceInterfaceUnity.tt</DependentUpon>
-    </Compile>
     <Compile Update="Generators\SourceFiles\AssemblyInfo.cs">
       <DependentUpon>AssemblyInfo.tt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -192,6 +139,16 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ServiceMetadata.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Generators\SourceFiles\ServicePaginatorFactory.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServicePaginatorFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Generators\SourceFiles\ServicePaginatorFactoryInterface.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServicePaginatorFactoryInterface.tt</DependentUpon>
     </Compile>
     <Compile Update="Generators\TestFiles\AWSQueryEC2MarshallingTests.cs">
       <DependentUpon>AWSQueryEC2MarshallingTests.tt</DependentUpon>
@@ -288,6 +245,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Update="Generators\TestFiles\PaginatorTests.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PaginatorTests.tt</DependentUpon>
+    </Compile>
     <Compile Update="Generators\TestFiles\RestMarshallingTests.cs">
       <DependentUpon>RestMarshallingTests.tt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -308,6 +270,26 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Update="Generators\SourceFiles\BasePaginator.cs">
+      <DependentUpon>BasePaginator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Update="Generators\SourceFiles\BasePaginatorInterface.cs">
+      <DependentUpon>BasePaginatorInterface.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Update="Generators\SourceFiles\ServicePaginatorFactory.cs">
+      <DependentUpon>ServicePaginatorFactory.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Update="Generators\SourceFiles\ServicePaginatorFactoryInterface.cs">
+      <DependentUpon>ServicePaginatorFactoryInterface.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Update="Generators\SourceFiles\ServiceClients.cs">
       <DependentUpon>ServiceClients.tt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -318,8 +300,8 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Update="Generators\SourceFiles\ServiceClientsMobile.cs">
-      <DependentUpon>ServiceClientsMobile.tt</DependentUpon>
+    <Compile Update="Generators\SourceFiles\ServiceClientsNetStandard.cs">
+      <DependentUpon>ServiceClientsNetStandard.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -343,8 +325,8 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Update="Generators\SourceFiles\ServiceInterfaceMobile.cs">
-      <DependentUpon>ServiceInterfaceMobile.tt</DependentUpon>
+    <Compile Update="Generators\SourceFiles\ServiceInterfaceNetStandard.cs">
+      <DependentUpon>ServiceInterfaceNetStandard.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -371,11 +353,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Update="Generators\ProjectFiles\BclProjectFile.cs">
-      <DependentUpon>BclProjectFile.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Update="Generators\ProjectFiles\SolutionFileGenerator.cs">
       <DependentUpon>SolutionFileGenerator.tt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -385,11 +362,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Nuspec.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Generators\NuGet\PackagesConfig.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PackagesConfig.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -425,37 +397,17 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CoreNuspec.cs</LastGenOutput>
     </None>
-    <None Update="Generators\ProjectFiles\AndroidProjectFile.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>AndroidProjectFile.cs</LastGenOutput>
-    </None>
-    <None Update="Generators\ProjectFiles\IOSProjectFile.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>IOSProjectFile.cs</LastGenOutput>
-    </None>
-    <None Update="Generators\ProjectFiles\PCLProjectFile.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>PCLProjectFile.cs</LastGenOutput>
-    </None>
     <None Update="Generators\ProjectFiles\UnitTestProjectFile.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>UnitTestProjectFile.cs</LastGenOutput>
     </None>
-    <None Update="Generators\ProjectFiles\UnityProjectFile.tt">
+    <None Update="Generators\SourceFiles\BasePaginator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>UnityProjectFile.cs</LastGenOutput>
+      <LastGenOutput>BasePaginator.cs</LastGenOutput>
     </None>
-    <None Update="Generators\ProjectFiles\Win8ProjectFile.tt">
+    <None Update="Generators\SourceFiles\BasePaginatorInterface.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>Win8ProjectFile.cs</LastGenOutput>
-    </None>
-    <None Update="Generators\ProjectFiles\WinPhone81ProjectFile.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>WinPhone81ProjectFile.cs</LastGenOutput>
-    </None>
-    <None Update="Generators\ProjectFiles\WinPhoneSilverlight8ProjectFile.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>WinPhoneSilverlight8ProjectFile.cs</LastGenOutput>
+      <LastGenOutput>BasePaginatorInterface.cs</LastGenOutput>
     </None>
     <None Update="Generators\SourceFiles\CoreAssemblyInfo.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -472,6 +424,14 @@
     <None Update="Generators\SourceFiles\ServiceMetadata.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ServiceMetadata.cs</LastGenOutput>
+    </None>
+    <None Update="Generators\SourceFiles\ServicePaginatorFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ServicePaginatorFactory.cs</LastGenOutput>
+    </None>
+    <None Update="Generators\SourceFiles\ServicePaginatorFactoryInterface.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ServicePaginatorFactoryInterface.cs</LastGenOutput>
     </None>
     <None Update="Generators\TestFiles\AWSQueryEC2MarshallingTests.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -549,6 +509,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>LegacyResponseClass.cs</LastGenOutput>
     </None>
+    <None Update="Generators\TestFiles\PaginatorTests.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PaginatorTests.cs</LastGenOutput>
+    </None>
     <None Update="Generators\TestFiles\RestMarshallingTests.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>RestMarshallingTests.cs</LastGenOutput>
@@ -573,13 +537,9 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ServiceClients45.cs</LastGenOutput>
     </None>
-    <None Update="Generators\SourceFiles\ServiceClientsMobile.tt">
+    <None Update="Generators\SourceFiles\ServiceClientsNetStandard.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ServiceClientsMobile.cs</LastGenOutput>
-    </None>
-    <None Update="Generators\SourceFiles\ServiceClientUnity.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ServiceClientUnity.cs</LastGenOutput>
+      <LastGenOutput>ServiceClientsNetStandard.cs</LastGenOutput>
     </None>
     <None Update="Generators\SourceFiles\ServiceConfig.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -597,13 +557,9 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ServiceInterface45.cs</LastGenOutput>
     </None>
-    <None Update="Generators\SourceFiles\ServiceInterfaceMobile.tt">
+    <None Update="Generators\SourceFiles\ServiceInterfaceNetStandard.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ServiceInterfaceMobile.cs</LastGenOutput>
-    </None>
-    <None Update="Generators\SourceFiles\ServiceInterfaceUnity.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ServiceInterfaceUnity.cs</LastGenOutput>
+      <LastGenOutput>ServiceInterfaceNetStandard.cs</LastGenOutput>
     </None>
     <None Update="Generators\TestFiles\SimpleConstructorTests.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -621,10 +577,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>WrappingResultGenerator.cs</LastGenOutput>
     </None>
-    <None Update="Generators\ProjectFiles\BclProjectFile.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>BclProjectFile.cs</LastGenOutput>
-    </None>
     <None Update="Generators\ProjectFiles\SolutionFileGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>SolutionFileGenerator.cs</LastGenOutput>
@@ -633,11 +585,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Nuspec.cs</LastGenOutput>
     </None>
-    <None Update="Generators\NuGet\PackagesConfig.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>PackagesConfig.cs</LastGenOutput>
-    </None>
-    <None Update="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

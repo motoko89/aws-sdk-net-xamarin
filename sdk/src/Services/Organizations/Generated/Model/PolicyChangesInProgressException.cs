@@ -32,7 +32,7 @@ namespace Amazon.Organizations.Model
     /// Changes to the effective policy are in progress, and its contents can't be returned.
     /// Try the operation again later.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PolicyChangesInProgressException : AmazonOrganizationsException
@@ -87,7 +87,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PolicyChangesInProgressException class with serialized data.
         /// </summary>

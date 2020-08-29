@@ -31,7 +31,7 @@ namespace Amazon.FSx.Model
     /// <summary>
     /// The requested operation is not supported for this resource or API.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedOperationException : AmazonFSxException
@@ -86,7 +86,7 @@ namespace Amazon.FSx.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedOperationException class with serialized data.
         /// </summary>

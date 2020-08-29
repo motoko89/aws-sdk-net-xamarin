@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The content of the association document matches another document. Change the content
     /// of the document and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DuplicateDocumentContentException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DuplicateDocumentContentException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.ServiceQuotas.Model
     /// You have exceeded your service quota. To perform the requested action, remove some
     /// of the relevant resources, or use Service Quotas to request a service quota increase.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class QuotaExceededException : AmazonServiceQuotasException
@@ -87,7 +87,7 @@ namespace Amazon.ServiceQuotas.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the QuotaExceededException class with serialized data.
         /// </summary>

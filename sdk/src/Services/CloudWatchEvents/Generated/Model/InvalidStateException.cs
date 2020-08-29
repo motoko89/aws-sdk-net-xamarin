@@ -31,7 +31,7 @@ namespace Amazon.CloudWatchEvents.Model
     /// <summary>
     /// The specified state is not a valid state for an event source.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidStateException : AmazonCloudWatchEventsException
@@ -86,7 +86,7 @@ namespace Amazon.CloudWatchEvents.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidStateException class with serialized data.
         /// </summary>

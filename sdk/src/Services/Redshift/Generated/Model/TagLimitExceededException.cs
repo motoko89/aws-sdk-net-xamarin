@@ -31,7 +31,7 @@ namespace Amazon.Redshift.Model
     /// <summary>
     /// You have exceeded the number of tags allowed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TagLimitExceededException : AmazonRedshiftException
@@ -86,7 +86,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TagLimitExceededException class with serialized data.
         /// </summary>

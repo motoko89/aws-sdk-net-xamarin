@@ -72,7 +72,7 @@ namespace Amazon.KeyManagementService.Model
     /// a Default Security Group</a> in the <i> <i>AWS CloudHSM User Guide</i> </i>. 
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CloudHsmClusterInvalidConfigurationException : AmazonKeyManagementServiceException
@@ -127,7 +127,7 @@ namespace Amazon.KeyManagementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CloudHsmClusterInvalidConfigurationException class with serialized data.
         /// </summary>

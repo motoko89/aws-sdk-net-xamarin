@@ -31,7 +31,7 @@ namespace Amazon.CloudWatch.Model
     /// <summary>
     /// The operation exceeded one or more limits.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonCloudWatchException
@@ -86,7 +86,7 @@ namespace Amazon.CloudWatch.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// You specified more than the maximum number of allowed policies for the parameter.
     /// The maximum is 10.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PoliciesLimitExceededException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PoliciesLimitExceededException class with serialized data.
         /// </summary>

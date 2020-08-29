@@ -32,7 +32,7 @@ namespace Amazon.CodeDeploy.Model
     /// The specified instance does not exist in the deployment group.
     /// </summary>
     [Obsolete("This exception is deprecated, use DeploymentTargetDoesNotExistException instead.")]
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InstanceDoesNotExistException : AmazonCodeDeployException
@@ -87,7 +87,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InstanceDoesNotExistException class with serialized data.
         /// </summary>

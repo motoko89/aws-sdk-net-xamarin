@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// You specified invalid keys or values in the <code>Context</code> attribute for <code>InventoryItem</code>.
     /// Verify the keys and values, and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidInventoryItemContextException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidInventoryItemContextException class with serialized data.
         /// </summary>

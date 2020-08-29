@@ -31,7 +31,7 @@ namespace Amazon.IdentityManagement.Model
     /// <summary>
     /// The request was rejected because it attempted to create a resource that already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EntityAlreadyExistsException : AmazonIdentityManagementServiceException
@@ -86,7 +86,7 @@ namespace Amazon.IdentityManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EntityAlreadyExistsException class with serialized data.
         /// </summary>

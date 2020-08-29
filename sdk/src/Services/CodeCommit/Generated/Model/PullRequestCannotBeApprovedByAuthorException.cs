@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// the user who created the pull request. You cannot approve a pull request that you
     /// created.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PullRequestCannotBeApprovedByAuthorException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PullRequestCannotBeApprovedByAuthorException class with serialized data.
         /// </summary>

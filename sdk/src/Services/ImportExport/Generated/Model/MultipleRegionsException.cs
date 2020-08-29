@@ -32,7 +32,7 @@ namespace Amazon.ImportExport.Model
     /// Your manifest file contained buckets from multiple regions. A job is restricted to
     /// buckets from one region. Please correct and resubmit.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MultipleRegionsException : AmazonImportExportException
@@ -87,7 +87,7 @@ namespace Amazon.ImportExport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MultipleRegionsException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CloudFront.Model
     /// You have exceeded the maximum number of allowable InProgress invalidation batch requests,
     /// or invalidation objects.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyInvalidationsInProgressException : AmazonCloudFrontException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyInvalidationsInProgressException class with serialized data.
         /// </summary>

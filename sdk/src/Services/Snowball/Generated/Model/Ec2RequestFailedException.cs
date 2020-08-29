@@ -32,7 +32,7 @@ namespace Amazon.Snowball.Model
     /// Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
     /// action.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class Ec2RequestFailedException : AmazonSnowballException
@@ -87,7 +87,7 @@ namespace Amazon.Snowball.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the Ec2RequestFailedException class with serialized data.
         /// </summary>

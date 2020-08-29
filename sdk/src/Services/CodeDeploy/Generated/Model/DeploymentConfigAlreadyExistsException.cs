@@ -32,7 +32,7 @@ namespace Amazon.CodeDeploy.Model
     /// A deployment configuration with the specified name with the IAM user or AWS account
     /// already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DeploymentConfigAlreadyExistsException : AmazonCodeDeployException
@@ -87,7 +87,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DeploymentConfigAlreadyExistsException class with serialized data.
         /// </summary>

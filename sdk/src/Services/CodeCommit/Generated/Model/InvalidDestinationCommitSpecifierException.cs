@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The destination commit specifier is not valid. You must provide a valid branch name,
     /// tag, or full commit ID.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDestinationCommitSpecifierException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDestinationCommitSpecifierException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.CloudWatchLogs.Model
     /// <summary>
     /// The operation is not valid on the specified resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidOperationException : AmazonCloudWatchLogsException
@@ -86,7 +86,7 @@ namespace Amazon.CloudWatchLogs.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidOperationException class with serialized data.
         /// </summary>

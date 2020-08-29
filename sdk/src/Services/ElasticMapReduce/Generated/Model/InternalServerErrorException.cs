@@ -32,7 +32,7 @@ namespace Amazon.ElasticMapReduce.Model
     /// Indicates that an error occurred while processing the request and that the request
     /// was not completed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerErrorException : AmazonElasticMapReduceException
@@ -87,7 +87,7 @@ namespace Amazon.ElasticMapReduce.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerErrorException class with serialized data.
         /// </summary>

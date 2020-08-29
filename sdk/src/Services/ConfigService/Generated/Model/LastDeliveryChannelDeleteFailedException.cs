@@ -32,7 +32,7 @@ namespace Amazon.ConfigService.Model
     /// You cannot delete the delivery channel you specified because the configuration recorder
     /// is running.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LastDeliveryChannelDeleteFailedException : AmazonConfigServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LastDeliveryChannelDeleteFailedException class with serialized data.
         /// </summary>

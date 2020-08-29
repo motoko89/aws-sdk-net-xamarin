@@ -31,7 +31,7 @@ namespace Amazon.DocDB.Model
     /// <summary>
     /// This request would cause you to exceed the allowed number of parameter groups.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBParameterGroupQuotaExceededException : AmazonDocDBException
@@ -86,7 +86,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBParameterGroupQuotaExceededException class with serialized data.
         /// </summary>

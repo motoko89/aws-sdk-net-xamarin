@@ -33,7 +33,7 @@ namespace Amazon.CodeDeploy.Model
     /// was specified, the specified service role does not grant the appropriate permissions
     /// to Amazon EC2 Auto Scaling.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRoleException : AmazonCodeDeployException
@@ -88,7 +88,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRoleException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.DocDB.Model
     /// <summary>
     /// <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBSubnetGroupNotFoundException : AmazonDocDBException
@@ -86,7 +86,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBSubnetGroupNotFoundException class with serialized data.
         /// </summary>

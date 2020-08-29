@@ -31,7 +31,7 @@ namespace Amazon.AWSSupport.Model
     /// <summary>
     /// The case creation limit for the account has been exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CaseCreationLimitExceededException : AmazonAWSSupportException
@@ -86,7 +86,7 @@ namespace Amazon.AWSSupport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CaseCreationLimitExceededException class with serialized data.
         /// </summary>

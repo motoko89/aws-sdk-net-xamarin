@@ -31,7 +31,7 @@ namespace Amazon.DAX.Model
     /// <summary>
     /// You have exceeded the maximum number of tags for this DAX cluster.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TagQuotaPerResourceExceededException : AmazonDAXException
@@ -86,7 +86,7 @@ namespace Amazon.DAX.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TagQuotaPerResourceExceededException class with serialized data.
         /// </summary>

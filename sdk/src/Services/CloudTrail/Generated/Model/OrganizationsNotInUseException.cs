@@ -33,7 +33,7 @@ namespace Amazon.CloudTrail.Model
     /// a member of an organization. To make this request, sign in using the credentials of
     /// an account that belongs to an organization.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OrganizationsNotInUseException : AmazonCloudTrailException
@@ -88,7 +88,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OrganizationsNotInUseException class with serialized data.
         /// </summary>

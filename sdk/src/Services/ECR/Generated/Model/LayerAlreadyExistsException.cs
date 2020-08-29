@@ -31,7 +31,7 @@ namespace Amazon.ECR.Model
     /// <summary>
     /// The image layer already exists in the associated repository.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LayerAlreadyExistsException : AmazonECRException
@@ -86,7 +86,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LayerAlreadyExistsException class with serialized data.
         /// </summary>

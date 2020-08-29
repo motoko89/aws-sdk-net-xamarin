@@ -54,6 +54,12 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
             {
                 if (context.IsStartElement || context.IsAttribute)
                 {
+                    if (context.TestExpression("dpdTimeoutAction", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.DpdTimeoutAction = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("dpdTimeoutSeconds", targetDepth))
                     {
                         var unmarshaller = IntUnmarshaller.Instance;
@@ -151,10 +157,22 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         unmarshalledObject.ReplayWindowSize = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("startupAction", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.StartupAction = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("tunnelInsideCidr", targetDepth))
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
                         unmarshalledObject.TunnelInsideCidr = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("tunnelInsideIpv6Cidr", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.TunnelInsideIpv6Cidr = unmarshaller.Unmarshall(context);
                         continue;
                     }
                 }

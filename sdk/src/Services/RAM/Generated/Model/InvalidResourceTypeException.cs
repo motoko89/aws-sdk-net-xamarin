@@ -31,7 +31,7 @@ namespace Amazon.RAM.Model
     /// <summary>
     /// The specified resource type is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidResourceTypeException : AmazonRAMException
@@ -86,7 +86,7 @@ namespace Amazon.RAM.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidResourceTypeException class with serialized data.
         /// </summary>

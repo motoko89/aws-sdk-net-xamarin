@@ -32,7 +32,7 @@ namespace Amazon.Neptune.Model
     /// Request would result in user exceeding the allowed amount of storage available across
     /// all DB instances.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class StorageQuotaExceededException : AmazonNeptuneException
@@ -87,7 +87,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the StorageQuotaExceededException class with serialized data.
         /// </summary>

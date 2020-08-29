@@ -32,7 +32,7 @@ namespace Amazon.WAFV2.Model
     /// AWS WAF couldn’t perform your tagging operation because of an internal error. Retry
     /// your request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFTagOperationInternalErrorException : AmazonWAFV2Exception
@@ -87,7 +87,7 @@ namespace Amazon.WAFV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFTagOperationInternalErrorException class with serialized data.
         /// </summary>

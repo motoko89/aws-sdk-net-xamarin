@@ -32,7 +32,7 @@ namespace Amazon.Snowball
     public partial class AmazonSnowballConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.3.104.18");
+            InternalSDKUtils.BuildUserAgentString("3.5.0.5");
 
         private string _userAgent = UserAgentString;
 

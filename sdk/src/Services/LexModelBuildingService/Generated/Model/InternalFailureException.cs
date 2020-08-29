@@ -31,7 +31,7 @@ namespace Amazon.LexModelBuildingService.Model
     /// <summary>
     /// An internal Amazon Lex error occurred. Try your request again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalFailureException : AmazonLexModelBuildingServiceException
@@ -86,7 +86,7 @@ namespace Amazon.LexModelBuildingService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalFailureException class with serialized data.
         /// </summary>

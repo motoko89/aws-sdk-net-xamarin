@@ -32,7 +32,7 @@ namespace Amazon.Redshift.Model
     /// Your request cannot be completed because a dependent internal service is temporarily
     /// unavailable. Wait 30 to 60 seconds and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DependentServiceUnavailableException : AmazonRedshiftException
@@ -87,7 +87,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DependentServiceUnavailableException class with serialized data.
         /// </summary>

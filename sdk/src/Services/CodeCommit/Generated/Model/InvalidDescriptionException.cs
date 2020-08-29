@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The pull request description is not valid. Descriptions cannot be more than 1,000
     /// characters.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDescriptionException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDescriptionException class with serialized data.
         /// </summary>

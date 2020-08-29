@@ -32,7 +32,7 @@ namespace Amazon.IoT.Model
     /// A conflicting resource update exception. This exception is thrown when two pending
     /// updates cause a conflict.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConflictingResourceUpdateException : AmazonIoTException
@@ -87,7 +87,7 @@ namespace Amazon.IoT.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConflictingResourceUpdateException class with serialized data.
         /// </summary>

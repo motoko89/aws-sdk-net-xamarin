@@ -31,7 +31,7 @@ namespace Amazon.DocDB.Model
     /// <summary>
     /// <code>CertificateIdentifier</code> doesn't refer to an existing certificate.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CertificateNotFoundException : AmazonDocDBException
@@ -86,7 +86,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CertificateNotFoundException class with serialized data.
         /// </summary>

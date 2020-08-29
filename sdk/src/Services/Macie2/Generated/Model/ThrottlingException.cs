@@ -32,7 +32,7 @@ namespace Amazon.Macie2.Model
     /// Provides information about an error that occurred because too many requests were sent
     /// during a certain amount of time.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ThrottlingException : AmazonMacie2Exception
@@ -87,7 +87,7 @@ namespace Amazon.Macie2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ThrottlingException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.Chime.Model
     /// The client is permanently forbidden from making the request. For example, when a user
     /// tries to create an account from an unsupported Region.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ForbiddenException : AmazonChimeException
@@ -88,7 +88,7 @@ namespace Amazon.Chime.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ForbiddenException class with serialized data.
         /// </summary>

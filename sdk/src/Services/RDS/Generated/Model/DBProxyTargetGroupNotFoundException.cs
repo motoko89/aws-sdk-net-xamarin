@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// The specified target group isn't available for a proxy owned by your AWS account in
     /// the specified AWS Region.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBProxyTargetGroupNotFoundException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBProxyTargetGroupNotFoundException class with serialized data.
         /// </summary>

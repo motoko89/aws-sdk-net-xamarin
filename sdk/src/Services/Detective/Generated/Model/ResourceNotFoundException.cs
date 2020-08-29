@@ -31,7 +31,7 @@ namespace Amazon.Detective.Model
     /// <summary>
     /// The request refers to a nonexistent resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonDetectiveException
@@ -86,7 +86,7 @@ namespace Amazon.Detective.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

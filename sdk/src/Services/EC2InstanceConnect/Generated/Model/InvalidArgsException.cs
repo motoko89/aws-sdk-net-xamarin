@@ -32,7 +32,7 @@ namespace Amazon.EC2InstanceConnect.Model
     /// Indicates that you provided bad input. Ensure you have a valid instance ID, the correct
     /// zone, and a valid SSH public key.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidArgsException : AmazonEC2InstanceConnectException
@@ -87,7 +87,7 @@ namespace Amazon.EC2InstanceConnect.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidArgsException class with serialized data.
         /// </summary>

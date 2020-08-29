@@ -34,6 +34,15 @@ namespace Amazon.Organizations
     public partial interface IAmazonOrganizations : IAmazonService, IDisposable
     {
 
+
+#if BCL45 || AWS_ASYNC_ENUMERABLES_API
+        /// <summary>
+        /// Paginators for the service
+        /// </summary>
+        IOrganizationsPaginatorFactory Paginators { get; }
+#endif
+
+
         
         #region  AcceptHandshake
 
@@ -3776,7 +3785,13 @@ namespace Amazon.Organizations
         /// Removes the specified member AWS account as a delegated administrator for the specified
         /// AWS service.
         /// 
-        ///  
+        ///  <important> 
+        /// <para>
+        /// Deregistering a delegated administrator can have unintended impacts on the functionality
+        /// of the enabled AWS service. See the documentation for the enabled service before you
+        /// deregister a delegated administrator so that you understand any potential impacts.
+        /// </para>
+        ///  </important> 
         /// <para>
         /// You can run this action only for AWS services that support this feature. For a current
         /// list of services that support it, see the column <i>Supports Delegated Administrator</i>
@@ -8055,13 +8070,11 @@ namespace Amazon.Organizations
         /// with the information required to operate as a standalone account. When you create
         /// an account in an organization using the AWS Organizations console, API, or CLI commands,
         /// the information required of standalone accounts is <i>not</i> automatically collected.
-        /// For each account that you want to make standalone, you must do the following steps:
+        /// For each account that you want to make standalone, you must perform the following
+        /// steps. If any of the steps are already completed for this account, that step doesn't
+        /// appear.
         /// </para>
         ///  <ul> <li> 
-        /// <para>
-        /// Accept the end user license agreement (EULA)
-        /// </para>
-        ///  </li> <li> 
         /// <para>
         /// Choose a support plan
         /// </para>
@@ -10323,8 +10336,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> 
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called from any account in the organization.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListHandshakesForAccount service method.</param>
@@ -12553,12 +12565,12 @@ namespace Amazon.Organizations
         /// with the information required to operate as a standalone account. When you create
         /// an account in an organization using the AWS Organizations console, API, or CLI commands,
         /// the information required of standalone accounts is <i>not</i> automatically collected.
-        /// For an account that you want to make standalone, you must accept the end user license
-        /// agreement (EULA), choose a support plan, provide and verify the required contact information,
-        /// and provide a current payment method. AWS uses the payment method to charge for any
-        /// billable (not free tier) AWS activity that occurs while the account isn't attached
-        /// to an organization. To remove an account that doesn't yet have this information, you
-        /// must sign in as the member account and follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
+        /// For an account that you want to make standalone, you must choose a support plan, provide
+        /// and verify the required contact information, and provide a current payment method.
+        /// AWS uses the payment method to charge for any billable (not free tier) AWS activity
+        /// that occurs while the account isn't attached to an organization. To remove an account
+        /// that doesn't yet have this information, you must sign in as the member account and
+        /// follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
         /// To leave an organization when all required account information has not yet been provided</a>
         /// in the <i>AWS Organizations User Guide.</i> 
         /// </para>

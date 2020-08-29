@@ -32,7 +32,7 @@ namespace Amazon.Textract.Model
     /// Indicates you have exceeded the maximum number of active human in the loop workflows
     /// available
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class HumanLoopQuotaExceededException : AmazonTextractException
@@ -90,7 +90,7 @@ namespace Amazon.Textract.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the HumanLoopQuotaExceededException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.ImportExport.Model
     /// <summary>
     /// AWS Import/Export cannot update the job
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnableToUpdateJobIdException : AmazonImportExportException
@@ -86,7 +86,7 @@ namespace Amazon.ImportExport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnableToUpdateJobIdException class with serialized data.
         /// </summary>

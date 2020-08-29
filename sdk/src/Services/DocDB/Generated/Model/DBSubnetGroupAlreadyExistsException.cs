@@ -31,7 +31,7 @@ namespace Amazon.DocDB.Model
     /// <summary>
     /// <code>DBSubnetGroupName</code> is already being used by an existing subnet group.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBSubnetGroupAlreadyExistsException : AmazonDocDBException
@@ -86,7 +86,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBSubnetGroupAlreadyExistsException class with serialized data.
         /// </summary>

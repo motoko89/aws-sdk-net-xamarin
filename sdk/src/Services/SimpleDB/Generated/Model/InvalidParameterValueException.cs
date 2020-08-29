@@ -31,7 +31,7 @@ namespace Amazon.SimpleDB.Model
     /// <summary>
     /// The value for a parameter is invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterValueException : AmazonSimpleDBException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterValueException class with serialized data.
         /// </summary>

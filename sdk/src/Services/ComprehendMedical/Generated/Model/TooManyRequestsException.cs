@@ -33,7 +33,7 @@ namespace Amazon.ComprehendMedical.Model
     /// and then try your request again. Contact customer support for more information about
     /// a service limit increase.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyRequestsException : AmazonComprehendMedicalException
@@ -88,7 +88,7 @@ namespace Amazon.ComprehendMedical.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyRequestsException class with serialized data.
         /// </summary>

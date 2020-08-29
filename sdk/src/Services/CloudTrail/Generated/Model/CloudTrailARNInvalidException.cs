@@ -37,7 +37,7 @@ namespace Amazon.CloudTrail.Model
     ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CloudTrailARNInvalidException : AmazonCloudTrailException
@@ -92,7 +92,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CloudTrailARNInvalidException class with serialized data.
         /// </summary>

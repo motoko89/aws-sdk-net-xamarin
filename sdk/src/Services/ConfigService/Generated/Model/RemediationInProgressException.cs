@@ -32,7 +32,7 @@ namespace Amazon.ConfigService.Model
     /// Remediation action is in progress. You can either cancel execution in AWS Systems
     /// Manager or wait and try again later.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RemediationInProgressException : AmazonConfigServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RemediationInProgressException class with serialized data.
         /// </summary>

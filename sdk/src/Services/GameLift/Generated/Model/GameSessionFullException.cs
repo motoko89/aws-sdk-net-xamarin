@@ -32,7 +32,7 @@ namespace Amazon.GameLift.Model
     /// The game instance is currently full and cannot allow the requested player(s) to join.
     /// Clients can retry such requests immediately or after a waiting period.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class GameSessionFullException : AmazonGameLiftException
@@ -87,7 +87,7 @@ namespace Amazon.GameLift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the GameSessionFullException class with serialized data.
         /// </summary>

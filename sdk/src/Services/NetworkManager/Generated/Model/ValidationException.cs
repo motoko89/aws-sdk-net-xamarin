@@ -31,7 +31,7 @@ namespace Amazon.NetworkManager.Model
     /// <summary>
     /// The input fails to satisfy the constraints.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ValidationException : AmazonNetworkManagerException
@@ -88,7 +88,7 @@ namespace Amazon.NetworkManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ValidationException class with serialized data.
         /// </summary>

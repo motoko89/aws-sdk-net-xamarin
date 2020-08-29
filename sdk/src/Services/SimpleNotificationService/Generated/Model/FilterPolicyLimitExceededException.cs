@@ -32,7 +32,7 @@ namespace Amazon.SimpleNotificationService.Model
     /// Indicates that the number of filter polices in your AWS account exceeds the limit.
     /// To add more filter polices, submit an SNS Limit Increase case in the AWS Support Center.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FilterPolicyLimitExceededException : AmazonSimpleNotificationServiceException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleNotificationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FilterPolicyLimitExceededException class with serialized data.
         /// </summary>

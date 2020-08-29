@@ -31,7 +31,7 @@ namespace Amazon.ElasticMapReduce.Model
     /// <summary>
     /// This exception occurs when there is something wrong with user input.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRequestException : AmazonElasticMapReduceException
@@ -87,7 +87,7 @@ namespace Amazon.ElasticMapReduce.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRequestException class with serialized data.
         /// </summary>

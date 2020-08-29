@@ -31,7 +31,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
     /// <summary>
     /// You've reached the limit on the number of actions per rule.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyActionsException : AmazonElasticLoadBalancingV2Exception
@@ -86,7 +86,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyActionsException class with serialized data.
         /// </summary>

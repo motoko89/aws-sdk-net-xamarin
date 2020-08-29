@@ -33,7 +33,7 @@ namespace Amazon.Redshift.Model
     /// Restrictions and Limitations</a> in the Amazon Simple Storage Service (S3) Developer
     /// Guide.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidS3BucketNameException : AmazonRedshiftException
@@ -88,7 +88,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidS3BucketNameException class with serialized data.
         /// </summary>

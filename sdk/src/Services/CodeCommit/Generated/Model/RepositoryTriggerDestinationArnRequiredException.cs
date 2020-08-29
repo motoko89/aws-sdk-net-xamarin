@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// A destination ARN for the target service for the trigger is required, but was not
     /// specified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RepositoryTriggerDestinationArnRequiredException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RepositoryTriggerDestinationArnRequiredException class with serialized data.
         /// </summary>

@@ -33,7 +33,7 @@ namespace Amazon.EKS.Model
     /// not support Amazon EKS. The exception output specifies the supported Availability
     /// Zones for your account, from which you can choose subnets for your cluster.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedAvailabilityZoneException : AmazonEKSException
@@ -91,7 +91,7 @@ namespace Amazon.EKS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedAvailabilityZoneException class with serialized data.
         /// </summary>

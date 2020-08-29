@@ -32,7 +32,7 @@ namespace Amazon.Imagebuilder.Model
     /// You have specified two or more mutually exclusive parameters. Review the error message
     /// for details.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterCombinationException : AmazonImagebuilderException
@@ -87,7 +87,7 @@ namespace Amazon.Imagebuilder.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterCombinationException class with serialized data.
         /// </summary>

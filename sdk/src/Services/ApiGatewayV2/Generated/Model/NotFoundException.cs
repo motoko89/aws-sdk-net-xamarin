@@ -32,7 +32,7 @@ namespace Amazon.ApiGatewayV2.Model
     /// The resource specified in the request was not found. See the message field for more
     /// information.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NotFoundException : AmazonApiGatewayV2Exception
@@ -88,7 +88,7 @@ namespace Amazon.ApiGatewayV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NotFoundException class with serialized data.
         /// </summary>

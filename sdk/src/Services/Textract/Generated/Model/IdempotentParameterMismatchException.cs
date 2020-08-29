@@ -33,7 +33,7 @@ namespace Amazon.Textract.Model
     /// at least one of the other input parameters is different from the previous call to
     /// the operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IdempotentParameterMismatchException : AmazonTextractException
@@ -88,7 +88,7 @@ namespace Amazon.Textract.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IdempotentParameterMismatchException class with serialized data.
         /// </summary>

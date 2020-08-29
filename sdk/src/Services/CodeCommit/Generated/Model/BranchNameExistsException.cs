@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// Cannot create the branch with the specified name because the commit conflicts with
     /// an existing branch with the same name. Branch names must be unique.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BranchNameExistsException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BranchNameExistsException class with serialized data.
         /// </summary>

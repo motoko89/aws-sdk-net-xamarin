@@ -32,7 +32,7 @@ namespace Amazon.RoboMaker.Model
     /// A parameter specified in a request is not valid, is unsupported, or cannot be used.
     /// The returned message provides an explanation of the error value.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterException : AmazonRoboMakerException
@@ -87,7 +87,7 @@ namespace Amazon.RoboMaker.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterException class with serialized data.
         /// </summary>

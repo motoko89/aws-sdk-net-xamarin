@@ -34,7 +34,7 @@ namespace Amazon.QuickSight.Model
     /// has Standard Edition and Enterprise Edition. Not every operation and capability is
     /// available in every edition.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedUserEditionException : AmazonQuickSightException
@@ -90,7 +90,7 @@ namespace Amazon.QuickSight.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedUserEditionException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The approval rule cannot be added. The pull request has the maximum number of approval
     /// rules associated with it.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NumberOfRulesExceededException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NumberOfRulesExceededException class with serialized data.
         /// </summary>

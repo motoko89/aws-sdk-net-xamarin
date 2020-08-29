@@ -31,7 +31,7 @@ namespace Amazon.ECR.Model
     /// <summary>
     /// Layer parts must be at least 5 MiB in size.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LayerPartTooSmallException : AmazonECRException
@@ -86,7 +86,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LayerPartTooSmallException class with serialized data.
         /// </summary>

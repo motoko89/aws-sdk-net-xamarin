@@ -34,7 +34,7 @@ namespace Amazon.QuickSight.Model
     /// is authorized to use the Amazon QuickSight service, that your policies have the correct
     /// permissions, and that you are using the correct access keys.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedException : AmazonQuickSightException
@@ -90,7 +90,7 @@ namespace Amazon.QuickSight.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// Request would exceed the user's DB Instance quota.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ReservedDBInstanceQuotaExceededException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ReservedDBInstanceQuotaExceededException class with serialized data.
         /// </summary>

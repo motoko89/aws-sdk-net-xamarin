@@ -32,7 +32,7 @@ namespace Amazon.ServiceDiscovery.Model
     /// The specified resource can't be deleted because it contains other resources. For example,
     /// you can't delete a service that contains any instances.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceInUseException : AmazonServiceDiscoveryException
@@ -87,7 +87,7 @@ namespace Amazon.ServiceDiscovery.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceInUseException class with serialized data.
         /// </summary>

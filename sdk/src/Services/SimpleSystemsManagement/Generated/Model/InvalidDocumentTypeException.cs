@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The document type is not valid. Valid document types are described in the <code>DocumentType</code>
     /// property.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDocumentTypeException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDocumentTypeException class with serialized data.
         /// </summary>

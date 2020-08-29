@@ -31,7 +31,7 @@ namespace Amazon.S3Control.Model
     /// <summary>
     /// 
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyTagsException : AmazonS3ControlException
@@ -86,7 +86,7 @@ namespace Amazon.S3Control.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyTagsException class with serialized data.
         /// </summary>

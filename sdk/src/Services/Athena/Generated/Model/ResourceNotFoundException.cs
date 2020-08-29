@@ -31,7 +31,7 @@ namespace Amazon.Athena.Model
     /// <summary>
     /// A resource, such as a workgroup, was not found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonAthenaException
@@ -87,7 +87,7 @@ namespace Amazon.Athena.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

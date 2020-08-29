@@ -31,7 +31,7 @@ namespace Amazon.WorkMail.Model
     /// <summary>
     /// This user, group, or resource name is not allowed in Amazon WorkMail.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ReservedNameException : AmazonWorkMailException
@@ -86,7 +86,7 @@ namespace Amazon.WorkMail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ReservedNameException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.KeyManagementService.Model
     /// <summary>
     /// The request was rejected because the specified grant token is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidGrantTokenException : AmazonKeyManagementServiceException
@@ -86,7 +86,7 @@ namespace Amazon.KeyManagementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidGrantTokenException class with serialized data.
         /// </summary>

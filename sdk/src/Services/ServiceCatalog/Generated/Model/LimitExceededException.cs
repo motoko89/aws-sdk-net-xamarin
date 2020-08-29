@@ -32,7 +32,7 @@ namespace Amazon.ServiceCatalog.Model
     /// The current limits of the service would have been exceeded by this operation. Decrease
     /// your resource use or increase your service limits and retry the operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonServiceCatalogException
@@ -87,7 +87,7 @@ namespace Amazon.ServiceCatalog.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

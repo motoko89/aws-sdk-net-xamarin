@@ -35,7 +35,7 @@ namespace Amazon.ECS.Model
     /// get stuck in that state. However, when the agent reconnects, it resumes where it stopped
     /// previously.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UpdateInProgressException : AmazonECSException
@@ -90,7 +90,7 @@ namespace Amazon.ECS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UpdateInProgressException class with serialized data.
         /// </summary>

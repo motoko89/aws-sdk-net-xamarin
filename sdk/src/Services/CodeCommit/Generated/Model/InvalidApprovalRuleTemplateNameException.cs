@@ -34,7 +34,7 @@ namespace Amazon.CodeCommit.Model
     /// see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
     /// CodeCommit User Guide</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidApprovalRuleTemplateNameException : AmazonCodeCommitException
@@ -89,7 +89,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidApprovalRuleTemplateNameException class with serialized data.
         /// </summary>

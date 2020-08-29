@@ -32,7 +32,7 @@ namespace Amazon.ConfigService.Model
     /// You have reached the limit (6) of the number of conformance packs in an account (6
     /// conformance pack with 25 AWS Config rules per pack).
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MaxNumberOfConformancePacksExceededException : AmazonConfigServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ConfigService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MaxNumberOfConformancePacksExceededException class with serialized data.
         /// </summary>

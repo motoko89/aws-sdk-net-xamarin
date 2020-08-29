@@ -31,7 +31,7 @@ namespace Amazon.LicenseManager.Model
     /// <summary>
     /// You do not have enough licenses available to support a new resource launch.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LicenseUsageException : AmazonLicenseManagerException
@@ -86,7 +86,7 @@ namespace Amazon.LicenseManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LicenseUsageException class with serialized data.
         /// </summary>

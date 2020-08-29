@@ -32,7 +32,7 @@ namespace Amazon.ElasticLoadBalancing.Model
     /// A request made by Elastic Load Balancing to another service exceeds the maximum request
     /// rate permitted for your account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DependencyThrottleException : AmazonElasticLoadBalancingException
@@ -87,7 +87,7 @@ namespace Amazon.ElasticLoadBalancing.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DependencyThrottleException class with serialized data.
         /// </summary>

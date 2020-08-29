@@ -32,7 +32,7 @@ namespace Amazon.Inspector.Model
     /// The request was rejected because it referenced an entity that does not exist. The
     /// error code describes the entity.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NoSuchEntityException : AmazonInspectorException
@@ -89,7 +89,7 @@ namespace Amazon.Inspector.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NoSuchEntityException class with serialized data.
         /// </summary>

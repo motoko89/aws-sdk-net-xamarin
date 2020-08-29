@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The resource type is not valid. For example, if you are attempting to tag an instance,
     /// the instance must be a registered, managed instance.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidResourceTypeException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidResourceTypeException class with serialized data.
         /// </summary>

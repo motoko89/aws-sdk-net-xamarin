@@ -33,7 +33,7 @@ namespace Amazon.ECS.Model
     /// the container instances before you can delete the cluster. For more information, see
     /// <a>DeregisterContainerInstance</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ClusterContainsContainerInstancesException : AmazonECSException
@@ -88,7 +88,7 @@ namespace Amazon.ECS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ClusterContainsContainerInstancesException class with serialized data.
         /// </summary>

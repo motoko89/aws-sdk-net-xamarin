@@ -32,7 +32,7 @@ namespace Amazon.ServiceQuotas.Model
     /// Due to throttling, the request was denied. Slow down the rate of request calls, or
     /// request an increase for this quota.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyRequestsException : AmazonServiceQuotasException
@@ -87,7 +87,7 @@ namespace Amazon.ServiceQuotas.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyRequestsException class with serialized data.
         /// </summary>

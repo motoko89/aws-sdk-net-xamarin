@@ -32,7 +32,7 @@ namespace Amazon.Comprehend.Model
     /// The number of documents in the request exceeds the limit of 25. Try your request again
     /// with fewer documents.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BatchSizeLimitExceededException : AmazonComprehendException
@@ -87,7 +87,7 @@ namespace Amazon.Comprehend.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BatchSizeLimitExceededException class with serialized data.
         /// </summary>

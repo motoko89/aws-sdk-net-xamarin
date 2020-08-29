@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// The specified custom endpoint doesn't exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBClusterEndpointNotFoundException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBClusterEndpointNotFoundException class with serialized data.
         /// </summary>

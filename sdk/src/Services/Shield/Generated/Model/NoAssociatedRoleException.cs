@@ -31,7 +31,7 @@ namespace Amazon.Shield.Model
     /// <summary>
     /// The ARN of the role that you specifed does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NoAssociatedRoleException : AmazonShieldException
@@ -86,7 +86,7 @@ namespace Amazon.Shield.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NoAssociatedRoleException class with serialized data.
         /// </summary>

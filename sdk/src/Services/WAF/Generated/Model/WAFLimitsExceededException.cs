@@ -33,7 +33,7 @@ namespace Amazon.WAF.Model
     /// objects that you can create for an AWS account. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a>
     /// in the <i>AWS WAF Developer Guide</i>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFLimitsExceededException : AmazonWAFException
@@ -88,7 +88,7 @@ namespace Amazon.WAF.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFLimitsExceededException class with serialized data.
         /// </summary>

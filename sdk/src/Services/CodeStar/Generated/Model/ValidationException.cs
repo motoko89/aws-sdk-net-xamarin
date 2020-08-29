@@ -31,7 +31,7 @@ namespace Amazon.CodeStar.Model
     /// <summary>
     /// The specified input is either not valid, or it could not be validated.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ValidationException : AmazonCodeStarException
@@ -86,7 +86,7 @@ namespace Amazon.CodeStar.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ValidationException class with serialized data.
         /// </summary>

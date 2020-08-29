@@ -33,7 +33,7 @@ namespace Amazon.KinesisAnalytics.Model
     /// Streams ProvisionedThroughputExceededException. For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html">GetRecords</a>
     /// in the Amazon Kinesis Streams API Reference.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceProvisionedThroughputExceededException : AmazonKinesisAnalyticsException
@@ -88,7 +88,7 @@ namespace Amazon.KinesisAnalytics.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceProvisionedThroughputExceededException class with serialized data.
         /// </summary>

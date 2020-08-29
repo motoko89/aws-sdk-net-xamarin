@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The policy type is not supported. Parameter Store supports the following policy types:
     /// Expiration, ExpirationNotification, and NoChangeNotification.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidPolicyTypeException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidPolicyTypeException class with serialized data.
         /// </summary>

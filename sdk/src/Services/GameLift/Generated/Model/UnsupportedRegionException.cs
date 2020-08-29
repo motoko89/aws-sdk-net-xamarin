@@ -31,7 +31,7 @@ namespace Amazon.GameLift.Model
     /// <summary>
     /// The requested operation is not supported in the Region specified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedRegionException : AmazonGameLiftException
@@ -86,7 +86,7 @@ namespace Amazon.GameLift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedRegionException class with serialized data.
         /// </summary>

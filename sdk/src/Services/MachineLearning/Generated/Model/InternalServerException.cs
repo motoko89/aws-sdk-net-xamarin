@@ -31,7 +31,7 @@ namespace Amazon.MachineLearning.Model
     /// <summary>
     /// An error on the server occurred when trying to process a request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerException : AmazonMachineLearningException
@@ -87,7 +87,7 @@ namespace Amazon.MachineLearning.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerException class with serialized data.
         /// </summary>

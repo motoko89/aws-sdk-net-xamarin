@@ -32,7 +32,7 @@ namespace Amazon.Redshift.Model
     /// The owner of the specified snapshot has not authorized your account to access the
     /// snapshot.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessToSnapshotDeniedException : AmazonRedshiftException
@@ -87,7 +87,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessToSnapshotDeniedException class with serialized data.
         /// </summary>

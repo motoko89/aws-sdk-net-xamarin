@@ -34,7 +34,7 @@ namespace Amazon.SimpleEmail.Model
     /// For information about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon
     /// SES Developer Guide</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidS3ConfigurationException : AmazonSimpleEmailServiceException
@@ -90,7 +90,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidS3ConfigurationException class with serialized data.
         /// </summary>

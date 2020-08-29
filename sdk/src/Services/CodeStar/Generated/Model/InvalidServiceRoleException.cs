@@ -31,7 +31,7 @@ namespace Amazon.CodeStar.Model
     /// <summary>
     /// The service role is not valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidServiceRoleException : AmazonCodeStarException
@@ -86,7 +86,7 @@ namespace Amazon.CodeStar.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidServiceRoleException class with serialized data.
         /// </summary>

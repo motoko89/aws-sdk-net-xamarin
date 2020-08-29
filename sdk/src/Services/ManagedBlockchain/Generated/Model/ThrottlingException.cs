@@ -34,7 +34,7 @@ namespace Amazon.ManagedBlockchain.Model
     /// service limit for EC2 instances is exceeded. Request a limit increase or delete unused
     /// resources if possible.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ThrottlingException : AmazonManagedBlockchainException
@@ -89,7 +89,7 @@ namespace Amazon.ManagedBlockchain.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ThrottlingException class with serialized data.
         /// </summary>

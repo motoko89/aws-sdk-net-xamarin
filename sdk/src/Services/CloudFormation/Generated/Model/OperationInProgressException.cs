@@ -32,7 +32,7 @@ namespace Amazon.CloudFormation.Model
     /// Another operation is currently in progress for this stack set. Only one operation
     /// can be performed for a stack set at a given time.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OperationInProgressException : AmazonCloudFormationException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFormation.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OperationInProgressException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CodePipeline.Model
     /// Unable to retry. The pipeline structure or stage state might have changed while actions
     /// awaited retry, or the stage contains no failed actions.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class StageNotRetryableException : AmazonCodePipelineException
@@ -87,7 +87,7 @@ namespace Amazon.CodePipeline.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the StageNotRetryableException class with serialized data.
         /// </summary>

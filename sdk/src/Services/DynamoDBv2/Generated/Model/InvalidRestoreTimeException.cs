@@ -32,7 +32,7 @@ namespace Amazon.DynamoDBv2.Model
     /// An invalid restore time was specified. RestoreDateTime must be between EarliestRestorableDateTime
     /// and LatestRestorableDateTime.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRestoreTimeException : AmazonDynamoDBException
@@ -87,7 +87,7 @@ namespace Amazon.DynamoDBv2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRestoreTimeException class with serialized data.
         /// </summary>

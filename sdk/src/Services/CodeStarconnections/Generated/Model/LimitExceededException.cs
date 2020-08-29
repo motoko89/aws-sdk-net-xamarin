@@ -31,7 +31,7 @@ namespace Amazon.CodeStarconnections.Model
     /// <summary>
     /// Exceeded the maximum limit for connections.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonCodeStarconnectionsException
@@ -86,7 +86,7 @@ namespace Amazon.CodeStarconnections.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

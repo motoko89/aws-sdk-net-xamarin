@@ -32,7 +32,7 @@ namespace Amazon.CodeStarNotifications.Model
     /// AWS CodeStar Notifications can't create the notification rule because you do not have
     /// sufficient permissions.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedException : AmazonCodeStarNotificationsException
@@ -87,7 +87,7 @@ namespace Amazon.CodeStarNotifications.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedException class with serialized data.
         /// </summary>

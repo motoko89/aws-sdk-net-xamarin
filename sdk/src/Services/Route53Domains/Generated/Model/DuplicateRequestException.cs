@@ -31,7 +31,7 @@ namespace Amazon.Route53Domains.Model
     /// <summary>
     /// The request is already in progress for the domain.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DuplicateRequestException : AmazonRoute53DomainsException
@@ -86,7 +86,7 @@ namespace Amazon.Route53Domains.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DuplicateRequestException class with serialized data.
         /// </summary>

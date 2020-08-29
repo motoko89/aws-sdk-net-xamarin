@@ -32,7 +32,7 @@ namespace Amazon.ECR.Model
     /// The layer digest calculation performed by Amazon ECR upon receipt of the image layer
     /// does not match the digest specified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidLayerException : AmazonECRException
@@ -87,7 +87,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidLayerException class with serialized data.
         /// </summary>

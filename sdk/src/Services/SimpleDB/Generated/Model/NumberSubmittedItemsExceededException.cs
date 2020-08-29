@@ -31,7 +31,7 @@ namespace Amazon.SimpleDB.Model
     /// <summary>
     /// Too many items exist in a single call.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NumberSubmittedItemsExceededException : AmazonSimpleDBException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NumberSubmittedItemsExceededException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.MediaLive.Model
     /// <summary>
     /// Placeholder documentation for GatewayTimeoutException
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class GatewayTimeoutException : AmazonMediaLiveException
@@ -86,7 +86,7 @@ namespace Amazon.MediaLive.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the GatewayTimeoutException class with serialized data.
         /// </summary>

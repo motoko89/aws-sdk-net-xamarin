@@ -31,7 +31,7 @@ namespace Amazon.IdentityManagement.Model
     /// <summary>
     /// The specified service does not support service-specific credentials.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceNotSupportedException : AmazonIdentityManagementServiceException
@@ -86,7 +86,7 @@ namespace Amazon.IdentityManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceNotSupportedException class with serialized data.
         /// </summary>

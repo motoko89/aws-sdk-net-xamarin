@@ -31,7 +31,7 @@ namespace Amazon.MarketplaceEntitlementService.Model
     /// <summary>
     /// One or more parameters in your request was invalid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterException : AmazonMarketplaceEntitlementServiceException
@@ -86,7 +86,7 @@ namespace Amazon.MarketplaceEntitlementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.Pricing.Model
     /// <summary>
     /// The pagination token is invalid. Try again without a pagination token.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidNextTokenException : AmazonPricingException
@@ -86,7 +86,7 @@ namespace Amazon.Pricing.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidNextTokenException class with serialized data.
         /// </summary>

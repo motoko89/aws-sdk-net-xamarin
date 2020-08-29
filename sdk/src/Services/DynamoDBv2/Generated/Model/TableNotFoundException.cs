@@ -32,7 +32,7 @@ namespace Amazon.DynamoDBv2.Model
     /// A source table with the name <code>TableName</code> does not currently exist within
     /// the subscriber's account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TableNotFoundException : AmazonDynamoDBException
@@ -87,7 +87,7 @@ namespace Amazon.DynamoDBv2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TableNotFoundException class with serialized data.
         /// </summary>

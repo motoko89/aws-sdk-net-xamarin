@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The client request token is not valid. Either the token is not in a valid format,
     /// or the token has been used in a previous request and cannot be reused.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IdempotencyParameterMismatchException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IdempotencyParameterMismatchException class with serialized data.
         /// </summary>

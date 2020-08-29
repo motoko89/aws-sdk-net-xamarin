@@ -31,7 +31,7 @@ namespace Amazon.MediaPackageVod.Model
     /// <summary>
     /// The client is not authorized to access the requested resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ForbiddenException : AmazonMediaPackageVodException
@@ -86,7 +86,7 @@ namespace Amazon.MediaPackageVod.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ForbiddenException class with serialized data.
         /// </summary>

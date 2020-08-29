@@ -32,7 +32,7 @@ namespace Amazon.Comprehend.Model
     /// The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
     /// re-enter it.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class KmsKeyValidationException : AmazonComprehendException
@@ -87,7 +87,7 @@ namespace Amazon.Comprehend.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the KmsKeyValidationException class with serialized data.
         /// </summary>

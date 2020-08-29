@@ -32,7 +32,7 @@ namespace Amazon.CloudWatchLogs.Model
     /// The sequence token is not valid. You can get the correct sequence token in the <code>expectedSequenceToken</code>
     /// field in the <code>InvalidSequenceTokenException</code> message.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidSequenceTokenException : AmazonCloudWatchLogsException
@@ -88,7 +88,7 @@ namespace Amazon.CloudWatchLogs.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidSequenceTokenException class with serialized data.
         /// </summary>

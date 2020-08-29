@@ -32,7 +32,7 @@ namespace Amazon.CodeStar.Model
     /// An AWS CodeStar project with the same ID already exists in this region for the AWS
     /// account. AWS CodeStar project IDs must be unique within a region for the AWS account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ProjectAlreadyExistsException : AmazonCodeStarException
@@ -87,7 +87,7 @@ namespace Amazon.CodeStar.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ProjectAlreadyExistsException class with serialized data.
         /// </summary>

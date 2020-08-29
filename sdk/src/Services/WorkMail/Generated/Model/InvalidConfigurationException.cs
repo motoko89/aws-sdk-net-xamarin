@@ -32,7 +32,7 @@ namespace Amazon.WorkMail.Model
     /// The configuration for a resource isn't valid. A resource must either be able to auto-respond
     /// to requests or have at least one delegate associated that can do so on its behalf.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidConfigurationException : AmazonWorkMailException
@@ -87,7 +87,7 @@ namespace Amazon.WorkMail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidConfigurationException class with serialized data.
         /// </summary>

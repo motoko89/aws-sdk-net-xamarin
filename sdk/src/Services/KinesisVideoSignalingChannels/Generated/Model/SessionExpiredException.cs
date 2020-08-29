@@ -33,7 +33,7 @@ namespace Amazon.KinesisVideoSignalingChannels.Model
     /// for 45 minutes. Client should reconnect to the channel to continue sending/receiving
     /// messages.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SessionExpiredException : AmazonKinesisVideoSignalingChannelsException
@@ -88,7 +88,7 @@ namespace Amazon.KinesisVideoSignalingChannels.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SessionExpiredException class with serialized data.
         /// </summary>

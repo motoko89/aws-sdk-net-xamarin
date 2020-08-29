@@ -32,7 +32,7 @@ namespace Amazon.SimpleEmail.Model
     /// Indicates that one or more of the replacement values you provided is invalid. This
     /// error may occur when the TemplateData object contains invalid JSON.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRenderingParameterException : AmazonSimpleEmailServiceException
@@ -88,7 +88,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRenderingParameterException class with serialized data.
         /// </summary>

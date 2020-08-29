@@ -32,7 +32,7 @@ namespace Amazon.ElasticTranscoder.Model
     /// The requested resource does not exist or is not available. For example, the pipeline
     /// to which you're trying to add a job doesn't exist or is still being created.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonElasticTranscoderException
@@ -87,7 +87,7 @@ namespace Amazon.ElasticTranscoder.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.WAFV2.Model
     /// AWS WAF couldn’t perform the operation because the resource that you requested isn’t
     /// valid. Check the resource, and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFInvalidResourceException : AmazonWAFV2Exception
@@ -87,7 +87,7 @@ namespace Amazon.WAFV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFInvalidResourceException class with serialized data.
         /// </summary>

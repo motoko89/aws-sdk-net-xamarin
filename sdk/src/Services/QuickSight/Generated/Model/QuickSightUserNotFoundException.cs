@@ -33,7 +33,7 @@ namespace Amazon.QuickSight.Model
     /// that requires finding a user based on a provided user name, such as <code>DeleteUser</code>,
     /// <code>DescribeUser</code>, and so on.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class QuickSightUserNotFoundException : AmazonQuickSightException
@@ -89,7 +89,7 @@ namespace Amazon.QuickSight.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the QuickSightUserNotFoundException class with serialized data.
         /// </summary>

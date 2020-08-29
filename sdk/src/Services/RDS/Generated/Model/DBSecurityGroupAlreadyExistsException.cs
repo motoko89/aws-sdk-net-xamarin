@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// A DB security group with the name specified in <code>DBSecurityGroupName</code> already
     /// exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBSecurityGroupAlreadyExistsException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBSecurityGroupAlreadyExistsException class with serialized data.
         /// </summary>

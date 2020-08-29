@@ -32,7 +32,7 @@ namespace Amazon.WorkMail.Model
     /// The organization must have a valid state (Active or Synchronizing) to perform certain
     /// operations on the organization or its members.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OrganizationStateException : AmazonWorkMailException
@@ -87,7 +87,7 @@ namespace Amazon.WorkMail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OrganizationStateException class with serialized data.
         /// </summary>

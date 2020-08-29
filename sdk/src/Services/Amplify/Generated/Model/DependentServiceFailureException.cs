@@ -31,7 +31,7 @@ namespace Amazon.Amplify.Model
     /// <summary>
     /// An operation failed because a dependent service threw an exception.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DependentServiceFailureException : AmazonAmplifyException
@@ -86,7 +86,7 @@ namespace Amazon.Amplify.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DependentServiceFailureException class with serialized data.
         /// </summary>

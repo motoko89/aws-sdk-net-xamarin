@@ -33,7 +33,7 @@ namespace Amazon.FSx.Model
     /// token but different parameters settings. A client request token should always uniquely
     /// identify a single request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IncompatibleParameterErrorException : AmazonFSxException
@@ -89,7 +89,7 @@ namespace Amazon.FSx.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IncompatibleParameterErrorException class with serialized data.
         /// </summary>

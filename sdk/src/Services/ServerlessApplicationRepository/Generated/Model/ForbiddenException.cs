@@ -31,7 +31,7 @@ namespace Amazon.ServerlessApplicationRepository.Model
     /// <summary>
     /// The client is not authenticated.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ForbiddenException : AmazonServerlessApplicationRepositoryException
@@ -87,7 +87,7 @@ namespace Amazon.ServerlessApplicationRepository.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ForbiddenException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.ElastiCache.Model
     /// The requested cache subnet group name is already in use by an existing cache subnet
     /// group.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CacheSubnetGroupAlreadyExistsException : AmazonElastiCacheException
@@ -87,7 +87,7 @@ namespace Amazon.ElastiCache.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CacheSubnetGroupAlreadyExistsException class with serialized data.
         /// </summary>

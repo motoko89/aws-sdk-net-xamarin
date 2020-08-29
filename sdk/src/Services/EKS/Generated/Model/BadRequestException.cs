@@ -32,7 +32,7 @@ namespace Amazon.EKS.Model
     /// This exception is thrown if the request contains a semantic error. The precise meaning
     /// will depend on the API, and will be documented in the error message.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadRequestException : AmazonEKSException
@@ -87,7 +87,7 @@ namespace Amazon.EKS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadRequestException class with serialized data.
         /// </summary>

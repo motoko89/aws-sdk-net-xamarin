@@ -32,7 +32,7 @@ namespace Amazon.DocDB.Model
     /// The cluster can't be created because you have reached the maximum allowed quota of
     /// clusters.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBClusterQuotaExceededException : AmazonDocDBException
@@ -87,7 +87,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBClusterQuotaExceededException class with serialized data.
         /// </summary>

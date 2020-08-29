@@ -32,7 +32,7 @@ namespace Amazon.IdentityManagement.Model
     /// The request failed because the maximum number of concurrent requests for this account
     /// are already running.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ReportGenerationLimitExceededException : AmazonIdentityManagementServiceException
@@ -87,7 +87,7 @@ namespace Amazon.IdentityManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ReportGenerationLimitExceededException class with serialized data.
         /// </summary>

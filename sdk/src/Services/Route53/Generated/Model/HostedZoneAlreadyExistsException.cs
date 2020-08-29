@@ -32,7 +32,7 @@ namespace Amazon.Route53.Model
     /// The hosted zone you're trying to create already exists. Amazon Route 53 returns this
     /// error when a hosted zone has already been created with the specified <code>CallerReference</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class HostedZoneAlreadyExistsException : AmazonRoute53Exception
@@ -87,7 +87,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the HostedZoneAlreadyExistsException class with serialized data.
         /// </summary>

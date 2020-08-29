@@ -32,7 +32,7 @@ namespace Amazon.ServerMigrationService.Model
     /// You have exceeded the number of on-demand replication runs you can request in a 24-hour
     /// period.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ReplicationRunLimitExceededException : AmazonServerMigrationServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ServerMigrationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ReplicationRunLimitExceededException class with serialized data.
         /// </summary>

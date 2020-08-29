@@ -31,7 +31,7 @@ namespace Amazon.KinesisVideoMedia.Model
     /// <summary>
     /// Status Code: 404, The stream with the given name does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonKinesisVideoMediaException
@@ -86,7 +86,7 @@ namespace Amazon.KinesisVideoMedia.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.WorkMail.Model
     /// <summary>
     /// The directory service doesn't recognize the credentials supplied by WorkMail.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DirectoryServiceAuthenticationFailedException : AmazonWorkMailException
@@ -86,7 +86,7 @@ namespace Amazon.WorkMail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DirectoryServiceAuthenticationFailedException class with serialized data.
         /// </summary>

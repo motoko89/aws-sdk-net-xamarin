@@ -32,7 +32,7 @@ namespace Amazon.CodeStar.Model
     /// Another modification is being made. That modification must complete before you can
     /// make your change.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentModificationException : AmazonCodeStarException
@@ -87,7 +87,7 @@ namespace Amazon.CodeStar.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentModificationException class with serialized data.
         /// </summary>

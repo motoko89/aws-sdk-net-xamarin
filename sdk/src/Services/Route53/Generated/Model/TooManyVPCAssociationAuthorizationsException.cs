@@ -35,7 +35,7 @@ namespace Amazon.Route53.Model
     /// To get a list of existing authorizations, submit a <code>ListVPCAssociationAuthorizations</code>
     /// request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyVPCAssociationAuthorizationsException : AmazonRoute53Exception
@@ -90,7 +90,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyVPCAssociationAuthorizationsException class with serialized data.
         /// </summary>

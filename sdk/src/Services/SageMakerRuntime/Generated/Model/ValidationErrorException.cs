@@ -31,7 +31,7 @@ namespace Amazon.SageMakerRuntime.Model
     /// <summary>
     /// Inspect your request and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ValidationErrorException : AmazonSageMakerRuntimeException
@@ -86,7 +86,7 @@ namespace Amazon.SageMakerRuntime.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ValidationErrorException class with serialized data.
         /// </summary>

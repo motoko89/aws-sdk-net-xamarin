@@ -32,7 +32,7 @@ namespace Amazon.Polly.Model
     /// Speech marks are not supported for the <code>OutputFormat</code> selected. Speech
     /// marks are only available for content in <code>json</code> format.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MarksNotSupportedForFormatException : AmazonPollyException
@@ -87,7 +87,7 @@ namespace Amazon.Polly.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MarksNotSupportedForFormatException class with serialized data.
         /// </summary>

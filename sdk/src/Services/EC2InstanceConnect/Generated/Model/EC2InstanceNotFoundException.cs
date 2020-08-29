@@ -32,7 +32,7 @@ namespace Amazon.EC2InstanceConnect.Model
     /// Indicates that the instance requested was not found in the given zone. Check that
     /// you have provided a valid instance ID and the correct zone.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EC2InstanceNotFoundException : AmazonEC2InstanceConnectException
@@ -87,7 +87,7 @@ namespace Amazon.EC2InstanceConnect.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EC2InstanceNotFoundException class with serialized data.
         /// </summary>

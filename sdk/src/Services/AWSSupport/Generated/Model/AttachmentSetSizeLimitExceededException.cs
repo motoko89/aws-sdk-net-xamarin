@@ -32,7 +32,7 @@ namespace Amazon.AWSSupport.Model
     /// A limit for the size of an attachment set has been exceeded. The limits are three
     /// attachments and 5 MB per attachment.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AttachmentSetSizeLimitExceededException : AmazonAWSSupportException
@@ -87,7 +87,7 @@ namespace Amazon.AWSSupport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AttachmentSetSizeLimitExceededException class with serialized data.
         /// </summary>

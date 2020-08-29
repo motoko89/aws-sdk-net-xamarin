@@ -34,7 +34,7 @@ namespace Amazon.ElasticLoadBalancing.Model
     /// the certificate to IAM, this error might indicate that the certificate is not fully
     /// available yet.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CertificateNotFoundException : AmazonElasticLoadBalancingException
@@ -89,7 +89,7 @@ namespace Amazon.ElasticLoadBalancing.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CertificateNotFoundException class with serialized data.
         /// </summary>

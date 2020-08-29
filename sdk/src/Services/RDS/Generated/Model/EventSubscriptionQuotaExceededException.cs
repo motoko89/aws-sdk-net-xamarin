@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// You have reached the maximum number of event subscriptions.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EventSubscriptionQuotaExceededException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EventSubscriptionQuotaExceededException class with serialized data.
         /// </summary>

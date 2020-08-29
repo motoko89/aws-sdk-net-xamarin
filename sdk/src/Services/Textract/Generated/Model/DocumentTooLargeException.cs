@@ -33,7 +33,7 @@ namespace Amazon.Textract.Model
     /// for synchronous operations 5 MB. The maximum document size for asynchronous operations
     /// is 500 MB for PDF files.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DocumentTooLargeException : AmazonTextractException
@@ -88,7 +88,7 @@ namespace Amazon.Textract.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DocumentTooLargeException class with serialized data.
         /// </summary>

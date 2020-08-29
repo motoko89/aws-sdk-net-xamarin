@@ -32,7 +32,7 @@ namespace Amazon.SSO.Model
     /// Indicates that a problem occurred with the input to the request. For example, a required
     /// parameter might be missing or out of range.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRequestException : AmazonSSOException
@@ -87,7 +87,7 @@ namespace Amazon.SSO.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRequestException class with serialized data.
         /// </summary>

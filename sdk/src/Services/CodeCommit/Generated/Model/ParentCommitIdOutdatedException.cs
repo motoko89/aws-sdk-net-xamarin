@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// tip of the specified branch. To view the full commit ID of the current head of the
     /// branch, use <a>GetBranch</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ParentCommitIdOutdatedException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ParentCommitIdOutdatedException class with serialized data.
         /// </summary>

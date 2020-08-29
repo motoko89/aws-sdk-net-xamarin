@@ -32,7 +32,7 @@ namespace Amazon.MachineLearning.Model
     /// A second request to use or change an object was not allowed. This can result from
     /// retrying a request using a parameter that was not present in the original request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IdempotentParameterMismatchException : AmazonMachineLearningException
@@ -88,7 +88,7 @@ namespace Amazon.MachineLearning.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IdempotentParameterMismatchException class with serialized data.
         /// </summary>

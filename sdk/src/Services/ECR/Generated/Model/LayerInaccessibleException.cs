@@ -32,7 +32,7 @@ namespace Amazon.ECR.Model
     /// The specified layer is not available because it is not associated with an image. Unassociated
     /// image layers may be cleaned up at any time.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LayerInaccessibleException : AmazonECRException
@@ -87,7 +87,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LayerInaccessibleException class with serialized data.
         /// </summary>

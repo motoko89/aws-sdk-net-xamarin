@@ -32,7 +32,7 @@ namespace Amazon.Lambda.Model
     /// Lambda was unable to decrypt the environment variables because the KMS key was not
     /// found. Check the function's KMS key settings.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class KMSNotFoundException : AmazonLambdaException
@@ -88,7 +88,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the KMSNotFoundException class with serialized data.
         /// </summary>

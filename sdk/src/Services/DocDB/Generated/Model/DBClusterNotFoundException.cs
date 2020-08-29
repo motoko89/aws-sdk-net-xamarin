@@ -31,7 +31,7 @@ namespace Amazon.DocDB.Model
     /// <summary>
     /// <code>DBClusterIdentifier</code> doesn't refer to an existing cluster.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBClusterNotFoundException : AmazonDocDBException
@@ -86,7 +86,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBClusterNotFoundException class with serialized data.
         /// </summary>

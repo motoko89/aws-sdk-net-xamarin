@@ -31,7 +31,7 @@ namespace Amazon.Comprehend.Model
     /// <summary>
     /// The specified job was not found. Check the job ID and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class JobNotFoundException : AmazonComprehendException
@@ -86,7 +86,7 @@ namespace Amazon.Comprehend.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the JobNotFoundException class with serialized data.
         /// </summary>

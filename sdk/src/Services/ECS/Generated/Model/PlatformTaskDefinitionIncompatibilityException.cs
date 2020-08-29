@@ -31,7 +31,7 @@ namespace Amazon.ECS.Model
     /// <summary>
     /// The specified platform version does not satisfy the task definition's required capabilities.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PlatformTaskDefinitionIncompatibilityException : AmazonECSException
@@ -86,7 +86,7 @@ namespace Amazon.ECS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PlatformTaskDefinitionIncompatibilityException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.DirectConnect.Model
     /// <summary>
     /// You have reached the limit on the number of tags that can be assigned.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyTagsException : AmazonDirectConnectException
@@ -86,7 +86,7 @@ namespace Amazon.DirectConnect.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyTagsException class with serialized data.
         /// </summary>

@@ -39,7 +39,7 @@ namespace Amazon.Polly.Model
     /// you spelled its name is spelled correctly. Then try again.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LexiconNotFoundException : AmazonPollyException
@@ -94,7 +94,7 @@ namespace Amazon.Polly.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LexiconNotFoundException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.Glacier.Model
     /// Returned if, when uploading an archive, Amazon S3 Glacier times out while receiving
     /// the upload.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RequestTimeoutException : AmazonGlacierException
@@ -89,7 +89,7 @@ namespace Amazon.Glacier.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RequestTimeoutException class with serialized data.
         /// </summary>

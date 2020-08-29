@@ -32,7 +32,7 @@ namespace Amazon.SSOOIDC.Model
     /// Indicates that a request contains an invalid grant. This can occur if a client makes
     /// a <a>CreateToken</a> request with an invalid grant type.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidGrantException : AmazonSSOOIDCException
@@ -89,7 +89,7 @@ namespace Amazon.SSOOIDC.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidGrantException class with serialized data.
         /// </summary>

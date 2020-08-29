@@ -33,7 +33,7 @@ namespace Amazon.CloudFormation.Model
     /// set status might be <code>CREATE_IN_PROGRESS</code>, or the stack status might be
     /// <code>UPDATE_IN_PROGRESS</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidChangeSetStatusException : AmazonCloudFormationException
@@ -88,7 +88,7 @@ namespace Amazon.CloudFormation.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidChangeSetStatusException class with serialized data.
         /// </summary>

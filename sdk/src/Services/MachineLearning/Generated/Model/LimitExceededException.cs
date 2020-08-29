@@ -32,7 +32,7 @@ namespace Amazon.MachineLearning.Model
     /// The subscriber exceeded the maximum number of operations. This exception can occur
     /// when listing objects such as <code>DataSource</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonMachineLearningException
@@ -88,7 +88,7 @@ namespace Amazon.MachineLearning.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

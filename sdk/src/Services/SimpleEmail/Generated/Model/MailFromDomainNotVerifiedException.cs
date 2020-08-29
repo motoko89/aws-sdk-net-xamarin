@@ -34,7 +34,7 @@ namespace Amazon.SimpleEmail.Model
     /// the custom MAIL FROM domain settings for an identity, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html">Amazon
     /// SES Developer Guide</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MailFromDomainNotVerifiedException : AmazonSimpleEmailServiceException
@@ -89,7 +89,7 @@ namespace Amazon.SimpleEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MailFromDomainNotVerifiedException class with serialized data.
         /// </summary>

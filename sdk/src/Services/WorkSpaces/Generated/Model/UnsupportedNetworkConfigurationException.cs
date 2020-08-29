@@ -34,7 +34,7 @@ namespace Amazon.WorkSpaces.Model
     /// more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html">
     /// Configure a VPC for Amazon WorkSpaces</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedNetworkConfigurationException : AmazonWorkSpacesException
@@ -89,7 +89,7 @@ namespace Amazon.WorkSpaces.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedNetworkConfigurationException class with serialized data.
         /// </summary>

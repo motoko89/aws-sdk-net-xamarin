@@ -33,7 +33,7 @@ namespace Amazon.ElastiCache.Model
     /// the allowed number of tags. The maximum number of tags permitted on a resource is
     /// 50.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TagQuotaPerResourceExceededException : AmazonElastiCacheException
@@ -88,7 +88,7 @@ namespace Amazon.ElastiCache.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TagQuotaPerResourceExceededException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// The automated backup is in an invalid state. For example, this automated backup is
     /// associated with an active instance.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDBInstanceAutomatedBackupStateException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDBInstanceAutomatedBackupStateException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.Translate.Model
     /// Amazon Translate does not support translation from the language of the source text
     /// into the requested target language. For more information, see <a>how-to-error-msg</a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedLanguagePairException : AmazonTranslateException
@@ -89,7 +89,7 @@ namespace Amazon.Translate.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedLanguagePairException class with serialized data.
         /// </summary>

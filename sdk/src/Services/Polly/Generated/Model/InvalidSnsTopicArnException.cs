@@ -32,7 +32,7 @@ namespace Amazon.Polly.Model
     /// The provided SNS topic ARN is invalid. Please provide a valid SNS topic ARN and try
     /// again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidSnsTopicArnException : AmazonPollyException
@@ -87,7 +87,7 @@ namespace Amazon.Polly.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidSnsTopicArnException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CloudFormation.Model
     /// The specified change set name or ID doesn't exit. To view valid change sets for a
     /// stack, use the <code>ListChangeSets</code> action.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ChangeSetNotFoundException : AmazonCloudFormationException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFormation.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ChangeSetNotFoundException class with serialized data.
         /// </summary>

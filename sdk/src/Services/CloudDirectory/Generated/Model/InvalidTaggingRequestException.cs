@@ -33,7 +33,7 @@ namespace Amazon.CloudDirectory.Model
     /// or if you specify a higher number of tags for a resource than the allowed limit. Allowed
     /// limit is 50 tags per resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidTaggingRequestException : AmazonCloudDirectoryException
@@ -88,7 +88,7 @@ namespace Amazon.CloudDirectory.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidTaggingRequestException class with serialized data.
         /// </summary>

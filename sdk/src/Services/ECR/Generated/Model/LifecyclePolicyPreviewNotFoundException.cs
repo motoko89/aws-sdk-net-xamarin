@@ -31,7 +31,7 @@ namespace Amazon.ECR.Model
     /// <summary>
     /// There is no dry run for this repository.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LifecyclePolicyPreviewNotFoundException : AmazonECRException
@@ -86,7 +86,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LifecyclePolicyPreviewNotFoundException class with serialized data.
         /// </summary>

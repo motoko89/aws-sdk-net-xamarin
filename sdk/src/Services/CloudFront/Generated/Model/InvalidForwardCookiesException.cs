@@ -33,7 +33,7 @@ namespace Amazon.CloudFront.Model
     /// for the <code>whitelisted</code> list of cookie names. Either list of cookie names
     /// has been specified when not allowed or list of cookie names is missing when expected.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidForwardCookiesException : AmazonCloudFrontException
@@ -88,7 +88,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidForwardCookiesException class with serialized data.
         /// </summary>

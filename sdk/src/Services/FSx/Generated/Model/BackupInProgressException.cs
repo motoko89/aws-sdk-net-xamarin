@@ -32,7 +32,7 @@ namespace Amazon.FSx.Model
     /// Another backup is already under way. Wait for completion before initiating additional
     /// backups of this file system.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BackupInProgressException : AmazonFSxException
@@ -87,7 +87,7 @@ namespace Amazon.FSx.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BackupInProgressException class with serialized data.
         /// </summary>

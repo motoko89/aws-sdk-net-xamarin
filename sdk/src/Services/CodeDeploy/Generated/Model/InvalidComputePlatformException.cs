@@ -32,7 +32,7 @@ namespace Amazon.CodeDeploy.Model
     /// The computePlatform is invalid. The computePlatform should be <code>Lambda</code>,
     /// <code>Server</code>, or <code>ECS</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidComputePlatformException : AmazonCodeDeployException
@@ -87,7 +87,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidComputePlatformException class with serialized data.
         /// </summary>

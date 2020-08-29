@@ -31,7 +31,7 @@ namespace Amazon.ApplicationInsights.Model
     /// <summary>
     /// The request is not understood by the server.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BadRequestException : AmazonApplicationInsightsException
@@ -86,7 +86,7 @@ namespace Amazon.ApplicationInsights.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BadRequestException class with serialized data.
         /// </summary>

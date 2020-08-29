@@ -32,7 +32,7 @@ namespace Amazon.AppConfig.Model
     /// The request could not be processed because of conflict in the current state of the
     /// resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConflictException : AmazonAppConfigException
@@ -87,7 +87,7 @@ namespace Amazon.AppConfig.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConflictException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.RAM.Model
     /// <summary>
     /// The specified tag is a reserved word and cannot be used.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TagPolicyViolationException : AmazonRAMException
@@ -86,7 +86,7 @@ namespace Amazon.RAM.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TagPolicyViolationException class with serialized data.
         /// </summary>

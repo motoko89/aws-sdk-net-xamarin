@@ -32,7 +32,7 @@ namespace Amazon.Redshift.Model
     /// The specified CIDR IP range or EC2 security group is not authorized for the specified
     /// cluster security group.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AuthorizationNotFoundException : AmazonRedshiftException
@@ -87,7 +87,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AuthorizationNotFoundException class with serialized data.
         /// </summary>

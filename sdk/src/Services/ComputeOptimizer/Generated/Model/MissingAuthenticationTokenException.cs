@@ -31,7 +31,7 @@ namespace Amazon.ComputeOptimizer.Model
     /// <summary>
     /// The request must contain either a valid (registered) AWS access key ID or X.509 certificate.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MissingAuthenticationTokenException : AmazonComputeOptimizerException
@@ -86,7 +86,7 @@ namespace Amazon.ComputeOptimizer.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MissingAuthenticationTokenException class with serialized data.
         /// </summary>

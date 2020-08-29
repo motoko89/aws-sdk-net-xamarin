@@ -31,7 +31,7 @@ namespace Amazon.CertificateManager.Model
     /// <summary>
     /// One or more values in the <a>DomainValidationOption</a> structure is incorrect.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDomainValidationOptionsException : AmazonCertificateManagerException
@@ -86,7 +86,7 @@ namespace Amazon.CertificateManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDomainValidationOptionsException class with serialized data.
         /// </summary>

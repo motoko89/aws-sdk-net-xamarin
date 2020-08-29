@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The title of the pull request is not valid. Pull request titles cannot exceed 100
     /// characters in length.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidTitleException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidTitleException class with serialized data.
         /// </summary>

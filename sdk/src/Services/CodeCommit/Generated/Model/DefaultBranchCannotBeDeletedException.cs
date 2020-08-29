@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The specified branch is the default branch for the repository, and cannot be deleted.
     /// To delete this branch, you must first set another branch as the default branch.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DefaultBranchCannotBeDeletedException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DefaultBranchCannotBeDeletedException class with serialized data.
         /// </summary>

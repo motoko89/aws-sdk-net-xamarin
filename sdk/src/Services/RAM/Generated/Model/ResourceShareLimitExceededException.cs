@@ -31,7 +31,7 @@ namespace Amazon.RAM.Model
     /// <summary>
     /// The requested resource share exceeds the limit for your account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceShareLimitExceededException : AmazonRAMException
@@ -86,7 +86,7 @@ namespace Amazon.RAM.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceShareLimitExceededException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.DAX.Model
     /// <summary>
     /// The VPC network is in an invalid state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidVPCNetworkStateException : AmazonDAXException
@@ -86,7 +86,7 @@ namespace Amazon.DAX.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidVPCNetworkStateException class with serialized data.
         /// </summary>

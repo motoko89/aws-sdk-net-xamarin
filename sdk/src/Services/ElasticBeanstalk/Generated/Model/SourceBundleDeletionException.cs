@@ -32,7 +32,7 @@ namespace Amazon.ElasticBeanstalk.Model
     /// Unable to delete the Amazon S3 source bundle associated with the application version.
     /// The application version was deleted successfully.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SourceBundleDeletionException : AmazonElasticBeanstalkException
@@ -87,7 +87,7 @@ namespace Amazon.ElasticBeanstalk.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SourceBundleDeletionException class with serialized data.
         /// </summary>

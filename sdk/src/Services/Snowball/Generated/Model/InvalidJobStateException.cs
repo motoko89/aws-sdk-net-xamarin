@@ -32,7 +32,7 @@ namespace Amazon.Snowball.Model
     /// The action can't be performed because the job's current state doesn't allow that action
     /// to be performed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidJobStateException : AmazonSnowballException
@@ -87,7 +87,7 @@ namespace Amazon.Snowball.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidJobStateException class with serialized data.
         /// </summary>

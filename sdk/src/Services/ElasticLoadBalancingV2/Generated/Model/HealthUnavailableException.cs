@@ -31,7 +31,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
     /// <summary>
     /// The health of the specified targets could not be retrieved due to an internal error.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class HealthUnavailableException : AmazonElasticLoadBalancingV2Exception
@@ -86,7 +86,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the HealthUnavailableException class with serialized data.
         /// </summary>

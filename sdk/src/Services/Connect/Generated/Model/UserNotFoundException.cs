@@ -31,7 +31,7 @@ namespace Amazon.Connect.Model
     /// <summary>
     /// No user with the specified credentials was found in the Amazon Connect instance.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UserNotFoundException : AmazonConnectException
@@ -86,7 +86,7 @@ namespace Amazon.Connect.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UserNotFoundException class with serialized data.
         /// </summary>

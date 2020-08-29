@@ -31,7 +31,7 @@ namespace Amazon.PI.Model
     /// <summary>
     /// One of the arguments provided is invalid for this request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidArgumentException : AmazonPIException
@@ -86,7 +86,7 @@ namespace Amazon.PI.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidArgumentException class with serialized data.
         /// </summary>

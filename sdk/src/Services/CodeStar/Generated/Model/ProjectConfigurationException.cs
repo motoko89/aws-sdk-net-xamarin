@@ -31,7 +31,7 @@ namespace Amazon.CodeStar.Model
     /// <summary>
     /// Project configuration information is required but not specified.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ProjectConfigurationException : AmazonCodeStarException
@@ -86,7 +86,7 @@ namespace Amazon.CodeStar.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ProjectConfigurationException class with serialized data.
         /// </summary>

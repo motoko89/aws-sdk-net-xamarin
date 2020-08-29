@@ -32,7 +32,7 @@ namespace Amazon.SQS.Model
     /// Indicates that the specified queue previously received a <code>PurgeQueue</code> request
     /// within the last 60 seconds (the time it can take to delete the messages in the queue).
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PurgeQueueInProgressException : AmazonSQSException
@@ -87,7 +87,7 @@ namespace Amazon.SQS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PurgeQueueInProgressException class with serialized data.
         /// </summary>

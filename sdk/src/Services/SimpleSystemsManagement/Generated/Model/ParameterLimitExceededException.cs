@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// You have exceeded the number of parameters for this AWS account. Delete one or more
     /// parameters and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ParameterLimitExceededException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ParameterLimitExceededException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.SQS.Model
     /// <summary>
     /// The specified receipt handle isn't valid for the current version.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidIdFormatException : AmazonSQSException
@@ -86,7 +86,7 @@ namespace Amazon.SQS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidIdFormatException class with serialized data.
         /// </summary>

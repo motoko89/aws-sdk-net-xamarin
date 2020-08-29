@@ -31,7 +31,7 @@ namespace Amazon.CodeStar.Model
     /// <summary>
     /// The team member is already associated with a role in this project.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TeamMemberAlreadyAssociatedException : AmazonCodeStarException
@@ -86,7 +86,7 @@ namespace Amazon.CodeStar.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TeamMemberAlreadyAssociatedException class with serialized data.
         /// </summary>

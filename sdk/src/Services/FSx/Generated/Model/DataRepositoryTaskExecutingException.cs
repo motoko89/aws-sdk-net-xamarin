@@ -32,7 +32,7 @@ namespace Amazon.FSx.Model
     /// An existing data repository task is currently executing on the file system. Wait until
     /// the existing task has completed, then create the new task.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DataRepositoryTaskExecutingException : AmazonFSxException
@@ -87,7 +87,7 @@ namespace Amazon.FSx.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DataRepositoryTaskExecutingException class with serialized data.
         /// </summary>

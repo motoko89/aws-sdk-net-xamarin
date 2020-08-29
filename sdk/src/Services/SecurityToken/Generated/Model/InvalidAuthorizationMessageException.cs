@@ -32,7 +32,7 @@ namespace Amazon.SecurityToken.Model
     /// The error returned if the message passed to <code>DecodeAuthorizationMessage</code>
     /// was invalid. This can happen if the token contains invalid characters, such as linebreaks.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidAuthorizationMessageException : AmazonSecurityTokenServiceException
@@ -87,7 +87,7 @@ namespace Amazon.SecurityToken.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidAuthorizationMessageException class with serialized data.
         /// </summary>

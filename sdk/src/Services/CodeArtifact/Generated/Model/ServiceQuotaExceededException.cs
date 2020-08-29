@@ -32,7 +32,7 @@ namespace Amazon.CodeArtifact.Model
     /// The operation did not succeed because it would have exceeded a service limit for
     /// your account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceQuotaExceededException : AmazonCodeArtifactException
@@ -89,7 +89,7 @@ namespace Amazon.CodeArtifact.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceQuotaExceededException class with serialized data.
         /// </summary>

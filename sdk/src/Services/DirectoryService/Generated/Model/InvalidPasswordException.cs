@@ -32,7 +32,7 @@ namespace Amazon.DirectoryService.Model
     /// The new password provided by the user does not meet the password complexity requirements
     /// defined in your directory.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidPasswordException : AmazonDirectoryServiceException
@@ -88,7 +88,7 @@ namespace Amazon.DirectoryService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidPasswordException class with serialized data.
         /// </summary>

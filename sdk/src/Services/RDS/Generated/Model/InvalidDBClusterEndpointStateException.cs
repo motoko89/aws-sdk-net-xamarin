@@ -32,7 +32,7 @@ namespace Amazon.RDS.Model
     /// The requested operation can't be performed on the endpoint while the endpoint is in
     /// this state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDBClusterEndpointStateException : AmazonRDSException
@@ -87,7 +87,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDBClusterEndpointStateException class with serialized data.
         /// </summary>

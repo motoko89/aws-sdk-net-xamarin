@@ -32,7 +32,7 @@ namespace Amazon.Polly.Model
     /// The provided Amazon S3 bucket name is invalid. Please check your input with S3 bucket
     /// naming requirements and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidS3BucketException : AmazonPollyException
@@ -87,7 +87,7 @@ namespace Amazon.Polly.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidS3BucketException class with serialized data.
         /// </summary>

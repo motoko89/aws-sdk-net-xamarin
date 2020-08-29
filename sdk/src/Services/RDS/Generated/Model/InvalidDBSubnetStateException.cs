@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// The DB subnet isn't in the <i>available</i> state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDBSubnetStateException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDBSubnetStateException class with serialized data.
         /// </summary>

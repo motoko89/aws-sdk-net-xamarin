@@ -31,7 +31,7 @@ namespace Amazon.Organizations.Model
     /// <summary>
     /// That account is already present in the specified destination.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DuplicateAccountException : AmazonOrganizationsException
@@ -86,7 +86,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DuplicateAccountException class with serialized data.
         /// </summary>

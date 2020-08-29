@@ -32,7 +32,7 @@ namespace Amazon.AppSync.Model
     /// The API key expiration must be set to a value between 1 and 365 days from creation
     /// (for <code>CreateApiKey</code>) or from update (for <code>UpdateApiKey</code>).
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ApiKeyValidityOutOfBoundsException : AmazonAppSyncException
@@ -87,7 +87,7 @@ namespace Amazon.AppSync.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ApiKeyValidityOutOfBoundsException class with serialized data.
         /// </summary>

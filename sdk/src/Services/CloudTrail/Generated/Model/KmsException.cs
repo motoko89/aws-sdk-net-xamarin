@@ -32,7 +32,7 @@ namespace Amazon.CloudTrail.Model
     /// This exception is thrown when there is an issue with the specified KMS key and the
     /// trail can’t be updated.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class KmsException : AmazonCloudTrailException
@@ -87,7 +87,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the KmsException class with serialized data.
         /// </summary>

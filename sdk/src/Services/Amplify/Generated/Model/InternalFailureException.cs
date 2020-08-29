@@ -31,7 +31,7 @@ namespace Amazon.Amplify.Model
     /// <summary>
     /// The service failed to perform an operation due to an internal issue.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalFailureException : AmazonAmplifyException
@@ -86,7 +86,7 @@ namespace Amazon.Amplify.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalFailureException class with serialized data.
         /// </summary>

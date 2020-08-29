@@ -32,7 +32,7 @@ namespace Amazon.CostExplorer.Model
     /// Your request parameters changed between pages. Try again with the old parameters or
     /// without a pagination token.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RequestChangedException : AmazonCostExplorerException
@@ -87,7 +87,7 @@ namespace Amazon.CostExplorer.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RequestChangedException class with serialized data.
         /// </summary>

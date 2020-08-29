@@ -31,7 +31,7 @@ namespace Amazon.Neptune.Model
     /// <summary>
     /// A DB parameter group with the same name exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBParameterGroupAlreadyExistsException : AmazonNeptuneException
@@ -86,7 +86,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBParameterGroupAlreadyExistsException class with serialized data.
         /// </summary>

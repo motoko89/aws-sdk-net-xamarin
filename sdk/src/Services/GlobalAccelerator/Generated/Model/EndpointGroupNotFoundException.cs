@@ -31,7 +31,7 @@ namespace Amazon.GlobalAccelerator.Model
     /// <summary>
     /// The endpoint group that you specified doesn't exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EndpointGroupNotFoundException : AmazonGlobalAcceleratorException
@@ -86,7 +86,7 @@ namespace Amazon.GlobalAccelerator.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EndpointGroupNotFoundException class with serialized data.
         /// </summary>

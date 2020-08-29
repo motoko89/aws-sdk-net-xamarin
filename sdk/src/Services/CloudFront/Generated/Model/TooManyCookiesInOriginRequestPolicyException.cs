@@ -33,7 +33,7 @@ namespace Amazon.CloudFront.Model
     /// see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a>
     /// (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyCookiesInOriginRequestPolicyException : AmazonCloudFrontException
@@ -88,7 +88,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyCookiesInOriginRequestPolicyException class with serialized data.
         /// </summary>

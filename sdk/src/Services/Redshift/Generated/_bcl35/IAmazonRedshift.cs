@@ -68,6 +68,15 @@ namespace Amazon.Redshift
     public partial interface IAmazonRedshift : IAmazonService, IDisposable
     {
 
+
+#if BCL45 || AWS_ASYNC_ENUMERABLES_API
+        /// <summary>
+        /// Paginators for the service
+        /// </summary>
+        IRedshiftPaginatorFactory Paginators { get; }
+#endif
+
+
         
         #region  AcceptReservedNodeExchange
 
@@ -5442,6 +5451,14 @@ namespace Amazon.Redshift
         /// You can only resize clusters of the following types:
         /// </para>
         ///  <ul> <li> 
+        /// <para>
+        /// dc1.large (if your cluster is in a VPC)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// dc1.8xlarge (if your cluster is in a VPC)
+        /// </para>
+        ///  </li> <li> 
         /// <para>
         /// dc2.large
         /// </para>

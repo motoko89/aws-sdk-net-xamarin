@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The file cannot be added because it is empty. Empty files cannot be added to the repository
     /// with this API.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class FileContentRequiredException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the FileContentRequiredException class with serialized data.
         /// </summary>

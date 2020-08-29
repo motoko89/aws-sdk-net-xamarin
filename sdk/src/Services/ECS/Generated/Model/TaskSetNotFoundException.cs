@@ -32,7 +32,7 @@ namespace Amazon.ECS.Model
     /// The specified task set could not be found. You can view your available task sets with
     /// <a>DescribeTaskSets</a>. Task sets are specific to each cluster, service and Region.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TaskSetNotFoundException : AmazonECSException
@@ -87,7 +87,7 @@ namespace Amazon.ECS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TaskSetNotFoundException class with serialized data.
         /// </summary>

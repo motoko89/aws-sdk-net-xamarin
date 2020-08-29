@@ -32,7 +32,7 @@ namespace Amazon.CostAndUsageReport.Model
     /// This account already has five reports defined. To define a new report, you must delete
     /// an existing report.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ReportLimitReachedException : AmazonCostAndUsageReportException
@@ -87,7 +87,7 @@ namespace Amazon.CostAndUsageReport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ReportLimitReachedException class with serialized data.
         /// </summary>

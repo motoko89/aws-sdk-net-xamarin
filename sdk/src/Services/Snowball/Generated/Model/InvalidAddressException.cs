@@ -32,7 +32,7 @@ namespace Amazon.Snowball.Model
     /// The address provided was invalid. Check the address with your region's carrier, and
     /// try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidAddressException : AmazonSnowballException
@@ -87,7 +87,7 @@ namespace Amazon.Snowball.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidAddressException class with serialized data.
         /// </summary>

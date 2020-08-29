@@ -33,7 +33,7 @@ namespace Amazon.SimpleWorkflow.Model
     /// this fault you should either clean up unused resources or increase the limit by contacting
     /// AWS.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonSimpleWorkflowException
@@ -88,7 +88,7 @@ namespace Amazon.SimpleWorkflow.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

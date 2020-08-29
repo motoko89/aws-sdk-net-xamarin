@@ -31,7 +31,7 @@ namespace Amazon.Neptune.Model
     /// <summary>
     /// The DB subnet is already in use in the Availability Zone.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SubnetAlreadyInUseException : AmazonNeptuneException
@@ -86,7 +86,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SubnetAlreadyInUseException class with serialized data.
         /// </summary>

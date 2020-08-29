@@ -31,7 +31,7 @@ namespace Amazon.FSx.Model
     /// <summary>
     /// The data repository task could not be canceled because the task has already ended.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DataRepositoryTaskEndedException : AmazonFSxException
@@ -86,7 +86,7 @@ namespace Amazon.FSx.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DataRepositoryTaskEndedException class with serialized data.
         /// </summary>

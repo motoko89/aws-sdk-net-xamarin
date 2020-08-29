@@ -33,7 +33,7 @@ namespace Amazon.KeyManagementService.Model
     /// in a <a>Decrypt</a> request and the <code>SourceKeyId</code> in a <a>ReEncrypt</a>
     /// request must identify the same CMK that was used to encrypt the ciphertext.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IncorrectKeyException : AmazonKeyManagementServiceException
@@ -88,7 +88,7 @@ namespace Amazon.KeyManagementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IncorrectKeyException class with serialized data.
         /// </summary>

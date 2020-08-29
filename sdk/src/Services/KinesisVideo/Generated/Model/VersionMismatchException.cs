@@ -33,7 +33,7 @@ namespace Amazon.KinesisVideo.Model
     /// version, use the <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
     /// API.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class VersionMismatchException : AmazonKinesisVideoException
@@ -88,7 +88,7 @@ namespace Amazon.KinesisVideo.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the VersionMismatchException class with serialized data.
         /// </summary>

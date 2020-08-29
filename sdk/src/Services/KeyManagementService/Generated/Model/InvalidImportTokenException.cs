@@ -32,7 +32,7 @@ namespace Amazon.KeyManagementService.Model
     /// The request was rejected because the provided import token is invalid or is associated
     /// with a different customer master key (CMK).
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidImportTokenException : AmazonKeyManagementServiceException
@@ -87,7 +87,7 @@ namespace Amazon.KeyManagementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidImportTokenException class with serialized data.
         /// </summary>

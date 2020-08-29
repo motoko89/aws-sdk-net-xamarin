@@ -33,7 +33,7 @@ namespace Amazon.Snowball.Model
     /// five nodes for your cluster and you have more nodes to create for this cluster, try
     /// again and create jobs until your cluster has exactly five notes.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ClusterLimitExceededException : AmazonSnowballException
@@ -88,7 +88,7 @@ namespace Amazon.Snowball.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ClusterLimitExceededException class with serialized data.
         /// </summary>

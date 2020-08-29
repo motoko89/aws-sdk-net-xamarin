@@ -31,7 +31,7 @@ namespace Amazon.ECR.Model
     /// <summary>
     /// The specified layer upload does not contain any layer parts.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EmptyUploadException : AmazonECRException
@@ -86,7 +86,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EmptyUploadException class with serialized data.
         /// </summary>

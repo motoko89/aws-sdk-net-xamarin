@@ -32,7 +32,7 @@ namespace Amazon.Neptune.Model
     /// You have exceeded the maximum number of accounts that you can share a manual DB snapshot
     /// with.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SharedSnapshotQuotaExceededException : AmazonNeptuneException
@@ -87,7 +87,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SharedSnapshotQuotaExceededException class with serialized data.
         /// </summary>

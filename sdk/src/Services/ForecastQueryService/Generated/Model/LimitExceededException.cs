@@ -31,7 +31,7 @@ namespace Amazon.ForecastQueryService.Model
     /// <summary>
     /// The limit on the number of requests per second has been exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonForecastQueryServiceException
@@ -86,7 +86,7 @@ namespace Amazon.ForecastQueryService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

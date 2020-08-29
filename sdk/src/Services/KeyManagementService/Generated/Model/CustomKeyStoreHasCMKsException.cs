@@ -34,7 +34,7 @@ namespace Amazon.KeyManagementService.Model
     /// operation to delete the CMKs. After they are deleted, you can delete the custom key
     /// store.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CustomKeyStoreHasCMKsException : AmazonKeyManagementServiceException
@@ -89,7 +89,7 @@ namespace Amazon.KeyManagementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CustomKeyStoreHasCMKsException class with serialized data.
         /// </summary>

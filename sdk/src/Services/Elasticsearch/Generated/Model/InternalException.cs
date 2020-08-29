@@ -32,7 +32,7 @@ namespace Amazon.Elasticsearch.Model
     /// The request processing has failed because of an unknown error, exception or failure
     /// (the failure is internal to the service) . Gives http status code of 500.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalException : AmazonElasticsearchException
@@ -87,7 +87,7 @@ namespace Amazon.Elasticsearch.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalException class with serialized data.
         /// </summary>

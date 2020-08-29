@@ -31,7 +31,7 @@ namespace Amazon.DAX.Model
     /// <summary>
     /// The specified subnet group already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SubnetGroupAlreadyExistsException : AmazonDAXException
@@ -86,7 +86,7 @@ namespace Amazon.DAX.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SubnetGroupAlreadyExistsException class with serialized data.
         /// </summary>

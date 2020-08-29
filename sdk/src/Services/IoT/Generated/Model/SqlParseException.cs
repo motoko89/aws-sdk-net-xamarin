@@ -31,7 +31,7 @@ namespace Amazon.IoT.Model
     /// <summary>
     /// The Rule-SQL expression can't be parsed correctly.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SqlParseException : AmazonIoTException
@@ -86,7 +86,7 @@ namespace Amazon.IoT.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SqlParseException class with serialized data.
         /// </summary>

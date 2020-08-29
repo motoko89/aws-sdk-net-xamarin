@@ -33,7 +33,7 @@ namespace Amazon.Mobile.Model
     /// the maximum number of resources in some AWS service. You should create another sub-account
     /// using AWS Organizations or remove some resources and retry your request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonMobileException
@@ -89,7 +89,7 @@ namespace Amazon.Mobile.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

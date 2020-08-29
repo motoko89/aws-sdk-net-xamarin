@@ -34,7 +34,7 @@ namespace Amazon.Organizations.Model
     /// <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification">Email
     /// Address Verification</a> in the <i>AWS Organizations User Guide.</i>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccountOwnerNotVerifiedException : AmazonOrganizationsException
@@ -89,7 +89,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccountOwnerNotVerifiedException class with serialized data.
         /// </summary>

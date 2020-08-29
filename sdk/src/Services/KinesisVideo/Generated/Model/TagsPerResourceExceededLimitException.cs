@@ -32,7 +32,7 @@ namespace Amazon.KinesisVideo.Model
     /// You have exceeded the limit of tags that you can associate with the resource. Kinesis
     /// video streams support up to 50 tags.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TagsPerResourceExceededLimitException : AmazonKinesisVideoException
@@ -87,7 +87,7 @@ namespace Amazon.KinesisVideo.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TagsPerResourceExceededLimitException class with serialized data.
         /// </summary>

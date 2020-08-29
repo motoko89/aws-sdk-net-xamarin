@@ -45,7 +45,7 @@ namespace Amazon.ElasticLoadBalancing
     /// <para>
     /// Elastic Load Balancing supports three types of load balancers: Application Load Balancers,
     /// Network Load Balancers, and Classic Load Balancers. You can select a load balancer
-    /// based on your application needs. For more information, see the <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/">Elastic
+    /// based on your application needs. For more information, see the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/">Elastic
     /// Load Balancing User Guide</a>.
     /// </para>
     ///  
@@ -68,6 +68,11 @@ namespace Amazon.ElasticLoadBalancing
     public partial interface IAmazonElasticLoadBalancing : IAmazonService, IDisposable
     {
 
+        /// <summary>
+        /// Paginators for the service
+        /// </summary>
+        IElasticLoadBalancingPaginatorFactory Paginators { get; }
+
         
         #region  AddTags
 
@@ -83,7 +88,7 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html">Tag
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html">Tag
         /// Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -116,7 +121,7 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html">Tag
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html">Tag
         /// Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -151,7 +156,7 @@ namespace Amazon.ElasticLoadBalancing
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups">Security
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups">Security
         /// Groups for Load Balancers in a VPC</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -179,7 +184,7 @@ namespace Amazon.ElasticLoadBalancing
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups">Security
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups">Security
         /// Groups for Load Balancers in a VPC</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -212,7 +217,7 @@ namespace Amazon.ElasticLoadBalancing
         ///  
         /// <para>
         /// The load balancer evenly distributes requests across all registered subnets. For more
-        /// information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html">Add
+        /// information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html">Add
         /// or Remove Subnets for Your Load Balancer in a VPC</a> in the <i>Classic Load Balancers
         /// Guide</i>.
         /// </para>
@@ -243,7 +248,7 @@ namespace Amazon.ElasticLoadBalancing
         ///  
         /// <para>
         /// The load balancer evenly distributes requests across all registered subnets. For more
-        /// information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html">Add
+        /// information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html">Add
         /// or Remove Subnets for Your Load Balancer in a VPC</a> in the <i>Classic Load Balancers
         /// Guide</i>.
         /// </para>
@@ -280,7 +285,7 @@ namespace Amazon.ElasticLoadBalancing
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html">Configure
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html">Configure
         /// Health Checks for Your Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -301,7 +306,7 @@ namespace Amazon.ElasticLoadBalancing
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html">Configure
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html">Configure
         /// Health Checks for Your Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -341,7 +346,7 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application">Application-Controlled
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application">Application-Controlled
         /// Session Stickiness</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -384,7 +389,7 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application">Application-Controlled
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application">Application-Controlled
         /// Session Stickiness</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -436,7 +441,7 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration">Duration-Based
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration">Duration-Based
         /// Session Stickiness</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -482,7 +487,7 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration">Duration-Based
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration">Duration-Based
         /// Session Stickiness</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -530,7 +535,7 @@ namespace Amazon.ElasticLoadBalancing
         /// <para>
         /// You can create up to 20 load balancers per region per account. You can request an
         /// increase for the number of load balancers for your account. For more information,
-        /// see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits
+        /// see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits
         /// for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -601,7 +606,7 @@ namespace Amazon.ElasticLoadBalancing
         /// <para>
         /// You can create up to 20 load balancers per region per account. You can request an
         /// increase for the number of load balancers for your account. For more information,
-        /// see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits
+        /// see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits
         /// for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -667,7 +672,7 @@ namespace Amazon.ElasticLoadBalancing
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners
         /// for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -705,7 +710,7 @@ namespace Amazon.ElasticLoadBalancing
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners
         /// for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -953,7 +958,7 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html">Register
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html">Register
         /// or De-Register EC2 Instances</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -982,7 +987,7 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html">Register
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html">Register
         /// or De-Register EC2 Instances</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -1011,7 +1016,7 @@ namespace Amazon.ElasticLoadBalancing
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits
         /// for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -1028,7 +1033,7 @@ namespace Amazon.ElasticLoadBalancing
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits
         /// for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -1547,7 +1552,7 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add
         /// or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -1583,7 +1588,7 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add
         /// or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -1618,7 +1623,7 @@ namespace Amazon.ElasticLoadBalancing
         ///  
         /// <para>
         /// The load balancer evenly distributes requests across all its registered Availability
-        /// Zones that contain instances. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add
+        /// Zones that contain instances. For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add
         /// or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -1644,7 +1649,7 @@ namespace Amazon.ElasticLoadBalancing
         ///  
         /// <para>
         /// The load balancer evenly distributes requests across all its registered Availability
-        /// Zones that contain instances. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add
+        /// Zones that contain instances. For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add
         /// or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -1681,22 +1686,22 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html">Cross-Zone
+        ///  <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html">Cross-Zone
         /// Load Balancing</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html">Connection
+        ///  <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html">Connection
         /// Draining</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html">Access
+        ///  <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html">Access
         /// Logs</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html">Idle
+        ///  <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html">Idle
         /// Connection Timeout</a> 
         /// </para>
         ///  </li> </ul>
@@ -1734,22 +1739,22 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html">Cross-Zone
+        ///  <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html">Cross-Zone
         /// Load Balancing</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html">Connection
+        ///  <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html">Connection
         /// Draining</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html">Access
+        ///  <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html">Access
         /// Logs</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html">Idle
+        ///  <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html">Idle
         /// Connection Timeout</a> 
         /// </para>
         ///  </li> </ul>
@@ -1807,7 +1812,7 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html">Register
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html">Register
         /// or De-Register EC2 Instances</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -1855,7 +1860,7 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html">Register
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html">Register
         /// or De-Register EC2 Instances</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -1920,7 +1925,7 @@ namespace Amazon.ElasticLoadBalancing
         /// 
         ///  
         /// <para>
-        /// For more information about updating your SSL certificate, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html">Replace
+        /// For more information about updating your SSL certificate, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html">Replace
         /// the SSL Certificate for Your Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -1957,7 +1962,7 @@ namespace Amazon.ElasticLoadBalancing
         /// 
         ///  
         /// <para>
-        /// For more information about updating your SSL certificate, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html">Replace
+        /// For more information about updating your SSL certificate, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html">Replace
         /// the SSL Certificate for Your Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -2012,9 +2017,9 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  
         /// <para>
-        /// For more information about enabling back-end instance authentication, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html#configure_backendauth_clt">Configure
+        /// For more information about enabling back-end instance authentication, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html#configure_backendauth_clt">Configure
         /// Back-end Instance Authentication</a> in the <i>Classic Load Balancers Guide</i>. For
-        /// more information about Proxy Protocol, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html">Configure
+        /// more information about Proxy Protocol, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html">Configure
         /// Proxy Protocol Support</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -2054,9 +2059,9 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  
         /// <para>
-        /// For more information about enabling back-end instance authentication, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html#configure_backendauth_clt">Configure
+        /// For more information about enabling back-end instance authentication, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html#configure_backendauth_clt">Configure
         /// Back-end Instance Authentication</a> in the <i>Classic Load Balancers Guide</i>. For
-        /// more information about Proxy Protocol, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html">Configure
+        /// more information about Proxy Protocol, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html">Configure
         /// Proxy Protocol Support</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -2093,9 +2098,9 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  
         /// <para>
-        /// For more information about setting policies, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/ssl-config-update.html">Update
-        /// the SSL Negotiation Configuration</a>, <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration">Duration-Based
-        /// Session Stickiness</a>, and <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application">Application-Controlled
+        /// For more information about setting policies, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/ssl-config-update.html">Update
+        /// the SSL Negotiation Configuration</a>, <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration">Duration-Based
+        /// Session Stickiness</a>, and <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application">Application-Controlled
         /// Session Stickiness</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>
@@ -2129,9 +2134,9 @@ namespace Amazon.ElasticLoadBalancing
         /// </para>
         ///  
         /// <para>
-        /// For more information about setting policies, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/ssl-config-update.html">Update
-        /// the SSL Negotiation Configuration</a>, <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration">Duration-Based
-        /// Session Stickiness</a>, and <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application">Application-Controlled
+        /// For more information about setting policies, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/ssl-config-update.html">Update
+        /// the SSL Negotiation Configuration</a>, <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration">Duration-Based
+        /// Session Stickiness</a>, and <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application">Application-Controlled
         /// Session Stickiness</a> in the <i>Classic Load Balancers Guide</i>.
         /// </para>
         /// </summary>

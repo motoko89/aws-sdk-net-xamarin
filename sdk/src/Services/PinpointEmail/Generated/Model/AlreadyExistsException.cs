@@ -31,7 +31,7 @@ namespace Amazon.PinpointEmail.Model
     /// <summary>
     /// The resource specified in your request already exists.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AlreadyExistsException : AmazonPinpointEmailException
@@ -86,7 +86,7 @@ namespace Amazon.PinpointEmail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AlreadyExistsException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The activation is not valid. The activation might have been deleted, or the ActivationId
     /// and the ActivationCode do not match.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidActivationException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidActivationException class with serialized data.
         /// </summary>

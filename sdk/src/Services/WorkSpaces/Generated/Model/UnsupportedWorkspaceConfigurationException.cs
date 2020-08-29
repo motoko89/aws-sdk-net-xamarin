@@ -33,7 +33,7 @@ namespace Amazon.WorkSpaces.Model
     /// information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html">Required
     /// Configuration and Service Components for WorkSpaces </a>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedWorkspaceConfigurationException : AmazonWorkSpacesException
@@ -88,7 +88,7 @@ namespace Amazon.WorkSpaces.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedWorkspaceConfigurationException class with serialized data.
         /// </summary>

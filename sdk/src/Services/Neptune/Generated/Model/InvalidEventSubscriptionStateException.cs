@@ -31,7 +31,7 @@ namespace Amazon.Neptune.Model
     /// <summary>
     /// The event subscription is in an invalid state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidEventSubscriptionStateException : AmazonNeptuneException
@@ -86,7 +86,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidEventSubscriptionStateException class with serialized data.
         /// </summary>

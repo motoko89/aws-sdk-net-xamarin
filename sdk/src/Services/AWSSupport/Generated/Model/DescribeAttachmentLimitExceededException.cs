@@ -32,7 +32,7 @@ namespace Amazon.AWSSupport.Model
     /// The limit for the number of <a>DescribeAttachment</a> requests in a short period of
     /// time has been exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DescribeAttachmentLimitExceededException : AmazonAWSSupportException
@@ -87,7 +87,7 @@ namespace Amazon.AWSSupport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DescribeAttachmentLimitExceededException class with serialized data.
         /// </summary>

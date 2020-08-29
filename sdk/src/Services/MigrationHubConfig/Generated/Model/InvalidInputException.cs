@@ -32,7 +32,7 @@ namespace Amazon.MigrationHubConfig.Model
     /// Exception raised when the provided input violates a policy constraint or is entered
     /// in the wrong format or data type.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidInputException : AmazonMigrationHubConfigException
@@ -87,7 +87,7 @@ namespace Amazon.MigrationHubConfig.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidInputException class with serialized data.
         /// </summary>

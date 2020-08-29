@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// There is a conflict in the policies specified for this parameter. You can't, for example,
     /// specify two Expiration policies for a parameter. Review your policies, and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IncompatiblePolicyException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IncompatiblePolicyException class with serialized data.
         /// </summary>

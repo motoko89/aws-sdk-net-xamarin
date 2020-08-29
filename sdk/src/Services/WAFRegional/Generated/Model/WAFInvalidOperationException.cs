@@ -58,7 +58,7 @@ namespace Amazon.WAFRegional.Model
     /// </para>
     ///  </li> </ul>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class WAFInvalidOperationException : AmazonWAFRegionalException
@@ -113,7 +113,7 @@ namespace Amazon.WAFRegional.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the WAFInvalidOperationException class with serialized data.
         /// </summary>

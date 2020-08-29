@@ -33,7 +33,7 @@ namespace Amazon.KinesisAnalyticsV2.Model
     /// Note that the maximum number of application tags includes system tags. The maximum
     /// number of user-defined application tags is 50.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyTagsException : AmazonKinesisAnalyticsV2Exception
@@ -88,7 +88,7 @@ namespace Amazon.KinesisAnalyticsV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyTagsException class with serialized data.
         /// </summary>

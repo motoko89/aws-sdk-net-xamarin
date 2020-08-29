@@ -32,7 +32,7 @@ namespace Amazon.CodePipeline.Model
     /// The pipeline execution was specified in an invalid format or cannot be found, or an
     /// execution ID does not belong to the specified pipeline.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PipelineExecutionNotFoundException : AmazonCodePipelineException
@@ -87,7 +87,7 @@ namespace Amazon.CodePipeline.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PipelineExecutionNotFoundException class with serialized data.
         /// </summary>

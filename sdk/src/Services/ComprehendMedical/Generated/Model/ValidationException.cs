@@ -32,7 +32,7 @@ namespace Amazon.ComprehendMedical.Model
     /// The filter that you specified for the operation is invalid. Check the filter values
     /// that you entered and try your request again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ValidationException : AmazonComprehendMedicalException
@@ -87,7 +87,7 @@ namespace Amazon.ComprehendMedical.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ValidationException class with serialized data.
         /// </summary>

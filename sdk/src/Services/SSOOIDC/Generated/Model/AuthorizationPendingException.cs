@@ -32,7 +32,7 @@ namespace Amazon.SSOOIDC.Model
     /// Indicates that a request to authorize a client with an access user session token is
     /// pending.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AuthorizationPendingException : AmazonSSOOIDCException
@@ -89,7 +89,7 @@ namespace Amazon.SSOOIDC.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AuthorizationPendingException class with serialized data.
         /// </summary>

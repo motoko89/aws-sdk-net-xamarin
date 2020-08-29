@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The target for the pull request is not valid. A target must contain the full values
     /// for the repository name, source branch, and destination branch for the pull request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidTargetException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidTargetException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.CloudHSMV2.Model
     /// The request was rejected because of an AWS CloudHSM internal failure. The request
     /// can be retried.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CloudHsmInternalFailureException : AmazonCloudHSMV2Exception
@@ -87,7 +87,7 @@ namespace Amazon.CloudHSMV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CloudHsmInternalFailureException class with serialized data.
         /// </summary>

@@ -34,7 +34,7 @@ namespace Amazon.CognitoIdentityProvider.Model
     /// or the external ID provided in the role does not match what is provided in the SMS
     /// configuration for the user pool.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidSmsRoleTrustRelationshipException : AmazonCognitoIdentityProviderException
@@ -89,7 +89,7 @@ namespace Amazon.CognitoIdentityProvider.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidSmsRoleTrustRelationshipException class with serialized data.
         /// </summary>

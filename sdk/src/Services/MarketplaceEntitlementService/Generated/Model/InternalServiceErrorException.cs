@@ -32,7 +32,7 @@ namespace Amazon.MarketplaceEntitlementService.Model
     /// An internal error has occurred. Retry your request. If the problem persists, post
     /// a message with details on the AWS forums.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServiceErrorException : AmazonMarketplaceEntitlementServiceException
@@ -87,7 +87,7 @@ namespace Amazon.MarketplaceEntitlementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServiceErrorException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
     /// AWS Marketplace does not support metering usage from the underlying platform. Currently,
     /// Amazon ECS, Amazon EKS, and AWS Fargate are supported.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PlatformNotSupportedException : AmazonAWSMarketplaceMeteringException
@@ -87,7 +87,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PlatformNotSupportedException class with serialized data.
         /// </summary>

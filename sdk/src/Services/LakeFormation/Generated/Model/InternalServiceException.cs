@@ -31,7 +31,7 @@ namespace Amazon.LakeFormation.Model
     /// <summary>
     /// An internal service error occurred.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServiceException : AmazonLakeFormationException
@@ -86,7 +86,7 @@ namespace Amazon.LakeFormation.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServiceException class with serialized data.
         /// </summary>

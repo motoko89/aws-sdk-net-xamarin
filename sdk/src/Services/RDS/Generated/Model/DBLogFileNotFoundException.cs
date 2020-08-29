@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// <code>LogFileName</code> doesn't refer to an existing DB log file.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBLogFileNotFoundException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBLogFileNotFoundException class with serialized data.
         /// </summary>

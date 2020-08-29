@@ -33,7 +33,7 @@ namespace Amazon.Snowball.Model
     /// Check the address with your region's carrier and try again. If the issue persists,
     /// contact AWS Support.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedAddressException : AmazonSnowballException
@@ -88,7 +88,7 @@ namespace Amazon.Snowball.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedAddressException class with serialized data.
         /// </summary>

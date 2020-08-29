@@ -32,7 +32,7 @@ namespace Amazon.ElastiCache.Model
     /// The requested cache parameter group name does not refer to an existing cache parameter
     /// group.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CacheParameterGroupNotFoundException : AmazonElastiCacheException
@@ -87,7 +87,7 @@ namespace Amazon.ElastiCache.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CacheParameterGroupNotFoundException class with serialized data.
         /// </summary>

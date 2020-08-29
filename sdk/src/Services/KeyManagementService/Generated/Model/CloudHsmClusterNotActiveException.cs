@@ -34,7 +34,7 @@ namespace Amazon.KeyManagementService.Model
     /// command again. For detailed instructions, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">Getting
     /// Started</a> in the <i>AWS CloudHSM User Guide</i>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CloudHsmClusterNotActiveException : AmazonKeyManagementServiceException
@@ -89,7 +89,7 @@ namespace Amazon.KeyManagementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CloudHsmClusterNotActiveException class with serialized data.
         /// </summary>

@@ -33,7 +33,7 @@ namespace Amazon.RDS.Model
     /// any additional automated backups. The retained automated backups quota is the same
     /// as your DB Instance quota.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBInstanceAutomatedBackupQuotaExceededException : AmazonRDSException
@@ -88,7 +88,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBInstanceAutomatedBackupQuotaExceededException class with serialized data.
         /// </summary>

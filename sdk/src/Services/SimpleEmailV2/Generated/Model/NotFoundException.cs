@@ -31,7 +31,7 @@ namespace Amazon.SimpleEmailV2.Model
     /// <summary>
     /// The resource you attempted to access doesn't exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NotFoundException : AmazonSimpleEmailServiceV2Exception
@@ -86,7 +86,7 @@ namespace Amazon.SimpleEmailV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NotFoundException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.Lightsail.Model
     /// Lightsail throws this exception when an account is still in the setup in progress
     /// state.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccountSetupInProgressException : AmazonLightsailException
@@ -90,7 +90,7 @@ namespace Amazon.Lightsail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccountSetupInProgressException class with serialized data.
         /// </summary>

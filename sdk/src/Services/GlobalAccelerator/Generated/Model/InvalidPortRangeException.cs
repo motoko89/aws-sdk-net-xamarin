@@ -32,7 +32,7 @@ namespace Amazon.GlobalAccelerator.Model
     /// The port numbers that you specified are not valid numbers or are not unique for this
     /// accelerator.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidPortRangeException : AmazonGlobalAcceleratorException
@@ -87,7 +87,7 @@ namespace Amazon.GlobalAccelerator.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidPortRangeException class with serialized data.
         /// </summary>

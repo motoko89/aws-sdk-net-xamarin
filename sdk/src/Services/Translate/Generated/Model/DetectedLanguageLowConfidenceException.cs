@@ -35,7 +35,7 @@ namespace Amazon.Translate.Model
     /// href="https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html">DetectDominantLanguage</a>
     /// operation in the <i>Amazon Comprehend Developer Guide</i>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DetectedLanguageLowConfidenceException : AmazonTranslateException
@@ -91,7 +91,7 @@ namespace Amazon.Translate.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DetectedLanguageLowConfidenceException class with serialized data.
         /// </summary>

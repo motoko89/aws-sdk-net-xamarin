@@ -31,7 +31,7 @@ namespace Amazon.SQS.Model
     /// <summary>
     /// Two or more batch entries in the request have the same <code>Id</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BatchEntryIdsNotDistinctException : AmazonSQSException
@@ -86,7 +86,7 @@ namespace Amazon.SQS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BatchEntryIdsNotDistinctException class with serialized data.
         /// </summary>

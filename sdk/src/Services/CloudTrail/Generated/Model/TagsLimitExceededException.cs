@@ -32,7 +32,7 @@ namespace Amazon.CloudTrail.Model
     /// The number of tags per trail has exceeded the permitted amount. Currently, the limit
     /// is 50.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TagsLimitExceededException : AmazonCloudTrailException
@@ -87,7 +87,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TagsLimitExceededException class with serialized data.
         /// </summary>

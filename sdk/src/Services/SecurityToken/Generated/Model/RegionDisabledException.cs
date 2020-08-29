@@ -34,7 +34,7 @@ namespace Amazon.SecurityToken.Model
     /// STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
     /// and Deactivating AWS STS in an AWS Region</a> in the <i>IAM User Guide</i>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class RegionDisabledException : AmazonSecurityTokenServiceException
@@ -89,7 +89,7 @@ namespace Amazon.SecurityToken.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the RegionDisabledException class with serialized data.
         /// </summary>

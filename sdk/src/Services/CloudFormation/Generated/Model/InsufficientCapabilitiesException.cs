@@ -32,7 +32,7 @@ namespace Amazon.CloudFormation.Model
     /// The template contains resources with capabilities that weren't specified in the Capabilities
     /// parameter.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InsufficientCapabilitiesException : AmazonCloudFormationException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFormation.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InsufficientCapabilitiesException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.IdentityManagement.Model
     /// The request failed because AWS service role policies can only be attached to the service-linked
     /// role for that service.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PolicyNotAttachableException : AmazonIdentityManagementServiceException
@@ -87,7 +87,7 @@ namespace Amazon.IdentityManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PolicyNotAttachableException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.IoT.Model
     /// <summary>
     /// You can't revert the certificate transfer because the transfer is already complete.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TransferAlreadyCompletedException : AmazonIoTException
@@ -86,7 +86,7 @@ namespace Amazon.IoT.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TransferAlreadyCompletedException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.Rekognition.Model
     /// <summary>
     /// The number of in-progress human reviews you have has exceeded the number allowed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class HumanLoopQuotaExceededException : AmazonRekognitionException
@@ -89,7 +89,7 @@ namespace Amazon.Rekognition.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the HumanLoopQuotaExceededException class with serialized data.
         /// </summary>

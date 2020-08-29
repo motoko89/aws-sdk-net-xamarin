@@ -32,7 +32,7 @@ namespace Amazon.WorkMail.Model
     /// The email address that you're trying to assign is already created for a different
     /// user, group, or resource.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EmailAddressInUseException : AmazonWorkMailException
@@ -87,7 +87,7 @@ namespace Amazon.WorkMail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EmailAddressInUseException class with serialized data.
         /// </summary>

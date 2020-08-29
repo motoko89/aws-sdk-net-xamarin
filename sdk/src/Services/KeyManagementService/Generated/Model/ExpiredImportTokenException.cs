@@ -33,7 +33,7 @@ namespace Amazon.KeyManagementService.Model
     /// to get a new import token and public key, use the new public key to encrypt the key
     /// material, and then try the request again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ExpiredImportTokenException : AmazonKeyManagementServiceException
@@ -88,7 +88,7 @@ namespace Amazon.KeyManagementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ExpiredImportTokenException class with serialized data.
         /// </summary>

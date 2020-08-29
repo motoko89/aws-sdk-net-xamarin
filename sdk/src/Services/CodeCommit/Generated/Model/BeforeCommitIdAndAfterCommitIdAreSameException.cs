@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The before commit ID and the after commit ID are the same, which is not valid. The
     /// before commit ID and the after commit ID must be different commit IDs.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class BeforeCommitIdAndAfterCommitIdAreSameException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the BeforeCommitIdAndAfterCommitIdAreSameException class with serialized data.
         /// </summary>

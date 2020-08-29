@@ -31,7 +31,7 @@ namespace Amazon.QLDBSession.Model
     /// <summary>
     /// Returned if the session doesn't exist anymore because it timed out or expired.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidSessionException : AmazonQLDBSessionException
@@ -87,7 +87,7 @@ namespace Amazon.QLDBSession.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidSessionException class with serialized data.
         /// </summary>

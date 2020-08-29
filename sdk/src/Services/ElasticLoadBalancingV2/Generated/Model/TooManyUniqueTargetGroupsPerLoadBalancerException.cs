@@ -33,7 +33,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
     /// all listeners. If a target group is used by multiple actions for a load balancer,
     /// it is counted as only one use.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TooManyUniqueTargetGroupsPerLoadBalancerException : AmazonElasticLoadBalancingV2Exception
@@ -88,7 +88,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TooManyUniqueTargetGroupsPerLoadBalancerException class with serialized data.
         /// </summary>

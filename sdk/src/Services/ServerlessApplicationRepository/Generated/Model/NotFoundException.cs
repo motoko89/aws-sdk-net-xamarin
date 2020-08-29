@@ -32,7 +32,7 @@ namespace Amazon.ServerlessApplicationRepository.Model
     /// The resource (for example, an access policy statement) specified in the request doesn't
     /// exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NotFoundException : AmazonServerlessApplicationRepositoryException
@@ -88,7 +88,7 @@ namespace Amazon.ServerlessApplicationRepository.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NotFoundException class with serialized data.
         /// </summary>

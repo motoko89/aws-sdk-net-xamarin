@@ -31,7 +31,7 @@ namespace Amazon.WorkSpaces.Model
     /// <summary>
     /// The properties of this WorkSpace are currently being modified. Try again in a moment.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class OperationInProgressException : AmazonWorkSpacesException
@@ -86,7 +86,7 @@ namespace Amazon.WorkSpaces.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the OperationInProgressException class with serialized data.
         /// </summary>

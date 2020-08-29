@@ -31,7 +31,7 @@ namespace Amazon.MediaPackage.Model
     /// <summary>
     /// An unexpected error occurred.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceUnavailableException : AmazonMediaPackageException
@@ -86,7 +86,7 @@ namespace Amazon.MediaPackage.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceUnavailableException class with serialized data.
         /// </summary>

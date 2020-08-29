@@ -31,7 +31,7 @@ namespace Amazon.Lambda.Model
     /// <summary>
     /// Need additional permissions to configure VPC settings.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EC2AccessDeniedException : AmazonLambdaException
@@ -87,7 +87,7 @@ namespace Amazon.Lambda.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EC2AccessDeniedException class with serialized data.
         /// </summary>

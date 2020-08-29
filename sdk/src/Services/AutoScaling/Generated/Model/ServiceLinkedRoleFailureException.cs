@@ -31,7 +31,7 @@ namespace Amazon.AutoScaling.Model
     /// <summary>
     /// The service-linked role is not yet ready for use.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceLinkedRoleFailureException : AmazonAutoScalingException
@@ -86,7 +86,7 @@ namespace Amazon.AutoScaling.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceLinkedRoleFailureException class with serialized data.
         /// </summary>

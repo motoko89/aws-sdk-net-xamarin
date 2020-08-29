@@ -32,7 +32,7 @@ namespace Amazon.EC2InstanceConnect.Model
     /// Indicates that the service encountered an error. Follow the message's instructions
     /// and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceException : AmazonEC2InstanceConnectException
@@ -87,7 +87,7 @@ namespace Amazon.EC2InstanceConnect.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceException class with serialized data.
         /// </summary>

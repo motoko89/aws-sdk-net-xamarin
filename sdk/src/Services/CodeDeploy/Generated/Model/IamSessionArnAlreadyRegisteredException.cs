@@ -32,7 +32,7 @@ namespace Amazon.CodeDeploy.Model
     /// The request included an IAM session ARN that has already been used to register a different
     /// instance.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class IamSessionArnAlreadyRegisteredException : AmazonCodeDeployException
@@ -87,7 +87,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the IamSessionArnAlreadyRegisteredException class with serialized data.
         /// </summary>

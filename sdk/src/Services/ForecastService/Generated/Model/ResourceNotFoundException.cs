@@ -32,7 +32,7 @@ namespace Amazon.ForecastService.Model
     /// We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
     /// again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonForecastServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ForecastService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

@@ -33,7 +33,7 @@ namespace Amazon.SimpleNotificationService.Model
     /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a>
     /// in the <i>AWS Key Management Service Developer Guide.</i>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class KMSThrottlingException : AmazonSimpleNotificationServiceException
@@ -88,7 +88,7 @@ namespace Amazon.SimpleNotificationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the KMSThrottlingException class with serialized data.
         /// </summary>

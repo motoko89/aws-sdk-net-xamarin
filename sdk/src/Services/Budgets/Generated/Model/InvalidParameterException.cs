@@ -31,7 +31,7 @@ namespace Amazon.Budgets.Model
     /// <summary>
     /// An error on the client occurred. Typically, the cause is an invalid input value.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterException : AmazonBudgetsException
@@ -86,7 +86,7 @@ namespace Amazon.Budgets.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterException class with serialized data.
         /// </summary>

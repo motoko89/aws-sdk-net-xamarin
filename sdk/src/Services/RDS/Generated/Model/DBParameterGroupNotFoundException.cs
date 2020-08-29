@@ -31,7 +31,7 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DBParameterGroupNotFoundException : AmazonRDSException
@@ -86,7 +86,7 @@ namespace Amazon.RDS.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DBParameterGroupNotFoundException class with serialized data.
         /// </summary>

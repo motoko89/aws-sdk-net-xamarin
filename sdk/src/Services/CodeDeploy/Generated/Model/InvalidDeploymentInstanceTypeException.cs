@@ -32,7 +32,7 @@ namespace Amazon.CodeDeploy.Model
     /// An instance type was specified for an in-place deployment. Instance types are supported
     /// for blue/green deployments only.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidDeploymentInstanceTypeException : AmazonCodeDeployException
@@ -87,7 +87,7 @@ namespace Amazon.CodeDeploy.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidDeploymentInstanceTypeException class with serialized data.
         /// </summary>

@@ -37,7 +37,7 @@ namespace Amazon.Neptune.Model
     /// Neptune may not also be authorized via IAM to perform necessary actions on your behalf.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AuthorizationNotFoundException : AmazonNeptuneException
@@ -92,7 +92,7 @@ namespace Amazon.Neptune.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AuthorizationNotFoundException class with serialized data.
         /// </summary>

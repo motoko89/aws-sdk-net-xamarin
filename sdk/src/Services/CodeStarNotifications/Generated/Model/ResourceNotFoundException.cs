@@ -31,7 +31,7 @@ namespace Amazon.CodeStarNotifications.Model
     /// <summary>
     /// AWS CodeStar Notifications can't find a resource that matches the provided ARN.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonCodeStarNotificationsException
@@ -86,7 +86,7 @@ namespace Amazon.CodeStarNotifications.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

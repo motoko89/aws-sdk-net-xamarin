@@ -31,7 +31,7 @@ namespace Amazon.Textract.Model
     /// <summary>
     /// Amazon Textract is unable to access the S3 object that's specified in the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidS3ObjectException : AmazonTextractException
@@ -86,7 +86,7 @@ namespace Amazon.Textract.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidS3ObjectException class with serialized data.
         /// </summary>

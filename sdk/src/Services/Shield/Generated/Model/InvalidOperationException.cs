@@ -31,7 +31,7 @@ namespace Amazon.Shield.Model
     /// <summary>
     /// Exception that indicates that the operation would not cause any change to occur.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidOperationException : AmazonShieldException
@@ -86,7 +86,7 @@ namespace Amazon.Shield.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidOperationException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.Redshift.Model
     /// The string specified for the logging S3 key prefix does not comply with the documented
     /// constraints.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidS3KeyPrefixException : AmazonRedshiftException
@@ -87,7 +87,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidS3KeyPrefixException class with serialized data.
         /// </summary>

@@ -34,7 +34,7 @@ namespace Amazon.KinesisFirehose.Model
     /// one of the following exception types: <code>AccessDeniedException</code>, <code>InvalidStateException</code>,
     /// <code>DisabledException</code>, or <code>NotFoundException</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidKMSResourceException : AmazonKinesisFirehoseException
@@ -90,7 +90,7 @@ namespace Amazon.KinesisFirehose.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidKMSResourceException class with serialized data.
         /// </summary>

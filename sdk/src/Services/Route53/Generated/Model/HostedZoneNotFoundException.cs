@@ -31,7 +31,7 @@ namespace Amazon.Route53.Model
     /// <summary>
     /// The specified HostedZone can't be found.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class HostedZoneNotFoundException : AmazonRoute53Exception
@@ -86,7 +86,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the HostedZoneNotFoundException class with serialized data.
         /// </summary>

@@ -33,7 +33,7 @@ namespace Amazon.Redshift.Model
     /// specified a severity that does not apply to the specified source type. The allowed
     /// values are ERROR and INFO.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class SubscriptionSeverityNotFoundException : AmazonRedshiftException
@@ -88,7 +88,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the SubscriptionSeverityNotFoundException class with serialized data.
         /// </summary>

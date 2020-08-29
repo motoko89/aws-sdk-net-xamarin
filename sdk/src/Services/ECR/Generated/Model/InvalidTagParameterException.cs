@@ -32,7 +32,7 @@ namespace Amazon.ECR.Model
     /// An invalid parameter has been specified. Tag keys can have a maximum character length
     /// of 128 characters, and tag values can have a maximum length of 256 characters.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidTagParameterException : AmazonECRException
@@ -87,7 +87,7 @@ namespace Amazon.ECR.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidTagParameterException class with serialized data.
         /// </summary>

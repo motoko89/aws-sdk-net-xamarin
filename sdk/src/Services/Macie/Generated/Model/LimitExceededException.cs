@@ -32,7 +32,7 @@ namespace Amazon.Macie.Model
     /// The request was rejected because it attempted to create resources beyond the current
     /// AWS account limits. The error code describes the limit exceeded.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonMacieException
@@ -89,7 +89,7 @@ namespace Amazon.Macie.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.GlobalAccelerator.Model
     /// <summary>
     /// The CIDR that you specified was not found or is incorrect.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ByoipCidrNotFoundException : AmazonGlobalAcceleratorException
@@ -86,7 +86,7 @@ namespace Amazon.GlobalAccelerator.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ByoipCidrNotFoundException class with serialized data.
         /// </summary>

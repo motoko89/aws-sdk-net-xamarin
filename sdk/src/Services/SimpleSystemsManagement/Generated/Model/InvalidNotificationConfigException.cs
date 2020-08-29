@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// One or more configuration items is not valid. Verify that a valid Amazon Resource
     /// Name (ARN) was provided for an Amazon SNS topic.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidNotificationConfigException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidNotificationConfigException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// You have exceeded the limit for custom schemas. Delete one or more custom schemas
     /// and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CustomSchemaCountLimitExceededException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CustomSchemaCountLimitExceededException class with serialized data.
         /// </summary>

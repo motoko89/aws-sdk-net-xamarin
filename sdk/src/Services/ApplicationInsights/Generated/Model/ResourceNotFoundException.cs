@@ -31,7 +31,7 @@ namespace Amazon.ApplicationInsights.Model
     /// <summary>
     /// The resource does not exist in the customer account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonApplicationInsightsException
@@ -86,7 +86,7 @@ namespace Amazon.ApplicationInsights.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceNotFoundException class with serialized data.
         /// </summary>

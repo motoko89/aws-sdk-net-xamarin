@@ -32,7 +32,7 @@ namespace Amazon.SimpleNotificationService.Model
     /// Can't perform multiple operations on a tag simultaneously. Perform the operations
     /// sequentially.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConcurrentAccessException : AmazonSimpleNotificationServiceException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleNotificationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConcurrentAccessException class with serialized data.
         /// </summary>

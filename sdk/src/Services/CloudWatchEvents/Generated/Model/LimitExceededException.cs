@@ -31,7 +31,7 @@ namespace Amazon.CloudWatchEvents.Model
     /// <summary>
     /// You tried to create more rules or add more targets to a rule than is allowed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class LimitExceededException : AmazonCloudWatchEventsException
@@ -86,7 +86,7 @@ namespace Amazon.CloudWatchEvents.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the LimitExceededException class with serialized data.
         /// </summary>

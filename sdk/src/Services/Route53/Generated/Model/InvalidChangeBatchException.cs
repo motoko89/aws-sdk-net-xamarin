@@ -32,7 +32,7 @@ namespace Amazon.Route53.Model
     /// This exception contains a list of messages that might contain one or more error messages.
     /// Each error message indicates one error in the change batch.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidChangeBatchException : AmazonRoute53Exception
@@ -88,7 +88,7 @@ namespace Amazon.Route53.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidChangeBatchException class with serialized data.
         /// </summary>

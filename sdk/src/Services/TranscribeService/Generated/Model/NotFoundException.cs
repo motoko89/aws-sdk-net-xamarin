@@ -31,7 +31,7 @@ namespace Amazon.TranscribeService.Model
     /// <summary>
     /// We can't find the requested resource. Check the name and try your request again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NotFoundException : AmazonTranscribeServiceException
@@ -86,7 +86,7 @@ namespace Amazon.TranscribeService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NotFoundException class with serialized data.
         /// </summary>

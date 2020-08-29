@@ -32,7 +32,7 @@ namespace Amazon.WorkMail.Model
     /// You are performing an operation on a user, group, or resource that isn't in the expected
     /// state, such as trying to delete an active user.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class EntityStateException : AmazonWorkMailException
@@ -87,7 +87,7 @@ namespace Amazon.WorkMail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the EntityStateException class with serialized data.
         /// </summary>

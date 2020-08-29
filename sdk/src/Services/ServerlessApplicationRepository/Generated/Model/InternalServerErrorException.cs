@@ -31,7 +31,7 @@ namespace Amazon.ServerlessApplicationRepository.Model
     /// <summary>
     /// The AWS Serverless Application Repository service encountered an internal error.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServerErrorException : AmazonServerlessApplicationRepositoryException
@@ -87,7 +87,7 @@ namespace Amazon.ServerlessApplicationRepository.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServerErrorException class with serialized data.
         /// </summary>

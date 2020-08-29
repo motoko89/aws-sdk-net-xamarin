@@ -32,7 +32,7 @@ namespace Amazon.Polly.Model
     /// Amazon Polly can't find the specified lexicon. Verify that the lexicon's name is spelled
     /// correctly, and then try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidLexiconException : AmazonPollyException
@@ -87,7 +87,7 @@ namespace Amazon.Polly.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidLexiconException class with serialized data.
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.Redshift.Model
     /// The request cannot be completed because a dependent service is throttling requests
     /// made by Amazon Redshift on your behalf. Wait and retry the request.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DependentServiceRequestThrottlingException : AmazonRedshiftException
@@ -87,7 +87,7 @@ namespace Amazon.Redshift.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DependentServiceRequestThrottlingException class with serialized data.
         /// </summary>

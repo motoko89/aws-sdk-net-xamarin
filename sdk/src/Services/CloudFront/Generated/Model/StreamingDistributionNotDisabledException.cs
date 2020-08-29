@@ -32,7 +32,7 @@ namespace Amazon.CloudFront.Model
     /// The specified CloudFront distribution is not disabled. You must disable the distribution
     /// before you can delete it.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class StreamingDistributionNotDisabledException : AmazonCloudFrontException
@@ -87,7 +87,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the StreamingDistributionNotDisabledException class with serialized data.
         /// </summary>

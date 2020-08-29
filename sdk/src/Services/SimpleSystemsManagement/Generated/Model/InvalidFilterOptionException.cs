@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// The specified filter option is not valid. Valid options are Equals and BeginsWith.
     /// For Path filter, valid options are Recursive and OneLevel.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidFilterOptionException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidFilterOptionException class with serialized data.
         /// </summary>

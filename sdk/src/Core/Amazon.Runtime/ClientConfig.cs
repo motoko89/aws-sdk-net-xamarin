@@ -44,13 +44,9 @@ namespace Amazon.Runtime
 
         private RegionEndpoint regionEndpoint = null;
         private bool probeForRegionEndpoint = true;
-
         private bool throttleRetries = true;
-
         private bool useHttp = false;
-#if BCL || NETSTANDARD
         private bool useAlternateUserAgentHeader = AWSConfigs.UseAlternateUserAgentHeader;
-#endif
         private string serviceURL = null;
         private string authRegion = null;
         private string authServiceName = null;
@@ -113,7 +109,6 @@ namespace Amazon.Runtime
         /// </summary>
         public abstract string UserAgent { get; }
 
-#if BCL || NETSTANDARD
         /// <summary>
         /// When set to true, the service client will use the  x-amz-user-agent
         /// header instead of the User-Agent header to report version and
@@ -127,7 +122,6 @@ namespace Amazon.Runtime
             get { return this.useAlternateUserAgentHeader; }
             set { this.useAlternateUserAgentHeader = value; }
         }
-#endif
 
         /// <summary>
         /// Gets and sets the RegionEndpoint property.  The region constant that 
@@ -141,13 +135,11 @@ namespace Amazon.Runtime
         {
             get
             {
-#if BCL || NETSTANDARD
                 if (probeForRegionEndpoint)
                 {
                     RegionEndpoint = GetDefaultRegionEndpoint();
                     this.probeForRegionEndpoint = false;
                 }
-#endif
                 return this.regionEndpoint;
             }
             set
@@ -441,11 +433,16 @@ namespace Amazon.Runtime
         protected virtual void Initialize()
         {
         }
-
-#if UNITY
+        
+#if BCL35
         /// <summary>
         /// Overrides the default request timeout value.
-        /// On Unity platform this value is not used as Unity HTTP client does not support timeouts.
+        /// This field does not impact Begin*/End* calls. A manual timeout must be implemented.
+        /// </summary>
+#elif BCL45
+        /// <summary>
+        /// Overrides the default request timeout value.
+        /// This field does not impact *Async calls. A manual timeout (for instance, using CancellationToken) must be implemented.
         /// </summary>
 #endif
         /// <remarks>
@@ -681,14 +678,7 @@ namespace Amazon.Runtime
                 : (clientTimeout.HasValue ? clientTimeout : null);
         }
 
-#if NETSTANDARD || PCL
-
-
 #if NETSTANDARD
-        bool cacheHttpClient = true;
-#else
-        bool cacheHttpClient = false;
-#endif
         /// <summary>
         /// <para>
         /// This is a switch used for performance testing and is not intended for production applications 
@@ -703,14 +693,11 @@ namespace Amazon.Runtime
         /// pool.
         /// </para>
         /// </summary>
-        public bool CacheHttpClient
-        {
-            get { return this.cacheHttpClient; }
-            set { this.cacheHttpClient = value; }
-        }
+        public bool CacheHttpClient {get; set;} = true;
 
 
-        int? _httpClientCacheSize;
+
+        private int? _httpClientCacheSize;
         /// <summary>
         /// If CacheHttpClient is set to true then HttpClientCacheSize controls the number of HttpClients cached.
         /// <para>
@@ -723,30 +710,19 @@ namespace Amazon.Runtime
         {
             get
             {
-                if(this._httpClientCacheSize.HasValue)
+                if(_httpClientCacheSize.HasValue)
                 {
-                    return this._httpClientCacheSize.Value;
-                }
-#if NETSTANDARD
-                if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                {
-                    return 1;
+                    return _httpClientCacheSize.Value;
                 }
 
-                return Environment.ProcessorCount;
-#else
-                return 1;
-#endif
+                return RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? 1 : Environment.ProcessorCount;
             }
-            set
-            {
-                this._httpClientCacheSize = value;
-            }
+            set => _httpClientCacheSize = value;
         }
 #endif
+        
         /// <summary>
         /// Overrides the default read-write timeout value.
-        /// On Unity platform, this value is not used as Unity HTTP client does not support timeouts, so 
         /// </summary>
         /// <remarks>
         /// <para>

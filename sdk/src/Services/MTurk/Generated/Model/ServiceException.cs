@@ -32,7 +32,7 @@ namespace Amazon.MTurk.Model
     /// Amazon Mechanical Turk is temporarily unable to process your request. Try your call
     /// again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceException : AmazonMTurkException
@@ -88,7 +88,7 @@ namespace Amazon.MTurk.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceException class with serialized data.
         /// </summary>

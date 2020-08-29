@@ -32,7 +32,7 @@ namespace Amazon.CognitoIdentity.Model
     /// Thrown if the identity pool has no role associated for the given auth type (auth/unauth)
     /// or if the AssumeRole fails.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidIdentityPoolConfigurationException : AmazonCognitoIdentityException
@@ -87,7 +87,7 @@ namespace Amazon.CognitoIdentity.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidIdentityPoolConfigurationException class with serialized data.
         /// </summary>

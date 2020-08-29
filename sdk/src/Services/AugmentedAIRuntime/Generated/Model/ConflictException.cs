@@ -32,7 +32,7 @@ namespace Amazon.AugmentedAIRuntime.Model
     /// Your request has the same name as another active human loop but has different input
     /// data. You cannot start two human loops with the same name and different input data.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConflictException : AmazonAugmentedAIRuntimeException
@@ -87,7 +87,7 @@ namespace Amazon.AugmentedAIRuntime.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConflictException class with serialized data.
         /// </summary>

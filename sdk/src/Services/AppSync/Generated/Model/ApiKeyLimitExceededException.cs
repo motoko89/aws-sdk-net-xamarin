@@ -31,7 +31,7 @@ namespace Amazon.AppSync.Model
     /// <summary>
     /// The API key exceeded a limit. Try your request again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ApiKeyLimitExceededException : AmazonAppSyncException
@@ -86,7 +86,7 @@ namespace Amazon.AppSync.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ApiKeyLimitExceededException class with serialized data.
         /// </summary>

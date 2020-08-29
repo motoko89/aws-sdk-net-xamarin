@@ -31,7 +31,7 @@ namespace Amazon.MediaStore.Model
     /// <summary>
     /// The container that you specified in the request already exists or is being updated.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ContainerInUseException : AmazonMediaStoreException
@@ -86,7 +86,7 @@ namespace Amazon.MediaStore.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ContainerInUseException class with serialized data.
         /// </summary>

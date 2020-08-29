@@ -31,7 +31,7 @@ namespace Amazon.ApiGatewayV2.Model
     /// <summary>
     /// 
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AccessDeniedException : AmazonApiGatewayV2Exception
@@ -86,7 +86,7 @@ namespace Amazon.ApiGatewayV2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AccessDeniedException class with serialized data.
         /// </summary>

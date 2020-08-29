@@ -31,7 +31,7 @@ namespace Amazon.Connect.Model
     /// <summary>
     /// Request processing failed due to an error or failure with the service.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InternalServiceException : AmazonConnectException
@@ -86,7 +86,7 @@ namespace Amazon.Connect.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InternalServiceException class with serialized data.
         /// </summary>

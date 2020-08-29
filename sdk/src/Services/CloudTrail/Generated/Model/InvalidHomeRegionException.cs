@@ -32,7 +32,7 @@ namespace Amazon.CloudTrail.Model
     /// This exception is thrown when an operation is called on a trail from a region other
     /// than the region in which the trail was created.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidHomeRegionException : AmazonCloudTrailException
@@ -87,7 +87,7 @@ namespace Amazon.CloudTrail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidHomeRegionException class with serialized data.
         /// </summary>

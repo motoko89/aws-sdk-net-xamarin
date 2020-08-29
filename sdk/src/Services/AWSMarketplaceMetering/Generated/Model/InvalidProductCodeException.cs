@@ -31,7 +31,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
     /// <summary>
     /// The product code passed does not match the product code used for publishing the product.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidProductCodeException : AmazonAWSMarketplaceMeteringException
@@ -86,7 +86,7 @@ namespace Amazon.AWSMarketplaceMetering.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidProductCodeException class with serialized data.
         /// </summary>

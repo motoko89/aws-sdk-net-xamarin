@@ -32,7 +32,7 @@ namespace Amazon.Polly.Model
     /// The alphabet specified by the lexicon is not a supported alphabet. Valid values are
     /// <code>x-sampa</code> and <code>ipa</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnsupportedPlsAlphabetException : AmazonPollyException
@@ -87,7 +87,7 @@ namespace Amazon.Polly.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnsupportedPlsAlphabetException class with serialized data.
         /// </summary>

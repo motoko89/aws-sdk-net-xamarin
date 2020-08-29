@@ -34,7 +34,7 @@ namespace Amazon.Textract.Model
     /// or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter.
     /// Validate your parameter before calling the API operation again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterException : AmazonTextractException
@@ -89,7 +89,7 @@ namespace Amazon.Textract.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterException class with serialized data.
         /// </summary>

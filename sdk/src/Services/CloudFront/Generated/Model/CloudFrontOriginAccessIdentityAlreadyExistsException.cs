@@ -34,7 +34,7 @@ namespace Amazon.CloudFront.Model
     /// is different from the original request, CloudFront returns a <code>CloudFrontOriginAccessIdentityAlreadyExists</code>
     /// error.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CloudFrontOriginAccessIdentityAlreadyExistsException : AmazonCloudFrontException
@@ -89,7 +89,7 @@ namespace Amazon.CloudFront.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CloudFrontOriginAccessIdentityAlreadyExistsException class with serialized data.
         /// </summary>

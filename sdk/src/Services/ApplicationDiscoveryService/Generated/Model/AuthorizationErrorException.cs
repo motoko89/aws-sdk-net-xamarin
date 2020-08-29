@@ -32,7 +32,7 @@ namespace Amazon.ApplicationDiscoveryService.Model
     /// The AWS user account does not have permission to perform the action. Check the IAM
     /// policy associated with this account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class AuthorizationErrorException : AmazonApplicationDiscoveryServiceException
@@ -87,7 +87,7 @@ namespace Amazon.ApplicationDiscoveryService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the AuthorizationErrorException class with serialized data.
         /// </summary>

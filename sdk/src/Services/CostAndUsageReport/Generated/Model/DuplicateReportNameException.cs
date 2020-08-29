@@ -32,7 +32,7 @@ namespace Amazon.CostAndUsageReport.Model
     /// A report with the specified name already exists in the account. Specify a different
     /// report name.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DuplicateReportNameException : AmazonCostAndUsageReportException
@@ -87,7 +87,7 @@ namespace Amazon.CostAndUsageReport.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DuplicateReportNameException class with serialized data.
         /// </summary>

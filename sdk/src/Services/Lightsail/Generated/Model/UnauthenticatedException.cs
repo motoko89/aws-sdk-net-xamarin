@@ -31,7 +31,7 @@ namespace Amazon.Lightsail.Model
     /// <summary>
     /// Lightsail throws this exception when the user has not been authenticated.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnauthenticatedException : AmazonLightsailException
@@ -89,7 +89,7 @@ namespace Amazon.Lightsail.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnauthenticatedException class with serialized data.
         /// </summary>

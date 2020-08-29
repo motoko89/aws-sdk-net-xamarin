@@ -32,7 +32,7 @@ namespace Amazon.IoTSiteWise.Model
     /// Your request has conflicting operations. This can occur if you're trying to perform
     /// more than one operation on the same resource at the same time.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ConflictingOperationException : AmazonIoTSiteWiseException
@@ -89,7 +89,7 @@ namespace Amazon.IoTSiteWise.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ConflictingOperationException class with serialized data.
         /// </summary>

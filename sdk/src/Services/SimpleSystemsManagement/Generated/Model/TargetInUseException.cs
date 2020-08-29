@@ -32,7 +32,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// You specified the <code>Safe</code> option for the DeregisterTargetFromMaintenanceWindow
     /// operation, but the target is still referenced in a task.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TargetInUseException : AmazonSimpleSystemsManagementException
@@ -87,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TargetInUseException class with serialized data.
         /// </summary>

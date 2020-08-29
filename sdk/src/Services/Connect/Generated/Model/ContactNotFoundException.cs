@@ -31,7 +31,7 @@ namespace Amazon.Connect.Model
     /// <summary>
     /// The contact with the specified ID is not active or does not exist.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ContactNotFoundException : AmazonConnectException
@@ -86,7 +86,7 @@ namespace Amazon.Connect.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ContactNotFoundException class with serialized data.
         /// </summary>

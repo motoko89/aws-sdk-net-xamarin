@@ -31,7 +31,7 @@ namespace Amazon.RAM.Model
     /// <summary>
     /// The service could not respond to the request due to an internal problem.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServerInternalException : AmazonRAMException
@@ -86,7 +86,7 @@ namespace Amazon.RAM.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServerInternalException class with serialized data.
         /// </summary>

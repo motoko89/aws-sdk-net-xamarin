@@ -31,7 +31,7 @@ namespace Amazon.Organizations.Model
     /// <summary>
     /// The policy isn't attached to the specified target in the specified root.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class PolicyNotAttachedException : AmazonOrganizationsException
@@ -86,7 +86,7 @@ namespace Amazon.Organizations.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the PolicyNotAttachedException class with serialized data.
         /// </summary>

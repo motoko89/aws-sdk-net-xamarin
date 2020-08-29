@@ -33,7 +33,7 @@ namespace Amazon.SimpleWorkflow.Model
     /// (region or domain). This could happen if the named resource was never created or is
     /// no longer available for this operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class UnknownResourceException : AmazonSimpleWorkflowException
@@ -88,7 +88,7 @@ namespace Amazon.SimpleWorkflow.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the UnknownResourceException class with serialized data.
         /// </summary>

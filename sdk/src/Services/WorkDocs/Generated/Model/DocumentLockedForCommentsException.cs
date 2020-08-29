@@ -32,7 +32,7 @@ namespace Amazon.WorkDocs.Model
     /// This exception is thrown when the document is locked for comments and user tries to
     /// create or delete a comment on that document.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class DocumentLockedForCommentsException : AmazonWorkDocsException
@@ -87,7 +87,7 @@ namespace Amazon.WorkDocs.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the DocumentLockedForCommentsException class with serialized data.
         /// </summary>

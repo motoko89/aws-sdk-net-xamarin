@@ -37,7 +37,7 @@ namespace Amazon.LicenseManager.Model
     /// down.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidResourceStateException : AmazonLicenseManagerException
@@ -92,7 +92,7 @@ namespace Amazon.LicenseManager.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidResourceStateException class with serialized data.
         /// </summary>

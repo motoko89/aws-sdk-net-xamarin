@@ -50,7 +50,7 @@ namespace Amazon.DynamoDBv2.Model
     /// </para>
     ///  </li> </ul>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TrimmedDataAccessException : AmazonDynamoDBException
@@ -105,7 +105,7 @@ namespace Amazon.DynamoDBv2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TrimmedDataAccessException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.APIGateway.Model
     /// <summary>
     /// The requested resource is not found. Make sure that the request URI is correct.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NotFoundException : AmazonAPIGatewayException
@@ -86,7 +86,7 @@ namespace Amazon.APIGateway.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NotFoundException class with serialized data.
         /// </summary>

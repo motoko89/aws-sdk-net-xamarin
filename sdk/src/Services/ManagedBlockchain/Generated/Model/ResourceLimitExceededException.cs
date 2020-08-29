@@ -32,7 +32,7 @@ namespace Amazon.ManagedBlockchain.Model
     /// The maximum number of resources of that type already exist. Ensure the resources requested
     /// are within the boundaries of the service edition and your account limits.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceLimitExceededException : AmazonManagedBlockchainException
@@ -87,7 +87,7 @@ namespace Amazon.ManagedBlockchain.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ResourceLimitExceededException class with serialized data.
         /// </summary>

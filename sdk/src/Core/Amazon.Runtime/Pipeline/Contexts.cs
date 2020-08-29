@@ -45,11 +45,8 @@ namespace Amazon.Runtime
 #if AWS_ASYNC_API
         System.Threading.CancellationToken CancellationToken { get; }
 #endif
-#if BCL || NETSTANDARD
         MonitoringAPICallAttempt CSMCallAttempt { get; set; }
-
         MonitoringAPICallEvent CSMCallEvent { get; set; }
-#endif
         IServiceMetadata ServiceMetaData { get; }
 
         bool CSMEnabled { get; }
@@ -66,12 +63,6 @@ namespace Amazon.Runtime
     {
         AsyncCallback Callback { get; }
         object State { get; }
-
-#if UNITY
-
-        AsyncOptions AsyncOptions { get; }
-        Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> Action { get; }
-#endif
     }    
 
     public interface IAsyncResponseContext : IResponseContext
@@ -146,11 +137,9 @@ namespace Amazon.Runtime.Internal
         {
             get { return this.OriginalRequest.GetType().Name; }
         }
-#if BCL || NETSTANDARD
         public MonitoringAPICallAttempt CSMCallAttempt { get; set; }
 
         public MonitoringAPICallEvent CSMCallEvent { get; set; }
-#endif
         public IServiceMetadata ServiceMetaData
         {
             get
@@ -164,9 +153,7 @@ namespace Amazon.Runtime.Internal
                 // Along with the customer set CSMEnabled flag, the ServiceMetadata.ServiceId needs to be set
                 // to capture client side metrics. Older service nuget packages might not have a ServiceMetadata
                 // implementation and in such cases client side metrics will not be captured.
-#if BCL || NETSTANDARD
                 CSMEnabled = DeterminedCSMConfiguration.Instance.CSMConfiguration.Enabled && !string.IsNullOrEmpty(_serviceMetadata.ServiceId);
-#endif
             }
         }
 
@@ -187,11 +174,6 @@ namespace Amazon.Runtime.Internal
 
         public AsyncCallback Callback { get; set; }
         public object State { get; set; }
-#if UNITY
-
-        public AsyncOptions AsyncOptions { get; set; }
-        public Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> Action { get; set; }
-#endif
     }
 
     public class ResponseContext : IResponseContext

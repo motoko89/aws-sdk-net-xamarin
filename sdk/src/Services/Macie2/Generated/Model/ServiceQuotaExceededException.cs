@@ -32,7 +32,7 @@ namespace Amazon.Macie2.Model
     /// Provides information about an error that occurred due to one or more service quotas
     /// for an account.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceQuotaExceededException : AmazonMacie2Exception
@@ -87,7 +87,7 @@ namespace Amazon.Macie2.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceQuotaExceededException class with serialized data.
         /// </summary>

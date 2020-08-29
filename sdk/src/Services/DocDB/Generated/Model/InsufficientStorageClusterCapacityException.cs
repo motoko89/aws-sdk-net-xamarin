@@ -33,7 +33,7 @@ namespace Amazon.DocDB.Model
     /// resolve this error by updating your subnet group to use different Availability Zones
     /// that have more storage available.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InsufficientStorageClusterCapacityException : AmazonDocDBException
@@ -88,7 +88,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InsufficientStorageClusterCapacityException class with serialized data.
         /// </summary>

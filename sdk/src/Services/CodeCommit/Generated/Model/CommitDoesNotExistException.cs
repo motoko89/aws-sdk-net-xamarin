@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// The specified commit does not exist or no commit was specified, and the specified
     /// repository has no default branch.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CommitDoesNotExistException : AmazonCodeCommitException
@@ -87,7 +87,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CommitDoesNotExistException class with serialized data.
         /// </summary>

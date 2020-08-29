@@ -34,7 +34,7 @@ namespace Amazon.IdentityManagement.Model
     /// about credential report expiration, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting
     /// Credential Reports</a> in the <i>IAM User Guide</i>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class CredentialReportExpiredException : AmazonIdentityManagementServiceException
@@ -89,7 +89,7 @@ namespace Amazon.IdentityManagement.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the CredentialReportExpiredException class with serialized data.
         /// </summary>

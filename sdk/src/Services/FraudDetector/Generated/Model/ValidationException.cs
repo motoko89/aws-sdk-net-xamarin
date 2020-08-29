@@ -31,7 +31,7 @@ namespace Amazon.FraudDetector.Model
     /// <summary>
     /// An exception indicating a specified value is not allowed.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ValidationException : AmazonFraudDetectorException
@@ -86,7 +86,7 @@ namespace Amazon.FraudDetector.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ValidationException class with serialized data.
         /// </summary>

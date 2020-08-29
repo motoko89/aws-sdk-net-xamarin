@@ -33,7 +33,7 @@ namespace Amazon.CodeCommit.Model
     /// The maximum number of open pull requests for a repository is 1,000. Close one or more
     /// open pull requests, and then try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class MaximumOpenPullRequestsExceededException : AmazonCodeCommitException
@@ -88,7 +88,7 @@ namespace Amazon.CodeCommit.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the MaximumOpenPullRequestsExceededException class with serialized data.
         /// </summary>

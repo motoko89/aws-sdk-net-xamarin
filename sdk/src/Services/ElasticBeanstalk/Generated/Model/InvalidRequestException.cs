@@ -32,7 +32,7 @@ namespace Amazon.ElasticBeanstalk.Model
     /// One or more input parameters is not valid. Please correct the input parameters and
     /// try the operation again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRequestException : AmazonElasticBeanstalkException
@@ -87,7 +87,7 @@ namespace Amazon.ElasticBeanstalk.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRequestException class with serialized data.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Amazon.DocDB.Model
     /// <summary>
     /// You cannot restore from a virtual private cloud (VPC) backup to a non-VPC DB instance.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidRestoreException : AmazonDocDBException
@@ -86,7 +86,7 @@ namespace Amazon.DocDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidRestoreException class with serialized data.
         /// </summary>

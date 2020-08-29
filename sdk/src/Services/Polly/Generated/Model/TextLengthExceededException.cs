@@ -35,7 +35,7 @@ namespace Amazon.Polly.Model
     /// API, the maximum is 200,000 characters, of which no more than 100,000 can be billed
     /// characters. SSML tags are not counted as billed characters.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TextLengthExceededException : AmazonPollyException
@@ -90,7 +90,7 @@ namespace Amazon.Polly.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TextLengthExceededException class with serialized data.
         /// </summary>

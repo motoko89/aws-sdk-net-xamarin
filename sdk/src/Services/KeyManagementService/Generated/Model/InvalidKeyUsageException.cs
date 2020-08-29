@@ -53,7 +53,7 @@ namespace Amazon.KeyManagementService.Model
     /// <a>DescribeKey</a> operation.
     /// </para>
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidKeyUsageException : AmazonKeyManagementServiceException
@@ -108,7 +108,7 @@ namespace Amazon.KeyManagementService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidKeyUsageException class with serialized data.
         /// </summary>

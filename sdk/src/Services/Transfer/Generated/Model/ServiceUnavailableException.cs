@@ -31,7 +31,7 @@ namespace Amazon.Transfer.Model
     /// <summary>
     /// The request has failed because the AWS Transfer Family service is not available.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ServiceUnavailableException : AmazonTransferException
@@ -86,7 +86,7 @@ namespace Amazon.Transfer.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the ServiceUnavailableException class with serialized data.
         /// </summary>

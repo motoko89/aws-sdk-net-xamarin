@@ -32,7 +32,7 @@ namespace Amazon.FSx.Model
     /// The resource specified for the tagging operation is not a resource type owned by Amazon
     /// FSx. Use the API of the relevant service to perform the operation.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class NotServiceResourceErrorException : AmazonFSxException
@@ -88,7 +88,7 @@ namespace Amazon.FSx.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the NotServiceResourceErrorException class with serialized data.
         /// </summary>

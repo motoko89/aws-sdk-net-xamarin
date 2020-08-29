@@ -32,7 +32,7 @@ namespace Amazon.DeviceFarm.Model
     /// The request doesn't comply with the AWS Identity and Access Management (IAM) tag policy.
     /// Correct your request and then retry it.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TagPolicyException : AmazonDeviceFarmException
@@ -88,7 +88,7 @@ namespace Amazon.DeviceFarm.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TagPolicyException class with serialized data.
         /// </summary>

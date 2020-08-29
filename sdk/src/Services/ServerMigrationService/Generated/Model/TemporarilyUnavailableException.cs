@@ -31,7 +31,7 @@ namespace Amazon.ServerMigrationService.Model
     /// <summary>
     /// The service is temporarily unavailable.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class TemporarilyUnavailableException : AmazonServerMigrationServiceException
@@ -86,7 +86,7 @@ namespace Amazon.ServerMigrationService.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the TemporarilyUnavailableException class with serialized data.
         /// </summary>

@@ -33,7 +33,7 @@ namespace Amazon.SSOOIDC.Model
     /// is invalid. For example, this can occur when a client sends an incorrect <code>clientId</code>
     /// or an expired <code>clientSecret</code>.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidClientException : AmazonSSOOIDCException
@@ -90,7 +90,7 @@ namespace Amazon.SSOOIDC.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidClientException class with serialized data.
         /// </summary>

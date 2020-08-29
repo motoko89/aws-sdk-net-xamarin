@@ -31,7 +31,7 @@ namespace Amazon.QLDB.Model
     /// <summary>
     /// One or more parameters in the request aren't valid.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidParameterException : AmazonQLDBException
@@ -87,7 +87,7 @@ namespace Amazon.QLDB.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidParameterException class with serialized data.
         /// </summary>

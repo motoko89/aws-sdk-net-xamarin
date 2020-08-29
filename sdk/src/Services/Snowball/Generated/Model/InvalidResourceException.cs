@@ -32,7 +32,7 @@ namespace Amazon.Snowball.Model
     /// The specified resource can't be found. Check the information you provided in your
     /// last request, and try again.
     /// </summary>
-    #if !PCL && !NETSTANDARD
+    #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class InvalidResourceException : AmazonSnowballException
@@ -88,7 +88,7 @@ namespace Amazon.Snowball.Model
             : base(message, errorType, errorCode, requestId, statusCode) {}
 
 
-#if !PCL && !NETSTANDARD
+#if !NETSTANDARD
         /// <summary>
         /// Constructs a new instance of the InvalidResourceException class with serialized data.
         /// </summary>
