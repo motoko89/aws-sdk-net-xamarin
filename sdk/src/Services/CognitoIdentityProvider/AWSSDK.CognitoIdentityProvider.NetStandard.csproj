@@ -23,7 +23,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;NETSTANDARD;NETSTANDARD2_0;AWS_ASYNC_ENUMERABLES_API</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType></DebugType>
@@ -73,10 +73,10 @@
     <Analyzer Include="..\..\..\..\buildtools\CustomRoslynAnalyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="**/_bcl35/**"/>
-    <Compile Remove="**/_bcl45/**"/>
-    <Compile Remove="**/_bcl/**"/>
-    <Compile Remove="**/obj/**"/>
+    <Compile Remove="**/_bcl35/**" />
+    <Compile Remove="**/_bcl45/**" />
+    <Compile Remove="**/_bcl/**" />
+    <Compile Remove="**/obj/**" />
     <None Remove="**/obj/**" />
   </ItemGroup>
 
