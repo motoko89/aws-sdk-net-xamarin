@@ -27,7 +27,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType></DebugType>
-    <DefineConstants>TRACE;AWS_ASYNC_API;RELEASE;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD20</DefineConstants>
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;RELEASE;NETSTANDARD;NETSTANDARD2_0;AWS_ASYNC_ENUMERABLES_API</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|iPhoneSimulator' ">
     <IntermediateOutputPath>obj\AWSSDK.CognitoIdentityProvider.NetStandard\iPhoneSimulator\Test</IntermediateOutputPath>
