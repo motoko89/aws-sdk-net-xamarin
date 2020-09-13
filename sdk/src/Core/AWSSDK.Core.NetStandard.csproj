@@ -35,7 +35,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;NETSTANDARD;NETSTANDARD2_0;AWS_ASYNC_ENUMERABLES_API</DefineConstants>
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;AWS_ASYNC_ENUMERABLES_API;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType></DebugType>
@@ -45,7 +45,7 @@
     <DebugType></DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Test</OutputPath>
-    <DefineConstants></DefineConstants>
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;AWS_ASYNC_ENUMERABLES_API;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile></DocumentationFile>
     <AssemblyName>AWSSDK.Core.NetStandard</AssemblyName>

@@ -56,6 +56,13 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;NETSTANDARD;NETSTANDARD2_0;AWS_ASYNC_ENUMERABLES_API;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+    <DocumentationFile>obj\AWSSDK.CognitoIdentityProvider.NetStandard\Debug\netstandard2.0\AWSSDK.CognitoIdentityProvider.xml</DocumentationFile>
+    <IntermediateOutputPath>obj\AWSSDK.CognitoIdentityProvider.NetStandard\Debug\netstandard2.0</IntermediateOutputPath>
+  </PropertyGroup>
   <Choose>
     <When Condition=" '$(AWSKeyFile)' == '' ">
       <PropertyGroup>
