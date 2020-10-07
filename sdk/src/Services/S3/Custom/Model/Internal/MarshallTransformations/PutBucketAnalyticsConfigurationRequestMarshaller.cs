@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -42,6 +42,9 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
             IRequest request = new DefaultRequest(putBucketAnalyticsConfigurationRequest, "AmazonS3");
 
             request.HttpMethod = "PUT";
+
+            if (putBucketAnalyticsConfigurationRequest.IsSetExpectedBucketOwner())
+                request.Headers.Add(S3Constants.AmzHeaderExpectedBucketOwner, S3Transforms.ToStringValue(putBucketAnalyticsConfigurationRequest.ExpectedBucketOwner));
 
             if (string.IsNullOrEmpty(putBucketAnalyticsConfigurationRequest.BucketName))
                 throw new System.ArgumentException("BucketName is a required property and must be set before making this call.", "PutBucketAnalyticsConfigurationRequest.BucketName");

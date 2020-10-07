@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -82,6 +82,12 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
                     unmarshalledObject.Environment = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("executionRoleArn", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.ExecutionRoleArn = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("exitCode", targetDepth))
                 {
                     var unmarshaller = IntUnmarshaller.Instance;
@@ -110,6 +116,12 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = LinuxParametersUnmarshaller.Instance;
                     unmarshalledObject.LinuxParameters = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("logConfiguration", targetDepth))
+                {
+                    var unmarshaller = LogConfigurationUnmarshaller.Instance;
+                    unmarshalledObject.LogConfiguration = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("logStreamName", targetDepth))
@@ -158,6 +170,12 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = new ListUnmarshaller<ResourceRequirement, ResourceRequirementUnmarshaller>(ResourceRequirementUnmarshaller.Instance);
                     unmarshalledObject.ResourceRequirements = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("secrets", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<Secret, SecretUnmarshaller>(SecretUnmarshaller.Instance);
+                    unmarshalledObject.Secrets = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("taskArn", targetDepth))

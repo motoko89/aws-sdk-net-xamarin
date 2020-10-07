@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -68,6 +68,11 @@ namespace Amazon.SecurityHub
     /// </para>
     ///  <ul> <li> 
     /// <para>
+    ///  <code> <a>BatchEnableStandards</a> </code> - <code>RateLimit</code> of 1 request
+    /// per second, <code>BurstLimit</code> of 1 request per second.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
     ///  <code> <a>GetFindings</a> </code> - <code>RateLimit</code> of 3 requests per second.
     /// <code>BurstLimit</code> of 6 requests per second.
     /// </para>
@@ -78,11 +83,19 @@ namespace Amazon.SecurityHub
     /// </para>
     ///  </li> <li> 
     /// <para>
+    ///  <code> <a>UpdateStandardsControl</a> </code> - <code>RateLimit</code> of 1 request
+    /// per second, <code>BurstLimit</code> of 5 requests per second.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
     /// All other operations - <code>RateLimit</code> of 10 requests per second. <code>BurstLimit</code>
     /// of 30 requests per second.
     /// </para>
     ///  </li> </ul>
     /// </summary>
+#if NETSTANDARD13
+    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
+#endif
     public partial class AmazonSecurityHubClient : AmazonServiceClient, IAmazonSecurityHub
     {
         private static IServiceMetadata serviceMetadata = new AmazonSecurityHubMetadata();
@@ -593,8 +606,8 @@ namespace Amazon.SecurityHub
         /// </para>
         ///  
         /// <para>
-        /// Master accounts can use <code>BatchUpdateFindings</code> to update the following finding
-        /// fields and objects.
+        /// Master and member accounts can use <code>BatchUpdateFindings</code> to update the
+        /// following finding fields and objects.
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -634,7 +647,10 @@ namespace Amazon.SecurityHub
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// Member accounts can only use <code>BatchUpdateFindings</code> to update the Note object.
+        /// You can configure IAM policies to restrict access to fields and field values. For
+        /// example, you might not want member accounts to be able to suppress findings or change
+        /// the finding severity. See <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access">Configuring
+        /// access to BatchUpdateFindings</a> in the <i>AWS Security Hub User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchUpdateFindings service method.</param>

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -50,6 +50,7 @@ namespace Amazon.ElasticMapReduce.Model
         private string _name;
         private int? _normalizedInstanceHours;
         private string _outpostArn;
+        private List<PlacementGroupConfig> _placementGroups = new List<PlacementGroupConfig>();
         private string _releaseLabel;
         private RepoUpgradeOnBoot _repoUpgradeOnBoot;
         private string _requestedAmiVersion;
@@ -392,6 +393,24 @@ namespace Amazon.ElasticMapReduce.Model
         internal bool IsSetOutpostArn()
         {
             return this._outpostArn != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PlacementGroups. 
+        /// <para>
+        /// Placement group configured for an Amazon EMR cluster.
+        /// </para>
+        /// </summary>
+        public List<PlacementGroupConfig> PlacementGroups
+        {
+            get { return this._placementGroups; }
+            set { this._placementGroups = value; }
+        }
+
+        // Check to see if PlacementGroups property is set
+        internal bool IsSetPlacementGroups()
+        {
+            return this._placementGroups != null && this._placementGroups.Count > 0; 
         }
 
         /// <summary>

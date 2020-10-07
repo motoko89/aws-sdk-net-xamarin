@@ -768,6 +768,10 @@
       <Project>{CCB1A157-6336-4465-8BAC-6812A705B76E}</Project>
       <Name>AWSSDK.Redshift.CodeAnalysis</Name>
     </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/RedshiftDataAPIService/AWSSDK.RedshiftDataAPIService.CodeAnalysis.csproj">
+      <Project>{BA41F83C-C9E4-4878-81F1-321E865DF4CD}</Project>
+      <Name>AWSSDK.RedshiftDataAPIService.CodeAnalysis</Name>
+    </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/Rekognition/AWSSDK.Rekognition.CodeAnalysis.csproj">
       <Project>{413B40F1-01B7-4290-A8BE-54CBA529A5FE}</Project>
       <Name>AWSSDK.Rekognition.CodeAnalysis</Name>
@@ -803,6 +807,10 @@
     <ProjectReference Include="../ServiceAnalysis/S3Control/AWSSDK.S3Control.CodeAnalysis.csproj">
       <Project>{D8DE315A-EC9C-41D5-87F9-5C40FBB56FCD}</Project>
       <Name>AWSSDK.S3Control.CodeAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/S3Outposts/AWSSDK.S3Outposts.CodeAnalysis.csproj">
+      <Project>{9252CDC4-069F-4025-AE2C-18EE00A73F47}</Project>
+      <Name>AWSSDK.S3Outposts.CodeAnalysis</Name>
     </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/SageMaker/AWSSDK.SageMaker.CodeAnalysis.csproj">
       <Project>{3314BA0F-1C6A-4E4A-80F8-EB858D20D048}</Project>
@@ -896,6 +904,10 @@
       <Project>{1D5634B9-7F53-48CC-BC00-4CE57AE8457E}</Project>
       <Name>AWSSDK.SSO.CodeAnalysis</Name>
     </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/SSOAdmin/AWSSDK.SSOAdmin.CodeAnalysis.csproj">
+      <Project>{941EB53D-999B-4EF3-AFAC-09AF610CB312}</Project>
+      <Name>AWSSDK.SSOAdmin.CodeAnalysis</Name>
+    </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/SSOOIDC/AWSSDK.SSOOIDC.CodeAnalysis.csproj">
       <Project>{45750F34-213E-4AFD-B98C-20069902DBA3}</Project>
       <Name>AWSSDK.SSOOIDC.CodeAnalysis</Name>
@@ -915,6 +927,14 @@
     <ProjectReference Include="../ServiceAnalysis/Textract/AWSSDK.Textract.CodeAnalysis.csproj">
       <Project>{7405B582-7CF7-4142-A230-3E9AA662244F}</Project>
       <Name>AWSSDK.Textract.CodeAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/TimestreamQuery/AWSSDK.TimestreamQuery.CodeAnalysis.csproj">
+      <Project>{69DD9851-0751-4D95-A13E-9B2A98EEC412}</Project>
+      <Name>AWSSDK.TimestreamQuery.CodeAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/TimestreamWrite/AWSSDK.TimestreamWrite.CodeAnalysis.csproj">
+      <Project>{98DF67C0-394D-47FF-82E7-D86EAA973B69}</Project>
+      <Name>AWSSDK.TimestreamWrite.CodeAnalysis</Name>
     </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/TranscribeService/AWSSDK.TranscribeService.CodeAnalysis.csproj">
       <Project>{1569BF27-B6F7-4B32-BD44-36D1D4E028BC}</Project>

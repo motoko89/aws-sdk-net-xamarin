@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -110,6 +110,10 @@ namespace Amazon.CostExplorer.Model
         /// <para>
         /// USAGE_TYPE_GROUP - The grouping of common usage types. An example is Amazon EC2: CloudWatch
         /// – Alarms. The response for this operation includes a unit attribute.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// REGION - The AWS Region.
         /// </para>
         ///  </li> <li> 
         /// <para>

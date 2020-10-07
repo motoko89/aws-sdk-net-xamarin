@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -892,6 +892,10 @@ namespace Amazon.DynamoDBv2
         /// Constant DELETING for ReplicaStatus
         /// </summary>
         public static readonly ReplicaStatus DELETING = new ReplicaStatus("DELETING");
+        /// <summary>
+        /// Constant REGION_DISABLED for ReplicaStatus
+        /// </summary>
+        public static readonly ReplicaStatus REGION_DISABLED = new ReplicaStatus("REGION_DISABLED");
         /// <summary>
         /// Constant UPDATING for ReplicaStatus
         /// </summary>

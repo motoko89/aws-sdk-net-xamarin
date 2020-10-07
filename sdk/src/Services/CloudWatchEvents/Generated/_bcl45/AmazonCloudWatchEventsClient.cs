@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -2378,6 +2378,10 @@ namespace Amazon.CloudWatchEvents
         /// <para>
         /// Amazon API Gateway REST APIs
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Redshift Clusters to invoke Data API ExecuteStatement on
+        /// </para>
         ///  </li> </ul> 
         /// <para>
         /// Creating rules with built-in targets is supported only in the AWS Management Console.
@@ -2588,6 +2592,10 @@ namespace Amazon.CloudWatchEvents
         ///  </li> <li> 
         /// <para>
         /// Amazon API Gateway REST APIs
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Redshift Clusters to invoke Data API ExecuteStatement on
         /// </para>
         ///  </li> </ul> 
         /// <para>

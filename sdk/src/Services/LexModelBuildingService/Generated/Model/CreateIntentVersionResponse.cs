@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -201,8 +201,8 @@ namespace Amazon.LexModelBuildingService.Model
         /// <summary>
         /// Gets and sets the property KendraConfiguration. 
         /// <para>
-        /// Configuration information, if any, for connectin an Amazon Kendra index with the <code>AMAZON.KendraSearchIntent</code>
-        /// intent.
+        /// Configuration information, if any, for connecting an Amazon Kendra index with the
+        /// <code>AMAZON.KendraSearchIntent</code> intent.
         /// </para>
         /// </summary>
         public KendraConfiguration KendraConfiguration

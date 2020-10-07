@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -250,6 +250,17 @@ namespace Amazon.IoT.Model.Internal.MarshallTransformations
 
                 var marshaller = StepFunctionsActionMarshaller.Instance;
                 marshaller.Marshall(requestObject.StepFunctions, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetTimestream())
+            {
+                context.Writer.WritePropertyName("timestream");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = TimestreamActionMarshaller.Instance;
+                marshaller.Marshall(requestObject.Timestream, context);
 
                 context.Writer.WriteObjectEnd();
             }

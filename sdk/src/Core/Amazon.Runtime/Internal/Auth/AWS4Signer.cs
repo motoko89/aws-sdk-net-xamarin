@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -150,14 +150,14 @@ namespace Amazon.Runtime.Internal.Auth
                                              string awsSecretAccessKey)
         {
             var signedAt = InitializeHeaders(request.Headers, request.Endpoint);
-            var service = DetermineService(clientConfig);
+            var service = !string.IsNullOrEmpty(request.OverrideSigningServiceName) ? request.OverrideSigningServiceName : DetermineService(clientConfig);
             request.DeterminedSigningRegion = DetermineSigningRegion(clientConfig, service, request.AlternateEndpoint, request);
 
             var parametersToCanonicalize = GetParametersToCanonicalize(request);
             var canonicalParameters = CanonicalizeQueryParameters(parametersToCanonicalize);
             var bodyHash = SetRequestBodyHash(request, SignPayload);
             var sortedHeaders = SortAndPruneHeaders(request.Headers);
-            
+
             var canonicalRequest = CanonicalizeRequest(request.Endpoint,
                                                        request.ResourcePath,
                                                        request.HttpMethod,
@@ -584,7 +584,7 @@ namespace Amazon.Runtime.Internal.Auth
 
         internal static string DetermineService(IClientConfig clientConfig)
         {
-            return !string.IsNullOrEmpty(clientConfig.AuthenticationServiceName) 
+            return (!string.IsNullOrEmpty(clientConfig.AuthenticationServiceName)) 
                 ? clientConfig.AuthenticationServiceName 
                 : AWSSDKUtils.DetermineService(clientConfig.DetermineServiceURL());
         }

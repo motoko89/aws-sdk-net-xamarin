@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -97,6 +97,24 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
             {
                 context.Writer.WritePropertyName("DataPageSize");
                 context.Writer.Write(requestObject.DataPageSize);
+            }
+
+            if(requestObject.IsSetDatePartitionDelimiter())
+            {
+                context.Writer.WritePropertyName("DatePartitionDelimiter");
+                context.Writer.Write(requestObject.DatePartitionDelimiter);
+            }
+
+            if(requestObject.IsSetDatePartitionEnabled())
+            {
+                context.Writer.WritePropertyName("DatePartitionEnabled");
+                context.Writer.Write(requestObject.DatePartitionEnabled);
+            }
+
+            if(requestObject.IsSetDatePartitionSequence())
+            {
+                context.Writer.WritePropertyName("DatePartitionSequence");
+                context.Writer.Write(requestObject.DatePartitionSequence);
             }
 
             if(requestObject.IsSetDictPageSizeLimit())

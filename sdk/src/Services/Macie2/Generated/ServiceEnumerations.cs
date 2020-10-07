@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -204,6 +204,10 @@ namespace Amazon.Macie2
         /// Constant PUBLIC for EffectivePermission
         /// </summary>
         public static readonly EffectivePermission PUBLIC = new EffectivePermission("PUBLIC");
+        /// <summary>
+        /// Constant UNKNOWN for EffectivePermission
+        /// </summary>
+        public static readonly EffectivePermission UNKNOWN = new EffectivePermission("UNKNOWN");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -1410,6 +1414,10 @@ namespace Amazon.Macie2
         /// Constant NOT_SHARED for SharedAccess
         /// </summary>
         public static readonly SharedAccess NOT_SHARED = new SharedAccess("NOT_SHARED");
+        /// <summary>
+        /// Constant UNKNOWN for SharedAccess
+        /// </summary>
+        public static readonly SharedAccess UNKNOWN = new SharedAccess("UNKNOWN");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant

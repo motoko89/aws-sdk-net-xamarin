@@ -1928,9 +1928,11 @@
     "Locale":{
       "type":"string",
       "enum":[
-        "en-US",
+        "de-DE",
+        "en-AU",
         "en-GB",
-        "de-DE"
+        "en-US",
+        "es-US"
       ]
     },
     "LocaleList":{

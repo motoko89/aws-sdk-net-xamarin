@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -52,6 +52,9 @@ namespace Amazon.CodeGuruReviewer
     /// CodeGuru Reviewer User Guide</a>.</i> 
     /// </para>
     /// </summary>
+#if NETSTANDARD13
+    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
+#endif
     public partial class AmazonCodeGuruReviewerClient : AmazonServiceClient, IAmazonCodeGuruReviewer
     {
         private static IServiceMetadata serviceMetadata = new AmazonCodeGuruReviewerMetadata();
@@ -299,7 +302,7 @@ namespace Amazon.CodeGuruReviewer
         /// </para>
         ///  
         /// <para>
-        ///  Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar Connections
+        /// Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar Connections
         /// to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/reviewer-ug/step-one.html#select-repository-source-provider">Connect
         /// to a repository source provider</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i>
         /// 
@@ -343,6 +346,59 @@ namespace Amazon.CodeGuruReviewer
             options.ResponseUnmarshaller = AssociateRepositoryResponseUnmarshaller.Instance;
 
             return InvokeAsync<AssociateRepositoryResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateCodeReview
+
+        internal virtual CreateCodeReviewResponse CreateCodeReview(CreateCodeReviewRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateCodeReviewRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateCodeReviewResponseUnmarshaller.Instance;
+
+            return Invoke<CreateCodeReviewResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Use to create a code review for a repository analysis.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateCodeReview service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateCodeReview service method, as returned by CodeGuruReviewer.</returns>
+        /// <exception cref="Amazon.CodeGuruReviewer.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.CodeGuruReviewer.Model.ConflictException">
+        /// The requested operation would cause a conflict with the current state of a service
+        /// resource associated with the request. Resolve the conflict before retrying this request.
+        /// </exception>
+        /// <exception cref="Amazon.CodeGuruReviewer.Model.InternalServerException">
+        /// The server encountered an internal error and is unable to complete the request.
+        /// </exception>
+        /// <exception cref="Amazon.CodeGuruReviewer.Model.ResourceNotFoundException">
+        /// The resource specified in the request was not found.
+        /// </exception>
+        /// <exception cref="Amazon.CodeGuruReviewer.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.CodeGuruReviewer.Model.ValidationException">
+        /// The input fails to satisfy the specified constraints.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codeguru-reviewer-2019-09-19/CreateCodeReview">REST API Reference for CreateCodeReview Operation</seealso>
+        public virtual Task<CreateCodeReviewResponse> CreateCodeReviewAsync(CreateCodeReviewRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateCodeReviewRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateCodeReviewResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateCodeReviewResponse>(request, options, cancellationToken);
         }
 
         #endregion

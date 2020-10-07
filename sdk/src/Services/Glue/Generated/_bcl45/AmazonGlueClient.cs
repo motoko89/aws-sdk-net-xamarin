@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -1067,6 +1067,77 @@ namespace Amazon.Glue
             options.ResponseUnmarshaller = BatchStopJobRunResponseUnmarshaller.Instance;
             
             return InvokeAsync<BatchStopJobRunResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  BatchUpdatePartition
+
+
+        /// <summary>
+        /// Updates one or more partitions in a batch operation.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchUpdatePartition service method.</param>
+        /// 
+        /// <returns>The response from the BatchUpdatePartition service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.GlueEncryptionException">
+        /// An encryption operation failed.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchUpdatePartition">REST API Reference for BatchUpdatePartition Operation</seealso>
+        public virtual BatchUpdatePartitionResponse BatchUpdatePartition(BatchUpdatePartitionRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchUpdatePartitionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchUpdatePartitionResponseUnmarshaller.Instance;
+
+            return Invoke<BatchUpdatePartitionResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Updates one or more partitions in a batch operation.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchUpdatePartition service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the BatchUpdatePartition service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.GlueEncryptionException">
+        /// An encryption operation failed.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchUpdatePartition">REST API Reference for BatchUpdatePartition Operation</seealso>
+        public virtual Task<BatchUpdatePartitionResponse> BatchUpdatePartitionAsync(BatchUpdatePartitionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchUpdatePartitionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchUpdatePartitionResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<BatchUpdatePartitionResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -5186,6 +5257,77 @@ namespace Amazon.Glue
             options.ResponseUnmarshaller = GetPartitionResponseUnmarshaller.Instance;
             
             return InvokeAsync<GetPartitionResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetPartitionIndexes
+
+
+        /// <summary>
+        /// Retrieves the partition indexes associated with a table.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetPartitionIndexes service method.</param>
+        /// 
+        /// <returns>The response from the GetPartitionIndexes service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.ConflictException">
+        /// The <code>CreatePartitions</code> API was called on a table that has indexes enabled.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetPartitionIndexes">REST API Reference for GetPartitionIndexes Operation</seealso>
+        public virtual GetPartitionIndexesResponse GetPartitionIndexes(GetPartitionIndexesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetPartitionIndexesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetPartitionIndexesResponseUnmarshaller.Instance;
+
+            return Invoke<GetPartitionIndexesResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Retrieves the partition indexes associated with a table.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetPartitionIndexes service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetPartitionIndexes service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.ConflictException">
+        /// The <code>CreatePartitions</code> API was called on a table that has indexes enabled.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetPartitionIndexes">REST API Reference for GetPartitionIndexes Operation</seealso>
+        public virtual Task<GetPartitionIndexesResponse> GetPartitionIndexesAsync(GetPartitionIndexesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetPartitionIndexesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetPartitionIndexesResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<GetPartitionIndexesResponse>(request, options, cancellationToken);
         }
 
         #endregion

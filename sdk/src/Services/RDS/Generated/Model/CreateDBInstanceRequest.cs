@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -64,6 +64,7 @@ namespace Amazon.RDS.Model
         private int? _monitoringInterval;
         private string _monitoringRoleArn;
         private bool? _multiAZ;
+        private string _ncharCharacterSetName;
         private string _optionGroupName;
         private string _performanceInsightsKMSKeyId;
         private int? _performanceInsightsRetentionPeriod;
@@ -821,6 +822,49 @@ namespace Amazon.RDS.Model
         /// Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational Database
         /// Service User Guide</i>.
         /// </para>
+        ///  
+        /// <para>
+        ///  <b>MariaDB</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Possible values are <code>audit</code>, <code>error</code>, <code>general</code>,
+        /// and <code>slowquery</code>. 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Microsoft SQL Server</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Possible values are <code>agent</code> and <code>error</code>. 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>MySQL</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Possible values are <code>audit</code>, <code>error</code>, <code>general</code>,
+        /// and <code>slowquery</code>. 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Oracle</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Possible values are <code>alert</code>, <code>audit</code>, <code>listener</code>,
+        /// and <code>trace</code>. 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>PostgreSQL</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Possible values are <code>postgresql</code> and <code>upgrade</code>. 
+        /// </para>
         /// </summary>
         public List<string> EnableCloudwatchLogsExports
         {
@@ -1488,6 +1532,24 @@ namespace Amazon.RDS.Model
         internal bool IsSetMultiAZ()
         {
             return this._multiAZ.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property NcharCharacterSetName. 
+        /// <para>
+        /// The name of the NCHAR character set for the Oracle DB instance.
+        /// </para>
+        /// </summary>
+        public string NcharCharacterSetName
+        {
+            get { return this._ncharCharacterSetName; }
+            set { this._ncharCharacterSetName = value; }
+        }
+
+        // Check to see if NcharCharacterSetName property is set
+        internal bool IsSetNcharCharacterSetName()
+        {
+            return this._ncharCharacterSetName != null;
         }
 
         /// <summary>

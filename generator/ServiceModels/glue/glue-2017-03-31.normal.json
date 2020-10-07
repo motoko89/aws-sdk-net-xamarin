@@ -200,6 +200,23 @@
       ],
       "documentation":"<p>Stops one or more job runs for a specified job definition.</p>"
     },
+    "BatchUpdatePartition":{
+      "name":"BatchUpdatePartition",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"BatchUpdatePartitionRequest"},
+      "output":{"shape":"BatchUpdatePartitionResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"EntityNotFoundException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"GlueEncryptionException"}
+      ],
+      "documentation":"<p>Updates one or more partitions in a batch operation.</p>"
+    },
     "CancelMLTaskRun":{
       "name":"CancelMLTaskRun",
       "http":{
@@ -1156,6 +1173,23 @@
         {"shape":"GlueEncryptionException"}
       ],
       "documentation":"<p>Retrieves information about a specified partition.</p>"
+    },
+    "GetPartitionIndexes":{
+      "name":"GetPartitionIndexes",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetPartitionIndexesRequest"},
+      "output":{"shape":"GetPartitionIndexesResponse"},
+      "errors":[
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"InvalidInputException"},
+        {"shape":"EntityNotFoundException"},
+        {"shape":"ConflictException"}
+      ],
+      "documentation":"<p>Retrieves the partition indexes associated with a table.</p>"
     },
     "GetPartitions":{
       "name":"GetPartitions",
@@ -2228,6 +2262,11 @@
       "type":"list",
       "member":{"shape":"Action"}
     },
+    "AdditionalPlanOptionsMap":{
+      "type":"map",
+      "key":{"shape":"GenericString"},
+      "value":{"shape":"GenericString"}
+    },
     "AlreadyExistsException":{
       "type":"structure",
       "members":{
@@ -2659,6 +2698,83 @@
     "BatchStopJobRunSuccessfulSubmissionList":{
       "type":"list",
       "member":{"shape":"BatchStopJobRunSuccessfulSubmission"}
+    },
+    "BatchUpdatePartitionFailureEntry":{
+      "type":"structure",
+      "members":{
+        "PartitionValueList":{
+          "shape":"BoundedPartitionValueList",
+          "documentation":"<p>A list of values defining the partitions.</p>"
+        },
+        "ErrorDetail":{
+          "shape":"ErrorDetail",
+          "documentation":"<p>The details about the batch update partition error.</p>"
+        }
+      },
+      "documentation":"<p>Contains information about a batch update partition error.</p>"
+    },
+    "BatchUpdatePartitionFailureList":{
+      "type":"list",
+      "member":{"shape":"BatchUpdatePartitionFailureEntry"}
+    },
+    "BatchUpdatePartitionRequest":{
+      "type":"structure",
+      "required":[
+        "DatabaseName",
+        "TableName",
+        "Entries"
+      ],
+      "members":{
+        "CatalogId":{
+          "shape":"CatalogIdString",
+          "documentation":"<p>The ID of the catalog in which the partition is to be updated. Currently, this should be the AWS account ID.</p>"
+        },
+        "DatabaseName":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the metadata database in which the partition is to be updated.</p>"
+        },
+        "TableName":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the metadata table in which the partition is to be updated.</p>"
+        },
+        "Entries":{
+          "shape":"BatchUpdatePartitionRequestEntryList",
+          "documentation":"<p>A list of up to 100 <code>BatchUpdatePartitionRequestEntry</code> objects to update.</p>"
+        }
+      }
+    },
+    "BatchUpdatePartitionRequestEntry":{
+      "type":"structure",
+      "required":[
+        "PartitionValueList",
+        "PartitionInput"
+      ],
+      "members":{
+        "PartitionValueList":{
+          "shape":"BoundedPartitionValueList",
+          "documentation":"<p>A list of values defining the partitions.</p>"
+        },
+        "PartitionInput":{
+          "shape":"PartitionInput",
+          "documentation":"<p>The structure used to update a partition.</p>"
+        }
+      },
+      "documentation":"<p>A structure that contains the values and structure used to update a partition.</p>"
+    },
+    "BatchUpdatePartitionRequestEntryList":{
+      "type":"list",
+      "member":{"shape":"BatchUpdatePartitionRequestEntry"},
+      "max":100,
+      "min":1
+    },
+    "BatchUpdatePartitionResponse":{
+      "type":"structure",
+      "members":{
+        "Errors":{
+          "shape":"BatchUpdatePartitionFailureList",
+          "documentation":"<p>The errors encountered when trying to update the requested partitions. A list of <code>BatchUpdatePartitionFailureEntry</code> objects.</p>"
+        }
+      }
     },
     "BinaryColumnStatisticsData":{
       "type":"structure",
@@ -3210,6 +3326,17 @@
       "type":"list",
       "member":{"shape":"Condition"}
     },
+    "ConflictException":{
+      "type":"structure",
+      "members":{
+        "Message":{
+          "shape":"MessageString",
+          "documentation":"<p>A message describing the problem.</p>"
+        }
+      },
+      "documentation":"<p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled. </p>",
+      "exception":true
+    },
     "ConfusionMatrix":{
       "type":"structure",
       "members":{
@@ -3619,6 +3746,10 @@
         "JdbcTargets":{
           "shape":"JdbcTargetList",
           "documentation":"<p>Specifies JDBC targets.</p>"
+        },
+        "MongoDBTargets":{
+          "shape":"MongoDBTargetList",
+          "documentation":"<p>Specifies Amazon DocumentDB or MongoDB targets.</p>"
         },
         "DynamoDBTargets":{
           "shape":"DynamoDBTargetList",
@@ -4262,6 +4393,10 @@
         "TableInput":{
           "shape":"TableInput",
           "documentation":"<p>The <code>TableInput</code> object that defines the metadata table to create in the catalog.</p>"
+        },
+        "PartitionIndexes":{
+          "shape":"PartitionIndexList",
+          "documentation":"<p>A list of partition indexes, <code>PartitionIndex</code> structures, to create in the table.</p>"
         }
       }
     },
@@ -6316,6 +6451,44 @@
         }
       }
     },
+    "GetPartitionIndexesRequest":{
+      "type":"structure",
+      "required":[
+        "DatabaseName",
+        "TableName"
+      ],
+      "members":{
+        "CatalogId":{
+          "shape":"CatalogIdString",
+          "documentation":"<p>The catalog ID where the table resides.</p>"
+        },
+        "DatabaseName":{
+          "shape":"NameString",
+          "documentation":"<p>Specifies the name of a database from which you want to retrieve partition indexes.</p>"
+        },
+        "TableName":{
+          "shape":"NameString",
+          "documentation":"<p>Specifies the name of a table for which you want to retrieve the partition indexes.</p>"
+        },
+        "NextToken":{
+          "shape":"Token",
+          "documentation":"<p>A continuation token, included if this is a continuation call.</p>"
+        }
+      }
+    },
+    "GetPartitionIndexesResponse":{
+      "type":"structure",
+      "members":{
+        "PartitionIndexDescriptorList":{
+          "shape":"PartitionIndexDescriptorList",
+          "documentation":"<p>A list of index descriptors.</p>"
+        },
+        "NextToken":{
+          "shape":"Token",
+          "documentation":"<p>A continuation token, present if the current list segment is not the last.</p>"
+        }
+      }
+    },
     "GetPartitionRequest":{
       "type":"structure",
       "required":[
@@ -6427,6 +6600,10 @@
         "Language":{
           "shape":"Language",
           "documentation":"<p>The programming language of the code to perform the mapping.</p>"
+        },
+        "AdditionalPlanOptionsMap":{
+          "shape":"AdditionalPlanOptionsMap",
+          "documentation":"<p>A map to hold additional optional key-value parameters.</p>"
         }
       }
     },
@@ -7584,6 +7761,34 @@
     },
     "JsonPath":{"type":"string"},
     "JsonValue":{"type":"string"},
+    "KeyList":{
+      "type":"list",
+      "member":{"shape":"NameString"},
+      "min":1
+    },
+    "KeySchemaElement":{
+      "type":"structure",
+      "required":[
+        "Name",
+        "Type"
+      ],
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>The name of a partition key.</p>"
+        },
+        "Type":{
+          "shape":"ColumnTypeString",
+          "documentation":"<p>The type of a partition key.</p>"
+        }
+      },
+      "documentation":"<p>A partition key pair consisting of a name and a type.</p>"
+    },
+    "KeySchemaElementList":{
+      "type":"list",
+      "member":{"shape":"KeySchemaElement"},
+      "min":1
+    },
     "KeyString":{
       "type":"string",
       "max":255,
@@ -8063,6 +8268,28 @@
     },
     "MessageString":{"type":"string"},
     "MillisecondsCount":{"type":"long"},
+    "MongoDBTarget":{
+      "type":"structure",
+      "members":{
+        "ConnectionName":{
+          "shape":"ConnectionName",
+          "documentation":"<p>The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.</p>"
+        },
+        "Path":{
+          "shape":"Path",
+          "documentation":"<p>The path of the Amazon DocumentDB or MongoDB target (database/collection).</p>"
+        },
+        "ScanAll":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.</p> <p>A value of <code>true</code> means to scan all records, while a value of <code>false</code> means to sample the records. If no value is specified, the value defaults to <code>true</code>.</p>"
+        }
+      },
+      "documentation":"<p>Specifies an Amazon DocumentDB or MongoDB data store to crawl.</p>"
+    },
+    "MongoDBTargetList":{
+      "type":"list",
+      "member":{"shape":"MongoDBTarget"}
+    },
     "NameString":{
       "type":"string",
       "max":255,
@@ -8281,6 +8508,60 @@
     "PartitionErrors":{
       "type":"list",
       "member":{"shape":"PartitionError"}
+    },
+    "PartitionIndex":{
+      "type":"structure",
+      "required":[
+        "Keys",
+        "IndexName"
+      ],
+      "members":{
+        "Keys":{
+          "shape":"KeyList",
+          "documentation":"<p>The keys for the partition index.</p>"
+        },
+        "IndexName":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the partition index.</p>"
+        }
+      },
+      "documentation":"<p>A structure for a partition index.</p>"
+    },
+    "PartitionIndexDescriptor":{
+      "type":"structure",
+      "required":[
+        "IndexName",
+        "Keys",
+        "IndexStatus"
+      ],
+      "members":{
+        "IndexName":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the partition index.</p>"
+        },
+        "Keys":{
+          "shape":"KeySchemaElementList",
+          "documentation":"<p>A list of one or more keys, as <code>KeySchemaElement</code> structures, for the partition index.</p>"
+        },
+        "IndexStatus":{
+          "shape":"PartitionIndexStatus",
+          "documentation":"<p>The status of the partition index. </p>"
+        }
+      },
+      "documentation":"<p>A descriptor for a partition index in a table.</p>"
+    },
+    "PartitionIndexDescriptorList":{
+      "type":"list",
+      "member":{"shape":"PartitionIndexDescriptor"}
+    },
+    "PartitionIndexList":{
+      "type":"list",
+      "member":{"shape":"PartitionIndex"},
+      "max":3
+    },
+    "PartitionIndexStatus":{
+      "type":"string",
+      "enum":["ACTIVE"]
     },
     "PartitionInput":{
       "type":"structure",

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -59,6 +59,10 @@ namespace Amazon.Kendra.Model
     /// <para>
     /// You can specify that the query return only one type of result using the <code>QueryResultTypeConfig</code>
     /// parameter.
+    /// </para>
+    ///  
+    /// <para>
+    /// Each query returns the 100 most relevant results. 
     /// </para>
     /// </summary>
     public partial class QueryRequest : AmazonKendraRequest

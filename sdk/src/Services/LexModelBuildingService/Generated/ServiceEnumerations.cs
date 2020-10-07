@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -459,6 +459,10 @@ namespace Amazon.LexModelBuildingService
         /// </summary>
         public static readonly Locale DeDE = new Locale("de-DE");
         /// <summary>
+        /// Constant EnAU for Locale
+        /// </summary>
+        public static readonly Locale EnAU = new Locale("en-AU");
+        /// <summary>
         /// Constant EnGB for Locale
         /// </summary>
         public static readonly Locale EnGB = new Locale("en-GB");
@@ -466,6 +470,10 @@ namespace Amazon.LexModelBuildingService
         /// Constant EnUS for Locale
         /// </summary>
         public static readonly Locale EnUS = new Locale("en-US");
+        /// <summary>
+        /// Constant EsUS for Locale
+        /// </summary>
+        public static readonly Locale EsUS = new Locale("es-US");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant

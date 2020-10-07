@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -61,6 +61,7 @@ namespace Amazon.Imagebuilder.Model
         /// The License Manager Configuration to associate with the AMI in the specified Region.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=1, Max=50)]
         public List<string> LicenseConfigurationArns
         {
             get { return this._licenseConfigurationArns; }

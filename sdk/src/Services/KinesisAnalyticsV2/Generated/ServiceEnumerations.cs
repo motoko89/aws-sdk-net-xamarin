@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -85,9 +85,17 @@ namespace Amazon.KinesisAnalyticsV2
     {
 
         /// <summary>
+        /// Constant AUTOSCALING for ApplicationStatus
+        /// </summary>
+        public static readonly ApplicationStatus AUTOSCALING = new ApplicationStatus("AUTOSCALING");
+        /// <summary>
         /// Constant DELETING for ApplicationStatus
         /// </summary>
         public static readonly ApplicationStatus DELETING = new ApplicationStatus("DELETING");
+        /// <summary>
+        /// Constant FORCE_STOPPING for ApplicationStatus
+        /// </summary>
+        public static readonly ApplicationStatus FORCE_STOPPING = new ApplicationStatus("FORCE_STOPPING");
         /// <summary>
         /// Constant READY for ApplicationStatus
         /// </summary>

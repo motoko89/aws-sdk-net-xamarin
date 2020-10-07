@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2008-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -628,6 +628,11 @@ namespace Amazon.S3
         /// </summary>
         public static readonly S3StorageClass DeepArchive = new S3StorageClass("DEEP_ARCHIVE");
 
+        /// <summary>
+        /// The OUTPOSTS storage class for objects stored in a S3 Outpost
+        /// </summary>
+        public static readonly S3StorageClass Outposts = new S3StorageClass("OUTPOSTS");
+        
         /// <summary>
         /// Construct an instance of S3StorageClass.
         /// </summary>
@@ -2183,6 +2188,47 @@ namespace Amazon.S3
         /// </summary>
         /// <param name="value"></param>
         public static implicit operator MetricsStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+    /// <summary>
+    /// Specifies who is assigned ownership of objects uploaded to a bucket
+    /// </summary>
+    public sealed class ObjectOwnership : ConstantClass
+    {
+        private ObjectOwnership(string value)
+            : base(value)
+        {
+
+        }
+
+        /// <summary>
+        /// Objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the bucket-owner-full-control canned ACL
+        /// </summary>
+        public static readonly ObjectOwnership BucketOwnerPreferred = new ObjectOwnership("BucketOwnerPreferred");
+
+        /// <summary>
+        /// The uploading account will own the object if the object is uploaded with the bucket-owner-full-control canned ACL
+        /// </summary>
+        public static readonly ObjectOwnership ObjectWriter = new ObjectOwnership("ObjectWriter");
+
+        /// <summary>
+        /// Finds the ObjectOwnership instance for the string value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static ObjectOwnership FindValue(string value)
+        {
+            return FindValue<ObjectOwnership>(value);
+        }
+
+        /// <summary>
+        /// Converts the string to ObjectOwnership instance
+        /// </summary>
+        /// <param name="value"></param>
+        public static implicit operator ObjectOwnership(string value)
         {
             return FindValue(value);
         }

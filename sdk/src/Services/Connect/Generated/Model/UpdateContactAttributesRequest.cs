@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -45,6 +45,10 @@ namespace Amazon.Connect.Model
     ///  
     /// <para>
     /// Contact attributes are available in Amazon Connect for 24 months, and are then deleted.
+    /// </para>
+    ///  
+    /// <para>
+    /// This operation is also available in the Amazon Connect Flow language. See <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-actions-updatecontactattributes.html">UpdateContactAttributes</a>.
     /// </para>
     ///  
     /// <para>

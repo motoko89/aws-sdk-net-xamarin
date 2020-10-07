@@ -14,6 +14,7 @@
     "BatchGetTriggers": "<p>Returns a list of resource metadata for a given list of trigger names. After calling the <code>ListTriggers</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>",
     "BatchGetWorkflows": "<p>Returns a list of resource metadata for a given list of workflow names. After calling the <code>ListWorkflows</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>",
     "BatchStopJobRun": "<p>Stops one or more job runs for a specified job definition.</p>",
+    "BatchUpdatePartition": "<p>Updates one or more partitions in a batch operation.</p>",
     "CancelMLTaskRun": "<p>Cancels (stops) a task run. Machine learning task runs are asynchronous tasks that AWS Glue runs on your behalf as part of various machine learning workflows. You can cancel a machine learning task run at any time by calling <code>CancelMLTaskRun</code> with a task run's parent transform's <code>TransformID</code> and the task run's <code>TaskRunId</code>. </p>",
     "CreateClassifier": "<p>Creates a classifier in the user's account. This can be a <code>GrokClassifier</code>, an <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>, depending on which field of the request is present.</p>",
     "CreateConnection": "<p>Creates a connection definition in the Data Catalog.</p>",
@@ -73,6 +74,7 @@
     "GetMLTransforms": "<p>Gets a sortable, filterable list of existing AWS Glue machine learning transforms. Machine learning transforms are a special type of transform that use machine learning to learn the details of the transformation to be performed by learning from examples provided by humans. These transformations are then saved by AWS Glue, and you can retrieve their metadata by calling <code>GetMLTransforms</code>.</p>",
     "GetMapping": "<p>Creates mappings.</p>",
     "GetPartition": "<p>Retrieves information about a specified partition.</p>",
+    "GetPartitionIndexes": "<p>Retrieves the partition indexes associated with a table.</p>",
     "GetPartitions": "<p>Retrieves information about the partitions in a table.</p>",
     "GetPlan": "<p>Gets code to perform a specified mapping.</p>",
     "GetResourcePolicies": "<p>Retrieves the security configurations for the resource policies set on individual resources, and also the account-level policy.</p> <p>This operation also returns the Data Catalog resource policy. However, if you enabled metadata encryption in Data Catalog settings, and you do not have permission on the AWS KMS key, the operation can't return the Data Catalog resource policy.</p>",
@@ -154,6 +156,12 @@
         "CreateTriggerRequest$Actions": "<p>The actions initiated by this trigger when it fires.</p>",
         "Trigger$Actions": "<p>The actions initiated by this trigger.</p>",
         "TriggerUpdate$Actions": "<p>The actions initiated by this trigger.</p>"
+      }
+    },
+    "AdditionalPlanOptionsMap": {
+      "base": null,
+      "refs": {
+        "GetPlanRequest$AdditionalPlanOptionsMap": "<p>A map to hold additional optional key-value parameters.</p>"
       }
     },
     "AlreadyExistsException": {
@@ -342,6 +350,40 @@
         "BatchStopJobRunResponse$SuccessfulSubmissions": "<p>A list of the JobRuns that were successfully submitted for stopping.</p>"
       }
     },
+    "BatchUpdatePartitionFailureEntry": {
+      "base": "<p>Contains information about a batch update partition error.</p>",
+      "refs": {
+        "BatchUpdatePartitionFailureList$member": null
+      }
+    },
+    "BatchUpdatePartitionFailureList": {
+      "base": null,
+      "refs": {
+        "BatchUpdatePartitionResponse$Errors": "<p>The errors encountered when trying to update the requested partitions. A list of <code>BatchUpdatePartitionFailureEntry</code> objects.</p>"
+      }
+    },
+    "BatchUpdatePartitionRequest": {
+      "base": null,
+      "refs": {
+      }
+    },
+    "BatchUpdatePartitionRequestEntry": {
+      "base": "<p>A structure that contains the values and structure used to update a partition.</p>",
+      "refs": {
+        "BatchUpdatePartitionRequestEntryList$member": null
+      }
+    },
+    "BatchUpdatePartitionRequestEntryList": {
+      "base": null,
+      "refs": {
+        "BatchUpdatePartitionRequest$Entries": "<p>A list of up to 100 <code>BatchUpdatePartitionRequestEntry</code> objects to update.</p>"
+      }
+    },
+    "BatchUpdatePartitionResponse": {
+      "base": null,
+      "refs": {
+      }
+    },
     "BinaryColumnStatisticsData": {
       "base": "<p>Defines a binary column statistics data.</p>",
       "refs": {
@@ -391,6 +433,8 @@
     "BoundedPartitionValueList": {
       "base": null,
       "refs": {
+        "BatchUpdatePartitionFailureEntry$PartitionValueList": "<p>A list of values defining the partitions.</p>",
+        "BatchUpdatePartitionRequestEntry$PartitionValueList": "<p>A list of values defining the partitions.</p>",
         "UpdatePartitionRequest$PartitionValueList": "<p>List of partition key values that define the partition to update.</p>"
       }
     },
@@ -434,6 +478,7 @@
         "BatchDeleteTableRequest$CatalogId": "<p>The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.</p>",
         "BatchDeleteTableVersionRequest$CatalogId": "<p>The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.</p>",
         "BatchGetPartitionRequest$CatalogId": "<p>The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.</p>",
+        "BatchUpdatePartitionRequest$CatalogId": "<p>The ID of the catalog in which the partition is to be updated. Currently, this should be the AWS account ID.</p>",
         "CreateConnectionRequest$CatalogId": "<p>The ID of the Data Catalog in which to create the connection. If none is provided, the AWS account ID is used by default.</p>",
         "CreateDatabaseRequest$CatalogId": "<p>The ID of the Data Catalog in which to create the database. If none is provided, the AWS account ID is used by default.</p>",
         "CreatePartitionRequest$CatalogId": "<p>The AWS account ID of the catalog in which the partition is to be created.</p>",
@@ -457,6 +502,7 @@
         "GetDataCatalogEncryptionSettingsRequest$CatalogId": "<p>The ID of the Data Catalog to retrieve the security configuration for. If none is provided, the AWS account ID is used by default.</p>",
         "GetDatabaseRequest$CatalogId": "<p>The ID of the Data Catalog in which the database resides. If none is provided, the AWS account ID is used by default.</p>",
         "GetDatabasesRequest$CatalogId": "<p>The ID of the Data Catalog from which to retrieve <code>Databases</code>. If none is provided, the AWS account ID is used by default.</p>",
+        "GetPartitionIndexesRequest$CatalogId": "<p>The catalog ID where the table resides.</p>",
         "GetPartitionRequest$CatalogId": "<p>The ID of the Data Catalog where the partition in question resides. If none is provided, the AWS account ID is used by default.</p>",
         "GetPartitionsRequest$CatalogId": "<p>The ID of the Data Catalog where the partitions in question reside. If none is provided, the AWS account ID is used by default.</p>",
         "GetTableRequest$CatalogId": "<p>The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.</p>",
@@ -681,6 +727,7 @@
       "base": null,
       "refs": {
         "Column$Type": "<p>The data type of the <code>Column</code>.</p>",
+        "KeySchemaElement$Type": "<p>The type of a partition key.</p>",
         "SchemaColumn$DataType": "<p>The type of data in the column.</p>"
       }
     },
@@ -737,6 +784,11 @@
         "Predicate$Conditions": "<p>A list of the conditions that determine when the trigger will fire.</p>"
       }
     },
+    "ConflictException": {
+      "base": "<p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled. </p>",
+      "refs": {
+      }
+    },
     "ConfusionMatrix": {
       "base": "<p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p> <p>For more information, see <a href=\"https://en.wikipedia.org/wiki/Confusion_matrix\">Confusion matrix</a> in Wikipedia.</p>",
       "refs": {
@@ -767,6 +819,7 @@
       "base": null,
       "refs": {
         "JdbcTarget$ConnectionName": "<p>The name of the connection to use to connect to the JDBC target.</p>",
+        "MongoDBTarget$ConnectionName": "<p>The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.</p>",
         "S3Target$ConnectionName": "<p>The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).</p>"
       }
     },
@@ -1534,6 +1587,7 @@
       "base": "<p>Contains details about an error.</p>",
       "refs": {
         "BatchStopJobRunError$ErrorDetail": "<p>Specifies details about the error that was encountered.</p>",
+        "BatchUpdatePartitionFailureEntry$ErrorDetail": "<p>The details about the batch update partition error.</p>",
         "ColumnError$Error": "<p>The error message occurred during operation.</p>",
         "ColumnStatisticsError$Error": "<p>The error message occurred during operation.</p>",
         "ErrorByName$value": null,
@@ -1650,6 +1704,8 @@
     "GenericString": {
       "base": null,
       "refs": {
+        "AdditionalPlanOptionsMap$key": null,
+        "AdditionalPlanOptionsMap$value": null,
         "CreateDevEndpointRequest$EndpointName": "<p>The name to be assigned to the new <code>DevEndpoint</code>.</p>",
         "CreateDevEndpointRequest$SubnetId": "<p>The subnet ID for the new <code>DevEndpoint</code> to use.</p>",
         "CreateDevEndpointRequest$PublicKey": "<p>The public key to be used by this <code>DevEndpoint</code> for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.</p>",
@@ -1995,6 +2051,16 @@
       }
     },
     "GetMappingResponse": {
+      "base": null,
+      "refs": {
+      }
+    },
+    "GetPartitionIndexesRequest": {
+      "base": null,
+      "refs": {
+      }
+    },
+    "GetPartitionIndexesResponse": {
       "base": null,
       "refs": {
       }
@@ -2539,6 +2605,24 @@
         "JobBookmarkEntry$JobBookmark": "<p>The bookmark itself.</p>"
       }
     },
+    "KeyList": {
+      "base": null,
+      "refs": {
+        "PartitionIndex$Keys": "<p>The keys for the partition index.</p>"
+      }
+    },
+    "KeySchemaElement": {
+      "base": "<p>A partition key pair consisting of a name and a type.</p>",
+      "refs": {
+        "KeySchemaElementList$member": null
+      }
+    },
+    "KeySchemaElementList": {
+      "base": null,
+      "refs": {
+        "PartitionIndexDescriptor$Keys": "<p>A list of one or more keys, as <code>KeySchemaElement</code> structures, for the partition index.</p>"
+      }
+    },
     "KeyString": {
       "base": null,
       "refs": {
@@ -2772,6 +2856,7 @@
         "ConcurrentModificationException$Message": "<p>A message describing the problem.</p>",
         "ConcurrentRunsExceededException$Message": "<p>A message describing the problem.</p>",
         "ConditionCheckFailureException$Message": "<p>A message describing the problem.</p>",
+        "ConflictException$Message": "<p>A message describing the problem.</p>",
         "CrawlerNotRunningException$Message": "<p>A message describing the problem.</p>",
         "CrawlerRunningException$Message": "<p>A message describing the problem.</p>",
         "CrawlerStoppingException$Message": "<p>A message describing the problem.</p>",
@@ -2798,6 +2883,18 @@
         "Crawler$CrawlElapsedTime": "<p>If the crawler is running, contains the total time elapsed since the last crawl began.</p>"
       }
     },
+    "MongoDBTarget": {
+      "base": "<p>Specifies an Amazon DocumentDB or MongoDB data store to crawl.</p>",
+      "refs": {
+        "MongoDBTargetList$member": null
+      }
+    },
+    "MongoDBTargetList": {
+      "base": null,
+      "refs": {
+        "CrawlerTargets$MongoDBTargets": "<p>Specifies Amazon DocumentDB or MongoDB targets.</p>"
+      }
+    },
     "NameString": {
       "base": null,
       "refs": {
@@ -2817,6 +2914,8 @@
         "BatchStopJobRunError$JobName": "<p>The name of the job definition that is used in the job run in question.</p>",
         "BatchStopJobRunRequest$JobName": "<p>The name of the job definition for which to stop job runs.</p>",
         "BatchStopJobRunSuccessfulSubmission$JobName": "<p>The name of the job definition used in the job run that was stopped.</p>",
+        "BatchUpdatePartitionRequest$DatabaseName": "<p>The name of the metadata database in which the partition is to be updated.</p>",
+        "BatchUpdatePartitionRequest$TableName": "<p>The name of the metadata table in which the partition is to be updated.</p>",
         "CatalogEntry$DatabaseName": "<p>The database in which the table metadata resides.</p>",
         "CatalogEntry$TableName": "<p>The name of the table in question.</p>",
         "CatalogImportStatus$ImportedBy": "<p>The name of the person who initiated the migration.</p>",
@@ -2909,6 +3008,8 @@
         "GetJobRunRequest$JobName": "<p>Name of the job definition being run.</p>",
         "GetJobRunsRequest$JobName": "<p>The name of the job definition for which to retrieve all job runs.</p>",
         "GetMLTransformResponse$Name": "<p>The unique name given to the transform when it was created.</p>",
+        "GetPartitionIndexesRequest$DatabaseName": "<p>Specifies the name of a database from which you want to retrieve partition indexes.</p>",
+        "GetPartitionIndexesRequest$TableName": "<p>Specifies the name of a table for which you want to retrieve the partition indexes.</p>",
         "GetPartitionRequest$DatabaseName": "<p>The name of the catalog database where the partition resides.</p>",
         "GetPartitionRequest$TableName": "<p>The name of the partition's table.</p>",
         "GetPartitionsRequest$DatabaseName": "<p>The name of the catalog database where the partitions reside.</p>",
@@ -2944,6 +3045,8 @@
         "JobRun$SecurityConfiguration": "<p>The name of the <code>SecurityConfiguration</code> structure to be used with this job run.</p>",
         "JobUpdate$SecurityConfiguration": "<p>The name of the <code>SecurityConfiguration</code> structure to be used with this job.</p>",
         "JsonClassifier$Name": "<p>The name of the classifier.</p>",
+        "KeyList$member": null,
+        "KeySchemaElement$Name": "<p>The name of a partition key.</p>",
         "ListTriggersRequest$DependentJobName": "<p> The name of the job for which to retrieve triggers. The trigger that can start this job is returned. If there is no such trigger, all triggers are returned.</p>",
         "MLTransform$Name": "<p>A user-defined name for the machine learning transform. Names are not guaranteed unique and can be changed at any time.</p>",
         "MatchCriteria$member": null,
@@ -2954,6 +3057,8 @@
         "Order$Column": "<p>The name of the column.</p>",
         "Partition$DatabaseName": "<p>The name of the catalog database in which to create the partition.</p>",
         "Partition$TableName": "<p>The name of the database table in which to create the partition.</p>",
+        "PartitionIndex$IndexName": "<p>The name of the partition index.</p>",
+        "PartitionIndexDescriptor$IndexName": "<p>The name of the partition index.</p>",
         "PhysicalConnectionRequirements$SubnetId": "<p>The subnet ID used by the connection.</p>",
         "PhysicalConnectionRequirements$AvailabilityZone": "<p>The connection's Availability Zone. This field is redundant because the specified subnet implies the Availability Zone to be used. Currently the field must be populated, but it will be deprecated in the future.</p>",
         "Predecessor$JobName": "<p>The name of the job definition used by the predecessor job run.</p>",
@@ -3136,6 +3241,7 @@
         "GetWorkflowRequest$IncludeGraph": "<p>Specifies whether to include a graph when returning the workflow resource metadata.</p>",
         "GetWorkflowRunRequest$IncludeGraph": "<p>Specifies whether to include the workflow graph in response or not.</p>",
         "GetWorkflowRunsRequest$IncludeGraph": "<p>Specifies whether to include the workflow graph in response or not.</p>",
+        "MongoDBTarget$ScanAll": "<p>Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.</p> <p>A value of <code>true</code> means to scan all records, while a value of <code>false</code> means to sample the records. If no value is specified, the value defaults to <code>true</code>.</p>",
         "UpdateCsvClassifierRequest$DisableValueTrimming": "<p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>",
         "UpdateCsvClassifierRequest$AllowSingleColumn": "<p>Enables the processing of files that contain only one column.</p>"
       }
@@ -3283,9 +3389,40 @@
         "BatchDeletePartitionResponse$Errors": "<p>The errors encountered when trying to delete the requested partitions.</p>"
       }
     },
+    "PartitionIndex": {
+      "base": "<p>A structure for a partition index.</p>",
+      "refs": {
+        "PartitionIndexList$member": null
+      }
+    },
+    "PartitionIndexDescriptor": {
+      "base": "<p>A descriptor for a partition index in a table.</p>",
+      "refs": {
+        "PartitionIndexDescriptorList$member": null
+      }
+    },
+    "PartitionIndexDescriptorList": {
+      "base": null,
+      "refs": {
+        "GetPartitionIndexesResponse$PartitionIndexDescriptorList": "<p>A list of index descriptors.</p>"
+      }
+    },
+    "PartitionIndexList": {
+      "base": null,
+      "refs": {
+        "CreateTableRequest$PartitionIndexes": "<p>A list of partition indexes, <code>PartitionIndex</code> structures, to create in the table.</p>"
+      }
+    },
+    "PartitionIndexStatus": {
+      "base": null,
+      "refs": {
+        "PartitionIndexDescriptor$IndexStatus": "<p>The status of the partition index. </p>"
+      }
+    },
     "PartitionInput": {
       "base": "<p>The structure used to create and update a partition.</p>",
       "refs": {
+        "BatchUpdatePartitionRequestEntry$PartitionInput": "<p>The structure used to update a partition.</p>",
         "CreatePartitionRequest$PartitionInput": "<p>A <code>PartitionInput</code> structure defining the partition to be created.</p>",
         "PartitionInputList$member": null,
         "UpdatePartitionRequest$PartitionInput": "<p>The new partition object to update the partition to.</p> <p>The <code>Values</code> property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.</p>"
@@ -3316,6 +3453,7 @@
       "refs": {
         "DynamoDBTarget$Path": "<p>The name of the DynamoDB table to crawl.</p>",
         "JdbcTarget$Path": "<p>The path of the JDBC target.</p>",
+        "MongoDBTarget$Path": "<p>The path of the Amazon DocumentDB or MongoDB target (database/collection).</p>",
         "PathList$member": null,
         "S3Target$Path": "<p>The path to the Amazon S3 target.</p>"
       }
@@ -4180,6 +4318,8 @@
         "GetCrawlersResponse$NextToken": "<p>A continuation token, if the returned list has not reached the end of those defined in this customer account.</p>",
         "GetDatabasesRequest$NextToken": "<p>A continuation token, if this is a continuation call.</p>",
         "GetDatabasesResponse$NextToken": "<p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>",
+        "GetPartitionIndexesRequest$NextToken": "<p>A continuation token, included if this is a continuation call.</p>",
+        "GetPartitionIndexesResponse$NextToken": "<p>A continuation token, present if the current list segment is not the last.</p>",
         "GetPartitionsRequest$NextToken": "<p>A continuation token, if this is not the first call to retrieve these partitions.</p>",
         "GetPartitionsResponse$NextToken": "<p>A continuation token, if the returned list of partitions does not include the last one.</p>",
         "GetResourcePoliciesRequest$NextToken": "<p>A continuation token, if this is a continuation request.</p>",

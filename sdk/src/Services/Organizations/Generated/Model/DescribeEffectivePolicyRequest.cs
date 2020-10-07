@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -33,7 +33,7 @@ namespace Amazon.Organizations.Model
     /// Returns the contents of the effective policy for specified policy type and account.
     /// The effective policy is the aggregation of any policies of the specified type that
     /// the account inherits, plus any policy of that type that is directly attached to the
-    /// account. 
+    /// account.
     /// 
     ///  
     /// <para>
@@ -97,7 +97,7 @@ namespace Amazon.Organizations.Model
         /// <para>
         /// When you're signed in as the master account, specify the ID of the account that you
         /// want details about. Specifying an organization root or organizational unit (OU) as
-        /// the target is not supported. 
+        /// the target is not supported.
         /// </para>
         /// </summary>
         [AWSProperty(Max=100)]

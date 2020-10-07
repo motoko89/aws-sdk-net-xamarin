@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -199,6 +199,13 @@ namespace Amazon.Runtime.Internal
         /// use.
         /// </summary>
         string ComputeContentStreamHash();
+
+        /// <summary>
+        /// If the request needs to be signed with a different service name 
+        /// than the client config AuthenticationServiceName, set it here to override
+        /// the result of DetermineService in AWS4Signer
+        /// </summary>
+        string OverrideSigningServiceName { get; set; }
 
         /// <summary>
         /// The name of the service to which this request is being sent.

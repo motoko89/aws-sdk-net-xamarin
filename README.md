@@ -433,6 +433,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* The RDS Data API Beta is available for the MySQL-compatible edition of Amazon Aurora Serverless in the US East (N. Virginia) Region. This API enables you to easily access Aurora Serverless with web services-based applications including AWS Lambda and AWS AppSync.
 * [AWSSDK.Redshift](https://www.nuget.org/packages/AWSSDK.Redshift/)
 	* Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse solution that makes it simple and cost-effective to efficiently analyze all your data using your existing business intelligence tools.
+* [AWSSDK.RedshiftDataAPIService](https://www.nuget.org/packages/AWSSDK.RedshiftDataAPIService/)
+	* The Amazon Redshift Data API is generally available. This release enables querying Amazon Redshift data and listing various database objects.
 * [AWSSDK.Rekognition](https://www.nuget.org/packages/AWSSDK.Rekognition/)
 	* AWS Rekognition service does image processing and concept recognition, face detection and identification, face verification, similar face search and face clustering.
 * [AWSSDK.ResourceGroups](https://www.nuget.org/packages/AWSSDK.ResourceGroups/)
@@ -451,6 +453,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* Amazon Simple Storage Service (Amazon S3), provides developers and IT teams with secure, durable, highly-scalable object storage.
 * [AWSSDK.S3Control](https://www.nuget.org/packages/AWSSDK.S3Control/)
 	* Add support for new S3 Block Public Access account-level APIs. The Block Public Access settings allow account owners to prevent public access to S3 data via bucket/object ACLs or bucket policies.
+* [AWSSDK.S3Outposts](https://www.nuget.org/packages/AWSSDK.S3Outposts/)
+	* Amazon S3 on Outposts expands object storage to on-premises AWS Outposts environments, enabling you to store and retrieve objects using S3 APIs and features.
 * [AWSSDK.SageMaker](https://www.nuget.org/packages/AWSSDK.SageMaker/)
 	* Amazon SageMaker is a fully-managed service that enables data scientists and developers to quickly and easily build, train, and deploy machine learning models, at scale.
 * [AWSSDK.SageMakerRuntime](https://www.nuget.org/packages/AWSSDK.SageMakerRuntime/)
@@ -497,6 +501,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* Amazon Simple Queue Service (SQS) is a fast, reliable, scalable, fully managed message queuing service. SQS makes it simple and cost-effective to decouple the components of a cloud application.
 * [AWSSDK.SSO](https://www.nuget.org/packages/AWSSDK.SSO/)
 	* This is an initial release of AWS Single Sign-On (SSO) end-user access. This release adds support for accessing AWS accounts assigned in AWS SSO using short term credentials.
+* [AWSSDK.SSOAdmin](https://www.nuget.org/packages/AWSSDK.SSOAdmin/)
+	* This is an initial release of AWS Single Sign-On (SSO) Access Management APIs. This release adds support for SSO operations which could be used for managing access to AWS accounts.
 * [AWSSDK.SSOOIDC](https://www.nuget.org/packages/AWSSDK.SSOOIDC/)
 	* This is an initial release of AWS Single Sign-On OAuth device code authorization service.
 * [AWSSDK.StepFunctions](https://www.nuget.org/packages/AWSSDK.StepFunctions/)
@@ -507,6 +513,10 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* Introducing CloudWatch Synthetics. This is the first public release of CloudWatch Synthetics.
 * [AWSSDK.Textract](https://www.nuget.org/packages/AWSSDK.Textract/)
 	* This release is intended ONLY for customers that are officially part of the Amazon Textract Preview program. If you are not officially part of the Amazon Textract program THIS WILL NOT WORK. Our two main regions for Amazon Textract Preview are N. Virginia and Dublin. Also some members have been added to Oregon and Ohio. If you are outside of any of these AWS regions, Amazon Textract Preview definitely will not work. If you would like to be part of the Amazon Textract program, you can officially request sign up here - https://pages.awscloud.com/textract-preview.html. To set expectations appropriately, we are aiming to admit new preview participants once a week until General Availability.
+* [AWSSDK.TimestreamQuery](https://www.nuget.org/packages/AWSSDK.TimestreamQuery/)
+	* (New Service) Amazon Timestream is a fast, scalable, fully managed, purpose-built time series database that makes it easy to store and analyze trillions of time series data points per day.
+* [AWSSDK.TimestreamWrite](https://www.nuget.org/packages/AWSSDK.TimestreamWrite/)
+	* (New Service) Amazon Timestream is a fast, scalable, fully managed, purpose-built time series database that makes it easy to store and analyze trillions of time series data points per day.
 * [AWSSDK.TranscribeService](https://www.nuget.org/packages/AWSSDK.TranscribeService/)
 	* Amazon Transcribe Public Preview Release
 * [AWSSDK.Transfer](https://www.nuget.org/packages/AWSSDK.Transfer/)

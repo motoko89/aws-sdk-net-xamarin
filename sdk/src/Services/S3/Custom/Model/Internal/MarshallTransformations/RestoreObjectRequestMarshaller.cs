@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -45,6 +45,9 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
 
             if (restoreObjectRequest.IsSetRequestPayer())
                 request.Headers.Add(S3Constants.AmzHeaderRequestPayer, S3Transforms.ToStringValue(restoreObjectRequest.RequestPayer.ToString()));
+
+            if (restoreObjectRequest.IsSetExpectedBucketOwner())
+                request.Headers.Add(S3Constants.AmzHeaderExpectedBucketOwner, S3Transforms.ToStringValue(restoreObjectRequest.ExpectedBucketOwner));
 
             if (string.IsNullOrEmpty(restoreObjectRequest.BucketName))
                 throw new System.ArgumentException("BucketName is a required property and must be set before making this call.", "RestoreObjectRequest.BucketName");

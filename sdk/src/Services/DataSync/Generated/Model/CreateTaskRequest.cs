@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@ namespace Amazon.DataSync.Model
     /// status for more than a few minutes, it means that your agent might be having trouble
     /// mounting the source NFS file system. Check the task's ErrorCode and ErrorDetail. Mount
     /// issues are often caused by either a misconfigured firewall or a mistyped NFS server
-    /// host name.
+    /// hostname.
     /// </para>
     /// </summary>
     public partial class CreateTaskRequest : AmazonDataSyncRequest

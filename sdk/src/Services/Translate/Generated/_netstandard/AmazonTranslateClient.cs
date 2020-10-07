@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -40,6 +40,9 @@ namespace Amazon.Translate
     ///
     /// Provides translation between one source language and another of the same set of languages.
     /// </summary>
+#if NETSTANDARD13
+    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
+#endif
     public partial class AmazonTranslateClient : AmazonServiceClient, IAmazonTranslate
     {
         private static IServiceMetadata serviceMetadata = new AmazonTranslateMetadata();
@@ -282,6 +285,10 @@ namespace Amazon.Translate
         /// <returns>The response from the DeleteTerminology service method, as returned by Translate.</returns>
         /// <exception cref="Amazon.Translate.Model.InternalServerException">
         /// An internal server error occurred. Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.Translate.Model.InvalidParameterValueException">
+        /// The value of the parameter is invalid. Review the value of the parameter you are using
+        /// to correct it, and then retry your operation.
         /// </exception>
         /// <exception cref="Amazon.Translate.Model.ResourceNotFoundException">
         /// The resource you are looking for has not been found. Review the resource you're looking

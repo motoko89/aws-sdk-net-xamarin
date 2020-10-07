@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -71,6 +71,9 @@ namespace Amazon.WorkMail
     /// on a selective basis using the IAM model.
     /// </para>
     /// </summary>
+#if NETSTANDARD13
+    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
+#endif
     public partial interface IAmazonWorkMail : IAmazonService, IDisposable
     {
 #if AWS_ASYNC_ENUMERABLES_API
@@ -158,6 +161,44 @@ namespace Amazon.WorkMail
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/AssociateMemberToGroup">REST API Reference for AssociateMemberToGroup Operation</seealso>
         Task<AssociateMemberToGroupResponse> AssociateMemberToGroupAsync(AssociateMemberToGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  CancelMailboxExportJob
+
+
+
+        /// <summary>
+        /// Cancels a mailbox export job.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// If the mailbox export job is near completion, it might not be possible to cancel it.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CancelMailboxExportJob service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CancelMailboxExportJob service method, as returned by WorkMail.</returns>
+        /// <exception cref="Amazon.WorkMail.Model.EntityNotFoundException">
+        /// The identifier supplied for the user, group, or resource does not exist in your organization.
+        /// </exception>
+        /// <exception cref="Amazon.WorkMail.Model.InvalidParameterException">
+        /// One or more of the input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.WorkMail.Model.OrganizationNotFoundException">
+        /// An operation received a valid organization identifier that either doesn't belong or
+        /// exist in the system.
+        /// </exception>
+        /// <exception cref="Amazon.WorkMail.Model.OrganizationStateException">
+        /// The organization must have a valid state (Active or Synchronizing) to perform certain
+        /// operations on the organization or its members.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CancelMailboxExportJob">REST API Reference for CancelMailboxExportJob Operation</seealso>
+        Task<CancelMailboxExportJobResponse> CancelMailboxExportJobAsync(CancelMailboxExportJobRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -670,6 +711,38 @@ namespace Amazon.WorkMail
 
         #endregion
                 
+        #region  DescribeMailboxExportJob
+
+
+
+        /// <summary>
+        /// Describes the current status of a mailbox export job.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeMailboxExportJob service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeMailboxExportJob service method, as returned by WorkMail.</returns>
+        /// <exception cref="Amazon.WorkMail.Model.EntityNotFoundException">
+        /// The identifier supplied for the user, group, or resource does not exist in your organization.
+        /// </exception>
+        /// <exception cref="Amazon.WorkMail.Model.InvalidParameterException">
+        /// One or more of the input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.WorkMail.Model.OrganizationNotFoundException">
+        /// An operation received a valid organization identifier that either doesn't belong or
+        /// exist in the system.
+        /// </exception>
+        /// <exception cref="Amazon.WorkMail.Model.OrganizationStateException">
+        /// The organization must have a valid state (Active or Synchronizing) to perform certain
+        /// operations on the organization or its members.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DescribeMailboxExportJob">REST API Reference for DescribeMailboxExportJob Operation</seealso>
+        Task<DescribeMailboxExportJobResponse> DescribeMailboxExportJobAsync(DescribeMailboxExportJobRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  DescribeOrganization
 
 
@@ -1065,6 +1138,36 @@ namespace Amazon.WorkMail
 
         #endregion
                 
+        #region  ListMailboxExportJobs
+
+
+
+        /// <summary>
+        /// Lists the mailbox export jobs started for the specified organization within the last
+        /// seven days.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListMailboxExportJobs service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListMailboxExportJobs service method, as returned by WorkMail.</returns>
+        /// <exception cref="Amazon.WorkMail.Model.InvalidParameterException">
+        /// One or more of the input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.WorkMail.Model.OrganizationNotFoundException">
+        /// An operation received a valid organization identifier that either doesn't belong or
+        /// exist in the system.
+        /// </exception>
+        /// <exception cref="Amazon.WorkMail.Model.OrganizationStateException">
+        /// The organization must have a valid state (Active or Synchronizing) to perform certain
+        /// operations on the organization or its members.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListMailboxExportJobs">REST API Reference for ListMailboxExportJobs Operation</seealso>
+        Task<ListMailboxExportJobsResponse> ListMailboxExportJobsAsync(ListMailboxExportJobsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  ListMailboxPermissions
 
 
@@ -1454,6 +1557,44 @@ namespace Amazon.WorkMail
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ResetPassword">REST API Reference for ResetPassword Operation</seealso>
         Task<ResetPasswordResponse> ResetPasswordAsync(ResetPasswordRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  StartMailboxExportJob
+
+
+
+        /// <summary>
+        /// Starts a mailbox export job to export MIME-format email messages and calendar items
+        /// from the specified mailbox to the specified Amazon Simple Storage Service (Amazon
+        /// S3) bucket. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html">Exporting
+        /// mailbox content</a> in the <i>Amazon WorkMail Administrator Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartMailboxExportJob service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartMailboxExportJob service method, as returned by WorkMail.</returns>
+        /// <exception cref="Amazon.WorkMail.Model.EntityNotFoundException">
+        /// The identifier supplied for the user, group, or resource does not exist in your organization.
+        /// </exception>
+        /// <exception cref="Amazon.WorkMail.Model.InvalidParameterException">
+        /// One or more of the input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.WorkMail.Model.LimitExceededException">
+        /// The request exceeds the limit of the resource.
+        /// </exception>
+        /// <exception cref="Amazon.WorkMail.Model.OrganizationNotFoundException">
+        /// An operation received a valid organization identifier that either doesn't belong or
+        /// exist in the system.
+        /// </exception>
+        /// <exception cref="Amazon.WorkMail.Model.OrganizationStateException">
+        /// The organization must have a valid state (Active or Synchronizing) to perform certain
+        /// operations on the organization or its members.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/StartMailboxExportJob">REST API Reference for StartMailboxExportJob Operation</seealso>
+        Task<StartMailboxExportJobResponse> StartMailboxExportJobAsync(StartMailboxExportJobRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 

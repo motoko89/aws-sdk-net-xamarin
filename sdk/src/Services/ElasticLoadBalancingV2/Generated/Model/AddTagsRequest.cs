@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -31,7 +31,8 @@ namespace Amazon.ElasticLoadBalancingV2.Model
     /// <summary>
     /// Container for the parameters to the AddTags operation.
     /// Adds the specified tags to the specified Elastic Load Balancing resource. You can
-    /// tag your Application Load Balancers, Network Load Balancers, and your target groups.
+    /// tag your Application Load Balancers, Network Load Balancers, target groups, listeners,
+    /// and rules.
     /// 
     ///  
     /// <para>

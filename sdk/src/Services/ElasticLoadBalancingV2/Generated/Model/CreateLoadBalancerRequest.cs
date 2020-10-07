@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -65,6 +65,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
     /// </summary>
     public partial class CreateLoadBalancerRequest : AmazonElasticLoadBalancingV2Request
     {
+        private string _customerOwnedIpv4Pool;
         private IpAddressType _ipAddressType;
         private string _name;
         private LoadBalancerSchemeEnum _scheme;
@@ -73,6 +74,26 @@ namespace Amazon.ElasticLoadBalancingV2.Model
         private List<string> _subnets = new List<string>();
         private List<Tag> _tags = new List<Tag>();
         private LoadBalancerTypeEnum _type;
+
+        /// <summary>
+        /// Gets and sets the property CustomerOwnedIpv4Pool. 
+        /// <para>
+        /// [Application Load Balancers on Outposts] The ID of the customer-owned address pool
+        /// (CoIP pool).
+        /// </para>
+        /// </summary>
+        [AWSProperty(Max=256)]
+        public string CustomerOwnedIpv4Pool
+        {
+            get { return this._customerOwnedIpv4Pool; }
+            set { this._customerOwnedIpv4Pool = value; }
+        }
+
+        // Check to see if CustomerOwnedIpv4Pool property is set
+        internal bool IsSetCustomerOwnedIpv4Pool()
+        {
+            return this._customerOwnedIpv4Pool != null;
+        }
 
         /// <summary>
         /// Gets and sets the property IpAddressType. 
@@ -183,6 +204,15 @@ namespace Amazon.ElasticLoadBalancingV2.Model
         /// </para>
         ///  
         /// <para>
+        /// [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+        /// </para>
+        ///  
+        /// <para>
+        /// [Application Load Balancers on Local Zones] You can specify subnets from one or more
+        /// Local Zones.
+        /// </para>
+        ///  
+        /// <para>
         /// [Network Load Balancers] You can specify subnets from one or more Availability Zones.
         /// You can specify one Elastic IP address per subnet if you need static IP addresses
         /// for your internet-facing load balancer. For internal load balancers, you can specify
@@ -214,6 +244,15 @@ namespace Amazon.ElasticLoadBalancingV2.Model
         /// </para>
         ///  
         /// <para>
+        /// [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+        /// </para>
+        ///  
+        /// <para>
+        /// [Application Load Balancers on Local Zones] You can specify subnets from one or more
+        /// Local Zones.
+        /// </para>
+        ///  
+        /// <para>
         /// [Network Load Balancers] You can specify subnets from one or more Availability Zones.
         /// </para>
         /// </summary>
@@ -232,7 +271,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
         /// <summary>
         /// Gets and sets the property Tags. 
         /// <para>
-        /// One or more tags to assign to the load balancer.
+        /// The tags to assign to the load balancer.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1)]

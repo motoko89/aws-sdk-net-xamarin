@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -61,11 +61,8 @@ namespace Amazon.Translate.Model
         /// <summary>
         /// Gets and sets the property ClientToken. 
         /// <para>
-        /// The client token of the EC2 instance calling the request. This token is auto-generated
-        /// when using the Amazon Translate SDK. Otherwise, use the <a href="docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a>
-        /// EC2 operation to retreive an instance's client token. For more information, see <a
-        /// href="docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html#client-tokens">Client
-        /// Tokens</a> in the EC2 User Guide.
+        /// A unique identifier for the request. This token is auto-generated when using the Amazon
+        /// Translate SDK.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=64)]

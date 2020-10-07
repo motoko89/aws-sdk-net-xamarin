@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -120,6 +120,17 @@ namespace Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations
 
                 var marshaller = KinesisParametersMarshaller.Instance;
                 marshaller.Marshall(requestObject.KinesisParameters, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetRedshiftDataParameters())
+            {
+                context.Writer.WritePropertyName("RedshiftDataParameters");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = RedshiftDataParametersMarshaller.Instance;
+                marshaller.Marshall(requestObject.RedshiftDataParameters, context);
 
                 context.Writer.WriteObjectEnd();
             }

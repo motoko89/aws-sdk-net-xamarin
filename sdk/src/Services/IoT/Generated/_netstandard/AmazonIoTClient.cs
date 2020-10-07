@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -69,6 +69,9 @@ namespace Amazon.IoT
     /// Direct Calls to AWS Services</a>.
     /// </para>
     /// </summary>
+#if NETSTANDARD13
+    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
+#endif
     public partial class AmazonIoTClient : AmazonServiceClient, IAmazonIoT
     {
         private static IServiceMetadata serviceMetadata = new AmazonIoTMetadata();
@@ -7666,7 +7669,7 @@ namespace Amazon.IoT
 
         /// <summary>
         /// Lists the findings (results) of a Device Defender audit or of the audits performed
-        /// during a specified time period. (Findings are retained for 180 days.)
+        /// during a specified time period. (Findings are retained for 90 days.)
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAuditFindings service method.</param>
         /// <param name="cancellationToken">
@@ -11008,6 +11011,9 @@ namespace Amazon.IoT
         /// </exception>
         /// <exception cref="Amazon.IoT.Model.InvalidRequestException">
         /// The request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.LimitExceededException">
+        /// A limit has been exceeded.
         /// </exception>
         /// <exception cref="Amazon.IoT.Model.NotConfiguredException">
         /// The resource is not configured.

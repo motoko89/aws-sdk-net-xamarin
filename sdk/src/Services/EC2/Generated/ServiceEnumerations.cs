@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -6291,6 +6291,34 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType T3Xlarge = new InstanceType("t3.xlarge");
         /// <summary>
+        /// Constant T4g2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType T4g2xlarge = new InstanceType("t4g.2xlarge");
+        /// <summary>
+        /// Constant T4gLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType T4gLarge = new InstanceType("t4g.large");
+        /// <summary>
+        /// Constant T4gMedium for InstanceType
+        /// </summary>
+        public static readonly InstanceType T4gMedium = new InstanceType("t4g.medium");
+        /// <summary>
+        /// Constant T4gMicro for InstanceType
+        /// </summary>
+        public static readonly InstanceType T4gMicro = new InstanceType("t4g.micro");
+        /// <summary>
+        /// Constant T4gNano for InstanceType
+        /// </summary>
+        public static readonly InstanceType T4gNano = new InstanceType("t4g.nano");
+        /// <summary>
+        /// Constant T4gSmall for InstanceType
+        /// </summary>
+        public static readonly InstanceType T4gSmall = new InstanceType("t4g.small");
+        /// <summary>
+        /// Constant T4gXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType T4gXlarge = new InstanceType("t4g.xlarge");
+        /// <summary>
         /// Constant U12tb1Metal for InstanceType
         /// </summary>
         public static readonly InstanceType U12tb1Metal = new InstanceType("u-12tb1.metal");
@@ -8895,6 +8923,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly ResourceType DhcpOptions = new ResourceType("dhcp-options");
         /// <summary>
+        /// Constant EgressOnlyInternetGateway for ResourceType
+        /// </summary>
+        public static readonly ResourceType EgressOnlyInternetGateway = new ResourceType("egress-only-internet-gateway");
+        /// <summary>
         /// Constant ElasticGpu for ResourceType
         /// </summary>
         public static readonly ResourceType ElasticGpu = new ResourceType("elastic-gpu");
@@ -10891,6 +10923,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly TransitGatewayAttachmentResourceType DirectConnectGateway = new TransitGatewayAttachmentResourceType("direct-connect-gateway");
         /// <summary>
+        /// Constant Peering for TransitGatewayAttachmentResourceType
+        /// </summary>
+        public static readonly TransitGatewayAttachmentResourceType Peering = new TransitGatewayAttachmentResourceType("peering");
+        /// <summary>
         /// Constant TgwPeering for TransitGatewayAttachmentResourceType
         /// </summary>
         public static readonly TransitGatewayAttachmentResourceType TgwPeering = new TransitGatewayAttachmentResourceType("tgw-peering");
@@ -10968,6 +11004,10 @@ namespace Amazon.EC2
         /// Constant Initiating for TransitGatewayAttachmentState
         /// </summary>
         public static readonly TransitGatewayAttachmentState Initiating = new TransitGatewayAttachmentState("initiating");
+        /// <summary>
+        /// Constant InitiatingRequest for TransitGatewayAttachmentState
+        /// </summary>
+        public static readonly TransitGatewayAttachmentState InitiatingRequest = new TransitGatewayAttachmentState("initiatingRequest");
         /// <summary>
         /// Constant Modifying for TransitGatewayAttachmentState
         /// </summary>
@@ -11610,6 +11650,10 @@ namespace Amazon.EC2
         /// Constant T3a for UnlimitedSupportedInstanceFamily
         /// </summary>
         public static readonly UnlimitedSupportedInstanceFamily T3a = new UnlimitedSupportedInstanceFamily("t3a");
+        /// <summary>
+        /// Constant T4g for UnlimitedSupportedInstanceFamily
+        /// </summary>
+        public static readonly UnlimitedSupportedInstanceFamily T4g = new UnlimitedSupportedInstanceFamily("t4g");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant

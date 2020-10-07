@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -134,6 +134,10 @@ namespace Amazon.Imagebuilder
         /// Constant Io1 for EbsVolumeType
         /// </summary>
         public static readonly EbsVolumeType Io1 = new EbsVolumeType("io1");
+        /// <summary>
+        /// Constant Io2 for EbsVolumeType
+        /// </summary>
+        public static readonly EbsVolumeType Io2 = new EbsVolumeType("io2");
         /// <summary>
         /// Constant Sc1 for EbsVolumeType
         /// </summary>

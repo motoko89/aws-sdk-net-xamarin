@@ -1,6 +1,6 @@
 #if !NETSTANDARD13
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -77,11 +77,27 @@ namespace Amazon.Connect.Model
         }
 
         /// <summary>
+        /// Paginator for ListPrompts operation
+        ///</summary>
+        public IListPromptsPaginator ListPrompts(ListPromptsRequest request) 
+        {
+            return new ListPromptsPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for ListQueues operation
         ///</summary>
         public IListQueuesPaginator ListQueues(ListQueuesRequest request) 
         {
             return new ListQueuesPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListRoutingProfileQueues operation
+        ///</summary>
+        public IListRoutingProfileQueuesPaginator ListRoutingProfileQueues(ListRoutingProfileQueuesRequest request) 
+        {
+            return new ListRoutingProfileQueuesPaginator(this.client, request);
         }
 
         /// <summary>

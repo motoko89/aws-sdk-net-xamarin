@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -2422,6 +2422,9 @@ namespace Amazon.ServiceCatalog
         /// <param name="request">Container for the necessary parameters to execute the DescribeProvisionedProduct service method.</param>
         /// 
         /// <returns>The response from the DescribeProvisionedProduct service method, as returned by ServiceCatalog.</returns>
+        /// <exception cref="Amazon.ServiceCatalog.Model.InvalidParametersException">
+        /// One or more parameters provided to the operation are not valid.
+        /// </exception>
         /// <exception cref="Amazon.ServiceCatalog.Model.ResourceNotFoundException">
         /// The specified resource was not found.
         /// </exception>
@@ -2445,6 +2448,9 @@ namespace Amazon.ServiceCatalog
         /// </param>
         /// 
         /// <returns>The response from the DescribeProvisionedProduct service method, as returned by ServiceCatalog.</returns>
+        /// <exception cref="Amazon.ServiceCatalog.Model.InvalidParametersException">
+        /// One or more parameters provided to the operation are not valid.
+        /// </exception>
         /// <exception cref="Amazon.ServiceCatalog.Model.ResourceNotFoundException">
         /// The specified resource was not found.
         /// </exception>

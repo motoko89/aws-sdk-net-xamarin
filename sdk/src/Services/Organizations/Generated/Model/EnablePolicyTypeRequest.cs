@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ namespace Amazon.Organizations.Model
     /// <para>
     /// This is an asynchronous request that AWS performs in the background. AWS recommends
     /// that you first use <a>ListRoots</a> to see the status of policy types for a specified
-    /// root, and then use this operation. 
+    /// root, and then use this operation.
     /// </para>
     ///  
     /// <para>

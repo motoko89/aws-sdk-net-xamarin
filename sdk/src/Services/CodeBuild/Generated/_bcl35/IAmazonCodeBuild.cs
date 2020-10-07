@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -784,11 +784,7 @@ namespace Amazon.CodeBuild
 
 
         /// <summary>
-        /// <code>DeleteReportGroup</code>: Deletes a report group. Before you delete a report
-        /// group, you must delete its reports. Use <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListReportsForReportGroup.html">ListReportsForReportGroup</a>
-        /// to get the reports in a report group. Use <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteReport.html">DeleteReport</a>
-        /// to delete the reports. If you call <code>DeleteReportGroup</code> for a report group
-        /// that contains one or more reports, an exception is thrown.
+        /// Deletes a report group. Before you delete a report group, you must delete its reports.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteReportGroup service method.</param>
         /// 

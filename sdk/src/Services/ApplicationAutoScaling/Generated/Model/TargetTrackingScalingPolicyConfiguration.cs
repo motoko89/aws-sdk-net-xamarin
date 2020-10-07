@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -160,7 +160,7 @@ namespace Amazon.ApplicationAutoScaling.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Amazon Comprehend document classification endpoints
+        /// Amazon Comprehend document classification and entity recognizer endpoints
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -169,6 +169,10 @@ namespace Amazon.ApplicationAutoScaling.Model
         ///  </li> <li> 
         /// <para>
         /// Amazon Keyspaces tables
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Amazon MSK cluster storage
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -194,9 +198,11 @@ namespace Amazon.ApplicationAutoScaling.Model
         /// <para>
         /// With the <i>scale-out cooldown period</i>, the intention is to continuously (but not
         /// excessively) scale out. After Application Auto Scaling successfully scales out using
-        /// a target tracking scaling policy, it starts to calculate the cooldown time. While
-        /// the scale-out cooldown period is in effect, the capacity added by the initiating scale-out
-        /// activity is calculated as part of the desired capacity for the next scale-out activity.
+        /// a target tracking scaling policy, it starts to calculate the cooldown time. The scaling
+        /// policy won't increase the desired capacity again unless either a larger scale out
+        /// is triggered or the cooldown period ends. While the cooldown period is in effect,
+        /// the capacity added by the initiating scale-out activity is calculated as part of the
+        /// desired capacity for the next scale-out activity.
         /// </para>
         ///  
         /// <para>
@@ -245,7 +251,7 @@ namespace Amazon.ApplicationAutoScaling.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Amazon Comprehend document classification endpoints
+        /// Amazon Comprehend document classification and entity recognizer endpoints
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -254,6 +260,10 @@ namespace Amazon.ApplicationAutoScaling.Model
         ///  </li> <li> 
         /// <para>
         /// Amazon Keyspaces tables
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Amazon MSK cluster storage
         /// </para>
         ///  </li> </ul>
         /// </summary>

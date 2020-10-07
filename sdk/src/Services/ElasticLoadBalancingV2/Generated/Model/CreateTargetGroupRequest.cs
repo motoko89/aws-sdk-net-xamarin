@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -73,6 +73,7 @@ namespace Amazon.ElasticLoadBalancingV2.Model
         private string _name;
         private int? _port;
         private ProtocolEnum _protocol;
+        private List<Tag> _tags = new List<Tag>();
         private TargetTypeEnum _targetType;
         private int? _unhealthyThresholdCount;
         private string _vpcId;
@@ -312,6 +313,25 @@ namespace Amazon.ElasticLoadBalancingV2.Model
         internal bool IsSetProtocol()
         {
             return this._protocol != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// The tags to assign to the target group.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1)]
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
         /// <summary>

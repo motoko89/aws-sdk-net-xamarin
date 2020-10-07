@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -285,6 +285,12 @@ namespace Amazon.RDS.Model.Internal.MarshallTransformations
                     {
                         var unmarshaller = BoolUnmarshaller.Instance;
                         unmarshalledObject.MultiAZ = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("NcharCharacterSetName", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.NcharCharacterSetName = unmarshaller.Unmarshall(context);
                         continue;
                     }
                     if (context.TestExpression("OptionGroupMemberships/OptionGroupMembership", targetDepth))

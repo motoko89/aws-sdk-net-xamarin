@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -124,8 +124,8 @@ namespace Amazon.CodeGuruReviewer.Model
         /// <para>
         /// List of owners to use as a filter. For AWS CodeCommit, it is the name of the CodeCommit
         /// account that was used to associate the repository. For other repository source providers,
-        /// such as Bitbucket, this is name of the account that was used to associate the repository.
-        /// 
+        /// such as Bitbucket and GitHub Enterprise Server, this is name of the account that was
+        /// used to associate the repository. 
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=3)]
@@ -184,10 +184,10 @@ namespace Amazon.CodeGuruReviewer.Model
         /// </para>
         ///  <note> 
         /// <para>
-        ///  If your repository <code>ProviderType</code> is <code>GitHub</code> or <code>Bitbucket</code>,
-        /// CodeGuru Reviewer creates webhooks in your repository to trigger CodeGuru Reviewer
-        /// reviews. If you delete these webhooks, reviews of code in your repository cannot be
-        /// triggered. 
+        ///  If your repository <code>ProviderType</code> is <code>GitHub</code>, <code>GitHub
+        /// Enterprise Server</code>, or <code>Bitbucket</code>, CodeGuru Reviewer creates webhooks
+        /// in your repository to trigger CodeGuru Reviewer reviews. If you delete these webhooks,
+        /// reviews of code in your repository cannot be triggered. 
         /// </para>
         ///  </note> </li> <li> 
         /// <para>

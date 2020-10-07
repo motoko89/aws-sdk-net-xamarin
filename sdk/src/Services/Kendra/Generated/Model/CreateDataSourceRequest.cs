@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -34,11 +34,7 @@ namespace Amazon.Kendra.Model
     /// 
     ///  
     /// <para>
-    /// You specify a name, connector type and description for your data source. You can choose
-    /// between an S3 connector, a SharePoint Online connector, and a database connector.
-    /// </para>
-    ///  
-    /// <para>
+    /// You specify a name, data source connector type and description for your data source.
     /// You also specify configuration information such as document metadata (author, source
     /// URI, and so on) and user context information.
     /// </para>
@@ -62,7 +58,8 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property Configuration. 
         /// <para>
-        /// The connector configuration information that is required to access the repository.
+        /// The data source connector configuration information that is required to access the
+        /// repository.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -1045,6 +1045,75 @@ namespace Amazon.Glue
         public virtual BatchStopJobRunResponse EndBatchStopJobRun(IAsyncResult asyncResult)
         {
             return EndInvoke<BatchStopJobRunResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  BatchUpdatePartition
+
+        /// <summary>
+        /// Updates one or more partitions in a batch operation.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchUpdatePartition service method.</param>
+        /// 
+        /// <returns>The response from the BatchUpdatePartition service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.GlueEncryptionException">
+        /// An encryption operation failed.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchUpdatePartition">REST API Reference for BatchUpdatePartition Operation</seealso>
+        public virtual BatchUpdatePartitionResponse BatchUpdatePartition(BatchUpdatePartitionRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchUpdatePartitionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchUpdatePartitionResponseUnmarshaller.Instance;
+
+            return Invoke<BatchUpdatePartitionResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the BatchUpdatePartition operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the BatchUpdatePartition operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndBatchUpdatePartition
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchUpdatePartition">REST API Reference for BatchUpdatePartition Operation</seealso>
+        public virtual IAsyncResult BeginBatchUpdatePartition(BatchUpdatePartitionRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchUpdatePartitionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchUpdatePartitionResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  BatchUpdatePartition operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginBatchUpdatePartition.</param>
+        /// 
+        /// <returns>Returns a  BatchUpdatePartitionResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchUpdatePartition">REST API Reference for BatchUpdatePartition Operation</seealso>
+        public virtual BatchUpdatePartitionResponse EndBatchUpdatePartition(IAsyncResult asyncResult)
+        {
+            return EndInvoke<BatchUpdatePartitionResponse>(asyncResult);
         }
 
         #endregion
@@ -5081,6 +5150,75 @@ namespace Amazon.Glue
         public virtual GetPartitionResponse EndGetPartition(IAsyncResult asyncResult)
         {
             return EndInvoke<GetPartitionResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetPartitionIndexes
+
+        /// <summary>
+        /// Retrieves the partition indexes associated with a table.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetPartitionIndexes service method.</param>
+        /// 
+        /// <returns>The response from the GetPartitionIndexes service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.ConflictException">
+        /// The <code>CreatePartitions</code> API was called on a table that has indexes enabled.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetPartitionIndexes">REST API Reference for GetPartitionIndexes Operation</seealso>
+        public virtual GetPartitionIndexesResponse GetPartitionIndexes(GetPartitionIndexesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetPartitionIndexesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetPartitionIndexesResponseUnmarshaller.Instance;
+
+            return Invoke<GetPartitionIndexesResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetPartitionIndexes operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetPartitionIndexes operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetPartitionIndexes
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetPartitionIndexes">REST API Reference for GetPartitionIndexes Operation</seealso>
+        public virtual IAsyncResult BeginGetPartitionIndexes(GetPartitionIndexesRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetPartitionIndexesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetPartitionIndexesResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetPartitionIndexes operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetPartitionIndexes.</param>
+        /// 
+        /// <returns>Returns a  GetPartitionIndexesResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetPartitionIndexes">REST API Reference for GetPartitionIndexes Operation</seealso>
+        public virtual GetPartitionIndexesResponse EndGetPartitionIndexes(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetPartitionIndexesResponse>(asyncResult);
         }
 
         #endregion

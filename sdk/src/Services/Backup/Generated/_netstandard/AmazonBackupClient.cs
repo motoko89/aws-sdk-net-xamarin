@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -45,6 +45,9 @@ namespace Amazon.Backup
     /// of backups, while also providing reporting and auditing.
     /// </para>
     /// </summary>
+#if NETSTANDARD13
+    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
+#endif
     public partial class AmazonBackupClient : AmazonServiceClient, IAmazonBackup
     {
         private static IServiceMetadata serviceMetadata = new AmazonBackupMetadata();
@@ -277,8 +280,9 @@ namespace Amazon.Backup
 
 
         /// <summary>
-        /// Backup plans are documents that contain information that AWS Backup uses to schedule
-        /// tasks that create recovery points of resources.
+        /// Creates a backup plan using a backup plan name and backup rules. A backup plan is
+        /// a document that contains information that AWS Backup uses to schedule tasks that create
+        /// recovery points for resources.
         /// 
         ///  
         /// <para>
@@ -357,7 +361,7 @@ namespace Amazon.Backup
         /// </para>
         ///  
         /// <para>
-        ///  <code>ConditionType:"STRINGEQUALS"</code> 
+        ///  <code>ConditionType:"StringEquals"</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -369,19 +373,19 @@ namespace Amazon.Backup
         /// </para>
         ///  
         /// <para>
-        ///  <code>ConditionType:"STRINGEQUALS"</code> 
+        ///  <code>ConditionType:"StringEquals"</code> 
         /// </para>
         ///  </li> </ul> 
         /// <para>
         /// Using these patterns would back up all Amazon Elastic Block Store (Amazon EBS) volumes
         /// that are tagged as <code>"department=finance"</code>, <code>"importance=critical"</code>,
-        /// in addition to an EBS volume with the specified volume Id.
+        /// in addition to an EBS volume with the specified volume ID.
         /// </para>
         ///  
         /// <para>
         /// Resources and conditions are additive in that all resources that match the pattern
         /// are selected. This shouldn't be confused with a logical AND, where all conditions
-        /// must match. The matching patterns are logically 'put together using the OR operator.
+        /// must match. The matching patterns are logically put together using the OR operator.
         /// In other words, all patterns that match are selected for backup.
         /// </para>
         /// </summary>
@@ -792,7 +796,7 @@ namespace Amazon.Backup
 
 
         /// <summary>
-        /// Returns metadata associated with creating a backup of a resource.
+        /// Returns backup job details for the specified <code>BackupJobId</code>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeBackupJob service method.</param>
         /// <param name="cancellationToken">
@@ -1034,10 +1038,10 @@ namespace Amazon.Backup
 
         /// <summary>
         /// Returns the current service opt-in settings for the Region. If the service has a value
-        /// set to <code>true</code>, AWS Backup attempts to protect that service's resources
-        /// in this Region, when included in an on-demand backup or scheduled backup plan. If
-        /// the value is set to <code>false</code> for a service, AWS Backup does not attempt
-        /// to protect that service's resources in this Region.
+        /// set to <code>true</code>, AWS Backup tries to protect that service's resources in
+        /// this Region, when included in an on-demand backup or scheduled backup plan. If the
+        /// value is set to <code>false</code> for a service, AWS Backup does not try to protect
+        /// that service's resources in this Region.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeRegionSettings service method.</param>
         /// <param name="cancellationToken">
@@ -1172,6 +1176,7 @@ namespace Amazon.Backup
 
 
         /// <summary>
+        /// Returns <code>BackupPlan</code> details for the specified <code>BackupPlanId</code>.
         /// Returns the body of a backup plan in JSON format, in addition to plan metadata.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetBackupPlan service method.</param>
@@ -1544,7 +1549,7 @@ namespace Amazon.Backup
 
 
         /// <summary>
-        /// Returns metadata about your backup jobs.
+        /// Returns a list of existing backup jobs for an authenticated account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListBackupJobs service method.</param>
         /// <param name="cancellationToken">
@@ -1585,9 +1590,10 @@ namespace Amazon.Backup
 
 
         /// <summary>
-        /// Returns metadata of your saved backup plans, including Amazon Resource Names (ARNs),
-        /// plan IDs, creation and deletion dates, version IDs, plan names, and creator request
-        /// IDs.
+        /// Returns a list of existing backup plans for an authenticated account. The list is
+        /// populated only if the advanced option is set for the backup plan. The list contains
+        /// information such as Amazon Resource Names (ARNs), plan IDs, creation and deletion
+        /// dates, version IDs, plan names, and creator request IDs.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListBackupPlans service method.</param>
         /// <param name="cancellationToken">
@@ -2201,7 +2207,7 @@ namespace Amazon.Backup
 
 
         /// <summary>
-        /// Starts a job to create a one-time backup of the specified resource.
+        /// Starts an on-demand backup job for the specified resource.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartBackupJob service method.</param>
         /// <param name="cancellationToken">
@@ -2508,9 +2514,8 @@ namespace Amazon.Backup
 
 
         /// <summary>
-        /// Replaces the body of a saved backup plan identified by its <code>backupPlanId</code>
-        /// with the input document in JSON format. The new version is uniquely identified by
-        /// a <code>VersionId</code>.
+        /// Updates an existing backup plan identified by its <code>backupPlanId</code> with the
+        /// input document in JSON format. The new version is uniquely identified by a <code>VersionId</code>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateBackupPlan service method.</param>
         /// <param name="cancellationToken">
@@ -2619,10 +2624,10 @@ namespace Amazon.Backup
 
         /// <summary>
         /// Updates the current service opt-in settings for the Region. If the service has a value
-        /// set to <code>true</code>, AWS Backup attempts to protect that service's resources
-        /// in this Region, when included in an on-demand backup or scheduled backup plan. If
-        /// the value is set to <code>false</code> for a service, AWS Backup does not attempt
-        /// to protect that service's resources in this Region.
+        /// set to <code>true</code>, AWS Backup tries to protect that service's resources in
+        /// this Region, when included in an on-demand backup or scheduled backup plan. If the
+        /// value is set to <code>false</code> for a service, AWS Backup does not try to protect
+        /// that service's resources in this Region.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateRegionSettings service method.</param>
         /// <param name="cancellationToken">

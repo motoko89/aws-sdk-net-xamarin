@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ namespace Amazon.ResourceGroups
     /// match the resource types specified in a query, and share one or more tags or portions
     /// of tags. You can create a group of resources based on their roles in your cloud infrastructure,
     /// lifecycle stages, regions, application layers, or virtually any criteria. Resource
-    /// groups enable you to automate management tasks, such as those in AWS Systems Manager
+    /// Groups enable you to automate management tasks, such as those in AWS Systems Manager
     /// Automation documents, on tag-related resources in AWS Systems Manager. Groups of tagged
     /// resources also let you quickly view a custom console in AWS Systems Manager that shows
     /// AWS Config compliance and other monitoring data about member resources.
@@ -82,6 +82,9 @@ namespace Amazon.ResourceGroups
     /// </para>
     ///  </li> </ul>
     /// </summary>
+#if NETSTANDARD13
+    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
+#endif
     public partial interface IAmazonResourceGroups : IAmazonService, IDisposable
     {
 #if AWS_ASYNC_ENUMERABLES_API
@@ -430,7 +433,7 @@ namespace Amazon.ResourceGroups
 
 
         /// <summary>
-        /// Returns a list of AWS resource identifiers that matches tne specified query. The query
+        /// Returns a list of AWS resource identifiers that matches the specified query. The query
         /// uses the same format as a resource query in a CreateGroup or UpdateGroupQuery operation.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SearchResources service method.</param>

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -38,6 +38,7 @@ namespace Amazon.Batch.Model
         private ContainerDetail _container;
         private long? _createdAt;
         private List<JobDependency> _dependsOn = new List<JobDependency>();
+        private string _jobArn;
         private string _jobDefinition;
         private string _jobId;
         private string _jobName;
@@ -50,6 +51,7 @@ namespace Amazon.Batch.Model
         private JobStatus _status;
         private string _statusReason;
         private long? _stoppedAt;
+        private Dictionary<string, string> _tags = new Dictionary<string, string>();
         private JobTimeout _timeout;
 
         /// <summary>
@@ -109,10 +111,10 @@ namespace Amazon.Batch.Model
         /// <summary>
         /// Gets and sets the property CreatedAt. 
         /// <para>
-        /// The Unix timestamp (in seconds and milliseconds) for when the job was created. For
-        /// non-array jobs and parent array jobs, this is when the job entered the <code>SUBMITTED</code>
-        /// state (at the time <a>SubmitJob</a> was called). For array child jobs, this is when
-        /// the child job was spawned by its parent and entered the <code>PENDING</code> state.
+        /// The Unix timestamp (in milliseconds) for when the job was created. For non-array jobs
+        /// and parent array jobs, this is when the job entered the <code>SUBMITTED</code> state
+        /// (at the time <a>SubmitJob</a> was called). For array child jobs, this is when the
+        /// child job was spawned by its parent and entered the <code>PENDING</code> state.
         /// </para>
         /// </summary>
         public long CreatedAt
@@ -143,6 +145,24 @@ namespace Amazon.Batch.Model
         internal bool IsSetDependsOn()
         {
             return this._dependsOn != null && this._dependsOn.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property JobArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of the job.
+        /// </para>
+        /// </summary>
+        public string JobArn
+        {
+            get { return this._jobArn; }
+            set { this._jobArn = value; }
+        }
+
+        // Check to see if JobArn property is set
+        internal bool IsSetJobArn()
+        {
+            return this._jobArn != null;
         }
 
         /// <summary>
@@ -298,9 +318,9 @@ namespace Amazon.Batch.Model
         /// <summary>
         /// Gets and sets the property StartedAt. 
         /// <para>
-        /// The Unix timestamp (in seconds and milliseconds) for when the job was started (when
-        /// the job transitioned from the <code>STARTING</code> state to the <code>RUNNING</code>
-        /// state).
+        /// The Unix timestamp (in milliseconds) for when the job was started (when the job transitioned
+        /// from the <code>STARTING</code> state to the <code>RUNNING</code> state). This parameter
+        /// is not provided for child jobs of array jobs or multi-node parallel jobs.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -364,9 +384,9 @@ namespace Amazon.Batch.Model
         /// <summary>
         /// Gets and sets the property StoppedAt. 
         /// <para>
-        /// The Unix timestamp (in seconds and milliseconds) for when the job was stopped (when
-        /// the job transitioned from the <code>RUNNING</code> state to a terminal state, such
-        /// as <code>SUCCEEDED</code> or <code>FAILED</code>).
+        /// The Unix timestamp (in milliseconds) for when the job was stopped (when the job transitioned
+        /// from the <code>RUNNING</code> state to a terminal state, such as <code>SUCCEEDED</code>
+        /// or <code>FAILED</code>).
         /// </para>
         /// </summary>
         public long StoppedAt
@@ -379,6 +399,25 @@ namespace Amazon.Batch.Model
         internal bool IsSetStoppedAt()
         {
             return this._stoppedAt.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// The tags applied to the job.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=50)]
+        public Dictionary<string, string> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
         /// <summary>

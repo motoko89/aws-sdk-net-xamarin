@@ -75,7 +75,8 @@
         {"shape":"TooManyActionsException"},
         {"shape":"InvalidLoadBalancerActionException"},
         {"shape":"TooManyUniqueTargetGroupsPerLoadBalancerException"},
-        {"shape":"ALPNPolicyNotSupportedException"}
+        {"shape":"ALPNPolicyNotSupportedException"},
+        {"shape":"TooManyTagsException"}
       ]
     },
     "CreateLoadBalancer":{
@@ -130,7 +131,8 @@
         {"shape":"UnsupportedProtocolException"},
         {"shape":"TooManyActionsException"},
         {"shape":"InvalidLoadBalancerActionException"},
-        {"shape":"TooManyUniqueTargetGroupsPerLoadBalancerException"}
+        {"shape":"TooManyUniqueTargetGroupsPerLoadBalancerException"},
+        {"shape":"TooManyTagsException"}
       ]
     },
     "CreateTargetGroup":{
@@ -147,7 +149,8 @@
       "errors":[
         {"shape":"DuplicateTargetGroupNameException"},
         {"shape":"TooManyTargetGroupsException"},
-        {"shape":"InvalidConfigurationRequestException"}
+        {"shape":"InvalidConfigurationRequestException"},
+        {"shape":"TooManyTagsException"}
       ]
     },
     "DeleteListener":{
@@ -818,6 +821,7 @@
       "members":{
         "ZoneName":{"shape":"ZoneName"},
         "SubnetId":{"shape":"SubnetId"},
+        "OutpostId":{"shape":"OutpostId"},
         "LoadBalancerAddresses":{"shape":"LoadBalancerAddresses"}
       }
     },
@@ -892,7 +896,8 @@
         "SslPolicy":{"shape":"SslPolicyName"},
         "Certificates":{"shape":"CertificateList"},
         "DefaultActions":{"shape":"Actions"},
-        "AlpnPolicy":{"shape":"AlpnPolicyName"}
+        "AlpnPolicy":{"shape":"AlpnPolicyName"},
+        "Tags":{"shape":"TagList"}
       }
     },
     "CreateListenerOutput":{
@@ -912,7 +917,8 @@
         "Scheme":{"shape":"LoadBalancerSchemeEnum"},
         "Tags":{"shape":"TagList"},
         "Type":{"shape":"LoadBalancerTypeEnum"},
-        "IpAddressType":{"shape":"IpAddressType"}
+        "IpAddressType":{"shape":"IpAddressType"},
+        "CustomerOwnedIpv4Pool":{"shape":"CustomerOwnedIpv4Pool"}
       }
     },
     "CreateLoadBalancerOutput":{
@@ -933,7 +939,8 @@
         "ListenerArn":{"shape":"ListenerArn"},
         "Conditions":{"shape":"RuleConditionList"},
         "Priority":{"shape":"RulePriority"},
-        "Actions":{"shape":"Actions"}
+        "Actions":{"shape":"Actions"},
+        "Tags":{"shape":"TagList"}
       }
     },
     "CreateRuleOutput":{
@@ -959,7 +966,8 @@
         "HealthyThresholdCount":{"shape":"HealthCheckThresholdCount"},
         "UnhealthyThresholdCount":{"shape":"HealthCheckThresholdCount"},
         "Matcher":{"shape":"Matcher"},
-        "TargetType":{"shape":"TargetTypeEnum"}
+        "TargetType":{"shape":"TargetTypeEnum"},
+        "Tags":{"shape":"TagList"}
       }
     },
     "CreateTargetGroupOutput":{
@@ -969,6 +977,11 @@
       }
     },
     "CreatedTime":{"type":"timestamp"},
+    "CustomerOwnedIpv4Pool":{
+      "type":"string",
+      "max":256,
+      "pattern":"^(ipv4pool-coip-)[a-zA-Z0-9]+$"
+    },
     "DNSName":{"type":"string"},
     "Default":{"type":"boolean"},
     "DeleteListenerInput":{
@@ -1469,7 +1482,8 @@
         "Type":{"shape":"LoadBalancerTypeEnum"},
         "AvailabilityZones":{"shape":"AvailabilityZones"},
         "SecurityGroups":{"shape":"SecurityGroups"},
-        "IpAddressType":{"shape":"IpAddressType"}
+        "IpAddressType":{"shape":"IpAddressType"},
+        "CustomerOwnedIpv4Pool":{"shape":"CustomerOwnedIpv4Pool"}
       }
     },
     "LoadBalancerAddress":{
@@ -1671,6 +1685,7 @@
       },
       "exception":true
     },
+    "OutpostId":{"type":"string"},
     "PageSize":{
       "type":"integer",
       "max":400,

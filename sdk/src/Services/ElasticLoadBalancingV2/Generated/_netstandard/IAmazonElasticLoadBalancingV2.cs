@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -63,6 +63,9 @@ namespace Amazon.ElasticLoadBalancingV2
     /// at most one time. If you repeat an operation, it succeeds.
     /// </para>
     /// </summary>
+#if NETSTANDARD13
+    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
+#endif
     public partial interface IAmazonElasticLoadBalancingV2 : IAmazonService, IDisposable
     {
 #if AWS_ASYNC_ENUMERABLES_API
@@ -123,7 +126,8 @@ namespace Amazon.ElasticLoadBalancingV2
 
         /// <summary>
         /// Adds the specified tags to the specified Elastic Load Balancing resource. You can
-        /// tag your Application Load Balancers, Network Load Balancers, and your target groups.
+        /// tag your Application Load Balancers, Network Load Balancers, target groups, listeners,
+        /// and rules.
         /// 
         ///  
         /// <para>
@@ -233,6 +237,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyRegistrationsForTargetIdException">
         /// You've reached the limit on the number of times a target can be registered with a
         /// load balancer.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyTagsException">
+        /// You've reached the limit on the number of tags per load balancer.
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyTargetsException">
         /// You've reached the limit on the number of targets.
@@ -399,6 +406,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyRulesException">
         /// You've reached the limit on the number of rules per load balancer.
         /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyTagsException">
+        /// You've reached the limit on the number of tags per load balancer.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyTargetGroupsException">
         /// You've reached the limit on the number of target groups for your AWS account.
         /// </exception>
@@ -464,6 +474,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.InvalidConfigurationRequestException">
         /// The requested configuration is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyTagsException">
+        /// You've reached the limit on the number of tags per load balancer.
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyTargetGroupsException">
         /// You've reached the limit on the number of target groups for your AWS account.
@@ -833,8 +846,9 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Describes the tags for the specified resources. You can describe the tags for one
-        /// or more Application Load Balancers, Network Load Balancers, and target groups.
+        /// Describes the tags for the specified Elastic Load Balancing resources. You can describe
+        /// the tags for one or more Application Load Balancers, Network Load Balancers, target
+        /// groups, listeners, or rules.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeTags service method.</param>
         /// <param name="cancellationToken">
@@ -1281,7 +1295,9 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Removes the specified tags from the specified Elastic Load Balancing resource.
+        /// Removes the specified tags from the specified Elastic Load Balancing resources. You
+        /// can remove the tags for one or more Application Load Balancers, Network Load Balancers,
+        /// target groups, listeners, or rules.
         /// 
         ///  
         /// <para>

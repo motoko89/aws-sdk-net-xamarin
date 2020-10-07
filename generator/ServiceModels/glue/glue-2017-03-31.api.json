@@ -188,6 +188,22 @@
         {"shape":"OperationTimeoutException"}
       ]
     },
+    "BatchUpdatePartition":{
+      "name":"BatchUpdatePartition",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"BatchUpdatePartitionRequest"},
+      "output":{"shape":"BatchUpdatePartitionResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"EntityNotFoundException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"GlueEncryptionException"}
+      ]
+    },
     "CancelMLTaskRun":{
       "name":"CancelMLTaskRun",
       "http":{
@@ -1084,6 +1100,22 @@
         {"shape":"InternalServiceException"},
         {"shape":"OperationTimeoutException"},
         {"shape":"GlueEncryptionException"}
+      ]
+    },
+    "GetPartitionIndexes":{
+      "name":"GetPartitionIndexes",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetPartitionIndexesRequest"},
+      "output":{"shape":"GetPartitionIndexesResponse"},
+      "errors":[
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"InvalidInputException"},
+        {"shape":"EntityNotFoundException"},
+        {"shape":"ConflictException"}
       ]
     },
     "GetPartitions":{
@@ -2072,6 +2104,11 @@
       "type":"list",
       "member":{"shape":"Action"}
     },
+    "AdditionalPlanOptionsMap":{
+      "type":"map",
+      "key":{"shape":"GenericString"},
+      "value":{"shape":"GenericString"}
+    },
     "AlreadyExistsException":{
       "type":"structure",
       "members":{
@@ -2335,6 +2372,54 @@
     "BatchStopJobRunSuccessfulSubmissionList":{
       "type":"list",
       "member":{"shape":"BatchStopJobRunSuccessfulSubmission"}
+    },
+    "BatchUpdatePartitionFailureEntry":{
+      "type":"structure",
+      "members":{
+        "PartitionValueList":{"shape":"BoundedPartitionValueList"},
+        "ErrorDetail":{"shape":"ErrorDetail"}
+      }
+    },
+    "BatchUpdatePartitionFailureList":{
+      "type":"list",
+      "member":{"shape":"BatchUpdatePartitionFailureEntry"}
+    },
+    "BatchUpdatePartitionRequest":{
+      "type":"structure",
+      "required":[
+        "DatabaseName",
+        "TableName",
+        "Entries"
+      ],
+      "members":{
+        "CatalogId":{"shape":"CatalogIdString"},
+        "DatabaseName":{"shape":"NameString"},
+        "TableName":{"shape":"NameString"},
+        "Entries":{"shape":"BatchUpdatePartitionRequestEntryList"}
+      }
+    },
+    "BatchUpdatePartitionRequestEntry":{
+      "type":"structure",
+      "required":[
+        "PartitionValueList",
+        "PartitionInput"
+      ],
+      "members":{
+        "PartitionValueList":{"shape":"BoundedPartitionValueList"},
+        "PartitionInput":{"shape":"PartitionInput"}
+      }
+    },
+    "BatchUpdatePartitionRequestEntryList":{
+      "type":"list",
+      "member":{"shape":"BatchUpdatePartitionRequestEntry"},
+      "max":100,
+      "min":1
+    },
+    "BatchUpdatePartitionResponse":{
+      "type":"structure",
+      "members":{
+        "Errors":{"shape":"BatchUpdatePartitionFailureList"}
+      }
     },
     "BinaryColumnStatisticsData":{
       "type":"structure",
@@ -2681,6 +2766,13 @@
       "type":"list",
       "member":{"shape":"Condition"}
     },
+    "ConflictException":{
+      "type":"structure",
+      "members":{
+        "Message":{"shape":"MessageString"}
+      },
+      "exception":true
+    },
     "ConfusionMatrix":{
       "type":"structure",
       "members":{
@@ -2902,6 +2994,7 @@
       "members":{
         "S3Targets":{"shape":"S3TargetList"},
         "JdbcTargets":{"shape":"JdbcTargetList"},
+        "MongoDBTargets":{"shape":"MongoDBTargetList"},
         "DynamoDBTargets":{"shape":"DynamoDBTargetList"},
         "CatalogTargets":{"shape":"CatalogTargetList"}
       }
@@ -3188,7 +3281,8 @@
       "members":{
         "CatalogId":{"shape":"CatalogIdString"},
         "DatabaseName":{"shape":"NameString"},
-        "TableInput":{"shape":"TableInput"}
+        "TableInput":{"shape":"TableInput"},
+        "PartitionIndexes":{"shape":"PartitionIndexList"}
       }
     },
     "CreateTableResponse":{
@@ -4337,6 +4431,26 @@
         "Mapping":{"shape":"MappingList"}
       }
     },
+    "GetPartitionIndexesRequest":{
+      "type":"structure",
+      "required":[
+        "DatabaseName",
+        "TableName"
+      ],
+      "members":{
+        "CatalogId":{"shape":"CatalogIdString"},
+        "DatabaseName":{"shape":"NameString"},
+        "TableName":{"shape":"NameString"},
+        "NextToken":{"shape":"Token"}
+      }
+    },
+    "GetPartitionIndexesResponse":{
+      "type":"structure",
+      "members":{
+        "PartitionIndexDescriptorList":{"shape":"PartitionIndexDescriptorList"},
+        "NextToken":{"shape":"Token"}
+      }
+    },
     "GetPartitionRequest":{
       "type":"structure",
       "required":[
@@ -4391,7 +4505,8 @@
         "Source":{"shape":"CatalogEntry"},
         "Sinks":{"shape":"CatalogEntries"},
         "Location":{"shape":"Location"},
-        "Language":{"shape":"Language"}
+        "Language":{"shape":"Language"},
+        "AdditionalPlanOptionsMap":{"shape":"AdditionalPlanOptionsMap"}
       }
     },
     "GetPlanResponse":{
@@ -4999,6 +5114,27 @@
     },
     "JsonPath":{"type":"string"},
     "JsonValue":{"type":"string"},
+    "KeyList":{
+      "type":"list",
+      "member":{"shape":"NameString"},
+      "min":1
+    },
+    "KeySchemaElement":{
+      "type":"structure",
+      "required":[
+        "Name",
+        "Type"
+      ],
+      "members":{
+        "Name":{"shape":"NameString"},
+        "Type":{"shape":"ColumnTypeString"}
+      }
+    },
+    "KeySchemaElementList":{
+      "type":"list",
+      "member":{"shape":"KeySchemaElement"},
+      "min":1
+    },
     "KeyString":{
       "type":"string",
       "max":255,
@@ -5258,6 +5394,18 @@
     },
     "MessageString":{"type":"string"},
     "MillisecondsCount":{"type":"long"},
+    "MongoDBTarget":{
+      "type":"structure",
+      "members":{
+        "ConnectionName":{"shape":"ConnectionName"},
+        "Path":{"shape":"Path"},
+        "ScanAll":{"shape":"NullableBoolean"}
+      }
+    },
+    "MongoDBTargetList":{
+      "type":"list",
+      "member":{"shape":"MongoDBTarget"}
+    },
     "NameString":{
       "type":"string",
       "max":255,
@@ -5403,6 +5551,43 @@
     "PartitionErrors":{
       "type":"list",
       "member":{"shape":"PartitionError"}
+    },
+    "PartitionIndex":{
+      "type":"structure",
+      "required":[
+        "Keys",
+        "IndexName"
+      ],
+      "members":{
+        "Keys":{"shape":"KeyList"},
+        "IndexName":{"shape":"NameString"}
+      }
+    },
+    "PartitionIndexDescriptor":{
+      "type":"structure",
+      "required":[
+        "IndexName",
+        "Keys",
+        "IndexStatus"
+      ],
+      "members":{
+        "IndexName":{"shape":"NameString"},
+        "Keys":{"shape":"KeySchemaElementList"},
+        "IndexStatus":{"shape":"PartitionIndexStatus"}
+      }
+    },
+    "PartitionIndexDescriptorList":{
+      "type":"list",
+      "member":{"shape":"PartitionIndexDescriptor"}
+    },
+    "PartitionIndexList":{
+      "type":"list",
+      "member":{"shape":"PartitionIndex"},
+      "max":3
+    },
+    "PartitionIndexStatus":{
+      "type":"string",
+      "enum":["ACTIVE"]
     },
     "PartitionInput":{
       "type":"structure",

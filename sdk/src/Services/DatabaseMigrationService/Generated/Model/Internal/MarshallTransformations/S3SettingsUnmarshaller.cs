@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -116,6 +116,24 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = IntUnmarshaller.Instance;
                     unmarshalledObject.DataPageSize = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("DatePartitionDelimiter", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.DatePartitionDelimiter = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("DatePartitionEnabled", targetDepth))
+                {
+                    var unmarshaller = BoolUnmarshaller.Instance;
+                    unmarshalledObject.DatePartitionEnabled = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("DatePartitionSequence", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.DatePartitionSequence = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("DictPageSizeLimit", targetDepth))

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -126,7 +126,8 @@ namespace Amazon.Macie2.Model
         /// <summary>
         /// Gets and sets the property InitialRun. 
         /// <para>
-        /// Specifies whether the job has run for the first time.
+        /// Specifies whether the job is configured to analyze all existing, eligible objects
+        /// immediately after it's created.
         /// </para>
         /// </summary>
         public bool InitialRun
@@ -184,9 +185,9 @@ namespace Amazon.Macie2.Model
         /// </para>
         ///  <ul><li>
         /// <para>
-        /// CANCELLED - The job was cancelled by you or a user of the master account for your
-        /// organization. A job might also be cancelled if ownership of an S3 bucket changed while
-        /// the job was running, and that change affected the job's access to the bucket.
+        /// CANCELLED - You cancelled the job. A job might also be cancelled if ownership of an
+        /// S3 bucket changed while the job was running, and that change affected the job's access
+        /// to the bucket.
         /// </para>
         /// </li> <li>
         /// <para>
@@ -305,8 +306,8 @@ namespace Amazon.Macie2.Model
         /// <summary>
         /// Gets and sets the property SamplingPercentage. 
         /// <para>
-        /// The sampling depth, as a percentage, that determines the number of objects that the
-        /// job processes.
+        /// The sampling depth, as a percentage, that determines the percentage of eligible objects
+        /// that the job analyzes.
         /// </para>
         /// </summary>
         public int SamplingPercentage

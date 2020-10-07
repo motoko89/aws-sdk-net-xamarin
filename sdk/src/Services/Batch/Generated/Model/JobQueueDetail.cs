@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -40,6 +40,7 @@ namespace Amazon.Batch.Model
         private JQState _state;
         private JQStatus _status;
         private string _statusReason;
+        private Dictionary<string, string> _tags = new Dictionary<string, string>();
 
         /// <summary>
         /// Gets and sets the property ComputeEnvironmentOrder. 
@@ -122,7 +123,9 @@ namespace Amazon.Batch.Model
         /// <summary>
         /// Gets and sets the property State. 
         /// <para>
-        /// Describes the ability of the queue to accept new jobs.
+        /// Describes the ability of the queue to accept new jobs. If the job queue state is <code>ENABLED</code>,
+        /// it is able to accept jobs. If the job queue state is <code>DISABLED</code>, new jobs
+        /// cannot be added to the queue, but jobs already in the queue can finish.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -173,6 +176,25 @@ namespace Amazon.Batch.Model
         internal bool IsSetStatusReason()
         {
             return this._statusReason != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// The tags applied to the job queue.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=50)]
+        public Dictionary<string, string> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
     }

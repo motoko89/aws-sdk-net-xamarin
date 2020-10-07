@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -31,10 +31,10 @@ namespace Amazon.Backup.Model
     /// <summary>
     /// Container for the parameters to the DescribeRegionSettings operation.
     /// Returns the current service opt-in settings for the Region. If the service has a value
-    /// set to <code>true</code>, AWS Backup attempts to protect that service's resources
-    /// in this Region, when included in an on-demand backup or scheduled backup plan. If
-    /// the value is set to <code>false</code> for a service, AWS Backup does not attempt
-    /// to protect that service's resources in this Region.
+    /// set to <code>true</code>, AWS Backup tries to protect that service's resources in
+    /// this Region, when included in an on-demand backup or scheduled backup plan. If the
+    /// value is set to <code>false</code> for a service, AWS Backup does not try to protect
+    /// that service's resources in this Region.
     /// </summary>
     public partial class DescribeRegionSettingsRequest : AmazonBackupRequest
     {

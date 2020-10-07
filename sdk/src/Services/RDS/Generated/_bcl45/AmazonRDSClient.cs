@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -1352,8 +1352,8 @@ namespace Amazon.RDS
 
 
         /// <summary>
-        /// Copies the specified DB snapshot. The source DB snapshot must be in the "available"
-        /// state.
+        /// Copies the specified DB snapshot. The source DB snapshot must be in the <code>available</code>
+        /// or <code>storage-optimization</code> state.
         /// 
         ///  
         /// <para>
@@ -1397,8 +1397,8 @@ namespace Amazon.RDS
 
 
         /// <summary>
-        /// Copies the specified DB snapshot. The source DB snapshot must be in the "available"
-        /// state.
+        /// Copies the specified DB snapshot. The source DB snapshot must be in the <code>available</code>
+        /// or <code>storage-optimization</code> state.
         /// 
         ///  
         /// <para>
@@ -3013,9 +3013,9 @@ namespace Amazon.RDS
 
 
         /// <summary>
-        /// Creates an Aurora global database spread across multiple regions. The global database
-        /// contains a single primary cluster with read-write capability, and a read-only secondary
-        /// cluster that receives data from the primary cluster through high-speed replication
+        /// Creates an Aurora global database spread across multiple AWS Regions. The global
+        /// database contains a single primary cluster with read-write capability, and a read-only
+        /// secondary cluster that receives data from the primary cluster through high-speed replication
         /// performed by the Aurora storage subsystem. 
         /// 
         ///  
@@ -3058,9 +3058,9 @@ namespace Amazon.RDS
 
 
         /// <summary>
-        /// Creates an Aurora global database spread across multiple regions. The global database
-        /// contains a single primary cluster with read-write capability, and a read-only secondary
-        /// cluster that receives data from the primary cluster through high-speed replication
+        /// Creates an Aurora global database spread across multiple AWS Regions. The global
+        /// database contains a single primary cluster with read-write capability, and a read-only
+        /// secondary cluster that receives data from the primary cluster through high-speed replication
         /// performed by the Aurora storage subsystem. 
         /// 
         ///  
@@ -6260,7 +6260,13 @@ namespace Amazon.RDS
         /// groups, DB snapshots, and DB cluster snapshots for the past 14 days. Events specific
         /// to a particular DB instances, DB clusters, DB parameter groups, DB security groups,
         /// DB snapshots, and DB cluster snapshots group can be obtained by providing the name
-        /// as a parameter. By default, the past hour of events are returned.
+        /// as a parameter.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// By default, the past hour of events are returned.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// 
         /// <returns>The response from the DescribeEvents service method, as returned by RDS.</returns>
@@ -6276,7 +6282,13 @@ namespace Amazon.RDS
         /// groups, DB snapshots, and DB cluster snapshots for the past 14 days. Events specific
         /// to a particular DB instances, DB clusters, DB parameter groups, DB security groups,
         /// DB snapshots, and DB cluster snapshots group can be obtained by providing the name
-        /// as a parameter. By default, the past hour of events are returned.
+        /// as a parameter.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// By default, the past hour of events are returned.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeEvents service method.</param>
         /// 
@@ -6297,7 +6309,13 @@ namespace Amazon.RDS
         /// groups, DB snapshots, and DB cluster snapshots for the past 14 days. Events specific
         /// to a particular DB instances, DB clusters, DB parameter groups, DB security groups,
         /// DB snapshots, and DB cluster snapshots group can be obtained by providing the name
-        /// as a parameter. By default, the past hour of events are returned.
+        /// as a parameter.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// By default, the past hour of events are returned.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -6315,7 +6333,13 @@ namespace Amazon.RDS
         /// groups, DB snapshots, and DB cluster snapshots for the past 14 days. Events specific
         /// to a particular DB instances, DB clusters, DB parameter groups, DB security groups,
         /// DB snapshots, and DB cluster snapshots group can be obtained by providing the name
-        /// as a parameter. By default, the past hour of events are returned.
+        /// as a parameter.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// By default, the past hour of events are returned.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeEvents service method.</param>
         /// <param name="cancellationToken">
@@ -9317,6 +9341,11 @@ namespace Amazon.RDS
         /// The specified target group isn't available for a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
+        /// <exception cref="Amazon.RDS.Model.InsufficientAvailableIPsInSubnetException">
+        /// The requested operation can't be performed because there aren't enough available IP
+        /// addresses in the proxy's subnets. Add more CIDR blocks to the VPC or remove IP address
+        /// that aren't required from the subnets.
+        /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidDBClusterStateException">
         /// The requested operation can't be performed while the cluster is in this state.
         /// </exception>
@@ -9362,6 +9391,11 @@ namespace Amazon.RDS
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetGroupNotFoundException">
         /// The specified target group isn't available for a proxy owned by your AWS account in
         /// the specified AWS Region.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.InsufficientAvailableIPsInSubnetException">
+        /// The requested operation can't be performed because there aren't enough available IP
+        /// addresses in the proxy's subnets. Add more CIDR blocks to the VPC or remove IP address
+        /// that aren't required from the subnets.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidDBClusterStateException">
         /// The requested operation can't be performed while the cluster is in this state.

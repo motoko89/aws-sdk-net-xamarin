@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -312,6 +312,10 @@ namespace Amazon.Textract
         /// Constant CHILD for RelationshipType
         /// </summary>
         public static readonly RelationshipType CHILD = new RelationshipType("CHILD");
+        /// <summary>
+        /// Constant COMPLEX_FEATURES for RelationshipType
+        /// </summary>
+        public static readonly RelationshipType COMPLEX_FEATURES = new RelationshipType("COMPLEX_FEATURES");
         /// <summary>
         /// Constant VALUE for RelationshipType
         /// </summary>

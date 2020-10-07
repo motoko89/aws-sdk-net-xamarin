@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -30,8 +30,8 @@ namespace Amazon.RDS.Model
 {
     /// <summary>
     /// Container for the parameters to the CopyDBSnapshot operation.
-    /// Copies the specified DB snapshot. The source DB snapshot must be in the "available"
-    /// state.
+    /// Copies the specified DB snapshot. The source DB snapshot must be in the <code>available</code>
+    /// or <code>storage-optimization</code> state.
     /// 
     ///  
     /// <para>

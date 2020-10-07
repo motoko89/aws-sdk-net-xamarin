@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -43,6 +43,9 @@ namespace Amazon.DataSync
     /// interface that you can use to manage AWS DataSync.
     /// </para>
     /// </summary>
+#if NETSTANDARD13
+    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
+#endif
     public partial interface IAmazonDataSync : IAmazonService, IDisposable
     {
 #if AWS_ASYNC_ENUMERABLES_API
@@ -101,7 +104,7 @@ namespace Amazon.DataSync
         ///  
         /// <para>
         /// You can activate the agent in a VPC (virtual private cloud) or provide the agent access
-        /// to a VPC endpoint so you can run tasks without going over the public Internet.
+        /// to a VPC endpoint so you can run tasks without going over the public internet.
         /// </para>
         ///  
         /// <para>
@@ -211,7 +214,8 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Creates an endpoint for a self-managed object storage bucket.
+        /// Creates an endpoint for a self-managed object storage bucket. For more information
+        /// about self-managed object storage locations, see <a>create-object-location</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLocationObjectStorage service method.</param>
         /// <param name="cancellationToken">
@@ -239,15 +243,8 @@ namespace Amazon.DataSync
         /// 
         ///  
         /// <para>
-        /// For AWS DataSync to access a destination S3 bucket, it needs an AWS Identity and Access
-        /// Management (IAM) role that has the required permissions. You can set up the required
-        /// permissions by creating an IAM policy that grants the required permissions and attaching
-        /// the policy to the role. An example of such a policy is shown in the examples section.
-        /// </para>
-        ///  
-        /// <para>
-        /// For more information, see https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location
-        /// in the <i>AWS DataSync User Guide.</i> 
+        /// For more information, see https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli
+        /// in the <i>AWS DataSync User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLocationS3 service method.</param>
@@ -315,7 +312,7 @@ namespace Amazon.DataSync
         /// status for more than a few minutes, it means that your agent might be having trouble
         /// mounting the source NFS file system. Check the task's ErrorCode and ErrorDetail. Mount
         /// issues are often caused by either a misconfigured firewall or a mistyped NFS server
-        /// host name.
+        /// hostname.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateTask service method.</param>
@@ -513,7 +510,8 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Returns metadata about a self-managed object storage server location.
+        /// Returns metadata about a self-managed object storage server location. For more information
+        /// about self-managed object storage locations, see <a>create-object-location</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLocationObjectStorage service method.</param>
         /// <param name="cancellationToken">

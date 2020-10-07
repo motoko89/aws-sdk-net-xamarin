@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -32,9 +32,9 @@ namespace Amazon.KinesisAnalyticsV2
     /// Interface for accessing KinesisAnalyticsV2
     ///
     /// Amazon Kinesis Data Analytics is a fully managed service that you can use to process
-    /// and analyze streaming data using SQL or Java. The service enables you to quickly author
-    /// and run SQL or Java code against streaming sources to perform time series analytics,
-    /// feed real-time dashboards, and create real-time metrics.
+    /// and analyze streaming data using Java, SQL, or Scala. The service enables you to quickly
+    /// author and run Java, SQL, or Scala code against streaming sources to perform time
+    /// series analytics, feed real-time dashboards, and create real-time metrics.
     /// </summary>
     public partial interface IAmazonKinesisAnalyticsV2 : IAmazonService, IDisposable
     {
@@ -113,8 +113,7 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Adds a streaming source to your SQL-based Amazon Kinesis Data Analytics application.
-        /// 
+        /// Adds a streaming source to your SQL-based Kinesis Data Analytics application. 
         /// 
         ///  
         /// <para>
@@ -159,8 +158,7 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Adds a streaming source to your SQL-based Amazon Kinesis Data Analytics application.
-        /// 
+        /// Adds a streaming source to your SQL-based Kinesis Data Analytics application. 
         /// 
         ///  
         /// <para>
@@ -211,10 +209,10 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Adds an <a>InputProcessingConfiguration</a> to an SQL-based Kinesis Data Analytics
+        /// Adds an <a>InputProcessingConfiguration</a> to a SQL-based Kinesis Data Analytics
         /// application. An input processor pre-processes records on the input stream before the
         /// application's SQL code executes. Currently, the only input processor available is
-        /// <a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a>.
+        /// <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AddApplicationInputProcessingConfiguration service method.</param>
         /// 
@@ -242,10 +240,10 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Adds an <a>InputProcessingConfiguration</a> to an SQL-based Kinesis Data Analytics
+        /// Adds an <a>InputProcessingConfiguration</a> to a SQL-based Kinesis Data Analytics
         /// application. An input processor pre-processes records on the input stream before the
         /// application's SQL code executes. Currently, the only input processor available is
-        /// <a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a>.
+        /// <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AddApplicationInputProcessingConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -279,7 +277,7 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Adds an external destination to your SQL-based Amazon Kinesis Data Analytics application.
+        /// Adds an external destination to your SQL-based Kinesis Data Analytics application.
         /// 
         ///  
         /// <para>
@@ -328,7 +326,7 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Adds an external destination to your SQL-based Amazon Kinesis Data Analytics application.
+        /// Adds an external destination to your SQL-based Kinesis Data Analytics application.
         /// 
         ///  
         /// <para>
@@ -383,8 +381,7 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Adds a reference data source to an existing SQL-based Amazon Kinesis Data Analytics
-        /// application.
+        /// Adds a reference data source to an existing SQL-based Kinesis Data Analytics application.
         /// 
         ///  
         /// <para>
@@ -421,8 +418,7 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Adds a reference data source to an existing SQL-based Amazon Kinesis Data Analytics
-        /// application.
+        /// Adds a reference data source to an existing SQL-based Kinesis Data Analytics application.
         /// 
         ///  
         /// <para>
@@ -492,6 +488,9 @@ namespace Amazon.KinesisAnalyticsV2
         /// can be the result of attempting to modify an application without using the current
         /// application ID.
         /// </exception>
+        /// <exception cref="Amazon.KinesisAnalyticsV2.Model.InvalidApplicationConfigurationException">
+        /// The user-provided application configuration is not valid.
+        /// </exception>
         /// <exception cref="Amazon.KinesisAnalyticsV2.Model.InvalidArgumentException">
         /// The specified input parameter value is not valid.
         /// </exception>
@@ -537,6 +536,9 @@ namespace Amazon.KinesisAnalyticsV2
         /// can be the result of attempting to modify an application without using the current
         /// application ID.
         /// </exception>
+        /// <exception cref="Amazon.KinesisAnalyticsV2.Model.InvalidApplicationConfigurationException">
+        /// The user-provided application configuration is not valid.
+        /// </exception>
         /// <exception cref="Amazon.KinesisAnalyticsV2.Model.InvalidArgumentException">
         /// The specified input parameter value is not valid.
         /// </exception>
@@ -555,8 +557,8 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Creates an Amazon Kinesis Data Analytics application. For information about creating
-        /// a Kinesis Data Analytics application, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html">Creating
+        /// Creates a Kinesis Data Analytics application. For information about creating a Kinesis
+        /// Data Analytics application, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html">Creating
         /// an Application</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateApplication service method.</param>
@@ -594,8 +596,8 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Creates an Amazon Kinesis Data Analytics application. For information about creating
-        /// a Kinesis Data Analytics application, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html">Creating
+        /// Creates a Kinesis Data Analytics application. For information about creating a Kinesis
+        /// Data Analytics application, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html">Creating
         /// an Application</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateApplication service method.</param>
@@ -644,6 +646,9 @@ namespace Amazon.KinesisAnalyticsV2
         /// <param name="request">Container for the necessary parameters to execute the CreateApplicationSnapshot service method.</param>
         /// 
         /// <returns>The response from the CreateApplicationSnapshot service method, as returned by KinesisAnalyticsV2.</returns>
+        /// <exception cref="Amazon.KinesisAnalyticsV2.Model.InvalidApplicationConfigurationException">
+        /// The user-provided application configuration is not valid.
+        /// </exception>
         /// <exception cref="Amazon.KinesisAnalyticsV2.Model.InvalidArgumentException">
         /// The specified input parameter value is not valid.
         /// </exception>
@@ -677,6 +682,9 @@ namespace Amazon.KinesisAnalyticsV2
         /// </param>
         /// 
         /// <returns>The response from the CreateApplicationSnapshot service method, as returned by KinesisAnalyticsV2.</returns>
+        /// <exception cref="Amazon.KinesisAnalyticsV2.Model.InvalidApplicationConfigurationException">
+        /// The user-provided application configuration is not valid.
+        /// </exception>
         /// <exception cref="Amazon.KinesisAnalyticsV2.Model.InvalidArgumentException">
         /// The specified input parameter value is not valid.
         /// </exception>
@@ -775,7 +783,7 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Deletes an Amazon CloudWatch log stream from an Amazon Kinesis Data Analytics application.
+        /// Deletes an Amazon CloudWatch log stream from an Kinesis Data Analytics application.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteApplicationCloudWatchLoggingOption service method.</param>
         /// 
@@ -806,7 +814,7 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Deletes an Amazon CloudWatch log stream from an Amazon Kinesis Data Analytics application.
+        /// Deletes an Amazon CloudWatch log stream from an Kinesis Data Analytics application.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteApplicationCloudWatchLoggingOption service method.</param>
         /// <param name="cancellationToken">
@@ -905,9 +913,9 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Deletes the output destination configuration from your SQL-based Amazon Kinesis Data
-        /// Analytics application's configuration. Kinesis Data Analytics will no longer write
-        /// data from the corresponding in-application stream to the external output destination.
+        /// Deletes the output destination configuration from your SQL-based Kinesis Data Analytics
+        /// application's configuration. Kinesis Data Analytics will no longer write data from
+        /// the corresponding in-application stream to the external output destination.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteApplicationOutput service method.</param>
         /// 
@@ -935,9 +943,9 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Deletes the output destination configuration from your SQL-based Amazon Kinesis Data
-        /// Analytics application's configuration. Kinesis Data Analytics will no longer write
-        /// data from the corresponding in-application stream to the external output destination.
+        /// Deletes the output destination configuration from your SQL-based Kinesis Data Analytics
+        /// application's configuration. Kinesis Data Analytics will no longer write data from
+        /// the corresponding in-application stream to the external output destination.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteApplicationOutput service method.</param>
         /// <param name="cancellationToken">
@@ -971,8 +979,8 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Deletes a reference data source configuration from the specified SQL-based Amazon
-        /// Kinesis Data Analytics application's configuration.
+        /// Deletes a reference data source configuration from the specified SQL-based Kinesis
+        /// Data Analytics application's configuration.
         /// 
         ///  
         /// <para>
@@ -1007,8 +1015,8 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Deletes a reference data source configuration from the specified SQL-based Amazon
-        /// Kinesis Data Analytics application's configuration.
+        /// Deletes a reference data source configuration from the specified SQL-based Kinesis
+        /// Data Analytics application's configuration.
         /// 
         ///  
         /// <para>
@@ -1119,6 +1127,9 @@ namespace Amazon.KinesisAnalyticsV2
         /// can be the result of attempting to modify an application without using the current
         /// application ID.
         /// </exception>
+        /// <exception cref="Amazon.KinesisAnalyticsV2.Model.InvalidApplicationConfigurationException">
+        /// The user-provided application configuration is not valid.
+        /// </exception>
         /// <exception cref="Amazon.KinesisAnalyticsV2.Model.InvalidArgumentException">
         /// The specified input parameter value is not valid.
         /// </exception>
@@ -1147,6 +1158,9 @@ namespace Amazon.KinesisAnalyticsV2
         /// can be the result of attempting to modify an application without using the current
         /// application ID.
         /// </exception>
+        /// <exception cref="Amazon.KinesisAnalyticsV2.Model.InvalidApplicationConfigurationException">
+        /// The user-provided application configuration is not valid.
+        /// </exception>
         /// <exception cref="Amazon.KinesisAnalyticsV2.Model.InvalidArgumentException">
         /// The specified input parameter value is not valid.
         /// </exception>
@@ -1165,7 +1179,7 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Returns information about a specific Amazon Kinesis Data Analytics application.
+        /// Returns information about a specific Kinesis Data Analytics application.
         /// 
         ///  
         /// <para>
@@ -1191,7 +1205,7 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Returns information about a specific Amazon Kinesis Data Analytics application.
+        /// Returns information about a specific Kinesis Data Analytics application.
         /// 
         ///  
         /// <para>
@@ -1271,11 +1285,10 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Infers a schema for an SQL-based Amazon Kinesis Data Analytics application by evaluating
-        /// sample records on the specified streaming source (Kinesis data stream or Kinesis Data
-        /// Firehose delivery stream) or Amazon S3 object. In the response, the operation returns
-        /// the inferred schema and also the sample records that the operation used to infer the
-        /// schema.
+        /// Infers a schema for a SQL-based Kinesis Data Analytics application by evaluating sample
+        /// records on the specified streaming source (Kinesis data stream or Kinesis Data Firehose
+        /// delivery stream) or Amazon S3 object. In the response, the operation returns the inferred
+        /// schema and also the sample records that the operation used to infer the schema.
         /// 
         ///  
         /// <para>
@@ -1294,7 +1307,7 @@ namespace Amazon.KinesisAnalyticsV2
         /// The request JSON is not valid for the operation.
         /// </exception>
         /// <exception cref="Amazon.KinesisAnalyticsV2.Model.ResourceProvisionedThroughputExceededException">
-        /// Discovery failed to get a record from the streaming source because of the Amazon Kinesis
+        /// Discovery failed to get a record from the streaming source because of the Kinesis
         /// Streams <code>ProvisionedThroughputExceededException</code>. For more information,
         /// see <a href="http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html">GetRecords</a>
         /// in the Amazon Kinesis Streams API Reference.
@@ -1303,8 +1316,8 @@ namespace Amazon.KinesisAnalyticsV2
         /// The service cannot complete the request.
         /// </exception>
         /// <exception cref="Amazon.KinesisAnalyticsV2.Model.UnableToDetectSchemaException">
-        /// The data format is not valid. Amazon Kinesis Data Analytics cannot detect the schema
-        /// for the given streaming source.
+        /// The data format is not valid. Kinesis Data Analytics cannot detect the schema for
+        /// the given streaming source.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalyticsv2-2018-05-23/DiscoverInputSchema">REST API Reference for DiscoverInputSchema Operation</seealso>
         DiscoverInputSchemaResponse DiscoverInputSchema(DiscoverInputSchemaRequest request);
@@ -1312,11 +1325,10 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Infers a schema for an SQL-based Amazon Kinesis Data Analytics application by evaluating
-        /// sample records on the specified streaming source (Kinesis data stream or Kinesis Data
-        /// Firehose delivery stream) or Amazon S3 object. In the response, the operation returns
-        /// the inferred schema and also the sample records that the operation used to infer the
-        /// schema.
+        /// Infers a schema for a SQL-based Kinesis Data Analytics application by evaluating sample
+        /// records on the specified streaming source (Kinesis data stream or Kinesis Data Firehose
+        /// delivery stream) or Amazon S3 object. In the response, the operation returns the inferred
+        /// schema and also the sample records that the operation used to infer the schema.
         /// 
         ///  
         /// <para>
@@ -1338,7 +1350,7 @@ namespace Amazon.KinesisAnalyticsV2
         /// The request JSON is not valid for the operation.
         /// </exception>
         /// <exception cref="Amazon.KinesisAnalyticsV2.Model.ResourceProvisionedThroughputExceededException">
-        /// Discovery failed to get a record from the streaming source because of the Amazon Kinesis
+        /// Discovery failed to get a record from the streaming source because of the Kinesis
         /// Streams <code>ProvisionedThroughputExceededException</code>. For more information,
         /// see <a href="http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html">GetRecords</a>
         /// in the Amazon Kinesis Streams API Reference.
@@ -1347,8 +1359,8 @@ namespace Amazon.KinesisAnalyticsV2
         /// The service cannot complete the request.
         /// </exception>
         /// <exception cref="Amazon.KinesisAnalyticsV2.Model.UnableToDetectSchemaException">
-        /// The data format is not valid. Amazon Kinesis Data Analytics cannot detect the schema
-        /// for the given streaming source.
+        /// The data format is not valid. Kinesis Data Analytics cannot detect the schema for
+        /// the given streaming source.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalyticsv2-2018-05-23/DiscoverInputSchema">REST API Reference for DiscoverInputSchema Operation</seealso>
         Task<DiscoverInputSchemaResponse> DiscoverInputSchemaAsync(DiscoverInputSchemaRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -1359,9 +1371,9 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Returns a list of Amazon Kinesis Data Analytics applications in your account. For
-        /// each application, the response includes the application name, Amazon Resource Name
-        /// (ARN), and status. 
+        /// Returns a list of Kinesis Data Analytics applications in your account. For each application,
+        /// the response includes the application name, Amazon Resource Name (ARN), and status.
+        /// 
         /// 
         ///  
         /// <para>
@@ -1380,9 +1392,9 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Returns a list of Amazon Kinesis Data Analytics applications in your account. For
-        /// each application, the response includes the application name, Amazon Resource Name
-        /// (ARN), and status. 
+        /// Returns a list of Kinesis Data Analytics applications in your account. For each application,
+        /// the response includes the application name, Amazon Resource Name (ARN), and status.
+        /// 
         /// 
         ///  
         /// <para>
@@ -1503,8 +1515,8 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Starts the specified Amazon Kinesis Data Analytics application. After creating an
-        /// application, you must exclusively call this operation to start your application.
+        /// Starts the specified Kinesis Data Analytics application. After creating an application,
+        /// you must exclusively call this operation to start your application.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartApplication service method.</param>
         /// 
@@ -1530,8 +1542,8 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Starts the specified Amazon Kinesis Data Analytics application. After creating an
-        /// application, you must exclusively call this operation to start your application.
+        /// Starts the specified Kinesis Data Analytics application. After creating an application,
+        /// you must exclusively call this operation to start your application.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartApplication service method.</param>
         /// <param name="cancellationToken">
@@ -1570,6 +1582,11 @@ namespace Amazon.KinesisAnalyticsV2
         /// <param name="request">Container for the necessary parameters to execute the StopApplication service method.</param>
         /// 
         /// <returns>The response from the StopApplication service method, as returned by KinesisAnalyticsV2.</returns>
+        /// <exception cref="Amazon.KinesisAnalyticsV2.Model.ConcurrentModificationException">
+        /// Exception thrown as a result of concurrent modifications to an application. This error
+        /// can be the result of attempting to modify an application without using the current
+        /// application ID.
+        /// </exception>
         /// <exception cref="Amazon.KinesisAnalyticsV2.Model.InvalidApplicationConfigurationException">
         /// The user-provided application configuration is not valid.
         /// </exception>
@@ -1601,6 +1618,11 @@ namespace Amazon.KinesisAnalyticsV2
         /// </param>
         /// 
         /// <returns>The response from the StopApplication service method, as returned by KinesisAnalyticsV2.</returns>
+        /// <exception cref="Amazon.KinesisAnalyticsV2.Model.ConcurrentModificationException">
+        /// Exception thrown as a result of concurrent modifications to an application. This error
+        /// can be the result of attempting to modify an application without using the current
+        /// application ID.
+        /// </exception>
         /// <exception cref="Amazon.KinesisAnalyticsV2.Model.InvalidApplicationConfigurationException">
         /// The user-provided application configuration is not valid.
         /// </exception>
@@ -1625,9 +1647,9 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Adds one or more key-value tags to a Kinesis Analytics application. Note that the
-        /// maximum number of application tags includes system tags. The maximum number of user-defined
-        /// application tags is 50. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using
+        /// Adds one or more key-value tags to a Kinesis Data Analytics application. Note that
+        /// the maximum number of application tags includes system tags. The maximum number of
+        /// user-defined application tags is 50. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using
         /// Tagging</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
@@ -1658,9 +1680,9 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Adds one or more key-value tags to a Kinesis Analytics application. Note that the
-        /// maximum number of application tags includes system tags. The maximum number of user-defined
-        /// application tags is 50. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using
+        /// Adds one or more key-value tags to a Kinesis Data Analytics application. Note that
+        /// the maximum number of application tags includes system tags. The maximum number of
+        /// user-defined application tags is 50. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using
         /// Tagging</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
@@ -1697,7 +1719,7 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Removes one or more tags from a Kinesis Analytics application. For more information,
+        /// Removes one or more tags from a Kinesis Data Analytics application. For more information,
         /// see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using
         /// Tagging</a>.
         /// </summary>
@@ -1729,7 +1751,7 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Removes one or more tags from a Kinesis Analytics application. For more information,
+        /// Removes one or more tags from a Kinesis Data Analytics application. For more information,
         /// see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using
         /// Tagging</a>.
         /// </summary>
@@ -1767,14 +1789,21 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Updates an existing Amazon Kinesis Data Analytics application. Using this operation,
-        /// you can update application code, input configuration, and output configuration. 
+        /// Updates an existing Kinesis Data Analytics application. Using this operation, you
+        /// can update application code, input configuration, and output configuration. 
         /// 
         ///  
         /// <para>
         /// Kinesis Data Analytics updates the <code>ApplicationVersionId</code> each time you
         /// update your application. 
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// You cannot update the <code>RuntimeEnvironment</code> of an existing application.
+        /// If you need to update an application's <code>RuntimeEnvironment</code>, you must delete
+        /// the application and create it again.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateApplication service method.</param>
         /// 
@@ -1809,14 +1838,21 @@ namespace Amazon.KinesisAnalyticsV2
 
 
         /// <summary>
-        /// Updates an existing Amazon Kinesis Data Analytics application. Using this operation,
-        /// you can update application code, input configuration, and output configuration. 
+        /// Updates an existing Kinesis Data Analytics application. Using this operation, you
+        /// can update application code, input configuration, and output configuration. 
         /// 
         ///  
         /// <para>
         /// Kinesis Data Analytics updates the <code>ApplicationVersionId</code> each time you
         /// update your application. 
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// You cannot update the <code>RuntimeEnvironment</code> of an existing application.
+        /// If you need to update an application's <code>RuntimeEnvironment</code>, you must delete
+        /// the application and create it again.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateApplication service method.</param>
         /// <param name="cancellationToken">

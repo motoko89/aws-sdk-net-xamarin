@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -44,10 +44,10 @@ namespace Amazon.CostExplorer.Model
         /// <summary>
         /// Gets and sets the property AccountScope. 
         /// <para>
-        /// The account scope that you want your recommendations for. Amazon Web Services calculates
-        /// recommendations including the payer account and linked accounts if the value is set
-        /// to <code>PAYER</code>. If the value is <code>LINKED</code>, recommendations are calculated
-        /// for individual linked accounts only.
+        /// The account scope that you want your recommendations for. AWS calculates recommendations
+        /// including the payer account and linked accounts if the value is set to <code>PAYER</code>.
+        /// If the value is <code>LINKED</code>, recommendations are calculated for individual
+        /// linked accounts only.
         /// </para>
         /// </summary>
         public AccountScope AccountScope

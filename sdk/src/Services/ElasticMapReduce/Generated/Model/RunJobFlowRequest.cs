@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -86,6 +86,7 @@ namespace Amazon.ElasticMapReduce.Model
         private ManagedScalingPolicy _managedScalingPolicy;
         private string _name;
         private List<SupportedProductConfig> _newSupportedProducts = new List<SupportedProductConfig>();
+        private List<PlacementGroupConfig> _placementGroupConfigs = new List<PlacementGroupConfig>();
         private string _releaseLabel;
         private RepoUpgradeOnBoot _repoUpgradeOnBoot;
         private ScaleDownBehavior _scaleDownBehavior;
@@ -478,6 +479,24 @@ namespace Amazon.ElasticMapReduce.Model
         internal bool IsSetNewSupportedProducts()
         {
             return this._newSupportedProducts != null && this._newSupportedProducts.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property PlacementGroupConfigs. 
+        /// <para>
+        /// The specified placement group configuration for an Amazon EMR cluster.
+        /// </para>
+        /// </summary>
+        public List<PlacementGroupConfig> PlacementGroupConfigs
+        {
+            get { return this._placementGroupConfigs; }
+            set { this._placementGroupConfigs = value; }
+        }
+
+        // Check to see if PlacementGroupConfigs property is set
+        internal bool IsSetPlacementGroupConfigs()
+        {
+            return this._placementGroupConfigs != null && this._placementGroupConfigs.Count > 0; 
         }
 
         /// <summary>

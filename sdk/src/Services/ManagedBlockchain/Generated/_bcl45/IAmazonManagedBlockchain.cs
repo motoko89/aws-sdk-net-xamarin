@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -792,7 +792,7 @@ namespace Amazon.ManagedBlockchain
 
 
         /// <summary>
-        /// Returns a listing of all invitations made on the specified network.
+        /// Returns a listing of all invitations for the current AWS account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListInvitations service method.</param>
         /// 
@@ -826,7 +826,7 @@ namespace Amazon.ManagedBlockchain
 
 
         /// <summary>
-        /// Returns a listing of all invitations made on the specified network.
+        /// Returns a listing of all invitations for the current AWS account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListInvitations service method.</param>
         /// <param name="cancellationToken">

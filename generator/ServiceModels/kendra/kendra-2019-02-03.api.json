@@ -680,7 +680,8 @@
         "Description":{"shape":"Description"},
         "S3Path":{"shape":"S3Path"},
         "RoleArn":{"shape":"RoleArn"},
-        "Tags":{"shape":"TagList"}
+        "Tags":{"shape":"TagList"},
+        "FileFormat":{"shape":"FaqFileFormat"}
       }
     },
     "CreateFaqResponse":{
@@ -751,7 +752,7 @@
     },
     "DataSourceInclusionsExclusionsStringsMember":{
       "type":"string",
-      "max":150,
+      "max":50,
       "min":1
     },
     "DataSourceName":{
@@ -1002,7 +1003,8 @@
         "S3Path":{"shape":"S3Path"},
         "Status":{"shape":"FaqStatus"},
         "RoleArn":{"shape":"RoleArn"},
-        "ErrorMessage":{"shape":"ErrorMessage"}
+        "ErrorMessage":{"shape":"ErrorMessage"},
+        "FileFormat":{"shape":"FaqFileFormat"}
       }
     },
     "DescribeIndexRequest":{
@@ -1195,12 +1197,21 @@
       "type":"structure",
       "members":{
         "DocumentAttributeKey":{"shape":"DocumentAttributeKey"},
+        "DocumentAttributeValueType":{"shape":"DocumentAttributeValueType"},
         "DocumentAttributeValueCountPairs":{"shape":"DocumentAttributeValueCountPairList"}
       }
     },
     "FacetResultList":{
       "type":"list",
       "member":{"shape":"FacetResult"}
+    },
+    "FaqFileFormat":{
+      "type":"string",
+      "enum":[
+        "CSV",
+        "CSV_WITH_HEADER",
+        "JSON"
+      ]
     },
     "FaqId":{
       "type":"string",
@@ -1238,7 +1249,8 @@
         "Name":{"shape":"FaqName"},
         "Status":{"shape":"FaqStatus"},
         "CreatedAt":{"shape":"Timestamp"},
-        "UpdatedAt":{"shape":"Timestamp"}
+        "UpdatedAt":{"shape":"Timestamp"},
+        "FileFormat":{"shape":"FaqFileFormat"}
       }
     },
     "FaqSummaryItems":{
@@ -1596,7 +1608,8 @@
         "DocumentTitle":{"shape":"TextWithHighlights"},
         "DocumentExcerpt":{"shape":"TextWithHighlights"},
         "DocumentURI":{"shape":"Url"},
-        "DocumentAttributes":{"shape":"DocumentAttributeList"}
+        "DocumentAttributes":{"shape":"DocumentAttributeList"},
+        "ScoreAttributes":{"shape":"ScoreAttributes"}
       }
     },
     "QueryResultItemList":{
@@ -1875,6 +1888,21 @@
       ]
     },
     "ScanSchedule":{"type":"string"},
+    "ScoreAttributes":{
+      "type":"structure",
+      "members":{
+        "ScoreConfidence":{"shape":"ScoreConfidence"}
+      }
+    },
+    "ScoreConfidence":{
+      "type":"string",
+      "enum":[
+        "VERY_HIGH",
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ]
+    },
     "Search":{
       "type":"structure",
       "members":{

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -394,6 +394,23 @@ namespace Amazon.RDS.Model
         /// values in the list depend on the DB engine being used. For more information, see <a
         /// href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Aurora MySQL</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Possible values are <code>audit</code>, <code>error</code>, <code>general</code>,
+        /// and <code>slowquery</code>. 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Aurora PostgreSQL</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Possible values are <code>postgresql</code> and <code>upgrade</code>. 
         /// </para>
         /// </summary>
         public List<string> EnableCloudwatchLogsExports

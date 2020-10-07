@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -702,6 +702,10 @@ namespace Amazon.QuickSight
         /// Constant TERADATA for DataSourceType
         /// </summary>
         public static readonly DataSourceType TERADATA = new DataSourceType("TERADATA");
+        /// <summary>
+        /// Constant TIMESTREAM for DataSourceType
+        /// </summary>
+        public static readonly DataSourceType TIMESTREAM = new DataSourceType("TIMESTREAM");
         /// <summary>
         /// Constant TWITTER for DataSourceType
         /// </summary>
