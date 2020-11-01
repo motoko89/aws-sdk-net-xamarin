@@ -304,7 +304,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// Gets and sets the property DatePartitionDelimiter. 
         /// <para>
         /// Specifies a date separating delimiter to use during folder partitioning. The default
-        /// value is <code>SLASH</code> (/). Use this parameter when <code>DatePartitionedEnabled</code>
+        /// value is <code>SLASH</code>. Use this parameter when <code>DatePartitionedEnabled</code>
         /// is set to <code>true</code>.
         /// </para>
         /// </summary>
@@ -325,8 +325,8 @@ namespace Amazon.DatabaseMigrationService.Model
         /// <para>
         /// When set to <code>true</code>, this parameter partitions S3 bucket folders based on
         /// transaction commit dates. The default value is <code>false</code>. For more information
-        /// about date-based folder partitoning, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Using
-        /// date-based folder partitioning</a> 
+        /// about date-based folder partitoning, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning">Using
+        /// date-based folder partitioning</a>.
         /// </para>
         /// </summary>
         public bool DatePartitionEnabled

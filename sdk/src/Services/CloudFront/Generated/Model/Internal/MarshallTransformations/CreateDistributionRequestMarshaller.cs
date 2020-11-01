@@ -290,6 +290,30 @@ namespace Amazon.CloudFront.Model.Internal.MarshallTransformations
                                     xmlWriter.WriteElementString("TargetOriginId", "http://cloudfront.amazonaws.com/doc/2020-05-31/", StringUtils.FromString(publicRequestDistributionConfigCacheBehaviorsItemsValue.TargetOriginId));                 
                 
                                 
+                                if (publicRequestDistributionConfigCacheBehaviorsItemsValue.TrustedKeyGroups != null) 
+                                {
+                                    xmlWriter.WriteStartElement("TrustedKeyGroups", "http://cloudfront.amazonaws.com/doc/2020-05-31/");            
+                                    if(publicRequestDistributionConfigCacheBehaviorsItemsValue.TrustedKeyGroups.IsSetEnabled())
+                                        xmlWriter.WriteElementString("Enabled", "http://cloudfront.amazonaws.com/doc/2020-05-31/", StringUtils.FromBool(publicRequestDistributionConfigCacheBehaviorsItemsValue.TrustedKeyGroups.Enabled));                 
+                    
+                                    var publicRequestDistributionConfigCacheBehaviorsItemsValueTrustedKeyGroupsItems = publicRequestDistributionConfigCacheBehaviorsItemsValue.TrustedKeyGroups.Items;
+                                    if (publicRequestDistributionConfigCacheBehaviorsItemsValueTrustedKeyGroupsItems != null && publicRequestDistributionConfigCacheBehaviorsItemsValueTrustedKeyGroupsItems.Count > 0) 
+                                    {                        
+                                        xmlWriter.WriteStartElement("Items", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+                                        foreach (var publicRequestDistributionConfigCacheBehaviorsItemsValueTrustedKeyGroupsItemsValue in publicRequestDistributionConfigCacheBehaviorsItemsValueTrustedKeyGroupsItems) 
+                                        {
+                                            xmlWriter.WriteStartElement("KeyGroup", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+                                            xmlWriter.WriteValue(publicRequestDistributionConfigCacheBehaviorsItemsValueTrustedKeyGroupsItemsValue);
+                                            xmlWriter.WriteEndElement();
+                                        }            
+                                        xmlWriter.WriteEndElement();            
+                                    }
+                                    if(publicRequestDistributionConfigCacheBehaviorsItemsValue.TrustedKeyGroups.IsSetQuantity())
+                                        xmlWriter.WriteElementString("Quantity", "http://cloudfront.amazonaws.com/doc/2020-05-31/", StringUtils.FromInt(publicRequestDistributionConfigCacheBehaviorsItemsValue.TrustedKeyGroups.Quantity));                 
+                    
+                                    xmlWriter.WriteEndElement();
+                                }
+                                
                                 if (publicRequestDistributionConfigCacheBehaviorsItemsValue.TrustedSigners != null) 
                                 {
                                     xmlWriter.WriteStartElement("TrustedSigners", "http://cloudfront.amazonaws.com/doc/2020-05-31/");            
@@ -559,6 +583,30 @@ namespace Amazon.CloudFront.Model.Internal.MarshallTransformations
                             xmlWriter.WriteElementString("TargetOriginId", "http://cloudfront.amazonaws.com/doc/2020-05-31/", StringUtils.FromString(publicRequest.DistributionConfig.DefaultCacheBehavior.TargetOriginId));                 
         
                         
+                        if (publicRequest.DistributionConfig.DefaultCacheBehavior.TrustedKeyGroups != null) 
+                        {
+                            xmlWriter.WriteStartElement("TrustedKeyGroups", "http://cloudfront.amazonaws.com/doc/2020-05-31/");            
+                            if(publicRequest.DistributionConfig.DefaultCacheBehavior.TrustedKeyGroups.IsSetEnabled())
+                                xmlWriter.WriteElementString("Enabled", "http://cloudfront.amazonaws.com/doc/2020-05-31/", StringUtils.FromBool(publicRequest.DistributionConfig.DefaultCacheBehavior.TrustedKeyGroups.Enabled));                 
+            
+                            var publicRequestDistributionConfigDefaultCacheBehaviorTrustedKeyGroupsItems = publicRequest.DistributionConfig.DefaultCacheBehavior.TrustedKeyGroups.Items;
+                            if (publicRequestDistributionConfigDefaultCacheBehaviorTrustedKeyGroupsItems != null && publicRequestDistributionConfigDefaultCacheBehaviorTrustedKeyGroupsItems.Count > 0) 
+                            {                        
+                                xmlWriter.WriteStartElement("Items", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+                                foreach (var publicRequestDistributionConfigDefaultCacheBehaviorTrustedKeyGroupsItemsValue in publicRequestDistributionConfigDefaultCacheBehaviorTrustedKeyGroupsItems) 
+                                {
+                                    xmlWriter.WriteStartElement("KeyGroup", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+                                    xmlWriter.WriteValue(publicRequestDistributionConfigDefaultCacheBehaviorTrustedKeyGroupsItemsValue);
+                                    xmlWriter.WriteEndElement();
+                                }            
+                                xmlWriter.WriteEndElement();            
+                            }
+                            if(publicRequest.DistributionConfig.DefaultCacheBehavior.TrustedKeyGroups.IsSetQuantity())
+                                xmlWriter.WriteElementString("Quantity", "http://cloudfront.amazonaws.com/doc/2020-05-31/", StringUtils.FromInt(publicRequest.DistributionConfig.DefaultCacheBehavior.TrustedKeyGroups.Quantity));                 
+            
+                            xmlWriter.WriteEndElement();
+                        }
+                        
                         if (publicRequest.DistributionConfig.DefaultCacheBehavior.TrustedSigners != null) 
                         {
                             xmlWriter.WriteStartElement("TrustedSigners", "http://cloudfront.amazonaws.com/doc/2020-05-31/");            
@@ -799,6 +847,18 @@ namespace Amazon.CloudFront.Model.Internal.MarshallTransformations
                                 if(publicRequestDistributionConfigOriginsItemsValue.IsSetOriginPath())
                                     xmlWriter.WriteElementString("OriginPath", "http://cloudfront.amazonaws.com/doc/2020-05-31/", StringUtils.FromString(publicRequestDistributionConfigOriginsItemsValue.OriginPath));                 
                 
+                                
+                                if (publicRequestDistributionConfigOriginsItemsValue.OriginShield != null) 
+                                {
+                                    xmlWriter.WriteStartElement("OriginShield", "http://cloudfront.amazonaws.com/doc/2020-05-31/");            
+                                    if(publicRequestDistributionConfigOriginsItemsValue.OriginShield.IsSetEnabled())
+                                        xmlWriter.WriteElementString("Enabled", "http://cloudfront.amazonaws.com/doc/2020-05-31/", StringUtils.FromBool(publicRequestDistributionConfigOriginsItemsValue.OriginShield.Enabled));                 
+                    
+                                    if(publicRequestDistributionConfigOriginsItemsValue.OriginShield.IsSetOriginShieldRegion())
+                                        xmlWriter.WriteElementString("OriginShieldRegion", "http://cloudfront.amazonaws.com/doc/2020-05-31/", StringUtils.FromString(publicRequestDistributionConfigOriginsItemsValue.OriginShield.OriginShieldRegion));                 
+                    
+                                    xmlWriter.WriteEndElement();
+                                }
                                 
                                 if (publicRequestDistributionConfigOriginsItemsValue.S3OriginConfig != null) 
                                 {

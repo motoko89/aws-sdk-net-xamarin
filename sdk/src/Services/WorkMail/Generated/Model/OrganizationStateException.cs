@@ -29,8 +29,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.WorkMail.Model
 {
     /// <summary>
-    /// The organization must have a valid state (Active or Synchronizing) to perform certain
-    /// operations on the organization or its members.
+    /// The organization must have a valid state to perform certain operations on the organization
+    /// or its members.
     /// </summary>
     #if !NETSTANDARD
     [Serializable]

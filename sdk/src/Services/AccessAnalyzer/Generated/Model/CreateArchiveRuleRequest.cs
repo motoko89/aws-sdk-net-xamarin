@@ -31,7 +31,7 @@ namespace Amazon.AccessAnalyzer.Model
     /// <summary>
     /// Container for the parameters to the CreateArchiveRule operation.
     /// Creates an archive rule for the specified analyzer. Archive rules automatically archive
-    /// findings that meet the criteria you define when you create the rule.
+    /// new findings that meet the criteria you define when you create the rule.
     /// </summary>
     public partial class CreateArchiveRuleRequest : AmazonAccessAnalyzerRequest
     {

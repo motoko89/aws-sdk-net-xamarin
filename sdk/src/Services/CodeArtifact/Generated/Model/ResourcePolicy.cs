@@ -63,7 +63,7 @@ namespace Amazon.CodeArtifact.Model
         ///  The ARN of the resource associated with the resource policy 
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=2048)]
+        [AWSProperty(Min=1, Max=1011)]
         public string ResourceArn
         {
             get { return this._resourceArn; }

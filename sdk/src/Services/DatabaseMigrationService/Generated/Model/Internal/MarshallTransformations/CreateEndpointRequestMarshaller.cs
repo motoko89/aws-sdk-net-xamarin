@@ -91,6 +91,17 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
+                if(publicRequest.IsSetDocDbSettings())
+                {
+                    context.Writer.WritePropertyName("DocDbSettings");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = DocDbSettingsMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.DocDbSettings, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetDynamoDbSettings())
                 {
                     context.Writer.WritePropertyName("DynamoDbSettings");
@@ -269,6 +280,12 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                     marshaller.Marshall(publicRequest.RedshiftSettings, context);
 
                     context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetResourceIdentifier())
+                {
+                    context.Writer.WritePropertyName("ResourceIdentifier");
+                    context.Writer.Write(publicRequest.ResourceIdentifier);
                 }
 
                 if(publicRequest.IsSetS3Settings())

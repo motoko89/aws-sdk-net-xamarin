@@ -82,6 +82,12 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
                     unmarshalledObject.H265Settings = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("mpeg2Settings", targetDepth))
+                {
+                    var unmarshaller = Mpeg2SettingsUnmarshaller.Instance;
+                    unmarshalledObject.Mpeg2Settings = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

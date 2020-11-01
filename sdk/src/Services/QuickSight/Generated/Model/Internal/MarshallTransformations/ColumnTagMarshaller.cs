@@ -45,6 +45,17 @@ namespace Amazon.QuickSight.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(ColumnTag requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetColumnDescription())
+            {
+                context.Writer.WritePropertyName("ColumnDescription");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = ColumnDescriptionMarshaller.Instance;
+                marshaller.Marshall(requestObject.ColumnDescription, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetColumnGeographicRole())
             {
                 context.Writer.WritePropertyName("ColumnGeographicRole");

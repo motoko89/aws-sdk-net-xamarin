@@ -116,9 +116,18 @@ namespace Amazon.ServiceCatalog.Model
         /// </para>
         ///  
         /// <para>
+        /// The <code>LAUNCH_ROLE</code> key accepts user ARNs and role ARNs. This key allows
+        /// an administrator to call <code>UpdateProvisionedProductProperties</code> to update
+        /// the launch role that is associated with a provisioned product. This role is used when
+        /// an end-user calls a provisioning operation such as <code>UpdateProvisionedProduct</code>,
+        /// <code>TerminateProvisionedProduct</code>, or <code>ExecuteProvisionedProductServiceAction</code>.
+        /// Only an ARN role is valid. A user ARN is invalid. 
+        /// </para>
+        ///  
+        /// <para>
         /// The <code>OWNER</code> key accepts user ARNs and role ARNs. The owner is the user
-        /// that is allowed to see, update, terminate, and execute service actions in the provisioned
-        /// product.
+        /// that has permission to see, update, terminate, and execute service actions in the
+        /// provisioned product.
         /// </para>
         ///  
         /// <para>

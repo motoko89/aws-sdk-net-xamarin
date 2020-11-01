@@ -2908,6 +2908,7 @@
         "DatabaseName":{"shape":"DatabaseName"},
         "Description":{"shape":"DescriptionString"},
         "Classifiers":{"shape":"ClassifierNameList"},
+        "RecrawlPolicy":{"shape":"RecrawlPolicy"},
         "SchemaChangePolicy":{"shape":"SchemaChangePolicy"},
         "State":{"shape":"CrawlerState"},
         "TablePrefix":{"shape":"TablePrefix"},
@@ -3043,6 +3044,7 @@
         "Classifiers":{"shape":"ClassifierNameList"},
         "TablePrefix":{"shape":"TablePrefix"},
         "SchemaChangePolicy":{"shape":"SchemaChangePolicy"},
+        "RecrawlPolicy":{"shape":"RecrawlPolicy"},
         "Configuration":{"shape":"CrawlerConfiguration"},
         "CrawlerSecurityConfiguration":{"shape":"CrawlerSecurityConfiguration"},
         "Tags":{"shape":"TagsMap"}
@@ -3211,7 +3213,8 @@
         "NumberOfWorkers":{"shape":"NullableInteger"},
         "Timeout":{"shape":"Timeout"},
         "MaxRetries":{"shape":"NullableInteger"},
-        "Tags":{"shape":"TagsMap"}
+        "Tags":{"shape":"TagsMap"},
+        "TransformEncryption":{"shape":"TransformEncryption"}
       }
     },
     "CreateMLTransformResponse":{
@@ -4395,7 +4398,8 @@
         "WorkerType":{"shape":"WorkerType"},
         "NumberOfWorkers":{"shape":"NullableInteger"},
         "Timeout":{"shape":"Timeout"},
-        "MaxRetries":{"shape":"NullableInteger"}
+        "MaxRetries":{"shape":"NullableInteger"},
+        "TransformEncryption":{"shape":"TransformEncryption"}
       }
     },
     "GetMLTransformsRequest":{
@@ -5346,7 +5350,8 @@
         "WorkerType":{"shape":"WorkerType"},
         "NumberOfWorkers":{"shape":"NullableInteger"},
         "Timeout":{"shape":"Timeout"},
-        "MaxRetries":{"shape":"NullableInteger"}
+        "MaxRetries":{"shape":"NullableInteger"},
+        "TransformEncryption":{"shape":"TransformEncryption"}
       }
     },
     "MLTransformNotReadyException":{
@@ -5355,6 +5360,21 @@
         "Message":{"shape":"MessageString"}
       },
       "exception":true
+    },
+    "MLUserDataEncryption":{
+      "type":"structure",
+      "required":["MlUserDataEncryptionMode"],
+      "members":{
+        "MlUserDataEncryptionMode":{"shape":"MLUserDataEncryptionModeString"},
+        "KmsKeyId":{"shape":"NameString"}
+      }
+    },
+    "MLUserDataEncryptionModeString":{
+      "type":"string",
+      "enum":[
+        "DISABLED",
+        "SSE-KMS"
+      ]
     },
     "MapValue":{
       "type":"map",
@@ -5764,6 +5784,19 @@
     "RecordsCount":{
       "type":"long",
       "box":true
+    },
+    "RecrawlBehavior":{
+      "type":"string",
+      "enum":[
+        "CRAWL_EVERYTHING",
+        "CRAWL_NEW_FOLDERS_ONLY"
+      ]
+    },
+    "RecrawlPolicy":{
+      "type":"structure",
+      "members":{
+        "RecrawlBehavior":{"shape":"RecrawlBehavior"}
+      }
     },
     "ReplaceBoolean":{"type":"boolean"},
     "ResetJobBookmarkRequest":{
@@ -6479,6 +6512,13 @@
       "max":10,
       "min":1
     },
+    "TransformEncryption":{
+      "type":"structure",
+      "members":{
+        "MlUserDataEncryption":{"shape":"MLUserDataEncryption"},
+        "TaskRunSecurityConfigurationName":{"shape":"NameString"}
+      }
+    },
     "TransformFilterCriteria":{
       "type":"structure",
       "members":{
@@ -6733,6 +6773,7 @@
         "Classifiers":{"shape":"ClassifierNameList"},
         "TablePrefix":{"shape":"TablePrefix"},
         "SchemaChangePolicy":{"shape":"SchemaChangePolicy"},
+        "RecrawlPolicy":{"shape":"RecrawlPolicy"},
         "Configuration":{"shape":"CrawlerConfiguration"},
         "CrawlerSecurityConfiguration":{"shape":"CrawlerSecurityConfiguration"}
       }

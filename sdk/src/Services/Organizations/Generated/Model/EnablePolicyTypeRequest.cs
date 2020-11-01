@@ -42,7 +42,7 @@ namespace Amazon.Organizations.Model
     /// </para>
     ///  
     /// <para>
-    /// This operation can be called only from the organization's master account.
+    /// This operation can be called only from the organization's management account.
     /// </para>
     ///  
     /// <para>
@@ -63,22 +63,22 @@ namespace Amazon.Organizations.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
+        ///  <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
         /// 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a>
+        ///  <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a>
         /// 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a>
+        ///  <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a>
         /// 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a>
+        ///  <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a>
         /// 
         /// </para>
         ///  </li> </ul>

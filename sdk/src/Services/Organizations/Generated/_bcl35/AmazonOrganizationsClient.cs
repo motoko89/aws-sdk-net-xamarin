@@ -265,7 +265,7 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         ///  <b>Enable all features final confirmation</b> handshake: only a principal from the
-        /// master account.
+        /// management account.
         /// </para>
         ///  
         /// <para>
@@ -561,27 +561,27 @@ namespace Amazon.Organizations
         /// 
         ///  <ul> <li> 
         /// <para>
-        ///  <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
+        ///  <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
         /// 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a>
+        ///  <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a>
         /// 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a>
+        ///  <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a>
         /// 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a>
+        ///  <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a>
         /// 
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AttachPolicy service method.</param>
@@ -615,9 +615,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -666,7 +666,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -702,10 +702,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -716,19 +716,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -1224,8 +1224,9 @@ namespace Amazon.Organizations
         /// 
         ///  <ul> <li> 
         /// <para>
-        /// Use the <code>OperationId</code> response element from this operation to provide as
-        /// a parameter to the <a>DescribeCreateAccountStatus</a> operation.
+        /// Use the <code>Id</code> member of the <code>CreateAccountStatus</code> response element
+        /// from this operation to provide as a parameter to the <a>DescribeCreateAccountStatus</a>
+        /// operation.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1250,14 +1251,14 @@ namespace Amazon.Organizations
         ///  
         /// <para>
         /// AWS Organizations preconfigures the new member account with a role (named <code>OrganizationAccountAccessRole</code>
-        /// by default) that grants users in the master account administrator permissions in the
-        /// new member account. Principals in the master account can assume the role. AWS Organizations
-        /// clones the company name and address information for the new account from the organization's
-        /// master account.
+        /// by default) that grants users in the management account administrator permissions
+        /// in the new member account. Principals in the management account can assume the role.
+        /// AWS Organizations clones the company name and address information for the new account
+        /// from the organization's management account.
         /// </para>
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         ///  
         /// <para>
@@ -1339,9 +1340,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1390,7 +1391,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -1426,10 +1427,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1440,19 +1441,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -1717,12 +1718,12 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// You already have an account in the AWS GovCloud (US) Region that is associated with
-        /// your master account in the commercial Region.
+        /// You already have an account in the AWS GovCloud (US) Region that is paired with a
+        /// management account of an organization in the commercial Region.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// You call this action from the master account of your organization in the commercial
+        /// You call this action from the management account of your organization in the commercial
         /// Region.
         /// </para>
         ///  </li> <li> 
@@ -1764,10 +1765,10 @@ namespace Amazon.Organizations
         /// </para>
         ///  
         /// <para>
-        /// You call this action from the master account of your organization in the commercial
+        /// You call this action from the management account of your organization in the commercial
         /// Region to create a standalone AWS account in the AWS GovCloud (US) Region. After the
-        /// account is created, the master account of an organization in the AWS GovCloud (US)
-        /// Region can invite it to that organization. For more information on inviting standalone
+        /// account is created, the management account of an organization in the AWS GovCloud
+        /// (US) Region can invite it to that organization. For more information on inviting standalone
         /// accounts in the AWS GovCloud (US) to join an organization, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
@@ -1801,12 +1802,12 @@ namespace Amazon.Organizations
         /// </para>
         ///  
         /// <para>
-        /// A role is created in the new account in the commercial Region that allows the master
+        /// A role is created in the new account in the commercial Region that allows the management
         /// account in the organization in the commercial Region to assume it. An AWS GovCloud
         /// (US) account is then created and associated with the commercial account that you just
         /// created. A role is also created in the new AWS GovCloud (US) account that can be assumed
-        /// by the AWS GovCloud (US) account that is associated with the master account of the
-        /// commercial organization. For more information and to view a diagram that explains
+        /// by the AWS GovCloud (US) account that is associated with the management account of
+        /// the commercial organization. For more information and to view a diagram that explains
         /// how account access works, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
@@ -1890,9 +1891,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1941,7 +1942,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -1977,10 +1978,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1991,19 +1992,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -2259,14 +2260,14 @@ namespace Amazon.Organizations
 
         /// <summary>
         /// Creates an AWS organization. The account whose user is calling the <code>CreateOrganization</code>
-        /// operation automatically becomes the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">master
+        /// operation automatically becomes the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">management
         /// account</a> of the new organization.
         /// 
         ///  
         /// <para>
         /// This operation must be called using credentials from the account that is to become
-        /// the new organization's master account. The principal must also have the relevant IAM
-        /// permissions.
+        /// the new organization's management account. The principal must also have the relevant
+        /// IAM permissions.
         /// </para>
         ///  
         /// <para>
@@ -2314,9 +2315,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -2365,7 +2366,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -2401,10 +2402,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -2415,19 +2416,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -2691,7 +2692,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateOrganizationalUnit service method.</param>
@@ -2725,9 +2726,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -2776,7 +2777,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -2812,10 +2813,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -2826,19 +2827,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -3105,7 +3106,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreatePolicy service method.</param>
@@ -3139,9 +3140,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -3190,7 +3191,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -3226,10 +3227,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -3240,19 +3241,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -3736,7 +3737,7 @@ namespace Amazon.Organizations
 
         /// <summary>
         /// Deletes the organization. You can delete an organization only by using credentials
-        /// from the master account. The organization must be empty of member accounts.
+        /// from the management account. The organization must be empty of member accounts.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteOrganization service method.</param>
         /// 
@@ -3872,7 +3873,7 @@ namespace Amazon.Organizations
         /// </exception>
         /// <exception cref="Amazon.Organizations.Model.OrganizationNotEmptyException">
         /// The organization isn't empty. To delete an organization, you must first remove all
-        /// accounts except the master account, delete all OUs, and delete all policies.
+        /// accounts except the management account, delete all OUs, and delete all policies.
         /// </exception>
         /// <exception cref="Amazon.Organizations.Model.ServiceException">
         /// AWS Organizations can't complete your request because of an internal service error.
@@ -3942,7 +3943,7 @@ namespace Amazon.Organizations
         /// 
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteOrganizationalUnit service method.</param>
@@ -4152,7 +4153,7 @@ namespace Amazon.Organizations
         /// 
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeletePolicy service method.</param>
@@ -4379,7 +4380,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeregisterDelegatedAdministrator service method.</param>
@@ -4421,9 +4422,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -4472,7 +4473,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -4508,10 +4509,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -4522,19 +4523,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -4787,8 +4788,8 @@ namespace Amazon.Organizations
         /// 
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAccount service method.</param>
@@ -4991,8 +4992,8 @@ namespace Amazon.Organizations
         /// 
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeCreateAccountStatus service method.</param>
@@ -5210,8 +5211,8 @@ namespace Amazon.Organizations
         /// </para>
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeEffectivePolicy service method.</param>
@@ -5241,9 +5242,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -5292,7 +5293,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -5328,10 +5329,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -5342,19 +5343,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -5423,8 +5424,8 @@ namespace Amazon.Organizations
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.Organizations.Model.EffectivePolicyNotFoundException">
-        /// If you ran this action on the master account, this policy type is not enabled. If
-        /// you ran the action on a member account, the account doesn't have an effective policy
+        /// If you ran this action on the management account, this policy type is not enabled.
+        /// If you ran the action on a member account, the account doesn't have an effective policy
         /// of this type. Contact the administrator of your organization about attaching a policy
         /// of this type to the account.
         /// </exception>
@@ -5920,8 +5921,8 @@ namespace Amazon.Organizations
         /// 
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeOrganizationalUnit service method.</param>
@@ -6122,8 +6123,8 @@ namespace Amazon.Organizations
         /// 
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribePolicy service method.</param>
@@ -6345,7 +6346,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DetachPolicy service method.</param>
@@ -6379,9 +6380,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -6430,7 +6431,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -6466,10 +6467,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -6480,19 +6481,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -6788,7 +6789,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisableAWSServiceAccess service method.</param>
@@ -6822,9 +6823,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -6873,7 +6874,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -6909,10 +6910,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -6923,19 +6924,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -7199,7 +7200,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         ///  
         /// <para>
@@ -7237,9 +7238,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -7288,7 +7289,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -7324,10 +7325,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -7338,19 +7339,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -7642,15 +7643,15 @@ namespace Amazon.Organizations
         /// </para>
         ///  
         /// <para>
-        /// After you enable all features in your organization, the master account in the organization
-        /// can apply policies on all member accounts. These policies can restrict what users
-        /// and even administrators in those accounts can do. The master account can apply policies
-        /// that prevent accounts from leaving the organization. Ensure that your account administrators
-        /// are aware of this.
+        /// After you enable all features in your organization, the management account in the
+        /// organization can apply policies on all member accounts. These policies can restrict
+        /// what users and even administrators in those accounts can do. The management account
+        /// can apply policies that prevent accounts from leaving the organization. Ensure that
+        /// your account administrators are aware of this.
         /// </para>
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the EnableAllFeatures service method.</param>
@@ -7933,7 +7934,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account and only
+        /// This operation can be called only from the organization's management account and only
         /// if the organization has <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">enabled
         /// all features</a>.
         /// </para>
@@ -7969,9 +7970,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -8020,7 +8021,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -8056,10 +8057,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -8070,19 +8071,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -8343,7 +8344,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         ///  
         /// <para>
@@ -8383,9 +8384,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -8434,7 +8435,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -8470,10 +8471,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -8484,19 +8485,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -8768,11 +8769,11 @@ namespace Amazon.Organizations
         /// 
         ///  <important> <ul> <li> 
         /// <para>
-        /// You can invite AWS accounts only from the same seller as the master account. For example,
-        /// if your organization's master account was created by Amazon Internet Services Pvt.
-        /// Ltd (AISPL), an AWS seller in India, you can invite only other AISPL accounts to your
-        /// organization. You can't combine accounts from AISPL and AWS or from any other AWS
-        /// seller. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html">Consolidated
+        /// You can invite AWS accounts only from the same seller as the management account. For
+        /// example, if your organization's management account was created by Amazon Internet
+        /// Services Pvt. Ltd (AISPL), an AWS seller in India, you can invite only other AISPL
+        /// accounts to your organization. You can't combine accounts from AISPL and AWS or from
+        /// any other AWS seller. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html">Consolidated
         /// Billing in India</a>.
         /// </para>
         ///  </li> <li> 
@@ -8789,7 +8790,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the InviteAccountToOrganization service method.</param>
@@ -8803,8 +8804,8 @@ namespace Amazon.Organizations
         /// </exception>
         /// <exception cref="Amazon.Organizations.Model.AccountOwnerNotVerifiedException">
         /// You can't invite an existing account to your organization until you verify that you
-        /// own the email address associated with the master account. For more information, see
-        /// <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification">Email
+        /// own the email address associated with the management account. For more information,
+        /// see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification">Email
         /// Address Verification</a> in the <i>AWS Organizations User Guide.</i>
         /// </exception>
         /// <exception cref="Amazon.Organizations.Model.AWSOrganizationsNotInUseException">
@@ -8829,9 +8830,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -8880,7 +8881,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -8916,10 +8917,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -8930,19 +8931,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -9264,7 +9265,7 @@ namespace Amazon.Organizations
         /// <summary>
         /// Removes a member account from its parent organization. This version of the operation
         /// is performed by the account that wants to leave. To remove a member account as a user
-        /// in the master account, use <a>RemoveAccountFromOrganization</a> instead.
+        /// in the management account, use <a>RemoveAccountFromOrganization</a> instead.
         /// 
         ///  
         /// <para>
@@ -9272,9 +9273,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  <important> <ul> <li> 
         /// <para>
-        /// The master account in an organization with all features enabled can set service control
-        /// policies (SCPs) that can restrict what administrators of member accounts can do. This
-        /// includes preventing them from successfully calling <code>LeaveOrganization</code>
+        /// The management account in an organization with all features enabled can set service
+        /// control policies (SCPs) that can restrict what administrators of member accounts can
+        /// do. This includes preventing them from successfully calling <code>LeaveOrganization</code>
         /// and leaving the organization.
         /// </para>
         ///  </li> <li> 
@@ -9358,9 +9359,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -9409,7 +9410,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -9445,10 +9446,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -9459,19 +9460,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -9655,9 +9656,9 @@ namespace Amazon.Organizations
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.Organizations.Model.MasterCannotLeaveOrganizationException">
-        /// You can't remove a master account from an organization. If you want the master account
-        /// to become a member account in another organization, you must first delete the current
-        /// organization of the master account.
+        /// You can't remove a management account from an organization. If you want the management
+        /// account to become a member account in another organization, you must first delete
+        /// the current organization of the management account.
         /// </exception>
         /// <exception cref="Amazon.Organizations.Model.ServiceException">
         /// AWS Organizations can't complete your request because of an internal service error.
@@ -9735,8 +9736,8 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> 
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAccounts service method.</param>
@@ -9946,8 +9947,8 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> 
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAccountsForParent service method.</param>
@@ -10157,8 +10158,8 @@ namespace Amazon.Organizations
         /// </para>
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAWSServiceAccessForOrganization service method.</param>
@@ -10188,9 +10189,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -10239,7 +10240,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -10275,10 +10276,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -10289,19 +10290,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -10564,8 +10565,8 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> 
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListChildren service method.</param>
@@ -10775,8 +10776,8 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> 
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListCreateAccountStatus service method.</param>
@@ -10977,8 +10978,8 @@ namespace Amazon.Organizations
         /// 
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListDelegatedAdministrators service method.</param>
@@ -11008,9 +11009,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -11059,7 +11060,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -11095,10 +11096,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -11109,19 +11110,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -11374,8 +11375,8 @@ namespace Amazon.Organizations
         /// 
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListDelegatedServicesForAccount service method.</param>
@@ -11413,9 +11414,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -11464,7 +11465,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -11500,10 +11501,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -11514,19 +11515,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -12009,8 +12010,8 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> 
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListHandshakesForOrganization service method.</param>
@@ -12220,8 +12221,8 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> 
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListOrganizationalUnitsForParent service method.</param>
@@ -12432,8 +12433,8 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> 
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         ///  <note> 
         /// <para>
@@ -12648,8 +12649,8 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> 
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListPolicies service method.</param>
@@ -12860,8 +12861,8 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> 
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListPoliciesForTarget service method.</param>
@@ -13074,8 +13075,8 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> 
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         ///  <note> 
         /// <para>
@@ -13302,8 +13303,8 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource service method.</param>
@@ -13514,8 +13515,8 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> 
         /// <para>
-        /// This operation can be called only from the organization's master account or by a member
-        /// account that is a delegated administrator for an AWS service.
+        /// This operation can be called only from the organization's management account or by
+        /// a member account that is a delegated administrator for an AWS service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListTargetsForPolicy service method.</param>
@@ -13720,7 +13721,7 @@ namespace Amazon.Organizations
         /// 
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the MoveAccount service method.</param>
@@ -13947,7 +13948,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RegisterDelegatedAdministrator service method.</param>
@@ -13989,9 +13990,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -14040,7 +14041,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -14076,10 +14077,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -14090,19 +14091,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -14357,13 +14358,13 @@ namespace Amazon.Organizations
         /// <para>
         /// The removed account becomes a standalone account that isn't a member of any organization.
         /// It's no longer subject to any policies and is responsible for its own bill payments.
-        /// The organization's master account is no longer charged for any expenses accrued by
-        /// the member account after it's removed from the organization.
+        /// The organization's management account is no longer charged for any expenses accrued
+        /// by the member account after it's removed from the organization.
         /// </para>
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account. Member accounts
-        /// can remove themselves with <a>LeaveOrganization</a> instead.
+        /// This operation can be called only from the organization's management account. Member
+        /// accounts can remove themselves with <a>LeaveOrganization</a> instead.
         /// </para>
         ///  <important> <ul> <li> 
         /// <para>
@@ -14424,9 +14425,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -14475,7 +14476,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -14511,10 +14512,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -14525,19 +14526,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -14721,9 +14722,9 @@ namespace Amazon.Organizations
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.Organizations.Model.MasterCannotLeaveOrganizationException">
-        /// You can't remove a master account from an organization. If you want the master account
-        /// to become a member account in another organization, you must first delete the current
-        /// organization of the master account.
+        /// You can't remove a management account from an organization. If you want the management
+        /// account to become a member account in another organization, you must first delete
+        /// the current organization of the management account.
         /// </exception>
         /// <exception cref="Amazon.Organizations.Model.ServiceException">
         /// AWS Organizations can't complete your request because of an internal service error.
@@ -14812,7 +14813,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
@@ -14846,9 +14847,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -14897,7 +14898,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -14933,10 +14934,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -14947,19 +14948,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -15233,7 +15234,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UntagResource service method.</param>
@@ -15267,9 +15268,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -15318,7 +15319,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -15354,10 +15355,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -15368,19 +15369,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>
@@ -15635,7 +15636,7 @@ namespace Amazon.Organizations
         /// 
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateOrganizationalUnit service method.</param>
@@ -15844,7 +15845,7 @@ namespace Amazon.Organizations
         /// 
         ///  
         /// <para>
-        /// This operation can be called only from the organization's master account.
+        /// This operation can be called only from the organization's management account.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdatePolicy service method.</param>
@@ -15878,9 +15879,9 @@ namespace Amazon.Organizations
         /// </para>
         ///  </note> <ul> <li> 
         /// <para>
-        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the master account from
-        /// the organization. You can't remove the master account. Instead, after you remove all
-        /// member accounts, delete the organization itself.
+        /// ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the management account from
+        /// the organization. You can't remove the management account. Instead, after you remove
+        /// all member accounts, delete the organization itself.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -15929,7 +15930,7 @@ namespace Amazon.Organizations
         /// </para>
         ///  </important> </li> <li> 
         /// <para>
-        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the master
+        /// CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register the management
         /// account of the organization as a delegated administrator for an AWS service integrated
         /// with Organizations. You can designate only a member account as a delegated administrator.
         /// </para>
@@ -15965,10 +15966,10 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in this organization,
-        /// you first must migrate the organization's master account to the marketplace that corresponds
-        /// to the master account's address. For example, accounts with India addresses must be
-        /// associated with the AISPL marketplace. All accounts in an organization must be associated
-        /// with the same marketplace.
+        /// you first must migrate the organization's management account to the marketplace that
+        /// corresponds to the management account's address. For example, accounts with India
+        /// addresses must be associated with the AISPL marketplace. All accounts in an organization
+        /// must be associated with the same marketplace.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -15979,19 +15980,19 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must first provide
-        /// a valid contact address and phone number for the master account. Then try the operation
-        /// again.
+        /// a valid contact address and phone number for the management account. Then try the
+        /// operation again.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the master account
+        /// MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the management account
         /// must have an associated account in the AWS GovCloud (US-West) Region. For more information,
         /// see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
         /// Organizations</a> in the <i>AWS GovCloud User Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master
+        /// MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this management
         /// account, you first must associate a valid payment instrument, such as a credit card,
         /// with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To
         /// leave an organization when all required account information has not yet been provided</a>

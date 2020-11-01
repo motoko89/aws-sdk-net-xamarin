@@ -70,6 +70,12 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
                     unmarshalledObject.Attempts = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("evaluateOnExit", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<EvaluateOnExit, EvaluateOnExitUnmarshaller>(EvaluateOnExitUnmarshaller.Instance);
+                    unmarshalledObject.EvaluateOnExit = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

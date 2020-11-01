@@ -51,6 +51,12 @@ namespace Amazon.Appflow.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.AccessToken);
             }
 
+            if(requestObject.IsSetClientCredentialsArn())
+            {
+                context.Writer.WritePropertyName("clientCredentialsArn");
+                context.Writer.Write(requestObject.ClientCredentialsArn);
+            }
+
             if(requestObject.IsSetOAuthRequest())
             {
                 context.Writer.WritePropertyName("oAuthRequest");

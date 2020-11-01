@@ -39,7 +39,8 @@ namespace Amazon.Snowball.Model
         /// Gets and sets the property AddressId. 
         /// <para>
         /// The automatically generated ID for a specific address. You'll use this ID when you
-        /// create a job to specify which address you want the Snowball for that job shipped to.
+        /// create a job to specify which address you want the Snow device for that job shipped
+        /// to.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1)]

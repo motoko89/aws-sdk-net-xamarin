@@ -51,6 +51,22 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.Attempts);
             }
 
+            if(requestObject.IsSetEvaluateOnExit())
+            {
+                context.Writer.WritePropertyName("evaluateOnExit");
+                context.Writer.WriteArrayStart();
+                foreach(var requestObjectEvaluateOnExitListValue in requestObject.EvaluateOnExit)
+                {
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = EvaluateOnExitMarshaller.Instance;
+                    marshaller.Marshall(requestObjectEvaluateOnExitListValue, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+                context.Writer.WriteArrayEnd();
+            }
+
         }
 
         /// <summary>

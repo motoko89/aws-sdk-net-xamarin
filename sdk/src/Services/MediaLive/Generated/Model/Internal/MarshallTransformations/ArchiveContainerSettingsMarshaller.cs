@@ -56,6 +56,17 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetRawSettings())
+            {
+                context.Writer.WritePropertyName("rawSettings");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = RawSettingsMarshaller.Instance;
+                marshaller.Marshall(requestObject.RawSettings, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
         }
 
         /// <summary>

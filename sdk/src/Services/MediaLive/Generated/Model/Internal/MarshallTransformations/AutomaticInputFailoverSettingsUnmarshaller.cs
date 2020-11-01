@@ -64,6 +64,18 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("errorClearTimeMsec", targetDepth))
+                {
+                    var unmarshaller = IntUnmarshaller.Instance;
+                    unmarshalledObject.ErrorClearTimeMsec = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("failoverConditions", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<FailoverCondition, FailoverConditionUnmarshaller>(FailoverConditionUnmarshaller.Instance);
+                    unmarshalledObject.FailoverConditions = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("inputPreference", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

@@ -63,6 +63,12 @@ namespace Amazon.StorageGateway.Model.Internal.MarshallTransformations
                     response.DomainName = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("FileSharesVisible", targetDepth))
+                {
+                    var unmarshaller = BoolUnmarshaller.Instance;
+                    response.FileSharesVisible = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("GatewayARN", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

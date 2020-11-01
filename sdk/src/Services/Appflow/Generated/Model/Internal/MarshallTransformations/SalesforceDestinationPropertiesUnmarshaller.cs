@@ -70,10 +70,22 @@ namespace Amazon.Appflow.Model.Internal.MarshallTransformations
                     unmarshalledObject.ErrorHandlingConfig = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("idFieldNames", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<string, StringUnmarshaller>(StringUnmarshaller.Instance);
+                    unmarshalledObject.IdFieldNames = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("object", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.Object = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("writeOperationType", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.WriteOperationType = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

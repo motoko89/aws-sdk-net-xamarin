@@ -130,6 +130,10 @@ namespace Amazon.Rekognition.Model.Internal.MarshallTransformations
                 {
                     return ResourceNotFoundExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
                 }
+                if (errorResponse.Code != null && errorResponse.Code.Equals("ServiceQuotaExceededException"))
+                {
+                    return ServiceQuotaExceededExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
+                }
                 if (errorResponse.Code != null && errorResponse.Code.Equals("ThrottlingException"))
                 {
                     return ThrottlingExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
