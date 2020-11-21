@@ -35,7 +35,7 @@
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhoneSimulator\Test</OutputPath>
-    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;AWS_ASYNC_ENUMERABLES_API;DEBUG;TEST;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
     <DocumentationFile>obj\AWSSDK.CognitoIdentityProvider.NetStandard\Debug\netstandard2.0\AWSSDK.CognitoIdentityProvider.xml</DocumentationFile>
     <AssemblyName>AWSSDK.CognitoIdentityProvider.NetStandard</AssemblyName>
     <NoWarn>1701;1702</NoWarn>
@@ -59,7 +59,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <Optimize>false</Optimize>
-    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;NETSTANDARD;NETSTANDARD2_0;AWS_ASYNC_ENUMERABLES_API;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;AWS_ASYNC_ENUMERABLES_API;DEBUG;TEST;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
     <DocumentationFile>obj\AWSSDK.CognitoIdentityProvider.NetStandard\Debug\netstandard2.0\AWSSDK.CognitoIdentityProvider.xml</DocumentationFile>
     <IntermediateOutputPath>obj\AWSSDK.CognitoIdentityProvider.NetStandard\Debug\netstandard2.0</IntermediateOutputPath>
   </PropertyGroup>
