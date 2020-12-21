@@ -105,6 +105,10 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
                 response.StorageClass = S3Transforms.ToString(responseData.GetHeaderValue(HeaderKeys.XAmzStorageClassHeader));
             if (responseData.IsHeaderPresent(S3Constants.AmzHeaderRequestCharged))
                 response.RequestCharged = RequestCharged.FindValue(responseData.GetHeaderValue(S3Constants.AmzHeaderRequestCharged));
+            if (responseData.IsHeaderPresent(S3Constants.AmzHeaderArchiveStatus))
+                response.ArchiveStatus = S3Transforms.ToString(responseData.GetHeaderValue(S3Constants.AmzHeaderArchiveStatus));
+            if (responseData.IsHeaderPresent(S3Constants.AmzHeaderBucketKeyEnabled))
+                response.BucketKeyEnabled = S3Transforms.ToBool(responseData.GetHeaderValue(S3Constants.AmzHeaderBucketKeyEnabled));
 
             foreach (var name in responseData.GetHeaderNames())
             {

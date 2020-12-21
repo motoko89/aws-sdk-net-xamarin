@@ -64,6 +64,12 @@ namespace Amazon.Lambda.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("ImageUri", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.ImageUri = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Location", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -74,6 +80,12 @@ namespace Amazon.Lambda.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.RepositoryType = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("ResolvedImageUri", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.ResolvedImageUri = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

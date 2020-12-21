@@ -72,6 +72,17 @@ namespace Amazon.NetworkManager.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetAWSLocation())
+                {
+                    context.Writer.WritePropertyName("AWSLocation");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = AWSLocationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.AWSLocation, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetDescription())
                 {
                     context.Writer.WritePropertyName("Description");

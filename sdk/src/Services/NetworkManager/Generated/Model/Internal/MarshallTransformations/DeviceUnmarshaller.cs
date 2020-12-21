@@ -64,6 +64,12 @@ namespace Amazon.NetworkManager.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("AWSLocation", targetDepth))
+                {
+                    var unmarshaller = AWSLocationUnmarshaller.Instance;
+                    unmarshalledObject.AWSLocation = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("CreatedAt", targetDepth))
                 {
                     var unmarshaller = DateTimeUnmarshaller.Instance;

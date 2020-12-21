@@ -74,10 +74,27 @@ namespace Amazon.DirectoryService.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.CertificateData);
                 }
 
+                if(publicRequest.IsSetClientCertAuthSettings())
+                {
+                    context.Writer.WritePropertyName("ClientCertAuthSettings");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = ClientCertAuthSettingsMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.ClientCertAuthSettings, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetDirectoryId())
                 {
                     context.Writer.WritePropertyName("DirectoryId");
                     context.Writer.Write(publicRequest.DirectoryId);
+                }
+
+                if(publicRequest.IsSetType())
+                {
+                    context.Writer.WritePropertyName("Type");
+                    context.Writer.Write(publicRequest.Type);
                 }
 
         

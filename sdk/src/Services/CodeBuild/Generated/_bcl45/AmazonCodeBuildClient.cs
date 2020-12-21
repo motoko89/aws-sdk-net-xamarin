@@ -1387,6 +1387,59 @@ namespace Amazon.CodeBuild
 
         #endregion
         
+        #region  GetReportGroupTrend
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetReportGroupTrend service method.</param>
+        /// 
+        /// <returns>The response from the GetReportGroupTrend service method, as returned by CodeBuild.</returns>
+        /// <exception cref="Amazon.CodeBuild.Model.InvalidInputException">
+        /// The input value that was provided is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CodeBuild.Model.ResourceNotFoundException">
+        /// The specified AWS resource cannot be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/GetReportGroupTrend">REST API Reference for GetReportGroupTrend Operation</seealso>
+        public virtual GetReportGroupTrendResponse GetReportGroupTrend(GetReportGroupTrendRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetReportGroupTrendRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetReportGroupTrendResponseUnmarshaller.Instance;
+
+            return Invoke<GetReportGroupTrendResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetReportGroupTrend service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetReportGroupTrend service method, as returned by CodeBuild.</returns>
+        /// <exception cref="Amazon.CodeBuild.Model.InvalidInputException">
+        /// The input value that was provided is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CodeBuild.Model.ResourceNotFoundException">
+        /// The specified AWS resource cannot be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/GetReportGroupTrend">REST API Reference for GetReportGroupTrend Operation</seealso>
+        public virtual Task<GetReportGroupTrendResponse> GetReportGroupTrendAsync(GetReportGroupTrendRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetReportGroupTrendRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetReportGroupTrendResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<GetReportGroupTrendResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  GetResourcePolicy
 
 
@@ -2254,7 +2307,7 @@ namespace Amazon.CodeBuild
 
 
         /// <summary>
-        /// Restarts a batch build.
+        /// Restarts a failed batch build. Only batch builds that have failed can be retried.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RetryBuildBatch service method.</param>
         /// 
@@ -2277,7 +2330,7 @@ namespace Amazon.CodeBuild
 
 
         /// <summary>
-        /// Restarts a batch build.
+        /// Restarts a failed batch build. Only batch builds that have failed can be retried.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RetryBuildBatch service method.</param>
         /// <param name="cancellationToken">

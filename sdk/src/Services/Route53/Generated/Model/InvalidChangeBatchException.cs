@@ -125,10 +125,7 @@ namespace Amazon.Route53.Model
 #endif
 
         /// <summary>
-        /// Gets and sets the property Messages. 
-        /// <para>
-        /// Descriptive message for the error response.
-        /// </para>
+        /// Gets and sets the property Messages.
         /// </summary>
         public List<string> Messages
         {

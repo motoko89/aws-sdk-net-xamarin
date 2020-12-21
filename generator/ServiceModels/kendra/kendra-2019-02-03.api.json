@@ -104,6 +104,24 @@
         {"shape":"InternalServerException"}
       ]
     },
+    "CreateThesaurus":{
+      "name":"CreateThesaurus",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"CreateThesaurusRequest"},
+      "output":{"shape":"CreateThesaurusResponse"},
+      "errors":[
+        {"shape":"ValidationException"},
+        {"shape":"ConflictException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"ServiceQuotaExceededException"},
+        {"shape":"AccessDeniedException"},
+        {"shape":"InternalServerException"}
+      ]
+    },
     "DeleteDataSource":{
       "name":"DeleteDataSource",
       "http":{
@@ -143,6 +161,22 @@
         "requestUri":"/"
       },
       "input":{"shape":"DeleteIndexRequest"},
+      "errors":[
+        {"shape":"ValidationException"},
+        {"shape":"ConflictException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"AccessDeniedException"},
+        {"shape":"InternalServerException"}
+      ]
+    },
+    "DeleteThesaurus":{
+      "name":"DeleteThesaurus",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DeleteThesaurusRequest"},
       "errors":[
         {"shape":"ValidationException"},
         {"shape":"ConflictException"},
@@ -192,6 +226,22 @@
       },
       "input":{"shape":"DescribeIndexRequest"},
       "output":{"shape":"DescribeIndexResponse"},
+      "errors":[
+        {"shape":"ValidationException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"AccessDeniedException"},
+        {"shape":"InternalServerException"}
+      ]
+    },
+    "DescribeThesaurus":{
+      "name":"DescribeThesaurus",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DescribeThesaurusRequest"},
+      "output":{"shape":"DescribeThesaurusResponse"},
       "errors":[
         {"shape":"ValidationException"},
         {"shape":"ResourceNotFoundException"},
@@ -275,6 +325,22 @@
       "errors":[
         {"shape":"ValidationException"},
         {"shape":"ResourceUnavailableException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"AccessDeniedException"},
+        {"shape":"InternalServerException"}
+      ]
+    },
+    "ListThesauri":{
+      "name":"ListThesauri",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListThesauriRequest"},
+      "output":{"shape":"ListThesauriResponse"},
+      "errors":[
+        {"shape":"ValidationException"},
+        {"shape":"ResourceNotFoundException"},
         {"shape":"ThrottlingException"},
         {"shape":"AccessDeniedException"},
         {"shape":"InternalServerException"}
@@ -409,6 +475,22 @@
         {"shape":"ThrottlingException"},
         {"shape":"AccessDeniedException"},
         {"shape":"ServiceQuotaExceededException"},
+        {"shape":"InternalServerException"}
+      ]
+    },
+    "UpdateThesaurus":{
+      "name":"UpdateThesaurus",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"UpdateThesaurusRequest"},
+      "errors":[
+        {"shape":"ValidationException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"AccessDeniedException"},
+        {"shape":"ConflictException"},
         {"shape":"InternalServerException"}
       ]
     }
@@ -563,6 +645,12 @@
       "member":{"shape":"ColumnName"},
       "max":5,
       "min":1
+    },
+    "ClaimRegex":{
+      "type":"string",
+      "max":100,
+      "min":1,
+      "pattern":"^\\P{C}*$"
     },
     "ClickFeedback":{
       "type":"structure",
@@ -786,7 +874,10 @@
     },
     "ConfluenceVersion":{
       "type":"string",
-      "enum":["SERVER"]
+      "enum":[
+        "CLOUD",
+        "SERVER"
+      ]
     },
     "ConnectionConfiguration":{
       "type":"structure",
@@ -888,13 +979,42 @@
           "shape":"ClientTokenName",
           "idempotencyToken":true
         },
-        "Tags":{"shape":"TagList"}
+        "Tags":{"shape":"TagList"},
+        "UserTokenConfigurations":{"shape":"UserTokenConfigurationList"},
+        "UserContextPolicy":{"shape":"UserContextPolicy"}
       }
     },
     "CreateIndexResponse":{
       "type":"structure",
       "members":{
         "Id":{"shape":"IndexId"}
+      }
+    },
+    "CreateThesaurusRequest":{
+      "type":"structure",
+      "required":[
+        "IndexId",
+        "Name",
+        "RoleArn",
+        "SourceS3Path"
+      ],
+      "members":{
+        "IndexId":{"shape":"IndexId"},
+        "Name":{"shape":"ThesaurusName"},
+        "Description":{"shape":"Description"},
+        "RoleArn":{"shape":"RoleArn"},
+        "Tags":{"shape":"TagList"},
+        "SourceS3Path":{"shape":"S3Path"},
+        "ClientToken":{
+          "shape":"ClientTokenName",
+          "idempotencyToken":true
+        }
+      }
+    },
+    "CreateThesaurusResponse":{
+      "type":"structure",
+      "members":{
+        "Id":{"shape":"ThesaurusId"}
       }
     },
     "DataSourceConfiguration":{
@@ -906,7 +1026,8 @@
         "SalesforceConfiguration":{"shape":"SalesforceConfiguration"},
         "OneDriveConfiguration":{"shape":"OneDriveConfiguration"},
         "ServiceNowConfiguration":{"shape":"ServiceNowConfiguration"},
-        "ConfluenceConfiguration":{"shape":"ConfluenceConfiguration"}
+        "ConfluenceConfiguration":{"shape":"ConfluenceConfiguration"},
+        "GoogleDriveConfiguration":{"shape":"GoogleDriveConfiguration"}
       }
     },
     "DataSourceDateFieldFormat":{
@@ -1053,7 +1174,8 @@
         "ONEDRIVE",
         "SERVICENOW",
         "CUSTOM",
-        "CONFLUENCE"
+        "CONFLUENCE",
+        "GOOGLEDRIVE"
       ]
     },
     "DataSourceVpcConfiguration":{
@@ -1137,6 +1259,17 @@
         "Id":{"shape":"IndexId"}
       }
     },
+    "DeleteThesaurusRequest":{
+      "type":"structure",
+      "required":[
+        "Id",
+        "IndexId"
+      ],
+      "members":{
+        "Id":{"shape":"ThesaurusId"},
+        "IndexId":{"shape":"IndexId"}
+      }
+    },
     "DescribeDataSourceRequest":{
       "type":"structure",
       "required":[
@@ -1214,7 +1347,38 @@
         "DocumentMetadataConfigurations":{"shape":"DocumentMetadataConfigurationList"},
         "IndexStatistics":{"shape":"IndexStatistics"},
         "ErrorMessage":{"shape":"ErrorMessage"},
-        "CapacityUnits":{"shape":"CapacityUnitsConfiguration"}
+        "CapacityUnits":{"shape":"CapacityUnitsConfiguration"},
+        "UserTokenConfigurations":{"shape":"UserTokenConfigurationList"},
+        "UserContextPolicy":{"shape":"UserContextPolicy"}
+      }
+    },
+    "DescribeThesaurusRequest":{
+      "type":"structure",
+      "required":[
+        "Id",
+        "IndexId"
+      ],
+      "members":{
+        "Id":{"shape":"ThesaurusId"},
+        "IndexId":{"shape":"IndexId"}
+      }
+    },
+    "DescribeThesaurusResponse":{
+      "type":"structure",
+      "members":{
+        "Id":{"shape":"ThesaurusId"},
+        "IndexId":{"shape":"IndexId"},
+        "Name":{"shape":"ThesaurusName"},
+        "Description":{"shape":"Description"},
+        "Status":{"shape":"ThesaurusStatus"},
+        "ErrorMessage":{"shape":"ErrorMessage"},
+        "CreatedAt":{"shape":"Timestamp"},
+        "UpdatedAt":{"shape":"Timestamp"},
+        "RoleArn":{"shape":"RoleArn"},
+        "SourceS3Path":{"shape":"S3Path"},
+        "FileSizeBytes":{"shape":"Long"},
+        "TermCount":{"shape":"Long"},
+        "SynonymRuleCount":{"shape":"Long"}
       }
     },
     "Description":{
@@ -1368,6 +1532,24 @@
       "min":1,
       "pattern":"^\\P{C}*$"
     },
+    "ExcludeMimeTypesList":{
+      "type":"list",
+      "member":{"shape":"MimeType"},
+      "max":30,
+      "min":0
+    },
+    "ExcludeSharedDrivesList":{
+      "type":"list",
+      "member":{"shape":"SharedDriveId"},
+      "max":100,
+      "min":0
+    },
+    "ExcludeUserAccountsList":{
+      "type":"list",
+      "member":{"shape":"UserAccount"},
+      "max":100,
+      "min":0
+    },
     "Facet":{
       "type":"structure",
       "members":{
@@ -1442,6 +1624,31 @@
       "type":"list",
       "member":{"shape":"FaqSummary"}
     },
+    "FeedbackToken":{
+      "type":"string",
+      "max":2048,
+      "min":1,
+      "pattern":"^\\P{C}*.\\P{C}*$"
+    },
+    "GoogleDriveConfiguration":{
+      "type":"structure",
+      "required":["SecretArn"],
+      "members":{
+        "SecretArn":{"shape":"SecretArn"},
+        "InclusionPatterns":{"shape":"DataSourceInclusionsExclusionsStrings"},
+        "ExclusionPatterns":{"shape":"DataSourceInclusionsExclusionsStrings"},
+        "FieldMappings":{"shape":"DataSourceToIndexFieldMappingList"},
+        "ExcludeMimeTypes":{"shape":"ExcludeMimeTypesList"},
+        "ExcludeUserAccounts":{"shape":"ExcludeUserAccountsList"},
+        "ExcludeSharedDrives":{"shape":"ExcludeSharedDrivesList"}
+      }
+    },
+    "GroupAttributeField":{
+      "type":"string",
+      "max":100,
+      "min":1,
+      "pattern":"^\\P{C}*$"
+    },
     "Highlight":{
       "type":"structure",
       "required":[
@@ -1451,12 +1658,20 @@
       "members":{
         "BeginOffset":{"shape":"Integer"},
         "EndOffset":{"shape":"Integer"},
-        "TopAnswer":{"shape":"Boolean"}
+        "TopAnswer":{"shape":"Boolean"},
+        "Type":{"shape":"HighlightType"}
       }
     },
     "HighlightList":{
       "type":"list",
       "member":{"shape":"Highlight"}
+    },
+    "HighlightType":{
+      "type":"string",
+      "enum":[
+        "STANDARD",
+        "THESAURUS_SYNONYM"
+      ]
     },
     "Importance":{
       "type":"integer",
@@ -1551,6 +1766,43 @@
       "exception":true,
       "fault":true
     },
+    "Issuer":{
+      "type":"string",
+      "max":65,
+      "min":1,
+      "pattern":"^\\P{C}*$"
+    },
+    "JsonTokenTypeConfiguration":{
+      "type":"structure",
+      "required":[
+        "UserNameAttributeField",
+        "GroupAttributeField"
+      ],
+      "members":{
+        "UserNameAttributeField":{"shape":"String"},
+        "GroupAttributeField":{"shape":"String"}
+      }
+    },
+    "JwtTokenTypeConfiguration":{
+      "type":"structure",
+      "required":["KeyLocation"],
+      "members":{
+        "KeyLocation":{"shape":"KeyLocation"},
+        "URL":{"shape":"Url"},
+        "SecretManagerArn":{"shape":"RoleArn"},
+        "UserNameAttributeField":{"shape":"UserNameAttributeField"},
+        "GroupAttributeField":{"shape":"GroupAttributeField"},
+        "Issuer":{"shape":"Issuer"},
+        "ClaimRegex":{"shape":"ClaimRegex"}
+      }
+    },
+    "KeyLocation":{
+      "type":"string",
+      "enum":[
+        "URL",
+        "SECRET_MANAGER"
+      ]
+    },
     "KmsKeyId":{
       "type":"string",
       "max":2048,
@@ -1638,6 +1890,22 @@
         "Tags":{"shape":"TagList"}
       }
     },
+    "ListThesauriRequest":{
+      "type":"structure",
+      "required":["IndexId"],
+      "members":{
+        "IndexId":{"shape":"IndexId"},
+        "NextToken":{"shape":"NextToken"},
+        "MaxResults":{"shape":"MaxResultsIntegerForListThesauriRequest"}
+      }
+    },
+    "ListThesauriResponse":{
+      "type":"structure",
+      "members":{
+        "NextToken":{"shape":"NextToken"},
+        "ThesaurusSummaryItems":{"shape":"ThesaurusSummaryItems"}
+      }
+    },
     "Long":{"type":"long"},
     "MaxResultsIntegerForListDataSourceSyncJobsRequest":{
       "type":"integer",
@@ -1659,9 +1927,20 @@
       "max":100,
       "min":1
     },
+    "MaxResultsIntegerForListThesauriRequest":{
+      "type":"integer",
+      "max":100,
+      "min":1
+    },
     "MetricValue":{
       "type":"string",
       "pattern":"(([1-9][0-9]*)|0)"
+    },
+    "MimeType":{
+      "type":"string",
+      "max":256,
+      "min":1,
+      "pattern":"^\\P{C}*$"
     },
     "NextToken":{
       "type":"string",
@@ -1681,7 +1960,8 @@
         "OneDriveUsers":{"shape":"OneDriveUsers"},
         "InclusionPatterns":{"shape":"DataSourceInclusionsExclusionsStrings"},
         "ExclusionPatterns":{"shape":"DataSourceInclusionsExclusionsStrings"},
-        "FieldMappings":{"shape":"DataSourceToIndexFieldMappingList"}
+        "FieldMappings":{"shape":"DataSourceToIndexFieldMappingList"},
+        "DisableLocalGroups":{"shape":"Boolean"}
       }
     },
     "OneDriveUser":{
@@ -1747,7 +2027,8 @@
     "QueryId":{
       "type":"string",
       "max":36,
-      "min":1
+      "min":1,
+      "pattern":"[a-zA-Z0-9][a-zA-Z0-9-]*"
     },
     "QueryIdentifiersEnclosingOption":{
       "type":"string",
@@ -1771,7 +2052,9 @@
         "QueryResultTypeFilter":{"shape":"QueryResultType"},
         "PageNumber":{"shape":"Integer"},
         "PageSize":{"shape":"Integer"},
-        "SortingConfiguration":{"shape":"SortingConfiguration"}
+        "SortingConfiguration":{"shape":"SortingConfiguration"},
+        "UserContext":{"shape":"UserContext"},
+        "VisitorId":{"shape":"VisitorId"}
       }
     },
     "QueryResult":{
@@ -1794,7 +2077,8 @@
         "DocumentExcerpt":{"shape":"TextWithHighlights"},
         "DocumentURI":{"shape":"Url"},
         "DocumentAttributes":{"shape":"DocumentAttributeList"},
-        "ScoreAttributes":{"shape":"ScoreAttributes"}
+        "ScoreAttributes":{"shape":"ScoreAttributes"},
+        "FeedbackToken":{"shape":"FeedbackToken"}
       }
     },
     "QueryResultItemList":{
@@ -2192,7 +2476,8 @@
         "ExclusionPatterns":{"shape":"DataSourceInclusionsExclusionsStrings"},
         "VpcConfiguration":{"shape":"DataSourceVpcConfiguration"},
         "FieldMappings":{"shape":"DataSourceToIndexFieldMappingList"},
-        "DocumentTitleFieldName":{"shape":"DataSourceFieldName"}
+        "DocumentTitleFieldName":{"shape":"DataSourceFieldName"},
+        "DisableLocalGroups":{"shape":"Boolean"}
       }
     },
     "SharePointUrlList":{
@@ -2204,6 +2489,12 @@
     "SharePointVersion":{
       "type":"string",
       "enum":["SHAREPOINT_ONLINE"]
+    },
+    "SharedDriveId":{
+      "type":"string",
+      "max":256,
+      "min":1,
+      "pattern":"^\\P{C}*$"
     },
     "SortOrder":{
       "type":"string",
@@ -2370,6 +2661,43 @@
         "Highlights":{"shape":"HighlightList"}
       }
     },
+    "ThesaurusId":{
+      "type":"string",
+      "max":100,
+      "min":1,
+      "pattern":"[a-zA-Z0-9][a-zA-Z0-9_-]*"
+    },
+    "ThesaurusName":{
+      "type":"string",
+      "max":100,
+      "min":1,
+      "pattern":"[a-zA-Z0-9][a-zA-Z0-9_-]*"
+    },
+    "ThesaurusStatus":{
+      "type":"string",
+      "enum":[
+        "CREATING",
+        "ACTIVE",
+        "DELETING",
+        "UPDATING",
+        "ACTIVE_BUT_UPDATE_FAILED",
+        "FAILED"
+      ]
+    },
+    "ThesaurusSummary":{
+      "type":"structure",
+      "members":{
+        "Id":{"shape":"ThesaurusId"},
+        "Name":{"shape":"ThesaurusName"},
+        "Status":{"shape":"ThesaurusStatus"},
+        "CreatedAt":{"shape":"Timestamp"},
+        "UpdatedAt":{"shape":"Timestamp"}
+      }
+    },
+    "ThesaurusSummaryItems":{
+      "type":"list",
+      "member":{"shape":"ThesaurusSummary"}
+    },
     "ThrottlingException":{
       "type":"structure",
       "members":{
@@ -2386,6 +2714,12 @@
     },
     "Timestamp":{"type":"timestamp"},
     "Title":{"type":"string"},
+    "Token":{
+      "type":"string",
+      "max":100000,
+      "min":1,
+      "pattern":"^\\P{C}*$"
+    },
     "UntagResourceRequest":{
       "type":"structure",
       "required":[
@@ -2427,7 +2761,24 @@
         "RoleArn":{"shape":"RoleArn"},
         "Description":{"shape":"Description"},
         "DocumentMetadataConfigurationUpdates":{"shape":"DocumentMetadataConfigurationList"},
-        "CapacityUnits":{"shape":"CapacityUnitsConfiguration"}
+        "CapacityUnits":{"shape":"CapacityUnitsConfiguration"},
+        "UserTokenConfigurations":{"shape":"UserTokenConfigurationList"},
+        "UserContextPolicy":{"shape":"UserContextPolicy"}
+      }
+    },
+    "UpdateThesaurusRequest":{
+      "type":"structure",
+      "required":[
+        "Id",
+        "IndexId"
+      ],
+      "members":{
+        "Id":{"shape":"ThesaurusId"},
+        "Name":{"shape":"ThesaurusName"},
+        "IndexId":{"shape":"IndexId"},
+        "Description":{"shape":"Description"},
+        "RoleArn":{"shape":"RoleArn"},
+        "SourceS3Path":{"shape":"S3Path"}
       }
     },
     "Url":{
@@ -2435,6 +2786,43 @@
       "max":2048,
       "min":1,
       "pattern":"^(https?|ftp|file):\\/\\/([^\\s]*)"
+    },
+    "UserAccount":{
+      "type":"string",
+      "max":256,
+      "min":1,
+      "pattern":"^\\P{C}*$"
+    },
+    "UserContext":{
+      "type":"structure",
+      "members":{
+        "Token":{"shape":"Token"}
+      }
+    },
+    "UserContextPolicy":{
+      "type":"string",
+      "enum":[
+        "ATTRIBUTE_FILTER",
+        "USER_TOKEN"
+      ]
+    },
+    "UserNameAttributeField":{
+      "type":"string",
+      "max":100,
+      "min":1,
+      "pattern":"^\\P{C}*$"
+    },
+    "UserTokenConfiguration":{
+      "type":"structure",
+      "members":{
+        "JwtTokenTypeConfiguration":{"shape":"JwtTokenTypeConfiguration"},
+        "JsonTokenTypeConfiguration":{"shape":"JsonTokenTypeConfiguration"}
+      }
+    },
+    "UserTokenConfigurationList":{
+      "type":"list",
+      "member":{"shape":"UserTokenConfiguration"},
+      "max":1
     },
     "ValidationException":{
       "type":"structure",
@@ -2452,6 +2840,12 @@
       "type":"string",
       "max":50,
       "min":1
+    },
+    "VisitorId":{
+      "type":"string",
+      "max":256,
+      "min":1,
+      "pattern":"[a-zA-Z0-9][a-zA-Z0-9_-]*"
     },
     "VpcSecurityGroupId":{
       "type":"string",

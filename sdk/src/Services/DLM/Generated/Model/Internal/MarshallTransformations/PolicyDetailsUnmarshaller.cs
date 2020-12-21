@@ -64,6 +64,18 @@ namespace Amazon.DLM.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("Actions", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<Action, ActionUnmarshaller>(ActionUnmarshaller.Instance);
+                    unmarshalledObject.Actions = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("EventSource", targetDepth))
+                {
+                    var unmarshaller = EventSourceUnmarshaller.Instance;
+                    unmarshalledObject.EventSource = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Parameters", targetDepth))
                 {
                     var unmarshaller = ParametersUnmarshaller.Instance;

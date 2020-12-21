@@ -72,10 +72,22 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         unmarshalledObject.OriginalIops = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("originalMultiAttachEnabled", targetDepth))
+                    {
+                        var unmarshaller = BoolUnmarshaller.Instance;
+                        unmarshalledObject.OriginalMultiAttachEnabled = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("originalSize", targetDepth))
                     {
                         var unmarshaller = IntUnmarshaller.Instance;
                         unmarshalledObject.OriginalSize = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("originalThroughput", targetDepth))
+                    {
+                        var unmarshaller = IntUnmarshaller.Instance;
+                        unmarshalledObject.OriginalThroughput = unmarshaller.Unmarshall(context);
                         continue;
                     }
                     if (context.TestExpression("originalVolumeType", targetDepth))
@@ -108,10 +120,22 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         unmarshalledObject.TargetIops = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("targetMultiAttachEnabled", targetDepth))
+                    {
+                        var unmarshaller = BoolUnmarshaller.Instance;
+                        unmarshalledObject.TargetMultiAttachEnabled = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("targetSize", targetDepth))
                     {
                         var unmarshaller = IntUnmarshaller.Instance;
                         unmarshalledObject.TargetSize = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("targetThroughput", targetDepth))
+                    {
+                        var unmarshaller = IntUnmarshaller.Instance;
+                        unmarshalledObject.TargetThroughput = unmarshaller.Unmarshall(context);
                         continue;
                     }
                     if (context.TestExpression("targetVolumeType", targetDepth))

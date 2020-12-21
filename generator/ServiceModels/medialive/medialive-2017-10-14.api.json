@@ -2601,6 +2601,22 @@
         }
       }
     },
+    "AudioSilenceFailoverSettings": {
+      "type": "structure",
+      "members": {
+        "AudioSelectorName": {
+          "shape": "__string",
+          "locationName": "audioSelectorName"
+        },
+        "AudioSilenceThresholdMsec": {
+          "shape": "__integerMin1000",
+          "locationName": "audioSilenceThresholdMsec"
+        }
+      },
+      "required": [
+        "AudioSelectorName"
+      ]
+    },
     "AudioTrack": {
       "type": "structure",
       "members": {
@@ -4496,6 +4512,10 @@
           "shape": "DeviceSettingsSyncState",
           "locationName": "deviceSettingsSyncState"
         },
+        "DeviceUpdateStatus": {
+          "shape": "DeviceUpdateStatus",
+          "locationName": "deviceUpdateStatus"
+        },
         "HdDeviceSettings": {
           "shape": "InputDeviceHdSettings",
           "locationName": "hdDeviceSettings"
@@ -4523,6 +4543,10 @@
         "Type": {
           "shape": "InputDeviceType",
           "locationName": "type"
+        },
+        "UhdDeviceSettings": {
+          "shape": "InputDeviceUhdSettings",
+          "locationName": "uhdDeviceSettings"
         }
       }
     },
@@ -4990,6 +5014,13 @@
       "enum": [
         "SYNCED",
         "SYNCING"
+      ]
+    },
+    "DeviceUpdateStatus": {
+      "type": "string",
+      "enum": [
+        "UP_TO_DATE",
+        "NOT_UP_TO_DATE"
       ]
     },
     "DvbNitSettings": {
@@ -5534,9 +5565,17 @@
     "FailoverConditionSettings": {
       "type": "structure",
       "members": {
+        "AudioSilenceSettings": {
+          "shape": "AudioSilenceFailoverSettings",
+          "locationName": "audioSilenceSettings"
+        },
         "InputLossSettings": {
           "shape": "InputLossFailoverSettings",
           "locationName": "inputLossSettings"
+        },
+        "VideoBlackSettings": {
+          "shape": "VideoBlackFailoverSettings",
+          "locationName": "videoBlackSettings"
         }
       }
     },
@@ -7222,6 +7261,10 @@
           "shape": "DeviceSettingsSyncState",
           "locationName": "deviceSettingsSyncState"
         },
+        "DeviceUpdateStatus": {
+          "shape": "DeviceUpdateStatus",
+          "locationName": "deviceUpdateStatus"
+        },
         "HdDeviceSettings": {
           "shape": "InputDeviceHdSettings",
           "locationName": "hdDeviceSettings"
@@ -7249,6 +7292,10 @@
         "Type": {
           "shape": "InputDeviceType",
           "locationName": "type"
+        },
+        "UhdDeviceSettings": {
+          "shape": "InputDeviceUhdSettings",
+          "locationName": "uhdDeviceSettings"
         }
       }
     },
@@ -7416,6 +7463,10 @@
           "shape": "DeviceSettingsSyncState",
           "locationName": "deviceSettingsSyncState"
         },
+        "DeviceUpdateStatus": {
+          "shape": "DeviceUpdateStatus",
+          "locationName": "deviceUpdateStatus"
+        },
         "HdDeviceSettings": {
           "shape": "InputDeviceHdSettings",
           "locationName": "hdDeviceSettings"
@@ -7443,6 +7494,10 @@
         "Type": {
           "shape": "InputDeviceType",
           "locationName": "type"
+        },
+        "UhdDeviceSettings": {
+          "shape": "InputDeviceUhdSettings",
+          "locationName": "uhdDeviceSettings"
         }
       }
     },
@@ -7458,6 +7513,43 @@
       "enum": [
         "HD"
       ]
+    },
+    "InputDeviceUhdSettings": {
+      "type": "structure",
+      "members": {
+        "ActiveInput": {
+          "shape": "InputDeviceActiveInput",
+          "locationName": "activeInput"
+        },
+        "ConfiguredInput": {
+          "shape": "InputDeviceConfiguredInput",
+          "locationName": "configuredInput"
+        },
+        "DeviceState": {
+          "shape": "InputDeviceState",
+          "locationName": "deviceState"
+        },
+        "Framerate": {
+          "shape": "__double",
+          "locationName": "framerate"
+        },
+        "Height": {
+          "shape": "__integer",
+          "locationName": "height"
+        },
+        "MaxBitrate": {
+          "shape": "__integer",
+          "locationName": "maxBitrate"
+        },
+        "ScanType": {
+          "shape": "InputDeviceScanType",
+          "locationName": "scanType"
+        },
+        "Width": {
+          "shape": "__integer",
+          "locationName": "width"
+        }
+      }
     },
     "InputFilter": {
       "type": "string",
@@ -10209,6 +10301,12 @@
         }
       }
     },
+    "RtmpAdMarkers": {
+      "type": "string",
+      "enum": [
+        "ON_CUE_POINT_SCTE35"
+      ]
+    },
     "RtmpCacheFullBehavior": {
       "type": "string",
       "enum": [
@@ -10232,6 +10330,10 @@
     "RtmpGroupSettings": {
       "type": "structure",
       "members": {
+        "AdMarkers": {
+          "shape": "__listOfRtmpAdMarkers",
+          "locationName": "adMarkers"
+        },
         "AuthenticationScheme": {
           "shape": "AuthenticationScheme",
           "locationName": "authenticationScheme"
@@ -11604,6 +11706,10 @@
         "Name": {
           "shape": "__string",
           "locationName": "name"
+        },
+        "UhdDeviceSettings": {
+          "shape": "InputDeviceConfigurableSettings",
+          "locationName": "uhdDeviceSettings"
         }
       }
     },
@@ -11622,6 +11728,10 @@
         "Name": {
           "shape": "__string",
           "locationName": "name"
+        },
+        "UhdDeviceSettings": {
+          "shape": "InputDeviceConfigurableSettings",
+          "locationName": "uhdDeviceSettings"
         }
       },
       "required": [
@@ -11642,6 +11752,10 @@
         "DeviceSettingsSyncState": {
           "shape": "DeviceSettingsSyncState",
           "locationName": "deviceSettingsSyncState"
+        },
+        "DeviceUpdateStatus": {
+          "shape": "DeviceUpdateStatus",
+          "locationName": "deviceUpdateStatus"
         },
         "HdDeviceSettings": {
           "shape": "InputDeviceHdSettings",
@@ -11670,6 +11784,10 @@
         "Type": {
           "shape": "InputDeviceType",
           "locationName": "type"
+        },
+        "UhdDeviceSettings": {
+          "shape": "InputDeviceUhdSettings",
+          "locationName": "uhdDeviceSettings"
         }
       }
     },
@@ -11930,6 +12048,19 @@
         }
       }
     },
+    "VideoBlackFailoverSettings": {
+      "type": "structure",
+      "members": {
+        "BlackDetectThreshold": {
+          "shape": "__doubleMin0Max1",
+          "locationName": "blackDetectThreshold"
+        },
+        "VideoBlackThresholdMsec": {
+          "shape": "__integerMin1000",
+          "locationName": "videoBlackThresholdMsec"
+        }
+      }
+    },
     "VideoCodecSettings": {
       "type": "structure",
       "members": {
@@ -12103,6 +12234,9 @@
       "type": "double"
     },
     "__doubleMin0": {
+      "type": "double"
+    },
+    "__doubleMin0Max1": {
       "type": "double"
     },
     "__doubleMin1": {
@@ -12602,6 +12736,12 @@
       "type": "list",
       "member": {
         "shape": "Reservation"
+      }
+    },
+    "__listOfRtmpAdMarkers": {
+      "type": "list",
+      "member": {
+        "shape": "RtmpAdMarkers"
       }
     },
     "__listOfScheduleAction": {

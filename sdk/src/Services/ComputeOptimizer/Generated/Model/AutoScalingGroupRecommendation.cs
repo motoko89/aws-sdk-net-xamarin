@@ -137,11 +137,7 @@ namespace Amazon.ComputeOptimizer.Model
         /// based on the chosen instance type. For optimized resources, Compute Optimizer might
         /// recommend a new generation instance type.
         /// </para>
-        ///  </li> </ul> <note> 
-        /// <para>
-        /// The values that are returned might be <code>NOT_OPTIMIZED</code> or <code>OPTIMIZED</code>.
-        /// </para>
-        ///  </note>
+        ///  </li> </ul>
         /// </summary>
         public Finding Finding
         {

@@ -45,6 +45,12 @@ namespace Amazon.Lambda.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(FunctionCode requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetImageUri())
+            {
+                context.Writer.WritePropertyName("ImageUri");
+                context.Writer.Write(requestObject.ImageUri);
+            }
+
             if(requestObject.IsSetS3Bucket())
             {
                 context.Writer.WritePropertyName("S3Bucket");

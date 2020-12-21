@@ -389,6 +389,10 @@ namespace Amazon.Kendra
     {
 
         /// <summary>
+        /// Constant CLOUD for ConfluenceVersion
+        /// </summary>
+        public static readonly ConfluenceVersion CLOUD = new ConfluenceVersion("CLOUD");
+        /// <summary>
         /// Constant SERVER for ConfluenceVersion
         /// </summary>
         public static readonly ConfluenceVersion SERVER = new ConfluenceVersion("SERVER");
@@ -699,6 +703,10 @@ namespace Amazon.Kendra
         /// </summary>
         public static readonly DataSourceType DATABASE = new DataSourceType("DATABASE");
         /// <summary>
+        /// Constant GOOGLEDRIVE for DataSourceType
+        /// </summary>
+        public static readonly DataSourceType GOOGLEDRIVE = new DataSourceType("GOOGLEDRIVE");
+        /// <summary>
         /// Constant ONEDRIVE for DataSourceType
         /// </summary>
         public static readonly DataSourceType ONEDRIVE = new DataSourceType("ONEDRIVE");
@@ -979,6 +987,56 @@ namespace Amazon.Kendra
 
 
     /// <summary>
+    /// Constants used for properties of type HighlightType.
+    /// </summary>
+    public class HighlightType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant STANDARD for HighlightType
+        /// </summary>
+        public static readonly HighlightType STANDARD = new HighlightType("STANDARD");
+        /// <summary>
+        /// Constant THESAURUS_SYNONYM for HighlightType
+        /// </summary>
+        public static readonly HighlightType THESAURUS_SYNONYM = new HighlightType("THESAURUS_SYNONYM");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public HighlightType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static HighlightType FindValue(string value)
+        {
+            return FindValue<HighlightType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator HighlightType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type IndexEdition.
     /// </summary>
     public class IndexEdition : ConstantClass
@@ -1088,6 +1146,56 @@ namespace Amazon.Kendra
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator IndexStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type KeyLocation.
+    /// </summary>
+    public class KeyLocation : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant SECRET_MANAGER for KeyLocation
+        /// </summary>
+        public static readonly KeyLocation SECRET_MANAGER = new KeyLocation("SECRET_MANAGER");
+        /// <summary>
+        /// Constant URL for KeyLocation
+        /// </summary>
+        public static readonly KeyLocation URL = new KeyLocation("URL");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public KeyLocation(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static KeyLocation FindValue(string value)
+        {
+            return FindValue<KeyLocation>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator KeyLocation(string value)
         {
             return FindValue(value);
         }
@@ -1810,6 +1918,122 @@ namespace Amazon.Kendra
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator SortOrder(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ThesaurusStatus.
+    /// </summary>
+    public class ThesaurusStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ACTIVE for ThesaurusStatus
+        /// </summary>
+        public static readonly ThesaurusStatus ACTIVE = new ThesaurusStatus("ACTIVE");
+        /// <summary>
+        /// Constant ACTIVE_BUT_UPDATE_FAILED for ThesaurusStatus
+        /// </summary>
+        public static readonly ThesaurusStatus ACTIVE_BUT_UPDATE_FAILED = new ThesaurusStatus("ACTIVE_BUT_UPDATE_FAILED");
+        /// <summary>
+        /// Constant CREATING for ThesaurusStatus
+        /// </summary>
+        public static readonly ThesaurusStatus CREATING = new ThesaurusStatus("CREATING");
+        /// <summary>
+        /// Constant DELETING for ThesaurusStatus
+        /// </summary>
+        public static readonly ThesaurusStatus DELETING = new ThesaurusStatus("DELETING");
+        /// <summary>
+        /// Constant FAILED for ThesaurusStatus
+        /// </summary>
+        public static readonly ThesaurusStatus FAILED = new ThesaurusStatus("FAILED");
+        /// <summary>
+        /// Constant UPDATING for ThesaurusStatus
+        /// </summary>
+        public static readonly ThesaurusStatus UPDATING = new ThesaurusStatus("UPDATING");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ThesaurusStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ThesaurusStatus FindValue(string value)
+        {
+            return FindValue<ThesaurusStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ThesaurusStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type UserContextPolicy.
+    /// </summary>
+    public class UserContextPolicy : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ATTRIBUTE_FILTER for UserContextPolicy
+        /// </summary>
+        public static readonly UserContextPolicy ATTRIBUTE_FILTER = new UserContextPolicy("ATTRIBUTE_FILTER");
+        /// <summary>
+        /// Constant USER_TOKEN for UserContextPolicy
+        /// </summary>
+        public static readonly UserContextPolicy USER_TOKEN = new UserContextPolicy("USER_TOKEN");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public UserContextPolicy(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static UserContextPolicy FindValue(string value)
+        {
+            return FindValue<UserContextPolicy>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator UserContextPolicy(string value)
         {
             return FindValue(value);
         }

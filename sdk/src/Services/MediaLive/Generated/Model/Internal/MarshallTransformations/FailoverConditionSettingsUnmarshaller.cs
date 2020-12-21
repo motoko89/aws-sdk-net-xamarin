@@ -64,10 +64,22 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("audioSilenceSettings", targetDepth))
+                {
+                    var unmarshaller = AudioSilenceFailoverSettingsUnmarshaller.Instance;
+                    unmarshalledObject.AudioSilenceSettings = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("inputLossSettings", targetDepth))
                 {
                     var unmarshaller = InputLossFailoverSettingsUnmarshaller.Instance;
                     unmarshalledObject.InputLossSettings = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("videoBlackSettings", targetDepth))
+                {
+                    var unmarshaller = VideoBlackFailoverSettingsUnmarshaller.Instance;
+                    unmarshalledObject.VideoBlackSettings = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

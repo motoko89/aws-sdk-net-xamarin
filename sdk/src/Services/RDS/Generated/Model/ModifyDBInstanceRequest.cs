@@ -712,8 +712,12 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property EnableIAMDatabaseAuthentication. 
         /// <para>
         /// A value that indicates whether to enable mapping of AWS Identity and Access Management
-        /// (IAM) accounts to database accounts. By default, mapping is disabled. For information
-        /// about the supported DB engines, see <a>CreateDBInstance</a>.
+        /// (IAM) accounts to database accounts. By default, mapping is disabled.
+        /// </para>
+        ///  
+        /// <para>
+        /// This setting doesn't apply to Amazon Aurora. Mapping AWS IAM accounts to database
+        /// accounts is managed by the DB cluster.
         /// </para>
         ///  
         /// <para>
@@ -763,7 +767,7 @@ namespace Amazon.RDS.Model
         /// <para>
         ///  The version number of the database engine to upgrade to. Changing this parameter
         /// results in an outage and the change is applied during the next maintenance window
-        /// unless the <code>ApplyImmediately</code> parameter is eanbled for this request. 
+        /// unless the <code>ApplyImmediately</code> parameter is enabled for this request. 
         /// </para>
         ///  
         /// <para>
@@ -1119,16 +1123,18 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property PerformanceInsightsKMSKeyId. 
         /// <para>
-        /// The AWS KMS key identifier for encryption of Performance Insights data. The KMS key
-        /// ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for
-        /// the KMS encryption key.
+        /// The AWS KMS key identifier for encryption of Performance Insights data.
+        /// </para>
+        ///  
+        /// <para>
+        /// The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the
+        /// AWS KMS customer master key (CMK).
         /// </para>
         ///  
         /// <para>
         /// If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
-        /// RDS uses your default encryption key. AWS KMS creates the default encryption key for
-        /// your AWS account. Your AWS account has a different default encryption key for each
-        /// AWS Region.
+        /// RDS uses your default CMK. There is a default CMK for your AWS account. Your AWS account
+        /// has a different default CMK for each AWS Region.
         /// </para>
         /// </summary>
         public string PerformanceInsightsKMSKeyId

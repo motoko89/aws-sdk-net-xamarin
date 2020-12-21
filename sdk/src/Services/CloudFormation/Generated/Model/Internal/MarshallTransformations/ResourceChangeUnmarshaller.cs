@@ -60,6 +60,12 @@ namespace Amazon.CloudFormation.Model.Internal.MarshallTransformations
                         unmarshalledObject.Action = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("ChangeSetId", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.ChangeSetId = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("Details/member", targetDepth))
                     {
                         var unmarshaller = ResourceChangeDetailUnmarshaller.Instance;
@@ -71,6 +77,12 @@ namespace Amazon.CloudFormation.Model.Internal.MarshallTransformations
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
                         unmarshalledObject.LogicalResourceId = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("ModuleInfo", targetDepth))
+                    {
+                        var unmarshaller = ModuleInfoUnmarshaller.Instance;
+                        unmarshalledObject.ModuleInfo = unmarshaller.Unmarshall(context);
                         continue;
                     }
                     if (context.TestExpression("PhysicalResourceId", targetDepth))

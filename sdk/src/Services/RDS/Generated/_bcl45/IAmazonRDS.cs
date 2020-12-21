@@ -319,7 +319,7 @@ namespace Amazon.RDS
         /// <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetGroupNotFoundException">
@@ -358,7 +358,7 @@ namespace Amazon.RDS
         /// <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetGroupNotFoundException">
@@ -710,10 +710,11 @@ namespace Amazon.RDS
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>KmsKeyId</code> - The KMS key identifier for the key to use to encrypt the
-        /// copy of the DB cluster snapshot in the destination AWS Region. This is the same identifier
-        /// for both the <code>CopyDBClusterSnapshot</code> action that is called in the destination
-        /// AWS Region, and the action contained in the pre-signed URL.
+        ///  <code>KmsKeyId</code> - The AWS KMS key identifier for the customer master key (CMK)
+        /// to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region.
+        /// This is the same identifier for both the <code>CopyDBClusterSnapshot</code> action
+        /// that is called in the destination AWS Region, and the action contained in the pre-signed
+        /// URL.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -840,10 +841,11 @@ namespace Amazon.RDS
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>KmsKeyId</code> - The KMS key identifier for the key to use to encrypt the
-        /// copy of the DB cluster snapshot in the destination AWS Region. This is the same identifier
-        /// for both the <code>CopyDBClusterSnapshot</code> action that is called in the destination
-        /// AWS Region, and the action contained in the pre-signed URL.
+        ///  <code>KmsKeyId</code> - The AWS KMS key identifier for the customer master key (CMK)
+        /// to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region.
+        /// This is the same identifier for both the <code>CopyDBClusterSnapshot</code> action
+        /// that is called in the destination AWS Region, and the action contained in the pre-signed
+        /// URL.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1007,6 +1009,10 @@ namespace Amazon.RDS
         /// <param name="request">Container for the necessary parameters to execute the CopyDBSnapshot service method.</param>
         /// 
         /// <returns>The response from the CopyDBSnapshot service method, as returned by RDS.</returns>
+        /// <exception cref="Amazon.RDS.Model.CustomAvailabilityZoneNotFoundException">
+        /// <code>CustomAvailabilityZoneId</code> doesn't refer to an existing custom Availability
+        /// Zone identifier.
+        /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBSnapshotAlreadyExistsException">
         /// <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.
         /// </exception>
@@ -1049,6 +1055,10 @@ namespace Amazon.RDS
         /// </param>
         /// 
         /// <returns>The response from the CopyDBSnapshot service method, as returned by RDS.</returns>
+        /// <exception cref="Amazon.RDS.Model.CustomAvailabilityZoneNotFoundException">
+        /// <code>CustomAvailabilityZoneId</code> doesn't refer to an existing custom Availability
+        /// Zone identifier.
+        /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBSnapshotAlreadyExistsException">
         /// <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.
         /// </exception>
@@ -1238,7 +1248,8 @@ namespace Amazon.RDS
         /// <code>Domain</code> doesn't refer to an existing Active Directory domain.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.GlobalClusterNotFoundException">
-        /// 
+        /// The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database
+        /// cluster.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InsufficientStorageClusterCapacityException">
         /// There is insufficient storage available for the current action. You might be able
@@ -1255,7 +1266,7 @@ namespace Amazon.RDS
         /// The DB subnet group cannot be deleted because it's in use.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidGlobalClusterStateException">
-        /// 
+        /// The global cluster is in an invalid state and can't perform the requested operation.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidSubnetException">
         /// The requested subnet is invalid, or multiple subnets were requested that are not all
@@ -1332,7 +1343,8 @@ namespace Amazon.RDS
         /// <code>Domain</code> doesn't refer to an existing Active Directory domain.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.GlobalClusterNotFoundException">
-        /// 
+        /// The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database
+        /// cluster.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InsufficientStorageClusterCapacityException">
         /// There is insufficient storage available for the current action. You might be able
@@ -1349,7 +1361,7 @@ namespace Amazon.RDS
         /// The DB subnet group cannot be deleted because it's in use.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidGlobalClusterStateException">
-        /// 
+        /// The global cluster is in an invalid state and can't perform the requested operation.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidSubnetException">
         /// The requested subnet is invalid, or multiple subnets were requested that are not all
@@ -2208,7 +2220,7 @@ namespace Amazon.RDS
 
         /// <summary>
         /// Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code>
-        /// or <code>storage-optimization</code>state.
+        /// or <code>storage-optimization</code> state.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateDBSnapshot service method.</param>
         /// 
@@ -2232,7 +2244,7 @@ namespace Amazon.RDS
 
         /// <summary>
         /// Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code>
-        /// or <code>storage-optimization</code>state.
+        /// or <code>storage-optimization</code> state.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateDBSnapshot service method.</param>
         /// <param name="cancellationToken">
@@ -2482,10 +2494,12 @@ namespace Amazon.RDS
         /// <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.GlobalClusterAlreadyExistsException">
-        /// 
+        /// The <code>GlobalClusterIdentifier</code> already exists. Choose a new global database
+        /// identifier (unique name) to create a new global database cluster.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.GlobalClusterQuotaExceededException">
-        /// 
+        /// The number of global database clusters for this account is already at the maximum
+        /// allowed.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidDBClusterStateException">
         /// The requested operation can't be performed while the cluster is in this state.
@@ -2524,10 +2538,12 @@ namespace Amazon.RDS
         /// <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.GlobalClusterAlreadyExistsException">
-        /// 
+        /// The <code>GlobalClusterIdentifier</code> already exists. Choose a new global database
+        /// identifier (unique name) to create a new global database cluster.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.GlobalClusterQuotaExceededException">
-        /// 
+        /// The number of global database clusters for this account is already at the maximum
+        /// allowed.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidDBClusterStateException">
         /// The requested operation can't be performed while the cluster is in this state.
@@ -3073,8 +3089,8 @@ namespace Amazon.RDS
 
 
         /// <summary>
-        /// Deletes automated backups based on the source instance's <code>DbiResourceId</code>
-        /// value or the restorable instance's resource ID.
+        /// Deletes automated backups using the <code>DbiResourceId</code> value of the source
+        /// DB instance or the Amazon Resource Name (ARN) of the automated backups.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteDBInstanceAutomatedBackup service method.</param>
         /// 
@@ -3092,8 +3108,8 @@ namespace Amazon.RDS
 
 
         /// <summary>
-        /// Deletes automated backups based on the source instance's <code>DbiResourceId</code>
-        /// value or the restorable instance's resource ID.
+        /// Deletes automated backups using the <code>DbiResourceId</code> value of the source
+        /// DB instance or the Amazon Resource Name (ARN) of the automated backups.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteDBInstanceAutomatedBackup service method.</param>
         /// <param name="cancellationToken">
@@ -3169,7 +3185,7 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the DeleteDBProxy service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidDBProxyStateException">
@@ -3190,7 +3206,7 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the DeleteDBProxy service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidDBProxyStateException">
@@ -3422,10 +3438,11 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the DeleteGlobalCluster service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.GlobalClusterNotFoundException">
-        /// 
+        /// The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database
+        /// cluster.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidGlobalClusterStateException">
-        /// 
+        /// The global cluster is in an invalid state and can't perform the requested operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteGlobalCluster">REST API Reference for DeleteGlobalCluster Operation</seealso>
         DeleteGlobalClusterResponse DeleteGlobalCluster(DeleteGlobalClusterRequest request);
@@ -3449,10 +3466,11 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the DeleteGlobalCluster service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.GlobalClusterNotFoundException">
-        /// 
+        /// The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database
+        /// cluster.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidGlobalClusterStateException">
-        /// 
+        /// The global cluster is in an invalid state and can't perform the requested operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteGlobalCluster">REST API Reference for DeleteGlobalCluster Operation</seealso>
         Task<DeleteGlobalClusterResponse> DeleteGlobalClusterAsync(DeleteGlobalClusterRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -3546,7 +3564,7 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the DeregisterDBProxyTargets service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetGroupNotFoundException">
@@ -3576,7 +3594,7 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the DeregisterDBProxyTargets service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetGroupNotFoundException">
@@ -4519,7 +4537,7 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the DescribeDBProxies service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBProxies">REST API Reference for DescribeDBProxies Operation</seealso>
@@ -4537,7 +4555,7 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the DescribeDBProxies service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBProxies">REST API Reference for DescribeDBProxies Operation</seealso>
@@ -4556,7 +4574,7 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the DescribeDBProxyTargetGroups service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetGroupNotFoundException">
@@ -4582,7 +4600,7 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the DescribeDBProxyTargetGroups service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetGroupNotFoundException">
@@ -4607,7 +4625,7 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the DescribeDBProxyTargets service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetGroupNotFoundException">
@@ -4636,7 +4654,7 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the DescribeDBProxyTargets service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetGroupNotFoundException">
@@ -5307,7 +5325,8 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the DescribeGlobalClusters service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.GlobalClusterNotFoundException">
-        /// 
+        /// The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database
+        /// cluster.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeGlobalClusters">REST API Reference for DescribeGlobalClusters Operation</seealso>
         DescribeGlobalClustersResponse DescribeGlobalClusters(DescribeGlobalClustersRequest request);
@@ -5336,7 +5355,8 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the DescribeGlobalClusters service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.GlobalClusterNotFoundException">
-        /// 
+        /// The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database
+        /// cluster.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeGlobalClusters">REST API Reference for DescribeGlobalClusters Operation</seealso>
         Task<DescribeGlobalClustersResponse> DescribeGlobalClustersAsync(DescribeGlobalClustersRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -5930,7 +5950,7 @@ namespace Amazon.RDS
         /// <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetGroupNotFoundException">
@@ -5967,7 +5987,7 @@ namespace Amazon.RDS
         /// <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetGroupNotFoundException">
@@ -6906,7 +6926,7 @@ namespace Amazon.RDS
         /// in the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidDBProxyStateException">
@@ -6931,7 +6951,7 @@ namespace Amazon.RDS
         /// in the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidDBProxyStateException">
@@ -6952,7 +6972,7 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the ModifyDBProxyTargetGroup service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetGroupNotFoundException">
@@ -6977,7 +6997,7 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the ModifyDBProxyTargetGroup service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetGroupNotFoundException">
@@ -7311,10 +7331,11 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the ModifyGlobalCluster service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.GlobalClusterNotFoundException">
-        /// 
+        /// The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database
+        /// cluster.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidGlobalClusterStateException">
-        /// 
+        /// The global cluster is in an invalid state and can't perform the requested operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyGlobalCluster">REST API Reference for ModifyGlobalCluster Operation</seealso>
         ModifyGlobalClusterResponse ModifyGlobalCluster(ModifyGlobalClusterRequest request);
@@ -7340,10 +7361,11 @@ namespace Amazon.RDS
         /// 
         /// <returns>The response from the ModifyGlobalCluster service method, as returned by RDS.</returns>
         /// <exception cref="Amazon.RDS.Model.GlobalClusterNotFoundException">
-        /// 
+        /// The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database
+        /// cluster.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidGlobalClusterStateException">
-        /// 
+        /// The global cluster is in an invalid state and can't perform the requested operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyGlobalCluster">REST API Reference for ModifyGlobalCluster Operation</seealso>
         Task<ModifyGlobalClusterResponse> ModifyGlobalClusterAsync(ModifyGlobalClusterRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -7644,7 +7666,7 @@ namespace Amazon.RDS
         /// <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetAlreadyRegisteredException">
@@ -7689,7 +7711,7 @@ namespace Amazon.RDS
         /// <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetAlreadyRegisteredException">
@@ -7739,10 +7761,11 @@ namespace Amazon.RDS
         /// <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.GlobalClusterNotFoundException">
-        /// 
+        /// The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database
+        /// cluster.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidGlobalClusterStateException">
-        /// 
+        /// The global cluster is in an invalid state and can't perform the requested operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RemoveFromGlobalCluster">REST API Reference for RemoveFromGlobalCluster Operation</seealso>
         RemoveFromGlobalClusterResponse RemoveFromGlobalCluster(RemoveFromGlobalClusterRequest request);
@@ -7770,10 +7793,11 @@ namespace Amazon.RDS
         /// <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.GlobalClusterNotFoundException">
-        /// 
+        /// The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database
+        /// cluster.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidGlobalClusterStateException">
-        /// 
+        /// The global cluster is in an invalid state and can't perform the requested operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RemoveFromGlobalCluster">REST API Reference for RemoveFromGlobalCluster Operation</seealso>
         Task<RemoveFromGlobalClusterResponse> RemoveFromGlobalClusterAsync(RemoveFromGlobalClusterRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -7956,7 +7980,7 @@ namespace Amazon.RDS
         /// <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetGroupNotFoundException">
@@ -7993,7 +8017,7 @@ namespace Amazon.RDS
         /// <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyNotFoundException">
-        /// The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in
+        /// The specified proxy name doesn't correspond to a proxy owned by your AWS account in
         /// the specified AWS Region.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBProxyTargetGroupNotFoundException">
@@ -8731,20 +8755,20 @@ namespace Amazon.RDS
 
         /// <summary>
         /// Creates a new DB instance from a DB snapshot. The target database is created from
-        /// the source database restore point with the most of original configuration with the
-        /// default security group and the default DB parameter group. By default, the new DB
-        /// instance is created as a single-AZ deployment except when the instance is a SQL Server
-        /// instance that has an option group that is associated with mirroring; in this case,
-        /// the instance becomes a mirrored AZ deployment and not a single-AZ deployment.
+        /// the source database restore point with most of the source's original configuration,
+        /// including the default security group and DB parameter group. By default, the new DB
+        /// instance is created as a Single-AZ deployment, except when the instance is a SQL Server
+        /// instance that has an option group associated with mirroring. In this case, the instance
+        /// becomes a Multi-AZ deployment, not a Single-AZ deployment.
         /// 
         ///  
         /// <para>
-        /// If your intent is to replace your original DB instance with the new, restored DB instance,
+        /// If you want to replace your original DB instance with the new, restored DB instance,
         /// then rename your original DB instance before you call the RestoreDBInstanceFromDBSnapshot
-        /// action. RDS doesn't allow two DB instances with the same name. Once you have renamed
+        /// action. RDS doesn't allow two DB instances with the same name. After you have renamed
         /// your original DB instance with a different identifier, then you can pass the original
         /// name of the DB instance as the DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot
-        /// action. The result is that you will replace the original DB instance with the DB instance
+        /// action. The result is that you replace the original DB instance with the DB instance
         /// created from the snapshot.
         /// </para>
         ///  
@@ -8840,20 +8864,20 @@ namespace Amazon.RDS
 
         /// <summary>
         /// Creates a new DB instance from a DB snapshot. The target database is created from
-        /// the source database restore point with the most of original configuration with the
-        /// default security group and the default DB parameter group. By default, the new DB
-        /// instance is created as a single-AZ deployment except when the instance is a SQL Server
-        /// instance that has an option group that is associated with mirroring; in this case,
-        /// the instance becomes a mirrored AZ deployment and not a single-AZ deployment.
+        /// the source database restore point with most of the source's original configuration,
+        /// including the default security group and DB parameter group. By default, the new DB
+        /// instance is created as a Single-AZ deployment, except when the instance is a SQL Server
+        /// instance that has an option group associated with mirroring. In this case, the instance
+        /// becomes a Multi-AZ deployment, not a Single-AZ deployment.
         /// 
         ///  
         /// <para>
-        /// If your intent is to replace your original DB instance with the new, restored DB instance,
+        /// If you want to replace your original DB instance with the new, restored DB instance,
         /// then rename your original DB instance before you call the RestoreDBInstanceFromDBSnapshot
-        /// action. RDS doesn't allow two DB instances with the same name. Once you have renamed
+        /// action. RDS doesn't allow two DB instances with the same name. After you have renamed
         /// your original DB instance with a different identifier, then you can pass the original
         /// name of the DB instance as the DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot
-        /// action. The result is that you will replace the original DB instance with the DB instance
+        /// action. The result is that you replace the original DB instance with the DB instance
         /// created from the snapshot.
         /// </para>
         ///  
@@ -9676,6 +9700,84 @@ namespace Amazon.RDS
 
         #endregion
         
+        #region  StartDBInstanceAutomatedBackupsReplication
+
+
+        /// <summary>
+        /// Enables replication of automated backups to a different AWS Region.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
+        /// Replicating Automated Backups to Another AWS Region</a> in the <i>Amazon RDS User
+        /// Guide.</i> 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartDBInstanceAutomatedBackupsReplication service method.</param>
+        /// 
+        /// <returns>The response from the StartDBInstanceAutomatedBackupsReplication service method, as returned by RDS.</returns>
+        /// <exception cref="Amazon.RDS.Model.DBInstanceAutomatedBackupQuotaExceededException">
+        /// The quota for retained automated backups was exceeded. This prevents you from retaining
+        /// any additional automated backups. The retained automated backups quota is the same
+        /// as your DB Instance quota.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.DBInstanceNotFoundException">
+        /// <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.InvalidDBInstanceStateException">
+        /// The DB instance isn't in a valid state.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.KMSKeyNotAccessibleException">
+        /// An error occurred accessing an AWS KMS key.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.StorageTypeNotSupportedException">
+        /// Storage of the <code>StorageType</code> specified can't be associated with the DB
+        /// instance.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StartDBInstanceAutomatedBackupsReplication">REST API Reference for StartDBInstanceAutomatedBackupsReplication Operation</seealso>
+        StartDBInstanceAutomatedBackupsReplicationResponse StartDBInstanceAutomatedBackupsReplication(StartDBInstanceAutomatedBackupsReplicationRequest request);
+
+
+
+        /// <summary>
+        /// Enables replication of automated backups to a different AWS Region.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
+        /// Replicating Automated Backups to Another AWS Region</a> in the <i>Amazon RDS User
+        /// Guide.</i> 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartDBInstanceAutomatedBackupsReplication service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartDBInstanceAutomatedBackupsReplication service method, as returned by RDS.</returns>
+        /// <exception cref="Amazon.RDS.Model.DBInstanceAutomatedBackupQuotaExceededException">
+        /// The quota for retained automated backups was exceeded. This prevents you from retaining
+        /// any additional automated backups. The retained automated backups quota is the same
+        /// as your DB Instance quota.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.DBInstanceNotFoundException">
+        /// <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.InvalidDBInstanceStateException">
+        /// The DB instance isn't in a valid state.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.KMSKeyNotAccessibleException">
+        /// An error occurred accessing an AWS KMS key.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.StorageTypeNotSupportedException">
+        /// Storage of the <code>StorageType</code> specified can't be associated with the DB
+        /// instance.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StartDBInstanceAutomatedBackupsReplication">REST API Reference for StartDBInstanceAutomatedBackupsReplication Operation</seealso>
+        Task<StartDBInstanceAutomatedBackupsReplicationResponse> StartDBInstanceAutomatedBackupsReplicationAsync(StartDBInstanceAutomatedBackupsReplicationRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  StartExportTask
 
 
@@ -9999,6 +10101,60 @@ namespace Amazon.RDS
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StopDBInstance">REST API Reference for StopDBInstance Operation</seealso>
         Task<StopDBInstanceResponse> StopDBInstanceAsync(StopDBInstanceRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  StopDBInstanceAutomatedBackupsReplication
+
+
+        /// <summary>
+        /// Stops automated backup replication for a DB instance.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
+        /// Replicating Automated Backups to Another AWS Region</a> in the <i>Amazon RDS User
+        /// Guide.</i> 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StopDBInstanceAutomatedBackupsReplication service method.</param>
+        /// 
+        /// <returns>The response from the StopDBInstanceAutomatedBackupsReplication service method, as returned by RDS.</returns>
+        /// <exception cref="Amazon.RDS.Model.DBInstanceNotFoundException">
+        /// <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.InvalidDBInstanceStateException">
+        /// The DB instance isn't in a valid state.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StopDBInstanceAutomatedBackupsReplication">REST API Reference for StopDBInstanceAutomatedBackupsReplication Operation</seealso>
+        StopDBInstanceAutomatedBackupsReplicationResponse StopDBInstanceAutomatedBackupsReplication(StopDBInstanceAutomatedBackupsReplicationRequest request);
+
+
+
+        /// <summary>
+        /// Stops automated backup replication for a DB instance.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
+        /// Replicating Automated Backups to Another AWS Region</a> in the <i>Amazon RDS User
+        /// Guide.</i> 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StopDBInstanceAutomatedBackupsReplication service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StopDBInstanceAutomatedBackupsReplication service method, as returned by RDS.</returns>
+        /// <exception cref="Amazon.RDS.Model.DBInstanceNotFoundException">
+        /// <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.InvalidDBInstanceStateException">
+        /// The DB instance isn't in a valid state.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StopDBInstanceAutomatedBackupsReplication">REST API Reference for StopDBInstanceAutomatedBackupsReplication Operation</seealso>
+        Task<StopDBInstanceAutomatedBackupsReplicationResponse> StopDBInstanceAutomatedBackupsReplicationAsync(StopDBInstanceAutomatedBackupsReplicationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         

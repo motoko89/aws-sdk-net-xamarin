@@ -72,6 +72,12 @@ namespace Amazon.Redshift.Model.Internal.MarshallTransformations
                         unmarshalledObject.AvailabilityZone = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("AvailabilityZoneRelocationStatus", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.AvailabilityZoneRelocationStatus = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("ClusterAvailabilityStatus", targetDepth))
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
@@ -88,6 +94,12 @@ namespace Amazon.Redshift.Model.Internal.MarshallTransformations
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
                         unmarshalledObject.ClusterIdentifier = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("ClusterNamespaceArn", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.ClusterNamespaceArn = unmarshaller.Unmarshall(context);
                         continue;
                     }
                     if (context.TestExpression("ClusterNodes/member", targetDepth))

@@ -66,6 +66,13 @@ namespace Amazon.Redshift.Model.Internal.MarshallTransformations
                         unmarshalledObject.Port = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("VpcEndpoints/SpartaProxyVpcEndpoint", targetDepth))
+                    {
+                        var unmarshaller = SpartaProxyVpcEndpointUnmarshaller.Instance;
+                        var item = unmarshaller.Unmarshall(context);
+                        unmarshalledObject.VpcEndpoints.Add(item);
+                        continue;
+                    }
                 }
                 else if (context.IsEndElement && context.CurrentDepth < originalDepth)
                 {

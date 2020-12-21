@@ -93,6 +93,10 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                             {
                                 request.Parameters.Add("BlockDeviceMapping" + "." + publicRequestlistValueIndex + "." + "Ebs" + "." + "SnapshotId", StringUtils.FromString(publicRequestlistValue.Ebs.SnapshotId));
                             }
+                            if(publicRequestlistValue.Ebs.IsSetThroughput())
+                            {
+                                request.Parameters.Add("BlockDeviceMapping" + "." + publicRequestlistValueIndex + "." + "Ebs" + "." + "Throughput", StringUtils.FromInt(publicRequestlistValue.Ebs.Throughput));
+                            }
                             if(publicRequestlistValue.Ebs.IsSetVolumeSize())
                             {
                                 request.Parameters.Add("BlockDeviceMapping" + "." + publicRequestlistValueIndex + "." + "Ebs" + "." + "VolumeSize", StringUtils.FromInt(publicRequestlistValue.Ebs.VolumeSize));
@@ -391,6 +395,10 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                                 }
                                 publicRequestlistValuelistValueIndex++;
                             }
+                        }
+                        if(publicRequestlistValue.IsSetNetworkCardIndex())
+                        {
+                            request.Parameters.Add("NetworkInterface" + "." + publicRequestlistValueIndex + "." + "NetworkCardIndex", StringUtils.FromInt(publicRequestlistValue.NetworkCardIndex));
                         }
                         if(publicRequestlistValue.IsSetNetworkInterfaceId())
                         {

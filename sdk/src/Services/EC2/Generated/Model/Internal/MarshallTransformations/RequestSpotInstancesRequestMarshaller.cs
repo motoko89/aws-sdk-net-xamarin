@@ -119,6 +119,10 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                                 {
                                     request.Parameters.Add("LaunchSpecification" + "." + "BlockDeviceMapping" + "." + publicRequestLaunchSpecificationlistValueIndex + "." + "Ebs" + "." + "SnapshotId", StringUtils.FromString(publicRequestLaunchSpecificationlistValue.Ebs.SnapshotId));
                                 }
+                                if(publicRequestLaunchSpecificationlistValue.Ebs.IsSetThroughput())
+                                {
+                                    request.Parameters.Add("LaunchSpecification" + "." + "BlockDeviceMapping" + "." + publicRequestLaunchSpecificationlistValueIndex + "." + "Ebs" + "." + "Throughput", StringUtils.FromInt(publicRequestLaunchSpecificationlistValue.Ebs.Throughput));
+                                }
                                 if(publicRequestLaunchSpecificationlistValue.Ebs.IsSetVolumeSize())
                                 {
                                     request.Parameters.Add("LaunchSpecification" + "." + "BlockDeviceMapping" + "." + publicRequestLaunchSpecificationlistValueIndex + "." + "Ebs" + "." + "VolumeSize", StringUtils.FromInt(publicRequestLaunchSpecificationlistValue.Ebs.VolumeSize));
@@ -227,6 +231,10 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                                     }
                                     publicRequestLaunchSpecificationlistValuelistValueIndex++;
                                 }
+                            }
+                            if(publicRequestLaunchSpecificationlistValue.IsSetNetworkCardIndex())
+                            {
+                                request.Parameters.Add("LaunchSpecification" + "." + "NetworkInterface" + "." + publicRequestLaunchSpecificationlistValueIndex + "." + "NetworkCardIndex", StringUtils.FromInt(publicRequestLaunchSpecificationlistValue.NetworkCardIndex));
                             }
                             if(publicRequestLaunchSpecificationlistValue.IsSetNetworkInterfaceId())
                             {

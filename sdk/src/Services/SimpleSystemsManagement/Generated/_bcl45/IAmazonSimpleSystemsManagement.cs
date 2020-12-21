@@ -1324,6 +1324,72 @@ namespace Amazon.SimpleSystemsManagement
 
         #endregion
         
+        #region  CreateOpsMetadata
+
+
+        /// <summary>
+        /// If you create a new application in Application Manager, Systems Manager calls this
+        /// API action to specify information about the new application, including the application
+        /// type.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateOpsMetadata service method.</param>
+        /// 
+        /// <returns>The response from the CreateOpsMetadata service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataAlreadyExistsException">
+        /// An OpsMetadata object already exists for the selected resource.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataInvalidArgumentException">
+        /// One of the arguments passed is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataLimitExceededException">
+        /// Your account reached the maximum number of OpsMetadata objects allowed by Application
+        /// Manager. The maximum is 200 OpsMetadata objects. Delete one or more OpsMetadata object
+        /// and try again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataTooManyUpdatesException">
+        /// The system is processing too many concurrent updates. Wait a few moments and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateOpsMetadata">REST API Reference for CreateOpsMetadata Operation</seealso>
+        CreateOpsMetadataResponse CreateOpsMetadata(CreateOpsMetadataRequest request);
+
+
+
+        /// <summary>
+        /// If you create a new application in Application Manager, Systems Manager calls this
+        /// API action to specify information about the new application, including the application
+        /// type.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateOpsMetadata service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateOpsMetadata service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataAlreadyExistsException">
+        /// An OpsMetadata object already exists for the selected resource.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataInvalidArgumentException">
+        /// One of the arguments passed is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataLimitExceededException">
+        /// Your account reached the maximum number of OpsMetadata objects allowed by Application
+        /// Manager. The maximum is 200 OpsMetadata objects. Delete one or more OpsMetadata object
+        /// and try again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataTooManyUpdatesException">
+        /// The system is processing too many concurrent updates. Wait a few moments and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateOpsMetadata">REST API Reference for CreateOpsMetadata Operation</seealso>
+        Task<CreateOpsMetadataResponse> CreateOpsMetadataAsync(CreateOpsMetadataRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  CreatePatchBaseline
 
 
@@ -2015,6 +2081,52 @@ namespace Amazon.SimpleSystemsManagement
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteMaintenanceWindow">REST API Reference for DeleteMaintenanceWindow Operation</seealso>
         Task<DeleteMaintenanceWindowResponse> DeleteMaintenanceWindowAsync(DeleteMaintenanceWindowRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DeleteOpsMetadata
+
+
+        /// <summary>
+        /// Delete OpsMetadata related to an application.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteOpsMetadata service method.</param>
+        /// 
+        /// <returns>The response from the DeleteOpsMetadata service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataInvalidArgumentException">
+        /// One of the arguments passed is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataNotFoundException">
+        /// The OpsMetadata object does not exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteOpsMetadata">REST API Reference for DeleteOpsMetadata Operation</seealso>
+        DeleteOpsMetadataResponse DeleteOpsMetadata(DeleteOpsMetadataRequest request);
+
+
+
+        /// <summary>
+        /// Delete OpsMetadata related to an application.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteOpsMetadata service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteOpsMetadata service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataInvalidArgumentException">
+        /// One of the arguments passed is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataNotFoundException">
+        /// The OpsMetadata object does not exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteOpsMetadata">REST API Reference for DeleteOpsMetadata Operation</seealso>
+        Task<DeleteOpsMetadataResponse> DeleteOpsMetadataAsync(DeleteOpsMetadataRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -4421,6 +4533,10 @@ namespace Amazon.SimpleSystemsManagement
         /// <para>
         /// Valid properties: PRODUCT, PRIORITY
         /// </para>
+        ///  </dd> <dt>MACOS</dt> <dd> 
+        /// <para>
+        /// Valid properties: PRODUCT, CLASSIFICATION
+        /// </para>
         ///  </dd> <dt>ORACLE_LINUX</dt> <dd> 
         /// <para>
         /// Valid properties: PRODUCT, CLASSIFICATION, SEVERITY
@@ -4480,6 +4596,10 @@ namespace Amazon.SimpleSystemsManagement
         ///  </dd> <dt>DEBIAN</dt> <dd> 
         /// <para>
         /// Valid properties: PRODUCT, PRIORITY
+        /// </para>
+        ///  </dd> <dt>MACOS</dt> <dd> 
+        /// <para>
+        /// Valid properties: PRODUCT, CLASSIFICATION
         /// </para>
         ///  </dd> <dt>ORACLE_LINUX</dt> <dd> 
         /// <para>
@@ -5467,6 +5587,52 @@ namespace Amazon.SimpleSystemsManagement
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetOpsItem">REST API Reference for GetOpsItem Operation</seealso>
         Task<GetOpsItemResponse> GetOpsItemAsync(GetOpsItemRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  GetOpsMetadata
+
+
+        /// <summary>
+        /// View operational metadata related to an application in Application Manager.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetOpsMetadata service method.</param>
+        /// 
+        /// <returns>The response from the GetOpsMetadata service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataInvalidArgumentException">
+        /// One of the arguments passed is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataNotFoundException">
+        /// The OpsMetadata object does not exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetOpsMetadata">REST API Reference for GetOpsMetadata Operation</seealso>
+        GetOpsMetadataResponse GetOpsMetadata(GetOpsMetadataRequest request);
+
+
+
+        /// <summary>
+        /// View operational metadata related to an application in Application Manager.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetOpsMetadata service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetOpsMetadata service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataInvalidArgumentException">
+        /// One of the arguments passed is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataNotFoundException">
+        /// The OpsMetadata object does not exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetOpsMetadata">REST API Reference for GetOpsMetadata Operation</seealso>
+        Task<GetOpsMetadataResponse> GetOpsMetadataAsync(GetOpsMetadataRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -6870,6 +7036,58 @@ namespace Amazon.SimpleSystemsManagement
 
         #endregion
         
+        #region  ListDocumentMetadataHistory
+
+
+        /// <summary>
+        /// Information about approval reviews for a version of an SSM document.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListDocumentMetadataHistory service method.</param>
+        /// 
+        /// <returns>The response from the ListDocumentMetadataHistory service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidDocumentException">
+        /// The specified document does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidDocumentVersionException">
+        /// The document version is not valid or does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidNextTokenException">
+        /// The specified token is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListDocumentMetadataHistory">REST API Reference for ListDocumentMetadataHistory Operation</seealso>
+        ListDocumentMetadataHistoryResponse ListDocumentMetadataHistory(ListDocumentMetadataHistoryRequest request);
+
+
+
+        /// <summary>
+        /// Information about approval reviews for a version of an SSM document.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListDocumentMetadataHistory service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListDocumentMetadataHistory service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidDocumentException">
+        /// The specified document does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidDocumentVersionException">
+        /// The document version is not valid or does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidNextTokenException">
+        /// The specified token is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListDocumentMetadataHistory">REST API Reference for ListDocumentMetadataHistory Operation</seealso>
+        Task<ListDocumentMetadataHistoryResponse> ListDocumentMetadataHistoryAsync(ListDocumentMetadataHistoryRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  ListDocuments
 
 
@@ -7096,6 +7314,108 @@ namespace Amazon.SimpleSystemsManagement
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListInventoryEntries">REST API Reference for ListInventoryEntries Operation</seealso>
         Task<ListInventoryEntriesResponse> ListInventoryEntriesAsync(ListInventoryEntriesRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  ListOpsItemEvents
+
+
+        /// <summary>
+        /// Returns a list of all OpsItem events in the current AWS account and Region. You can
+        /// limit the results to events associated with specific OpsItems by specifying a filter.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListOpsItemEvents service method.</param>
+        /// 
+        /// <returns>The response from the ListOpsItemEvents service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemInvalidParameterException">
+        /// A specified parameter argument isn't valid. Verify the available arguments and try
+        /// again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemLimitExceededException">
+        /// The request caused OpsItems to exceed one or more quotas. For information about OpsItem
+        /// quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What
+        /// are the resource limits for OpsCenter?</a>.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemNotFoundException">
+        /// The specified OpsItem ID doesn't exist. Verify the ID and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListOpsItemEvents">REST API Reference for ListOpsItemEvents Operation</seealso>
+        ListOpsItemEventsResponse ListOpsItemEvents(ListOpsItemEventsRequest request);
+
+
+
+        /// <summary>
+        /// Returns a list of all OpsItem events in the current AWS account and Region. You can
+        /// limit the results to events associated with specific OpsItems by specifying a filter.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListOpsItemEvents service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListOpsItemEvents service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemInvalidParameterException">
+        /// A specified parameter argument isn't valid. Verify the available arguments and try
+        /// again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemLimitExceededException">
+        /// The request caused OpsItems to exceed one or more quotas. For information about OpsItem
+        /// quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What
+        /// are the resource limits for OpsCenter?</a>.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemNotFoundException">
+        /// The specified OpsItem ID doesn't exist. Verify the ID and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListOpsItemEvents">REST API Reference for ListOpsItemEvents Operation</seealso>
+        Task<ListOpsItemEventsResponse> ListOpsItemEventsAsync(ListOpsItemEventsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  ListOpsMetadata
+
+
+        /// <summary>
+        /// Systems Manager calls this API action when displaying all Application Manager OpsMetadata
+        /// objects or blobs.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListOpsMetadata service method.</param>
+        /// 
+        /// <returns>The response from the ListOpsMetadata service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataInvalidArgumentException">
+        /// One of the arguments passed is invalid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListOpsMetadata">REST API Reference for ListOpsMetadata Operation</seealso>
+        ListOpsMetadataResponse ListOpsMetadata(ListOpsMetadataRequest request);
+
+
+
+        /// <summary>
+        /// Systems Manager calls this API action when displaying all Application Manager OpsMetadata
+        /// objects or blobs.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListOpsMetadata service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListOpsMetadata service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataInvalidArgumentException">
+        /// One of the arguments passed is invalid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListOpsMetadata">REST API Reference for ListOpsMetadata Operation</seealso>
+        Task<ListOpsMetadataResponse> ListOpsMetadataAsync(ListOpsMetadataRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -7751,7 +8071,29 @@ namespace Amazon.SimpleSystemsManagement
         /// parameters and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ParameterMaxVersionLimitExceededException">
-        /// The parameter exceeded the maximum number of allowed versions.
+        /// Parameter Store retains the 100 most recently created versions of a parameter. After
+        /// this number of versions has been created, Parameter Store deletes the oldest version
+        /// when a new one is created. However, if the oldest version has a <i>label</i> attached
+        /// to it, Parameter Store will not delete the version and instead presents this error
+        /// message:
+        /// 
+        ///  
+        /// <para>
+        ///  <code>An error occurred (ParameterMaxVersionLimitExceeded) when calling the PutParameter
+        /// operation: You attempted to create a new version of <i>parameter-name</i> by calling
+        /// the PutParameter API with the overwrite flag. Version <i>version-number</i>, the oldest
+        /// version, can't be deleted because it has a label associated with it. Move the label
+        /// to another version of the parameter, and try again.</code> 
+        /// </para>
+        ///  
+        /// <para>
+        /// This safeguard is to prevent parameter versions with mission critical labels assigned
+        /// to them from being deleted. To continue creating new parameters, first move the label
+        /// from the oldest version of the parameter to a newer one for use in your operations.
+        /// For information about moving parameter labels, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-console-move">Move
+        /// a parameter label (console)</a> or <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-cli-move">Move
+        /// a parameter label (CLI) </a> in the <i>AWS Systems Manager User Guide</i>. 
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ParameterPatternMismatchException">
         /// The parameter name is not valid.
@@ -7817,7 +8159,29 @@ namespace Amazon.SimpleSystemsManagement
         /// parameters and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ParameterMaxVersionLimitExceededException">
-        /// The parameter exceeded the maximum number of allowed versions.
+        /// Parameter Store retains the 100 most recently created versions of a parameter. After
+        /// this number of versions has been created, Parameter Store deletes the oldest version
+        /// when a new one is created. However, if the oldest version has a <i>label</i> attached
+        /// to it, Parameter Store will not delete the version and instead presents this error
+        /// message:
+        /// 
+        ///  
+        /// <para>
+        ///  <code>An error occurred (ParameterMaxVersionLimitExceeded) when calling the PutParameter
+        /// operation: You attempted to create a new version of <i>parameter-name</i> by calling
+        /// the PutParameter API with the overwrite flag. Version <i>version-number</i>, the oldest
+        /// version, can't be deleted because it has a label associated with it. Move the label
+        /// to another version of the parameter, and try again.</code> 
+        /// </para>
+        ///  
+        /// <para>
+        /// This safeguard is to prevent parameter versions with mission critical labels assigned
+        /// to them from being deleted. To continue creating new parameters, first move the label
+        /// from the oldest version of the parameter to a newer one for use in your operations.
+        /// For information about moving parameter labels, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-console-move">Move
+        /// a parameter label (console)</a> or <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-cli-move">Move
+        /// a parameter label (CLI) </a> in the <i>AWS Systems Manager User Guide</i>. 
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ParameterPatternMismatchException">
         /// The parameter name is not valid.
@@ -8842,6 +9206,90 @@ namespace Amazon.SimpleSystemsManagement
 
         #endregion
         
+        #region  StartChangeRequestExecution
+
+
+        /// <summary>
+        /// Creates a change request for Change Manager. The runbooks (Automation documents) specified
+        /// in the change request run only after all required approvals for the change request
+        /// have been received.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartChangeRequestExecution service method.</param>
+        /// 
+        /// <returns>The response from the StartChangeRequestExecution service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.AutomationDefinitionNotApprovedException">
+        /// Indicates that the Change Manager change template used in the change request was rejected
+        /// or is still in a pending state.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.AutomationDefinitionNotFoundException">
+        /// An Automation document with the specified name could not be found.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.AutomationDefinitionVersionNotFoundException">
+        /// An Automation document with the specified name and version could not be found.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.AutomationExecutionLimitExceededException">
+        /// The number of simultaneously running Automation executions exceeded the allowable
+        /// limit.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.IdempotentParameterMismatchException">
+        /// Error returned when an idempotent operation is retried and the parameters don't match
+        /// the original call to the API with the same idempotency token.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidAutomationExecutionParametersException">
+        /// The supplied parameters for invoking the specified Automation document are incorrect.
+        /// For example, they may not match the set of parameters permitted for the specified
+        /// Automation document.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/StartChangeRequestExecution">REST API Reference for StartChangeRequestExecution Operation</seealso>
+        StartChangeRequestExecutionResponse StartChangeRequestExecution(StartChangeRequestExecutionRequest request);
+
+
+
+        /// <summary>
+        /// Creates a change request for Change Manager. The runbooks (Automation documents) specified
+        /// in the change request run only after all required approvals for the change request
+        /// have been received.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartChangeRequestExecution service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartChangeRequestExecution service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.AutomationDefinitionNotApprovedException">
+        /// Indicates that the Change Manager change template used in the change request was rejected
+        /// or is still in a pending state.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.AutomationDefinitionNotFoundException">
+        /// An Automation document with the specified name could not be found.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.AutomationDefinitionVersionNotFoundException">
+        /// An Automation document with the specified name and version could not be found.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.AutomationExecutionLimitExceededException">
+        /// The number of simultaneously running Automation executions exceeded the allowable
+        /// limit.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.IdempotentParameterMismatchException">
+        /// Error returned when an idempotent operation is retried and the parameters don't match
+        /// the original call to the API with the same idempotency token.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidAutomationExecutionParametersException">
+        /// The supplied parameters for invoking the specified Automation document are incorrect.
+        /// For example, they may not match the set of parameters permitted for the specified
+        /// Automation document.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/StartChangeRequestExecution">REST API Reference for StartChangeRequestExecution Operation</seealso>
+        Task<StartChangeRequestExecutionResponse> StartChangeRequestExecutionAsync(StartChangeRequestExecutionRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  StartSession
 
 
@@ -9424,6 +9872,60 @@ namespace Amazon.SimpleSystemsManagement
 
         #endregion
         
+        #region  UpdateDocumentMetadata
+
+
+        /// <summary>
+        /// Updates information related to approval reviews for a specific version of a document.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateDocumentMetadata service method.</param>
+        /// 
+        /// <returns>The response from the UpdateDocumentMetadata service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidDocumentException">
+        /// The specified document does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidDocumentOperationException">
+        /// You attempted to delete a document while it is still shared. You must stop sharing
+        /// the document before you can delete it.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidDocumentVersionException">
+        /// The document version is not valid or does not exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateDocumentMetadata">REST API Reference for UpdateDocumentMetadata Operation</seealso>
+        UpdateDocumentMetadataResponse UpdateDocumentMetadata(UpdateDocumentMetadataRequest request);
+
+
+
+        /// <summary>
+        /// Updates information related to approval reviews for a specific version of a document.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateDocumentMetadata service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateDocumentMetadata service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidDocumentException">
+        /// The specified document does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidDocumentOperationException">
+        /// You attempted to delete a document while it is still shared. You must stop sharing
+        /// the document before you can delete it.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidDocumentVersionException">
+        /// The document version is not valid or does not exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateDocumentMetadata">REST API Reference for UpdateDocumentMetadata Operation</seealso>
+        Task<UpdateDocumentMetadataResponse> UpdateDocumentMetadataAsync(UpdateDocumentMetadataRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  UpdateMaintenanceWindow
 
 
@@ -9923,6 +10425,66 @@ namespace Amazon.SimpleSystemsManagement
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateOpsItem">REST API Reference for UpdateOpsItem Operation</seealso>
         Task<UpdateOpsItemResponse> UpdateOpsItemAsync(UpdateOpsItemRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  UpdateOpsMetadata
+
+
+        /// <summary>
+        /// Systems Manager calls this API action when you edit OpsMetadata in Application Manager.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateOpsMetadata service method.</param>
+        /// 
+        /// <returns>The response from the UpdateOpsMetadata service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataInvalidArgumentException">
+        /// One of the arguments passed is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataKeyLimitExceededException">
+        /// The OpsMetadata object exceeds the maximum number of OpsMetadata keys that you can
+        /// assign to an application in Application Manager.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataNotFoundException">
+        /// The OpsMetadata object does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataTooManyUpdatesException">
+        /// The system is processing too many concurrent updates. Wait a few moments and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateOpsMetadata">REST API Reference for UpdateOpsMetadata Operation</seealso>
+        UpdateOpsMetadataResponse UpdateOpsMetadata(UpdateOpsMetadataRequest request);
+
+
+
+        /// <summary>
+        /// Systems Manager calls this API action when you edit OpsMetadata in Application Manager.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateOpsMetadata service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateOpsMetadata service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataInvalidArgumentException">
+        /// One of the arguments passed is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataKeyLimitExceededException">
+        /// The OpsMetadata object exceeds the maximum number of OpsMetadata keys that you can
+        /// assign to an application in Application Manager.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataNotFoundException">
+        /// The OpsMetadata object does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsMetadataTooManyUpdatesException">
+        /// The system is processing too many concurrent updates. Wait a few moments and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateOpsMetadata">REST API Reference for UpdateOpsMetadata Operation</seealso>
+        Task<UpdateOpsMetadataResponse> UpdateOpsMetadataAsync(UpdateOpsMetadataRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         

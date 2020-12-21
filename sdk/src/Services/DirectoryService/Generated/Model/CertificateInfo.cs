@@ -37,6 +37,7 @@ namespace Amazon.DirectoryService.Model
         private string _commonName;
         private DateTime? _expiryDateTime;
         private CertificateState _state;
+        private CertificateType _type;
 
         /// <summary>
         /// Gets and sets the property CertificateId. 
@@ -108,6 +109,25 @@ namespace Amazon.DirectoryService.Model
         internal bool IsSetState()
         {
             return this._state != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Type. 
+        /// <para>
+        /// The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code>
+        /// or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.
+        /// </para>
+        /// </summary>
+        public CertificateType Type
+        {
+            get { return this._type; }
+            set { this._type = value; }
+        }
+
+        // Check to see if Type property is set
+        internal bool IsSetType()
+        {
+            return this._type != null;
         }
 
     }

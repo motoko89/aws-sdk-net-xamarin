@@ -95,6 +95,10 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                                 {
                                     request.Parameters.Add("LaunchTemplateData" + "." + "BlockDeviceMapping" + "." + publicRequestLaunchTemplateDatalistValueIndex + "." + "Ebs" + "." + "SnapshotId", StringUtils.FromString(publicRequestLaunchTemplateDatalistValue.Ebs.SnapshotId));
                                 }
+                                if(publicRequestLaunchTemplateDatalistValue.Ebs.IsSetThroughput())
+                                {
+                                    request.Parameters.Add("LaunchTemplateData" + "." + "BlockDeviceMapping" + "." + publicRequestLaunchTemplateDatalistValueIndex + "." + "Ebs" + "." + "Throughput", StringUtils.FromInt(publicRequestLaunchTemplateDatalistValue.Ebs.Throughput));
+                                }
                                 if(publicRequestLaunchTemplateDatalistValue.Ebs.IsSetVolumeSize())
                                 {
                                     request.Parameters.Add("LaunchTemplateData" + "." + "BlockDeviceMapping" + "." + publicRequestLaunchTemplateDatalistValueIndex + "." + "Ebs" + "." + "VolumeSize", StringUtils.FromInt(publicRequestLaunchTemplateDatalistValue.Ebs.VolumeSize));
@@ -349,6 +353,10 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                                     }
                                     publicRequestLaunchTemplateDatalistValuelistValueIndex++;
                                 }
+                            }
+                            if(publicRequestLaunchTemplateDatalistValue.IsSetNetworkCardIndex())
+                            {
+                                request.Parameters.Add("LaunchTemplateData" + "." + "NetworkInterface" + "." + publicRequestLaunchTemplateDatalistValueIndex + "." + "NetworkCardIndex", StringUtils.FromInt(publicRequestLaunchTemplateDatalistValue.NetworkCardIndex));
                             }
                             if(publicRequestLaunchTemplateDatalistValue.IsSetNetworkInterfaceId())
                             {

@@ -82,6 +82,12 @@ namespace Amazon.ServiceCatalog.Model.Internal.MarshallTransformations
                     unmarshalledObject.Key = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("Owner", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.Owner = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Value", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

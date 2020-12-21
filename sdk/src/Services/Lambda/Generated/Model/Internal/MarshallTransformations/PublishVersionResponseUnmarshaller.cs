@@ -105,6 +105,12 @@ namespace Amazon.Lambda.Model.Internal.MarshallTransformations
                     response.Handler = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("ImageConfigResponse", targetDepth))
+                {
+                    var unmarshaller = ImageConfigResponseUnmarshaller.Instance;
+                    response.ImageConfigResponse = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("KMSKeyArn", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -153,6 +159,12 @@ namespace Amazon.Lambda.Model.Internal.MarshallTransformations
                     response.MemorySize = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("PackageType", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.PackageType = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("RevisionId", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -169,6 +181,18 @@ namespace Amazon.Lambda.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     response.Runtime = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("SigningJobArn", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.SigningJobArn = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("SigningProfileVersionArn", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.SigningProfileVersionArn = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("State", targetDepth))

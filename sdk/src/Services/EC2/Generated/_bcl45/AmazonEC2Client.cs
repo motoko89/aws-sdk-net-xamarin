@@ -349,6 +349,47 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  AcceptTransitGatewayMulticastDomainAssociations
+
+
+        /// <summary>
+        /// Accepts a request to associate subnets with a transit gateway multicast domain.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AcceptTransitGatewayMulticastDomainAssociations service method.</param>
+        /// 
+        /// <returns>The response from the AcceptTransitGatewayMulticastDomainAssociations service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AcceptTransitGatewayMulticastDomainAssociations">REST API Reference for AcceptTransitGatewayMulticastDomainAssociations Operation</seealso>
+        public virtual AcceptTransitGatewayMulticastDomainAssociationsResponse AcceptTransitGatewayMulticastDomainAssociations(AcceptTransitGatewayMulticastDomainAssociationsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AcceptTransitGatewayMulticastDomainAssociationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AcceptTransitGatewayMulticastDomainAssociationsResponseUnmarshaller.Instance;
+
+            return Invoke<AcceptTransitGatewayMulticastDomainAssociationsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Accepts a request to associate subnets with a transit gateway multicast domain.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AcceptTransitGatewayMulticastDomainAssociations service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AcceptTransitGatewayMulticastDomainAssociations service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AcceptTransitGatewayMulticastDomainAssociations">REST API Reference for AcceptTransitGatewayMulticastDomainAssociations Operation</seealso>
+        public virtual Task<AcceptTransitGatewayMulticastDomainAssociationsResponse> AcceptTransitGatewayMulticastDomainAssociationsAsync(AcceptTransitGatewayMulticastDomainAssociationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AcceptTransitGatewayMulticastDomainAssociationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AcceptTransitGatewayMulticastDomainAssociationsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<AcceptTransitGatewayMulticastDomainAssociationsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  AcceptTransitGatewayPeeringAttachment
 
 
@@ -1361,25 +1402,25 @@ namespace Amazon.EC2
         /// Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate
         /// Manager (ACM) certificate. This enables the certificate to be used by the ACM for
         /// Nitro Enclaves application inside an enclave. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html">AWS
-        /// Certificate Manager for Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud
-        /// User Guide</i>.
+        /// Certificate Manager for Nitro Enclaves</a> in the <i>AWS Nitro Enclaves User Guide</i>.
         /// 
         ///  
         /// <para>
         /// When the IAM role is associated with the ACM certificate, places the certificate,
         /// certificate chain, and encrypted private key in an Amazon S3 bucket that only the
         /// associated IAM role can access. The private key of the certificate is encrypted with
-        /// an AWS-managed KMS key that has an attached attestation-based key policy.
+        /// an AWS-managed KMS customer master (CMK) that has an attached attestation-based CMK
+        /// policy.
         /// </para>
         ///  
         /// <para>
         /// To enable the IAM role to access the Amazon S3 object, you must grant it permission
         /// to call <code>s3:GetObject</code> on the Amazon S3 bucket returned by the command.
-        /// To enable the IAM role to access the AWS KMS key, you must grant it permission to
-        /// call <code>kms:Decrypt</code> on AWS KMS key returned by the command. For more information,
+        /// To enable the IAM role to access the AWS KMS CMK, you must grant it permission to
+        /// call <code>kms:Decrypt</code> on AWS KMS CMK returned by the command. For more information,
         /// see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy">
         /// Grant the role permission to access the certificate and encryption key</a> in the
-        /// <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// <i>AWS Nitro Enclaves User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateEnclaveCertificateIamRole service method.</param>
@@ -1400,25 +1441,25 @@ namespace Amazon.EC2
         /// Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate
         /// Manager (ACM) certificate. This enables the certificate to be used by the ACM for
         /// Nitro Enclaves application inside an enclave. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html">AWS
-        /// Certificate Manager for Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud
-        /// User Guide</i>.
+        /// Certificate Manager for Nitro Enclaves</a> in the <i>AWS Nitro Enclaves User Guide</i>.
         /// 
         ///  
         /// <para>
         /// When the IAM role is associated with the ACM certificate, places the certificate,
         /// certificate chain, and encrypted private key in an Amazon S3 bucket that only the
         /// associated IAM role can access. The private key of the certificate is encrypted with
-        /// an AWS-managed KMS key that has an attached attestation-based key policy.
+        /// an AWS-managed KMS customer master (CMK) that has an attached attestation-based CMK
+        /// policy.
         /// </para>
         ///  
         /// <para>
         /// To enable the IAM role to access the Amazon S3 object, you must grant it permission
         /// to call <code>s3:GetObject</code> on the Amazon S3 bucket returned by the command.
-        /// To enable the IAM role to access the AWS KMS key, you must grant it permission to
-        /// call <code>kms:Decrypt</code> on AWS KMS key returned by the command. For more information,
+        /// To enable the IAM role to access the AWS KMS CMK, you must grant it permission to
+        /// call <code>kms:Decrypt</code> on AWS KMS CMK returned by the command. For more information,
         /// see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy">
         /// Grant the role permission to access the certificate and encryption key</a> in the
-        /// <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// <i>AWS Nitro Enclaves User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateEnclaveCertificateIamRole service method.</param>
@@ -1927,7 +1968,7 @@ namespace Amazon.EC2
         /// <para>
         /// Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -1985,7 +2026,7 @@ namespace Amazon.EC2
         /// <para>
         /// Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -4674,6 +4715,61 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  CreateNetworkInsightsPath
+
+
+        /// <summary>
+        /// Creates a path to analyze for reachability.
+        /// 
+        ///  
+        /// <para>
+        /// Reachability Analyzer enables you to analyze and debug network reachability between
+        /// two resources in your virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/">What
+        /// is Reachability Analyzer</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateNetworkInsightsPath service method.</param>
+        /// 
+        /// <returns>The response from the CreateNetworkInsightsPath service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNetworkInsightsPath">REST API Reference for CreateNetworkInsightsPath Operation</seealso>
+        public virtual CreateNetworkInsightsPathResponse CreateNetworkInsightsPath(CreateNetworkInsightsPathRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateNetworkInsightsPathRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateNetworkInsightsPathResponseUnmarshaller.Instance;
+
+            return Invoke<CreateNetworkInsightsPathResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Creates a path to analyze for reachability.
+        /// 
+        ///  
+        /// <para>
+        /// Reachability Analyzer enables you to analyze and debug network reachability between
+        /// two resources in your virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/">What
+        /// is Reachability Analyzer</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateNetworkInsightsPath service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateNetworkInsightsPath service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNetworkInsightsPath">REST API Reference for CreateNetworkInsightsPath Operation</seealso>
+        public virtual Task<CreateNetworkInsightsPathResponse> CreateNetworkInsightsPathAsync(CreateNetworkInsightsPathRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateNetworkInsightsPathRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateNetworkInsightsPathResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<CreateNetworkInsightsPathResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateNetworkInterface
 
 
@@ -5240,12 +5336,13 @@ namespace Amazon.EC2
         /// <para>
         /// You can take a snapshot of an attached volume that is in use. However, snapshots only
         /// capture data that has been written to your EBS volume at the time the snapshot command
-        /// is issued; this may exclude any data that has been cached by any applications or the
-        /// operating system. If you can pause any file systems on the volume long enough to take
-        /// a snapshot, your snapshot should be complete. However, if you cannot pause all file
-        /// writes to the volume, you should unmount the volume from within the instance, issue
-        /// the snapshot command, and then remount the volume to ensure a consistent and complete
-        /// snapshot. You may remount and use your volume while the snapshot status is <code>pending</code>.
+        /// is issued; this might exclude any data that has been cached by any applications or
+        /// the operating system. If you can pause any file systems on the volume long enough
+        /// to take a snapshot, your snapshot should be complete. However, if you cannot pause
+        /// all file writes to the volume, you should unmount the volume from within the instance,
+        /// issue the snapshot command, and then remount the volume to ensure a consistent and
+        /// complete snapshot. You may remount and use your volume while the snapshot status is
+        /// <code>pending</code>.
         /// </para>
         ///  
         /// <para>
@@ -5267,7 +5364,7 @@ namespace Amazon.EC2
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon
         /// Elastic Block Store</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSnapshot service method.</param>
@@ -5298,12 +5395,13 @@ namespace Amazon.EC2
         /// <para>
         /// You can take a snapshot of an attached volume that is in use. However, snapshots only
         /// capture data that has been written to your EBS volume at the time the snapshot command
-        /// is issued; this may exclude any data that has been cached by any applications or the
-        /// operating system. If you can pause any file systems on the volume long enough to take
-        /// a snapshot, your snapshot should be complete. However, if you cannot pause all file
-        /// writes to the volume, you should unmount the volume from within the instance, issue
-        /// the snapshot command, and then remount the volume to ensure a consistent and complete
-        /// snapshot. You may remount and use your volume while the snapshot status is <code>pending</code>.
+        /// is issued; this might exclude any data that has been cached by any applications or
+        /// the operating system. If you can pause any file systems on the volume long enough
+        /// to take a snapshot, your snapshot should be complete. However, if you cannot pause
+        /// all file writes to the volume, you should unmount the volume from within the instance,
+        /// issue the snapshot command, and then remount the volume to ensure a consistent and
+        /// complete snapshot. You may remount and use your volume while the snapshot status is
+        /// <code>pending</code>.
         /// </para>
         ///  
         /// <para>
@@ -5325,7 +5423,7 @@ namespace Amazon.EC2
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon
         /// Elastic Block Store</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSnapshot service method.</param>
@@ -5983,6 +6081,128 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  CreateTransitGatewayConnect
+
+
+        /// <summary>
+        /// Creates a Connect attachment from a specified transit gateway attachment. A Connect
+        /// attachment is a GRE-based tunnel attachment that you can use to establish a connection
+        /// between a transit gateway and an appliance.
+        /// 
+        ///  
+        /// <para>
+        /// A Connect attachment uses an existing VPC or AWS Direct Connect attachment as the
+        /// underlying transport mechanism. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateTransitGatewayConnect service method.</param>
+        /// 
+        /// <returns>The response from the CreateTransitGatewayConnect service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTransitGatewayConnect">REST API Reference for CreateTransitGatewayConnect Operation</seealso>
+        public virtual CreateTransitGatewayConnectResponse CreateTransitGatewayConnect(CreateTransitGatewayConnectRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateTransitGatewayConnectRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateTransitGatewayConnectResponseUnmarshaller.Instance;
+
+            return Invoke<CreateTransitGatewayConnectResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Creates a Connect attachment from a specified transit gateway attachment. A Connect
+        /// attachment is a GRE-based tunnel attachment that you can use to establish a connection
+        /// between a transit gateway and an appliance.
+        /// 
+        ///  
+        /// <para>
+        /// A Connect attachment uses an existing VPC or AWS Direct Connect attachment as the
+        /// underlying transport mechanism. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateTransitGatewayConnect service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateTransitGatewayConnect service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTransitGatewayConnect">REST API Reference for CreateTransitGatewayConnect Operation</seealso>
+        public virtual Task<CreateTransitGatewayConnectResponse> CreateTransitGatewayConnectAsync(CreateTransitGatewayConnectRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateTransitGatewayConnectRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateTransitGatewayConnectResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<CreateTransitGatewayConnectResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateTransitGatewayConnectPeer
+
+
+        /// <summary>
+        /// Creates a Connect peer for a specified transit gateway Connect attachment between
+        /// a transit gateway and an appliance.
+        /// 
+        ///  
+        /// <para>
+        /// The peer address and transit gateway address must be the same IP address family (IPv4
+        /// or IPv6).
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer">Connect
+        /// peers</a> in the <i>Transit Gateways Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateTransitGatewayConnectPeer service method.</param>
+        /// 
+        /// <returns>The response from the CreateTransitGatewayConnectPeer service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTransitGatewayConnectPeer">REST API Reference for CreateTransitGatewayConnectPeer Operation</seealso>
+        public virtual CreateTransitGatewayConnectPeerResponse CreateTransitGatewayConnectPeer(CreateTransitGatewayConnectPeerRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateTransitGatewayConnectPeerRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateTransitGatewayConnectPeerResponseUnmarshaller.Instance;
+
+            return Invoke<CreateTransitGatewayConnectPeerResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Creates a Connect peer for a specified transit gateway Connect attachment between
+        /// a transit gateway and an appliance.
+        /// 
+        ///  
+        /// <para>
+        /// The peer address and transit gateway address must be the same IP address family (IPv4
+        /// or IPv6).
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer">Connect
+        /// peers</a> in the <i>Transit Gateways Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateTransitGatewayConnectPeer service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateTransitGatewayConnectPeer service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTransitGatewayConnectPeer">REST API Reference for CreateTransitGatewayConnectPeer Operation</seealso>
+        public virtual Task<CreateTransitGatewayConnectPeerResponse> CreateTransitGatewayConnectPeerAsync(CreateTransitGatewayConnectPeerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateTransitGatewayConnectPeerRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateTransitGatewayConnectPeerResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<CreateTransitGatewayConnectPeerResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateTransitGatewayMulticastDomain
 
 
@@ -6292,9 +6512,7 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Creates an EBS volume that can be attached to an instance in the same Availability
-        /// Zone. The volume is created in the regional endpoint that you send the HTTP request
-        /// to. For more information see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions
-        /// and Endpoints</a>.
+        /// Zone.
         /// 
         ///  
         /// <para>
@@ -6306,7 +6524,7 @@ namespace Amazon.EC2
         /// You can create encrypted volumes. Encrypted volumes must be attached to instances
         /// that support Amazon EBS encryption. Volumes that are created from encrypted snapshots
         /// are also automatically encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -6335,9 +6553,7 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Creates an EBS volume that can be attached to an instance in the same Availability
-        /// Zone. The volume is created in the regional endpoint that you send the HTTP request
-        /// to. For more information see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions
-        /// and Endpoints</a>.
+        /// Zone.
         /// 
         ///  
         /// <para>
@@ -6349,7 +6565,7 @@ namespace Amazon.EC2
         /// You can create encrypted volumes. Encrypted volumes must be attached to instances
         /// that support Amazon EBS encryption. Volumes that are created from encrypted snapshots
         /// are also automatically encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -6493,6 +6709,12 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
+        /// A <code>GatewayLoadBalancer</code> endpoint is a network interface in your subnet
+        /// that serves an endpoint for communicating with a Gateway Load Balancer that you've
+        /// configured as a VPC endpoint service.
+        /// </para>
+        ///  
+        /// <para>
         /// Use <a>DescribeVpcEndpointServices</a> to get a list of supported services.
         /// </para>
         /// </summary>
@@ -6530,6 +6752,12 @@ namespace Amazon.EC2
         /// as an endpoint for communicating with the specified service. You can specify the subnets
         /// in which to create an endpoint, and the security groups to associate with the endpoint
         /// network interface.
+        /// </para>
+        ///  
+        /// <para>
+        /// A <code>GatewayLoadBalancer</code> endpoint is a network interface in your subnet
+        /// that serves an endpoint for communicating with a Gateway Load Balancer that you've
+        /// configured as a VPC endpoint service.
         /// </para>
         ///  
         /// <para>
@@ -6616,13 +6844,27 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Creates a VPC endpoint service configuration to which service consumers (AWS accounts,
-        /// IAM users, and IAM roles) can connect. Service consumers can create an interface VPC
-        /// endpoint to connect to your service.
+        /// IAM users, and IAM roles) can connect.
         /// 
         ///  
         /// <para>
-        /// To create an endpoint service configuration, you must first create a Network Load
-        /// Balancer for your service. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC
+        /// To create an endpoint service configuration, you must first create one of the following
+        /// for your service:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html">Network
+        /// Load Balancer</a>. Service consumers connect to your service using an interface endpoint.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html">Gateway
+        /// Load Balancer</a>. Service consumers connect to your service using a Gateway Load
+        /// Balancer endpoint.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC
         /// Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. 
         /// </para>
         ///  
@@ -6649,13 +6891,27 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Creates a VPC endpoint service configuration to which service consumers (AWS accounts,
-        /// IAM users, and IAM roles) can connect. Service consumers can create an interface VPC
-        /// endpoint to connect to your service.
+        /// IAM users, and IAM roles) can connect.
         /// 
         ///  
         /// <para>
-        /// To create an endpoint service configuration, you must first create a Network Load
-        /// Balancer for your service. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC
+        /// To create an endpoint service configuration, you must first create one of the following
+        /// for your service:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html">Network
+        /// Load Balancer</a>. Service consumers connect to your service using an interface endpoint.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html">Gateway
+        /// Load Balancer</a>. Service consumers connect to your service using a Gateway Load
+        /// Balancer endpoint.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC
         /// Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. 
         /// </para>
         ///  
@@ -7262,11 +7518,38 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// After you delete an EC2 Fleet, it launches no new instances. You must specify whether
-        /// an EC2 Fleet should also terminate its instances. If you terminate the instances,
-        /// the EC2 Fleet enters the <code>deleted_terminating</code> state. Otherwise, the EC2
-        /// Fleet enters the <code>deleted_running</code> state, and the instances continue to
-        /// run until they are interrupted or you terminate them manually. 
+        /// After you delete an EC2 Fleet, it launches no new instances.
+        /// </para>
+        ///  
+        /// <para>
+        /// You must specify whether a deleted EC2 Fleet should also terminate its instances.
+        /// If you choose to terminate the instances, the EC2 Fleet enters the <code>deleted_terminating</code>
+        /// state. Otherwise, the EC2 Fleet enters the <code>deleted_running</code> state, and
+        /// the instances continue to run until they are interrupted or you terminate them manually.
+        /// </para>
+        ///  
+        /// <para>
+        /// For <code>instant</code> fleets, EC2 Fleet must terminate the instances when the fleet
+        /// is deleted. A deleted <code>instant</code> fleet with running instances is not supported.
+        /// </para>
+        ///  <p class="title"> <b>Restrictions</b> 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// You can delete up to 25 <code>instant</code> fleets in a single request. If you exceed
+        /// this number, no <code>instant</code> fleets are deleted and an error is returned.
+        /// There is no restriction on the number of fleets of type <code>maintain</code> or <code>request</code>
+        /// that can be deleted in a single request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Up to 1000 instances can be terminated in a single request to delete <code>instant</code>
+        /// fleets.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Deleting
+        /// an EC2 Fleet</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteFleets service method.</param>
@@ -7288,11 +7571,38 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// After you delete an EC2 Fleet, it launches no new instances. You must specify whether
-        /// an EC2 Fleet should also terminate its instances. If you terminate the instances,
-        /// the EC2 Fleet enters the <code>deleted_terminating</code> state. Otherwise, the EC2
-        /// Fleet enters the <code>deleted_running</code> state, and the instances continue to
-        /// run until they are interrupted or you terminate them manually. 
+        /// After you delete an EC2 Fleet, it launches no new instances.
+        /// </para>
+        ///  
+        /// <para>
+        /// You must specify whether a deleted EC2 Fleet should also terminate its instances.
+        /// If you choose to terminate the instances, the EC2 Fleet enters the <code>deleted_terminating</code>
+        /// state. Otherwise, the EC2 Fleet enters the <code>deleted_running</code> state, and
+        /// the instances continue to run until they are interrupted or you terminate them manually.
+        /// </para>
+        ///  
+        /// <para>
+        /// For <code>instant</code> fleets, EC2 Fleet must terminate the instances when the fleet
+        /// is deleted. A deleted <code>instant</code> fleet with running instances is not supported.
+        /// </para>
+        ///  <p class="title"> <b>Restrictions</b> 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// You can delete up to 25 <code>instant</code> fleets in a single request. If you exceed
+        /// this number, no <code>instant</code> fleets are deleted and an error is returned.
+        /// There is no restriction on the number of fleets of type <code>maintain</code> or <code>request</code>
+        /// that can be deleted in a single request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Up to 1000 instances can be terminated in a single request to delete <code>instant</code>
+        /// fleets.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Deleting
+        /// an EC2 Fleet</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteFleets service method.</param>
@@ -7817,6 +8127,88 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = DeleteNetworkAclEntryResponseUnmarshaller.Instance;
             
             return InvokeAsync<DeleteNetworkAclEntryResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteNetworkInsightsAnalysis
+
+
+        /// <summary>
+        /// Deletes the specified network insights analysis.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteNetworkInsightsAnalysis service method.</param>
+        /// 
+        /// <returns>The response from the DeleteNetworkInsightsAnalysis service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkInsightsAnalysis">REST API Reference for DeleteNetworkInsightsAnalysis Operation</seealso>
+        public virtual DeleteNetworkInsightsAnalysisResponse DeleteNetworkInsightsAnalysis(DeleteNetworkInsightsAnalysisRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteNetworkInsightsAnalysisRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteNetworkInsightsAnalysisResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteNetworkInsightsAnalysisResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Deletes the specified network insights analysis.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteNetworkInsightsAnalysis service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteNetworkInsightsAnalysis service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkInsightsAnalysis">REST API Reference for DeleteNetworkInsightsAnalysis Operation</seealso>
+        public virtual Task<DeleteNetworkInsightsAnalysisResponse> DeleteNetworkInsightsAnalysisAsync(DeleteNetworkInsightsAnalysisRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteNetworkInsightsAnalysisRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteNetworkInsightsAnalysisResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DeleteNetworkInsightsAnalysisResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteNetworkInsightsPath
+
+
+        /// <summary>
+        /// Deletes the specified path.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteNetworkInsightsPath service method.</param>
+        /// 
+        /// <returns>The response from the DeleteNetworkInsightsPath service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkInsightsPath">REST API Reference for DeleteNetworkInsightsPath Operation</seealso>
+        public virtual DeleteNetworkInsightsPathResponse DeleteNetworkInsightsPath(DeleteNetworkInsightsPathRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteNetworkInsightsPathRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteNetworkInsightsPathResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteNetworkInsightsPathResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Deletes the specified path.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteNetworkInsightsPath service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteNetworkInsightsPath service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkInsightsPath">REST API Reference for DeleteNetworkInsightsPath Operation</seealso>
+        public virtual Task<DeleteNetworkInsightsPathResponse> DeleteNetworkInsightsPathAsync(DeleteNetworkInsightsPathRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteNetworkInsightsPathRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteNetworkInsightsPathResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DeleteNetworkInsightsPathResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -8603,6 +8995,90 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DeleteTransitGatewayConnect
+
+
+        /// <summary>
+        /// Deletes the specified Connect attachment. You must first delete any Connect peers
+        /// for the attachment.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteTransitGatewayConnect service method.</param>
+        /// 
+        /// <returns>The response from the DeleteTransitGatewayConnect service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteTransitGatewayConnect">REST API Reference for DeleteTransitGatewayConnect Operation</seealso>
+        public virtual DeleteTransitGatewayConnectResponse DeleteTransitGatewayConnect(DeleteTransitGatewayConnectRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteTransitGatewayConnectRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteTransitGatewayConnectResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteTransitGatewayConnectResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Deletes the specified Connect attachment. You must first delete any Connect peers
+        /// for the attachment.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteTransitGatewayConnect service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteTransitGatewayConnect service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteTransitGatewayConnect">REST API Reference for DeleteTransitGatewayConnect Operation</seealso>
+        public virtual Task<DeleteTransitGatewayConnectResponse> DeleteTransitGatewayConnectAsync(DeleteTransitGatewayConnectRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteTransitGatewayConnectRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteTransitGatewayConnectResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DeleteTransitGatewayConnectResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteTransitGatewayConnectPeer
+
+
+        /// <summary>
+        /// Deletes the specified Connect peer.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteTransitGatewayConnectPeer service method.</param>
+        /// 
+        /// <returns>The response from the DeleteTransitGatewayConnectPeer service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteTransitGatewayConnectPeer">REST API Reference for DeleteTransitGatewayConnectPeer Operation</seealso>
+        public virtual DeleteTransitGatewayConnectPeerResponse DeleteTransitGatewayConnectPeer(DeleteTransitGatewayConnectPeerRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteTransitGatewayConnectPeerRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteTransitGatewayConnectPeerResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteTransitGatewayConnectPeerResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Deletes the specified Connect peer.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteTransitGatewayConnectPeer service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteTransitGatewayConnectPeer service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteTransitGatewayConnectPeer">REST API Reference for DeleteTransitGatewayConnectPeer Operation</seealso>
+        public virtual Task<DeleteTransitGatewayConnectPeerResponse> DeleteTransitGatewayConnectPeerAsync(DeleteTransitGatewayConnectPeerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteTransitGatewayConnectPeerRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteTransitGatewayConnectPeerResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DeleteTransitGatewayConnectPeerResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteTransitGatewayMulticastDomain
 
 
@@ -9012,7 +9488,9 @@ namespace Amazon.EC2
         /// <summary>
         /// Deletes one or more specified VPC endpoints. Deleting a gateway endpoint also deletes
         /// the endpoint routes in the route tables that were associated with the endpoint. Deleting
-        /// an interface endpoint deletes the endpoint network interfaces.
+        /// an interface endpoint or a Gateway Load Balancer endpoint deletes the endpoint network
+        /// interfaces. Gateway Load Balancer endpoints can only be deleted if the routes that
+        /// are associated with the endpoint are deleted.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVpcEndpoints service method.</param>
         /// 
@@ -9031,7 +9509,9 @@ namespace Amazon.EC2
         /// <summary>
         /// Deletes one or more specified VPC endpoints. Deleting a gateway endpoint also deletes
         /// the endpoint routes in the route tables that were associated with the endpoint. Deleting
-        /// an interface endpoint deletes the endpoint network interfaces.
+        /// an interface endpoint or a Gateway Load Balancer endpoint deletes the endpoint network
+        /// interfaces. Gateway Load Balancer endpoints can only be deleted if the routes that
+        /// are associated with the endpoint are deleted.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVpcEndpoints service method.</param>
         /// <param name="cancellationToken">
@@ -13410,6 +13890,88 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DescribeNetworkInsightsAnalyses
+
+
+        /// <summary>
+        /// Describes one or more of your network insights analyses.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeNetworkInsightsAnalyses service method.</param>
+        /// 
+        /// <returns>The response from the DescribeNetworkInsightsAnalyses service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInsightsAnalyses">REST API Reference for DescribeNetworkInsightsAnalyses Operation</seealso>
+        public virtual DescribeNetworkInsightsAnalysesResponse DescribeNetworkInsightsAnalyses(DescribeNetworkInsightsAnalysesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeNetworkInsightsAnalysesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeNetworkInsightsAnalysesResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeNetworkInsightsAnalysesResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Describes one or more of your network insights analyses.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeNetworkInsightsAnalyses service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeNetworkInsightsAnalyses service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInsightsAnalyses">REST API Reference for DescribeNetworkInsightsAnalyses Operation</seealso>
+        public virtual Task<DescribeNetworkInsightsAnalysesResponse> DescribeNetworkInsightsAnalysesAsync(DescribeNetworkInsightsAnalysesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeNetworkInsightsAnalysesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeNetworkInsightsAnalysesResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DescribeNetworkInsightsAnalysesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeNetworkInsightsPaths
+
+
+        /// <summary>
+        /// Describes one or more of your paths.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeNetworkInsightsPaths service method.</param>
+        /// 
+        /// <returns>The response from the DescribeNetworkInsightsPaths service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInsightsPaths">REST API Reference for DescribeNetworkInsightsPaths Operation</seealso>
+        public virtual DescribeNetworkInsightsPathsResponse DescribeNetworkInsightsPaths(DescribeNetworkInsightsPathsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeNetworkInsightsPathsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeNetworkInsightsPathsResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeNetworkInsightsPathsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Describes one or more of your paths.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeNetworkInsightsPaths service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeNetworkInsightsPaths service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInsightsPaths">REST API Reference for DescribeNetworkInsightsPaths Operation</seealso>
+        public virtual Task<DescribeNetworkInsightsPathsResponse> DescribeNetworkInsightsPathsAsync(DescribeNetworkInsightsPathsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeNetworkInsightsPathsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeNetworkInsightsPathsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DescribeNetworkInsightsPathsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DescribeNetworkInterfaceAttribute
 
 
@@ -14799,7 +15361,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon
-        /// EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeSnapshotAttribute service method.</param>
@@ -14823,7 +15385,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon
-        /// EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeSnapshotAttribute service method.</param>
@@ -14920,7 +15482,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon
-        /// EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// 
@@ -15005,7 +15567,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon
-        /// EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeSnapshots service method.</param>
@@ -15095,7 +15657,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon
-        /// EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -15182,7 +15744,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon
-        /// EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeSnapshots service method.</param>
@@ -16082,6 +16644,88 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DescribeTransitGatewayConnectPeers
+
+
+        /// <summary>
+        /// Describes one or more Connect peers.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeTransitGatewayConnectPeers service method.</param>
+        /// 
+        /// <returns>The response from the DescribeTransitGatewayConnectPeers service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeTransitGatewayConnectPeers">REST API Reference for DescribeTransitGatewayConnectPeers Operation</seealso>
+        public virtual DescribeTransitGatewayConnectPeersResponse DescribeTransitGatewayConnectPeers(DescribeTransitGatewayConnectPeersRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeTransitGatewayConnectPeersRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeTransitGatewayConnectPeersResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeTransitGatewayConnectPeersResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Describes one or more Connect peers.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeTransitGatewayConnectPeers service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeTransitGatewayConnectPeers service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeTransitGatewayConnectPeers">REST API Reference for DescribeTransitGatewayConnectPeers Operation</seealso>
+        public virtual Task<DescribeTransitGatewayConnectPeersResponse> DescribeTransitGatewayConnectPeersAsync(DescribeTransitGatewayConnectPeersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeTransitGatewayConnectPeersRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeTransitGatewayConnectPeersResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DescribeTransitGatewayConnectPeersResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeTransitGatewayConnects
+
+
+        /// <summary>
+        /// Describes one or more Connect attachments.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeTransitGatewayConnects service method.</param>
+        /// 
+        /// <returns>The response from the DescribeTransitGatewayConnects service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeTransitGatewayConnects">REST API Reference for DescribeTransitGatewayConnects Operation</seealso>
+        public virtual DescribeTransitGatewayConnectsResponse DescribeTransitGatewayConnects(DescribeTransitGatewayConnectsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeTransitGatewayConnectsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeTransitGatewayConnectsResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeTransitGatewayConnectsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Describes one or more Connect attachments.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeTransitGatewayConnects service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeTransitGatewayConnects service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeTransitGatewayConnects">REST API Reference for DescribeTransitGatewayConnects Operation</seealso>
+        public virtual Task<DescribeTransitGatewayConnectsResponse> DescribeTransitGatewayConnectsAsync(DescribeTransitGatewayConnectsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeTransitGatewayConnectsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeTransitGatewayConnectsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DescribeTransitGatewayConnectsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DescribeTransitGatewayMulticastDomains
 
 
@@ -16303,7 +16947,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon
-        /// EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVolumeAttribute service method.</param>
@@ -16327,7 +16971,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon
-        /// EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVolumeAttribute service method.</param>
@@ -16366,7 +17010,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon
-        /// EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// 
@@ -16393,7 +17037,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon
-        /// EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVolumes service method.</param>
@@ -16425,7 +17069,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon
-        /// EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -16454,7 +17098,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon
-        /// EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVolumes service method.</param>
@@ -16567,21 +17211,21 @@ namespace Amazon.EC2
         /// <code>ok</code>, <code>impaired</code> , <code>warning</code>, or <code>insufficient-data</code>.
         /// If all checks pass, the overall status of the volume is <code>ok</code>. If the check
         /// fails, the overall status is <code>impaired</code>. If the status is <code>insufficient-data</code>,
-        /// then the checks may still be taking place on your volume at the time. We recommend
+        /// then the checks might still be taking place on your volume at the time. We recommend
         /// that you retry the request. For more information about volume status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitoring
         /// the status of your volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
-        ///  <i>Events</i>: Reflect the cause of a volume status and may require you to take action.
-        /// For example, if your volume returns an <code>impaired</code> status, then the volume
-        /// event might be <code>potential-data-inconsistency</code>. This means that your volume
-        /// has been affected by an issue with the underlying host, has all I/O operations disabled,
-        /// and may have inconsistent data.
+        ///  <i>Events</i>: Reflect the cause of a volume status and might require you to take
+        /// action. For example, if your volume returns an <code>impaired</code> status, then
+        /// the volume event might be <code>potential-data-inconsistency</code>. This means that
+        /// your volume has been affected by an issue with the underlying host, has all I/O operations
+        /// disabled, and might have inconsistent data.
         /// </para>
         ///  
         /// <para>
-        ///  <i>Actions</i>: Reflect the actions you may have to take in response to an event.
+        ///  <i>Actions</i>: Reflect the actions you might have to take in response to an event.
         /// For example, if the status of the volume is <code>impaired</code> and the volume event
         /// shows <code>potential-data-inconsistency</code>, then the action shows <code>enable-volume-io</code>.
         /// This means that you may want to enable the I/O operations for the volume by calling
@@ -16623,21 +17267,21 @@ namespace Amazon.EC2
         /// <code>ok</code>, <code>impaired</code> , <code>warning</code>, or <code>insufficient-data</code>.
         /// If all checks pass, the overall status of the volume is <code>ok</code>. If the check
         /// fails, the overall status is <code>impaired</code>. If the status is <code>insufficient-data</code>,
-        /// then the checks may still be taking place on your volume at the time. We recommend
+        /// then the checks might still be taking place on your volume at the time. We recommend
         /// that you retry the request. For more information about volume status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitoring
         /// the status of your volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
-        ///  <i>Events</i>: Reflect the cause of a volume status and may require you to take action.
-        /// For example, if your volume returns an <code>impaired</code> status, then the volume
-        /// event might be <code>potential-data-inconsistency</code>. This means that your volume
-        /// has been affected by an issue with the underlying host, has all I/O operations disabled,
-        /// and may have inconsistent data.
+        ///  <i>Events</i>: Reflect the cause of a volume status and might require you to take
+        /// action. For example, if your volume returns an <code>impaired</code> status, then
+        /// the volume event might be <code>potential-data-inconsistency</code>. This means that
+        /// your volume has been affected by an issue with the underlying host, has all I/O operations
+        /// disabled, and might have inconsistent data.
         /// </para>
         ///  
         /// <para>
-        ///  <i>Actions</i>: Reflect the actions you may have to take in response to an event.
+        ///  <i>Actions</i>: Reflect the actions you might have to take in response to an event.
         /// For example, if the status of the volume is <code>impaired</code> and the volume event
         /// shows <code>potential-data-inconsistency</code>, then the action shows <code>enable-volume-io</code>.
         /// This means that you may want to enable the I/O operations for the volume by calling
@@ -16684,21 +17328,21 @@ namespace Amazon.EC2
         /// <code>ok</code>, <code>impaired</code> , <code>warning</code>, or <code>insufficient-data</code>.
         /// If all checks pass, the overall status of the volume is <code>ok</code>. If the check
         /// fails, the overall status is <code>impaired</code>. If the status is <code>insufficient-data</code>,
-        /// then the checks may still be taking place on your volume at the time. We recommend
+        /// then the checks might still be taking place on your volume at the time. We recommend
         /// that you retry the request. For more information about volume status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitoring
         /// the status of your volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
-        ///  <i>Events</i>: Reflect the cause of a volume status and may require you to take action.
-        /// For example, if your volume returns an <code>impaired</code> status, then the volume
-        /// event might be <code>potential-data-inconsistency</code>. This means that your volume
-        /// has been affected by an issue with the underlying host, has all I/O operations disabled,
-        /// and may have inconsistent data.
+        ///  <i>Events</i>: Reflect the cause of a volume status and might require you to take
+        /// action. For example, if your volume returns an <code>impaired</code> status, then
+        /// the volume event might be <code>potential-data-inconsistency</code>. This means that
+        /// your volume has been affected by an issue with the underlying host, has all I/O operations
+        /// disabled, and might have inconsistent data.
         /// </para>
         ///  
         /// <para>
-        ///  <i>Actions</i>: Reflect the actions you may have to take in response to an event.
+        ///  <i>Actions</i>: Reflect the actions you might have to take in response to an event.
         /// For example, if the status of the volume is <code>impaired</code> and the volume event
         /// shows <code>potential-data-inconsistency</code>, then the action shows <code>enable-volume-io</code>.
         /// This means that you may want to enable the I/O operations for the volume by calling
@@ -16742,21 +17386,21 @@ namespace Amazon.EC2
         /// <code>ok</code>, <code>impaired</code> , <code>warning</code>, or <code>insufficient-data</code>.
         /// If all checks pass, the overall status of the volume is <code>ok</code>. If the check
         /// fails, the overall status is <code>impaired</code>. If the status is <code>insufficient-data</code>,
-        /// then the checks may still be taking place on your volume at the time. We recommend
+        /// then the checks might still be taking place on your volume at the time. We recommend
         /// that you retry the request. For more information about volume status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitoring
         /// the status of your volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
-        ///  <i>Events</i>: Reflect the cause of a volume status and may require you to take action.
-        /// For example, if your volume returns an <code>impaired</code> status, then the volume
-        /// event might be <code>potential-data-inconsistency</code>. This means that your volume
-        /// has been affected by an issue with the underlying host, has all I/O operations disabled,
-        /// and may have inconsistent data.
+        ///  <i>Events</i>: Reflect the cause of a volume status and might require you to take
+        /// action. For example, if your volume returns an <code>impaired</code> status, then
+        /// the volume event might be <code>potential-data-inconsistency</code>. This means that
+        /// your volume has been affected by an issue with the underlying host, has all I/O operations
+        /// disabled, and might have inconsistent data.
         /// </para>
         ///  
         /// <para>
-        ///  <i>Actions</i>: Reflect the actions you may have to take in response to an event.
+        ///  <i>Actions</i>: Reflect the actions you might have to take in response to an event.
         /// For example, if the status of the volume is <code>impaired</code> and the volume event
         /// shows <code>potential-data-inconsistency</code>, then the action shows <code>enable-volume-io</code>.
         /// This means that you may want to enable the I/O operations for the volume by calling
@@ -17136,6 +17780,16 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Describes available services to which you can create a VPC endpoint.
+        /// 
+        ///  
+        /// <para>
+        /// When the service provider and the consumer have different accounts multiple Availability
+        /// Zones, and the consumer views the VPC endpoint service information, the response only
+        /// includes the common Availability Zones. For example, when the service provider account
+        /// uses <code>us-east-1a</code> and <code>us-east-1c</code> and the consumer uses <code>us-east-1a</code>
+        /// and us-east-1a and us-east-1b, the response includes the VPC endpoint services in
+        /// the common Availability Zone, <code>us-east-1a</code>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVpcEndpointServices service method.</param>
         /// 
@@ -17153,6 +17807,16 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Describes available services to which you can create a VPC endpoint.
+        /// 
+        ///  
+        /// <para>
+        /// When the service provider and the consumer have different accounts multiple Availability
+        /// Zones, and the consumer views the VPC endpoint service information, the response only
+        /// includes the common Availability Zones. For example, when the service provider account
+        /// uses <code>us-east-1a</code> and <code>us-east-1c</code> and the consumer uses <code>us-east-1a</code>
+        /// and us-east-1a and us-east-1b, the response includes the VPC endpoint services in
+        /// the common Availability Zone, <code>us-east-1a</code>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVpcEndpointServices service method.</param>
         /// <param name="cancellationToken">
@@ -17772,7 +18436,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisableEbsEncryptionByDefault service method.</param>
@@ -17805,7 +18469,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisableEbsEncryptionByDefault service method.</param>
@@ -18209,8 +18873,8 @@ namespace Amazon.EC2
         /// an IAM role from an ACM certificate removes the Amazon S3 object that contains the
         /// certificate, certificate chain, and encrypted private key from the Amazon S3 bucket.
         /// It also revokes the IAM role's permission to use the AWS Key Management Service (KMS)
-        /// key used to encrypt the private key. This effectively revokes the role's permission
-        /// to use the certificate.
+        /// customer master key (CMK) used to encrypt the private key. This effectively revokes
+        /// the role's permission to use the certificate.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociateEnclaveCertificateIamRole service method.</param>
         /// 
@@ -18231,8 +18895,8 @@ namespace Amazon.EC2
         /// an IAM role from an ACM certificate removes the Amazon S3 object that contains the
         /// certificate, certificate chain, and encrypted private key from the Amazon S3 bucket.
         /// It also revokes the IAM role's permission to use the AWS Key Management Service (KMS)
-        /// key used to encrypt the private key. This effectively revokes the role's permission
-        /// to use the certificate.
+        /// customer master key (CMK) used to encrypt the private key. This effectively revokes
+        /// the role's permission to use the certificate.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociateEnclaveCertificateIamRole service method.</param>
         /// <param name="cancellationToken">
@@ -18557,7 +19221,7 @@ namespace Amazon.EC2
         /// After you enable encryption by default, the EBS volumes that you create are are always
         /// encrypted, either using the default CMK or the CMK that you specified when you created
         /// each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -18598,7 +19262,7 @@ namespace Amazon.EC2
         /// After you enable encryption by default, the EBS volumes that you create are are always
         /// encrypted, either using the default CMK or the CMK that you specified when you created
         /// each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -19144,8 +19808,8 @@ namespace Amazon.EC2
         /// Returns the IAM roles that are associated with the specified AWS Certificate Manager
         /// (ACM) certificate. It also returns the name of the Amazon S3 bucket and the Amazon
         /// S3 object key where the certificate, certificate chain, and encrypted private key
-        /// bundle are stored, and the ARN of the AWS Key Management Service (KMS) key that's
-        /// used to encrypt the private key.
+        /// bundle are stored, and the ARN of the AWS Key Management Service (KMS) customer master
+        /// key (CMK) that's used to encrypt the private key.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAssociatedEnclaveCertificateIamRoles service method.</param>
         /// 
@@ -19165,8 +19829,8 @@ namespace Amazon.EC2
         /// Returns the IAM roles that are associated with the specified AWS Certificate Manager
         /// (ACM) certificate. It also returns the name of the Amazon S3 bucket and the Amazon
         /// S3 object key where the certificate, certificate chain, and encrypted private key
-        /// bundle are stored, and the ARN of the AWS Key Management Service (KMS) key that's
-        /// used to encrypt the private key.
+        /// bundle are stored, and the ARN of the AWS Key Management Service (KMS) customer master
+        /// key (CMK) that's used to encrypt the private key.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAssociatedEnclaveCertificateIamRoles service method.</param>
         /// <param name="cancellationToken">
@@ -19519,7 +20183,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetEbsDefaultKmsKeyId service method.</param>
@@ -19544,7 +20208,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetEbsDefaultKmsKeyId service method.</param>
@@ -19575,7 +20239,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetEbsEncryptionByDefault service method.</param>
@@ -19599,7 +20263,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetEbsEncryptionByDefault service method.</param>
@@ -20772,7 +21436,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyEbsDefaultKmsKeyId service method.</param>
@@ -20808,7 +21472,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyEbsDefaultKmsKeyId service method.</param>
@@ -22452,12 +23116,12 @@ namespace Amazon.EC2
         /// <summary>
         /// You can modify several parameters of an existing EBS volume, including volume size,
         /// volume type, and IOPS capacity. If your EBS volume is attached to a current-generation
-        /// EC2 instance type, you may be able to apply these changes without stopping the instance
+        /// EC2 instance type, you might be able to apply these changes without stopping the instance
         /// or detaching the volume from it. For more information about modifying an EBS volume
         /// running Linux, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying
         /// the size, IOPS, or type of an EBS volume on Linux</a>. For more information about
         /// modifying an EBS volume running Windows, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying
-        /// the size, IOPS, or type of an EBS volume on Windows</a>. 
+        /// the size, IOPS, or type of an EBS volume on Windows</a>.
         /// 
         ///  
         /// <para>
@@ -22479,11 +23143,11 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// With previous-generation instance types, resizing an EBS volume may require detaching
+        /// With previous-generation instance types, resizing an EBS volume might require detaching
         /// and reattaching the volume or stopping and restarting the instance. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying
-        /// the size, IOPS, or type of an EBS volume on Linux</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying
-        /// the size, IOPS, or type of an EBS volume on Windows</a>.
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html">Amazon
+        /// EBS Elastic Volumes</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html">Amazon
+        /// EBS Elastic Volumes</a> (Windows).
         /// </para>
         ///  
         /// <para>
@@ -22509,12 +23173,12 @@ namespace Amazon.EC2
         /// <summary>
         /// You can modify several parameters of an existing EBS volume, including volume size,
         /// volume type, and IOPS capacity. If your EBS volume is attached to a current-generation
-        /// EC2 instance type, you may be able to apply these changes without stopping the instance
+        /// EC2 instance type, you might be able to apply these changes without stopping the instance
         /// or detaching the volume from it. For more information about modifying an EBS volume
         /// running Linux, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying
         /// the size, IOPS, or type of an EBS volume on Linux</a>. For more information about
         /// modifying an EBS volume running Windows, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying
-        /// the size, IOPS, or type of an EBS volume on Windows</a>. 
+        /// the size, IOPS, or type of an EBS volume on Windows</a>.
         /// 
         ///  
         /// <para>
@@ -22536,11 +23200,11 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// With previous-generation instance types, resizing an EBS volume may require detaching
+        /// With previous-generation instance types, resizing an EBS volume might require detaching
         /// and reattaching the volume or stopping and restarting the instance. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying
-        /// the size, IOPS, or type of an EBS volume on Linux</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying
-        /// the size, IOPS, or type of an EBS volume on Windows</a>.
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html">Amazon
+        /// EBS Elastic Volumes</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html">Amazon
+        /// EBS Elastic Volumes</a> (Windows).
         /// </para>
         ///  
         /// <para>
@@ -22680,8 +23344,8 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Modifies attributes of a specified VPC endpoint. The attributes that you can modify
-        /// depend on the type of VPC endpoint (interface or gateway). For more information, see
-        /// <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC
+        /// depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer).
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC
         /// Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVpcEndpoint service method.</param>
@@ -22700,8 +23364,8 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Modifies attributes of a specified VPC endpoint. The attributes that you can modify
-        /// depend on the type of VPC endpoint (interface or gateway). For more information, see
-        /// <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC
+        /// depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer).
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC
         /// Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVpcEndpoint service method.</param>
@@ -22770,9 +23434,9 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Modifies the attributes of your VPC endpoint service configuration. You can change
-        /// the Network Load Balancers for your service, and you can specify whether acceptance
-        /// is required for requests to connect to your endpoint service through an interface
-        /// VPC endpoint.
+        /// the Network Load Balancers or Gateway Load Balancers for your service, and you can
+        /// specify whether acceptance is required for requests to connect to your endpoint service
+        /// through an interface VPC endpoint.
         /// 
         ///  
         /// <para>
@@ -22798,9 +23462,9 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Modifies the attributes of your VPC endpoint service configuration. You can change
-        /// the Network Load Balancers for your service, and you can specify whether acceptance
-        /// is required for requests to connect to your endpoint service through an interface
-        /// VPC endpoint.
+        /// the Network Load Balancers or Gateway Load Balancers for your service, and you can
+        /// specify whether acceptance is required for requests to connect to your endpoint service
+        /// through an interface VPC endpoint.
         /// 
         ///  
         /// <para>
@@ -24154,6 +24818,49 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  RejectTransitGatewayMulticastDomainAssociations
+
+
+        /// <summary>
+        /// Rejects a request to associate cross-account subnets with a transit gateway multicast
+        /// domain.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RejectTransitGatewayMulticastDomainAssociations service method.</param>
+        /// 
+        /// <returns>The response from the RejectTransitGatewayMulticastDomainAssociations service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RejectTransitGatewayMulticastDomainAssociations">REST API Reference for RejectTransitGatewayMulticastDomainAssociations Operation</seealso>
+        public virtual RejectTransitGatewayMulticastDomainAssociationsResponse RejectTransitGatewayMulticastDomainAssociations(RejectTransitGatewayMulticastDomainAssociationsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RejectTransitGatewayMulticastDomainAssociationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RejectTransitGatewayMulticastDomainAssociationsResponseUnmarshaller.Instance;
+
+            return Invoke<RejectTransitGatewayMulticastDomainAssociationsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Rejects a request to associate cross-account subnets with a transit gateway multicast
+        /// domain.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RejectTransitGatewayMulticastDomainAssociations service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the RejectTransitGatewayMulticastDomainAssociations service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RejectTransitGatewayMulticastDomainAssociations">REST API Reference for RejectTransitGatewayMulticastDomainAssociations Operation</seealso>
+        public virtual Task<RejectTransitGatewayMulticastDomainAssociationsResponse> RejectTransitGatewayMulticastDomainAssociationsAsync(RejectTransitGatewayMulticastDomainAssociationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RejectTransitGatewayMulticastDomainAssociationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RejectTransitGatewayMulticastDomainAssociationsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<RejectTransitGatewayMulticastDomainAssociationsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  RejectTransitGatewayPeeringAttachment
 
 
@@ -25057,7 +25764,7 @@ namespace Amazon.EC2
         /// After resetting the default CMK to the AWS managed CMK, you can continue to encrypt
         /// by a customer managed CMK by specifying it when you create the volume. For more information,
         /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ResetEbsDefaultKmsKeyId service method.</param>
@@ -25083,7 +25790,7 @@ namespace Amazon.EC2
         /// After resetting the default CMK to the AWS managed CMK, you can continue to encrypt
         /// by a customer managed CMK by specifying it when you create the volume. For more information,
         /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ResetEbsDefaultKmsKeyId service method.</param>
@@ -26255,6 +26962,49 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  StartNetworkInsightsAnalysis
+
+
+        /// <summary>
+        /// Starts analyzing the specified path. If the path is reachable, the operation returns
+        /// the shortest feasible path.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartNetworkInsightsAnalysis service method.</param>
+        /// 
+        /// <returns>The response from the StartNetworkInsightsAnalysis service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/StartNetworkInsightsAnalysis">REST API Reference for StartNetworkInsightsAnalysis Operation</seealso>
+        public virtual StartNetworkInsightsAnalysisResponse StartNetworkInsightsAnalysis(StartNetworkInsightsAnalysisRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartNetworkInsightsAnalysisRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartNetworkInsightsAnalysisResponseUnmarshaller.Instance;
+
+            return Invoke<StartNetworkInsightsAnalysisResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Starts analyzing the specified path. If the path is reachable, the operation returns
+        /// the shortest feasible path.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartNetworkInsightsAnalysis service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartNetworkInsightsAnalysis service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/StartNetworkInsightsAnalysis">REST API Reference for StartNetworkInsightsAnalysis Operation</seealso>
+        public virtual Task<StartNetworkInsightsAnalysisResponse> StartNetworkInsightsAnalysisAsync(StartNetworkInsightsAnalysisRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartNetworkInsightsAnalysisRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartNetworkInsightsAnalysisResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<StartNetworkInsightsAnalysisResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  StartVpcEndpointServicePrivateDnsVerification
 
 
@@ -26270,7 +27020,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// Before the service provider runs this command, they must add a record to the DNS server.
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/ndpoint-services-dns-validation.html#add-dns-txt-record">Adding
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html#add-dns-txt-record">Adding
         /// a TXT Record to Your Domain's DNS Server </a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
@@ -26300,7 +27050,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// Before the service provider runs this command, they must add a record to the DNS server.
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/ndpoint-services-dns-validation.html#add-dns-txt-record">Adding
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html#add-dns-txt-record">Adding
         /// a TXT Record to Your Domain's DNS Server </a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>

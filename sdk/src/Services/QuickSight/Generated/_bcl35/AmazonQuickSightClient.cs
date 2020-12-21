@@ -927,8 +927,9 @@ namespace Amazon.QuickSight
 
         /// <summary>
         /// Creates an assignment with one specified IAM policy, identified by its Amazon Resource
-        /// Name (ARN). This policy will be assigned to specified groups or users of Amazon QuickSight.
-        /// The users and groups need to be in the same namespace.
+        /// Name (ARN). This policy assignment is attached to the specified groups or users of
+        /// Amazon QuickSight. Assignment names are unique per AWS account. To avoid overwriting
+        /// rules in other namespaces, use assignment names that are unique.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateIAMPolicyAssignment service method.</param>
         /// 
@@ -1012,7 +1013,7 @@ namespace Amazon.QuickSight
         ///  
         /// <para>
         /// Any ingestions operating on tagged datasets inherit the same tags automatically for
-        /// use in access control. For an example, see <a href="https://aws.amazon.com/premiumsupport/knowledge-center/iam-ec2-resource-tags/">How
+        /// use in access control. For an example, see <a href="http://aws.amazon.com/premiumsupport/knowledge-center/iam-ec2-resource-tags/">How
         /// do I create an IAM policy to control access to Amazon EC2 resources using tags?</a>
         /// in the AWS Knowledge Center. Tags are visible on the tagged dataset, but not on the
         /// ingestion resource.
@@ -4390,8 +4391,8 @@ namespace Amazon.QuickSight
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html">Embedding
-        /// Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i> .
+        /// For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedded
+        /// Analytics</a> in the <i>Amazon QuickSight User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetDashboardEmbedUrl service method.</param>
@@ -4434,6 +4435,18 @@ namespace Amazon.QuickSight
         /// </exception>
         /// <exception cref="Amazon.QuickSight.Model.ThrottlingException">
         /// Access is throttled.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.UnsupportedPricingPlanException">
+        /// This error indicates that you are calling an embedding operation in Amazon QuickSight
+        /// without the required pricing plan on your AWS account. Before you can use embedding
+        /// for anonymous users, a QuickSight administrator needs to add capacity pricing to QuickSight.
+        /// You can do this on the <b>Manage QuickSight</b> page. 
+        /// 
+        ///  
+        /// <para>
+        /// After capacity pricing is added, you can use the <a>GetDashboardEmbedUrl</a> API operation
+        /// with the <code>--identity-type ANONYMOUS</code> option.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.QuickSight.Model.UnsupportedUserEditionException">
         /// This error indicates that you are calling an operation on an Amazon QuickSight subscription
@@ -7553,7 +7566,8 @@ namespace Amazon.QuickSight
 
         /// <summary>
         /// Updates an existing IAM policy assignment. This operation updates only the optional
-        /// parameter or parameters that are specified in the request.
+        /// parameter or parameters that are specified in the request. This overwrites all of
+        /// the users included in <code>Identities</code>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateIAMPolicyAssignment service method.</param>
         /// 

@@ -52,8 +52,8 @@ namespace Amazon.ComputeOptimizer.Model
         /// </para>
         ///  
         /// <para>
-        /// If your account is the master account of an organization, use this parameter to specify
-        /// the member accounts for which you want to return recommendation summaries.
+        /// If your account is the management account of an organization, use this parameter to
+        /// specify the member accounts for which you want to return recommendation summaries.
         /// </para>
         ///  
         /// <para>

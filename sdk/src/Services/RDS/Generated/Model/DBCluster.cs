@@ -82,6 +82,7 @@ namespace Amazon.RDS.Model
         private DateTime? _latestRestorableTime;
         private string _masterUsername;
         private bool? _multiAZ;
+        private ClusterPendingModifiedValues _pendingModifiedValues;
         private string _percentProgress;
         private int? _port;
         private string _preferredBackupWindow;
@@ -117,6 +118,11 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property ActivityStreamKmsKeyId. 
         /// <para>
         /// The AWS KMS key identifier used for encrypting messages in the database activity stream.
+        /// </para>
+        ///  
+        /// <para>
+        /// The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the
+        /// AWS KMS customer master key (CMK).
         /// </para>
         /// </summary>
         public string ActivityStreamKmsKeyId
@@ -534,7 +540,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property DbClusterResourceId. 
         /// <para>
         /// The AWS Region-unique, immutable identifier for the DB cluster. This identifier is
-        /// found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is
+        /// found in AWS CloudTrail log entries whenever the AWS KMS CMK for the DB cluster is
         /// accessed.
         /// </para>
         /// </summary>
@@ -857,6 +863,11 @@ namespace Amazon.RDS.Model
         /// If <code>StorageEncrypted</code> is enabled, the AWS KMS key identifier for the encrypted
         /// DB cluster.
         /// </para>
+        ///  
+        /// <para>
+        /// The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the
+        /// AWS KMS customer master key (CMK).
+        /// </para>
         /// </summary>
         public string KmsKeyId
         {
@@ -922,6 +933,25 @@ namespace Amazon.RDS.Model
         internal bool IsSetMultiAZ()
         {
             return this._multiAZ.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property PendingModifiedValues. 
+        /// <para>
+        /// Specifies that changes to the DB cluster are pending. This element is only included
+        /// when changes are pending. Specific changes are identified by subelements.
+        /// </para>
+        /// </summary>
+        public ClusterPendingModifiedValues PendingModifiedValues
+        {
+            get { return this._pendingModifiedValues; }
+            set { this._pendingModifiedValues = value; }
+        }
+
+        // Check to see if PendingModifiedValues property is set
+        internal bool IsSetPendingModifiedValues()
+        {
+            return this._pendingModifiedValues != null;
         }
 
         /// <summary>

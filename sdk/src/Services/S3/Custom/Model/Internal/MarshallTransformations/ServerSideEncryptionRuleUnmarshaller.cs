@@ -17,6 +17,7 @@ using System.Collections.Generic;
 
 using Amazon.S3.Model;
 using Amazon.Runtime.Internal.Transform;
+using Amazon.S3.Util;
 
 namespace Amazon.S3.Model.Internal.MarshallTransformations
 {
@@ -41,6 +42,13 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
 
                         continue;
                     }
+
+                    if (context.TestExpression("BucketKeyEnabled", targetDepth))
+                    {
+                        rule.BucketKeyEnabled = BoolUnmarshaller.Instance.Unmarshall(context);
+
+                        continue;
+                    }
                 }
                 else if (context.IsEndElement && context.CurrentDepth < originalDepth)
                 {
@@ -49,6 +57,7 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
             }
 
             return rule;
+
         }
 
         public ServerSideEncryptionRule Unmarshall(JsonUnmarshallerContext input)
