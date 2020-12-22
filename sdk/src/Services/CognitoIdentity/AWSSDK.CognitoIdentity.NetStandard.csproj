@@ -23,11 +23,11 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;NETSTANDARD;NETSTANDARD2_0;AWS_ASYNC_ENUMERABLES_API</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType></DebugType>
-    <DefineConstants>TRACE;AWS_ASYNC_API;RELEASE;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD20</DefineConstants>
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;RELEASE;NETSTANDARD;NETSTANDARD2_0;AWS_ASYNC_ENUMERABLES_API</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|iPhoneSimulator' ">
     <IntermediateOutputPath>obj\AWSSDK.CognitoIdentity.NetStandard\iPhoneSimulator\Test</IntermediateOutputPath>
@@ -35,7 +35,7 @@
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhoneSimulator\Test</OutputPath>
-    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;TEST;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;TEST;NETSTANDARD;NETSTANDARD2_0;AWS_ASYNC_ENUMERABLES_API</DefineConstants>
     <DocumentationFile>obj\AWSSDK.CognitoIdentity.NetStandard\Debug\netstandard2.0\AWSSDK.CognitoIdentity.xml</DocumentationFile>
     <AssemblyName>AWSSDK.CognitoIdentity.NetStandard</AssemblyName>
     <NoWarn>1701;1702</NoWarn>
@@ -59,7 +59,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <Optimize>false</Optimize>
-    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;TEST;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;TEST;NETSTANDARD;NETSTANDARD2_0;AWS_ASYNC_ENUMERABLES_API</DefineConstants>
     <DocumentationFile>obj\AWSSDK.CognitoIdentity.NetStandard\Debug\netstandard2.0\AWSSDK.CognitoIdentity.xml</DocumentationFile>
     <IntermediateOutputPath>obj\AWSSDK.CognitoIdentity.NetStandard\Debug\netstandard2.0</IntermediateOutputPath>
   </PropertyGroup>
