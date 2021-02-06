@@ -30,8 +30,13 @@ namespace Amazon.Connect.Model
 {
     /// <summary>
     /// Container for the parameters to the ListLambdaFunctions operation.
-    /// Returns a paginated list of all the Lambda functions that show up in the drop-down
-    /// options in the relevant contact flow blocks.
+    /// This API is in preview release for Amazon Connect and is subject to change.
+    /// 
+    ///  
+    /// <para>
+    /// Returns a paginated list of all Lambda functions that display in the dropdown options
+    /// in the relevant contact flow blocks.
+    /// </para>
     /// </summary>
     public partial class ListLambdaFunctionsRequest : AmazonConnectRequest
     {
@@ -61,7 +66,7 @@ namespace Amazon.Connect.Model
         /// <summary>
         /// Gets and sets the property MaxResults. 
         /// <para>
-        /// The maximimum number of results to return per page.
+        /// The maximum number of results to return per page.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=25)]

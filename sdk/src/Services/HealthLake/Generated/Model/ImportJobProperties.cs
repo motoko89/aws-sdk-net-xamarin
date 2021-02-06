@@ -30,7 +30,7 @@ namespace Amazon.HealthLake.Model
 {
     /// <summary>
     /// Displays the properties of the import job, including the ID, Arn, Name, and the status
-    /// of the datastore.
+    /// of the Data Store.
     /// </summary>
     public partial class ImportJobProperties
     {

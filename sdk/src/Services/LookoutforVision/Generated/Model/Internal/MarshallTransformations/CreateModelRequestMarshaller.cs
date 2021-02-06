@@ -72,12 +72,7 @@ namespace Amazon.LookoutforVision.Model.Internal.MarshallTransformations
                 if(publicRequest.IsSetDescription())
                 {
                     context.Writer.WritePropertyName("Description");
-                    context.Writer.WriteObjectStart();
-
-                    var marshaller = ModelDescriptionMarshaller.Instance;
-                    marshaller.Marshall(publicRequest.Description, context);
-
-                    context.Writer.WriteObjectEnd();
+                    context.Writer.Write(publicRequest.Description);
                 }
 
                 if(publicRequest.IsSetKmsKeyId())
@@ -95,6 +90,22 @@ namespace Amazon.LookoutforVision.Model.Internal.MarshallTransformations
                     marshaller.Marshall(publicRequest.OutputConfig, context);
 
                     context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetTags())
+                {
+                    context.Writer.WritePropertyName("Tags");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestTagsListValue in publicRequest.Tags)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = TagMarshaller.Instance;
+                        marshaller.Marshall(publicRequestTagsListValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteArrayEnd();
                 }
 
         

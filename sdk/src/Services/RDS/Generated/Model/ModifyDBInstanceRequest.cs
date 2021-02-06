@@ -55,6 +55,7 @@ namespace Amazon.RDS.Model
         private bool? _deletionProtection;
         private string _domain;
         private string _domainIAMRoleName;
+        private bool? _enableCustomerOwnedIp;
         private bool? _enableIAMDatabaseAuthentication;
         private bool? _enablePerformanceInsights;
         private string _engineVersion;
@@ -613,8 +614,8 @@ namespace Amazon.RDS.Model
         /// <para>
         /// The new DB subnet group for the DB instance. You can use this parameter to move your
         /// DB instance to a different VPC. If your DB instance isn't in a VPC, you can also use
-        /// this parameter to move your DB instance into a VPC. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
-        /// the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i> 
+        /// this parameter to move your DB instance into a VPC. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Working
+        /// with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide.</i> 
         /// </para>
         ///  
         /// <para>
@@ -709,6 +710,42 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EnableCustomerOwnedIp. 
+        /// <para>
+        /// A value that indicates whether to enable a customer-owned IP address (CoIP) for an
+        /// RDS on Outposts DB instance.
+        /// </para>
+        ///  
+        /// <para>
+        /// A <i>CoIP</i> provides local or external connectivity to resources in your Outpost
+        /// subnets through your on-premises network. For some use cases, a CoIP can provide lower
+        /// latency for connections to the DB instance from outside of its virtual private cloud
+        /// (VPC) on your local network.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
+        /// with Amazon RDS on AWS Outposts</a> in the <i>Amazon RDS User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned
+        /// IP addresses</a> in the <i>AWS Outposts User Guide</i>.
+        /// </para>
+        /// </summary>
+        public bool EnableCustomerOwnedIp
+        {
+            get { return this._enableCustomerOwnedIp.GetValueOrDefault(); }
+            set { this._enableCustomerOwnedIp = value; }
+        }
+
+        // Check to see if EnableCustomerOwnedIp property is set
+        internal bool IsSetEnableCustomerOwnedIp()
+        {
+            return this._enableCustomerOwnedIp.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property EnableIAMDatabaseAuthentication. 
         /// <para>
         /// A value that indicates whether to enable mapping of AWS Identity and Access Management
@@ -778,8 +815,9 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// For information about valid engine versions, see <code>CreateDBInstance</code>, or
-        /// call <code>DescribeDBEngineVersions</code>.
+        /// If you specify only a major version, Amazon RDS will update the DB instance to the
+        /// default minor version if the current minor version is lower. For information about
+        /// valid engine versions, see <code>CreateDBInstance</code>, or call <code>DescribeDBEngineVersions</code>.
         /// </para>
         /// </summary>
         public string EngineVersion
@@ -960,6 +998,13 @@ namespace Amazon.RDS.Model
         /// The upper limit to which Amazon RDS can automatically scale the storage of the DB
         /// instance.
         /// </para>
+        ///  
+        /// <para>
+        /// For more information about this setting, including limitations that apply to it, see
+        /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
+        /// Managing capacity automatically with Amazon RDS storage autoscaling</a> in the <i>Amazon
+        /// RDS User Guide</i>.
+        /// </para>
         /// </summary>
         public int MaxAllocatedStorage
         {
@@ -1094,9 +1139,9 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property OptionGroupName. 
         /// <para>
-        ///  Indicates that the DB instance should be associated with the specified option group.
-        /// Changing this parameter doesn't result in an outage except in the following case and
-        /// the change is applied during the next maintenance window unless the <code>ApplyImmediately</code>
+        ///  A value that indicates the DB instance should be associated with the specified option
+        /// group. Changing this parameter doesn't result in an outage except in the following
+        /// case and the change is applied during the next maintenance window unless the <code>ApplyImmediately</code>
         /// parameter is enabled for this request. If the parameter change results in an option
         /// group that enables OEM, this change can cause a brief (sub-second) period during which
         /// new connections are rejected but existing connections are not interrupted. 

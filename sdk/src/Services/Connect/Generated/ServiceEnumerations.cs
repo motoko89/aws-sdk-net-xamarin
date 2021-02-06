@@ -589,6 +589,76 @@ namespace Amazon.Connect
 
 
     /// <summary>
+    /// Constants used for properties of type HoursOfOperationDays.
+    /// </summary>
+    public class HoursOfOperationDays : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant FRIDAY for HoursOfOperationDays
+        /// </summary>
+        public static readonly HoursOfOperationDays FRIDAY = new HoursOfOperationDays("FRIDAY");
+        /// <summary>
+        /// Constant MONDAY for HoursOfOperationDays
+        /// </summary>
+        public static readonly HoursOfOperationDays MONDAY = new HoursOfOperationDays("MONDAY");
+        /// <summary>
+        /// Constant SATURDAY for HoursOfOperationDays
+        /// </summary>
+        public static readonly HoursOfOperationDays SATURDAY = new HoursOfOperationDays("SATURDAY");
+        /// <summary>
+        /// Constant SUNDAY for HoursOfOperationDays
+        /// </summary>
+        public static readonly HoursOfOperationDays SUNDAY = new HoursOfOperationDays("SUNDAY");
+        /// <summary>
+        /// Constant THURSDAY for HoursOfOperationDays
+        /// </summary>
+        public static readonly HoursOfOperationDays THURSDAY = new HoursOfOperationDays("THURSDAY");
+        /// <summary>
+        /// Constant TUESDAY for HoursOfOperationDays
+        /// </summary>
+        public static readonly HoursOfOperationDays TUESDAY = new HoursOfOperationDays("TUESDAY");
+        /// <summary>
+        /// Constant WEDNESDAY for HoursOfOperationDays
+        /// </summary>
+        public static readonly HoursOfOperationDays WEDNESDAY = new HoursOfOperationDays("WEDNESDAY");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public HoursOfOperationDays(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static HoursOfOperationDays FindValue(string value)
+        {
+            return FindValue<HoursOfOperationDays>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator HoursOfOperationDays(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type InstanceAttributeType.
     /// </summary>
     public class InstanceAttributeType : ConstantClass
@@ -1915,6 +1985,56 @@ namespace Amazon.Connect
 
 
     /// <summary>
+    /// Constants used for properties of type QueueStatus.
+    /// </summary>
+    public class QueueStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DISABLED for QueueStatus
+        /// </summary>
+        public static readonly QueueStatus DISABLED = new QueueStatus("DISABLED");
+        /// <summary>
+        /// Constant ENABLED for QueueStatus
+        /// </summary>
+        public static readonly QueueStatus ENABLED = new QueueStatus("ENABLED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public QueueStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static QueueStatus FindValue(string value)
+        {
+            return FindValue<QueueStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator QueueStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type QueueType.
     /// </summary>
     public class QueueType : ConstantClass
@@ -1958,6 +2078,60 @@ namespace Amazon.Connect
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator QueueType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type QuickConnectType.
+    /// </summary>
+    public class QuickConnectType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant PHONE_NUMBER for QuickConnectType
+        /// </summary>
+        public static readonly QuickConnectType PHONE_NUMBER = new QuickConnectType("PHONE_NUMBER");
+        /// <summary>
+        /// Constant QUEUE for QuickConnectType
+        /// </summary>
+        public static readonly QuickConnectType QUEUE = new QuickConnectType("QUEUE");
+        /// <summary>
+        /// Constant USER for QuickConnectType
+        /// </summary>
+        public static readonly QuickConnectType USER = new QuickConnectType("USER");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public QuickConnectType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static QuickConnectType FindValue(string value)
+        {
+            return FindValue<QuickConnectType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator QuickConnectType(string value)
         {
             return FindValue(value);
         }

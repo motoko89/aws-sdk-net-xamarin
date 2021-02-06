@@ -30,7 +30,7 @@ namespace Amazon.GlueDataBrew.Model
 {
     /// <summary>
     /// Container for the parameters to the DeleteDataset operation.
-    /// Deletes a dataset from AWS Glue DataBrew.
+    /// Deletes a dataset from DataBrew.
     /// </summary>
     public partial class DeleteDatasetRequest : AmazonGlueDataBrewRequest
     {

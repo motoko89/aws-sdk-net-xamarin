@@ -29,12 +29,32 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ManagedBlockchain.Model
 {
     /// <summary>
-    /// Attributes relevant to a peer node on a Managed Blockchain network for the blockchain
-    /// framework that the network uses.
+    /// Attributes relevant to a node on a Managed Blockchain network for the blockchain framework
+    /// that the network uses.
     /// </summary>
     public partial class NodeFrameworkAttributes
     {
+        private NodeEthereumAttributes _ethereum;
         private NodeFabricAttributes _fabric;
+
+        /// <summary>
+        /// Gets and sets the property Ethereum. 
+        /// <para>
+        /// Attributes of Ethereum for a node on a Managed Blockchain network that uses Ethereum.
+        /// Ethereum on Managed Blockchain is in preview release and is subject to change.
+        /// </para>
+        /// </summary>
+        public NodeEthereumAttributes Ethereum
+        {
+            get { return this._ethereum; }
+            set { this._ethereum = value; }
+        }
+
+        // Check to see if Ethereum property is set
+        internal bool IsSetEthereum()
+        {
+            return this._ethereum != null;
+        }
 
         /// <summary>
         /// Gets and sets the property Fabric. 

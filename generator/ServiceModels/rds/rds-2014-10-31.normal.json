@@ -258,7 +258,7 @@
         {"shape":"CustomAvailabilityZoneQuotaExceededFault"},
         {"shape":"KMSKeyNotAccessibleFault"}
       ],
-      "documentation":"<p>Creates a custom Availability Zone (AZ).</p> <p>A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.</p> <p>For more information about RDS on VMware, see the <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html\"> <i>RDS on VMware User Guide.</i> </a> </p>"
+      "documentation":"<p>Creates a custom Availability Zone (AZ).</p> <p>A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.</p> <p>For more information about RDS on VMware, see the <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html\"> RDS on VMware User Guide.</a> </p>"
     },
     "CreateDBCluster":{
       "name":"CreateDBCluster",
@@ -584,7 +584,7 @@
         {"shape":"CustomAvailabilityZoneNotFoundFault"},
         {"shape":"KMSKeyNotAccessibleFault"}
       ],
-      "documentation":"<p>Deletes a custom Availability Zone (AZ).</p> <p>A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.</p> <p>For more information about RDS on VMware, see the <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html\"> <i>RDS on VMware User Guide.</i> </a> </p>"
+      "documentation":"<p>Deletes a custom Availability Zone (AZ).</p> <p>A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.</p> <p>For more information about RDS on VMware, see the <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html\"> RDS on VMware User Guide.</a> </p>"
     },
     "DeleteDBCluster":{
       "name":"DeleteDBCluster",
@@ -891,7 +891,7 @@
       "errors":[
         {"shape":"CustomAvailabilityZoneNotFoundFault"}
       ],
-      "documentation":"<p>Returns information about custom Availability Zones (AZs).</p> <p>A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.</p> <p>For more information about RDS on VMware, see the <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html\"> <i>RDS on VMware User Guide.</i> </a> </p>"
+      "documentation":"<p>Returns information about custom Availability Zones (AZs).</p> <p>A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.</p> <p>For more information about RDS on VMware, see the <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html\"> RDS on VMware User Guide.</a> </p>"
     },
     "DescribeDBClusterBacktracks":{
       "name":"DescribeDBClusterBacktracks",
@@ -1433,7 +1433,7 @@
         "shape":"SourceRegionMessage",
         "resultWrapper":"DescribeSourceRegionsResult"
       },
-      "documentation":"<p>Returns a list of the source AWS Regions where the current AWS Region can create a read replica or copy a DB snapshot from. This API action supports pagination.</p>"
+      "documentation":"<p>Returns a list of the source AWS Regions where the current AWS Region can create a read replica, copy a DB snapshot from, or replicate automated backups from. This API action supports pagination.</p>"
     },
     "DescribeValidDBInstanceModifications":{
       "name":"DescribeValidDBInstanceModifications",
@@ -1815,7 +1815,9 @@
       },
       "errors":[
         {"shape":"GlobalClusterNotFoundFault"},
-        {"shape":"InvalidGlobalClusterStateFault"}
+        {"shape":"InvalidGlobalClusterStateFault"},
+        {"shape":"InvalidDBClusterStateFault"},
+        {"shape":"InvalidDBInstanceStateFault"}
       ],
       "documentation":"<p> Modify a setting for an Amazon Aurora global cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. For more information on Amazon Aurora, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html\"> What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> </p> <note> <p>This action only applies to Aurora DB clusters.</p> </note>"
     },
@@ -2906,7 +2908,7 @@
         "PendingCloudwatchLogsExports":{"shape":"PendingCloudwatchLogsExports"},
         "DBClusterIdentifier":{
           "shape":"String",
-          "documentation":"<p>The DBClusterIdentifier for the DB cluster.</p>"
+          "documentation":"<p>The DBClusterIdentifier value for the DB cluster.</p>"
         },
         "MasterUserPassword":{
           "shape":"String",
@@ -2914,7 +2916,7 @@
         },
         "IAMDatabaseAuthenticationEnabled":{
           "shape":"BooleanOptional",
-          "documentation":"<p>Whether mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.</p>"
+          "documentation":"<p>A value that indicates whether mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.</p>"
         },
         "EngineVersion":{
           "shape":"String",
@@ -2985,7 +2987,7 @@
       "members":{
         "SourceDBClusterParameterGroupIdentifier":{
           "shape":"String",
-          "documentation":"<p>The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group. For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\"> Constructing an ARN for Amazon RDS</a> in the <i>Amazon Aurora User Guide</i>. </p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB cluster parameter group.</p> </li> <li> <p>If the source DB cluster parameter group is in the same AWS Region as the copy, specify a valid DB parameter group identifier, for example <code>my-db-cluster-param-group</code>, or a valid ARN.</p> </li> <li> <p>If the source DB parameter group is in a different AWS Region than the copy, specify a valid DB cluster parameter group ARN, for example <code>arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1</code>.</p> </li> </ul>"
+          "documentation":"<p>The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group. For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\"> Constructing an ARN for Amazon RDS</a> in the <i>Amazon Aurora User Guide</i>. </p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB cluster parameter group.</p> </li> </ul>"
         },
         "TargetDBClusterParameterGroupIdentifier":{
           "shape":"String",
@@ -3051,7 +3053,7 @@
       "members":{
         "SourceDBParameterGroupIdentifier":{
           "shape":"String",
-          "documentation":"<p> The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\"> Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. </p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB parameter group.</p> </li> <li> <p>Must specify a valid DB parameter group identifier, for example <code>my-db-param-group</code>, or a valid ARN.</p> </li> </ul>"
+          "documentation":"<p> The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\"> Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>. </p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB parameter group.</p> </li> </ul>"
         },
         "TargetDBParameterGroupIdentifier":{
           "shape":"String",
@@ -3101,7 +3103,7 @@
         },
         "OptionGroupName":{
           "shape":"String",
-          "documentation":"<p>The name of an option group to associate with the copy of the snapshot.</p> <p>Specify this option if you are copying a snapshot from one AWS Region to another, and your DB instance uses a nondefault option group. If your source DB instance uses Transparent Data Encryption for Oracle or Microsoft SQL Server, you must specify this option when copying across AWS Regions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options\">Option Group Considerations</a> in the <i>Amazon RDS User Guide.</i> </p>"
+          "documentation":"<p>The name of an option group to associate with the copy of the snapshot.</p> <p>Specify this option if you are copying a snapshot from one AWS Region to another, and your DB instance uses a nondefault option group. If your source DB instance uses Transparent Data Encryption for Oracle or Microsoft SQL Server, you must specify this option when copying across AWS Regions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options\">Option group considerations</a> in the <i>Amazon RDS User Guide.</i> </p>"
         },
         "TargetCustomAvailabilityZone":{
           "shape":"String",
@@ -3314,7 +3316,7 @@
         },
         "EngineMode":{
           "shape":"String",
-          "documentation":"<p>The DB engine mode of the DB cluster, either <code>provisioned</code> <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</p> <p>The <code>parallelquery</code> engine mode isn't required for Aurora MySQL version 1.23 and higher 1.x versions, and version 2.09 and higher 2.x versions.</p> <p>The <code>global</code> engine mode isn't required for Aurora MySQL version 1.22 and higher 1.x versions, and <code>global</code> engine mode isn't required for any 2.x versions.</p> <p>The <code>multimaster</code> engine mode only applies for DB clusters created with Aurora MySQL version 5.6.10a.</p> <p>For Aurora PostgreSQL, the <code>global</code> engine mode isn't required, and both the <code>parallelquery</code> and the <code>multimaster</code> engine modes currently aren't supported.</p> <p>Limitations and requirements apply to some DB engine modes. For more information, see the following sections in the <i>Amazon Aurora User Guide</i>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations\"> Limitations of Aurora Serverless</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations\"> Limitations of Parallel Query</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations\"> Limitations of Aurora Global Databases</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations\"> Limitations of Multi-Master Clusters</a> </p> </li> </ul>"
+          "documentation":"<p>The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</p> <p>The <code>parallelquery</code> engine mode isn't required for Aurora MySQL version 1.23 and higher 1.x versions, and version 2.09 and higher 2.x versions.</p> <p>The <code>global</code> engine mode isn't required for Aurora MySQL version 1.22 and higher 1.x versions, and <code>global</code> engine mode isn't required for any 2.x versions.</p> <p>The <code>multimaster</code> engine mode only applies for DB clusters created with Aurora MySQL version 5.6.10a.</p> <p>For Aurora PostgreSQL, the <code>global</code> engine mode isn't required, and both the <code>parallelquery</code> and the <code>multimaster</code> engine modes currently aren't supported.</p> <p>Limitations and requirements apply to some DB engine modes. For more information, see the following sections in the <i>Amazon Aurora User Guide</i>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations\"> Limitations of Aurora Serverless</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations\"> Limitations of Parallel Query</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations\"> Limitations of Aurora Global Databases</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations\"> Limitations of Multi-Master Clusters</a> </p> </li> </ul>"
         },
         "ScalingConfiguration":{
           "shape":"ScalingConfiguration",
@@ -3428,7 +3430,7 @@
       "members":{
         "DBName":{
           "shape":"String",
-          "documentation":"<p>The meaning of this parameter differs according to the database engine you use.</p> <p> <b>MySQL</b> </p> <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, no database is created in the DB instance.</p> <p>Constraints:</p> <ul> <li> <p>Must contain 1 to 64 letters or numbers.</p> </li> <li> <p>Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).</p> </li> <li> <p>Can't be a word reserved by the specified database engine</p> </li> </ul> <p> <b>MariaDB</b> </p> <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, no database is created in the DB instance.</p> <p>Constraints:</p> <ul> <li> <p>Must contain 1 to 64 letters or numbers.</p> </li> <li> <p>Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).</p> </li> <li> <p>Can't be a word reserved by the specified database engine</p> </li> </ul> <p> <b>PostgreSQL</b> </p> <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, no database is created in the DB instance.</p> <p>Constraints:</p> <ul> <li> <p>Must contain 1 to 63 letters, numbers, or underscores.</p> </li> <li> <p>Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).</p> </li> <li> <p>Can't be a word reserved by the specified database engine</p> </li> </ul> <p> <b>Oracle</b> </p> <p>The Oracle System ID (SID) of the created DB instance. If you specify <code>null</code>, the default value <code>ORCL</code> is used. You can't specify the string NULL, or any other reserved word, for <code>DBName</code>. </p> <p>Default: <code>ORCL</code> </p> <p>Constraints:</p> <ul> <li> <p>Can't be longer than 8 characters</p> </li> </ul> <p> <b>SQL Server</b> </p> <p>Not applicable. Must be null.</p> <p> <b>Amazon Aurora</b> </p> <p>The name of the database to create when the primary instance of the DB cluster is created. If this parameter isn't specified, no database is created in the DB instance.</p> <p>Constraints:</p> <ul> <li> <p>Must contain 1 to 64 letters or numbers.</p> </li> <li> <p>Can't be a word reserved by the specified database engine</p> </li> </ul>"
+          "documentation":"<p>The meaning of this parameter differs according to the database engine you use.</p> <p> <b>MySQL</b> </p> <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, no database is created in the DB instance.</p> <p>Constraints:</p> <ul> <li> <p>Must contain 1 to 64 letters or numbers.</p> </li> <li> <p>Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).</p> </li> <li> <p>Can't be a word reserved by the specified database engine</p> </li> </ul> <p> <b>MariaDB</b> </p> <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, no database is created in the DB instance.</p> <p>Constraints:</p> <ul> <li> <p>Must contain 1 to 64 letters or numbers.</p> </li> <li> <p>Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).</p> </li> <li> <p>Can't be a word reserved by the specified database engine</p> </li> </ul> <p> <b>PostgreSQL</b> </p> <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, a database named <code>postgres</code> is created in the DB instance.</p> <p>Constraints:</p> <ul> <li> <p>Must contain 1 to 63 letters, numbers, or underscores.</p> </li> <li> <p>Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).</p> </li> <li> <p>Can't be a word reserved by the specified database engine</p> </li> </ul> <p> <b>Oracle</b> </p> <p>The Oracle System ID (SID) of the created DB instance. If you specify <code>null</code>, the default value <code>ORCL</code> is used. You can't specify the string NULL, or any other reserved word, for <code>DBName</code>. </p> <p>Default: <code>ORCL</code> </p> <p>Constraints:</p> <ul> <li> <p>Can't be longer than 8 characters</p> </li> </ul> <p> <b>SQL Server</b> </p> <p>Not applicable. Must be null.</p> <p> <b>Amazon Aurora MySQL</b> </p> <p>The name of the database to create when the primary DB instance of the Aurora MySQL DB cluster is created. If this parameter isn't specified for an Aurora MySQL DB cluster, no database is created in the DB cluster.</p> <p>Constraints:</p> <ul> <li> <p>It must contain 1 to 64 alphanumeric characters.</p> </li> <li> <p>It can't be a word reserved by the database engine.</p> </li> </ul> <p> <b>Amazon Aurora PostgreSQL</b> </p> <p>The name of the database to create when the primary DB instance of the Aurora PostgreSQL DB cluster is created. If this parameter isn't specified for an Aurora PostgreSQL DB cluster, a database named <code>postgres</code> is created in the DB cluster.</p> <p>Constraints:</p> <ul> <li> <p>It must contain 1 to 63 alphanumeric characters.</p> </li> <li> <p>It must begin with a letter or an underscore. Subsequent characters can be letters, underscores, or digits (0 to 9).</p> </li> <li> <p>It can't be a word reserved by the database engine.</p> </li> </ul>"
         },
         "DBInstanceIdentifier":{
           "shape":"String",
@@ -3464,7 +3466,7 @@
         },
         "AvailabilityZone":{
           "shape":"String",
-          "documentation":"<p> The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html\">Regions and Availability Zones</a>. </p> <p>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</p> <p> Example: <code>us-east-1d</code> </p> <p> Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the DB instance is a Multi-AZ deployment. The specified Availability Zone must be in the same AWS Region as the current endpoint. </p> <note> <p>If you're creating a DB instance in an RDS on VMware environment, specify the identifier of the custom Availability Zone to create the DB instance in.</p> <p>For more information about RDS on VMware, see the <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html\"> <i>RDS on VMware User Guide.</i> </a> </p> </note>"
+          "documentation":"<p> The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html\">Regions and Availability Zones</a>. </p> <p>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</p> <p> Example: <code>us-east-1d</code> </p> <p> Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the DB instance is a Multi-AZ deployment. The specified Availability Zone must be in the same AWS Region as the current endpoint. </p> <note> <p>If you're creating a DB instance in an RDS on VMware environment, specify the identifier of the custom Availability Zone to create the DB instance in.</p> <p>For more information about RDS on VMware, see the <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html\"> RDS on VMware User Guide.</a> </p> </note>"
         },
         "DBSubnetGroupName":{
           "shape":"String",
@@ -3496,7 +3498,7 @@
         },
         "EngineVersion":{
           "shape":"String",
-          "documentation":"<p>The version number of the database engine to use.</p> <p>For a list of valid engine versions, use the <code>DescribeDBEngineVersions</code> action.</p> <p>The following are the database engines and links to information about the major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS Region.</p> <p> <b>Amazon Aurora</b> </p> <p>Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster.</p> <p> <b>MariaDB</b> </p> <p>See <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt\">MariaDB on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide.</i> </p> <p> <b>Microsoft SQL Server</b> </p> <p>See <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport\">Microsoft SQL Server Versions on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i> </p> <p> <b>MySQL</b> </p> <p>See <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt\">MySQL on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide.</i> </p> <p> <b>Oracle</b> </p> <p>See <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html\">Oracle Database Engine Release Notes</a> in the <i>Amazon RDS User Guide.</i> </p> <p> <b>PostgreSQL</b> </p> <p>See <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions\">Supported PostgreSQL Database Versions</a> in the <i>Amazon RDS User Guide.</i> </p>"
+          "documentation":"<p>The version number of the database engine to use.</p> <p>For a list of valid engine versions, use the <code>DescribeDBEngineVersions</code> action.</p> <p>The following are the database engines and links to information about the major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS Region.</p> <p> <b>Amazon Aurora</b> </p> <p>Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster.</p> <p> <b>MariaDB</b> </p> <p>See <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt\">MariaDB on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide.</i> </p> <p> <b>Microsoft SQL Server</b> </p> <p>See <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport\">Microsoft SQL Server Versions on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i> </p> <p> <b>MySQL</b> </p> <p>See <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt\">MySQL on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide.</i> </p> <p> <b>Oracle</b> </p> <p>See <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html\">Oracle Database Engine Release Notes</a> in the <i>Amazon RDS User Guide.</i> </p> <p> <b>PostgreSQL</b> </p> <p>See <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts\">Amazon RDS for PostgreSQL versions and extensions</a> in the <i>Amazon RDS User Guide.</i> </p>"
         },
         "AutoMinorVersionUpgrade":{
           "shape":"BooleanOptional",
@@ -3512,7 +3514,7 @@
         },
         "OptionGroupName":{
           "shape":"String",
-          "documentation":"<p>Indicates that the DB instance should be associated with the specified option group.</p> <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group. Also, that option group can't be removed from a DB instance once it is associated with a DB instance</p>"
+          "documentation":"<p>A value that indicates that the DB instance should be associated with the specified option group.</p> <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group. Also, that option group can't be removed from a DB instance once it is associated with a DB instance</p>"
         },
         "CharacterSetName":{
           "shape":"String",
@@ -3600,7 +3602,7 @@
         },
         "EnableCloudwatchLogsExports":{
           "shape":"LogTypeList",
-          "documentation":"<p>The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch\">Publishing Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational Database Service User Guide</i>.</p> <p> <b>Amazon Aurora</b> </p> <p>Not applicable. CloudWatch Logs exports are managed by the DB cluster. </p> <p> <b>MariaDB</b> </p> <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, and <code>slowquery</code>. </p> <p> <b>Microsoft SQL Server</b> </p> <p>Possible values are <code>agent</code> and <code>error</code>. </p> <p> <b>MySQL</b> </p> <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, and <code>slowquery</code>. </p> <p> <b>Oracle</b> </p> <p>Possible values are <code>alert</code>, <code>audit</code>, <code>listener</code>, and <code>trace</code>. </p> <p> <b>PostgreSQL</b> </p> <p>Possible values are <code>postgresql</code> and <code>upgrade</code>. </p>"
+          "documentation":"<p>The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch\">Publishing Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational Database Service User Guide</i>.</p> <p> <b>Amazon Aurora</b> </p> <p>Not applicable. CloudWatch Logs exports are managed by the DB cluster. </p> <p> <b>MariaDB</b> </p> <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, and <code>slowquery</code>. </p> <p> <b>Microsoft SQL Server</b> </p> <p>Possible values are <code>agent</code> and <code>error</code>. </p> <p> <b>MySQL</b> </p> <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, and <code>slowquery</code>. </p> <p> <b>Oracle</b> </p> <p>Possible values are <code>alert</code>, <code>audit</code>, <code>listener</code>, <code>trace</code>, and <code>oemagent</code>. </p> <p> <b>PostgreSQL</b> </p> <p>Possible values are <code>postgresql</code> and <code>upgrade</code>. </p>"
         },
         "ProcessorFeatures":{
           "shape":"ProcessorFeatureList",
@@ -3612,7 +3614,11 @@
         },
         "MaxAllocatedStorage":{
           "shape":"IntegerOptional",
-          "documentation":"<p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>"
+          "documentation":"<p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p> <p>For more information about this setting, including limitations that apply to it, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling\"> Managing capacity automatically with Amazon RDS storage autoscaling</a> in the <i>Amazon RDS User Guide</i>.</p>"
+        },
+        "EnableCustomerOwnedIp":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>A value that indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance.</p> <p>A <i>CoIP</i> provides local or external connectivity to resources in your Outpost subnets through your on-premises network. For some use cases, a CoIP can provide lower latency for connections to the DB instance from outside of its virtual private cloud (VPC) on your local network.</p> <p>For more information about RDS on Outposts, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html\">Working with Amazon RDS on AWS Outposts</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For more information about CoIPs, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing\">Customer-owned IP addresses</a> in the <i>AWS Outposts User Guide</i>.</p>"
         }
       },
       "documentation":"<p/>"
@@ -3747,7 +3753,7 @@
         },
         "MaxAllocatedStorage":{
           "shape":"IntegerOptional",
-          "documentation":"<p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>"
+          "documentation":"<p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p> <p>For more information about this setting, including limitations that apply to it, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling\"> Managing capacity automatically with Amazon RDS storage autoscaling</a> in the <i>Amazon RDS User Guide</i>.</p>"
         }
       }
     },
@@ -4038,7 +4044,7 @@
         },
         "EngineName":{
           "shape":"String",
-          "documentation":"<p>Specifies the name of the engine that this option group should be associated with.</p>"
+          "documentation":"<p>Specifies the name of the engine that this option group should be associated with.</p> <p>Valid Values: </p> <ul> <li> <p> <code>mariadb</code> </p> </li> <li> <p> <code>mysql</code> </p> </li> <li> <p> <code>oracle-ee</code> </p> </li> <li> <p> <code>oracle-se2</code> </p> </li> <li> <p> <code>oracle-se1</code> </p> </li> <li> <p> <code>oracle-se</code> </p> </li> <li> <p> <code>postgres</code> </p> </li> <li> <p> <code>sqlserver-ee</code> </p> </li> <li> <p> <code>sqlserver-se</code> </p> </li> <li> <p> <code>sqlserver-ex</code> </p> </li> <li> <p> <code>sqlserver-web</code> </p> </li> </ul>"
         },
         "MajorEngineVersion":{
           "shape":"String",
@@ -4081,7 +4087,7 @@
           "documentation":"<p>Information about the virtual private network (VPN) between the VMware vSphere cluster and the AWS website.</p>"
         }
       },
-      "documentation":"<p>A custom Availability Zone (AZ) is an on-premises AZ that is integrated with a VMware vSphere cluster.</p> <p>For more information about RDS on VMware, see the <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html\"> <i>RDS on VMware User Guide.</i> </a> </p>",
+      "documentation":"<p>A custom Availability Zone (AZ) is an on-premises AZ that is integrated with a VMware vSphere cluster.</p> <p>For more information about RDS on VMware, see the <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html\"> RDS on VMware User Guide.</a> </p>",
       "wrapper":true
     },
     "CustomAvailabilityZoneAlreadyExistsFault":{
@@ -4359,7 +4365,7 @@
         },
         "PendingModifiedValues":{
           "shape":"ClusterPendingModifiedValues",
-          "documentation":"<p>Specifies that changes to the DB cluster are pending. This element is only included when changes are pending. Specific changes are identified by subelements.</p>"
+          "documentation":"<p>A value that specifies that changes to the DB cluster are pending. This element is only included when changes are pending. Specific changes are identified by subelements.</p>"
         }
       },
       "documentation":"<p>Contains the details of an Amazon Aurora DB cluster. </p> <p>This data type is used as a response element in the <code>DescribeDBClusters</code>, <code>StopDBCluster</code>, and <code>StartDBCluster</code> actions. </p>",
@@ -5145,7 +5151,7 @@
         },
         "PendingModifiedValues":{
           "shape":"PendingModifiedValues",
-          "documentation":"<p>Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.</p>"
+          "documentation":"<p>A value that specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.</p>"
         },
         "LatestRestorableTime":{
           "shape":"TStamp",
@@ -5161,7 +5167,7 @@
         },
         "AutoMinorVersionUpgrade":{
           "shape":"Boolean",
-          "documentation":"<p>Indicates that minor version patches are applied automatically.</p>"
+          "documentation":"<p>A value that indicates that minor version patches are applied automatically.</p>"
         },
         "ReadReplicaSourceDBInstanceIdentifier":{
           "shape":"String",
@@ -5319,6 +5325,10 @@
         "DBInstanceAutomatedBackupsReplications":{
           "shape":"DBInstanceAutomatedBackupsReplicationList",
           "documentation":"<p>The list of replicated automated backups associated with the DB instance.</p>"
+        },
+        "CustomerOwnedIpEnabled":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>Specifies whether a customer-owned IP address (CoIP) is enabled for an RDS on Outposts DB instance.</p> <p>A <i>CoIP </i>provides local or external connectivity to resources in your Outpost subnets through your on-premises network. For some use cases, a CoIP can provide lower latency for connections to the DB instance from outside of its virtual private cloud (VPC) on your local network.</p> <p>For more information about RDS on Outposts, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html\">Working with Amazon RDS on AWS Outposts</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For more information about CoIPs, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing\">Customer-owned IP addresses</a> in the <i>AWS Outposts User Guide</i>.</p>"
         }
       },
       "documentation":"<p>Contains the details of an Amazon RDS DB instance. </p> <p>This data type is used as a response element in the <code>DescribeDBInstances</code> action. </p>",
@@ -6977,7 +6987,7 @@
       "members":{
         "Engine":{
           "shape":"String",
-          "documentation":"<p>The database engine to return.</p>"
+          "documentation":"<p>The database engine to return.</p> <p>Valid Values: </p> <ul> <li> <p> <code>aurora</code> (for MySQL 5.6-compatible Aurora)</p> </li> <li> <p> <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p> </li> <li> <p> <code>aurora-postgresql</code> </p> </li> <li> <p> <code>mariadb</code> </p> </li> <li> <p> <code>mysql</code> </p> </li> <li> <p> <code>oracle-ee</code> </p> </li> <li> <p> <code>oracle-se2</code> </p> </li> <li> <p> <code>oracle-se1</code> </p> </li> <li> <p> <code>oracle-se</code> </p> </li> <li> <p> <code>postgres</code> </p> </li> <li> <p> <code>sqlserver-ee</code> </p> </li> <li> <p> <code>sqlserver-se</code> </p> </li> <li> <p> <code>sqlserver-ex</code> </p> </li> <li> <p> <code>sqlserver-web</code> </p> </li> </ul>"
         },
         "EngineVersion":{
           "shape":"String",
@@ -7030,7 +7040,7 @@
         },
         "Filters":{
           "shape":"FilterList",
-          "documentation":"<p>A filter that specifies which resources to return based on status.</p> <p>Supported filters are the following:</p> <ul> <li> <p> <code>status</code> </p> <ul> <li> <p> <code>active</code> - automated backups for current instances</p> </li> <li> <p> <code>retained</code> - automated backups for deleted instances</p> </li> <li> <p> <code>creating</code> - automated backups that are waiting for the first automated snapshot to be available</p> </li> </ul> </li> <li> <p> <code>db-instance-id</code> - Accepts DB instance identifiers and Amazon Resource Names (ARNs) for DB instances. The results list includes only information about the DB instance automated backupss identified by these ARNs.</p> </li> <li> <p> <code>dbi-resource-id</code> - Accepts DB instance resource identifiers and DB Amazon Resource Names (ARNs) for DB instances. The results list includes only information about the DB instance resources identified by these ARNs.</p> </li> </ul> <p>Returns all resources by default. The status for each resource is specified in the response.</p>"
+          "documentation":"<p>A filter that specifies which resources to return based on status.</p> <p>Supported filters are the following:</p> <ul> <li> <p> <code>status</code> </p> <ul> <li> <p> <code>active</code> - automated backups for current instances</p> </li> <li> <p> <code>retained</code> - automated backups for deleted instances and after backup replication is stopped</p> </li> <li> <p> <code>creating</code> - automated backups that are waiting for the first automated snapshot to be available</p> </li> </ul> </li> <li> <p> <code>db-instance-id</code> - Accepts DB instance identifiers and Amazon Resource Names (ARNs). The results list includes only information about the DB instance automated backups identified by these ARNs.</p> </li> <li> <p> <code>dbi-resource-id</code> - Accepts DB resource identifiers and Amazon Resource Names (ARNs). The results list includes only information about the DB instance resources identified by these ARNs.</p> </li> </ul> <p>Returns all resources by default. The status for each resource is specified in the response.</p>"
         },
         "MaxRecords":{
           "shape":"IntegerOptional",
@@ -7615,7 +7625,7 @@
       "members":{
         "EngineName":{
           "shape":"String",
-          "documentation":"<p>A required parameter. Options available for the given engine name are described.</p>"
+          "documentation":"<p>A required parameter. Options available for the given engine name are described.</p> <p>Valid Values: </p> <ul> <li> <p> <code>mariadb</code> </p> </li> <li> <p> <code>mysql</code> </p> </li> <li> <p> <code>oracle-ee</code> </p> </li> <li> <p> <code>oracle-se2</code> </p> </li> <li> <p> <code>oracle-se1</code> </p> </li> <li> <p> <code>oracle-se</code> </p> </li> <li> <p> <code>postgres</code> </p> </li> <li> <p> <code>sqlserver-ee</code> </p> </li> <li> <p> <code>sqlserver-se</code> </p> </li> <li> <p> <code>sqlserver-ex</code> </p> </li> <li> <p> <code>sqlserver-web</code> </p> </li> </ul>"
         },
         "MajorEngineVersion":{
           "shape":"String",
@@ -7657,7 +7667,7 @@
         },
         "EngineName":{
           "shape":"String",
-          "documentation":"<p>Filters the list of option groups to only include groups associated with a specific database engine.</p>"
+          "documentation":"<p>Filters the list of option groups to only include groups associated with a specific database engine.</p> <p>Valid Values: </p> <ul> <li> <p> <code>mariadb</code> </p> </li> <li> <p> <code>mysql</code> </p> </li> <li> <p> <code>oracle-ee</code> </p> </li> <li> <p> <code>oracle-se2</code> </p> </li> <li> <p> <code>oracle-se1</code> </p> </li> <li> <p> <code>oracle-se</code> </p> </li> <li> <p> <code>postgres</code> </p> </li> <li> <p> <code>sqlserver-ee</code> </p> </li> <li> <p> <code>sqlserver-se</code> </p> </li> <li> <p> <code>sqlserver-ex</code> </p> </li> <li> <p> <code>sqlserver-web</code> </p> </li> </ul>"
         },
         "MajorEngineVersion":{
           "shape":"String",
@@ -7672,7 +7682,7 @@
       "members":{
         "Engine":{
           "shape":"String",
-          "documentation":"<p>The name of the engine to retrieve DB instance options for.</p>"
+          "documentation":"<p>The name of the engine to retrieve DB instance options for.</p> <p>Valid Values: </p> <ul> <li> <p> <code>aurora</code> (for MySQL 5.6-compatible Aurora)</p> </li> <li> <p> <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p> </li> <li> <p> <code>aurora-postgresql</code> </p> </li> <li> <p> <code>mariadb</code> </p> </li> <li> <p> <code>mysql</code> </p> </li> <li> <p> <code>oracle-ee</code> </p> </li> <li> <p> <code>oracle-se2</code> </p> </li> <li> <p> <code>oracle-se1</code> </p> </li> <li> <p> <code>oracle-se</code> </p> </li> <li> <p> <code>postgres</code> </p> </li> <li> <p> <code>sqlserver-ee</code> </p> </li> <li> <p> <code>sqlserver-se</code> </p> </li> <li> <p> <code>sqlserver-ex</code> </p> </li> <li> <p> <code>sqlserver-web</code> </p> </li> </ul>"
         },
         "EngineVersion":{
           "shape":"String",
@@ -9335,7 +9345,7 @@
         },
         "DBSubnetGroupName":{
           "shape":"String",
-          "documentation":"<p>The new DB subnet group for the DB instance. You can use this parameter to move your DB instance to a different VPC. If your DB instance isn't in a VPC, you can also use this parameter to move your DB instance into a VPC. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC\">Updating the VPC for a DB Instance</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Changing the subnet group causes an outage during the change. The change is applied during the next maintenance window, unless you enable <code>ApplyImmediately</code>. </p> <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p> <p>Example: <code>mySubnetGroup</code> </p>"
+          "documentation":"<p>The new DB subnet group for the DB instance. You can use this parameter to move your DB instance to a different VPC. If your DB instance isn't in a VPC, you can also use this parameter to move your DB instance into a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC\">Working with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Changing the subnet group causes an outage during the change. The change is applied during the next maintenance window, unless you enable <code>ApplyImmediately</code>. </p> <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p> <p>Example: <code>mySubnetGroup</code> </p>"
         },
         "DBSecurityGroups":{
           "shape":"DBSecurityGroupNameList",
@@ -9375,7 +9385,7 @@
         },
         "EngineVersion":{
           "shape":"String",
-          "documentation":"<p> The version number of the database engine to upgrade to. Changing this parameter results in an outage and the change is applied during the next maintenance window unless the <code>ApplyImmediately</code> parameter is enabled for this request. </p> <p>For major version upgrades, if a nondefault DB parameter group is currently in use, a new DB parameter group in the DB parameter group family for the new engine version must be specified. The new DB parameter group can be the default for that DB parameter group family.</p> <p>For information about valid engine versions, see <code>CreateDBInstance</code>, or call <code>DescribeDBEngineVersions</code>.</p>"
+          "documentation":"<p> The version number of the database engine to upgrade to. Changing this parameter results in an outage and the change is applied during the next maintenance window unless the <code>ApplyImmediately</code> parameter is enabled for this request. </p> <p>For major version upgrades, if a nondefault DB parameter group is currently in use, a new DB parameter group in the DB parameter group family for the new engine version must be specified. The new DB parameter group can be the default for that DB parameter group family.</p> <p>If you specify only a major version, Amazon RDS will update the DB instance to the default minor version if the current minor version is lower. For information about valid engine versions, see <code>CreateDBInstance</code>, or call <code>DescribeDBEngineVersions</code>.</p>"
         },
         "AllowMajorVersionUpgrade":{
           "shape":"Boolean",
@@ -9395,7 +9405,7 @@
         },
         "OptionGroupName":{
           "shape":"String",
-          "documentation":"<p> Indicates that the DB instance should be associated with the specified option group. Changing this parameter doesn't result in an outage except in the following case and the change is applied during the next maintenance window unless the <code>ApplyImmediately</code> parameter is enabled for this request. If the parameter change results in an option group that enables OEM, this change can cause a brief (sub-second) period during which new connections are rejected but existing connections are not interrupted. </p> <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance</p>"
+          "documentation":"<p> A value that indicates the DB instance should be associated with the specified option group. Changing this parameter doesn't result in an outage except in the following case and the change is applied during the next maintenance window unless the <code>ApplyImmediately</code> parameter is enabled for this request. If the parameter change results in an option group that enables OEM, this change can cause a brief (sub-second) period during which new connections are rejected but existing connections are not interrupted. </p> <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance</p>"
         },
         "NewDBInstanceIdentifier":{
           "shape":"String",
@@ -9483,7 +9493,7 @@
         },
         "MaxAllocatedStorage":{
           "shape":"IntegerOptional",
-          "documentation":"<p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>"
+          "documentation":"<p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p> <p>For more information about this setting, including limitations that apply to it, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling\"> Managing capacity automatically with Amazon RDS storage autoscaling</a> in the <i>Amazon RDS User Guide</i>.</p>"
         },
         "CertificateRotationRestart":{
           "shape":"BooleanOptional",
@@ -9492,6 +9502,10 @@
         "ReplicaMode":{
           "shape":"ReplicaMode",
           "documentation":"<p>A value that sets the open mode of a replica database to either mounted or read-only.</p> <note> <p>Currently, this parameter is only supported for Oracle DB instances.</p> </note> <p>Mounted DB replicas are included in Oracle Enterprise Edition. The main use case for mounted replicas is cross-Region disaster recovery. The primary database doesn't use Active Data Guard to transmit information to the mounted replica. Because it doesn't accept user connections, a mounted replica can't serve a read-only workload. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html\">Working with Oracle Read Replicas for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</p>"
+        },
+        "EnableCustomerOwnedIp":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>A value that indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance.</p> <p>A <i>CoIP</i> provides local or external connectivity to resources in your Outpost subnets through your on-premises network. For some use cases, a CoIP can provide lower latency for connections to the DB instance from outside of its virtual private cloud (VPC) on your local network.</p> <p>For more information about RDS on Outposts, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html\">Working with Amazon RDS on AWS Outposts</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For more information about CoIPs, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing\">Customer-owned IP addresses</a> in the <i>AWS Outposts User Guide</i>.</p>"
         }
       },
       "documentation":"<p/>"
@@ -9647,7 +9661,7 @@
         },
         "OptionGroupName":{
           "shape":"String",
-          "documentation":"<p>The option group to identify with the upgraded DB snapshot. </p> <p>You can specify this parameter when you upgrade an Oracle DB snapshot. The same option group considerations apply when upgrading a DB snapshot as when upgrading a DB instance. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG\">Option Group Considerations</a> in the <i>Amazon RDS User Guide.</i> </p>"
+          "documentation":"<p>The option group to identify with the upgraded DB snapshot. </p> <p>You can specify this parameter when you upgrade an Oracle DB snapshot. The same option group considerations apply when upgrading a DB snapshot as when upgrading a DB instance. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG\">Option group considerations</a> in the <i>Amazon RDS User Guide.</i> </p>"
         }
       }
     },
@@ -9732,6 +9746,14 @@
         "DeletionProtection":{
           "shape":"BooleanOptional",
           "documentation":"<p> Indicates if the global database cluster has deletion protection enabled. The global database cluster can't be deleted when deletion protection is enabled. </p>"
+        },
+        "EngineVersion":{
+          "shape":"String",
+          "documentation":"<p>The version number of the database engine to which you want to upgrade. Changing this parameter results in an outage. The change is applied during the next maintenance window unless <code>ApplyImmediately</code> is enabled.</p> <p>To list all of the available engine versions for <code>aurora</code> (for MySQL 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds describe-db-engine-versions --engine aurora --query '*[]|[?SupportsGlobalDatabases == `true`].[EngineVersion]'</code> </p> <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora), use the following command:</p> <p> <code>aws rds describe-db-engine-versions --engine aurora-mysql --query '*[]|[?SupportsGlobalDatabases == `true`].[EngineVersion]'</code> </p> <p>To list all of the available engine versions for <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds describe-db-engine-versions --engine aurora-postgresql --query '*[]|[?SupportsGlobalDatabases == `true`].[EngineVersion]'</code> </p>"
+        },
+        "AllowMajorVersionUpgrade":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>A value that indicates whether major version upgrades are allowed.</p> <p>Constraints: You must allow major version upgrades when specifying a value for the <code>EngineVersion</code> parameter that is a different major version than the DB cluster's current version.</p> <p>If you upgrade the major version of a global database, the cluster and DB instance parameter groups are set to the default parameter groups for the new version. Apply any custom parameter groups after completing the upgrade.</p>"
         }
       }
     },
@@ -10503,7 +10525,7 @@
         },
         "MultiAZ":{
           "shape":"BooleanOptional",
-          "documentation":"<p>Indicates that the Single-AZ DB instance will change to a Multi-AZ deployment.</p>"
+          "documentation":"<p>A value that indicates that the Single-AZ DB instance will change to a Multi-AZ deployment.</p>"
         },
         "EngineVersion":{
           "shape":"String",
@@ -10543,7 +10565,7 @@
           "documentation":"<p>Whether mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.</p>"
         }
       },
-      "documentation":"<p> This data type is used as a response element in the <code>ModifyDBInstance</code> action and contains changes that will be applied during the next maintenance window. </p>"
+      "documentation":"<p> This data type is used as a response element in the <code>ModifyDBInstance</code> operation and contains changes that will be applied during the next maintenance window. </p>"
     },
     "PointInTimeRestoreNotEnabledFault":{
       "type":"structure",
@@ -11617,6 +11639,10 @@
         "DeletionProtection":{
           "shape":"BooleanOptional",
           "documentation":"<p>A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html\"> Deleting a DB Instance</a>. </p>"
+        },
+        "EnableCustomerOwnedIp":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>A value that indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance.</p> <p>A <i>CoIP</i> provides local or external connectivity to resources in your Outpost subnets through your on-premises network. For some use cases, a CoIP can provide lower latency for connections to the DB instance from outside of its virtual private cloud (VPC) on your local network.</p> <p>For more information about RDS on Outposts, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html\">Working with Amazon RDS on AWS Outposts</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For more information about CoIPs, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing\">Customer-owned IP addresses</a> in the <i>AWS Outposts User Guide</i>.</p>"
         }
       },
       "documentation":"<p/>"
@@ -11813,7 +11839,7 @@
         },
         "MaxAllocatedStorage":{
           "shape":"IntegerOptional",
-          "documentation":"<p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>"
+          "documentation":"<p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p> <p>For more information about this setting, including limitations that apply to it, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling\"> Managing capacity automatically with Amazon RDS storage autoscaling</a> in the <i>Amazon RDS User Guide</i>.</p>"
         }
       }
     },
@@ -11950,11 +11976,15 @@
         },
         "MaxAllocatedStorage":{
           "shape":"IntegerOptional",
-          "documentation":"<p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>"
+          "documentation":"<p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p> <p>For more information about this setting, including limitations that apply to it, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling\"> Managing capacity automatically with Amazon RDS storage autoscaling</a> in the <i>Amazon RDS User Guide</i>.</p>"
         },
         "SourceDBInstanceAutomatedBackupsArn":{
           "shape":"String",
           "documentation":"<p>The Amazon Resource Name (ARN) of the replicated automated backups from which to restore, for example, <code>arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</p>"
+        },
+        "EnableCustomerOwnedIp":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>A value that indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance.</p> <p>A <i>CoIP</i> provides local or external connectivity to resources in your Outpost subnets through your on-premises network. For some use cases, a CoIP can provide lower latency for connections to the DB instance from outside of its virtual private cloud (VPC) on your local network.</p> <p>For more information about RDS on Outposts, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html\">Working with Amazon RDS on AWS Outposts</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For more information about CoIPs, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing\">Customer-owned IP addresses</a> in the <i>AWS Outposts User Guide</i>.</p>"
         }
       },
       "documentation":"<p/>"
@@ -12850,7 +12880,7 @@
           "documentation":"<p>The state of the VPN.</p>"
         }
       },
-      "documentation":"<p>Information about the virtual private network (VPN) between the VMware vSphere cluster and the AWS website.</p> <p>For more information about RDS on VMware, see the <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html\"> <i>RDS on VMware User Guide.</i> </a> </p>"
+      "documentation":"<p>Information about the virtual private network (VPN) between the VMware vSphere cluster and the AWS website.</p> <p>For more information about RDS on VMware, see the <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html\"> RDS on VMware User Guide.</a> </p>"
     },
     "WriteForwardingStatus":{
       "type":"string",

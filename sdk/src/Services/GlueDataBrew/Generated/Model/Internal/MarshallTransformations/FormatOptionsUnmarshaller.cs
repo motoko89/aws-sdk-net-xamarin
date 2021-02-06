@@ -64,6 +64,12 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("Csv", targetDepth))
+                {
+                    var unmarshaller = CsvOptionsUnmarshaller.Instance;
+                    unmarshalledObject.Csv = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Excel", targetDepth))
                 {
                     var unmarshaller = ExcelOptionsUnmarshaller.Instance;

@@ -45,6 +45,17 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(FormatOptions requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetCsv())
+            {
+                context.Writer.WritePropertyName("Csv");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = CsvOptionsMarshaller.Instance;
+                marshaller.Marshall(requestObject.Csv, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetExcel())
             {
                 context.Writer.WritePropertyName("Excel");

@@ -29,8 +29,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ManagedBlockchain.Model
 {
     /// <summary>
-    /// Configuration properties for logging events associated with a peer node owned by a
-    /// member in a Managed Blockchain network.
+    /// Configuration properties for logging events associated with a peer node on a Hyperledger
+    /// Fabric network on Managed Blockchain.
     /// </summary>
     public partial class NodeLogPublishingConfiguration
     {

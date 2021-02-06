@@ -30,7 +30,16 @@ namespace Amazon.ManagedBlockchain.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateNode operation.
-    /// Creates a peer node in a member.
+    /// Creates a node on the specified blockchain network.
+    /// 
+    ///  
+    /// <para>
+    /// Applies to Hyperledger Fabric and Ethereum.
+    /// </para>
+    ///  
+    /// <para>
+    /// Ethereum on Managed Blockchain is in preview release and is subject to change.
+    /// </para>
     /// </summary>
     public partial class CreateNodeRequest : AmazonManagedBlockchainRequest
     {
@@ -38,6 +47,7 @@ namespace Amazon.ManagedBlockchain.Model
         private string _memberId;
         private string _networkId;
         private NodeConfiguration _nodeConfiguration;
+        private Dictionary<string, string> _tags = new Dictionary<string, string>();
 
         /// <summary>
         /// Gets and sets the property ClientRequestToken. 
@@ -66,8 +76,12 @@ namespace Amazon.ManagedBlockchain.Model
         /// <para>
         /// The unique identifier of the member that owns this node.
         /// </para>
+        ///  
+        /// <para>
+        /// Applies only to Hyperledger Fabric.
+        /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=32)]
+        [AWSProperty(Min=1, Max=32)]
         public string MemberId
         {
             get { return this._memberId; }
@@ -83,8 +97,25 @@ namespace Amazon.ManagedBlockchain.Model
         /// <summary>
         /// Gets and sets the property NetworkId. 
         /// <para>
-        /// The unique identifier of the network in which this node runs.
+        /// The unique identifier of the network for the node.
         /// </para>
+        ///  
+        /// <para>
+        /// Ethereum public networks have the following <code>NetworkId</code>s:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>n-ethereum-mainnet</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>n-ethereum-rinkeby</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>n-ethereum-ropsten</code> 
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=32)]
         public string NetworkId
@@ -116,6 +147,37 @@ namespace Amazon.ManagedBlockchain.Model
         internal bool IsSetNodeConfiguration()
         {
             return this._nodeConfiguration != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// Tags to assign to the node. Each tag consists of a key and optional value.
+        /// </para>
+        ///  
+        /// <para>
+        /// When specifying tags during creation, you can specify multiple key-value pairs in
+        /// a single request, with an overall maximum of 50 added to each resource.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging
+        /// Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or
+        /// <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging
+        /// Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=50)]
+        public Dictionary<string, string> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
     }

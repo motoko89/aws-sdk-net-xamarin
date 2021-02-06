@@ -70,6 +70,12 @@ namespace Amazon.IoTSiteWise.Model.Internal.MarshallTransformations
                     unmarshalledObject.Group = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("iamRole", targetDepth))
+                {
+                    var unmarshaller = IAMRoleIdentityUnmarshaller.Instance;
+                    unmarshalledObject.IamRole = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("iamUser", targetDepth))
                 {
                     var unmarshaller = IAMUserIdentityUnmarshaller.Instance;

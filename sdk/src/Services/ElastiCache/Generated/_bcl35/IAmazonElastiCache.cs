@@ -809,7 +809,7 @@ namespace Amazon.ElastiCache
         /// Global Datastore for Redis offers fully managed, fast, reliable and secure cross-region
         /// replication. Using Global Datastore for Redis, you can create cross-region read replica
         /// clusters for ElastiCache for Redis to enable low-latency reads and disaster recovery
-        /// across regions. For more information, see <a href="/AmazonElastiCache/latest/red-ug/Redis-Global-Clusters.html">Replication
+        /// across regions. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html">Replication
         /// Across Regions Using Global Datastore</a>. 
         /// 
         ///  <ul> <li> 
@@ -892,11 +892,27 @@ namespace Amazon.ElastiCache
         /// </para>
         ///  
         /// <para>
-        /// A Redis (cluster mode enabled) replication group is a collection of 1 to 90 node groups
-        /// (shards). Each node group (shard) has one read/write primary node and up to 5 read-only
-        /// replica nodes. Writes to the primary are asynchronously propagated to the replicas.
-        /// Redis (cluster mode enabled) replication groups partition the data across node groups
-        /// (shards).
+        /// A Redis cluster-mode enabled cluster is comprised of from 1 to 90 shards (API/CLI:
+        /// node groups). Each shard has a primary node and up to 5 read-only replica nodes. The
+        /// configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas,
+        /// which is the maximum number or replicas allowed. 
+        /// </para>
+        ///  
+        /// <para>
+        /// The node or shard limit can be increased to a maximum of 500 per cluster if the Redis
+        /// engine version is 5.0.6 or higher. For example, you can choose to configure a 500
+        /// node cluster that ranges between 83 shards (one primary and 5 replicas per shard)
+        /// and 500 shards (single primary and no replicas). Make sure there are enough available
+        /// IP addresses to accommodate the increase. Common pitfalls include the subnets in the
+        /// subnet group have too small a CIDR range or the subnets are shared and heavily used
+        /// by other clusters. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.html">Creating
+        /// a Subnet Group</a>. For versions below 5.0.6, the limit is 250 per cluster.
+        /// </para>
+        ///  
+        /// <para>
+        /// To request a limit increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS
+        /// Service Limits</a> and choose the limit type <b>Nodes per cluster per instance type</b>.
+        /// 
         /// </para>
         ///  
         /// <para>
@@ -1373,7 +1389,15 @@ namespace Amazon.ElastiCache
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// Redis (cluster mode disabled) clusters
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// A cluster that is the last read replica of a replication group
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// A cluster that is the primary node of a replication group
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1463,7 +1487,8 @@ namespace Amazon.ElastiCache
 
         /// <summary>
         /// Deletes the specified cache parameter group. You cannot delete a cache parameter group
-        /// if it is associated with any cache clusters.
+        /// if it is associated with any cache clusters. You cannot delete the default cache parameter
+        /// groups in your account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteCacheParameterGroup service method.</param>
         /// 
@@ -1903,8 +1928,8 @@ namespace Amazon.ElastiCache
 
 
         /// <summary>
-        /// For Redis engine version 6.x onwards: Deletes a ser group. The user group must first
-        /// be disassociated from the replcation group before it can be deleted. For more information,
+        /// For Redis engine version 6.x onwards: Deletes a user group. The user group must first
+        /// be disassociated from the replication group before it can be deleted. For more information,
         /// see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using
         /// Role Based Access Control (RBAC)</a>.
         /// </summary>
@@ -3199,7 +3224,7 @@ namespace Amazon.ElastiCache
 
 
         /// <summary>
-        /// Dynamically increases the number of replics in a Redis (cluster mode disabled) replication
+        /// Dynamically increases the number of replicas in a Redis (cluster mode disabled) replication
         /// group or the number of replica nodes in one or more node groups (shards) of a Redis
         /// (cluster mode enabled) replication group. This operation is performed with no cluster
         /// down time.
@@ -3951,7 +3976,10 @@ namespace Amazon.ElastiCache
 
 
         /// <summary>
-        /// Allows you to purchase a reserved cache node offering.
+        /// Allows you to purchase a reserved cache node offering. Reserved nodes are not eligible
+        /// for cancellation and are non-refundable. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html">Managing
+        /// Costs with Reserved Nodes</a> for Redis or <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/reserved-nodes.html">Managing
+        /// Costs with Reserved Nodes</a> for Memcached.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PurchaseReservedCacheNodesOffering service method.</param>
         /// 

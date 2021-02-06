@@ -70,6 +70,12 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
                     unmarshalledObject.AreaUnderPRCurve = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("ColumnImportances", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<ColumnImportance, ColumnImportanceUnmarshaller>(ColumnImportanceUnmarshaller.Instance);
+                    unmarshalledObject.ColumnImportances = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("ConfusionMatrix", targetDepth))
                 {
                     var unmarshaller = ConfusionMatrixUnmarshaller.Instance;

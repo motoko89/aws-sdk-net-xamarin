@@ -64,6 +64,12 @@ namespace Amazon.ACMPCA.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("CsrExtensions", targetDepth))
+                {
+                    var unmarshaller = CsrExtensionsUnmarshaller.Instance;
+                    unmarshalledObject.CsrExtensions = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("KeyAlgorithm", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

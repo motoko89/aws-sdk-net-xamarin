@@ -59,13 +59,10 @@ namespace Amazon.ManagedBlockchain.Model.Internal.MarshallTransformations
             request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-09-24";            
             request.HttpMethod = "POST";
 
-            if (!publicRequest.IsSetMemberId())
-                throw new AmazonManagedBlockchainException("Request object does not have required field MemberId set");
-            request.AddPathResource("{memberId}", StringUtils.FromString(publicRequest.MemberId));
             if (!publicRequest.IsSetNetworkId())
                 throw new AmazonManagedBlockchainException("Request object does not have required field NetworkId set");
             request.AddPathResource("{networkId}", StringUtils.FromString(publicRequest.NetworkId));
-            request.ResourcePath = "/networks/{networkId}/members/{memberId}/nodes";
+            request.ResourcePath = "/networks/{networkId}/nodes";
             request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
@@ -83,6 +80,12 @@ namespace Amazon.ManagedBlockchain.Model.Internal.MarshallTransformations
                     context.Writer.WritePropertyName("ClientRequestToken");
                     context.Writer.Write(Guid.NewGuid().ToString());                                                
                 }
+                if(publicRequest.IsSetMemberId())
+                {
+                    context.Writer.WritePropertyName("MemberId");
+                    context.Writer.Write(publicRequest.MemberId);
+                }
+
                 if(publicRequest.IsSetNodeConfiguration())
                 {
                     context.Writer.WritePropertyName("NodeConfiguration");
@@ -91,6 +94,20 @@ namespace Amazon.ManagedBlockchain.Model.Internal.MarshallTransformations
                     var marshaller = NodeConfigurationMarshaller.Instance;
                     marshaller.Marshall(publicRequest.NodeConfiguration, context);
 
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetTags())
+                {
+                    context.Writer.WritePropertyName("Tags");
+                    context.Writer.WriteObjectStart();
+                    foreach (var publicRequestTagsKvp in publicRequest.Tags)
+                    {
+                        context.Writer.WritePropertyName(publicRequestTagsKvp.Key);
+                        var publicRequestTagsValue = publicRequestTagsKvp.Value;
+
+                            context.Writer.Write(publicRequestTagsValue);
+                    }
                     context.Writer.WriteObjectEnd();
                 }
 

@@ -280,8 +280,8 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// At this time, M6g node types are available in the following regions: us-east-1, us-west-2,
-        /// us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.
+        /// For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
+        /// Node Types</a> 
         /// </para>
         ///  </note> 
         /// <para>
@@ -356,8 +356,8 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// At this time, R6g node types are available in the following regions: us-east-1, us-west-2,
-        /// us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.
+        /// For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
+        /// Node Types</a> 
         /// </para>
         ///  </note> 
         /// <para>
@@ -496,9 +496,9 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property ConfigurationEndpoint. 
         /// <para>
-        /// Represents a Memcached cluster endpoint which, if Automatic Discovery is enabled on
-        /// the cluster, can be used by an application to connect to any node in the cluster.
-        /// The configuration endpoint will always have <code>.cfg</code> in it.
+        /// Represents a Memcached cluster endpoint which can be used by an application to connect
+        /// to any node in the cluster. The configuration endpoint will always have <code>.cfg</code>
+        /// in it.
         /// </para>
         ///  
         /// <para>

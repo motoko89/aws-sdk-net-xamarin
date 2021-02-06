@@ -43,7 +43,14 @@ namespace <#=        this.Config.Namespace #>.Model.Internal.MarshallTransformat
 	}
 	if(this.Operation.HttpMethod != "GET" && this.Operation.HttpMethod != "DELETE")
 	{
-		if(this.Config.ServiceModel.Type != ServiceType.Rest_Json)
+
+		if (this.Config.ServiceModel.Customizations.OverrideContentType != null)
+		{
+#>
+			request.Headers["Content-Type"] = "<#=this.Config.ServiceModel.Customizations.OverrideContentType#>";
+<#
+		}
+		else if(this.Config.ServiceModel.Type != ServiceType.Rest_Json)
 		{
 #>
 			request.Headers["Content-Type"] = "application/x-amz-json-<#=this.Config.ServiceModel.JsonVersion#>";
@@ -108,6 +115,9 @@ namespace <#=        this.Config.Namespace #>.Model.Internal.MarshallTransformat
 #>
 				string snippet = stringWriter.ToString();
 				request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);
+<#
+					CheckContentMd5Header(this.Operation, "snippet");
+#>
 			}
 
 <#
@@ -155,7 +165,11 @@ namespace <#=        this.Config.Namespace #>.Model.Internal.MarshallTransformat
 	else if (this.Config.ServiceModel.Type == ServiceType.Json)
 	{
 #>
-            request.Content = System.Text.Encoding.UTF8.GetBytes("{}");
+			var content = "{}";
+            request.Content = System.Text.Encoding.UTF8.GetBytes(content);
+<#
+				CheckContentMd5Header(this.Operation, "content");
+#>
 <#
 	}
 

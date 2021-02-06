@@ -51,6 +51,12 @@ namespace Amazon.SimpleEmailV2.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("ConfigurationSetName", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.ConfigurationSetName = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("DkimAttributes", targetDepth))
                 {
                     var unmarshaller = DkimAttributesUnmarshaller.Instance;

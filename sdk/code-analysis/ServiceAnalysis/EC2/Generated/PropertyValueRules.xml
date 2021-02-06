@@ -62,6 +62,11 @@
     <pattern>[a-zA-Z0-9\(\)\.\-/_]+</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.EC2.Model.DescribeAddressesAttributeRequest.MaxResults</property>
+    <min>1</min>
+    <max>1000</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.EC2.Model.DescribeByoipCidrsRequest.MaxResults</property>
     <min>1</min>
     <max>100</max>
@@ -220,7 +225,7 @@
   <property-value-rule>
     <property>Amazon.EC2.Model.DescribeManagedPrefixListsRequest.MaxResults</property>
     <min>1</min>
-    <max>1000</max>
+    <max>100</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.EC2.Model.DescribeMovingAddressesRequest.MaxResults</property>
@@ -430,7 +435,7 @@
   <property-value-rule>
     <property>Amazon.EC2.Model.GetManagedPrefixListEntriesRequest.MaxResults</property>
     <min>1</min>
-    <max>1000</max>
+    <max>100</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.EC2.Model.GetTransitGatewayAttachmentPropagationsRequest.MaxResults</property>

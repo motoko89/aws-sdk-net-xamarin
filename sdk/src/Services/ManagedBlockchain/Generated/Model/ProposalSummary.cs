@@ -30,9 +30,15 @@ namespace Amazon.ManagedBlockchain.Model
 {
     /// <summary>
     /// Properties of a proposal.
+    /// 
+    ///  
+    /// <para>
+    /// Applies only to Hyperledger Fabric.
+    /// </para>
     /// </summary>
     public partial class ProposalSummary
     {
+        private string _arn;
         private DateTime? _creationDate;
         private string _description;
         private DateTime? _expirationDate;
@@ -40,6 +46,27 @@ namespace Amazon.ManagedBlockchain.Model
         private string _proposedByMemberId;
         private string _proposedByMemberName;
         private ProposalStatus _status;
+
+        /// <summary>
+        /// Gets and sets the property Arn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of the proposal. For more information about ARNs and
+        /// their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=1011)]
+        public string Arn
+        {
+            get { return this._arn; }
+            set { this._arn = value; }
+        }
+
+        // Check to see if Arn property is set
+        internal bool IsSetArn()
+        {
+            return this._arn != null;
+        }
 
         /// <summary>
         /// Gets and sets the property CreationDate. 

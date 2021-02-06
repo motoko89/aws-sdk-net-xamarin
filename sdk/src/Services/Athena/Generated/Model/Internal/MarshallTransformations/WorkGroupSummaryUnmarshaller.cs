@@ -76,6 +76,12 @@ namespace Amazon.Athena.Model.Internal.MarshallTransformations
                     unmarshalledObject.Description = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("EngineVersion", targetDepth))
+                {
+                    var unmarshaller = EngineVersionUnmarshaller.Instance;
+                    unmarshalledObject.EngineVersion = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Name", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

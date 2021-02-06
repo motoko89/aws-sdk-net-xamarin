@@ -76,6 +76,12 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
                     unmarshalledObject.Fmp4HlsSettings = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("frameCaptureHlsSettings", targetDepth))
+                {
+                    var unmarshaller = FrameCaptureHlsSettingsUnmarshaller.Instance;
+                    unmarshalledObject.FrameCaptureHlsSettings = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("standardHlsSettings", targetDepth))
                 {
                     var unmarshaller = StandardHlsSettingsUnmarshaller.Instance;

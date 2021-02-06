@@ -45,6 +45,17 @@ namespace Amazon.ACMPCA.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(CertificateAuthorityConfiguration requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetCsrExtensions())
+            {
+                context.Writer.WritePropertyName("CsrExtensions");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = CsrExtensionsMarshaller.Instance;
+                marshaller.Marshall(requestObject.CsrExtensions, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetKeyAlgorithm())
             {
                 context.Writer.WritePropertyName("KeyAlgorithm");

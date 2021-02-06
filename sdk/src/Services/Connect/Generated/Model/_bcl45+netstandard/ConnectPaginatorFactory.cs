@@ -141,11 +141,27 @@ namespace Amazon.Connect.Model
         }
 
         /// <summary>
+        /// Paginator for ListQueueQuickConnects operation
+        ///</summary>
+        public IListQueueQuickConnectsPaginator ListQueueQuickConnects(ListQueueQuickConnectsRequest request) 
+        {
+            return new ListQueueQuickConnectsPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for ListQueues operation
         ///</summary>
         public IListQueuesPaginator ListQueues(ListQueuesRequest request) 
         {
             return new ListQueuesPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListQuickConnects operation
+        ///</summary>
+        public IListQuickConnectsPaginator ListQuickConnects(ListQuickConnectsRequest request) 
+        {
+            return new ListQuickConnectsPaginator(this.client, request);
         }
 
         /// <summary>

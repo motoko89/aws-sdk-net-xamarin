@@ -70,6 +70,12 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
                     unmarshalledObject.InputChannels = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("inputChannelsFineTune", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<double, DoubleUnmarshaller>(DoubleUnmarshaller.Instance);
+                    unmarshalledObject.InputChannelsFineTune = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

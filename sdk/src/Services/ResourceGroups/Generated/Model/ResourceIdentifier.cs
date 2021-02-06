@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ResourceGroups.Model
 {
     /// <summary>
-    /// The ARN of a resource, and its resource type.
+    /// A structure that contains the ARN of a resource and its resource type.
     /// </summary>
     public partial class ResourceIdentifier
     {

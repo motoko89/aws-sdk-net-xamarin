@@ -29,13 +29,14 @@ using Amazon.Runtime.Internal;
 namespace Amazon.S3Control.Model
 {
     /// <summary>
-    /// The operation that you want this job to perform on each object listed in the manifest.
+    /// The operation that you want this job to perform on every object listed in the manifest.
     /// For more information about the available operations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-operations.html">Operations</a>
     /// in the <i>Amazon Simple Storage Service Developer Guide</i>.
     /// </summary>
     public partial class JobOperation
     {
         private LambdaInvokeOperation _lambdaInvoke;
+        private S3DeleteObjectTaggingOperation _s3DeleteObjectTagging;
         private S3InitiateRestoreObjectOperation _s3InitiateRestoreObject;
         private S3SetObjectAclOperation _s3PutObjectAcl;
         private S3CopyObjectOperation _s3PutObjectCopy;
@@ -46,7 +47,8 @@ namespace Amazon.S3Control.Model
         /// <summary>
         /// Gets and sets the property LambdaInvoke. 
         /// <para>
-        /// Directs the specified job to invoke an AWS Lambda function on each object in the manifest.
+        /// Directs the specified job to invoke an AWS Lambda function on every object in the
+        /// manifest.
         /// </para>
         /// </summary>
         public LambdaInvokeOperation LambdaInvoke
@@ -62,9 +64,28 @@ namespace Amazon.S3Control.Model
         }
 
         /// <summary>
+        /// Gets and sets the property S3DeleteObjectTagging. 
+        /// <para>
+        /// Directs the specified job to execute a DELETE Object tagging call on every object
+        /// in the manifest.
+        /// </para>
+        /// </summary>
+        public S3DeleteObjectTaggingOperation S3DeleteObjectTagging
+        {
+            get { return this._s3DeleteObjectTagging; }
+            set { this._s3DeleteObjectTagging = value; }
+        }
+
+        // Check to see if S3DeleteObjectTagging property is set
+        internal bool IsSetS3DeleteObjectTagging()
+        {
+            return this._s3DeleteObjectTagging != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property S3InitiateRestoreObject. 
         /// <para>
-        /// Directs the specified job to run an Initiate Glacier Restore call on each object in
+        /// Directs the specified job to initiate restore requests for every archived object in
         /// the manifest.
         /// </para>
         /// </summary>
@@ -83,7 +104,7 @@ namespace Amazon.S3Control.Model
         /// <summary>
         /// Gets and sets the property S3PutObjectAcl. 
         /// <para>
-        /// Directs the specified job to run a PUT Object acl call on each object in the manifest.
+        /// Directs the specified job to run a PUT Object acl call on every object in the manifest.
         /// </para>
         /// </summary>
         public S3SetObjectAclOperation S3PutObjectAcl
@@ -101,7 +122,7 @@ namespace Amazon.S3Control.Model
         /// <summary>
         /// Gets and sets the property S3PutObjectCopy. 
         /// <para>
-        /// Directs the specified job to run a PUT Copy object call on each object in the manifest.
+        /// Directs the specified job to run a PUT Copy object call on every object in the manifest.
         /// </para>
         /// </summary>
         public S3CopyObjectOperation S3PutObjectCopy
@@ -149,7 +170,8 @@ namespace Amazon.S3Control.Model
         /// <summary>
         /// Gets and sets the property S3PutObjectTagging. 
         /// <para>
-        /// Directs the specified job to run a PUT Object tagging call on each object in the manifest.
+        /// Directs the specified job to run a PUT Object tagging call on every object in the
+        /// manifest.
         /// </para>
         /// </summary>
         public S3SetObjectTaggingOperation S3PutObjectTagging

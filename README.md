@@ -5,6 +5,7 @@ The **AWS SDK for .NET** enables .NET developers to easily work with [Amazon Web
 * [API Docs][docs-api]
 * [AWS .NET Developer Blog][dotnet-blog]
 * [SDK Homepage][sdk-website]
+* [SDK Developer Guide](https://docs.aws.amazon.com/sdk-for-net)
 * [Forum][sdk-forum]
 * [GitHub Issues][sdk-issues]
 * [SDK Samples](https://github.com/awslabs/aws-sdk-net-samples)
@@ -26,6 +27,13 @@ The [GitHub issues][sdk-issues] are intended for bug reports and feature request
 ## SDK Change Log
 
 The change log for the SDK can be found in the [SDK.CHANGELOG.md](https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md) file.
+
+## Maintenance and support for SDK major versions
+
+For information about maintenance and support for SDK major versions and their underlying dependencies, see the following in the AWS SDKs and Tools Shared Configuration and Credentials Reference Guide:
+
+* [AWS SDKs and Tools Maintenance Policy](https://docs.aws.amazon.com/credref/latest/refdocs/maint-policy.html)
+* [AWS SDKs and Tools Version Support Matrix](https://docs.aws.amazon.com/credref/latest/refdocs/version-support-matrix.html)
 
 ## Looking for Version 2?
 
@@ -54,7 +62,9 @@ This release of the AWS SDK for .NET adds support for Portable Class Library pro
 
 ## Unity Support
 
-This release of AWS SDK for .NET adds support for generating Assemblies for Unity. More information can be found [here](Unity.README.md)
+Starting with version 3.5 of the AWS SDK for .NET, projects using Unity 2018.1 or later should target the .NET Standard 2.0 release of the SDK. You can find additional information in the developer guide: [Unity support](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/unity-special.html) and [Migrating your Unity application](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-v35.html#net-dg-v35-changes-unity).
+
+You can find the archive for _**legacy**_ Unity support at https://github.com/aws/aws-sdk-unity-net.
 
 ### Silverlight support
 
@@ -375,6 +385,10 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* Amazon Lex is a service for building conversational interactions into any application using voice or text.
 * [AWSSDK.LexModelBuildingService](https://www.nuget.org/packages/AWSSDK.LexModelBuildingService/)
 	* Amazon Lex is a service for building conversational interfaces into any application using voice and text.
+* [AWSSDK.LexModelsV2](https://www.nuget.org/packages/AWSSDK.LexModelsV2/)
+	* This release adds support for Amazon Lex V2 APIs for model building.
+* [AWSSDK.LexRuntimeV2](https://www.nuget.org/packages/AWSSDK.LexRuntimeV2/)
+	* This release adds support for Amazon Lex V2 APIs for runtime, including Streaming APIs for conversation management.
 * [AWSSDK.LicenseManager](https://www.nuget.org/packages/AWSSDK.LicenseManager/)
 	* AWS License Manager makes it easier to manage licenses in AWS and on premises when customers run applications using existing licenses from a variety of software vendors including Microsoft, SAP, Oracle, and IBM. AWS License Manager automatically tracks and controls license usage once administrators have created and enforced rules that emulate the terms of their licensing agreements. The capabilities of AWS License Manager are available through SDK and Tools, besides the management console and CLI.
 * [AWSSDK.Lightsail](https://www.nuget.org/packages/AWSSDK.Lightsail/)

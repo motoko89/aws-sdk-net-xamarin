@@ -29,14 +29,14 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ManagedBlockchain.Model
 {
     /// <summary>
-    /// A requested resource does not exist on the network. It may have been deleted or referenced
-    /// inaccurately.
+    /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
     /// </summary>
     #if !NETSTANDARD
     [Serializable]
     #endif
     public partial class ResourceNotFoundException : AmazonManagedBlockchainException
     {
+        private string _resourceName;
 
         /// <summary>
         /// Constructs a new ResourceNotFoundException with the specified error
@@ -98,6 +98,7 @@ namespace Amazon.ManagedBlockchain.Model
         protected ResourceNotFoundException(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
             : base(info, context)
         {
+            this.ResourceName = (string)info.GetValue("ResourceName", typeof(string));
         }
 
         /// <summary>
@@ -118,8 +119,28 @@ namespace Amazon.ManagedBlockchain.Model
         public override void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
         {
             base.GetObjectData(info, context);
+            info.AddValue("ResourceName", this.ResourceName);
         }
 #endif
+
+        /// <summary>
+        /// Gets and sets the property ResourceName. 
+        /// <para>
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=1011)]
+        public string ResourceName
+        {
+            get { return this._resourceName; }
+            set { this._resourceName = value; }
+        }
+
+        // Check to see if ResourceName property is set
+        internal bool IsSetResourceName()
+        {
+            return this._resourceName != null;
+        }
 
     }
 }

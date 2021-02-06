@@ -1464,7 +1464,10 @@
     },
     "ExpressionType":{
       "type":"string",
-      "enum":["RuleName"]
+      "enum":[
+        "RuleName",
+        "MqttTopic"
+      ]
     },
     "FNwkSIntKey":{
       "type":"string",
@@ -1480,6 +1483,13 @@
       "member":{"shape":"PresetFreq"},
       "max":20,
       "min":0
+    },
+    "Fingerprint":{
+      "type":"string",
+      "max":64,
+      "min":64,
+      "pattern":"[a-fA-F0-9]{64}",
+      "sensitive":true
     },
     "GatewayEui":{
       "type":"string",
@@ -1657,7 +1667,8 @@
     "GetWirelessGatewayCertificateResponse":{
       "type":"structure",
       "members":{
-        "IotCertificateId":{"shape":"IotCertificateId"}
+        "IotCertificateId":{"shape":"IotCertificateId"},
+        "LoRaWANNetworkServerCertificateId":{"shape":"IotCertificateId"}
       }
     },
     "GetWirelessGatewayFirmwareInformationRequest":{
@@ -2371,7 +2382,7 @@
       "type":"structure",
       "members":{
         "AmazonId":{"shape":"AmazonId"},
-        "AppServerPrivateKey":{"shape":"AppServerPrivateKey"}
+        "Fingerprint":{"shape":"Fingerprint"}
       }
     },
     "SidewalkAccountList":{

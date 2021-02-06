@@ -577,6 +577,16 @@ namespace Amazon.Util
             return new DateTime(seconds * 10000000L + EPOCH_START.Ticks, DateTimeKind.Utc).ToLocalTime();
         }
 
+        /// <summary>
+        /// Utility method for converting Unix epoch milliseconds to DateTime structure.
+        /// </summary>
+        /// <param name="milliseconds">The number of milliseconds since January 1, 1970.</param>
+        /// <returns>Converted DateTime structure</returns>
+        public static DateTime ConvertFromUnixEpochMilliseconds(long milliseconds)
+        {
+            return new DateTime(milliseconds * 10000L + EPOCH_START.Ticks, DateTimeKind.Utc).ToLocalTime();
+        }
+
         public static int ConvertToUnixEpochSeconds(DateTime dateTime)
         {
             return Convert.ToInt32(GetTimeSpanInTicks(dateTime).TotalSeconds);
@@ -1062,7 +1072,34 @@ namespace Amazon.Util
             
             return sb.ToString();
         }
-        
+
+        /// <summary>
+        /// Generates an MD5 Digest for the string-based content
+        /// </summary>
+        /// <param name="content">The content for which the MD5 Digest needs
+        /// to be computed.
+        /// </param>
+        /// <param name="fBase64Encode">Whether the returned checksum should be
+        /// base64 encoded.
+        /// </param>
+        /// <returns>A string representation of the hash with or w/o base64 encoding
+        /// </returns>
+        public static string GenerateChecksumForContent(string content, bool fBase64Encode)
+        {
+            // Convert the input string to a byte array and compute the hash.
+            byte[] hashed = CryptoUtilFactory.CryptoInstance.ComputeMD5Hash(Encoding.UTF8.GetBytes(content));
+
+            if (fBase64Encode)
+            {
+                // Convert the hash to a Base64 Encoded string and return it
+                return Convert.ToBase64String(hashed);
+            }
+            else
+            {
+                return BitConverter.ToString(hashed).Replace("-", String.Empty);
+            }
+        }
+
         public static void Sleep(TimeSpan ts)
         {
             Sleep((int)ts.TotalMilliseconds);

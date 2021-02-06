@@ -1766,6 +1766,13 @@ namespace Amazon.SimpleSystemsManagement
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidDocumentException">
         /// The specified document does not exist.
         /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidDocumentOperationException">
+        /// You attempted to delete a document while it is still shared. You must stop sharing
+        /// the document before you can delete it.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidNextTokenException">
+        /// The specified token is not valid.
+        /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidPermissionTypeException">
         /// The permission type is not supported. <i>Share</i> is the only supported permission
         /// type.
@@ -2359,6 +2366,15 @@ namespace Amazon.SimpleSystemsManagement
 
         /// <summary>
         /// Lists the tasks in a maintenance window.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// For maintenance window tasks without a specified target, you cannot supply values
+        /// for <code>--max-errors</code> and <code>--max-concurrency</code>. Instead, the system
+        /// inserts a placeholder value of <code>1</code>, which may be reported in the response
+        /// to this command. These values do not affect the running of your task and can be ignored.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeMaintenanceWindowTasks service method.</param>
         /// <param name="cancellationToken">
@@ -3080,6 +3096,15 @@ namespace Amazon.SimpleSystemsManagement
 
         /// <summary>
         /// Lists the tasks in a maintenance window.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// For maintenance window tasks without a specified target, you cannot supply values
+        /// for <code>--max-errors</code> and <code>--max-concurrency</code>. Instead, the system
+        /// inserts a placeholder value of <code>1</code>, which may be reported in the response
+        /// to this command. These values do not affect the running of your task and can be ignored.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMaintenanceWindowTask service method.</param>
         /// <param name="cancellationToken">
@@ -4909,7 +4934,7 @@ namespace Amazon.SimpleSystemsManagement
         /// <summary>
         /// Runs commands on one or more managed instances.
         /// </summary>
-        /// <param name="documentName">Required. The name of the Systems Manager document to run. This can be a public document or a custom document.</param>
+        /// <param name="documentName">The name of the Systems Manager document to run. This can be a public document or a custom document. To run a shared document belonging to another account, specify the document ARN. For more information about how to use shared documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html">Using shared SSM documents</a> in the <i>AWS Systems Manager User Guide</i>.</param>
         /// <param name="instanceIds">The IDs of the instances where the command should run. Specifying instance IDs is most useful when you are targeting a limited number of instances, though you can specify up to 50 IDs. To target a larger number of instances, or if you prefer not to list individual instance IDs, we recommend using the <code>Targets</code> option instead. Using <code>Targets</code>, which accepts tag key-value pairs to identify the instances to send commands to, you can a send command to tens, hundreds, or thousands of instances at once. For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Using targets and rate controls to send commands to a fleet</a> in the <i>AWS Systems Manager User Guide</i>.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -5650,7 +5675,15 @@ namespace Amazon.SimpleSystemsManagement
         /// <para>
         /// MaxErrors
         /// </para>
-        ///  </li> </ul> 
+        ///  </li> </ul> <note> 
+        /// <para>
+        /// One or more targets must be specified for maintenance window Run Command-type tasks.
+        /// Depending on the task, targets are optional for other maintenance window task types
+        /// (Automation, AWS Lambda, and AWS Step Functions). For more information about running
+        /// tasks that do not specify targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
+        /// maintenance window tasks without targets</a> in the <i>AWS Systems Manager User Guide</i>.
+        /// </para>
+        ///  </note> 
         /// <para>
         /// If the value for a parameter in <code>UpdateMaintenanceWindowTask</code> is null,
         /// then the corresponding field is not modified. If you set <code>Replace</code> to true,

@@ -208,6 +208,30 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                     unmarshalledObject.RetryInterval = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("SecretsManagerAccessRoleArn", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.SecretsManagerAccessRoleArn = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("SecretsManagerOracleAsmAccessRoleArn", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.SecretsManagerOracleAsmAccessRoleArn = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("SecretsManagerOracleAsmSecretId", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.SecretsManagerOracleAsmSecretId = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("SecretsManagerSecretId", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.SecretsManagerSecretId = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("SecurityDbEncryption", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

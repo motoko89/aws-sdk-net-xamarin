@@ -63,6 +63,7 @@ namespace Amazon.RDS.Model
         private string _domain;
         private string _domainIAMRoleName;
         private List<string> _enableCloudwatchLogsExports = new List<string>();
+        private bool? _enableCustomerOwnedIp;
         private bool? _enableIAMDatabaseAuthentication;
         private string _engine;
         private int? _iops;
@@ -377,6 +378,42 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EnableCustomerOwnedIp. 
+        /// <para>
+        /// A value that indicates whether to enable a customer-owned IP address (CoIP) for an
+        /// RDS on Outposts DB instance.
+        /// </para>
+        ///  
+        /// <para>
+        /// A <i>CoIP</i> provides local or external connectivity to resources in your Outpost
+        /// subnets through your on-premises network. For some use cases, a CoIP can provide lower
+        /// latency for connections to the DB instance from outside of its virtual private cloud
+        /// (VPC) on your local network.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
+        /// with Amazon RDS on AWS Outposts</a> in the <i>Amazon RDS User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned
+        /// IP addresses</a> in the <i>AWS Outposts User Guide</i>.
+        /// </para>
+        /// </summary>
+        public bool EnableCustomerOwnedIp
+        {
+            get { return this._enableCustomerOwnedIp.GetValueOrDefault(); }
+            set { this._enableCustomerOwnedIp = value; }
+        }
+
+        // Check to see if EnableCustomerOwnedIp property is set
+        internal bool IsSetEnableCustomerOwnedIp()
+        {
+            return this._enableCustomerOwnedIp.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property EnableIAMDatabaseAuthentication. 
         /// <para>
         /// A value that indicates whether to enable mapping of AWS Identity and Access Management
@@ -539,6 +576,13 @@ namespace Amazon.RDS.Model
         /// <para>
         /// The upper limit to which Amazon RDS can automatically scale the storage of the DB
         /// instance.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about this setting, including limitations that apply to it, see
+        /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
+        /// Managing capacity automatically with Amazon RDS storage autoscaling</a> in the <i>Amazon
+        /// RDS User Guide</i>.
         /// </para>
         /// </summary>
         public int MaxAllocatedStorage

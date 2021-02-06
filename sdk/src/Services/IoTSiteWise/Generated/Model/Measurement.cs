@@ -29,8 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.IoTSiteWise.Model
 {
     /// <summary>
-    /// Contains an asset measurement property. This structure is empty. For more information,
-    /// see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#measurements">Measurements</a>
+    /// Contains an asset measurement property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#measurements">Measurements</a>
     /// in the <i>AWS IoT SiteWise User Guide</i>.
     /// </summary>
     public partial class Measurement

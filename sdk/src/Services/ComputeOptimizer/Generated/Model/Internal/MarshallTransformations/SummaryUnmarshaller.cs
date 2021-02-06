@@ -70,6 +70,12 @@ namespace Amazon.ComputeOptimizer.Model.Internal.MarshallTransformations
                     unmarshalledObject.Name = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("reasonCodeSummaries", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<ReasonCodeSummary, ReasonCodeSummaryUnmarshaller>(ReasonCodeSummaryUnmarshaller.Instance);
+                    unmarshalledObject.ReasonCodeSummaries = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("value", targetDepth))
                 {
                     var unmarshaller = DoubleUnmarshaller.Instance;

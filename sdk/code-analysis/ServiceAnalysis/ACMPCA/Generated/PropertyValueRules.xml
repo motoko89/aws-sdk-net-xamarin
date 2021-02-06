@@ -299,6 +299,12 @@
     <pattern>arn:[\w+=/,.@-]+:[\w+=/,.@-]+:[\w+=/,.@-]*:[0-9]*:[\w+=,.@-]+(/[\w+=,.@-]+)*</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.ACMPCA.Model.AccessMethod.CustomObjectIdentifier</property>
+    <min>0</min>
+    <max>64</max>
+    <pattern>^([0-2])\.([0-9]|([0-3][0-9]))((\.([0-9]+)){0,126})$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.ACMPCA.Model.ASN1Subject.CommonName</property>
     <min>0</min>
     <max>64</max>
@@ -399,6 +405,59 @@
     <max>255</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.ACMPCA.Model.EdiPartyName.NameAssigner</property>
+    <min>0</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ACMPCA.Model.EdiPartyName.PartyName</property>
+    <min>0</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ACMPCA.Model.ExtendedKeyUsage.ExtendedKeyUsageObjectIdentifier</property>
+    <min>0</min>
+    <max>64</max>
+    <pattern>^([0-2])\.([0-9]|([0-3][0-9]))((\.([0-9]+)){0,126})$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ACMPCA.Model.GeneralName.DnsName</property>
+    <min>0</min>
+    <max>253</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ACMPCA.Model.GeneralName.IpAddress</property>
+    <min>0</min>
+    <max>39</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ACMPCA.Model.GeneralName.RegisteredId</property>
+    <min>0</min>
+    <max>64</max>
+    <pattern>^([0-2])\.([0-9]|([0-3][0-9]))((\.([0-9]+)){0,126})$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ACMPCA.Model.GeneralName.Rfc822Name</property>
+    <min>0</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ACMPCA.Model.GeneralName.UniformResourceIdentifier</property>
+    <min>0</min>
+    <max>253</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ACMPCA.Model.OtherName.TypeId</property>
+    <min>0</min>
+    <max>64</max>
+    <pattern>^([0-2])\.([0-9]|([0-3][0-9]))((\.([0-9]+)){0,126})$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ACMPCA.Model.OtherName.Value</property>
+    <min>0</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.ACMPCA.Model.Permission.CertificateAuthorityArn</property>
     <min>5</min>
     <max>200</max>
@@ -421,6 +480,17 @@
     <min>12</min>
     <max>12</max>
     <pattern>[0-9]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ACMPCA.Model.PolicyInformation.CertPolicyId</property>
+    <min>0</min>
+    <max>64</max>
+    <pattern>^([0-2])\.([0-9]|([0-3][0-9]))((\.([0-9]+)){0,126})$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ACMPCA.Model.Qualifier.CpsUri</property>
+    <min>0</min>
+    <max>256</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ACMPCA.Model.Tag.Key</property>

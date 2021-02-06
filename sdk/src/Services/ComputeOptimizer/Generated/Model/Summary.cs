@@ -34,6 +34,7 @@ namespace Amazon.ComputeOptimizer.Model
     public partial class Summary
     {
         private Finding _name;
+        private List<ReasonCodeSummary> _reasonCodeSummaries = new List<ReasonCodeSummary>();
         private double? _value;
 
         /// <summary>
@@ -52,6 +53,24 @@ namespace Amazon.ComputeOptimizer.Model
         internal bool IsSetName()
         {
             return this._name != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ReasonCodeSummaries. 
+        /// <para>
+        /// An array of objects that summarize a finding reason code.
+        /// </para>
+        /// </summary>
+        public List<ReasonCodeSummary> ReasonCodeSummaries
+        {
+            get { return this._reasonCodeSummaries; }
+            set { this._reasonCodeSummaries = value; }
+        }
+
+        // Check to see if ReasonCodeSummaries property is set
+        internal bool IsSetReasonCodeSummaries()
+        {
+            return this._reasonCodeSummaries != null && this._reasonCodeSummaries.Count > 0; 
         }
 
         /// <summary>

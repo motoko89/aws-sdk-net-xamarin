@@ -70,6 +70,12 @@ namespace Amazon.ConnectParticipant.Model.Internal.MarshallTransformations
                     unmarshalledObject.AbsoluteTime = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("Attachments", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<AttachmentItem, AttachmentItemUnmarshaller>(AttachmentItemUnmarshaller.Instance);
+                    unmarshalledObject.Attachments = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Content", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

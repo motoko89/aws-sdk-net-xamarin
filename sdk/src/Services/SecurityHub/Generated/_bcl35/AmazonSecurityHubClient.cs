@@ -547,27 +547,7 @@ namespace Amazon.SecurityHub
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>Confidence</code> 
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        ///  <code>Criticality</code> 
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
         ///  <code>Note</code> 
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        ///  <code>RelatedFindings</code> 
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        ///  <code>Severity</code> 
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        ///  <code>Types</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -580,6 +560,33 @@ namespace Amazon.SecurityHub
         ///  </li> <li> 
         /// <para>
         ///  <code>Workflow</code> 
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        ///  <code>BatchImportFindings</code> can be used to update the following finding fields
+        /// and objects only if they have not been updated using <code>BatchUpdateFindings</code>.
+        /// After they are updated using <code>BatchUpdateFindings</code>, these fields cannot
+        /// be updated using <code>BatchImportFindings</code>.
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>Confidence</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>Criticality</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>RelatedFindings</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>Severity</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>Types</code> 
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -1654,8 +1661,18 @@ namespace Amazon.SecurityHub
         #region  DescribeProducts
 
         /// <summary>
-        /// Returns information about the available products that you can subscribe to and integrate
-        /// with Security Hub in order to consolidate findings.
+        /// Returns information about product integrations in Security Hub.
+        /// 
+        ///  
+        /// <para>
+        /// You can optionally provide an integration ARN. If you provide an integration ARN,
+        /// then the results only include that integration.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you do not provide an integration ARN, then the results include all of the available
+        /// product integrations. 
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeProducts service method.</param>
         /// 

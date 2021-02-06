@@ -189,6 +189,30 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.RetryInterval);
             }
 
+            if(requestObject.IsSetSecretsManagerAccessRoleArn())
+            {
+                context.Writer.WritePropertyName("SecretsManagerAccessRoleArn");
+                context.Writer.Write(requestObject.SecretsManagerAccessRoleArn);
+            }
+
+            if(requestObject.IsSetSecretsManagerOracleAsmAccessRoleArn())
+            {
+                context.Writer.WritePropertyName("SecretsManagerOracleAsmAccessRoleArn");
+                context.Writer.Write(requestObject.SecretsManagerOracleAsmAccessRoleArn);
+            }
+
+            if(requestObject.IsSetSecretsManagerOracleAsmSecretId())
+            {
+                context.Writer.WritePropertyName("SecretsManagerOracleAsmSecretId");
+                context.Writer.Write(requestObject.SecretsManagerOracleAsmSecretId);
+            }
+
+            if(requestObject.IsSetSecretsManagerSecretId())
+            {
+                context.Writer.WritePropertyName("SecretsManagerSecretId");
+                context.Writer.Write(requestObject.SecretsManagerSecretId);
+            }
+
             if(requestObject.IsSetSecurityDbEncryption())
             {
                 context.Writer.WritePropertyName("SecurityDbEncryption");

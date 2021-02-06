@@ -94,6 +94,20 @@ namespace Amazon.CognitoIdentity.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
+                if(publicRequest.IsSetPrincipalTags())
+                {
+                    context.Writer.WritePropertyName("PrincipalTags");
+                    context.Writer.WriteObjectStart();
+                    foreach (var publicRequestPrincipalTagsKvp in publicRequest.PrincipalTags)
+                    {
+                        context.Writer.WritePropertyName(publicRequestPrincipalTagsKvp.Key);
+                        var publicRequestPrincipalTagsValue = publicRequestPrincipalTagsKvp.Value;
+
+                            context.Writer.Write(publicRequestPrincipalTagsValue);
+                    }
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetTokenDuration())
                 {
                     context.Writer.WritePropertyName("TokenDuration");

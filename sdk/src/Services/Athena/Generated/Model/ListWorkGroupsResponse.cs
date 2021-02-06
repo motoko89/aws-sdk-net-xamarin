@@ -60,7 +60,8 @@ namespace Amazon.Athena.Model
         /// <summary>
         /// Gets and sets the property WorkGroups. 
         /// <para>
-        /// The list of workgroups, including their names, descriptions, creation times, and states.
+        /// A list of <a>WorkGroupSummary</a> objects that include the names, descriptions, creation
+        /// times, and states for each workgroup.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=50)]

@@ -30,8 +30,13 @@ namespace Amazon.Connect.Model
 {
     /// <summary>
     /// Container for the parameters to the ListLexBots operation.
+    /// This API is in preview release for Amazon Connect and is subject to change.
+    /// 
+    ///  
+    /// <para>
     /// Returns a paginated list of all the Amazon Lex bots currently associated with the
     /// instance.
+    /// </para>
     /// </summary>
     public partial class ListLexBotsRequest : AmazonConnectRequest
     {
@@ -61,7 +66,7 @@ namespace Amazon.Connect.Model
         /// <summary>
         /// Gets and sets the property MaxResults. 
         /// <para>
-        /// The maximimum number of results to return per page.
+        /// The maximum number of results to return per page.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=25)]

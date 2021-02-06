@@ -30,10 +30,25 @@ namespace Amazon.ManagedBlockchain
     /// Interface for accessing ManagedBlockchain
     ///
     /// Amazon Managed Blockchain is a fully managed service for creating and managing blockchain
-    /// networks using open source frameworks. Blockchain allows you to build applications
+    /// networks using open-source frameworks. Blockchain allows you to build applications
     /// where multiple parties can securely and transparently run transactions and share data
-    /// without the need for a trusted, central authority. Currently, Managed Blockchain supports
-    /// the Hyperledger Fabric open source framework.
+    /// without the need for a trusted, central authority.
+    /// 
+    ///  
+    /// <para>
+    /// Managed Blockchain supports the Hyperledger Fabric and Ethereum open-source frameworks.
+    /// Ethereum on Managed Blockchain is in preview release and is subject to change. Because
+    /// of fundamental differences between the frameworks, some API actions or data types
+    /// may only apply in the context of one framework and not the other. For example, actions
+    /// related to Hyperledger Fabric network members such as <code>CreateMember</code> and
+    /// <code>DeleteMember</code> do not apply to Ethereum.
+    /// </para>
+    ///  
+    /// <para>
+    /// The description for each action indicates the framework or frameworks to which it
+    /// applies. Data types and properties that apply only in the context of a particular
+    /// framework are similarly indicated.
+    /// </para>
     /// </summary>
     public partial interface IAmazonManagedBlockchain : IAmazonService, IDisposable
     {
@@ -53,6 +68,11 @@ namespace Amazon.ManagedBlockchain
 
         /// <summary>
         /// Creates a member within a Managed Blockchain network.
+        /// 
+        ///  
+        /// <para>
+        /// Applies only to Hyperledger Fabric.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateMember service method.</param>
         /// 
@@ -74,8 +94,7 @@ namespace Amazon.ManagedBlockchain
         /// are within the boundaries of the service edition and your account limits.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
-        /// A requested resource does not exist on the network. It may have been deleted or referenced
-        /// inaccurately.
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotReadyException">
         /// The requested resource exists but is not in a status that can complete the operation.
@@ -85,6 +104,9 @@ namespace Amazon.ManagedBlockchain
         /// The most common source of throttling errors is launching EC2 instances such that your
         /// service limit for EC2 instances is exceeded. Request a limit increase or delete unused
         /// resources if possible.
+        /// </exception>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.TooManyTagsException">
+        /// 
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/managedblockchain-2018-09-24/CreateMember">REST API Reference for CreateMember Operation</seealso>
         CreateMemberResponse CreateMember(CreateMemberRequest request);
@@ -122,6 +144,11 @@ namespace Amazon.ManagedBlockchain
 
         /// <summary>
         /// Creates a new blockchain network using Amazon Managed Blockchain.
+        /// 
+        ///  
+        /// <para>
+        /// Applies only to Hyperledger Fabric.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateNetwork service method.</param>
         /// 
@@ -147,6 +174,9 @@ namespace Amazon.ManagedBlockchain
         /// The most common source of throttling errors is launching EC2 instances such that your
         /// service limit for EC2 instances is exceeded. Request a limit increase or delete unused
         /// resources if possible.
+        /// </exception>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.TooManyTagsException">
+        /// 
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/managedblockchain-2018-09-24/CreateNetwork">REST API Reference for CreateNetwork Operation</seealso>
         CreateNetworkResponse CreateNetwork(CreateNetworkRequest request);
@@ -183,7 +213,16 @@ namespace Amazon.ManagedBlockchain
 
 
         /// <summary>
-        /// Creates a peer node in a member.
+        /// Creates a node on the specified blockchain network.
+        /// 
+        ///  
+        /// <para>
+        /// Applies to Hyperledger Fabric and Ethereum.
+        /// </para>
+        ///  
+        /// <para>
+        /// Ethereum on Managed Blockchain is in preview release and is subject to change.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateNode service method.</param>
         /// 
@@ -205,8 +244,7 @@ namespace Amazon.ManagedBlockchain
         /// are within the boundaries of the service edition and your account limits.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
-        /// A requested resource does not exist on the network. It may have been deleted or referenced
-        /// inaccurately.
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotReadyException">
         /// The requested resource exists but is not in a status that can complete the operation.
@@ -216,6 +254,9 @@ namespace Amazon.ManagedBlockchain
         /// The most common source of throttling errors is launching EC2 instances such that your
         /// service limit for EC2 instances is exceeded. Request a limit increase or delete unused
         /// resources if possible.
+        /// </exception>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.TooManyTagsException">
+        /// 
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/managedblockchain-2018-09-24/CreateNode">REST API Reference for CreateNode Operation</seealso>
         CreateNodeResponse CreateNode(CreateNodeRequest request);
@@ -255,6 +296,11 @@ namespace Amazon.ManagedBlockchain
         /// Creates a proposal for a change to the network that other members of the network can
         /// vote on, for example, a proposal to add a new member to the network. Any member can
         /// create a proposal.
+        /// 
+        ///  
+        /// <para>
+        /// Applies only to Hyperledger Fabric.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateProposal service method.</param>
         /// 
@@ -269,8 +315,7 @@ namespace Amazon.ManagedBlockchain
         /// The action or operation requested is invalid. Verify that the action is typed correctly.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
-        /// A requested resource does not exist on the network. It may have been deleted or referenced
-        /// inaccurately.
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotReadyException">
         /// The requested resource exists but is not in a status that can complete the operation.
@@ -280,6 +325,9 @@ namespace Amazon.ManagedBlockchain
         /// The most common source of throttling errors is launching EC2 instances such that your
         /// service limit for EC2 instances is exceeded. Request a limit increase or delete unused
         /// resources if possible.
+        /// </exception>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.TooManyTagsException">
+        /// 
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/managedblockchain-2018-09-24/CreateProposal">REST API Reference for CreateProposal Operation</seealso>
         CreateProposalResponse CreateProposal(CreateProposalRequest request);
@@ -323,6 +371,11 @@ namespace Amazon.ManagedBlockchain
         /// as the result of an approved proposal to remove a member. If <code>MemberId</code>
         /// is the last member in a network specified by the last AWS account, the network is
         /// deleted also.
+        /// 
+        ///  
+        /// <para>
+        /// Applies only to Hyperledger Fabric.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteMember service method.</param>
         /// 
@@ -337,8 +390,7 @@ namespace Amazon.ManagedBlockchain
         /// The action or operation requested is invalid. Verify that the action is typed correctly.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
-        /// A requested resource does not exist on the network. It may have been deleted or referenced
-        /// inaccurately.
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotReadyException">
         /// The requested resource exists but is not in a status that can complete the operation.
@@ -384,8 +436,13 @@ namespace Amazon.ManagedBlockchain
 
 
         /// <summary>
-        /// Deletes a peer node from a member that your AWS account owns. All data on the node
-        /// is lost and cannot be recovered.
+        /// Deletes a node that your AWS account owns. All data on the node is lost and cannot
+        /// be recovered.
+        /// 
+        ///  
+        /// <para>
+        /// Applies to Hyperledger Fabric and Ethereum.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteNode service method.</param>
         /// 
@@ -400,8 +457,7 @@ namespace Amazon.ManagedBlockchain
         /// The action or operation requested is invalid. Verify that the action is typed correctly.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
-        /// A requested resource does not exist on the network. It may have been deleted or referenced
-        /// inaccurately.
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotReadyException">
         /// The requested resource exists but is not in a status that can complete the operation.
@@ -448,6 +504,11 @@ namespace Amazon.ManagedBlockchain
 
         /// <summary>
         /// Returns detailed information about a member.
+        /// 
+        ///  
+        /// <para>
+        /// Applies only to Hyperledger Fabric.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMember service method.</param>
         /// 
@@ -462,8 +523,7 @@ namespace Amazon.ManagedBlockchain
         /// The action or operation requested is invalid. Verify that the action is typed correctly.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
-        /// A requested resource does not exist on the network. It may have been deleted or referenced
-        /// inaccurately.
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ThrottlingException">
         /// The request or operation could not be performed because a service is throttling requests.
@@ -507,6 +567,11 @@ namespace Amazon.ManagedBlockchain
 
         /// <summary>
         /// Returns detailed information about a network.
+        /// 
+        ///  
+        /// <para>
+        /// Applies to Hyperledger Fabric and Ethereum.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetNetwork service method.</param>
         /// 
@@ -521,8 +586,7 @@ namespace Amazon.ManagedBlockchain
         /// The action or operation requested is invalid. Verify that the action is typed correctly.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
-        /// A requested resource does not exist on the network. It may have been deleted or referenced
-        /// inaccurately.
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ThrottlingException">
         /// The request or operation could not be performed because a service is throttling requests.
@@ -565,7 +629,12 @@ namespace Amazon.ManagedBlockchain
 
 
         /// <summary>
-        /// Returns detailed information about a peer node.
+        /// Returns detailed information about a node.
+        /// 
+        ///  
+        /// <para>
+        /// Applies to Hyperledger Fabric and Ethereum.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetNode service method.</param>
         /// 
@@ -580,8 +649,7 @@ namespace Amazon.ManagedBlockchain
         /// The action or operation requested is invalid. Verify that the action is typed correctly.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
-        /// A requested resource does not exist on the network. It may have been deleted or referenced
-        /// inaccurately.
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ThrottlingException">
         /// The request or operation could not be performed because a service is throttling requests.
@@ -625,6 +693,11 @@ namespace Amazon.ManagedBlockchain
 
         /// <summary>
         /// Returns detailed information about a proposal.
+        /// 
+        ///  
+        /// <para>
+        /// Applies only to Hyperledger Fabric.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetProposal service method.</param>
         /// 
@@ -639,8 +712,7 @@ namespace Amazon.ManagedBlockchain
         /// The action or operation requested is invalid. Verify that the action is typed correctly.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
-        /// A requested resource does not exist on the network. It may have been deleted or referenced
-        /// inaccurately.
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ThrottlingException">
         /// The request or operation could not be performed because a service is throttling requests.
@@ -683,7 +755,12 @@ namespace Amazon.ManagedBlockchain
 
 
         /// <summary>
-        /// Returns a listing of all invitations for the current AWS account.
+        /// Returns a list of all invitations for the current AWS account.
+        /// 
+        ///  
+        /// <para>
+        /// Applies only to Hyperledger Fabric.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListInvitations service method.</param>
         /// 
@@ -702,8 +779,7 @@ namespace Amazon.ManagedBlockchain
         /// are within the boundaries of the service edition and your account limits.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
-        /// A requested resource does not exist on the network. It may have been deleted or referenced
-        /// inaccurately.
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ThrottlingException">
         /// The request or operation could not be performed because a service is throttling requests.
@@ -746,7 +822,12 @@ namespace Amazon.ManagedBlockchain
 
 
         /// <summary>
-        /// Returns a listing of the members in a network and properties of their configurations.
+        /// Returns a list of the members in a network and properties of their configurations.
+        /// 
+        ///  
+        /// <para>
+        /// Applies only to Hyperledger Fabric.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListMembers service method.</param>
         /// 
@@ -801,7 +882,12 @@ namespace Amazon.ManagedBlockchain
 
 
         /// <summary>
-        /// Returns information about the networks in which the current AWS account has members.
+        /// Returns information about the networks in which the current AWS account participates.
+        /// 
+        ///  
+        /// <para>
+        /// Applies to Hyperledger Fabric and Ethereum.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListNetworks service method.</param>
         /// 
@@ -857,6 +943,11 @@ namespace Amazon.ManagedBlockchain
 
         /// <summary>
         /// Returns information about the nodes within a network.
+        /// 
+        ///  
+        /// <para>
+        /// Applies to Hyperledger Fabric and Ethereum.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListNodes service method.</param>
         /// 
@@ -911,7 +1002,12 @@ namespace Amazon.ManagedBlockchain
 
 
         /// <summary>
-        /// Returns a listing of proposals for the network.
+        /// Returns a list of proposals for the network.
+        /// 
+        ///  
+        /// <para>
+        /// Applies only to Hyperledger Fabric.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListProposals service method.</param>
         /// 
@@ -926,8 +1022,7 @@ namespace Amazon.ManagedBlockchain
         /// The action or operation requested is invalid. Verify that the action is typed correctly.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
-        /// A requested resource does not exist on the network. It may have been deleted or referenced
-        /// inaccurately.
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ThrottlingException">
         /// The request or operation could not be performed because a service is throttling requests.
@@ -970,8 +1065,13 @@ namespace Amazon.ManagedBlockchain
 
 
         /// <summary>
-        /// Returns the listing of votes for a specified proposal, including the value of each
-        /// vote and the unique identifier of the member that cast the vote.
+        /// Returns the list of votes for a specified proposal, including the value of each vote
+        /// and the unique identifier of the member that cast the vote.
+        /// 
+        ///  
+        /// <para>
+        /// Applies only to Hyperledger Fabric.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListProposalVotes service method.</param>
         /// 
@@ -1022,12 +1122,78 @@ namespace Amazon.ManagedBlockchain
 
         #endregion
         
+        #region  ListTagsForResource
+
+
+        /// <summary>
+        /// Returns a list of tags for the specified resource. Each tag consists of a key and
+        /// optional value.
+        /// 
+        ///  
+        /// <para>
+        /// For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging
+        /// Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or
+        /// <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging
+        /// Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource service method.</param>
+        /// 
+        /// <returns>The response from the ListTagsForResource service method, as returned by ManagedBlockchain.</returns>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.InternalServiceErrorException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.InvalidRequestException">
+        /// The action or operation requested is invalid. Verify that the action is typed correctly.
+        /// </exception>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
+        /// </exception>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotReadyException">
+        /// The requested resource exists but is not in a status that can complete the operation.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/managedblockchain-2018-09-24/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
+        ListTagsForResourceResponse ListTagsForResource(ListTagsForResourceRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListTagsForResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource operation on AmazonManagedBlockchainClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListTagsForResource
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/managedblockchain-2018-09-24/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
+        IAsyncResult BeginListTagsForResource(ListTagsForResourceRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListTagsForResource operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListTagsForResource.</param>
+        /// 
+        /// <returns>Returns a  ListTagsForResourceResult from ManagedBlockchain.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/managedblockchain-2018-09-24/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
+        ListTagsForResourceResponse EndListTagsForResource(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  RejectInvitation
 
 
         /// <summary>
         /// Rejects an invitation to join a network. This action can be called by a principal
         /// in an AWS account that has received an invitation to create a member and join a network.
+        /// 
+        ///  
+        /// <para>
+        /// Applies only to Hyperledger Fabric.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RejectInvitation service method.</param>
         /// 
@@ -1045,8 +1211,7 @@ namespace Amazon.ManagedBlockchain
         /// The action or operation requested is invalid. Verify that the action is typed correctly.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
-        /// A requested resource does not exist on the network. It may have been deleted or referenced
-        /// inaccurately.
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ThrottlingException">
         /// The request or operation could not be performed because a service is throttling requests.
@@ -1085,11 +1250,150 @@ namespace Amazon.ManagedBlockchain
 
         #endregion
         
+        #region  TagResource
+
+
+        /// <summary>
+        /// Adds or overwrites the specified tags for the specified Amazon Managed Blockchain
+        /// resource. Each tag consists of a key and optional value.
+        /// 
+        ///  
+        /// <para>
+        /// When you specify a tag key that already exists, the tag value is overwritten with
+        /// the new value. Use <code>UntagResource</code> to remove tag keys.
+        /// </para>
+        ///  
+        /// <para>
+        /// A resource can have up to 50 tags. If you try to create more than 50 tags for a resource,
+        /// your request fails and returns an error.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging
+        /// Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or
+        /// <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging
+        /// Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
+        /// 
+        /// <returns>The response from the TagResource service method, as returned by ManagedBlockchain.</returns>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.InternalServiceErrorException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.InvalidRequestException">
+        /// The action or operation requested is invalid. Verify that the action is typed correctly.
+        /// </exception>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
+        /// </exception>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotReadyException">
+        /// The requested resource exists but is not in a status that can complete the operation.
+        /// </exception>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.TooManyTagsException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/managedblockchain-2018-09-24/TagResource">REST API Reference for TagResource Operation</seealso>
+        TagResourceResponse TagResource(TagResourceRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the TagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the TagResource operation on AmazonManagedBlockchainClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndTagResource
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/managedblockchain-2018-09-24/TagResource">REST API Reference for TagResource Operation</seealso>
+        IAsyncResult BeginTagResource(TagResourceRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  TagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginTagResource.</param>
+        /// 
+        /// <returns>Returns a  TagResourceResult from ManagedBlockchain.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/managedblockchain-2018-09-24/TagResource">REST API Reference for TagResource Operation</seealso>
+        TagResourceResponse EndTagResource(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  UntagResource
+
+
+        /// <summary>
+        /// Removes the specified tags from the Amazon Managed Blockchain resource.
+        /// 
+        ///  
+        /// <para>
+        /// For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging
+        /// Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or
+        /// <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging
+        /// Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UntagResource service method.</param>
+        /// 
+        /// <returns>The response from the UntagResource service method, as returned by ManagedBlockchain.</returns>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.InternalServiceErrorException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.InvalidRequestException">
+        /// The action or operation requested is invalid. Verify that the action is typed correctly.
+        /// </exception>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
+        /// </exception>
+        /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotReadyException">
+        /// The requested resource exists but is not in a status that can complete the operation.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/managedblockchain-2018-09-24/UntagResource">REST API Reference for UntagResource Operation</seealso>
+        UntagResourceResponse UntagResource(UntagResourceRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UntagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UntagResource operation on AmazonManagedBlockchainClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUntagResource
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/managedblockchain-2018-09-24/UntagResource">REST API Reference for UntagResource Operation</seealso>
+        IAsyncResult BeginUntagResource(UntagResourceRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UntagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUntagResource.</param>
+        /// 
+        /// <returns>Returns a  UntagResourceResult from ManagedBlockchain.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/managedblockchain-2018-09-24/UntagResource">REST API Reference for UntagResource Operation</seealso>
+        UntagResourceResponse EndUntagResource(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  UpdateMember
 
 
         /// <summary>
         /// Updates a member configuration with new parameters.
+        /// 
+        ///  
+        /// <para>
+        /// Applies only to Hyperledger Fabric.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateMember service method.</param>
         /// 
@@ -1104,8 +1408,7 @@ namespace Amazon.ManagedBlockchain
         /// The action or operation requested is invalid. Verify that the action is typed correctly.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
-        /// A requested resource does not exist on the network. It may have been deleted or referenced
-        /// inaccurately.
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ThrottlingException">
         /// The request or operation could not be performed because a service is throttling requests.
@@ -1149,6 +1452,11 @@ namespace Amazon.ManagedBlockchain
 
         /// <summary>
         /// Updates a node configuration with new parameters.
+        /// 
+        ///  
+        /// <para>
+        /// Applies only to Hyperledger Fabric.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateNode service method.</param>
         /// 
@@ -1163,8 +1471,7 @@ namespace Amazon.ManagedBlockchain
         /// The action or operation requested is invalid. Verify that the action is typed correctly.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
-        /// A requested resource does not exist on the network. It may have been deleted or referenced
-        /// inaccurately.
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ThrottlingException">
         /// The request or operation could not be performed because a service is throttling requests.
@@ -1210,6 +1517,11 @@ namespace Amazon.ManagedBlockchain
         /// Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member
         /// to vote as, specified by <code>VoterMemberId</code>, must be in the same AWS account
         /// as the principal that calls the action.
+        /// 
+        ///  
+        /// <para>
+        /// Applies only to Hyperledger Fabric.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the VoteOnProposal service method.</param>
         /// 
@@ -1227,8 +1539,7 @@ namespace Amazon.ManagedBlockchain
         /// The action or operation requested is invalid. Verify that the action is typed correctly.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ResourceNotFoundException">
-        /// A requested resource does not exist on the network. It may have been deleted or referenced
-        /// inaccurately.
+        /// A requested resource does not exist. It may have been deleted or referenced inaccurately.
         /// </exception>
         /// <exception cref="Amazon.ManagedBlockchain.Model.ThrottlingException">
         /// The request or operation could not be performed because a service is throttling requests.

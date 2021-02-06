@@ -31,6 +31,12 @@ namespace Amazon.LookoutforVision.Model
     /// <summary>
     /// Container for the parameters to the DescribeProject operation.
     /// Describes an Amazon Lookout for Vision project.
+    /// 
+    ///  
+    /// <para>
+    /// This operation requires permissions to perform the <code>lookoutvision:DescribeProject</code>
+    /// operation.
+    /// </para>
     /// </summary>
     public partial class DescribeProjectRequest : AmazonLookoutforVisionRequest
     {

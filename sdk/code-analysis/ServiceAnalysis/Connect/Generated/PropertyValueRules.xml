@@ -35,6 +35,11 @@
     <max>100</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Connect.Model.AssociateQueueQuickConnectsRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Connect.Model.AssociateRoutingProfileQueuesRequest.InstanceId</property>
     <min>1</min>
     <max>100</max>
@@ -110,6 +115,40 @@
     <max>200</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Connect.Model.CreateQueueRequest.Description</property>
+    <min>1</min>
+    <max>250</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.CreateQueueRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.CreateQueueRequest.MaxContacts</property>
+    <min>0</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.CreateQueueRequest.Name</property>
+    <min>1</min>
+    <max>127</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.CreateQuickConnectRequest.Description</property>
+    <min>0</min>
+    <max>250</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.CreateQuickConnectRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.CreateQuickConnectRequest.Name</property>
+    <min>1</min>
+    <max>127</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Connect.Model.CreateRoutingProfileRequest.Description</property>
     <min>1</min>
     <max>250</max>
@@ -174,6 +213,11 @@
     <max>200</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Connect.Model.DeleteQuickConnectRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Connect.Model.DeleteUseCaseRequest.InstanceId</property>
     <min>1</min>
     <max>100</max>
@@ -208,6 +252,11 @@
     <max>100</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Connect.Model.DescribeHoursOfOperationRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Connect.Model.DescribeInstanceRequest.InstanceId</property>
     <min>1</min>
     <max>100</max>
@@ -224,6 +273,16 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Connect.Model.DescribeInstanceStorageConfigRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.DescribeQueueRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.DescribeQuickConnectRequest.InstanceId</property>
     <min>1</min>
     <max>100</max>
   </property-value-rule>
@@ -288,6 +347,11 @@
   <property-value-rule>
     <property>Amazon.Connect.Model.DisassociateLexBotRequest.LexRegion</property>
     <max>60</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.DisassociateQueueQuickConnectsRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Connect.Model.DisassociateRoutingProfileQueuesRequest.InstanceId</property>
@@ -445,12 +509,32 @@
     <max>1000</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Connect.Model.ListQueueQuickConnectsRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.ListQueueQuickConnectsRequest.MaxResults</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Connect.Model.ListQueuesRequest.InstanceId</property>
     <min>1</min>
     <max>100</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Connect.Model.ListQueuesRequest.MaxResults</property>
+    <min>1</min>
+    <max>1000</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.ListQuickConnectsRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.ListQuickConnectsRequest.MaxResults</property>
     <min>1</min>
     <max>1000</max>
   </property-value-rule>
@@ -731,6 +815,65 @@
     <max>100</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Connect.Model.UpdateQueueHoursOfOperationRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.UpdateQueueMaxContactsRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.UpdateQueueMaxContactsRequest.MaxContacts</property>
+    <min>0</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.UpdateQueueNameRequest.Description</property>
+    <min>1</min>
+    <max>250</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.UpdateQueueNameRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.UpdateQueueNameRequest.Name</property>
+    <min>1</min>
+    <max>127</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.UpdateQueueOutboundCallerConfigRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.UpdateQueueStatusRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.UpdateQuickConnectConfigRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.UpdateQuickConnectNameRequest.Description</property>
+    <min>0</min>
+    <max>250</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.UpdateQuickConnectNameRequest.InstanceId</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.UpdateQuickConnectNameRequest.Name</property>
+    <min>1</min>
+    <max>127</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Connect.Model.UpdateRoutingProfileConcurrencyRequest.InstanceId</property>
     <min>1</min>
     <max>100</max>
@@ -832,6 +975,26 @@
     <max>128</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Connect.Model.HoursOfOperation.Description</property>
+    <min>0</min>
+    <max>250</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.HoursOfOperation.Name</property>
+    <min>1</min>
+    <max>127</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.HoursOfOperationTimeSlice.Hours</property>
+    <min>0</min>
+    <max>23</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.HoursOfOperationTimeSlice.Minutes</property>
+    <min>0</min>
+    <max>59</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Connect.Model.Instance.Id</property>
     <min>1</min>
     <max>100</max>
@@ -903,6 +1066,15 @@
     <max>5</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Connect.Model.OutboundCallerConfig.OutboundCallerIdName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.OutboundCallerConfig.OutboundFlowId</property>
+    <max>500</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Connect.Model.ParticipantDetails.DisplayName</property>
     <min>1</min>
     <max>256</max>
@@ -923,9 +1095,42 @@
     <max>256</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Connect.Model.Queue.Description</property>
+    <min>1</min>
+    <max>250</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.Queue.MaxContacts</property>
+    <min>0</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.Queue.Name</property>
+    <min>1</min>
+    <max>127</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.QueueQuickConnectConfig.ContactFlowId</property>
+    <max>500</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Connect.Model.QueueSummary.Name</property>
     <min>1</min>
     <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.QuickConnect.Description</property>
+    <min>0</min>
+    <max>250</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.QuickConnect.Name</property>
+    <min>1</min>
+    <max>127</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.QuickConnectSummary.Name</property>
+    <min>1</min>
+    <max>127</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Connect.Model.Reference.Value</property>
@@ -1020,6 +1225,10 @@
   <property-value-rule>
     <property>Amazon.Connect.Model.UserPhoneConfig.AfterContactWorkTimeLimit</property>
     <min>0</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Connect.Model.UserQuickConnectConfig.ContactFlowId</property>
+    <max>500</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Connect.Model.UserSummary.Username</property>

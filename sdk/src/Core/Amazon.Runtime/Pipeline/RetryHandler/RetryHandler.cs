@@ -14,6 +14,7 @@
  */
 
 using Amazon.Runtime.Internal.Util;
+using Amazon.Util;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -73,6 +74,7 @@ namespace Amazon.Runtime.Internal
             {
                 try
                 {                    
+                    SetRetryHeaders(requestContext);
                     base.InvokeSync(executionContext);                    
                     this.RetryPolicy.NotifySuccess(executionContext);                    
                     return;
@@ -126,6 +128,7 @@ namespace Amazon.Runtime.Internal
 
                 try
                 {                
+                    SetRetryHeaders(requestContext);
                     T result = await base.InvokeAsync<T>(executionContext).ConfigureAwait(false);
                     this.RetryPolicy.NotifySuccess(executionContext);
                     return result;
@@ -272,5 +275,28 @@ namespace Amazon.Runtime.Internal
                           requestContext.Request.Endpoint.ToString(),
                           requestContext.Retries + 1);
         }        
+
+        private void SetRetryHeaders(IRequestContext requestContext)
+        {            
+            var request = requestContext.Request;
+
+            //The invocation id will be the same for all retry requests for the initial operation invocation.
+            if (!request.Headers.ContainsKey(HeaderKeys.AmzSdkInvocationId))
+            {                
+                request.Headers.Add(HeaderKeys.AmzSdkInvocationId, requestContext.InvocationId.ToString());
+            }
+
+            //Update the amz-sdk-request header with the current retry index.
+            var requestPairs = $"attempt={requestContext.Retries + 1}; max={RetryPolicy.MaxRetries + 1}";
+
+            if (request.Headers.ContainsKey(HeaderKeys.AmzSdkRequest))
+            {
+                request.Headers[HeaderKeys.AmzSdkRequest] = requestPairs;
+            }
+            else
+            {
+                request.Headers.Add(HeaderKeys.AmzSdkRequest, requestPairs);
+            }
+        }
     }
 }

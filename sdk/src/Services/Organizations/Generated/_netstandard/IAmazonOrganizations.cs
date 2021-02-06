@@ -165,6 +165,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION: The handshake request is invalid
+        /// because the organization has already started the process to enable all features.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD: The request failed because the account
         /// is from a different marketplace than the accounts in the organization. For example,
         /// accounts with India addresses must be associated with the AISPL marketplace. All accounts
@@ -211,6 +216,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -600,6 +610,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -799,6 +814,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1253,6 +1273,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1771,6 +1796,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -2153,6 +2183,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -2528,6 +2563,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -2909,6 +2949,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -3107,6 +3152,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -3266,6 +3316,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -3437,6 +3492,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -3614,6 +3674,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -3752,7 +3817,7 @@ namespace Amazon.Organizations
         /// <para>
         /// You can run this action only for AWS services that support this feature. For a current
         /// list of services that support it, see the column <i>Supports Delegated Administrator</i>
-        /// in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html">AWS
+        /// in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">AWS
         /// Services that you can use with AWS Organizations</a> in the <i>AWS Organizations User
         /// Guide.</i> 
         /// </para>
@@ -4008,6 +4073,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -4179,6 +4249,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -4343,6 +4418,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -4726,6 +4806,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -4903,6 +4988,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -5127,6 +5217,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -5290,6 +5385,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -5678,6 +5778,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -5818,21 +5923,59 @@ namespace Amazon.Organizations
         /// can still perform operations in older accounts until the service completes its clean-up
         /// from AWS Organizations.
         /// 
-        ///   <important> 
+        ///  <important> 
         /// <para>
-        /// We recommend that you disable integration between AWS Organizations and the specified
-        /// AWS service by using the console or commands that are provided by the specified service.
-        /// Doing so ensures that the other service is aware that it can clean up any resources
-        /// that are required only for the integration. How the service cleans up its resources
-        /// in the organization's accounts depends on that service. For more information, see
-        /// the documentation for the other AWS service.
+        /// We <b> <i>strongly recommend</i> </b> that you don't use this command to disable integration
+        /// between AWS Organizations and the specified AWS service. Instead, use the console
+        /// or commands that are provided by the specified service. This lets the trusted service
+        /// perform any required initialization when enabling trusted access, such as creating
+        /// any required resources and any required clean up of resources when disabling trusted
+        /// access. 
+        /// </para>
+        ///  
+        /// <para>
+        /// For information about how to disable trusted service access to your organization using
+        /// the trusted service, see the <b>Learn more</b> link under the <b>Supports Trusted
+        /// Access</b> column at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">AWS
+        /// services that you can use with AWS Organizations</a>. on this page.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you disable access by using this command, it causes the following actions to occur:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// The service can no longer create a service-linked role in the accounts in your organization.
+        /// This means that the service can't perform operations on your behalf on any new accounts
+        /// in your organization. The service can still perform operations in older accounts until
+        /// the service completes its clean-up from AWS Organizations. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The service can no longer perform tasks in the member accounts in the organization,
+        /// unless those operations are explicitly permitted by the IAM policies that are attached
+        /// to your roles. This includes any data aggregation from the member accounts to the
+        /// management account, or to a delegated administrator account, where relevant.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Some services detect this and clean up any remaining data or resources related to
+        /// the integration, while other services stop accessing the organization but leave any
+        /// historical data and configuration in place to support a possible re-enabling of the
+        /// integration.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Using the other service's console or commands to disable the integration ensures that
+        /// the other service is aware that it can clean up any resources that are required only
+        /// for the integration. How the service cleans up its resources in the organization's
+        /// accounts depends on that service. For more information, see the documentation for
+        /// the other AWS service. 
         /// </para>
         ///  </important> 
         /// <para>
         /// After you perform the <code>DisableAWSServiceAccess</code> operation, the specified
-        /// service can no longer perform operations in your organization's accounts unless the
-        /// operations are explicitly permitted by the IAM policies that are attached to your
-        /// roles.
+        /// service can no longer perform operations in your organization's accounts 
         /// </para>
         ///  
         /// <para>
@@ -6082,6 +6225,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -6464,6 +6612,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -6700,6 +6853,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION: The handshake request is invalid
+        /// because the organization has already started the process to enable all features.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD: The request failed because the account
         /// is from a different marketplace than the accounts in the organization. For example,
         /// accounts with India addresses must be associated with the AISPL marketplace. All accounts
@@ -6738,6 +6896,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -7124,6 +7287,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -7499,6 +7667,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -7945,6 +8118,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION: The handshake request is invalid
+        /// because the organization has already started the process to enable all features.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD: The request failed because the account
         /// is from a different marketplace than the accounts in the organization. For example,
         /// accounts with India addresses must be associated with the AISPL marketplace. All accounts
@@ -7983,6 +8161,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -8145,6 +8328,13 @@ namespace Amazon.Organizations
         /// at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
         /// To leave an organization when all required account information has not yet been provided</a>
         /// in the <i>AWS Organizations User Guide.</i> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The account that you want to leave must not be a delegated administrator account for
+        /// any AWS service enabled for your organization. If the account is a delegated administrator,
+        /// you must first change the delegated administrator account to another account that
+        /// is remaining in the organization.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -8405,6 +8595,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -8582,6 +8777,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -8754,6 +8954,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -9127,6 +9332,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -9303,6 +9513,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -9475,6 +9690,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -9836,6 +10056,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -10208,6 +10433,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -10385,6 +10615,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -10572,6 +10807,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -10740,6 +10980,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -10928,6 +11173,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -11096,6 +11346,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -11272,6 +11527,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -11462,6 +11722,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -11645,6 +11910,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -11818,6 +12088,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -12006,6 +12281,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -12132,7 +12412,7 @@ namespace Amazon.Organizations
         /// <para>
         /// You can run this action only for AWS services that support this feature. For a current
         /// list of services that support it, see the column <i>Supports Delegated Administrator</i>
-        /// in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html">AWS
+        /// in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">AWS
         /// Services that you can use with AWS Organizations</a> in the <i>AWS Organizations User
         /// Guide.</i> 
         /// </para>
@@ -12388,6 +12668,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -12534,6 +12819,13 @@ namespace Amazon.Organizations
         /// follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
         /// To leave an organization when all required account information has not yet been provided</a>
         /// in the <i>AWS Organizations User Guide.</i> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The account that you want to leave must not be a delegated administrator account for
+        /// any AWS service enabled for your organization. If the account is a delegated administrator,
+        /// you must first change the delegated administrator account to another account that
+        /// is remaining in the organization.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -12784,6 +13076,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -13173,6 +13470,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -13558,6 +13860,11 @@ namespace Amazon.Organizations
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// INVALID_ENUM: You specified an invalid value.
         /// </para>
         ///  </li> <li> 
@@ -13729,6 +14036,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -14097,6 +14409,11 @@ namespace Amazon.Organizations
         ///  </li> <li> 
         /// <para>
         /// INPUT_REQUIRED: You must include a value for all required parameters.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the invited
+        /// account owner.
         /// </para>
         ///  </li> <li> 
         /// <para>

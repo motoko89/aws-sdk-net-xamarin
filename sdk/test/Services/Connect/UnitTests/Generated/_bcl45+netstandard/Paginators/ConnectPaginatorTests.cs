@@ -550,6 +550,45 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
         [TestMethod]
         [TestCategory("UnitTest")]
         [TestCategory("Connect")]
+        public void ListQueueQuickConnectsTest_TwoPages()
+        {
+            var request = InstantiateClassGenerator.Execute<ListQueueQuickConnectsRequest>();
+
+            var firstResponse = InstantiateClassGenerator.Execute<ListQueueQuickConnectsResponse>();
+            var secondResponse = InstantiateClassGenerator.Execute<ListQueueQuickConnectsResponse>();
+            secondResponse.NextToken = null;
+
+            _mockClient.SetupSequence(x => x.ListQueueQuickConnects(request)).Returns(firstResponse).Returns(secondResponse);
+            var paginator = _mockClient.Object.Paginators.ListQueueQuickConnects(request);
+            
+            Assert.AreEqual(2, paginator.Responses.ToList().Count);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Connect")]
+        [ExpectedException(typeof(System.InvalidOperationException), "Paginator has already been consumed and cannot be reused. Please create a new instance.")]
+        public void ListQueueQuickConnectsTest__OnlyUsedOnce()
+        {
+            var request = InstantiateClassGenerator.Execute<ListQueueQuickConnectsRequest>();
+
+            var response = InstantiateClassGenerator.Execute<ListQueueQuickConnectsResponse>();
+            response.NextToken = null;
+
+            _mockClient.Setup(x => x.ListQueueQuickConnects(request)).Returns(response);
+            var paginator = _mockClient.Object.Paginators.ListQueueQuickConnects(request);
+
+            // Should work the first time
+            paginator.Responses.ToList();
+
+            // Second time should throw an exception
+            paginator.Responses.ToList();
+        }
+
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Connect")]
         public void ListQueuesTest_TwoPages()
         {
             var request = InstantiateClassGenerator.Execute<ListQueuesRequest>();
@@ -577,6 +616,45 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
 
             _mockClient.Setup(x => x.ListQueues(request)).Returns(response);
             var paginator = _mockClient.Object.Paginators.ListQueues(request);
+
+            // Should work the first time
+            paginator.Responses.ToList();
+
+            // Second time should throw an exception
+            paginator.Responses.ToList();
+        }
+
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Connect")]
+        public void ListQuickConnectsTest_TwoPages()
+        {
+            var request = InstantiateClassGenerator.Execute<ListQuickConnectsRequest>();
+
+            var firstResponse = InstantiateClassGenerator.Execute<ListQuickConnectsResponse>();
+            var secondResponse = InstantiateClassGenerator.Execute<ListQuickConnectsResponse>();
+            secondResponse.NextToken = null;
+
+            _mockClient.SetupSequence(x => x.ListQuickConnects(request)).Returns(firstResponse).Returns(secondResponse);
+            var paginator = _mockClient.Object.Paginators.ListQuickConnects(request);
+            
+            Assert.AreEqual(2, paginator.Responses.ToList().Count);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Connect")]
+        [ExpectedException(typeof(System.InvalidOperationException), "Paginator has already been consumed and cannot be reused. Please create a new instance.")]
+        public void ListQuickConnectsTest__OnlyUsedOnce()
+        {
+            var request = InstantiateClassGenerator.Execute<ListQuickConnectsRequest>();
+
+            var response = InstantiateClassGenerator.Execute<ListQuickConnectsResponse>();
+            response.NextToken = null;
+
+            _mockClient.Setup(x => x.ListQuickConnects(request)).Returns(response);
+            var paginator = _mockClient.Object.Paginators.ListQuickConnects(request);
 
             // Should work the first time
             paginator.Responses.ToList();
