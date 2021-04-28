@@ -29,11 +29,14 @@ using Amazon.Runtime.Internal;
 namespace Amazon.MediaConvert.Model
 {
     /// <summary>
-    /// Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to DASH_ISO_GROUP_SETTINGS.
+    /// Settings related to your DASH output package. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/outputs-file-ABR.html.
+    /// When you work directly in your JSON job specification, include this object and any
+    /// required children when you set Type, under OutputGroupSettings, to DASH_ISO_GROUP_SETTINGS.
     /// </summary>
     public partial class DashIsoGroupSettings
     {
         private List<DashAdditionalManifest> _additionalManifests = new List<DashAdditionalManifest>();
+        private DashIsoGroupAudioChannelConfigSchemeIdUri _audioChannelConfigSchemeIdUri;
         private string _baseUrl;
         private string _destination;
         private DestinationSettings _destinationSettings;
@@ -43,6 +46,7 @@ namespace Amazon.MediaConvert.Model
         private int? _minBufferTime;
         private double? _minFinalSegmentLength;
         private DashIsoMpdProfile _mpdProfile;
+        private DashIsoPtsOffsetHandlingForBFrames _ptsOffsetHandlingForBFrames;
         private DashIsoSegmentControl _segmentControl;
         private int? _segmentLength;
         private DashIsoWriteSegmentTimelineInRepresentation _writeSegmentTimelineInRepresentation;
@@ -63,6 +67,29 @@ namespace Amazon.MediaConvert.Model
         internal bool IsSetAdditionalManifests()
         {
             return this._additionalManifests != null && this._additionalManifests.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property AudioChannelConfigSchemeIdUri. Use this setting only when
+        /// your audio codec is a Dolby one (AC3, EAC3, or Atmos) and your downstream workflow
+        /// requires that your DASH manifest use the Dolby channel configuration tag, rather than
+        /// the MPEG one. For example, you might need to use this to make dynamic ad insertion
+        /// work. Specify which audio channel configuration scheme ID URI MediaConvert writes
+        /// in your DASH manifest. Keep the default value, MPEG channel configuration (MPEG_CHANNEL_CONFIGURATION),
+        /// to have MediaConvert write this: urn:mpeg:mpegB:cicp:ChannelConfiguration. Choose
+        /// Dolby channel configuration (DOLBY_CHANNEL_CONFIGURATION) to have MediaConvert write
+        /// this instead: tag:dolby.com,2014:dash:audio_channel_configuration:2011.
+        /// </summary>
+        public DashIsoGroupAudioChannelConfigSchemeIdUri AudioChannelConfigSchemeIdUri
+        {
+            get { return this._audioChannelConfigSchemeIdUri; }
+            set { this._audioChannelConfigSchemeIdUri = value; }
+        }
+
+        // Check to see if AudioChannelConfigSchemeIdUri property is set
+        internal bool IsSetAudioChannelConfigSchemeIdUri()
+        {
+            return this._audioChannelConfigSchemeIdUri != null;
         }
 
         /// <summary>
@@ -228,6 +255,29 @@ namespace Amazon.MediaConvert.Model
         internal bool IsSetMpdProfile()
         {
             return this._mpdProfile != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PtsOffsetHandlingForBFrames. Use this setting only when
+        /// your output video stream has B-frames, which causes the initial presentation time
+        /// stamp (PTS) to be offset from the initial decode time stamp (DTS). Specify how MediaConvert
+        /// handles PTS when writing time stamps in output DASH manifests. Choose Match initial
+        /// PTS (MATCH_INITIAL_PTS) when you want MediaConvert to use the initial PTS as the first
+        /// time stamp in the manifest. Choose Zero-based (ZERO_BASED) to have MediaConvert ignore
+        /// the initial PTS in the video stream and instead write the initial time stamp as zero
+        /// in the manifest. For outputs that don't have B-frames, the time stamps in your DASH
+        /// manifests start at zero regardless of your choice here.
+        /// </summary>
+        public DashIsoPtsOffsetHandlingForBFrames PtsOffsetHandlingForBFrames
+        {
+            get { return this._ptsOffsetHandlingForBFrames; }
+            set { this._ptsOffsetHandlingForBFrames = value; }
+        }
+
+        // Check to see if PtsOffsetHandlingForBFrames property is set
+        internal bool IsSetPtsOffsetHandlingForBFrames()
+        {
+            return this._ptsOffsetHandlingForBFrames != null;
         }
 
         /// <summary>

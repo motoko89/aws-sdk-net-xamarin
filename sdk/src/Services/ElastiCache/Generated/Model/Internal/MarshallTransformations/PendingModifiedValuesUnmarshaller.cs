@@ -79,6 +79,13 @@ namespace Amazon.ElastiCache.Model.Internal.MarshallTransformations
                         unmarshalledObject.EngineVersion = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("LogDeliveryConfigurations/member", targetDepth))
+                    {
+                        var unmarshaller = PendingLogDeliveryConfigurationUnmarshaller.Instance;
+                        var item = unmarshaller.Unmarshall(context);
+                        unmarshalledObject.LogDeliveryConfigurations.Add(item);
+                        continue;
+                    }
                     if (context.TestExpression("NumCacheNodes", targetDepth))
                     {
                         var unmarshaller = IntUnmarshaller.Instance;

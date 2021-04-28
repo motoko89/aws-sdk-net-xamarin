@@ -76,6 +76,18 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
                     unmarshalledObject.ActiveInputSwitchActionName = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("activeMotionGraphicsActionName", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.ActiveMotionGraphicsActionName = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("activeMotionGraphicsUri", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.ActiveMotionGraphicsUri = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("pipelineId", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

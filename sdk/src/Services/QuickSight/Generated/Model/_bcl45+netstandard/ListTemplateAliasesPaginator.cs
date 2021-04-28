@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -41,6 +40,12 @@ namespace Amazon.QuickSight.Model
         /// Enumerable containing all full responses for the operation
         /// </summary>
         public IPaginatedEnumerable<ListTemplateAliasesResponse> Responses => new PaginatedResponse<ListTemplateAliasesResponse>(this);
+
+        /// <summary>
+        /// Enumerable containing all of the TemplateAliasList
+        /// </summary>
+        public IPaginatedEnumerable<TemplateAlias> TemplateAliasList => 
+            new PaginatedResultKeyResponse<ListTemplateAliasesResponse, TemplateAlias>(this, (i) => i.TemplateAliasList);
 
         internal ListTemplateAliasesPaginator(IAmazonQuickSight client, ListTemplateAliasesRequest request)
         {
@@ -90,4 +95,3 @@ namespace Amazon.QuickSight.Model
 #endif
     }
 }
-#endif

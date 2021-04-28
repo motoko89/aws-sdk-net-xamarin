@@ -60,12 +60,17 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/datasets";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetFormat())
+                {
+                    context.Writer.WritePropertyName("Format");
+                    context.Writer.Write(publicRequest.Format);
+                }
+
                 if(publicRequest.IsSetFormatOptions())
                 {
                     context.Writer.WritePropertyName("FormatOptions");
@@ -92,6 +97,17 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("Name");
                     context.Writer.Write(publicRequest.Name);
+                }
+
+                if(publicRequest.IsSetPathOptions())
+                {
+                    context.Writer.WritePropertyName("PathOptions");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = PathOptionsMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.PathOptions, context);
+
+                    context.Writer.WriteObjectEnd();
                 }
 
                 if(publicRequest.IsSetTags())

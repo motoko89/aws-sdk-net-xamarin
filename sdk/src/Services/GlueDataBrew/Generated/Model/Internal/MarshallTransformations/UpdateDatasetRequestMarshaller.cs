@@ -63,12 +63,17 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
                 throw new AmazonGlueDataBrewException("Request object does not have required field Name set");
             request.AddPathResource("{name}", StringUtils.FromString(publicRequest.Name));
             request.ResourcePath = "/datasets/{name}";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetFormat())
+                {
+                    context.Writer.WritePropertyName("Format");
+                    context.Writer.Write(publicRequest.Format);
+                }
+
                 if(publicRequest.IsSetFormatOptions())
                 {
                     context.Writer.WritePropertyName("FormatOptions");
@@ -87,6 +92,17 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
 
                     var marshaller = InputMarshaller.Instance;
                     marshaller.Marshall(publicRequest.Input, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetPathOptions())
+                {
+                    context.Writer.WritePropertyName("PathOptions");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = PathOptionsMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.PathOptions, context);
 
                     context.Writer.WriteObjectEnd();
                 }

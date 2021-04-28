@@ -153,6 +153,64 @@ namespace Amazon.GlueDataBrew
 
 
     /// <summary>
+    /// Constants used for properties of type InputFormat.
+    /// </summary>
+    public class InputFormat : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CSV for InputFormat
+        /// </summary>
+        public static readonly InputFormat CSV = new InputFormat("CSV");
+        /// <summary>
+        /// Constant EXCEL for InputFormat
+        /// </summary>
+        public static readonly InputFormat EXCEL = new InputFormat("EXCEL");
+        /// <summary>
+        /// Constant JSON for InputFormat
+        /// </summary>
+        public static readonly InputFormat JSON = new InputFormat("JSON");
+        /// <summary>
+        /// Constant PARQUET for InputFormat
+        /// </summary>
+        public static readonly InputFormat PARQUET = new InputFormat("PARQUET");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public InputFormat(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static InputFormat FindValue(string value)
+        {
+            return FindValue<InputFormat>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator InputFormat(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type JobRunState.
     /// </summary>
     public class JobRunState : ConstantClass
@@ -323,6 +381,102 @@ namespace Amazon.GlueDataBrew
 
 
     /// <summary>
+    /// Constants used for properties of type Order.
+    /// </summary>
+    public class Order : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ASCENDING for Order
+        /// </summary>
+        public static readonly Order ASCENDING = new Order("ASCENDING");
+        /// <summary>
+        /// Constant DESCENDING for Order
+        /// </summary>
+        public static readonly Order DESCENDING = new Order("DESCENDING");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public Order(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static Order FindValue(string value)
+        {
+            return FindValue<Order>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator Order(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type OrderedBy.
+    /// </summary>
+    public class OrderedBy : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant LAST_MODIFIED_DATE for OrderedBy
+        /// </summary>
+        public static readonly OrderedBy LAST_MODIFIED_DATE = new OrderedBy("LAST_MODIFIED_DATE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public OrderedBy(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static OrderedBy FindValue(string value)
+        {
+            return FindValue<OrderedBy>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator OrderedBy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type OutputFormat.
     /// </summary>
     public class OutputFormat : ConstantClass
@@ -386,6 +540,110 @@ namespace Amazon.GlueDataBrew
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator OutputFormat(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ParameterType.
+    /// </summary>
+    public class ParameterType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Datetime for ParameterType
+        /// </summary>
+        public static readonly ParameterType Datetime = new ParameterType("Datetime");
+        /// <summary>
+        /// Constant Number for ParameterType
+        /// </summary>
+        public static readonly ParameterType Number = new ParameterType("Number");
+        /// <summary>
+        /// Constant String for ParameterType
+        /// </summary>
+        public static readonly ParameterType String = new ParameterType("String");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ParameterType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ParameterType FindValue(string value)
+        {
+            return FindValue<ParameterType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ParameterType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type SampleMode.
+    /// </summary>
+    public class SampleMode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CUSTOM_ROWS for SampleMode
+        /// </summary>
+        public static readonly SampleMode CUSTOM_ROWS = new SampleMode("CUSTOM_ROWS");
+        /// <summary>
+        /// Constant FULL_DATASET for SampleMode
+        /// </summary>
+        public static readonly SampleMode FULL_DATASET = new SampleMode("FULL_DATASET");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public SampleMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static SampleMode FindValue(string value)
+        {
+            return FindValue<SampleMode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator SampleMode(string value)
         {
             return FindValue(value);
         }
@@ -534,6 +792,10 @@ namespace Amazon.GlueDataBrew
     public class Source : ConstantClass
     {
 
+        /// <summary>
+        /// Constant DATABASE for Source
+        /// </summary>
+        public static readonly Source DATABASE = new Source("DATABASE");
         /// <summary>
         /// Constant DATACATALOG for Source
         /// </summary>

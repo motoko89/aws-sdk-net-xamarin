@@ -45,9 +45,6 @@ namespace Amazon.IoTSiteWise
     /// SiteWise User Guide</a>. For information about AWS IoT SiteWise quotas, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
     /// in the <i>AWS IoT SiteWise User Guide</i>.
     /// </summary>
-#if NETSTANDARD13
-    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
-#endif
     public partial class AmazonIoTSiteWiseClient : AmazonServiceClient, IAmazonIoTSiteWise
     {
         private static IServiceMetadata serviceMetadata = new AmazonIoTSiteWiseMetadata();
@@ -992,58 +989,6 @@ namespace Amazon.IoTSiteWise
             options.ResponseUnmarshaller = CreatePortalResponseUnmarshaller.Instance;
 
             return InvokeAsync<CreatePortalResponse>(request, options, cancellationToken);
-        }
-
-        #endregion
-        
-        #region  CreatePresignedPortalUrl
-
-        internal virtual CreatePresignedPortalUrlResponse CreatePresignedPortalUrl(CreatePresignedPortalUrlRequest request)
-        {
-            var options = new InvokeOptions();
-            options.RequestMarshaller = CreatePresignedPortalUrlRequestMarshaller.Instance;
-            options.ResponseUnmarshaller = CreatePresignedPortalUrlResponseUnmarshaller.Instance;
-
-            return Invoke<CreatePresignedPortalUrlResponse>(request, options);
-        }
-
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="request">Container for the necessary parameters to execute the CreatePresignedPortalUrl service method.</param>
-        /// <param name="cancellationToken">
-        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
-        /// </param>
-        /// 
-        /// <returns>The response from the CreatePresignedPortalUrl service method, as returned by IoTSiteWise.</returns>
-        /// <exception cref="Amazon.IoTSiteWise.Model.InternalFailureException">
-        /// AWS IoT SiteWise can't process your request right now. Try again later.
-        /// </exception>
-        /// <exception cref="Amazon.IoTSiteWise.Model.InvalidRequestException">
-        /// The request isn't valid. This can occur if your request contains malformed JSON or
-        /// unsupported characters. Check your request and try again.
-        /// </exception>
-        /// <exception cref="Amazon.IoTSiteWise.Model.ThrottlingException">
-        /// Your request exceeded a rate limit. For example, you might have exceeded the number
-        /// of AWS IoT SiteWise assets that can be created per second, the allowed number of messages
-        /// per second, and so on.
-        /// 
-        ///  
-        /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
-        /// in the <i>AWS IoT SiteWise User Guide</i>.
-        /// </para>
-        /// </exception>
-        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotsitewise-2019-12-02/CreatePresignedPortalUrl">REST API Reference for CreatePresignedPortalUrl Operation</seealso>
-        public virtual Task<CreatePresignedPortalUrlResponse> CreatePresignedPortalUrlAsync(CreatePresignedPortalUrlRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
-        {
-            var options = new InvokeOptions();
-            options.RequestMarshaller = CreatePresignedPortalUrlRequestMarshaller.Instance;
-            options.ResponseUnmarshaller = CreatePresignedPortalUrlResponseUnmarshaller.Instance;
-
-            return InvokeAsync<CreatePresignedPortalUrlResponse>(request, options, cancellationToken);
         }
 
         #endregion

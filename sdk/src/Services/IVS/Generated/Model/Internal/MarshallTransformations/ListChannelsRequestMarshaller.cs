@@ -60,7 +60,6 @@ namespace Amazon.IVS.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/ListChannels";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -70,6 +69,12 @@ namespace Amazon.IVS.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("filterByName");
                     context.Writer.Write(publicRequest.FilterByName);
+                }
+
+                if(publicRequest.IsSetFilterByRecordingConfigurationArn())
+                {
+                    context.Writer.WritePropertyName("filterByRecordingConfigurationArn");
+                    context.Writer.Write(publicRequest.FilterByRecordingConfigurationArn);
                 }
 
                 if(publicRequest.IsSetMaxResults())

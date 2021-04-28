@@ -166,7 +166,7 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 * [AWSSDK.CloudSearch](https://www.nuget.org/packages/AWSSDK.CloudSearch/)
 	* Amazon CloudSearch is a managed service in the AWS Cloud that makes it simple and cost-effective to set up, manage, and scale a search solution for your website or application.
 * [AWSSDK.CloudSearchDomain](https://www.nuget.org/packages/AWSSDK.CloudSearchDomain/)
-	* Amazon CloudSearch is a managed service in the AWS Cloud that makes it simple and cost-effective to set up, manage, and scale a search solution for your website or application.
+	* Amazon CloudSearch Domain encapsulates a collection of data you want to search, the search instances that process your search requests, and a configuration that controls how your data is indexed and searched.
 * [AWSSDK.CloudTrail](https://www.nuget.org/packages/AWSSDK.CloudTrail/)
 	* AWS CloudTrail is a web service that records AWS API calls for your account and delivers log files to you. The recorded information includes the identity of the API caller, the time of the API call, the source IP address of the API caller, the request parameters, and the response elements returned by the AWS service.
 * [AWSSDK.CloudWatch](https://www.nuget.org/packages/AWSSDK.CloudWatch/)
@@ -283,6 +283,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* This release adds support for Amazon EMR on EKS, a simple way to run Spark on Kubernetes.
 * [AWSSDK.EventBridge](https://www.nuget.org/packages/AWSSDK.EventBridge/)
 	* Amazon EventBridge is a serverless event bus service that makes it easy to connect your applications with data from a variety of sources, including AWS services, partner applications, and your own applications.
+* [AWSSDK.FIS](https://www.nuget.org/packages/AWSSDK.FIS/)
+	* Initial release of AWS Fault Injection Simulator, a managed service that enables you to perform fault injection experiments on your AWS workloads
 * [AWSSDK.FMS](https://www.nuget.org/packages/AWSSDK.FMS/)
 	* This release is the initial release version for AWS Firewall Manager, a new AWS service that makes it easy for customers to centrally configure WAF rules across all their resources (ALBs and CloudFront distributions) and across accounts.
 * [AWSSDK.ForecastQueryService](https://www.nuget.org/packages/AWSSDK.ForecastQueryService/)
@@ -308,7 +310,7 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 * [AWSSDK.GreengrassV2](https://www.nuget.org/packages/AWSSDK.GreengrassV2/)
 	* AWS IoT Greengrass V2 is a new major version of AWS IoT Greengrass. This release adds several updates such as modular components, continuous deployments, and improved ease of use.
 * [AWSSDK.GroundStation](https://www.nuget.org/packages/AWSSDK.GroundStation/)
-	* New Service temporary synopsis, please replace it.
+	* AWS Ground Station is a fully managed service that enables you to control satellite communications, downlink and process satellite data, and scale your satellite operations efficiently and cost-effectively without having to build or manage your own ground station infrastructure.
 * [AWSSDK.GuardDuty](https://www.nuget.org/packages/AWSSDK.GuardDuty/)
 	* Enable Amazon GuardDuty to continuously monitor and process AWS data sources to identify threats to your AWS accounts and workloads. You can add customization by uploading additional threat intelligence lists and IP safe lists. You can list security findings, suspend, and disable the service.
 * [AWSSDK.HealthLake](https://www.nuget.org/packages/AWSSDK.HealthLake/)
@@ -395,8 +397,12 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* An extremely simplified VM creation and management service.
 * [AWSSDK.LocationService](https://www.nuget.org/packages/AWSSDK.LocationService/)
 	* Initial release of Amazon Location Service. A new geospatial service providing capabilities to render maps, geocode/reverse geocode, track device locations, and detect geofence entry/exit events.
+* [AWSSDK.LookoutEquipment](https://www.nuget.org/packages/AWSSDK.LookoutEquipment/)
+	* This release introduces support for Amazon Lookout for Equipment.
 * [AWSSDK.LookoutforVision](https://www.nuget.org/packages/AWSSDK.LookoutforVision/)
 	* This release introduces support for Amazon Lookout for Vision.
+* [AWSSDK.LookoutMetrics](https://www.nuget.org/packages/AWSSDK.LookoutMetrics/)
+	* Amazon Lookout for Metrics is now generally available. You can use Lookout for Metrics to monitor your data for anomalies. For more information, see the Amazon Lookout for Metrics Developer Guide.
 * [AWSSDK.MachineLearning](https://www.nuget.org/packages/AWSSDK.MachineLearning/)
 	* Amazon Machine Learning is a service that makes it easy for developers of all skill levels to use machine learning technology.
 * [AWSSDK.Macie](https://www.nuget.org/packages/AWSSDK.Macie/)
@@ -425,6 +431,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* AWS Elemental MediaStore Data is an AWS storage service optimized for media. It gives you the performance, consistency, and low latency required to deliver live and on-demand video content. AWS Elemental MediaStore Data acts as the origin store in your video workflow.
 * [AWSSDK.MediaTailor](https://www.nuget.org/packages/AWSSDK.MediaTailor/)
 	* AWS Elemental MediaTailor is a personalization and monetization service that allows scalable server-side ad insertion. The service enables you to serve targeted ads to viewers while maintaining broadcast quality in over-the-top (OTT) video applications. This SDK allows user access to the AWS Elemental MediaTailor configuration interface.
+* [AWSSDK.Mgn](https://www.nuget.org/packages/AWSSDK.Mgn/)
+	* Add new service - Application Migration Service.
 * [AWSSDK.MigrationHub](https://www.nuget.org/packages/AWSSDK.MigrationHub/)
 	* AWS Migration Hub provides a single location to track migrations across multiple AWS and partner solutions. Using Migration Hub allows you to choose the AWS and partner migration tools that best fit your needs, while providing visibility into the status of your entire migration portfolio. Migration Hub also provides key metrics and progress for individual applications, regardless of which tools are being used to migrate them. For example, you might use AWS Database Migration Service, AWS Server Migration Service, and partner migration tools to migrate an application comprised of a database, virtualized web servers, and a bare metal server. Using Migration Hub will provide you with a single screen that shows the migration progress of all the resources in the application. This allows you to quickly get progress updates across all of your migrations, easily identify and troubleshoot any issues, and reduce the overall time and effort spent on your migration projects. Migration Hub is available to all AWS customers at no additional charge. You only pay for the cost of the migration tools you use, and any resources being consumed on AWS. 
 * [AWSSDK.MigrationHubConfig](https://www.nuget.org/packages/AWSSDK.MigrationHubConfig/)
@@ -484,7 +492,7 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 * [AWSSDK.RDS](https://www.nuget.org/packages/AWSSDK.RDS/)
 	* Amazon Relational Database Service (Amazon RDS) is a web service that makes it easy to set up, operate, and scale a relational database in the cloud. It provides cost-efficient and resizable capacity while managing time-consuming database management tasks, freeing you up to focus on your applications and business.
 * [AWSSDK.RDSDataService](https://www.nuget.org/packages/AWSSDK.RDSDataService/)
-	* The RDS Data API Beta is available for the MySQL-compatible edition of Amazon Aurora Serverless in the US East (N. Virginia) Region. This API enables you to easily access Aurora Serverless with web services-based applications including AWS Lambda and AWS AppSync.
+	* Amazon RDS Data Service API is an HTTP endpoint to run SQL statements on an Amazon Aurora Serverless DB cluster.
 * [AWSSDK.Redshift](https://www.nuget.org/packages/AWSSDK.Redshift/)
 	* Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse solution that makes it simple and cost-effective to efficiently analyze all your data using your existing business intelligence tools.
 * [AWSSDK.RedshiftDataAPIService](https://www.nuget.org/packages/AWSSDK.RedshiftDataAPIService/)

@@ -46,6 +46,7 @@ namespace Amazon.Macie2.Model
         private BucketPublicAccess _publicAccess;
         private string _region;
         private ReplicationDetails _replicationDetails;
+        private BucketServerSideEncryption _serverSideEncryption;
         private SharedAccess _sharedAccess;
         private long? _sizeInBytes;
         private long? _sizeInBytesCompressed;
@@ -153,6 +154,12 @@ namespace Amazon.Macie2.Model
         /// the bucket. These objects use a supported storage class and have a file name extension
         /// for a supported file or storage format.
         /// </para>
+        ///  
+        /// <para>
+        /// If versioning is enabled for the bucket, Macie calculates this value based on the
+        /// size of the latest version of each applicable object in the bucket. This value doesn't
+        /// reflect the storage size of all versions of each applicable object in the bucket.
+        /// </para>
         /// </summary>
         public long ClassifiableSizeInBytes
         {
@@ -189,7 +196,7 @@ namespace Amazon.Macie2.Model
         /// Gets and sets the property LastUpdated. 
         /// <para>
         /// The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently
-        /// retrieved data about the bucket from Amazon S3.
+        /// retrieved both bucket and object metadata from Amazon S3 for the bucket.
         /// </para>
         /// </summary>
         public DateTime LastUpdated
@@ -245,9 +252,8 @@ namespace Amazon.Macie2.Model
         /// <summary>
         /// Gets and sets the property PublicAccess. 
         /// <para>
-        /// Specifies whether the bucket is publicly accessible. If this value is true, an access
-        /// control list (ACL), bucket policy, or block public access settings allow the bucket
-        /// to be accessed by the general public.
+        /// Specifies whether the bucket is publicly accessible due to the combination of permissions
+        /// settings that apply to the bucket, and provides information about those settings.
         /// </para>
         /// </summary>
         public BucketPublicAccess PublicAccess
@@ -300,6 +306,25 @@ namespace Amazon.Macie2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ServerSideEncryption. 
+        /// <para>
+        /// Specifies whether the bucket encrypts new objects by default and, if so, the type
+        /// of server-side encryption that's used.
+        /// </para>
+        /// </summary>
+        public BucketServerSideEncryption ServerSideEncryption
+        {
+            get { return this._serverSideEncryption; }
+            set { this._serverSideEncryption = value; }
+        }
+
+        // Check to see if ServerSideEncryption property is set
+        internal bool IsSetServerSideEncryption()
+        {
+            return this._serverSideEncryption != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property SharedAccess.  
         /// <para>
         /// Specifies whether the bucket is shared with another AWS account. Possible values are:
@@ -342,6 +367,12 @@ namespace Amazon.Macie2.Model
         /// <para>
         /// The total storage size, in bytes, of the bucket.
         /// </para>
+        ///  
+        /// <para>
+        /// If versioning is enabled for the bucket, Amazon Macie calculates this value based
+        /// on the size of the latest version of each object in the bucket. This value doesn't
+        /// reflect the storage size of all versions of each object in the bucket.
+        /// </para>
         /// </summary>
         public long SizeInBytes
         {
@@ -359,6 +390,12 @@ namespace Amazon.Macie2.Model
         /// Gets and sets the property SizeInBytesCompressed. 
         /// <para>
         /// The total compressed storage size, in bytes, of the bucket.
+        /// </para>
+        ///  
+        /// <para>
+        /// If versioning is enabled for the bucket, Macie calculates this value based on the
+        /// size of the latest version of each object in the bucket. This value doesn't reflect
+        /// the storage size of all versions of each object in the bucket.
         /// </para>
         /// </summary>
         public long SizeInBytesCompressed

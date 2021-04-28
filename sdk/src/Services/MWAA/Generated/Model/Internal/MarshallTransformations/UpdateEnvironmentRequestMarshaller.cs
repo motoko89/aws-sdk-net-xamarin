@@ -63,7 +63,6 @@ namespace Amazon.MWAA.Model.Internal.MarshallTransformations
                 throw new AmazonMWAAException("Request object does not have required field Name set");
             request.AddPathResource("{Name}", StringUtils.FromString(publicRequest.Name));
             request.ResourcePath = "/environments/{Name}";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -122,6 +121,12 @@ namespace Amazon.MWAA.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("MaxWorkers");
                     context.Writer.Write(publicRequest.MaxWorkers);
+                }
+
+                if(publicRequest.IsSetMinWorkers())
+                {
+                    context.Writer.WritePropertyName("MinWorkers");
+                    context.Writer.Write(publicRequest.MinWorkers);
                 }
 
                 if(publicRequest.IsSetNetworkConfiguration())

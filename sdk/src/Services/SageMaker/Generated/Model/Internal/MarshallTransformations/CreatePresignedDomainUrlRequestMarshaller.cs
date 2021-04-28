@@ -62,7 +62,6 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -72,6 +71,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("DomainId");
                     context.Writer.Write(publicRequest.DomainId);
+                }
+
+                if(publicRequest.IsSetExpiresInSeconds())
+                {
+                    context.Writer.WritePropertyName("ExpiresInSeconds");
+                    context.Writer.Write(publicRequest.ExpiresInSeconds);
                 }
 
                 if(publicRequest.IsSetSessionExpirationDurationInSeconds())

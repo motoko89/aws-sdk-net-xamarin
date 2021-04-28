@@ -70,6 +70,24 @@ namespace Amazon.IoTWireless.Model.Internal.MarshallTransformations
                     unmarshalledObject.AmazonId = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("DeviceCertificates", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<CertificateList, CertificateListUnmarshaller>(CertificateListUnmarshaller.Instance);
+                    unmarshalledObject.DeviceCertificates = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("SidewalkId", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.SidewalkId = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("SidewalkManufacturingSn", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.SidewalkManufacturingSn = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

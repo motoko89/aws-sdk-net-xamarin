@@ -43,7 +43,7 @@ namespace Amazon.Personalize.Model
         /// </para>
         ///  
         /// <para>
-        ///  <code>s3://bucket-name/training-data.csv</code> 
+        ///  <code>s3://bucket-name/folder-name/</code> 
         /// </para>
         /// </summary>
         [AWSProperty(Max=256)]

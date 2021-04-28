@@ -273,6 +273,11 @@
     <max>10</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.EC2.Model.DescribeReplaceRootVolumeTasksRequest.MaxResults</property>
+    <min>1</min>
+    <max>50</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.EC2.Model.DescribeRouteTablesRequest.MaxResults</property>
     <min>5</min>
     <max>100</max>
@@ -306,6 +311,11 @@
     <property>Amazon.EC2.Model.DescribeStaleSecurityGroupsRequest.NextToken</property>
     <min>1</min>
     <max>1024</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.EC2.Model.DescribeStoreImageTasksRequest.MaxResults</property>
+    <min>1</min>
+    <max>200</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.EC2.Model.DescribeSubnetsRequest.MaxResults</property>

@@ -30,7 +30,9 @@ namespace Amazon.EC2InstanceConnect.Model
 {
     /// <summary>
     /// Container for the parameters to the SendSSHPublicKey operation.
-    /// Pushes an SSH public key to a particular OS user on a given EC2 instance for 60 seconds.
+    /// Pushes an SSH public key to the specified EC2 instance for use by the specified user.
+    /// The key remains for 60 seconds. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.html">Connect
+    /// to your Linux instance using EC2 Instance Connect</a> in the <i>Amazon EC2 User Guide</i>.
     /// </summary>
     public partial class SendSSHPublicKeyRequest : AmazonEC2InstanceConnectRequest
     {
@@ -42,7 +44,7 @@ namespace Amazon.EC2InstanceConnect.Model
         /// <summary>
         /// Gets and sets the property AvailabilityZone. 
         /// <para>
-        /// The availability zone the EC2 instance was launched in.
+        /// The Availability Zone in which the EC2 instance was launched.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=6, Max=32)]
@@ -61,7 +63,7 @@ namespace Amazon.EC2InstanceConnect.Model
         /// <summary>
         /// Gets and sets the property InstanceId. 
         /// <para>
-        /// The EC2 instance you wish to publish the SSH key to.
+        /// The ID of the EC2 instance.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=10, Max=32)]
@@ -80,7 +82,7 @@ namespace Amazon.EC2InstanceConnect.Model
         /// <summary>
         /// Gets and sets the property InstanceOSUser. 
         /// <para>
-        /// The OS user on the EC2 instance whom the key may be used to authenticate as.
+        /// The OS user on the EC2 instance for whom the key can be used to authenticate.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=32)]
@@ -99,8 +101,8 @@ namespace Amazon.EC2InstanceConnect.Model
         /// <summary>
         /// Gets and sets the property SSHPublicKey. 
         /// <para>
-        /// The public key to be published to the instance. To use it after publication you must
-        /// have the matching private key.
+        /// The public key material. To use the public key, you must have the matching private
+        /// key.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=256, Max=4096)]

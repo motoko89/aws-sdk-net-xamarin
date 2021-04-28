@@ -60,7 +60,6 @@ namespace Amazon.Imagebuilder.Model.Internal.MarshallTransformations
             request.HttpMethod = "PUT";
 
             request.ResourcePath = "/CreateContainerRecipe";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -121,6 +120,17 @@ namespace Amazon.Imagebuilder.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("imageOsVersionOverride");
                     context.Writer.Write(publicRequest.ImageOsVersionOverride);
+                }
+
+                if(publicRequest.IsSetInstanceConfiguration())
+                {
+                    context.Writer.WritePropertyName("instanceConfiguration");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = InstanceConfigurationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.InstanceConfiguration, context);
+
+                    context.Writer.WriteObjectEnd();
                 }
 
                 if(publicRequest.IsSetKmsKeyId())

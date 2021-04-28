@@ -32,7 +32,7 @@ namespace Amazon.S3Control.Model
     /// Container for the parameters to the DescribeJob operation.
     /// Retrieves the configuration parameters and status for a Batch Operations job. For
     /// more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3
-    /// Batch Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
+    /// Batch Operations</a> in the <i>Amazon Simple Storage Service User Guide</i>.
     /// 
     ///   
     /// <para>
@@ -66,7 +66,10 @@ namespace Amazon.S3Control.Model
         private string _jobId;
 
         /// <summary>
-        /// Gets and sets the property AccountId.
+        /// Gets and sets the property AccountId. 
+        /// <para>
+        /// The AWS account ID associated with the S3 Batch Operations job.
+        /// </para>
         /// </summary>
         [AWSProperty(Required=true, Max=64)]
         public string AccountId

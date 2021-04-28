@@ -56,7 +56,7 @@ namespace Amazon.StorageGateway.Model
         /// <summary>
         /// Gets and sets the property StartTime. 
         /// <para>
-        /// The time the High Availability monitoring test was started. If a test hasn't been
+        /// The time the high availability monitoring test was started. If a test hasn't been
         /// performed, the value of this field is null.
         /// </para>
         /// </summary>
@@ -75,7 +75,7 @@ namespace Amazon.StorageGateway.Model
         /// <summary>
         /// Gets and sets the property Status. 
         /// <para>
-        /// The status of the High Availability monitoring test. If a test hasn't been performed,
+        /// The status of the high availability monitoring test. If a test hasn't been performed,
         /// the value of this field is null.
         /// </para>
         /// </summary>

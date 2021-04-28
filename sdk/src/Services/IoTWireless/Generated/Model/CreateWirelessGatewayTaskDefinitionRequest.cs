@@ -37,6 +37,7 @@ namespace Amazon.IoTWireless.Model
         private bool? _autoCreateTasks;
         private string _clientRequestToken;
         private string _name;
+        private List<Tag> _tags = new List<Tag>();
         private UpdateWirelessGatewayTaskCreate _update;
 
         /// <summary>
@@ -99,6 +100,26 @@ namespace Amazon.IoTWireless.Model
         internal bool IsSetName()
         {
             return this._name != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// The tags to attach to the specified resource. Tags are metadata that you can use to
+        /// manage a resource.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=200)]
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
         /// <summary>

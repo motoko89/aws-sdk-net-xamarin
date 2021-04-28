@@ -32,7 +32,7 @@ namespace Amazon.S3Control.Model
     /// Container for the parameters to the UpdateJobPriority operation.
     /// Updates an existing S3 Batch Operations job's priority. For more information, see
     /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3
-    /// Batch Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
+    /// Batch Operations</a> in the <i>Amazon Simple Storage Service User Guide</i>.
     /// 
     ///   
     /// <para>
@@ -67,7 +67,10 @@ namespace Amazon.S3Control.Model
         private int? _priority;
 
         /// <summary>
-        /// Gets and sets the property AccountId.
+        /// Gets and sets the property AccountId. 
+        /// <para>
+        /// The AWS account ID associated with the S3 Batch Operations job.
+        /// </para>
         /// </summary>
         [AWSProperty(Required=true, Max=64)]
         public string AccountId

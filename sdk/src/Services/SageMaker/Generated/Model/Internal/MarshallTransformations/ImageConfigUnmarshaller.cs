@@ -70,6 +70,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     unmarshalledObject.RepositoryAccessMode = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("RepositoryAuthConfig", targetDepth))
+                {
+                    var unmarshaller = RepositoryAuthConfigUnmarshaller.Instance;
+                    unmarshalledObject.RepositoryAuthConfig = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

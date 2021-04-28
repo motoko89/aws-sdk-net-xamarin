@@ -55,6 +55,25 @@ namespace Amazon.SageMaker.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
+        ///  <code>DTYPE</code>: Specifies the data type for the input. When compiling for <code>ml_*</code>
+        /// (except for <code>ml_inf</code>) instances using PyTorch framework, provide the data
+        /// type (dtype) of the model's input. <code>"float32"</code> is used if <code>"DTYPE"</code>
+        /// is not specified. Options for data type are:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// float32: Use either <code>"float"</code> or <code>"float32"</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// int64: Use either <code>"int64"</code> or <code>"long"</code>.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        ///  For example, <code>{"dtype" : "float32"}</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         ///  <code>CPU</code>: Compilation for CPU supports the following compiler options.
         /// </para>
         ///  <ul> <li> 
@@ -139,7 +158,33 @@ namespace Amazon.SageMaker.Model
         /// tar.gz file. For example, <code>{"class_labels": "imagenet_labels_1000.txt"}</code>.
         /// Labels inside the txt file should be separated by newlines.
         /// </para>
-        ///  </li> </ul> </li> </ul>
+        ///  </li> </ul> </li> <li> 
+        /// <para>
+        ///  <code>EIA</code>: Compilation for the Elastic Inference Accelerator supports the
+        /// following compiler options:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>precision_mode</code>: Specifies the precision of compiled artifacts. Supported
+        /// values are <code>"FP16"</code> and <code>"FP32"</code>. Default is <code>"FP32"</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>signature_def_key</code>: Specifies the signature to use for models in SavedModel
+        /// format. Defaults is TensorFlow's default signature def key.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>output_names</code>: Specifies a list of output tensor names for models in
+        /// FrozenGraph format. Set at most one API field, either: <code>signature_def_key</code>
+        /// or <code>output_names</code>.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For example: <code>{"precision_mode": "FP32", "output_names": ["output:0"]}</code>
+        /// 
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         [AWSProperty(Min=3, Max=1024)]
         public string CompilerOptions

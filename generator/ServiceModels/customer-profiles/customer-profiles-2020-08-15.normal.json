@@ -602,6 +602,48 @@
       "error":{"httpStatusCode":400},
       "exception":true
     },
+    "BucketName":{
+      "type":"string",
+      "max":63,
+      "min":3,
+      "pattern":"\\S+"
+    },
+    "BucketPrefix":{
+      "type":"string",
+      "max":512,
+      "pattern":".*"
+    },
+    "ConnectorOperator":{
+      "type":"structure",
+      "members":{
+        "Marketo":{
+          "shape":"MarketoConnectorOperator",
+          "documentation":"<p>The operation to be performed on the provided Marketo source fields.</p>"
+        },
+        "S3":{
+          "shape":"S3ConnectorOperator",
+          "documentation":"<p>The operation to be performed on the provided Amazon S3 source fields.</p>"
+        },
+        "Salesforce":{
+          "shape":"SalesforceConnectorOperator",
+          "documentation":"<p>The operation to be performed on the provided Salesforce source fields.</p>"
+        },
+        "ServiceNow":{
+          "shape":"ServiceNowConnectorOperator",
+          "documentation":"<p>The operation to be performed on the provided ServiceNow source fields.</p>"
+        },
+        "Zendesk":{
+          "shape":"ZendeskConnectorOperator",
+          "documentation":"<p>The operation to be performed on the provided Zendesk source fields.</p>"
+        }
+      },
+      "documentation":"<p>The operation to be performed on the provided source fields.</p>"
+    },
+    "ConnectorProfileName":{
+      "type":"string",
+      "max":256,
+      "pattern":"[\\w/!@#+=.-]+"
+    },
     "CreateDomainRequest":{
       "type":"structure",
       "required":[
@@ -777,6 +819,19 @@
           "documentation":"<p>The unique identifier of a customer profile.</p>"
         }
       }
+    },
+    "DataPullMode":{
+      "type":"string",
+      "enum":[
+        "Incremental",
+        "Complete"
+      ]
+    },
+    "Date":{"type":"timestamp"},
+    "DatetimeTypeFieldName":{
+      "type":"string",
+      "max":256,
+      "pattern":".*"
     },
     "DeleteDomainRequest":{
       "type":"structure",
@@ -964,6 +1019,11 @@
         }
       }
     },
+    "DestinationField":{
+      "type":"string",
+      "max":256,
+      "pattern":".*"
+    },
     "DomainList":{
       "type":"list",
       "member":{"shape":"ListDomainItem"}
@@ -1008,6 +1068,53 @@
     "FieldNameList":{
       "type":"list",
       "member":{"shape":"name"}
+    },
+    "FlowDefinition":{
+      "type":"structure",
+      "required":[
+        "FlowName",
+        "KmsArn",
+        "SourceFlowConfig",
+        "Tasks",
+        "TriggerConfig"
+      ],
+      "members":{
+        "Description":{
+          "shape":"FlowDescription",
+          "documentation":"<p>A description of the flow you want to create.</p>"
+        },
+        "FlowName":{
+          "shape":"FlowName",
+          "documentation":"<p>The specified name of the flow. Use underscores (_) or hyphens (-) only. Spaces are not allowed.</p>"
+        },
+        "KmsArn":{
+          "shape":"KmsArn",
+          "documentation":"<p>The Amazon Resource Name of the AWS Key Management Service (KMS) key you provide for encryption.</p>"
+        },
+        "SourceFlowConfig":{
+          "shape":"SourceFlowConfig",
+          "documentation":"<p>The configuration that controls how Customer Profiles retrieves data from the source.</p>"
+        },
+        "Tasks":{
+          "shape":"Tasks",
+          "documentation":"<p>A list of tasks that Customer Profiles performs while transferring the data in the flow run.</p>"
+        },
+        "TriggerConfig":{
+          "shape":"TriggerConfig",
+          "documentation":"<p>The trigger settings that determine how and when the flow runs.</p>"
+        }
+      },
+      "documentation":"<p>The configurations that control how Customer Profiles retrieves data from the source, Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf of customers.</p>"
+    },
+    "FlowDescription":{
+      "type":"string",
+      "max":2048,
+      "pattern":"[\\w!@#\\-.?,\\s]*"
+    },
+    "FlowName":{
+      "type":"string",
+      "max":256,
+      "pattern":"[a-zA-Z0-9][\\w!@#.-]+"
     },
     "Gender":{
       "type":"string",
@@ -1241,6 +1348,16 @@
         }
       }
     },
+    "IncrementalPullConfig":{
+      "type":"structure",
+      "members":{
+        "DatetimeTypeFieldName":{
+          "shape":"DatetimeTypeFieldName",
+          "documentation":"<p>A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.</p>"
+        }
+      },
+      "documentation":"<p>Specifies the configuration used when importing incremental records from the source.</p>"
+    },
     "IntegrationList":{
       "type":"list",
       "member":{"shape":"ListIntegrationItem"}
@@ -1259,6 +1376,12 @@
       "type":"map",
       "key":{"shape":"name"},
       "value":{"shape":"ObjectTypeKeyList"}
+    },
+    "KmsArn":{
+      "type":"string",
+      "max":2048,
+      "min":20,
+      "pattern":"arn:aws:kms:.*:[0-9]+:.*"
     },
     "ListAccountIntegrationsRequest":{
       "type":"structure",
@@ -1629,6 +1752,43 @@
         }
       }
     },
+    "MarketoConnectorOperator":{
+      "type":"string",
+      "enum":[
+        "PROJECTION",
+        "LESS_THAN",
+        "GREATER_THAN",
+        "BETWEEN",
+        "ADDITION",
+        "MULTIPLICATION",
+        "DIVISION",
+        "SUBTRACTION",
+        "MASK_ALL",
+        "MASK_FIRST_N",
+        "MASK_LAST_N",
+        "VALIDATE_NON_NULL",
+        "VALIDATE_NON_ZERO",
+        "VALIDATE_NON_NEGATIVE",
+        "VALIDATE_NUMERIC",
+        "NO_OP"
+      ]
+    },
+    "MarketoSourceProperties":{
+      "type":"structure",
+      "required":["Object"],
+      "members":{
+        "Object":{
+          "shape":"Object",
+          "documentation":"<p>The object specified in the Marketo flow source.</p>"
+        }
+      },
+      "documentation":"<p>The properties that are applied when Marketo is being used as a source.</p>"
+    },
+    "Object":{
+      "type":"string",
+      "max":512,
+      "pattern":"\\S+"
+    },
     "ObjectTypeField":{
       "type":"structure",
       "members":{
@@ -1664,6 +1824,25 @@
     "ObjectTypeKeyList":{
       "type":"list",
       "member":{"shape":"ObjectTypeKey"}
+    },
+    "OperatorPropertiesKeys":{
+      "type":"string",
+      "enum":[
+        "VALUE",
+        "VALUES",
+        "DATA_TYPE",
+        "UPPER_BOUND",
+        "LOWER_BOUND",
+        "SOURCE_DATA_TYPE",
+        "DESTINATION_DATA_TYPE",
+        "VALIDATION_ACTION",
+        "MASK_VALUE",
+        "MASK_LENGTH",
+        "TRUNCATE_LENGTH",
+        "MATH_OPERATION_FIELDS_ORDER",
+        "CONCAT_FORMAT",
+        "SUBFIELD_CATEGORY_MAP"
+      ]
     },
     "PartyType":{
       "type":"string",
@@ -1783,11 +1962,15 @@
       "type":"list",
       "member":{"shape":"ListProfileObjectTypeTemplateItem"}
     },
+    "Property":{
+      "type":"string",
+      "max":2048,
+      "pattern":".+"
+    },
     "PutIntegrationRequest":{
       "type":"structure",
       "required":[
         "DomainName",
-        "Uri",
         "ObjectTypeName"
       ],
       "members":{
@@ -1808,6 +1991,10 @@
         "Tags":{
           "shape":"TagMap",
           "documentation":"<p>The tags used to organize, track, or control access for this resource.</p>"
+        },
+        "FlowDefinition":{
+          "shape":"FlowDefinition",
+          "documentation":"<p>The configuration that controls how Customer Profiles retrieves data from the source.</p>"
         }
       }
     },
@@ -1996,6 +2183,137 @@
       "error":{"httpStatusCode":404},
       "exception":true
     },
+    "S3ConnectorOperator":{
+      "type":"string",
+      "enum":[
+        "PROJECTION",
+        "LESS_THAN",
+        "GREATER_THAN",
+        "BETWEEN",
+        "LESS_THAN_OR_EQUAL_TO",
+        "GREATER_THAN_OR_EQUAL_TO",
+        "EQUAL_TO",
+        "NOT_EQUAL_TO",
+        "ADDITION",
+        "MULTIPLICATION",
+        "DIVISION",
+        "SUBTRACTION",
+        "MASK_ALL",
+        "MASK_FIRST_N",
+        "MASK_LAST_N",
+        "VALIDATE_NON_NULL",
+        "VALIDATE_NON_ZERO",
+        "VALIDATE_NON_NEGATIVE",
+        "VALIDATE_NUMERIC",
+        "NO_OP"
+      ]
+    },
+    "S3SourceProperties":{
+      "type":"structure",
+      "required":["BucketName"],
+      "members":{
+        "BucketName":{
+          "shape":"BucketName",
+          "documentation":"<p>The Amazon S3 bucket name where the source files are stored.</p>"
+        },
+        "BucketPrefix":{
+          "shape":"BucketPrefix",
+          "documentation":"<p>The object key for the Amazon S3 bucket in which the source files are stored.</p>"
+        }
+      },
+      "documentation":"<p>The properties that are applied when Amazon S3 is being used as the flow source.</p>"
+    },
+    "SalesforceConnectorOperator":{
+      "type":"string",
+      "enum":[
+        "PROJECTION",
+        "LESS_THAN",
+        "CONTAINS",
+        "GREATER_THAN",
+        "BETWEEN",
+        "LESS_THAN_OR_EQUAL_TO",
+        "GREATER_THAN_OR_EQUAL_TO",
+        "EQUAL_TO",
+        "NOT_EQUAL_TO",
+        "ADDITION",
+        "MULTIPLICATION",
+        "DIVISION",
+        "SUBTRACTION",
+        "MASK_ALL",
+        "MASK_FIRST_N",
+        "MASK_LAST_N",
+        "VALIDATE_NON_NULL",
+        "VALIDATE_NON_ZERO",
+        "VALIDATE_NON_NEGATIVE",
+        "VALIDATE_NUMERIC",
+        "NO_OP"
+      ]
+    },
+    "SalesforceSourceProperties":{
+      "type":"structure",
+      "required":["Object"],
+      "members":{
+        "Object":{
+          "shape":"Object",
+          "documentation":"<p>The object specified in the Salesforce flow source.</p>"
+        },
+        "EnableDynamicFieldUpdate":{
+          "shape":"boolean",
+          "documentation":"<p>The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.</p>"
+        },
+        "IncludeDeletedRecords":{
+          "shape":"boolean",
+          "documentation":"<p>Indicates whether Amazon AppFlow includes deleted files in the flow run.</p>"
+        }
+      },
+      "documentation":"<p>The properties that are applied when Salesforce is being used as a source.</p>"
+    },
+    "ScheduleExpression":{
+      "type":"string",
+      "max":256,
+      "pattern":".*"
+    },
+    "ScheduleOffset":{
+      "type":"long",
+      "max":36000,
+      "min":0
+    },
+    "ScheduledTriggerProperties":{
+      "type":"structure",
+      "required":["ScheduleExpression"],
+      "members":{
+        "ScheduleExpression":{
+          "shape":"ScheduleExpression",
+          "documentation":"<p>The scheduling expression that determines the rate at which the schedule will run, for example rate (5 minutes).</p>"
+        },
+        "DataPullMode":{
+          "shape":"DataPullMode",
+          "documentation":"<p>Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.</p>"
+        },
+        "ScheduleStartTime":{
+          "shape":"Date",
+          "documentation":"<p>Specifies the scheduled start time for a scheduled-trigger flow.</p>"
+        },
+        "ScheduleEndTime":{
+          "shape":"Date",
+          "documentation":"<p>Specifies the scheduled end time for a scheduled-trigger flow.</p>"
+        },
+        "Timezone":{
+          "shape":"Timezone",
+          "documentation":"<p>Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.</p>"
+        },
+        "ScheduleOffset":{
+          "shape":"ScheduleOffset",
+          "documentation":"<p>Specifies the optional offset that is added to the time interval for a schedule-triggered flow.</p>",
+          "box":true
+        },
+        "FirstExecutionFrom":{
+          "shape":"Date",
+          "documentation":"<p>Specifies the date range for the records to import from the connector in the first flow run.</p>"
+        }
+      },
+      "documentation":"<p>Specifies the configuration details of a scheduled-trigger flow that you define. Currently, these settings only apply to the scheduled-trigger type.</p>"
+    },
     "SearchProfilesRequest":{
       "type":"structure",
       "required":[
@@ -2044,6 +2362,109 @@
           "documentation":"<p>The pagination token from the previous SearchProfiles API call.</p>"
         }
       }
+    },
+    "ServiceNowConnectorOperator":{
+      "type":"string",
+      "enum":[
+        "PROJECTION",
+        "CONTAINS",
+        "LESS_THAN",
+        "GREATER_THAN",
+        "BETWEEN",
+        "LESS_THAN_OR_EQUAL_TO",
+        "GREATER_THAN_OR_EQUAL_TO",
+        "EQUAL_TO",
+        "NOT_EQUAL_TO",
+        "ADDITION",
+        "MULTIPLICATION",
+        "DIVISION",
+        "SUBTRACTION",
+        "MASK_ALL",
+        "MASK_FIRST_N",
+        "MASK_LAST_N",
+        "VALIDATE_NON_NULL",
+        "VALIDATE_NON_ZERO",
+        "VALIDATE_NON_NEGATIVE",
+        "VALIDATE_NUMERIC",
+        "NO_OP"
+      ]
+    },
+    "ServiceNowSourceProperties":{
+      "type":"structure",
+      "required":["Object"],
+      "members":{
+        "Object":{
+          "shape":"Object",
+          "documentation":"<p>The object specified in the ServiceNow flow source.</p>"
+        }
+      },
+      "documentation":"<p>The properties that are applied when ServiceNow is being used as a source.</p>"
+    },
+    "SourceConnectorProperties":{
+      "type":"structure",
+      "members":{
+        "Marketo":{
+          "shape":"MarketoSourceProperties",
+          "documentation":"<p>The properties that are applied when Marketo is being used as a source.</p>"
+        },
+        "S3":{
+          "shape":"S3SourceProperties",
+          "documentation":"<p>The properties that are applied when Amazon S3 is being used as the flow source.</p>"
+        },
+        "Salesforce":{
+          "shape":"SalesforceSourceProperties",
+          "documentation":"<p>The properties that are applied when Salesforce is being used as a source.</p>"
+        },
+        "ServiceNow":{
+          "shape":"ServiceNowSourceProperties",
+          "documentation":"<p>The properties that are applied when ServiceNow is being used as a source.</p>"
+        },
+        "Zendesk":{
+          "shape":"ZendeskSourceProperties",
+          "documentation":"<p>The properties that are applied when using Zendesk as a flow source.</p>"
+        }
+      },
+      "documentation":"<p>Specifies the information that is required to query a particular Amazon AppFlow connector. Customer Profiles supports Salesforce, Zendesk, Marketo, ServiceNow and Amazon S3.</p>"
+    },
+    "SourceConnectorType":{
+      "type":"string",
+      "enum":[
+        "Salesforce",
+        "Marketo",
+        "Zendesk",
+        "Servicenow",
+        "S3"
+      ]
+    },
+    "SourceFields":{
+      "type":"list",
+      "member":{"shape":"stringTo2048"}
+    },
+    "SourceFlowConfig":{
+      "type":"structure",
+      "required":[
+        "ConnectorType",
+        "SourceConnectorProperties"
+      ],
+      "members":{
+        "ConnectorProfileName":{
+          "shape":"ConnectorProfileName",
+          "documentation":"<p>The name of the AppFlow connector profile. This name must be unique for each connector profile in the AWS account.</p>"
+        },
+        "ConnectorType":{
+          "shape":"SourceConnectorType",
+          "documentation":"<p>The type of connector, such as Salesforce, Marketo, and so on.</p>"
+        },
+        "IncrementalPullConfig":{
+          "shape":"IncrementalPullConfig",
+          "documentation":"<p>Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.</p>"
+        },
+        "SourceConnectorProperties":{
+          "shape":"SourceConnectorProperties",
+          "documentation":"<p>Specifies the information that is required to query a particular source connector.</p>"
+        }
+      },
+      "documentation":"<p>Contains information about the configuration of the source connector used in the flow.</p>"
     },
     "StandardIdentifier":{
       "type":"string",
@@ -2111,6 +2532,57 @@
       "type":"string",
       "max":256
     },
+    "Task":{
+      "type":"structure",
+      "required":[
+        "SourceFields",
+        "TaskType"
+      ],
+      "members":{
+        "ConnectorOperator":{
+          "shape":"ConnectorOperator",
+          "documentation":"<p>The operation to be performed on the provided source fields.</p>"
+        },
+        "DestinationField":{
+          "shape":"DestinationField",
+          "documentation":"<p>A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.</p>"
+        },
+        "SourceFields":{
+          "shape":"SourceFields",
+          "documentation":"<p>The source fields to which a particular task is applied.</p>"
+        },
+        "TaskProperties":{
+          "shape":"TaskPropertiesMap",
+          "documentation":"<p>A map used to store task-related information. The service looks for particular information based on the TaskType.</p>"
+        },
+        "TaskType":{
+          "shape":"TaskType",
+          "documentation":"<p>Specifies the particular task implementation that Amazon AppFlow performs.</p>"
+        }
+      },
+      "documentation":"<p>A class for modeling different type of tasks. Task implementation varies based on the TaskType.</p>"
+    },
+    "TaskPropertiesMap":{
+      "type":"map",
+      "key":{"shape":"OperatorPropertiesKeys"},
+      "value":{"shape":"Property"}
+    },
+    "TaskType":{
+      "type":"string",
+      "enum":[
+        "Arithmetic",
+        "Filter",
+        "Map",
+        "Mask",
+        "Merge",
+        "Truncate",
+        "Validate"
+      ]
+    },
+    "Tasks":{
+      "type":"list",
+      "member":{"shape":"Task"}
+    },
     "ThrottlingException":{
       "type":"structure",
       "members":{
@@ -2119,6 +2591,44 @@
       "documentation":"<p>You exceeded the maximum number of requests.</p>",
       "error":{"httpStatusCode":429},
       "exception":true
+    },
+    "Timezone":{
+      "type":"string",
+      "max":256,
+      "pattern":".*"
+    },
+    "TriggerConfig":{
+      "type":"structure",
+      "required":["TriggerType"],
+      "members":{
+        "TriggerType":{
+          "shape":"TriggerType",
+          "documentation":"<p>Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.</p>"
+        },
+        "TriggerProperties":{
+          "shape":"TriggerProperties",
+          "documentation":"<p>Specifies the configuration details of a schedule-triggered flow that you define. Currently, these settings only apply to the Scheduled trigger type.</p>"
+        }
+      },
+      "documentation":"<p>The trigger settings that determine how and when Amazon AppFlow runs the specified flow.</p>"
+    },
+    "TriggerProperties":{
+      "type":"structure",
+      "members":{
+        "Scheduled":{
+          "shape":"ScheduledTriggerProperties",
+          "documentation":"<p>Specifies the configuration details of a schedule-triggered flow that you define.</p>"
+        }
+      },
+      "documentation":"<p>Specifies the configuration details that control the trigger for a flow. Currently, these settings only apply to the Scheduled trigger type.</p>"
+    },
+    "TriggerType":{
+      "type":"string",
+      "enum":[
+        "Scheduled",
+        "Event",
+        "OnDemand"
+      ]
     },
     "UntagResourceRequest":{
       "type":"structure",
@@ -2376,6 +2886,36 @@
         }
       }
     },
+    "ZendeskConnectorOperator":{
+      "type":"string",
+      "enum":[
+        "PROJECTION",
+        "GREATER_THAN",
+        "ADDITION",
+        "MULTIPLICATION",
+        "DIVISION",
+        "SUBTRACTION",
+        "MASK_ALL",
+        "MASK_FIRST_N",
+        "MASK_LAST_N",
+        "VALIDATE_NON_NULL",
+        "VALIDATE_NON_ZERO",
+        "VALIDATE_NON_NEGATIVE",
+        "VALIDATE_NUMERIC",
+        "NO_OP"
+      ]
+    },
+    "ZendeskSourceProperties":{
+      "type":"structure",
+      "required":["Object"],
+      "members":{
+        "Object":{
+          "shape":"Object",
+          "documentation":"<p>The object specified in the Zendesk flow source.</p>"
+        }
+      },
+      "documentation":"<p>The properties that are applied when using Zendesk as a flow source.</p>"
+    },
     "boolean":{"type":"boolean"},
     "encryptionKey":{
       "type":"string",
@@ -2423,6 +2963,11 @@
       "max":255,
       "min":1
     },
+    "stringTo2048":{
+      "type":"string",
+      "max":2048,
+      "pattern":".*"
+    },
     "stringifiedJson":{
       "type":"string",
       "max":256000,
@@ -2450,5 +2995,5 @@
       "pattern":"[a-f0-9]{32}"
     }
   },
-  "documentation":"<fullname>Amazon Connect Customer Profiles</fullname> <p>Welcome to the Amazon Connect Customer Profiles API Reference. This guide provides information about the Amazon Connect Customer Profiles API, including supported operations, data types, parameters, and schemas.</p> <p>Amazon Connect Customer Profiles is a unified customer profile for your contact center that has pre-built connectors powered by AppFlow that make it easy to combine customer information from third party applications, such as Salesforce (CRM), ServiceNow (ITSM), and your enterprise resource planning (ERP), with contact history from your Amazon Connect contact center.</p> <p>If you're new to Amazon Connect, you might find it helpful to also review the <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html\">Amazon Connect Administrator Guide</a>.</p>"
+  "documentation":"<fullname>Amazon Connect Customer Profiles</fullname> <p>Welcome to the Amazon Connect Customer Profiles API Reference. This guide provides information about the Amazon Connect Customer Profiles API, including supported operations, data types, parameters, and schemas.</p> <p>Amazon Connect Customer Profiles is a unified customer profile for your contact center that has pre-built connectors powered by AppFlow that make it easy to combine customer information from third party applications, such as Salesforce (CRM), ServiceNow (ITSM), and your enterprise resource planning (ERP), with contact history from your Amazon Connect contact center.</p> <p>If you're new to Amazon Connect , you might find it helpful to also review the <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html\">Amazon Connect Administrator Guide</a>.</p>"
 }

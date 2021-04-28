@@ -30,7 +30,7 @@ namespace Amazon.SageMaker.Model
 {
     /// <summary>
     /// Container for the parameters to the DescribeAutoMLJob operation.
-    /// Returns information about an Amazon SageMaker job.
+    /// Returns information about an Amazon SageMaker AutoML job.
     /// </summary>
     public partial class DescribeAutoMLJobRequest : AmazonSageMakerRequest
     {
@@ -39,7 +39,7 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property AutoMLJobName. 
         /// <para>
-        /// Request information about a job using that job's unique name.
+        /// Requests information about an AutoML job using its unique name.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=32)]

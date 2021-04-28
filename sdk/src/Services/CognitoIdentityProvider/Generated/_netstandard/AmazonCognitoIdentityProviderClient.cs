@@ -48,12 +48,10 @@ namespace Amazon.CognitoIdentityProvider
     /// </para>
     ///  
     /// <para>
-    /// For more information, see the Amazon Cognito Documentation.
+    /// For more information, see the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html">Amazon
+    /// Cognito Documentation</a>.
     /// </para>
     /// </summary>
-#if NETSTANDARD13
-    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
-#endif
     public partial class AmazonCognitoIdentityProviderClient : AmazonServiceClient, IAmazonCognitoIdentityProvider
     {
         private static IServiceMetadata serviceMetadata = new AmazonCognitoIdentityProviderMetadata();
@@ -2948,7 +2946,7 @@ namespace Amazon.CognitoIdentityProvider
 
 
         /// <summary>
-        /// Deletes a group. Currently only groups with no members can be deleted.
+        /// Deletes a group.
         /// 
         ///  
         /// <para>

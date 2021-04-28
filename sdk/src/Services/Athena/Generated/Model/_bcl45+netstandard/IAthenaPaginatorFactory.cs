@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -47,6 +46,11 @@ namespace Amazon.Athena.Model
         IListNamedQueriesPaginator ListNamedQueries(ListNamedQueriesRequest request);
 
         /// <summary>
+        /// Paginator for ListPreparedStatements operation
+        ///</summary>
+        IListPreparedStatementsPaginator ListPreparedStatements(ListPreparedStatementsRequest request);
+
+        /// <summary>
         /// Paginator for ListQueryExecutions operation
         ///</summary>
         IListQueryExecutionsPaginator ListQueryExecutions(ListQueryExecutionsRequest request);
@@ -67,4 +71,3 @@ namespace Amazon.Athena.Model
         IListWorkGroupsPaginator ListWorkGroups(ListWorkGroupsRequest request);
     }
 }
-#endif

@@ -29,8 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.EC2InstanceConnect.Model
 {
     /// <summary>
-    /// Indicates that you provided bad input. Ensure you have a valid instance ID, the correct
-    /// zone, and a valid SSH public key.
+    /// One of the parameters is not valid.
     /// </summary>
     #if !NETSTANDARD
     [Serializable]

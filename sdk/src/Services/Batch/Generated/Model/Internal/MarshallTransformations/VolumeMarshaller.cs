@@ -45,6 +45,17 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(Volume requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetEfsVolumeConfiguration())
+            {
+                context.Writer.WritePropertyName("efsVolumeConfiguration");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = EFSVolumeConfigurationMarshaller.Instance;
+                marshaller.Marshall(requestObject.EfsVolumeConfiguration, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetHost())
             {
                 context.Writer.WritePropertyName("host");

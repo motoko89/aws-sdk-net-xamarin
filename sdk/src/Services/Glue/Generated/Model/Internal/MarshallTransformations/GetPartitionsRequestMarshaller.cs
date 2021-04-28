@@ -62,7 +62,6 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -78,6 +77,12 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("DatabaseName");
                     context.Writer.Write(publicRequest.DatabaseName);
+                }
+
+                if(publicRequest.IsSetExcludeColumnSchema())
+                {
+                    context.Writer.WritePropertyName("ExcludeColumnSchema");
+                    context.Writer.Write(publicRequest.ExcludeColumnSchema);
                 }
 
                 if(publicRequest.IsSetExpression())

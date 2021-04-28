@@ -54,10 +54,23 @@ namespace Amazon.Redshift.Model.Internal.MarshallTransformations
             {
                 if (context.IsStartElement || context.IsAttribute)
                 {
+                    if (context.TestExpression("NetworkInterfaces/NetworkInterface", targetDepth))
+                    {
+                        var unmarshaller = NetworkInterfaceUnmarshaller.Instance;
+                        var item = unmarshaller.Unmarshall(context);
+                        unmarshalledObject.NetworkInterfaces.Add(item);
+                        continue;
+                    }
                     if (context.TestExpression("VpcEndpointId", targetDepth))
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
                         unmarshalledObject.VpcEndpointId = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("VpcId", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.VpcId = unmarshaller.Unmarshall(context);
                         continue;
                     }
                 }

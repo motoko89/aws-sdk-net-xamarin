@@ -45,6 +45,17 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(Input requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetDatabaseInputDefinition())
+            {
+                context.Writer.WritePropertyName("DatabaseInputDefinition");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = DatabaseInputDefinitionMarshaller.Instance;
+                marshaller.Marshall(requestObject.DatabaseInputDefinition, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetDataCatalogInputDefinition())
             {
                 context.Writer.WritePropertyName("DataCatalogInputDefinition");

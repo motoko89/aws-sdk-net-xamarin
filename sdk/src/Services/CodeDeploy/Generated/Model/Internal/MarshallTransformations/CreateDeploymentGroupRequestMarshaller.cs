@@ -62,7 +62,6 @@ namespace Amazon.CodeDeploy.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -220,6 +219,12 @@ namespace Amazon.CodeDeploy.Model.Internal.MarshallTransformations
                     marshaller.Marshall(publicRequest.OnPremisesTagSet, context);
 
                     context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetOutdatedInstancesStrategy())
+                {
+                    context.Writer.WritePropertyName("outdatedInstancesStrategy");
+                    context.Writer.Write(publicRequest.OutdatedInstancesStrategy);
                 }
 
                 if(publicRequest.IsSetServiceRoleArn())

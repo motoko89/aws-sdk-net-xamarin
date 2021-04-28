@@ -76,6 +76,12 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
                     unmarshalledObject.MetadataValue = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("OtherMetadataValueList", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<OtherMetadataValueListItem, OtherMetadataValueListItemUnmarshaller>(OtherMetadataValueListItemUnmarshaller.Instance);
+                    unmarshalledObject.OtherMetadataValueList = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

@@ -70,10 +70,28 @@ namespace Amazon.WAFV2.Model.Internal.MarshallTransformations
                     unmarshalledObject.Action = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("Labels", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<Label, LabelUnmarshaller>(LabelUnmarshaller.Instance);
+                    unmarshalledObject.Labels = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Request", targetDepth))
                 {
                     var unmarshaller = HTTPRequestUnmarshaller.Instance;
                     unmarshalledObject.Request = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("RequestHeadersInserted", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<HTTPHeader, HTTPHeaderUnmarshaller>(HTTPHeaderUnmarshaller.Instance);
+                    unmarshalledObject.RequestHeadersInserted = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("ResponseCodeSent", targetDepth))
+                {
+                    var unmarshaller = IntUnmarshaller.Instance;
+                    unmarshalledObject.ResponseCodeSent = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("RuleNameWithinRuleGroup", targetDepth))

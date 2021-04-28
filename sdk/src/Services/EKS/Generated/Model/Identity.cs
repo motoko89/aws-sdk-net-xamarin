@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.EKS.Model
 {
     /// <summary>
-    /// An object representing an identity provider for authentication credentials.
+    /// An object representing an identity provider.
     /// </summary>
     public partial class Identity
     {
@@ -38,8 +38,8 @@ namespace Amazon.EKS.Model
         /// <summary>
         /// Gets and sets the property Oidc. 
         /// <para>
-        /// The <a href="https://openid.net/connect/">OpenID Connect</a> identity provider information
-        /// for the cluster.
+        /// An object representing the <a href="https://openid.net/connect/">OpenID Connect</a>
+        /// identity provider information.
         /// </para>
         /// </summary>
         public OIDC Oidc

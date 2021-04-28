@@ -34,13 +34,18 @@ namespace Amazon.IdentityManagement.Model
     /// 
     ///  
     /// <para>
-    /// You use this API to attach a managed policy to a group. To embed an inline policy
+    /// You use this operation to attach a managed policy to a group. To embed an inline policy
     /// in a group, use <a>PutGroupPolicy</a>.
     /// </para>
     ///  
     /// <para>
+    /// As a best practice, you can validate your IAM policies. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html">Validating
+    /// IAM policies</a> in the <i>IAM User Guide</i>.
+    /// </para>
+    ///  
+    /// <para>
     /// For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
+    /// policies and inline policies</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     public partial class AttachGroupPolicyRequest : AmazonIdentityManagementServiceRequest
@@ -81,7 +86,7 @@ namespace Amazon.IdentityManagement.Model
         ///  
         /// <para>
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.
+        /// Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=20, Max=2048)]

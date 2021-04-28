@@ -62,7 +62,6 @@ namespace Amazon.RedshiftDataAPIService.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -72,6 +71,12 @@ namespace Amazon.RedshiftDataAPIService.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("ClusterIdentifier");
                     context.Writer.Write(publicRequest.ClusterIdentifier);
+                }
+
+                if(publicRequest.IsSetConnectedDatabase())
+                {
+                    context.Writer.WritePropertyName("ConnectedDatabase");
+                    context.Writer.Write(publicRequest.ConnectedDatabase);
                 }
 
                 if(publicRequest.IsSetDatabase())

@@ -62,7 +62,6 @@ namespace Amazon.CodeBuild.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -123,6 +122,12 @@ namespace Amazon.CodeBuild.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("computeTypeOverride");
                     context.Writer.Write(publicRequest.ComputeTypeOverride);
+                }
+
+                if(publicRequest.IsSetDebugSessionEnabled())
+                {
+                    context.Writer.WritePropertyName("debugSessionEnabled");
+                    context.Writer.Write(publicRequest.DebugSessionEnabled);
                 }
 
                 if(publicRequest.IsSetEncryptionKeyOverride())

@@ -60,9 +60,6 @@ namespace Amazon.CloudTrail
     /// AWS API call listed in the log files.
     /// </para>
     /// </summary>
-#if NETSTANDARD13
-    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
-#endif
     public partial interface IAmazonCloudTrail : IAmazonService, IDisposable
     {
 #if AWS_ASYNC_ENUMERABLES_API
@@ -321,6 +318,12 @@ namespace Amazon.CloudTrail
         /// </param>
         /// 
         /// <returns>The response from the DeleteTrail service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.ConflictException">
+        /// This exception is thrown when the specified resource is not ready for an operation.
+        /// This can occur when you try to run an operation on a trail before CloudTrail has time
+        /// to fully load the trail. If this exception occurs, wait a few minutes, and then try
+        /// the operation again.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientDependencyServiceAccessPermissionException">
         /// This exception is thrown when the IAM user or role that is used to create the organization
         /// trail is lacking one or more required permissions for creating an organization trail
@@ -1208,6 +1211,10 @@ namespace Amazon.CloudTrail
         /// </para>
         ///  </li> </ul>
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.KmsException">
+        /// This exception is thrown when there is an issue with the specified KMS key and the
+        /// trail can’t be updated.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the AWS account making the request to create or update
         /// an organization trail is not the master account for an organization in AWS Organizations.
@@ -1216,6 +1223,9 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.S3BucketDoesNotExistException">
+        /// This exception is thrown when the specified S3 bucket does not exist.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.TrailNotFoundException">
         /// This exception is thrown when the trail with the given name is not found.

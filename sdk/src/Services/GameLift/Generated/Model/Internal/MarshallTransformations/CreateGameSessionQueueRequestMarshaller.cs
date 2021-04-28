@@ -62,12 +62,17 @@ namespace Amazon.GameLift.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetCustomEventData())
+                {
+                    context.Writer.WritePropertyName("CustomEventData");
+                    context.Writer.Write(publicRequest.CustomEventData);
+                }
+
                 if(publicRequest.IsSetDestinations())
                 {
                     context.Writer.WritePropertyName("Destinations");
@@ -84,10 +89,27 @@ namespace Amazon.GameLift.Model.Internal.MarshallTransformations
                     context.Writer.WriteArrayEnd();
                 }
 
+                if(publicRequest.IsSetFilterConfiguration())
+                {
+                    context.Writer.WritePropertyName("FilterConfiguration");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = FilterConfigurationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.FilterConfiguration, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetName())
                 {
                     context.Writer.WritePropertyName("Name");
                     context.Writer.Write(publicRequest.Name);
+                }
+
+                if(publicRequest.IsSetNotificationTarget())
+                {
+                    context.Writer.WritePropertyName("NotificationTarget");
+                    context.Writer.Write(publicRequest.NotificationTarget);
                 }
 
                 if(publicRequest.IsSetPlayerLatencyPolicies())
@@ -104,6 +126,17 @@ namespace Amazon.GameLift.Model.Internal.MarshallTransformations
                         context.Writer.WriteObjectEnd();
                     }
                     context.Writer.WriteArrayEnd();
+                }
+
+                if(publicRequest.IsSetPriorityConfiguration())
+                {
+                    context.Writer.WritePropertyName("PriorityConfiguration");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = PriorityConfigurationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.PriorityConfiguration, context);
+
+                    context.Writer.WriteObjectEnd();
                 }
 
                 if(publicRequest.IsSetTags())

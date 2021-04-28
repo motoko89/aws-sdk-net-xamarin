@@ -62,12 +62,27 @@ namespace Amazon.SecretsManager.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetAddReplicaRegions())
+                {
+                    context.Writer.WritePropertyName("AddReplicaRegions");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestAddReplicaRegionsListValue in publicRequest.AddReplicaRegions)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = ReplicaRegionTypeMarshaller.Instance;
+                        marshaller.Marshall(publicRequestAddReplicaRegionsListValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteArrayEnd();
+                }
+
                 if(publicRequest.IsSetClientRequestToken())
                 {
                     context.Writer.WritePropertyName("ClientRequestToken");
@@ -83,6 +98,12 @@ namespace Amazon.SecretsManager.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("Description");
                     context.Writer.Write(publicRequest.Description);
+                }
+
+                if(publicRequest.IsSetForceOverwriteReplicaSecret())
+                {
+                    context.Writer.WritePropertyName("ForceOverwriteReplicaSecret");
+                    context.Writer.Write(publicRequest.ForceOverwriteReplicaSecret);
                 }
 
                 if(publicRequest.IsSetKmsKeyId())

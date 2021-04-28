@@ -62,7 +62,6 @@ namespace Amazon.CostExplorer.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -72,6 +71,12 @@ namespace Amazon.CostExplorer.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("CostCategoryArn");
                     context.Writer.Write(publicRequest.CostCategoryArn);
+                }
+
+                if(publicRequest.IsSetDefaultValue())
+                {
+                    context.Writer.WritePropertyName("DefaultValue");
+                    context.Writer.Write(publicRequest.DefaultValue);
                 }
 
                 if(publicRequest.IsSetRules())

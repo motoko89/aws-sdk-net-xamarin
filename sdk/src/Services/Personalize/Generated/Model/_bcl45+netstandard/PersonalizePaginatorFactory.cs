@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -53,6 +52,14 @@ namespace Amazon.Personalize.Model
         }
 
         /// <summary>
+        /// Paginator for ListDatasetExportJobs operation
+        ///</summary>
+        public IListDatasetExportJobsPaginator ListDatasetExportJobs(ListDatasetExportJobsRequest request) 
+        {
+            return new ListDatasetExportJobsPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for ListDatasetGroups operation
         ///</summary>
         public IListDatasetGroupsPaginator ListDatasetGroups(ListDatasetGroupsRequest request) 
@@ -82,6 +89,14 @@ namespace Amazon.Personalize.Model
         public IListEventTrackersPaginator ListEventTrackers(ListEventTrackersRequest request) 
         {
             return new ListEventTrackersPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListFilters operation
+        ///</summary>
+        public IListFiltersPaginator ListFilters(ListFiltersRequest request) 
+        {
+            return new ListFiltersPaginator(this.client, request);
         }
 
         /// <summary>
@@ -117,4 +132,3 @@ namespace Amazon.Personalize.Model
         }
     }
 }
-#endif

@@ -565,8 +565,6 @@ namespace Amazon.AutoScaling
 
         /// <summary>
         /// Creates or updates one or more scheduled scaling actions for an Auto Scaling group.
-        /// If you leave a parameter unspecified when updating a scheduled scaling action, the
-        /// corresponding value remains unchanged.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchPutScheduledUpdateGroupAction service method.</param>
         /// 
@@ -640,7 +638,8 @@ namespace Amazon.AutoScaling
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing
-        /// Auto Scaling Instances Based on an Instance Refresh</a>.
+        /// Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto
+        /// Scaling User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CancelInstanceRefresh service method.</param>
@@ -1529,6 +1528,76 @@ namespace Amazon.AutoScaling
 
         #endregion
         
+        #region  DeleteWarmPool
+
+        /// <summary>
+        /// Deletes the warm pool for the specified Auto Scaling group.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteWarmPool service method.</param>
+        /// 
+        /// <returns>The response from the DeleteWarmPool service method, as returned by AutoScaling.</returns>
+        /// <exception cref="Amazon.AutoScaling.Model.LimitExceededException">
+        /// You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example,
+        /// Auto Scaling groups, launch configurations, or lifecycle hooks). For more information,
+        /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a>
+        /// in the <i>Amazon EC2 Auto Scaling API Reference</i>.
+        /// </exception>
+        /// <exception cref="Amazon.AutoScaling.Model.ResourceContentionException">
+        /// You already have a pending update to an Amazon EC2 Auto Scaling resource (for example,
+        /// an Auto Scaling group, instance, or load balancer).
+        /// </exception>
+        /// <exception cref="Amazon.AutoScaling.Model.ResourceInUseException">
+        /// The operation can't be performed because the resource is in use.
+        /// </exception>
+        /// <exception cref="Amazon.AutoScaling.Model.ScalingActivityInProgressException">
+        /// The operation can't be performed because there are scaling activities in progress.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/DeleteWarmPool">REST API Reference for DeleteWarmPool Operation</seealso>
+        public virtual DeleteWarmPoolResponse DeleteWarmPool(DeleteWarmPoolRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteWarmPoolRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteWarmPoolResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteWarmPoolResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteWarmPool operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteWarmPool operation on AmazonAutoScalingClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteWarmPool
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/DeleteWarmPool">REST API Reference for DeleteWarmPool Operation</seealso>
+        public virtual IAsyncResult BeginDeleteWarmPool(DeleteWarmPoolRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteWarmPoolRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteWarmPoolResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteWarmPool operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteWarmPool.</param>
+        /// 
+        /// <returns>Returns a  DeleteWarmPoolResult from AutoScaling.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/DeleteWarmPool">REST API Reference for DeleteWarmPool Operation</seealso>
+        public virtual DeleteWarmPoolResponse EndDeleteWarmPool(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DeleteWarmPoolResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  DescribeAccountLimits
 
         /// <summary>
@@ -1998,7 +2067,8 @@ namespace Amazon.AutoScaling
         ///  </li> </ul> 
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing
-        /// Auto Scaling Instances Based on an Instance Refresh</a>.
+        /// Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto
+        /// Scaling User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceRefreshes service method.</param>
@@ -2642,6 +2712,16 @@ namespace Amazon.AutoScaling
 
         /// <summary>
         /// Describes one or more scaling activities for the specified Auto Scaling group.
+        /// 
+        ///  
+        /// <para>
+        /// To view the scaling activities from the Amazon EC2 Auto Scaling console, choose the
+        /// <b>Activity</b> tab of the Auto Scaling group. When scaling events occur, you see
+        /// scaling activity messages in the <b>Activity history</b>. For more information, see
+        /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying
+        /// a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling
+        /// User Guide</i>.
+        /// </para>
         /// </summary>
         /// 
         /// <returns>The response from the DescribeScalingActivities service method, as returned by AutoScaling.</returns>
@@ -2660,6 +2740,16 @@ namespace Amazon.AutoScaling
 
         /// <summary>
         /// Describes one or more scaling activities for the specified Auto Scaling group.
+        /// 
+        ///  
+        /// <para>
+        /// To view the scaling activities from the Amazon EC2 Auto Scaling console, choose the
+        /// <b>Activity</b> tab of the Auto Scaling group. When scaling events occur, you see
+        /// scaling activity messages in the <b>Activity history</b>. For more information, see
+        /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying
+        /// a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling
+        /// User Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeScalingActivities service method.</param>
         /// 
@@ -3073,6 +3163,73 @@ namespace Amazon.AutoScaling
         public virtual DescribeTerminationPolicyTypesResponse EndDescribeTerminationPolicyTypes(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeTerminationPolicyTypesResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  DescribeWarmPool
+
+        /// <summary>
+        /// Describes a warm pool and its instances.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeWarmPool service method.</param>
+        /// 
+        /// <returns>The response from the DescribeWarmPool service method, as returned by AutoScaling.</returns>
+        /// <exception cref="Amazon.AutoScaling.Model.InvalidNextTokenException">
+        /// The <code>NextToken</code> value is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.AutoScaling.Model.LimitExceededException">
+        /// You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example,
+        /// Auto Scaling groups, launch configurations, or lifecycle hooks). For more information,
+        /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a>
+        /// in the <i>Amazon EC2 Auto Scaling API Reference</i>.
+        /// </exception>
+        /// <exception cref="Amazon.AutoScaling.Model.ResourceContentionException">
+        /// You already have a pending update to an Amazon EC2 Auto Scaling resource (for example,
+        /// an Auto Scaling group, instance, or load balancer).
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/DescribeWarmPool">REST API Reference for DescribeWarmPool Operation</seealso>
+        public virtual DescribeWarmPoolResponse DescribeWarmPool(DescribeWarmPoolRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeWarmPoolRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeWarmPoolResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeWarmPoolResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeWarmPool operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeWarmPool operation on AmazonAutoScalingClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeWarmPool
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/DescribeWarmPool">REST API Reference for DescribeWarmPool Operation</seealso>
+        public virtual IAsyncResult BeginDescribeWarmPool(DescribeWarmPoolRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeWarmPoolRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeWarmPoolResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeWarmPool operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeWarmPool.</param>
+        /// 
+        /// <returns>Returns a  DescribeWarmPoolResult from AutoScaling.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/DescribeWarmPool">REST API Reference for DescribeWarmPool Operation</seealso>
+        public virtual DescribeWarmPoolResponse EndDescribeWarmPool(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DescribeWarmPoolResponse>(asyncResult);
         }
 
         #endregion
@@ -3896,9 +4053,7 @@ namespace Amazon.AutoScaling
         #region  PutScheduledUpdateGroupAction
 
         /// <summary>
-        /// Creates or updates a scheduled scaling action for an Auto Scaling group. If you leave
-        /// a parameter unspecified when updating a scheduled scaling action, the corresponding
-        /// value remains unchanged.
+        /// Creates or updates a scheduled scaling action for an Auto Scaling group.
         /// 
         ///  
         /// <para>
@@ -3968,6 +4123,87 @@ namespace Amazon.AutoScaling
 
         #endregion
         
+        #region  PutWarmPool
+
+        /// <summary>
+        /// Adds a warm pool to the specified Auto Scaling group. A warm pool is a pool of pre-initialized
+        /// EC2 instances that sits alongside the Auto Scaling group. Whenever your application
+        /// needs to scale out, the Auto Scaling group can draw on the warm pool to meet its new
+        /// desired capacity. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm
+        /// pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// This operation must be called from the Region in which the Auto Scaling group was
+        /// created. This operation cannot be called on an Auto Scaling group that has a mixed
+        /// instances policy or a launch template or launch configuration that requests Spot Instances.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can view the instances in the warm pool using the <a>DescribeWarmPool</a> API
+        /// call. If you are no longer using a warm pool, you can delete it by calling the <a>DeleteWarmPool</a>
+        /// API.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the PutWarmPool service method.</param>
+        /// 
+        /// <returns>The response from the PutWarmPool service method, as returned by AutoScaling.</returns>
+        /// <exception cref="Amazon.AutoScaling.Model.LimitExceededException">
+        /// You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example,
+        /// Auto Scaling groups, launch configurations, or lifecycle hooks). For more information,
+        /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a>
+        /// in the <i>Amazon EC2 Auto Scaling API Reference</i>.
+        /// </exception>
+        /// <exception cref="Amazon.AutoScaling.Model.ResourceContentionException">
+        /// You already have a pending update to an Amazon EC2 Auto Scaling resource (for example,
+        /// an Auto Scaling group, instance, or load balancer).
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/PutWarmPool">REST API Reference for PutWarmPool Operation</seealso>
+        public virtual PutWarmPoolResponse PutWarmPool(PutWarmPoolRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutWarmPoolRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutWarmPoolResponseUnmarshaller.Instance;
+
+            return Invoke<PutWarmPoolResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the PutWarmPool operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the PutWarmPool operation on AmazonAutoScalingClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPutWarmPool
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/PutWarmPool">REST API Reference for PutWarmPool Operation</seealso>
+        public virtual IAsyncResult BeginPutWarmPool(PutWarmPoolRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutWarmPoolRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutWarmPoolResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  PutWarmPool operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginPutWarmPool.</param>
+        /// 
+        /// <returns>Returns a  PutWarmPoolResult from AutoScaling.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/PutWarmPool">REST API Reference for PutWarmPool Operation</seealso>
+        public virtual PutWarmPoolResponse EndPutWarmPool(IAsyncResult asyncResult)
+        {
+            return EndInvoke<PutWarmPoolResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  RecordLifecycleActionHeartbeat
 
         /// <summary>
@@ -4007,8 +4243,8 @@ namespace Amazon.AutoScaling
         /// </para>
         ///  </li> </ol> 
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto
-        /// Scaling lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon
+        /// EC2 Auto Scaling lifecycle hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RecordLifecycleActionHeartbeat service method.</param>
@@ -4272,7 +4508,8 @@ namespace Amazon.AutoScaling
         #region  SetInstanceProtection
 
         /// <summary>
-        /// Updates the instance protection settings of the specified instances.
+        /// Updates the instance protection settings of the specified instances. This operation
+        /// cannot be called on instances in a warm pool.
         /// 
         ///  
         /// <para>
@@ -4348,8 +4585,8 @@ namespace Amazon.AutoScaling
         #region  StartInstanceRefresh
 
         /// <summary>
-        /// Starts a new instance refresh operation, which triggers a rolling replacement of all
-        /// previously launched instances in the Auto Scaling group with a new group of instances.
+        /// Starts a new instance refresh operation, which triggers a rolling replacement of previously
+        /// launched instances in the Auto Scaling group with a new group of instances.
         /// 
         ///  
         /// <para>
@@ -4362,7 +4599,8 @@ namespace Amazon.AutoScaling
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing
-        /// Auto Scaling Instances Based on an Instance Refresh</a>.
+        /// Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto
+        /// Scaling User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartInstanceRefresh service method.</param>
@@ -4505,7 +4743,8 @@ namespace Amazon.AutoScaling
         #region  TerminateInstanceInAutoScalingGroup
 
         /// <summary>
-        /// Terminates the specified instance and optionally adjusts the desired group size. 
+        /// Terminates the specified instance and optionally adjusts the desired group size. This
+        /// operation cannot be called on instances in a warm pool.
         /// 
         ///  
         /// <para>

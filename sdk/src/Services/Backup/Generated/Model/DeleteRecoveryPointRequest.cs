@@ -31,6 +31,12 @@ namespace Amazon.Backup.Model
     /// <summary>
     /// Container for the parameters to the DeleteRecoveryPoint operation.
     /// Deletes the recovery point specified by a recovery point ID.
+    /// 
+    ///  
+    /// <para>
+    /// If the recovery point ID belongs to a continuous backup, calling this endpoint deletes
+    /// the existing continuous backup and stops future continuous backup.
+    /// </para>
     /// </summary>
     public partial class DeleteRecoveryPointRequest : AmazonBackupRequest
     {

@@ -60,7 +60,6 @@ namespace Amazon.MediaTailor.Model.Internal.MarshallTransformations
             request.HttpMethod = "PUT";
 
             request.ResourcePath = "/playbackConfiguration";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -102,6 +101,28 @@ namespace Amazon.MediaTailor.Model.Internal.MarshallTransformations
                     var marshaller = CdnConfigurationMarshaller.Instance;
                     marshaller.Marshall(publicRequest.CdnConfiguration, context);
 
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetConfigurationAliases())
+                {
+                    context.Writer.WritePropertyName("ConfigurationAliases");
+                    context.Writer.WriteObjectStart();
+                    foreach (var publicRequestConfigurationAliasesKvp in publicRequest.ConfigurationAliases)
+                    {
+                        context.Writer.WritePropertyName(publicRequestConfigurationAliasesKvp.Key);
+                        var publicRequestConfigurationAliasesValue = publicRequestConfigurationAliasesKvp.Value;
+
+                        context.Writer.WriteObjectStart();
+                        foreach (var publicRequestConfigurationAliasesValueKvp in publicRequestConfigurationAliasesValue)
+                        {
+                            context.Writer.WritePropertyName(publicRequestConfigurationAliasesValueKvp.Key);
+                            var publicRequestConfigurationAliasesValueValue = publicRequestConfigurationAliasesValueKvp.Value;
+
+                                context.Writer.Write(publicRequestConfigurationAliasesValueValue);
+                        }
+                        context.Writer.WriteObjectEnd();
+                    }
                     context.Writer.WriteObjectEnd();
                 }
 

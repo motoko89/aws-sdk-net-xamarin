@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -421,6 +420,84 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
 
             _mockClient.Setup(x => x.DescribeDefaultClusterParameters(request)).Returns(response);
             var paginator = _mockClient.Object.Paginators.DescribeDefaultClusterParameters(request);
+
+            // Should work the first time
+            paginator.Responses.ToList();
+
+            // Second time should throw an exception
+            paginator.Responses.ToList();
+        }
+
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Redshift")]
+        public void DescribeEndpointAccessTest_TwoPages()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeEndpointAccessRequest>();
+
+            var firstResponse = InstantiateClassGenerator.Execute<DescribeEndpointAccessResponse>();
+            var secondResponse = InstantiateClassGenerator.Execute<DescribeEndpointAccessResponse>();
+            secondResponse.Marker = null;
+
+            _mockClient.SetupSequence(x => x.DescribeEndpointAccess(request)).Returns(firstResponse).Returns(secondResponse);
+            var paginator = _mockClient.Object.Paginators.DescribeEndpointAccess(request);
+            
+            Assert.AreEqual(2, paginator.Responses.ToList().Count);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Redshift")]
+        [ExpectedException(typeof(System.InvalidOperationException), "Paginator has already been consumed and cannot be reused. Please create a new instance.")]
+        public void DescribeEndpointAccessTest__OnlyUsedOnce()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeEndpointAccessRequest>();
+
+            var response = InstantiateClassGenerator.Execute<DescribeEndpointAccessResponse>();
+            response.Marker = null;
+
+            _mockClient.Setup(x => x.DescribeEndpointAccess(request)).Returns(response);
+            var paginator = _mockClient.Object.Paginators.DescribeEndpointAccess(request);
+
+            // Should work the first time
+            paginator.Responses.ToList();
+
+            // Second time should throw an exception
+            paginator.Responses.ToList();
+        }
+
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Redshift")]
+        public void DescribeEndpointAuthorizationTest_TwoPages()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeEndpointAuthorizationRequest>();
+
+            var firstResponse = InstantiateClassGenerator.Execute<DescribeEndpointAuthorizationResponse>();
+            var secondResponse = InstantiateClassGenerator.Execute<DescribeEndpointAuthorizationResponse>();
+            secondResponse.Marker = null;
+
+            _mockClient.SetupSequence(x => x.DescribeEndpointAuthorization(request)).Returns(firstResponse).Returns(secondResponse);
+            var paginator = _mockClient.Object.Paginators.DescribeEndpointAuthorization(request);
+            
+            Assert.AreEqual(2, paginator.Responses.ToList().Count);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Redshift")]
+        [ExpectedException(typeof(System.InvalidOperationException), "Paginator has already been consumed and cannot be reused. Please create a new instance.")]
+        public void DescribeEndpointAuthorizationTest__OnlyUsedOnce()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeEndpointAuthorizationRequest>();
+
+            var response = InstantiateClassGenerator.Execute<DescribeEndpointAuthorizationResponse>();
+            response.Marker = null;
+
+            _mockClient.Setup(x => x.DescribeEndpointAuthorization(request)).Returns(response);
+            var paginator = _mockClient.Object.Paginators.DescribeEndpointAuthorization(request);
 
             // Should work the first time
             paginator.Responses.ToList();
@@ -1016,4 +1093,3 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
 
     }
 }
-#endif

@@ -1225,6 +1225,11 @@
           "locationName": "maxLatency",
           "documentation": "The maximum latency in milliseconds for Zixi-based streams."
         },
+        "MinLatency": {
+          "shape": "__integer",
+          "locationName": "minLatency",
+          "documentation": "The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender\u2019s minimum latency and the receiver\u2019s minimum latency."
+        },
         "Name": {
           "shape": "__string",
           "locationName": "name",
@@ -1524,7 +1529,6 @@
       },
       "documentation": "Information about the encryption of the flow.",
       "required": [
-        "Algorithm",
         "RoleArn"
       ]
     },
@@ -1801,7 +1805,8 @@
       "type": "string",
       "enum": [
         "speke",
-        "static-key"
+        "static-key",
+        "srt-password"
       ]
     },
     "ListEntitlementsRequest": {
@@ -2146,6 +2151,11 @@
           "locationName": "entitlementArn",
           "documentation": "The ARN of the entitlement on the originator''s flow. This value is relevant only on entitled flows."
         },
+        "ListenerAddress": {
+          "shape": "__string",
+          "locationName": "listenerAddress",
+          "documentation": "The IP address that the receiver requires in order to establish a connection with the flow. For public networking, the ListenerAddress is represented by the elastic IP address of the flow. For private networking, the ListenerAddress is represented by the elastic network interface IP address of the VPC. This field applies only to outputs that use the Zixi pull or SRT listener protocol."
+        },
         "MediaLiveInputArn": {
           "shape": "__string",
           "locationName": "mediaLiveInputArn",
@@ -2196,7 +2206,8 @@
         "rtp-fec",
         "rtp",
         "zixi-pull",
-        "rist"
+        "rist",
+        "srt-listener"
       ]
     },
     "PurchaseOfferingRequest": {
@@ -2569,6 +2580,11 @@
           "locationName": "maxLatency",
           "documentation": "The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams."
         },
+        "MinLatency": {
+          "shape": "__integer",
+          "locationName": "minLatency",
+          "documentation": "The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender\u2019s minimum latency and the receiver\u2019s minimum latency."
+        },
         "Name": {
           "shape": "__string",
           "locationName": "name",
@@ -2803,6 +2819,11 @@
           "locationName": "maxLatency",
           "documentation": "The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams."
         },
+        "MinLatency": {
+          "shape": "__integer",
+          "locationName": "minLatency",
+          "documentation": "The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender\u2019s minimum latency and the receiver\u2019s minimum latency."
+        },
         "Protocol": {
           "shape": "Protocol",
           "locationName": "protocol",
@@ -3007,6 +3028,11 @@
           "locationName": "maxLatency",
           "documentation": "The maximum latency in milliseconds for Zixi-based streams."
         },
+        "MinLatency": {
+          "shape": "__integer",
+          "locationName": "minLatency",
+          "documentation": "The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender\u2019s minimum latency and the receiver\u2019s minimum latency."
+        },
         "OutputArn": {
           "shape": "__string",
           "location": "uri",
@@ -3131,6 +3157,11 @@
           "shape": "__integer",
           "locationName": "maxLatency",
           "documentation": "The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams."
+        },
+        "MinLatency": {
+          "shape": "__integer",
+          "locationName": "minLatency",
+          "documentation": "The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender\u2019s minimum latency and the receiver\u2019s minimum latency."
         },
         "Protocol": {
           "shape": "Protocol",

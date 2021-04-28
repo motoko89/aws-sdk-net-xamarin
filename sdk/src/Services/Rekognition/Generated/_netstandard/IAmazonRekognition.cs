@@ -33,9 +33,6 @@ namespace Amazon.Rekognition
     ///
     /// This is the Amazon Rekognition API reference.
     /// </summary>
-#if NETSTANDARD13
-    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
-#endif
     public partial interface IAmazonRekognition : IAmazonService, IDisposable
     {
 #if AWS_ASYNC_ENUMERABLES_API
@@ -53,10 +50,20 @@ namespace Amazon.Rekognition
         /// Compares a face in the <i>source</i> input image with each of the 100 largest faces
         /// detected in the <i>target</i> input image. 
         /// 
-        ///  <note> 
+        ///  
         /// <para>
         ///  If the source image contains multiple faces, the service detects the largest face
         /// and compares it with each face detected in the target image. 
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// CompareFaces uses machine learning algorithms, which are probabilistic. A false negative
+        /// is an incorrect prediction that a face in the target image has a low similarity confidence
+        /// score when compared to the face in the source image. To reduce the probability of
+        /// false negatives, we recommend that you compare the target image against multiple source
+        /// images. If you plan to use <code>CompareFaces</code> to make a decision that impacts
+        /// an individual's rights, privacy, or access to services, we recommend that you pass
+        /// the result to a human for review and further validation before taking action.
         /// </para>
         ///  </note> 
         /// <para>
@@ -132,8 +139,9 @@ namespace Amazon.Rekognition
         /// You are not authorized to perform the action.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ImageTooLargeException">
-        /// The input image size exceeds the allowed limit. For more information, see Limits in
-        /// Amazon Rekognition in the Amazon Rekognition Developer Guide.
+        /// The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment,
+        /// the image size or resolution exceeds the allowed limit. For more information, see
+        /// Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
         /// Amazon Rekognition experienced a service issue. Try your call again.
@@ -212,6 +220,10 @@ namespace Amazon.Rekognition
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ResourceAlreadyExistsException">
         /// A collection with the specified ID already exists.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ServiceQuotaExceededException">
+        /// The size of the collection or tag list exceeds the allowed limit. For more information,
+        /// see Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
         /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
@@ -336,6 +348,10 @@ namespace Amazon.Rekognition
         /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
         /// The collection specified in the request cannot be found.
         /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ServiceQuotaExceededException">
+        /// The size of the collection or tag list exceeds the allowed limit. For more information,
+        /// see Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide.
+        /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
         /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
         /// </exception>
@@ -402,6 +418,10 @@ namespace Amazon.Rekognition
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ResourceInUseException">
         /// The specified resource is already being used.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ServiceQuotaExceededException">
+        /// The size of the collection or tag list exceeds the allowed limit. For more information,
+        /// see Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
         /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
@@ -890,8 +910,9 @@ namespace Amazon.Rekognition
         /// You are not authorized to perform the action.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ImageTooLargeException">
-        /// The input image size exceeds the allowed limit. For more information, see Limits in
-        /// Amazon Rekognition in the Amazon Rekognition Developer Guide.
+        /// The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment,
+        /// the image size or resolution exceeds the allowed limit. For more information, see
+        /// Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
         /// Amazon Rekognition experienced a service issue. Try your call again.
@@ -980,8 +1001,9 @@ namespace Amazon.Rekognition
         /// You are not authorized to perform the action.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ImageTooLargeException">
-        /// The input image size exceeds the allowed limit. For more information, see Limits in
-        /// Amazon Rekognition in the Amazon Rekognition Developer Guide.
+        /// The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment,
+        /// the image size or resolution exceeds the allowed limit. For more information, see
+        /// Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
         /// Amazon Rekognition experienced a service issue. Try your call again.
@@ -1127,8 +1149,9 @@ namespace Amazon.Rekognition
         /// You are not authorized to perform the action.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ImageTooLargeException">
-        /// The input image size exceeds the allowed limit. For more information, see Limits in
-        /// Amazon Rekognition in the Amazon Rekognition Developer Guide.
+        /// The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment,
+        /// the image size or resolution exceeds the allowed limit. For more information, see
+        /// Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
         /// Amazon Rekognition experienced a service issue. Try your call again.
@@ -1195,8 +1218,9 @@ namespace Amazon.Rekognition
         /// The number of in-progress human reviews you have has exceeded the number allowed.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ImageTooLargeException">
-        /// The input image size exceeds the allowed limit. For more information, see Limits in
-        /// Amazon Rekognition in the Amazon Rekognition Developer Guide.
+        /// The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment,
+        /// the image size or resolution exceeds the allowed limit. For more information, see
+        /// Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
         /// Amazon Rekognition experienced a service issue. Try your call again.
@@ -1299,8 +1323,9 @@ namespace Amazon.Rekognition
         /// You are not authorized to perform the action.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ImageTooLargeException">
-        /// The input image size exceeds the allowed limit. For more information, see Limits in
-        /// Amazon Rekognition in the Amazon Rekognition Developer Guide.
+        /// The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment,
+        /// the image size or resolution exceeds the allowed limit. For more information, see
+        /// Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
         /// Amazon Rekognition experienced a service issue. Try your call again.
@@ -1387,8 +1412,9 @@ namespace Amazon.Rekognition
         /// You are not authorized to perform the action.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ImageTooLargeException">
-        /// The input image size exceeds the allowed limit. For more information, see Limits in
-        /// Amazon Rekognition in the Amazon Rekognition Developer Guide.
+        /// The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment,
+        /// the image size or resolution exceeds the allowed limit. For more information, see
+        /// Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
         /// Amazon Rekognition experienced a service issue. Try your call again.
@@ -2282,8 +2308,9 @@ namespace Amazon.Rekognition
         /// You are not authorized to perform the action.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ImageTooLargeException">
-        /// The input image size exceeds the allowed limit. For more information, see Limits in
-        /// Amazon Rekognition in the Amazon Rekognition Developer Guide.
+        /// The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment,
+        /// the image size or resolution exceeds the allowed limit. For more information, see
+        /// Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
         /// Amazon Rekognition experienced a service issue. Try your call again.
@@ -2306,8 +2333,8 @@ namespace Amazon.Rekognition
         /// The collection specified in the request cannot be found.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ServiceQuotaExceededException">
-        /// The size of the collection exceeds the allowed limit. For more information, see Limits
-        /// in Amazon Rekognition in the Amazon Rekognition Developer Guide.
+        /// The size of the collection or tag list exceeds the allowed limit. For more information,
+        /// see Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
         /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
@@ -2458,6 +2485,45 @@ namespace Amazon.Rekognition
 
         #endregion
                 
+        #region  ListTagsForResource
+
+
+
+        /// <summary>
+        /// Returns a list of tags in an Amazon Rekognition collection, stream processor, or
+        /// Custom Labels model.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListTagsForResource service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
+        /// The collection specified in the request cannot be found.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
+        Task<ListTagsForResourceResponse> ListTagsForResourceAsync(ListTagsForResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  RecognizeCelebrities
 
 
@@ -2517,8 +2583,9 @@ namespace Amazon.Rekognition
         /// You are not authorized to perform the action.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ImageTooLargeException">
-        /// The input image size exceeds the allowed limit. For more information, see Limits in
-        /// Amazon Rekognition in the Amazon Rekognition Developer Guide.
+        /// The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment,
+        /// the image size or resolution exceeds the allowed limit. For more information, see
+        /// Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
         /// Amazon Rekognition experienced a service issue. Try your call again.
@@ -2683,8 +2750,9 @@ namespace Amazon.Rekognition
         /// You are not authorized to perform the action.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ImageTooLargeException">
-        /// The input image size exceeds the allowed limit. For more information, see Limits in
-        /// Amazon Rekognition in the Amazon Rekognition Developer Guide.
+        /// The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment,
+        /// the image size or resolution exceeds the allowed limit. For more information, see
+        /// Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
         /// Amazon Rekognition experienced a service issue. Try your call again.
@@ -3493,6 +3561,89 @@ namespace Amazon.Rekognition
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StopStreamProcessor">REST API Reference for StopStreamProcessor Operation</seealso>
         Task<StopStreamProcessorResponse> StopStreamProcessorAsync(StopStreamProcessorRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  TagResource
+
+
+
+        /// <summary>
+        /// Adds one or more key-value tags to an Amazon Rekognition collection, stream processor,
+        /// or Custom Labels model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// AWS Resources</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the TagResource service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
+        /// The collection specified in the request cannot be found.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ServiceQuotaExceededException">
+        /// The size of the collection or tag list exceeds the allowed limit. For more information,
+        /// see Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/TagResource">REST API Reference for TagResource Operation</seealso>
+        Task<TagResourceResponse> TagResourceAsync(TagResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  UntagResource
+
+
+
+        /// <summary>
+        /// Removes one or more tags from an Amazon Rekognition collection, stream processor,
+        /// or Custom Labels model.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UntagResource service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UntagResource service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
+        /// The collection specified in the request cannot be found.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/UntagResource">REST API Reference for UntagResource Operation</seealso>
+        Task<UntagResourceResponse> UntagResourceAsync(UntagResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         

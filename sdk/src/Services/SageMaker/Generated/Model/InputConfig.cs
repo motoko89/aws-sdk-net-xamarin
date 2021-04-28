@@ -36,6 +36,7 @@ namespace Amazon.SageMaker.Model
     {
         private string _dataInputConfig;
         private Framework _framework;
+        private string _frameworkVersion;
         private string _s3Uri;
 
         /// <summary>
@@ -280,6 +281,42 @@ namespace Amazon.SageMaker.Model
         /// <para>
         ///  <code>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</code> 
         /// </para>
+        ///  </li> </ul> </li> </ul> 
+        /// <para>
+        /// Depending on the model format, <code>DataInputConfig</code> requires the following
+        /// parameters for <code>ml_eia2</code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-TargetDevice">OutputConfig:TargetDevice</a>.
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// For TensorFlow models saved in the SavedModel format, specify the input names from
+        /// <code>signature_def_key</code> and the input model shapes for <code>DataInputConfig</code>.
+        /// Specify the <code>signature_def_key</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions">
+        /// <code>OutputConfig:CompilerOptions</code> </a> if the model does not use TensorFlow's
+        /// default signature def key. For example:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>"DataInputConfig": {"inputs": [1, 224, 224, 3]}</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>"CompilerOptions": {"signature_def_key": "serving_custom"}</code> 
+        /// </para>
+        ///  </li> </ul> </li> <li> 
+        /// <para>
+        /// For TensorFlow models saved as a frozen graph, specify the input tensor names and
+        /// shapes in <code>DataInputConfig</code> and the output tensor names for <code>output_names</code>
+        /// in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions">
+        /// <code>OutputConfig:CompilerOptions</code> </a>. For example:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>"DataInputConfig": {"input_tensor:0": [1, 224, 224, 3]}</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>"CompilerOptions": {"output_names": ["output_tensor:0"]}</code> 
+        /// </para>
         ///  </li> </ul> </li> </ul>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=1024)]
@@ -312,6 +349,32 @@ namespace Amazon.SageMaker.Model
         internal bool IsSetFramework()
         {
             return this._framework != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property FrameworkVersion. 
+        /// <para>
+        /// Specifies the framework version to use.
+        /// </para>
+        ///  
+        /// <para>
+        /// This API field is only supported for PyTorch framework versions <code>1.4</code>,
+        /// <code>1.5</code>, and <code>1.6</code> for cloud instance target devices: <code>ml_c4</code>,
+        /// <code>ml_c5</code>, <code>ml_m4</code>, <code>ml_m5</code>, <code>ml_p2</code>, <code>ml_p3</code>,
+        /// and <code>ml_g4dn</code>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=3, Max=10)]
+        public string FrameworkVersion
+        {
+            get { return this._frameworkVersion; }
+            set { this._frameworkVersion = value; }
+        }
+
+        // Check to see if FrameworkVersion property is set
+        internal bool IsSetFrameworkVersion()
+        {
+            return this._frameworkVersion != null;
         }
 
         /// <summary>

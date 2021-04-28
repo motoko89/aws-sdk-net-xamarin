@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -40,6 +39,11 @@ namespace Amazon.GameLift.Model
         /// Paginator for DescribeFleetEvents operation
         ///</summary>
         IDescribeFleetEventsPaginator DescribeFleetEvents(DescribeFleetEventsRequest request);
+
+        /// <summary>
+        /// Paginator for DescribeFleetLocationAttributes operation
+        ///</summary>
+        IDescribeFleetLocationAttributesPaginator DescribeFleetLocationAttributes(DescribeFleetLocationAttributesRequest request);
 
         /// <summary>
         /// Paginator for DescribeFleetUtilization operation
@@ -127,4 +131,3 @@ namespace Amazon.GameLift.Model
         ISearchGameSessionsPaginator SearchGameSessions(SearchGameSessionsRequest request);
     }
 }
-#endif

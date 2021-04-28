@@ -34,6 +34,7 @@ namespace Amazon.Detective.Model
     public partial class MemberDetail
     {
         private string _accountId;
+        private string _administratorId;
         private MemberDisabledReason _disabledReason;
         private string _emailAddress;
         private string _graphArn;
@@ -43,6 +44,8 @@ namespace Amazon.Detective.Model
         private DateTime? _percentOfGraphUtilizationUpdatedTime;
         private MemberStatus _status;
         private DateTime? _updatedTime;
+        private long? _volumeUsageInBytes;
+        private DateTime? _volumeUsageUpdatedTime;
 
         /// <summary>
         /// Gets and sets the property AccountId. 
@@ -61,6 +64,25 @@ namespace Amazon.Detective.Model
         internal bool IsSetAccountId()
         {
             return this._accountId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property AdministratorId. 
+        /// <para>
+        /// The AWS account identifier of the administrator account for the behavior graph.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=12, Max=12)]
+        public string AdministratorId
+        {
+            get { return this._administratorId; }
+            set { this._administratorId = value; }
+        }
+
+        // Check to see if AdministratorId property is set
+        internal bool IsSetAdministratorId()
+        {
+            return this._administratorId != null;
         }
 
         /// <summary>
@@ -157,9 +179,10 @@ namespace Amazon.Detective.Model
         /// <summary>
         /// Gets and sets the property MasterId. 
         /// <para>
-        /// The AWS account identifier of the master account for the behavior graph.
+        /// The AWS account identifier of the administrator account for the behavior graph.
         /// </para>
         /// </summary>
+        [Obsolete("This property is deprecated. Use AdministratorId instead.")]
         [AWSProperty(Min=12, Max=12)]
         public string MasterId
         {
@@ -191,6 +214,7 @@ namespace Amazon.Detective.Model
         /// maximum allowed data volume. 
         /// </para>
         /// </summary>
+        [Obsolete("This property is deprecated. Use VolumeUsageInBytes instead.")]
         public double PercentOfGraphUtilization
         {
             get { return this._percentOfGraphUtilization.GetValueOrDefault(); }
@@ -209,6 +233,7 @@ namespace Amazon.Detective.Model
         /// The date and time when the graph utilization percentage was last updated.
         /// </para>
         /// </summary>
+        [Obsolete("This property is deprecated. Use VolumeUsageUpdatedTime instead.")]
         public DateTime PercentOfGraphUtilizationUpdatedTime
         {
             get { return this._percentOfGraphUtilizationUpdatedTime.GetValueOrDefault(); }
@@ -291,6 +316,42 @@ namespace Amazon.Detective.Model
         internal bool IsSetUpdatedTime()
         {
             return this._updatedTime.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property VolumeUsageInBytes. 
+        /// <para>
+        /// The data volume in bytes per day for the member account.
+        /// </para>
+        /// </summary>
+        public long VolumeUsageInBytes
+        {
+            get { return this._volumeUsageInBytes.GetValueOrDefault(); }
+            set { this._volumeUsageInBytes = value; }
+        }
+
+        // Check to see if VolumeUsageInBytes property is set
+        internal bool IsSetVolumeUsageInBytes()
+        {
+            return this._volumeUsageInBytes.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property VolumeUsageUpdatedTime. 
+        /// <para>
+        /// The data and time when the member account data volume was last updated.
+        /// </para>
+        /// </summary>
+        public DateTime VolumeUsageUpdatedTime
+        {
+            get { return this._volumeUsageUpdatedTime.GetValueOrDefault(); }
+            set { this._volumeUsageUpdatedTime = value; }
+        }
+
+        // Check to see if VolumeUsageUpdatedTime property is set
+        internal bool IsSetVolumeUsageUpdatedTime()
+        {
+            return this._volumeUsageUpdatedTime.HasValue; 
         }
 
     }

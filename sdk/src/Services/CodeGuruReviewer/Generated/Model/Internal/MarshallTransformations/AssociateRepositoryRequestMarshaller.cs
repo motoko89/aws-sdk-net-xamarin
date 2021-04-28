@@ -60,7 +60,6 @@ namespace Amazon.CodeGuruReviewer.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/associations";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -77,6 +76,17 @@ namespace Amazon.CodeGuruReviewer.Model.Internal.MarshallTransformations
                     context.Writer.WritePropertyName("ClientRequestToken");
                     context.Writer.Write(Guid.NewGuid().ToString());                                                
                 }
+                if(publicRequest.IsSetKMSKeyDetails())
+                {
+                    context.Writer.WritePropertyName("KMSKeyDetails");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = KMSKeyDetailsMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.KMSKeyDetails, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetRepository())
                 {
                     context.Writer.WritePropertyName("Repository");

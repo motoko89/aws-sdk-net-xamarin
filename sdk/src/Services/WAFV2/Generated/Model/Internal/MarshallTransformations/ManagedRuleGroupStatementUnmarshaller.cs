@@ -76,6 +76,12 @@ namespace Amazon.WAFV2.Model.Internal.MarshallTransformations
                     unmarshalledObject.Name = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("ScopeDownStatement", targetDepth))
+                {
+                    var unmarshaller = StatementUnmarshaller.Instance;
+                    unmarshalledObject.ScopeDownStatement = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("VendorName", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

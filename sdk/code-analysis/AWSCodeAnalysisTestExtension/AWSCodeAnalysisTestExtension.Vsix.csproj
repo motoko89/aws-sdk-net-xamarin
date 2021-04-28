@@ -448,6 +448,10 @@
       <Project>{939272C0-C5BD-4D23-8590-9D0B2D8B4188}</Project>
       <Name>AWSSDK.EventBridge.CodeAnalysis</Name>
     </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/FIS/AWSSDK.FIS.CodeAnalysis.csproj">
+      <Project>{71FCFA5D-9061-4652-B049-407BF89142C1}</Project>
+      <Name>AWSSDK.FIS.CodeAnalysis</Name>
+    </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/FMS/AWSSDK.FMS.CodeAnalysis.csproj">
       <Project>{79A65885-29EC-42B6-B0D3-3364D099CE9B}</Project>
       <Name>AWSSDK.FMS.CodeAnalysis</Name>
@@ -672,9 +676,17 @@
       <Project>{083186B8-3B42-407F-9797-A1C9E93A0CDE}</Project>
       <Name>AWSSDK.LocationService.CodeAnalysis</Name>
     </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/LookoutEquipment/AWSSDK.LookoutEquipment.CodeAnalysis.csproj">
+      <Project>{39D908BB-E21C-48F4-939F-61092E922DFB}</Project>
+      <Name>AWSSDK.LookoutEquipment.CodeAnalysis</Name>
+    </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/LookoutforVision/AWSSDK.LookoutforVision.CodeAnalysis.csproj">
       <Project>{AEAAF64A-F230-4C3C-8AA4-8E2182617E19}</Project>
       <Name>AWSSDK.LookoutforVision.CodeAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/LookoutMetrics/AWSSDK.LookoutMetrics.CodeAnalysis.csproj">
+      <Project>{4DE72996-4492-40ED-939C-098008D6AF81}</Project>
+      <Name>AWSSDK.LookoutMetrics.CodeAnalysis</Name>
     </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/MachineLearning/AWSSDK.MachineLearning.CodeAnalysis.csproj">
       <Project>{BFEE58EE-DF58-4F52-A99B-01D05FB251AF}</Project>
@@ -731,6 +743,10 @@
     <ProjectReference Include="../ServiceAnalysis/MediaTailor/AWSSDK.MediaTailor.CodeAnalysis.csproj">
       <Project>{ABC55026-9712-485F-9999-8833BA451E9D}</Project>
       <Name>AWSSDK.MediaTailor.CodeAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/Mgn/AWSSDK.Mgn.CodeAnalysis.csproj">
+      <Project>{98619D2E-9751-49BC-97FA-CC2CCEBEF5A6}</Project>
+      <Name>AWSSDK.Mgn.CodeAnalysis</Name>
     </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/MigrationHub/AWSSDK.MigrationHub.CodeAnalysis.csproj">
       <Project>{465B2AFD-0179-4CA1-9AA3-145C5788AEFB}</Project>

@@ -39,6 +39,7 @@ namespace Amazon.ForecastService.Model
         private string _datasetImportJobName;
         private double? _dataSize;
         private DataSource _dataSource;
+        private long? _estimatedTimeRemainingInMinutes;
         private Dictionary<string, Statistics> _fieldStatistics = new Dictionary<string, Statistics>();
         private string _geolocationFormat;
         private DateTime? _lastModificationTime;
@@ -167,6 +168,24 @@ namespace Amazon.ForecastService.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EstimatedTimeRemainingInMinutes. 
+        /// <para>
+        /// The estimated time in minutes for the dataset import job to complete.
+        /// </para>
+        /// </summary>
+        public long EstimatedTimeRemainingInMinutes
+        {
+            get { return this._estimatedTimeRemainingInMinutes.GetValueOrDefault(); }
+            set { this._estimatedTimeRemainingInMinutes = value; }
+        }
+
+        // Check to see if EstimatedTimeRemainingInMinutes property is set
+        internal bool IsSetEstimatedTimeRemainingInMinutes()
+        {
+            return this._estimatedTimeRemainingInMinutes.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property FieldStatistics. 
         /// <para>
         /// Statistical information about each field in the input data.
@@ -207,16 +226,24 @@ namespace Amazon.ForecastService.Model
         /// <summary>
         /// Gets and sets the property LastModificationTime. 
         /// <para>
-        /// The last time that the dataset was modified. The time depends on the status of the
-        /// job, as follows:
+        /// The last time the resource was modified. The timestamp depends on the status of the
+        /// job:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>CREATE_PENDING</code> - The same time as <code>CreationTime</code>.
+        ///  <code>CREATE_PENDING</code> - The <code>CreationTime</code>.
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>CREATE_IN_PROGRESS</code> - The current timestamp.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>CREATE_STOPPING</code> - The current timestamp.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>CREATE_STOPPED</code> - When the job stopped.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -257,9 +284,7 @@ namespace Amazon.ForecastService.Model
         /// <summary>
         /// Gets and sets the property Status. 
         /// <para>
-        /// The status of the dataset import job. The status is reflected in the status of the
-        /// dataset. For example, when the import job status is <code>CREATE_IN_PROGRESS</code>,
-        /// the status of the dataset is <code>UPDATE_IN_PROGRESS</code>. States include:
+        /// The status of the dataset import job. States include:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -274,6 +299,10 @@ namespace Amazon.ForecastService.Model
         /// <para>
         ///  <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>, <code>DELETE_FAILED</code>
         /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> 
         /// </para>
         ///  </li> </ul>
         /// </summary>

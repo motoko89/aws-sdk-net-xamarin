@@ -677,6 +677,43 @@
         }
       ]
     },
+    "DisassociateFromAdministratorAccount": {
+      "name": "DisassociateFromAdministratorAccount",
+      "http": {
+        "method": "POST",
+        "requestUri": "/administrator/disassociate",
+        "responseCode": 200
+      },
+      "input": {
+        "shape": "DisassociateFromAdministratorAccountRequest"
+      },
+      "output": {
+        "shape": "DisassociateFromAdministratorAccountResponse"
+      },
+      "errors": [
+        {
+          "shape": "ValidationException"
+        },
+        {
+          "shape": "InternalServerException"
+        },
+        {
+          "shape": "ServiceQuotaExceededException"
+        },
+        {
+          "shape": "AccessDeniedException"
+        },
+        {
+          "shape": "ResourceNotFoundException"
+        },
+        {
+          "shape": "ThrottlingException"
+        },
+        {
+          "shape": "ConflictException"
+        }
+      ]
+    },
     "DisassociateFromMasterAccount": {
       "name": "DisassociateFromMasterAccount",
       "http": {
@@ -800,6 +837,43 @@
       },
       "output": {
         "shape": "EnableOrganizationAdminAccountResponse"
+      },
+      "errors": [
+        {
+          "shape": "ValidationException"
+        },
+        {
+          "shape": "InternalServerException"
+        },
+        {
+          "shape": "ServiceQuotaExceededException"
+        },
+        {
+          "shape": "AccessDeniedException"
+        },
+        {
+          "shape": "ResourceNotFoundException"
+        },
+        {
+          "shape": "ThrottlingException"
+        },
+        {
+          "shape": "ConflictException"
+        }
+      ]
+    },
+    "GetAdministratorAccount": {
+      "name": "GetAdministratorAccount",
+      "http": {
+        "method": "GET",
+        "requestUri": "/administrator",
+        "responseCode": 200
+      },
+      "input": {
+        "shape": "GetAdministratorAccountRequest"
+      },
+      "output": {
+        "shape": "GetAdministratorAccountResponse"
       },
       "errors": [
         {
@@ -1022,6 +1096,43 @@
       },
       "output": {
         "shape": "GetFindingsFilterResponse"
+      },
+      "errors": [
+        {
+          "shape": "ValidationException"
+        },
+        {
+          "shape": "InternalServerException"
+        },
+        {
+          "shape": "ServiceQuotaExceededException"
+        },
+        {
+          "shape": "AccessDeniedException"
+        },
+        {
+          "shape": "ResourceNotFoundException"
+        },
+        {
+          "shape": "ThrottlingException"
+        },
+        {
+          "shape": "ConflictException"
+        }
+      ]
+    },
+    "GetFindingsPublicationConfiguration": {
+      "name": "GetFindingsPublicationConfiguration",
+      "http": {
+        "method": "GET",
+        "requestUri": "/findings-publication-configuration",
+        "responseCode": 200
+      },
+      "input": {
+        "shape": "GetFindingsPublicationConfigurationRequest"
+      },
+      "output": {
+        "shape": "GetFindingsPublicationConfigurationResponse"
       },
       "errors": [
         {
@@ -1580,6 +1691,43 @@
         }
       ]
     },
+    "PutFindingsPublicationConfiguration": {
+      "name": "PutFindingsPublicationConfiguration",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/findings-publication-configuration",
+        "responseCode": 200
+      },
+      "input": {
+        "shape": "PutFindingsPublicationConfigurationRequest"
+      },
+      "output": {
+        "shape": "PutFindingsPublicationConfigurationResponse"
+      },
+      "errors": [
+        {
+          "shape": "ValidationException"
+        },
+        {
+          "shape": "InternalServerException"
+        },
+        {
+          "shape": "ServiceQuotaExceededException"
+        },
+        {
+          "shape": "AccessDeniedException"
+        },
+        {
+          "shape": "ResourceNotFoundException"
+        },
+        {
+          "shape": "ThrottlingException"
+        },
+        {
+          "shape": "ConflictException"
+        }
+      ]
+    },
     "TagResource": {
       "name": "TagResource",
       "http": {
@@ -1837,6 +1985,10 @@
     "AcceptInvitationRequest": {
       "type": "structure",
       "members": {
+        "administratorAccountId": {
+          "shape": "__string",
+          "locationName": "administratorAccountId"
+        },
         "invitationId": {
           "shape": "__string",
           "locationName": "invitationId"
@@ -1847,7 +1999,6 @@
         }
       },
       "required": [
-        "masterAccount",
         "invitationId"
       ]
     },
@@ -2240,6 +2391,10 @@
           "shape": "ReplicationDetails",
           "locationName": "replicationDetails"
         },
+        "serverSideEncryption": {
+          "shape": "BucketServerSideEncryption",
+          "locationName": "serverSideEncryption"
+        },
         "sharedAccess": {
           "shape": "SharedAccess",
           "locationName": "sharedAccess"
@@ -2306,6 +2461,19 @@
         "permissionConfiguration": {
           "shape": "BucketPermissionConfiguration",
           "locationName": "permissionConfiguration"
+        }
+      }
+    },
+    "BucketServerSideEncryption": {
+      "type": "structure",
+      "members": {
+        "kmsMasterKeyId": {
+          "shape": "__string",
+          "locationName": "kmsMasterKeyId"
+        },
+        "type": {
+          "shape": "Type",
+          "locationName": "type"
         }
       }
     },
@@ -3077,6 +3245,14 @@
       "type": "structure",
       "members": {}
     },
+    "DisassociateFromAdministratorAccountRequest": {
+      "type": "structure",
+      "members": {}
+    },
+    "DisassociateFromAdministratorAccountResponse": {
+      "type": "structure",
+      "members": {}
+    },
     "DisassociateFromMasterAccountRequest": {
       "type": "structure",
       "members": {}
@@ -3411,6 +3587,19 @@
         }
       }
     },
+    "GetAdministratorAccountRequest": {
+      "type": "structure",
+      "members": {}
+    },
+    "GetAdministratorAccountResponse": {
+      "type": "structure",
+      "members": {
+        "administrator": {
+          "shape": "Invitation",
+          "locationName": "administrator"
+        }
+      }
+    },
     "GetBucketStatisticsRequest": {
       "type": "structure",
       "members": {
@@ -3631,6 +3820,19 @@
         }
       }
     },
+    "GetFindingsPublicationConfigurationRequest": {
+      "type": "structure",
+      "members": {}
+    },
+    "GetFindingsPublicationConfigurationResponse": {
+      "type": "structure",
+      "members": {
+        "securityHubConfiguration": {
+          "shape": "SecurityHubConfiguration",
+          "locationName": "securityHubConfiguration"
+        }
+      }
+    },
     "GetFindingsRequest": {
       "type": "structure",
       "members": {
@@ -3731,6 +3933,10 @@
           "shape": "__string",
           "locationName": "accountId"
         },
+        "administratorAccountId": {
+          "shape": "__string",
+          "locationName": "administratorAccountId"
+        },
         "arn": {
           "shape": "__string",
           "locationName": "arn"
@@ -3779,6 +3985,10 @@
         "sortBy": {
           "shape": "UsageStatisticsSortBy",
           "locationName": "sortBy"
+        },
+        "timeRange": {
+          "shape": "TimeRange",
+          "locationName": "timeRange"
         }
       }
     },
@@ -3792,16 +4002,30 @@
         "records": {
           "shape": "__listOfUsageRecord",
           "locationName": "records"
+        },
+        "timeRange": {
+          "shape": "TimeRange",
+          "locationName": "timeRange"
         }
       }
     },
     "GetUsageTotalsRequest": {
       "type": "structure",
-      "members": {}
+      "members": {
+        "timeRange": {
+          "shape": "__string",
+          "location": "querystring",
+          "locationName": "timeRange"
+        }
+      }
     },
     "GetUsageTotalsResponse": {
       "type": "structure",
       "members": {
+        "timeRange": {
+          "shape": "TimeRange",
+          "locationName": "timeRange"
+        },
         "usageTotals": {
           "shape": "__listOfUsageTotal",
           "locationName": "usageTotals"
@@ -4458,6 +4682,10 @@
           "shape": "__string",
           "locationName": "accountId"
         },
+        "administratorAccountId": {
+          "shape": "__string",
+          "locationName": "administratorAccountId"
+        },
         "arn": {
           "shape": "__string",
           "locationName": "arn"
@@ -4623,6 +4851,24 @@
           "locationName": "configuration"
         }
       }
+    },
+    "PutFindingsPublicationConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "clientToken": {
+          "shape": "__string",
+          "locationName": "clientToken",
+          "idempotencyToken": true
+        },
+        "securityHubConfiguration": {
+          "shape": "SecurityHubConfiguration",
+          "locationName": "securityHubConfiguration"
+        }
+      }
+    },
+    "PutFindingsPublicationConfigurationResponse": {
+      "type": "structure",
+      "members": {}
     },
     "Range": {
       "type": "structure",
@@ -4897,6 +5143,23 @@
           "locationName": "includes"
         }
       }
+    },
+    "SecurityHubConfiguration": {
+      "type": "structure",
+      "members": {
+        "publishClassificationFindings": {
+          "shape": "__boolean",
+          "locationName": "publishClassificationFindings"
+        },
+        "publishPolicyFindings": {
+          "shape": "__boolean",
+          "locationName": "publishPolicyFindings"
+        }
+      },
+      "required": [
+        "publishPolicyFindings",
+        "publishClassificationFindings"
+      ]
     },
     "SensitiveData": {
       "type": "list",
@@ -5230,6 +5493,21 @@
       "error": {
         "httpStatusCode": 429
       }
+    },
+    "TimeRange": {
+      "type": "string",
+      "enum": [
+        "MONTH_TO_DATE",
+        "PAST_30_DAYS"
+      ]
+    },
+    "Type": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "AES256",
+        "aws:kms"
+      ]
     },
     "Unit": {
       "type": "string",

@@ -128,19 +128,10 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Associates a Web ACL with a regional application resource, to protect the resource.
         /// A regional application can be an Application Load Balancer (ALB), an API Gateway REST
         /// API, or an AppSync GraphQL API. 
-        /// </para>
+        /// 
         ///  
         /// <para>
         /// For AWS CloudFront, don't use this call. Instead, use your CloudFront distribution
@@ -196,19 +187,10 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Associates a Web ACL with a regional application resource, to protect the resource.
         /// A regional application can be an Application Load Balancer (ALB), an API Gateway REST
         /// API, or an AppSync GraphQL API. 
-        /// </para>
+        /// 
         ///  
         /// <para>
         /// For AWS CloudFront, don't use this call. Instead, use your CloudFront distribution
@@ -270,19 +252,10 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Returns the web ACL capacity unit (WCU) requirements for a specified scope and set
         /// of rules. You can use this to check the capacity requirements for the rules you want
         /// to use in a <a>RuleGroup</a> or <a>WebACL</a>. 
-        /// </para>
+        /// 
         ///  
         /// <para>
         /// AWS WAF uses WCUs to calculate and control the operating resources that are used to
@@ -339,7 +312,8 @@ namespace Amazon.WAFV2
         /// AWS WAF couldn’t perform the operation because your resource doesn’t exist.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFSubscriptionNotFoundException">
-        /// 
+        /// You tried to use a managed rule group that's available by subscription, but you aren't
+        /// subscribed to it yet.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
         /// AWS WAF couldn’t retrieve the resource that you requested. Retry your request.
@@ -350,19 +324,10 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Returns the web ACL capacity unit (WCU) requirements for a specified scope and set
         /// of rules. You can use this to check the capacity requirements for the rules you want
         /// to use in a <a>RuleGroup</a> or <a>WebACL</a>. 
-        /// </para>
+        /// 
         ///  
         /// <para>
         /// AWS WAF uses WCUs to calculate and control the operating resources that are used to
@@ -422,7 +387,8 @@ namespace Amazon.WAFV2
         /// AWS WAF couldn’t perform the operation because your resource doesn’t exist.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFSubscriptionNotFoundException">
-        /// 
+        /// You tried to use a managed rule group that's available by subscription, but you aren't
+        /// subscribed to it yet.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
         /// AWS WAF couldn’t retrieve the resource that you requested. Retry your request.
@@ -436,20 +402,10 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Creates an <a>IPSet</a>, which you use to identify web requests that originate from
         /// specific IP addresses or ranges of IP addresses. For example, if you're receiving
         /// a lot of requests from a ranges of IP addresses, you can configure AWS WAF to block
-        /// them using an IPSet that lists those IP addresses. 
-        /// </para>
+        /// them using an IPSet that lists those IP addresses.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateIPSet service method.</param>
         /// 
@@ -514,20 +470,10 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Creates an <a>IPSet</a>, which you use to identify web requests that originate from
         /// specific IP addresses or ranges of IP addresses. For example, if you're receiving
         /// a lot of requests from a ranges of IP addresses, you can configure AWS WAF to block
-        /// them using an IPSet that lists those IP addresses. 
-        /// </para>
+        /// them using an IPSet that lists those IP addresses.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateIPSet service method.</param>
         /// <param name="cancellationToken">
@@ -598,18 +544,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Creates a <a>RegexPatternSet</a>, which you reference in a <a>RegexPatternSetReferenceStatement</a>,
         /// to have AWS WAF inspect a web request component for the specified patterns.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateRegexPatternSet service method.</param>
         /// 
@@ -674,18 +610,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Creates a <a>RegexPatternSet</a>, which you reference in a <a>RegexPatternSetReferenceStatement</a>,
         /// to have AWS WAF inspect a web request component for the specified patterns.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateRegexPatternSet service method.</param>
         /// <param name="cancellationToken">
@@ -756,17 +682,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Creates a <a>RuleGroup</a> per the specifications provided. 
-        /// </para>
+        /// 
         ///  
         /// <para>
         ///  A rule group defines a collection of rules to inspect and control web requests that
@@ -830,7 +747,8 @@ namespace Amazon.WAFV2
         /// you need to make to the new copy, and retry your operation.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFSubscriptionNotFoundException">
-        /// 
+        /// You tried to use a managed rule group that's available by subscription, but you aren't
+        /// subscribed to it yet.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFTagOperationException">
         /// An error occurred during the tagging operation. Retry your request.
@@ -848,17 +766,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Creates a <a>RuleGroup</a> per the specifications provided. 
-        /// </para>
+        /// 
         ///  
         /// <para>
         ///  A rule group defines a collection of rules to inspect and control web requests that
@@ -925,7 +834,8 @@ namespace Amazon.WAFV2
         /// you need to make to the new copy, and retry your operation.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFSubscriptionNotFoundException">
-        /// 
+        /// You tried to use a managed rule group that's available by subscription, but you aren't
+        /// subscribed to it yet.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFTagOperationException">
         /// An error occurred during the tagging operation. Retry your request.
@@ -946,17 +856,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Creates a <a>WebACL</a> per the specifications provided.
-        /// </para>
+        /// 
         ///  
         /// <para>
         ///  A Web ACL defines a collection of rules to use to inspect and control web requests.
@@ -1027,7 +928,8 @@ namespace Amazon.WAFV2
         /// you need to make to the new copy, and retry your operation.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFSubscriptionNotFoundException">
-        /// 
+        /// You tried to use a managed rule group that's available by subscription, but you aren't
+        /// subscribed to it yet.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFTagOperationException">
         /// An error occurred during the tagging operation. Retry your request.
@@ -1045,17 +947,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Creates a <a>WebACL</a> per the specifications provided.
-        /// </para>
+        /// 
         ///  
         /// <para>
         ///  A Web ACL defines a collection of rules to use to inspect and control web requests.
@@ -1129,7 +1022,8 @@ namespace Amazon.WAFV2
         /// you need to make to the new copy, and retry your operation.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFSubscriptionNotFoundException">
-        /// 
+        /// You tried to use a managed rule group that's available by subscription, but you aren't
+        /// subscribed to it yet.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFTagOperationException">
         /// An error occurred during the tagging operation. Retry your request.
@@ -1272,17 +1166,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
-        /// Deletes the specified <a>IPSet</a>. 
-        /// </para>
+        /// Deletes the specified <a>IPSet</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteIPSet service method.</param>
         /// 
@@ -1344,17 +1228,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
-        /// Deletes the specified <a>IPSet</a>. 
-        /// </para>
+        /// Deletes the specified <a>IPSet</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteIPSet service method.</param>
         /// <param name="cancellationToken">
@@ -1422,17 +1296,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Deletes the <a>LoggingConfiguration</a> from the specified web ACL.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteLoggingConfiguration service method.</param>
         /// 
@@ -1483,17 +1347,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Deletes the <a>LoggingConfiguration</a> from the specified web ACL.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteLoggingConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -1652,17 +1506,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Deletes the specified <a>RegexPatternSet</a>.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteRegexPatternSet service method.</param>
         /// 
@@ -1724,17 +1568,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Deletes the specified <a>RegexPatternSet</a>.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteRegexPatternSet service method.</param>
         /// <param name="cancellationToken">
@@ -1802,17 +1636,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Deletes the specified <a>RuleGroup</a>.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteRuleGroup service method.</param>
         /// 
@@ -1874,17 +1698,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Deletes the specified <a>RuleGroup</a>.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteRuleGroup service method.</param>
         /// <param name="cancellationToken">
@@ -1952,17 +1766,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Deletes the specified <a>WebACL</a>.
-        /// </para>
+        /// 
         ///  
         /// <para>
         /// You can only use this if <code>ManagedByFirewallManager</code> is false in the specified
@@ -2029,17 +1834,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Deletes the specified <a>WebACL</a>.
-        /// </para>
+        /// 
         ///  
         /// <para>
         /// You can only use this if <code>ManagedByFirewallManager</code> is false in the specified
@@ -2112,18 +1908,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Provides high-level information for a managed rule group, including descriptions of
-        /// the rules. 
-        /// </para>
+        /// the rules.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeManagedRuleGroup service method.</param>
         /// 
@@ -2173,18 +1959,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Provides high-level information for a managed rule group, including descriptions of
-        /// the rules. 
-        /// </para>
+        /// the rules.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeManagedRuleGroup service method.</param>
         /// <param name="cancellationToken">
@@ -2240,19 +2016,10 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Disassociates a Web ACL from a regional application resource. A regional application
         /// can be an Application Load Balancer (ALB), an API Gateway REST API, or an AppSync
         /// GraphQL API. 
-        /// </para>
+        /// 
         ///  
         /// <para>
         /// For AWS CloudFront, don't use this call. Instead, use your CloudFront distribution
@@ -2304,19 +2071,10 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Disassociates a Web ACL from a regional application resource. A regional application
         /// can be an Application Load Balancer (ALB), an API Gateway REST API, or an AppSync
         /// GraphQL API. 
-        /// </para>
+        /// 
         ///  
         /// <para>
         /// For AWS CloudFront, don't use this call. Instead, use your CloudFront distribution
@@ -2374,17 +2132,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves the specified <a>IPSet</a>.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetIPSet service method.</param>
         /// 
@@ -2430,17 +2178,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves the specified <a>IPSet</a>.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetIPSet service method.</param>
         /// <param name="cancellationToken">
@@ -2492,17 +2230,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Returns the <a>LoggingConfiguration</a> for the specified web ACL.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetLoggingConfiguration service method.</param>
         /// 
@@ -2548,17 +2276,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Returns the <a>LoggingConfiguration</a> for the specified web ACL.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetLoggingConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -2712,19 +2430,9 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves the keys that are currently blocked by a rate-based rule. The maximum number
         /// of managed keys that can be blocked for a single rate-based rule is 10,000. If more
         /// than 10,000 addresses exceed the rate limit, those with the highest rates are blocked.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetRateBasedStatementManagedKeys service method.</param>
         /// 
@@ -2770,19 +2478,9 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves the keys that are currently blocked by a rate-based rule. The maximum number
         /// of managed keys that can be blocked for a single rate-based rule is 10,000. If more
         /// than 10,000 addresses exceed the rate limit, those with the highest rates are blocked.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetRateBasedStatementManagedKeys service method.</param>
         /// <param name="cancellationToken">
@@ -2834,17 +2532,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves the specified <a>RegexPatternSet</a>.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetRegexPatternSet service method.</param>
         /// 
@@ -2890,17 +2578,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves the specified <a>RegexPatternSet</a>.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetRegexPatternSet service method.</param>
         /// <param name="cancellationToken">
@@ -2952,17 +2630,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves the specified <a>RuleGroup</a>.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetRuleGroup service method.</param>
         /// 
@@ -3008,17 +2676,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves the specified <a>RuleGroup</a>.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetRuleGroup service method.</param>
         /// <param name="cancellationToken">
@@ -3070,20 +2728,11 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Gets detailed information about a specified number of requests--a sample--that AWS
         /// WAF randomly selects from among the first 5,000 requests that your AWS resource received
         /// during a time range that you choose. You can specify a sample size of up to 500 requests,
         /// and you can specify any time range in the previous three hours.
-        /// </para>
+        /// 
         ///  
         /// <para>
         ///  <code>GetSampledRequests</code> returns a time range, which is usually the time range
@@ -3134,20 +2783,11 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Gets detailed information about a specified number of requests--a sample--that AWS
         /// WAF randomly selects from among the first 5,000 requests that your AWS resource received
         /// during a time range that you choose. You can specify a sample size of up to 500 requests,
         /// and you can specify any time range in the previous three hours.
-        /// </para>
+        /// 
         ///  
         /// <para>
         ///  <code>GetSampledRequests</code> returns a time range, which is usually the time range
@@ -3204,17 +2844,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves the specified <a>WebACL</a>.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetWebACL service method.</param>
         /// 
@@ -3260,17 +2890,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves the specified <a>WebACL</a>.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetWebACL service method.</param>
         /// <param name="cancellationToken">
@@ -3322,17 +2942,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
-        /// Retrieves the <a>WebACL</a> for the specified resource. 
-        /// </para>
+        /// Retrieves the <a>WebACL</a> for the specified resource.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetWebACLForResource service method.</param>
         /// 
@@ -3381,17 +2991,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
-        /// Retrieves the <a>WebACL</a> for the specified resource. 
-        /// </para>
+        /// Retrieves the <a>WebACL</a> for the specified resource.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetWebACLForResource service method.</param>
         /// <param name="cancellationToken">
@@ -3446,19 +3046,9 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves an array of managed rule groups that are available for you to use. This
         /// list includes all AWS Managed Rules rule groups and the AWS Marketplace managed rule
         /// groups that you're subscribed to.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAvailableManagedRuleGroups service method.</param>
         /// 
@@ -3501,19 +3091,9 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves an array of managed rule groups that are available for you to use. This
         /// list includes all AWS Managed Rules rule groups and the AWS Marketplace managed rule
         /// groups that you're subscribed to.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAvailableManagedRuleGroups service method.</param>
         /// <param name="cancellationToken">
@@ -3562,17 +3142,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves an array of <a>IPSetSummary</a> objects for the IP sets that you manage.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListIPSets service method.</param>
         /// 
@@ -3615,17 +3185,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves an array of <a>IPSetSummary</a> objects for the IP sets that you manage.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListIPSets service method.</param>
         /// <param name="cancellationToken">
@@ -3674,17 +3234,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves an array of your <a>LoggingConfiguration</a> objects.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListLoggingConfigurations service method.</param>
         /// 
@@ -3727,17 +3277,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves an array of your <a>LoggingConfiguration</a> objects.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListLoggingConfigurations service method.</param>
         /// <param name="cancellationToken">
@@ -3786,18 +3326,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves an array of <a>RegexPatternSetSummary</a> objects for the regex pattern
         /// sets that you manage.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListRegexPatternSets service method.</param>
         /// 
@@ -3840,18 +3370,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves an array of <a>RegexPatternSetSummary</a> objects for the regex pattern
         /// sets that you manage.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListRegexPatternSets service method.</param>
         /// <param name="cancellationToken">
@@ -3900,19 +3420,9 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves an array of the Amazon Resource Names (ARNs) for the regional resources
         /// that are associated with the specified web ACL. If you want the list of AWS CloudFront
-        /// resources, use the AWS CloudFront call <code>ListDistributionsByWebACLId</code>. 
-        /// </para>
+        /// resources, use the AWS CloudFront call <code>ListDistributionsByWebACLId</code>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListResourcesForWebACL service method.</param>
         /// 
@@ -3958,19 +3468,9 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves an array of the Amazon Resource Names (ARNs) for the regional resources
         /// that are associated with the specified web ACL. If you want the list of AWS CloudFront
-        /// resources, use the AWS CloudFront call <code>ListDistributionsByWebACLId</code>. 
-        /// </para>
+        /// resources, use the AWS CloudFront call <code>ListDistributionsByWebACLId</code>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListResourcesForWebACL service method.</param>
         /// <param name="cancellationToken">
@@ -4022,18 +3522,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves an array of <a>RuleGroupSummary</a> objects for the rule groups that you
-        /// manage. 
-        /// </para>
+        /// manage.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListRuleGroups service method.</param>
         /// 
@@ -4076,18 +3566,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves an array of <a>RuleGroupSummary</a> objects for the rule groups that you
-        /// manage. 
-        /// </para>
+        /// manage.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListRuleGroups service method.</param>
         /// <param name="cancellationToken">
@@ -4136,21 +3616,12 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves the <a>TagInfoForResource</a> for the specified resource. Tags are key:value
         /// pairs that you can use to categorize and manage your resources, for purposes like
         /// billing. For example, you might set the tag key to "customer" and the value to the
         /// customer name or ID. You can specify one or more tags to add to each AWS resource,
         /// up to 50 tags for a resource.
-        /// </para>
+        /// 
         ///  
         /// <para>
         /// You can tag the AWS resources that you manage through AWS WAF: web ACLs, rule groups,
@@ -4209,21 +3680,12 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves the <a>TagInfoForResource</a> for the specified resource. Tags are key:value
         /// pairs that you can use to categorize and manage your resources, for purposes like
         /// billing. For example, you might set the tag key to "customer" and the value to the
         /// customer name or ID. You can specify one or more tags to add to each AWS resource,
         /// up to 50 tags for a resource.
-        /// </para>
+        /// 
         ///  
         /// <para>
         /// You can tag the AWS resources that you manage through AWS WAF: web ACLs, rule groups,
@@ -4288,17 +3750,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves an array of <a>WebACLSummary</a> objects for the web ACLs that you manage.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListWebACLs service method.</param>
         /// 
@@ -4341,17 +3793,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves an array of <a>WebACLSummary</a> objects for the web ACLs that you manage.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListWebACLs service method.</param>
         /// <param name="cancellationToken">
@@ -4400,18 +3842,9 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Enables the specified <a>LoggingConfiguration</a>, to start logging from a web ACL,
         /// according to the configuration provided.
-        /// </para>
+        /// 
         ///  
         /// <para>
         /// You can access information about all traffic that AWS WAF inspects using the following
@@ -4513,18 +3946,9 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Enables the specified <a>LoggingConfiguration</a>, to start logging from a web ACL,
         /// according to the configuration provided.
-        /// </para>
+        /// 
         ///  
         /// <para>
         /// You can access information about all traffic that AWS WAF inspects using the following
@@ -4844,21 +4268,12 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Associates tags with the specified AWS resource. Tags are key:value pairs that you
         /// can use to categorize and manage your resources, for purposes like billing. For example,
         /// you might set the tag key to "customer" and the value to the customer name or ID.
         /// You can specify one or more tags to add to each AWS resource, up to 50 tags for a
         /// resource.
-        /// </para>
+        /// 
         ///  
         /// <para>
         /// You can tag the AWS resources that you manage through AWS WAF: web ACLs, rule groups,
@@ -4923,21 +4338,12 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Associates tags with the specified AWS resource. Tags are key:value pairs that you
         /// can use to categorize and manage your resources, for purposes like billing. For example,
         /// you might set the tag key to "customer" and the value to the customer name or ID.
         /// You can specify one or more tags to add to each AWS resource, up to 50 tags for a
         /// resource.
-        /// </para>
+        /// 
         ///  
         /// <para>
         /// You can tag the AWS resources that you manage through AWS WAF: web ACLs, rule groups,
@@ -5008,20 +4414,10 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Disassociates tags from an AWS resource. Tags are key:value pairs that you can associate
         /// with AWS resources. For example, the tag key might be "customer" and the tag value
         /// might be "companyA." You can specify one or more tags to add to each container. You
         /// can add up to 50 tags to each AWS resource.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UntagResource service method.</param>
         /// 
@@ -5074,20 +4470,10 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Disassociates tags from an AWS resource. Tags are key:value pairs that you can associate
         /// with AWS resources. For example, the tag key might be "customer" and the tag value
         /// might be "companyA." You can specify one or more tags to add to each container. You
         /// can add up to 50 tags to each AWS resource.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UntagResource service method.</param>
         /// <param name="cancellationToken">
@@ -5146,17 +4532,17 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
+        /// Updates the specified <a>IPSet</a>. 
+        /// 
+        ///  <note> 
         /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
+        /// This operation completely replaces any IP address specifications that you already
+        /// have in the IP set with the ones that you provide to this call. If you want to add
+        /// to or modify the addresses that are already in the IP set, retrieve those by calling
+        /// <a>GetIPSet</a>, update them, and provide the complete updated array of IP addresses
+        /// to this call.
         /// </para>
-        ///  </note> 
-        /// <para>
-        /// Updates the specified <a>IPSet</a>.
-        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateIPSet service method.</param>
         /// 
@@ -5217,17 +4603,17 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
+        /// Updates the specified <a>IPSet</a>. 
+        /// 
+        ///  <note> 
         /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
+        /// This operation completely replaces any IP address specifications that you already
+        /// have in the IP set with the ones that you provide to this call. If you want to add
+        /// to or modify the addresses that are already in the IP set, retrieve those by calling
+        /// <a>GetIPSet</a>, update them, and provide the complete updated array of IP addresses
+        /// to this call.
         /// </para>
-        ///  </note> 
-        /// <para>
-        /// Updates the specified <a>IPSet</a>.
-        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateIPSet service method.</param>
         /// <param name="cancellationToken">
@@ -5294,17 +4680,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Updates the specified <a>RegexPatternSet</a>.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateRegexPatternSet service method.</param>
         /// 
@@ -5365,17 +4741,7 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Updates the specified <a>RegexPatternSet</a>.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateRegexPatternSet service method.</param>
         /// <param name="cancellationToken">
@@ -5442,17 +4808,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Updates the specified <a>RuleGroup</a>.
-        /// </para>
+        /// 
         ///  
         /// <para>
         ///  A rule group defines a collection of rules to inspect and control web requests that
@@ -5516,7 +4873,8 @@ namespace Amazon.WAFV2
         /// you need to make to the new copy, and retry your operation.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFSubscriptionNotFoundException">
-        /// 
+        /// You tried to use a managed rule group that's available by subscription, but you aren't
+        /// subscribed to it yet.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
         /// AWS WAF couldn’t retrieve the resource that you requested. Retry your request.
@@ -5527,17 +4885,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Updates the specified <a>RuleGroup</a>.
-        /// </para>
+        /// 
         ///  
         /// <para>
         ///  A rule group defines a collection of rules to inspect and control web requests that
@@ -5604,7 +4953,8 @@ namespace Amazon.WAFV2
         /// you need to make to the new copy, and retry your operation.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFSubscriptionNotFoundException">
-        /// 
+        /// You tried to use a managed rule group that's available by subscription, but you aren't
+        /// subscribed to it yet.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
         /// AWS WAF couldn’t retrieve the resource that you requested. Retry your request.
@@ -5618,17 +4968,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Updates the specified <a>WebACL</a>.
-        /// </para>
+        /// 
         ///  
         /// <para>
         ///  A Web ACL defines a collection of rules to use to inspect and control web requests.
@@ -5699,7 +5040,8 @@ namespace Amazon.WAFV2
         /// you need to make to the new copy, and retry your operation.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFSubscriptionNotFoundException">
-        /// 
+        /// You tried to use a managed rule group that's available by subscription, but you aren't
+        /// subscribed to it yet.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
         /// AWS WAF couldn’t retrieve the resource that you requested. Retry your request.
@@ -5710,17 +5052,8 @@ namespace Amazon.WAFV2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-        /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-        /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-        /// WAF Developer Guide</a>. 
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Updates the specified <a>WebACL</a>.
-        /// </para>
+        /// 
         ///  
         /// <para>
         ///  A Web ACL defines a collection of rules to use to inspect and control web requests.
@@ -5794,7 +5127,8 @@ namespace Amazon.WAFV2
         /// you need to make to the new copy, and retry your operation.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFSubscriptionNotFoundException">
-        /// 
+        /// You tried to use a managed rule group that's available by subscription, but you aren't
+        /// subscribed to it yet.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
         /// AWS WAF couldn’t retrieve the resource that you requested. Retry your request.

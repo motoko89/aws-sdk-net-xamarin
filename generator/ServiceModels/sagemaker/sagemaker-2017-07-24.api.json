@@ -3166,7 +3166,8 @@
         "CreationTime":{"shape":"Timestamp"},
         "EndTime":{"shape":"Timestamp"},
         "LastModifiedTime":{"shape":"Timestamp"},
-        "FailureReason":{"shape":"AutoMLFailureReason"}
+        "FailureReason":{"shape":"AutoMLFailureReason"},
+        "CandidateProperties":{"shape":"CandidateProperties"}
       }
     },
     "AutoMLCandidateStep":{
@@ -3292,7 +3293,10 @@
         "Stopped",
         "MaxAutoMLJobRuntimeReached",
         "Stopping",
-        "CandidateDefinitionsGenerated"
+        "CandidateDefinitionsGenerated",
+        "GeneratingExplainabilityReport",
+        "Completed",
+        "ExplainabilityError"
       ]
     },
     "AutoMLJobStatus":{
@@ -3327,7 +3331,8 @@
         "CreationTime":{"shape":"Timestamp"},
         "EndTime":{"shape":"Timestamp"},
         "LastModifiedTime":{"shape":"Timestamp"},
-        "FailureReason":{"shape":"AutoMLFailureReason"}
+        "FailureReason":{"shape":"AutoMLFailureReason"},
+        "PartialFailureReasons":{"shape":"AutoMLPartialFailureReasons"}
       }
     },
     "AutoMLMaxResults":{
@@ -3357,6 +3362,18 @@
         "KmsKeyId":{"shape":"KmsKeyId"},
         "S3OutputPath":{"shape":"S3Uri"}
       }
+    },
+    "AutoMLPartialFailureReason":{
+      "type":"structure",
+      "members":{
+        "PartialFailureMessage":{"shape":"AutoMLFailureReason"}
+      }
+    },
+    "AutoMLPartialFailureReasons":{
+      "type":"list",
+      "member":{"shape":"AutoMLPartialFailureReason"},
+      "max":5,
+      "min":1
     },
     "AutoMLS3DataSource":{
       "type":"structure",
@@ -3462,6 +3479,13 @@
         "SourcePipelineExecutionArn":{"shape":"PipelineExecutionArn"}
       }
     },
+    "CandidateArtifactLocations":{
+      "type":"structure",
+      "required":["Explainability"],
+      "members":{
+        "Explainability":{"shape":"ExplainabilityLocation"}
+      }
+    },
     "CandidateDefinitionNotebookLocation":{
       "type":"string",
       "min":1
@@ -3470,6 +3494,12 @@
       "type":"string",
       "max":64,
       "min":1
+    },
+    "CandidateProperties":{
+      "type":"structure",
+      "members":{
+        "CandidateArtifactLocations":{"shape":"CandidateArtifactLocations"}
+      }
     },
     "CandidateSortBy":{
       "type":"string",
@@ -4624,6 +4654,7 @@
         "ModelName":{"shape":"ModelName"},
         "PrimaryContainer":{"shape":"ContainerDefinition"},
         "Containers":{"shape":"ContainerDefinitionList"},
+        "InferenceExecutionConfig":{"shape":"InferenceExecutionConfig"},
         "ExecutionRoleArn":{"shape":"RoleArn"},
         "Tags":{"shape":"TagList"},
         "VpcConfig":{"shape":"VpcConfig"},
@@ -4810,7 +4841,8 @@
       "members":{
         "DomainId":{"shape":"DomainId"},
         "UserProfileName":{"shape":"UserProfileName"},
-        "SessionExpirationDurationInSeconds":{"shape":"SessionExpirationDurationInSeconds"}
+        "SessionExpirationDurationInSeconds":{"shape":"SessionExpirationDurationInSeconds"},
+        "ExpiresInSeconds":{"shape":"ExpiresInSeconds"}
       }
     },
     "CreatePresignedDomainUrlResponse":{
@@ -4916,7 +4948,8 @@
         "TensorBoardOutputConfig":{"shape":"TensorBoardOutputConfig"},
         "ExperimentConfig":{"shape":"ExperimentConfig"},
         "ProfilerConfig":{"shape":"ProfilerConfig"},
-        "ProfilerRuleConfigurations":{"shape":"ProfilerRuleConfigurations"}
+        "ProfilerRuleConfigurations":{"shape":"ProfilerRuleConfigurations"},
+        "Environment":{"shape":"TrainingEnvironmentMap"}
       }
     },
     "CreateTrainingJobResponse":{
@@ -5839,6 +5872,7 @@
         "EndTime":{"shape":"Timestamp"},
         "LastModifiedTime":{"shape":"Timestamp"},
         "FailureReason":{"shape":"AutoMLFailureReason"},
+        "PartialFailureReasons":{"shape":"AutoMLPartialFailureReasons"},
         "BestCandidate":{"shape":"AutoMLCandidate"},
         "AutoMLJobStatus":{"shape":"AutoMLJobStatus"},
         "AutoMLJobSecondaryStatus":{"shape":"AutoMLJobSecondaryStatus"},
@@ -6459,6 +6493,7 @@
         "ModelName":{"shape":"ModelName"},
         "PrimaryContainer":{"shape":"ContainerDefinition"},
         "Containers":{"shape":"ContainerDefinitionList"},
+        "InferenceExecutionConfig":{"shape":"InferenceExecutionConfig"},
         "ExecutionRoleArn":{"shape":"RoleArn"},
         "VpcConfig":{"shape":"VpcConfig"},
         "CreationTime":{"shape":"Timestamp"},
@@ -6843,7 +6878,8 @@
         "ProfilerConfig":{"shape":"ProfilerConfig"},
         "ProfilerRuleConfigurations":{"shape":"ProfilerRuleConfigurations"},
         "ProfilerRuleEvaluationStatuses":{"shape":"ProfilerRuleEvaluationStatuses"},
-        "ProfilingStatus":{"shape":"ProfilingStatus"}
+        "ProfilingStatus":{"shape":"ProfilingStatus"},
+        "Environment":{"shape":"TrainingEnvironmentMap"}
       }
     },
     "DescribeTransformJobRequest":{
@@ -7596,11 +7632,20 @@
         "LastModifiedTime":{"shape":"Timestamp"}
       }
     },
+    "ExpiresInSeconds":{
+      "type":"integer",
+      "max":300,
+      "min":5
+    },
     "Explainability":{
       "type":"structure",
       "members":{
         "Report":{"shape":"MetricsSource"}
       }
+    },
+    "ExplainabilityLocation":{
+      "type":"string",
+      "min":1
     },
     "FailureReason":{
       "type":"string",
@@ -7918,6 +7963,12 @@
         "DARKNET",
         "SKLEARN"
       ]
+    },
+    "FrameworkVersion":{
+      "type":"string",
+      "max":10,
+      "min":3,
+      "pattern":"[0-9]\\.[A-Za-z0-9.]+"
     },
     "GenerateCandidateDefinitionsOnly":{"type":"boolean"},
     "GetDeviceFleetReportRequest":{
@@ -8416,7 +8467,8 @@
       "type":"structure",
       "required":["RepositoryAccessMode"],
       "members":{
-        "RepositoryAccessMode":{"shape":"RepositoryAccessMode"}
+        "RepositoryAccessMode":{"shape":"RepositoryAccessMode"},
+        "RepositoryAuthConfig":{"shape":"RepositoryAuthConfig"}
       }
     },
     "ImageContainerImage":{
@@ -8557,6 +8609,20 @@
       "type":"list",
       "member":{"shape":"Image"}
     },
+    "InferenceExecutionConfig":{
+      "type":"structure",
+      "required":["Mode"],
+      "members":{
+        "Mode":{"shape":"InferenceExecutionMode"}
+      }
+    },
+    "InferenceExecutionMode":{
+      "type":"string",
+      "enum":[
+        "Serial",
+        "Direct"
+      ]
+    },
     "InferenceSpecification":{
       "type":"structure",
       "required":[
@@ -8582,7 +8648,8 @@
       "members":{
         "S3Uri":{"shape":"S3Uri"},
         "DataInputConfig":{"shape":"DataInputConfig"},
-        "Framework":{"shape":"Framework"}
+        "Framework":{"shape":"Framework"},
+        "FrameworkVersion":{"shape":"FrameworkVersion"}
       }
     },
     "InputDataConfig":{
@@ -11986,7 +12053,8 @@
         "InitialInstanceCount":{"shape":"TaskCount"},
         "InstanceType":{"shape":"ProductionVariantInstanceType"},
         "InitialVariantWeight":{"shape":"VariantWeight"},
-        "AcceleratorType":{"shape":"ProductionVariantAcceleratorType"}
+        "AcceleratorType":{"shape":"ProductionVariantAcceleratorType"},
+        "CoreDumpConfig":{"shape":"ProductionVariantCoreDumpConfig"}
       }
     },
     "ProductionVariantAcceleratorType":{
@@ -11999,6 +12067,14 @@
         "ml.eia2.large",
         "ml.eia2.xlarge"
       ]
+    },
+    "ProductionVariantCoreDumpConfig":{
+      "type":"structure",
+      "required":["DestinationS3Uri"],
+      "members":{
+        "DestinationS3Uri":{"shape":"DestinationS3Uri"},
+        "KmsKeyId":{"shape":"KmsKeyId"}
+      }
     },
     "ProductionVariantInstanceType":{
       "type":"string",
@@ -12450,6 +12526,19 @@
         "Vpc"
       ]
     },
+    "RepositoryAuthConfig":{
+      "type":"structure",
+      "required":["RepositoryCredentialsProviderArn"],
+      "members":{
+        "RepositoryCredentialsProviderArn":{"shape":"RepositoryCredentialsProviderArn"}
+      }
+    },
+    "RepositoryCredentialsProviderArn":{
+      "type":"string",
+      "max":2048,
+      "min":1,
+      "pattern":".*"
+    },
     "ResolvedAttributes":{
       "type":"structure",
       "members":{
@@ -12634,7 +12723,8 @@
       "required":["S3Uri"],
       "members":{
         "S3Uri":{"shape":"S3Uri"},
-        "KmsKeyId":{"shape":"KmsKeyId"}
+        "KmsKeyId":{"shape":"KmsKeyId"},
+        "ResolvedOutputS3Uri":{"shape":"S3Uri"}
       }
     },
     "S3Uri":{
@@ -13245,6 +13335,7 @@
         "ml_p3",
         "ml_g4dn",
         "ml_inf1",
+        "ml_eia2",
         "jetson_tx1",
         "jetson_tx2",
         "jetson_nano",
@@ -13306,7 +13397,6 @@
     },
     "TaskAvailabilityLifetimeInSeconds":{
       "type":"integer",
-      "max":864000,
       "min":60
     },
     "TaskCount":{
@@ -13339,7 +13429,6 @@
     },
     "TaskTimeLimitInSeconds":{
       "type":"integer",
-      "max":604800,
       "min":30
     },
     "TaskTitle":{
@@ -13412,6 +13501,22 @@
         "ALL_AT_ONCE",
         "CANARY"
       ]
+    },
+    "TrainingEnvironmentKey":{
+      "type":"string",
+      "max":512,
+      "pattern":"[a-zA-Z_][a-zA-Z0-9_]*"
+    },
+    "TrainingEnvironmentMap":{
+      "type":"map",
+      "key":{"shape":"TrainingEnvironmentKey"},
+      "value":{"shape":"TrainingEnvironmentValue"},
+      "max":48
+    },
+    "TrainingEnvironmentValue":{
+      "type":"string",
+      "max":512,
+      "pattern":"[\\S\\s]*"
     },
     "TrainingInputMode":{
       "type":"string",
@@ -13509,6 +13614,7 @@
         "DebugRuleConfigurations":{"shape":"DebugRuleConfigurations"},
         "TensorBoardOutputConfig":{"shape":"TensorBoardOutputConfig"},
         "DebugRuleEvaluationStatuses":{"shape":"DebugRuleEvaluationStatuses"},
+        "Environment":{"shape":"TrainingEnvironmentMap"},
         "Tags":{"shape":"TagList"}
       }
     },

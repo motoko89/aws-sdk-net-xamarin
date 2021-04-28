@@ -76,6 +76,12 @@ namespace Amazon.WAFV2.Model.Internal.MarshallTransformations
                     unmarshalledObject.Capacity = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("CustomResponseBodies", targetDepth))
+                {
+                    var unmarshaller = new DictionaryUnmarshaller<string, CustomResponseBody, StringUnmarshaller, CustomResponseBodyUnmarshaller>(StringUnmarshaller.Instance, CustomResponseBodyUnmarshaller.Instance);
+                    unmarshalledObject.CustomResponseBodies = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("DefaultAction", targetDepth))
                 {
                     var unmarshaller = DefaultActionUnmarshaller.Instance;
@@ -92,6 +98,12 @@ namespace Amazon.WAFV2.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.Id = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("LabelNamespace", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.LabelNamespace = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("ManagedByFirewallManager", targetDepth))

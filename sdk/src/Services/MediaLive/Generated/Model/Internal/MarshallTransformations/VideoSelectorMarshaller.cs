@@ -51,6 +51,17 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.ColorSpace);
             }
 
+            if(requestObject.IsSetColorSpaceSettings())
+            {
+                context.Writer.WritePropertyName("colorSpaceSettings");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = VideoSelectorColorSpaceSettingsMarshaller.Instance;
+                marshaller.Marshall(requestObject.ColorSpaceSettings, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetColorSpaceUsage())
             {
                 context.Writer.WritePropertyName("colorSpaceUsage");

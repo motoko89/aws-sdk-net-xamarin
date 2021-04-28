@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -41,6 +40,12 @@ namespace Amazon.QuickSight.Model
         /// Enumerable containing all full responses for the operation
         /// </summary>
         public IPaginatedEnumerable<SearchAnalysesResponse> Responses => new PaginatedResponse<SearchAnalysesResponse>(this);
+
+        /// <summary>
+        /// Enumerable containing all of the AnalysisSummaryList
+        /// </summary>
+        public IPaginatedEnumerable<AnalysisSummary> AnalysisSummaryList => 
+            new PaginatedResultKeyResponse<SearchAnalysesResponse, AnalysisSummary>(this, (i) => i.AnalysisSummaryList);
 
         internal SearchAnalysesPaginator(IAmazonQuickSight client, SearchAnalysesRequest request)
         {
@@ -90,4 +95,3 @@ namespace Amazon.QuickSight.Model
 #endif
     }
 }
-#endif

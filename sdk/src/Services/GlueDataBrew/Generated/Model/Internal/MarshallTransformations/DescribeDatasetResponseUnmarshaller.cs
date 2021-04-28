@@ -63,6 +63,12 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
                     response.CreatedBy = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("Format", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.Format = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("FormatOptions", targetDepth))
                 {
                     var unmarshaller = FormatOptionsUnmarshaller.Instance;
@@ -91,6 +97,12 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     response.Name = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("PathOptions", targetDepth))
+                {
+                    var unmarshaller = PathOptionsUnmarshaller.Instance;
+                    response.PathOptions = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("ResourceArn", targetDepth))

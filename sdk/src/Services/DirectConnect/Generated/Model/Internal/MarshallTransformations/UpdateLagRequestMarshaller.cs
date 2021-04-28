@@ -62,12 +62,17 @@ namespace Amazon.DirectConnect.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetEncryptionMode())
+                {
+                    context.Writer.WritePropertyName("encryptionMode");
+                    context.Writer.Write(publicRequest.EncryptionMode);
+                }
+
                 if(publicRequest.IsSetLagId())
                 {
                     context.Writer.WritePropertyName("lagId");

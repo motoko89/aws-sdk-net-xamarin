@@ -62,7 +62,6 @@ namespace Amazon.GameLift.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -118,6 +117,12 @@ namespace Amazon.GameLift.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("IdempotencyToken");
                     context.Writer.Write(publicRequest.IdempotencyToken);
+                }
+
+                if(publicRequest.IsSetLocation())
+                {
+                    context.Writer.WritePropertyName("Location");
+                    context.Writer.Write(publicRequest.Location);
                 }
 
                 if(publicRequest.IsSetMaximumPlayerSessionCount())

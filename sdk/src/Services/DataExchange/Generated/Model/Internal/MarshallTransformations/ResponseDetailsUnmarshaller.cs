@@ -76,6 +76,12 @@ namespace Amazon.DataExchange.Model.Internal.MarshallTransformations
                     unmarshalledObject.ExportAssetToSignedUrl = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("ExportRevisionsToS3", targetDepth))
+                {
+                    var unmarshaller = ExportRevisionsToS3ResponseDetailsUnmarshaller.Instance;
+                    unmarshalledObject.ExportRevisionsToS3 = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("ImportAssetFromSignedUrl", targetDepth))
                 {
                     var unmarshaller = ImportAssetFromSignedUrlResponseDetailsUnmarshaller.Instance;

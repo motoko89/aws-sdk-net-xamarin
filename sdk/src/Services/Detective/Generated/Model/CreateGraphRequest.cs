@@ -31,7 +31,7 @@ namespace Amazon.Detective.Model
     /// <summary>
     /// Container for the parameters to the CreateGraph operation.
     /// Creates a new behavior graph for the calling account, and sets that account as the
-    /// master account. This operation is called by the account that is enabling Detective.
+    /// administrator account. This operation is called by the account that is enabling Detective.
     /// 
     ///  
     /// <para>
@@ -53,13 +53,34 @@ namespace Amazon.Detective.Model
     /// </para>
     ///  
     /// <para>
-    /// An account can only be the master account for one behavior graph within a Region.
-    /// If the same account calls <code>CreateGraph</code> with the same master account, it
-    /// always returns the same behavior graph ARN. It does not create a new behavior graph.
+    /// An account can only be the administrator account for one behavior graph within a Region.
+    /// If the same account calls <code>CreateGraph</code> with the same administrator account,
+    /// it always returns the same behavior graph ARN. It does not create a new behavior graph.
     /// </para>
     /// </summary>
     public partial class CreateGraphRequest : AmazonDetectiveRequest
     {
+        private Dictionary<string, string> _tags = new Dictionary<string, string>();
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// The tags to assign to the new behavior graph. For each tag, you provide the tag key
+        /// and the tag value.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=50)]
+        public Dictionary<string, string> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
+        }
 
     }
 }

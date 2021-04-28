@@ -31,8 +31,8 @@ namespace Amazon.S3Control.Model
     /// <summary>
     /// Container for the parameters to the ListRegionalBuckets operation.
     /// Returns a list of all Outposts buckets in an Outpost that are owned by the authenticated
-    /// sender of the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using
-    /// Amazon S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
+    /// sender of the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
+    /// Amazon S3 on Outposts</a> in the <i>Amazon Simple Storage Service User Guide</i>.
     /// 
     ///  
     /// <para>

@@ -34,8 +34,13 @@ namespace Amazon.EC2
     /// Amazon Elastic Compute Cloud 
     /// <para>
     /// Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing
-    /// capacity in the AWS cloud. Using Amazon EC2 eliminates the need to invest in hardware
-    /// up front, so you can develop and deploy applications faster.
+    /// capacity in the AWS Cloud. Using Amazon EC2 eliminates the need to invest in hardware
+    /// up front, so you can develop and deploy applications faster. Amazon Virtual Private
+    /// Cloud (Amazon VPC) enables you to provision a logically isolated section of the AWS
+    /// Cloud where you can launch AWS resources in a virtual network that you've defined.
+    /// Amazon Elastic Block Store (Amazon EBS) provides block level storage volumes for use
+    /// with EC2 instances. EBS volumes are highly available and reliable storage volumes
+    /// that can be attached to any running instance and used like a hard drive.
     /// </para>
     ///  
     /// <para>
@@ -48,7 +53,7 @@ namespace Amazon.EC2
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon
+    /// Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="http://aws.amazon.com/documentation/ebs">Amazon
     /// EBS documentation</a> 
     /// </para>
     ///  </li> <li> 
@@ -63,9 +68,6 @@ namespace Amazon.EC2
     /// </para>
     ///  </li> </ul>
     /// </summary>
-#if NETSTANDARD13
-    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
-#endif
     public partial interface IAmazonEC2 : IAmazonService, IDisposable
     {
 #if AWS_ASYNC_ENUMERABLES_API
@@ -593,19 +595,18 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// When the IAM role is associated with the ACM certificate, places the certificate,
-        /// certificate chain, and encrypted private key in an Amazon S3 bucket that only the
-        /// associated IAM role can access. The private key of the certificate is encrypted with
-        /// an AWS-managed KMS customer master (CMK) that has an attached attestation-based CMK
-        /// policy.
+        /// When the IAM role is associated with the ACM certificate, the certificate, certificate
+        /// chain, and encrypted private key are placed in an Amazon S3 bucket that only the associated
+        /// IAM role can access. The private key of the certificate is encrypted with an AWS-managed
+        /// KMS customer master (CMK) that has an attached attestation-based CMK policy.
         /// </para>
         ///  
         /// <para>
         /// To enable the IAM role to access the Amazon S3 object, you must grant it permission
         /// to call <code>s3:GetObject</code> on the Amazon S3 bucket returned by the command.
         /// To enable the IAM role to access the AWS KMS CMK, you must grant it permission to
-        /// call <code>kms:Decrypt</code> on AWS KMS CMK returned by the command. For more information,
-        /// see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy">
+        /// call <code>kms:Decrypt</code> on the AWS KMS CMK returned by the command. For more
+        /// information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy">
         /// Grant the role permission to access the certificate and encryption key</a> in the
         /// <i>AWS Nitro Enclaves User Guide</i>.
         /// </para>
@@ -1287,7 +1288,8 @@ namespace Amazon.EC2
         /// <summary>
         /// Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from
         /// a Region to an AWS Outpost. You can't copy an AMI from an Outpost to a Region, from
-        /// one Outpost to another, or within the same Outpost.
+        /// one Outpost to another, or within the same Outpost. To copy an AMI to another partition,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.
         /// 
         ///  
         /// <para>
@@ -1308,7 +1310,7 @@ namespace Amazon.EC2
         /// Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud
         /// User Guide</i>.
         /// </para>
-        ///   
+        ///  
         /// <para>
         /// For more information about the prerequisites and limits when copying an AMI, see <a
         /// href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying
@@ -1835,7 +1837,7 @@ namespace Amazon.EC2
         /// <para>
         /// For information about the supported operating systems, image formats, and known limitations
         /// for the types of instances you can export, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html">Exporting
-        /// an Instance as a VM Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
+        /// an instance as a VM Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateInstanceExportTask service method.</param>
@@ -2239,6 +2241,32 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  CreateReplaceRootVolumeTask
+
+
+
+        /// <summary>
+        /// Creates a root volume replacement task for an Amazon EC2 instance. The root volume
+        /// can either be restored to its initial launch state, or it can be restored using a
+        /// specific snapshot.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/">Replace a root volume</a>
+        /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateReplaceRootVolumeTask service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateReplaceRootVolumeTask service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateReplaceRootVolumeTask">REST API Reference for CreateReplaceRootVolumeTask Operation</seealso>
+        Task<CreateReplaceRootVolumeTaskResponse> CreateReplaceRootVolumeTaskAsync(CreateReplaceRootVolumeTaskRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  CreateReservedInstancesListing
 
 
@@ -2285,6 +2313,38 @@ namespace Amazon.EC2
         /// <returns>The response from the CreateReservedInstancesListing service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateReservedInstancesListing">REST API Reference for CreateReservedInstancesListing Operation</seealso>
         Task<CreateReservedInstancesListingResponse> CreateReservedInstancesListingAsync(CreateReservedInstancesListingRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  CreateRestoreImageTask
+
+
+
+        /// <summary>
+        /// Starts a task that restores an AMI from an S3 object that was previously created by
+        /// using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.
+        /// 
+        ///  
+        /// <para>
+        /// To use this API, you must have the required permissions. For more information, see
+        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions
+        /// for storing and restoring AMIs using S3</a> in the <i>Amazon Elastic Compute Cloud
+        /// User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store
+        /// and restore an AMI using S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateRestoreImageTask service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateRestoreImageTask service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateRestoreImageTask">REST API Reference for CreateRestoreImageTask Operation</seealso>
+        Task<CreateRestoreImageTaskResponse> CreateRestoreImageTaskAsync(CreateRestoreImageTaskRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -2529,6 +2589,37 @@ namespace Amazon.EC2
         /// <returns>The response from the CreateSpotDatafeedSubscription service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSpotDatafeedSubscription">REST API Reference for CreateSpotDatafeedSubscription Operation</seealso>
         Task<CreateSpotDatafeedSubscriptionResponse> CreateSpotDatafeedSubscriptionAsync(CreateSpotDatafeedSubscriptionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  CreateStoreImageTask
+
+
+
+        /// <summary>
+        /// Stores an AMI as a single object in an S3 bucket.
+        /// 
+        ///  
+        /// <para>
+        /// To use this API, you must have the required permissions. For more information, see
+        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions
+        /// for storing and restoring AMIs using S3</a> in the <i>Amazon Elastic Compute Cloud
+        /// User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store
+        /// and restore an AMI using S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateStoreImageTask service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateStoreImageTask service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateStoreImageTask">REST API Reference for CreateStoreImageTask Operation</seealso>
+        Task<CreateStoreImageTaskResponse> CreateStoreImageTaskAsync(CreateStoreImageTaskRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -6673,6 +6764,25 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  DescribeReplaceRootVolumeTasks
+
+
+
+        /// <summary>
+        /// Describes a root volume replacement task. For more information, see <a href="https://docs.aws.amazon.com/">Replace
+        /// a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeReplaceRootVolumeTasks service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeReplaceRootVolumeTasks service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReplaceRootVolumeTasks">REST API Reference for DescribeReplaceRootVolumeTasks Operation</seealso>
+        Task<DescribeReplaceRootVolumeTasksResponse> DescribeReplaceRootVolumeTasksAsync(DescribeReplaceRootVolumeTasksRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  DescribeReservedInstances
 
 
@@ -7462,10 +7572,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// When you specify a start and end time, this operation returns the prices of the instance
-        /// types within the time range that you specified and the time when the price changed.
-        /// The price is valid within the time period that you specified; the response merely
-        /// indicates the last time that the price changed.
+        /// When you specify a start and end time, the operation returns the prices of the instance
+        /// types within that time range. It also returns the last price change before the start
+        /// time, which is the effective price as of the start time.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -7484,10 +7593,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// When you specify a start and end time, this operation returns the prices of the instance
-        /// types within the time range that you specified and the time when the price changed.
-        /// The price is valid within the time period that you specified; the response merely
-        /// indicates the last time that the price changed.
+        /// When you specify a start and end time, the operation returns the prices of the instance
+        /// types within that time range. It also returns the last price change before the start
+        /// time, which is the effective price as of the start time.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeSpotPriceHistory service method.</param>
@@ -7518,6 +7626,50 @@ namespace Amazon.EC2
         /// <returns>The response from the DescribeStaleSecurityGroups service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeStaleSecurityGroups">REST API Reference for DescribeStaleSecurityGroups Operation</seealso>
         Task<DescribeStaleSecurityGroupsResponse> DescribeStaleSecurityGroupsAsync(DescribeStaleSecurityGroupsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DescribeStoreImageTasks
+
+
+
+        /// <summary>
+        /// Describes the progress of the AMI store tasks. You can describe the store tasks for
+        /// specified AMIs. If you don't specify the AMIs, you get a paginated list of store tasks
+        /// from the last 31 days.
+        /// 
+        ///  
+        /// <para>
+        /// For each AMI task, the response indicates if the task is <code>InProgress</code>,
+        /// <code>Completed</code>, or <code>Failed</code>. For tasks <code>InProgress</code>,
+        /// the response shows the estimated progress as a percentage.
+        /// </para>
+        ///  
+        /// <para>
+        /// Tasks are listed in reverse chronological order. Currently, only tasks from the past
+        /// 31 days can be viewed.
+        /// </para>
+        ///  
+        /// <para>
+        /// To use this API, you must have the required permissions. For more information, see
+        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions
+        /// for storing and restoring AMIs using S3</a> in the <i>Amazon Elastic Compute Cloud
+        /// User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store
+        /// and restore an AMI using S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeStoreImageTasks service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeStoreImageTasks service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeStoreImageTasks">REST API Reference for DescribeStoreImageTasks Operation</seealso>
+        Task<DescribeStoreImageTasksResponse> DescribeStoreImageTasksAsync(DescribeStoreImageTasksRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -8541,6 +8693,27 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  DisableSerialConsoleAccess
+
+
+
+        /// <summary>
+        /// Disables access to the EC2 serial console of all instances for your account. By default,
+        /// access to the EC2 serial console is disabled for your account. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage
+        /// account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisableSerialConsoleAccess service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DisableSerialConsoleAccess service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableSerialConsoleAccess">REST API Reference for DisableSerialConsoleAccess Operation</seealso>
+        Task<DisableSerialConsoleAccessResponse> DisableSerialConsoleAccessAsync(DisableSerialConsoleAccessRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  DisableTransitGatewayRouteTablePropagation
 
 
@@ -8856,7 +9029,7 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// After you enable encryption by default, the EBS volumes that you create are are always
+        /// After you enable encryption by default, the EBS volumes that you create are always
         /// encrypted, either using the default CMK or the CMK that you specified when you created
         /// each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
         /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
@@ -8917,6 +9090,27 @@ namespace Amazon.EC2
         /// <returns>The response from the EnableFastSnapshotRestores service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableFastSnapshotRestores">REST API Reference for EnableFastSnapshotRestores Operation</seealso>
         Task<EnableFastSnapshotRestoresResponse> EnableFastSnapshotRestoresAsync(EnableFastSnapshotRestoresRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  EnableSerialConsoleAccess
+
+
+
+        /// <summary>
+        /// Enables access to the EC2 serial console of all instances for your account. By default,
+        /// access to the EC2 serial console is disabled for your account. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage
+        /// account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the EnableSerialConsoleAccess service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the EnableSerialConsoleAccess service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableSerialConsoleAccess">REST API Reference for EnableSerialConsoleAccess Operation</seealso>
+        Task<EnableSerialConsoleAccessResponse> EnableSerialConsoleAccessAsync(EnableSerialConsoleAccessRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -9074,7 +9268,7 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Exports an Amazon Machine Image (AMI) to a VM file. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html">Exporting
-        /// a VM Directory from an Amazon Machine Image (AMI)</a> in the <i>VM Import/Export User
+        /// a VM directly from an Amazon Machine Image (AMI)</a> in the <i>VM Import/Export User
         /// Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ExportImage service method.</param>
@@ -9334,6 +9528,46 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  GetFlowLogsIntegrationTemplate
+
+
+
+        /// <summary>
+        /// Generates a CloudFormation template that streamlines and automates the integration
+        /// of VPC flow logs with Amazon Athena. This make it easier for you to query and gain
+        /// insights from VPC flow logs data. Based on the information that you provide, we configure
+        /// resources in the template to do the following:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// Create a table in Athena that maps fields to a custom log format
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Create a Lambda function that updates the table with new partitions on a daily, weekly,
+        /// or monthly basis
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Create a table partitioned between two timestamps in the past
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Create a set of named queries in Athena that you can use to get started quickly
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetFlowLogsIntegrationTemplate service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetFlowLogsIntegrationTemplate service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetFlowLogsIntegrationTemplate">REST API Reference for GetFlowLogsIntegrationTemplate Operation</seealso>
+        Task<GetFlowLogsIntegrationTemplateResponse> GetFlowLogsIntegrationTemplateAsync(GetFlowLogsIntegrationTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  GetGroupsForCapacityReservation
 
 
@@ -9507,6 +9741,27 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  GetSerialConsoleAccessStatus
+
+
+
+        /// <summary>
+        /// Retrieves the access status of your account to the EC2 serial console of all instances.
+        /// By default, access to the EC2 serial console is disabled for your account. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage
+        /// account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetSerialConsoleAccessStatus service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetSerialConsoleAccessStatus service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetSerialConsoleAccessStatus">REST API Reference for GetSerialConsoleAccessStatus Operation</seealso>
+        Task<GetSerialConsoleAccessStatusResponse> GetSerialConsoleAccessStatusAsync(GetSerialConsoleAccessStatusRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  GetTransitGatewayAttachmentPropagations
 
 
@@ -9630,8 +9885,13 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Import single or multi-volume disk images or EBS snapshots into an Amazon Machine
-        /// Image (AMI). For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing
-        /// a VM as an Image Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
+        /// Image (AMI).
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing
+        /// a VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ImportImage service method.</param>
         /// <param name="cancellationToken">
@@ -9649,11 +9909,19 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates an import instance task using metadata from the specified disk image. <code>ImportInstance</code>
-        /// only supports single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html">Importing
-        /// a Virtual Machine Using the Amazon EC2 CLI</a>.
+        /// Creates an import instance task using metadata from the specified disk image.
         /// 
+        ///  
+        /// <para>
+        /// This API action supports only single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a>
+        /// instead.
+        /// </para>
+        ///  
+        /// <para>
+        /// This API action is not supported by the AWS Command Line Interface (AWS CLI). For
+        /// information about using the Amazon EC2 CLI, which is deprecated, see <a href="https://awsdocs.s3.amazonaws.com/EC2/ec2-clt.pdf#UsingVirtualMachinesinAmazonEC2">Importing
+        /// a VM to Amazon EC2</a> in the <i>Amazon EC2 CLI Reference</i> PDF file.
+        /// </para>
         ///  
         /// <para>
         /// For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM
@@ -9705,6 +9973,12 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Imports a disk into an EBS snapshot.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-import-snapshot.html">Importing
+        /// a disk as a snapshot using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ImportSnapshot service method.</param>
         /// <param name="cancellationToken">
@@ -9722,10 +9996,19 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates an import volume task using metadata from the specified disk image.For more
-        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/importing-your-volumes-into-amazon-ebs.html">Importing
-        /// Disks to Amazon EBS</a>.
+        /// Creates an import volume task using metadata from the specified disk image.
         /// 
+        ///  
+        /// <para>
+        /// This API action supports only single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a>
+        /// instead. To import a disk to a snapshot, use <a>ImportSnapshot</a> instead.
+        /// </para>
+        ///  
+        /// <para>
+        /// This API action is not supported by the AWS Command Line Interface (AWS CLI). For
+        /// information about using the Amazon EC2 CLI, which is deprecated, see <a href="https://awsdocs.s3.amazonaws.com/EC2/ec2-clt.pdf#importing-your-volumes-into-amazon-ebs">Importing
+        /// Disks to Amazon EBS</a> in the <i>Amazon EC2 CLI Reference</i> PDF file.
+        /// </para>
         ///  
         /// <para>
         /// For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM
@@ -11301,10 +11584,31 @@ namespace Amazon.EC2
         /// </para>
         ///  </note> 
         /// <para>
-        /// You can also use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI
-        /// from a snapshot of a root device volume. You specify the snapshot using the block
-        /// device mapping. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-launch-snapshot.html">Launching
-        /// a Linux instance from a backup</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// If needed, you can deregister an AMI at any time. Any modifications you make to an
+        /// AMI backed by an instance store volume invalidates its registration. If you make changes
+        /// to an image, deregister the previous image and register the new image.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Register a snapshot of a root device volume</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from
+        /// a snapshot of a root device volume. You specify the snapshot using a block device
+        /// mapping. You can't set the encryption state of the volume using the block device mapping.
+        /// If the snapshot is encrypted, or encryption by default is enabled, the root volume
+        /// of an instance launched from the AMI is encrypted.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create
+        /// a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use
+        /// encryption with EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>AWS Marketplace product codes</b> 
         /// </para>
         ///  
         /// <para>
@@ -11339,12 +11643,6 @@ namespace Amazon.EC2
         /// Instance. For information about how to obtain the platform details and billing information
         /// of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Obtaining
         /// billing information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  
-        /// <para>
-        /// If needed, you can deregister an AMI at any time. Any modifications you make to an
-        /// AMI backed by an instance store volume invalidates its registration. If you make changes
-        /// to an image, deregister the previous image and register the new image.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RegisterImage service method.</param>

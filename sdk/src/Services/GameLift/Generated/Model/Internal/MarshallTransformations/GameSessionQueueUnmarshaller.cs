@@ -64,10 +64,22 @@ namespace Amazon.GameLift.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("CustomEventData", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.CustomEventData = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Destinations", targetDepth))
                 {
                     var unmarshaller = new ListUnmarshaller<GameSessionQueueDestination, GameSessionQueueDestinationUnmarshaller>(GameSessionQueueDestinationUnmarshaller.Instance);
                     unmarshalledObject.Destinations = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("FilterConfiguration", targetDepth))
+                {
+                    var unmarshaller = FilterConfigurationUnmarshaller.Instance;
+                    unmarshalledObject.FilterConfiguration = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("GameSessionQueueArn", targetDepth))
@@ -82,10 +94,22 @@ namespace Amazon.GameLift.Model.Internal.MarshallTransformations
                     unmarshalledObject.Name = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("NotificationTarget", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.NotificationTarget = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("PlayerLatencyPolicies", targetDepth))
                 {
                     var unmarshaller = new ListUnmarshaller<PlayerLatencyPolicy, PlayerLatencyPolicyUnmarshaller>(PlayerLatencyPolicyUnmarshaller.Instance);
                     unmarshalledObject.PlayerLatencyPolicies = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("PriorityConfiguration", targetDepth))
+                {
+                    var unmarshaller = PriorityConfigurationUnmarshaller.Instance;
+                    unmarshalledObject.PriorityConfiguration = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("TimeoutInSeconds", targetDepth))

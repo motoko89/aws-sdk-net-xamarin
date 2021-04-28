@@ -30,7 +30,8 @@ namespace Amazon.DataSync.Model
 {
     /// <summary>
     /// Container for the parameters to the DescribeLocationFsxWindows operation.
-    /// Returns metadata, such as the path information about an Amazon FSx for Windows location.
+    /// Returns metadata, such as the path information about an Amazon FSx for Windows File
+    /// Server location.
     /// </summary>
     public partial class DescribeLocationFsxWindowsRequest : AmazonDataSyncRequest
     {
@@ -39,7 +40,7 @@ namespace Amazon.DataSync.Model
         /// <summary>
         /// Gets and sets the property LocationArn. 
         /// <para>
-        /// The Amazon Resource Name (ARN) of the FSx for Windows location to describe.
+        /// The Amazon Resource Name (ARN) of the FSx for Windows File Server location to describe.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Max=128)]

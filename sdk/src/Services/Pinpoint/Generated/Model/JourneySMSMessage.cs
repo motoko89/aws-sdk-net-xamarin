@@ -34,8 +34,30 @@ namespace Amazon.Pinpoint.Model
     /// </summary>
     public partial class JourneySMSMessage
     {
+        private string _entityId;
         private MessageType _messageType;
+        private string _originationNumber;
         private string _senderId;
+        private string _templateId;
+
+        /// <summary>
+        /// Gets and sets the property EntityId. 
+        /// <para>
+        /// The entity ID or Principal Entity (PE) id received from the regulatory body for sending
+        /// SMS in your country.
+        /// </para>
+        /// </summary>
+        public string EntityId
+        {
+            get { return this._entityId; }
+            set { this._entityId = value; }
+        }
+
+        // Check to see if EntityId property is set
+        internal bool IsSetEntityId()
+        {
+            return this._entityId != null;
+        }
 
         /// <summary>
         /// Gets and sets the property MessageType. 
@@ -58,6 +80,27 @@ namespace Amazon.Pinpoint.Model
         }
 
         /// <summary>
+        /// Gets and sets the property OriginationNumber. 
+        /// <para>
+        /// The long code to send the SMS message from. This value should be one of the dedicated
+        /// long codes that's assigned to your AWS account. Although it isn't required, we recommend
+        /// that you specify the long code using an E.164 format to ensure prompt and accurate
+        /// delivery of the message. For example, +12065550100.
+        /// </para>
+        /// </summary>
+        public string OriginationNumber
+        {
+            get { return this._originationNumber; }
+            set { this._originationNumber = value; }
+        }
+
+        // Check to see if OriginationNumber property is set
+        internal bool IsSetOriginationNumber()
+        {
+            return this._originationNumber != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property SenderId. 
         /// <para>
         /// The sender ID to display as the sender of the message on a recipient's device. Support
@@ -75,6 +118,24 @@ namespace Amazon.Pinpoint.Model
         internal bool IsSetSenderId()
         {
             return this._senderId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property TemplateId. 
+        /// <para>
+        /// The template ID received from the regulatory body for sending SMS in your country.
+        /// </para>
+        /// </summary>
+        public string TemplateId
+        {
+            get { return this._templateId; }
+            set { this._templateId = value; }
+        }
+
+        // Check to see if TemplateId property is set
+        internal bool IsSetTemplateId()
+        {
+            return this._templateId != null;
         }
 
     }

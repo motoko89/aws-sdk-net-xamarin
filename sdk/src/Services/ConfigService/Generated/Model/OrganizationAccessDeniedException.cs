@@ -29,13 +29,37 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ConfigService.Model
 {
     /// <summary>
-    /// For PutConfigAggregator API, no permission to call EnableAWSServiceAccess API.
+    /// For <code>PutConfigurationAggregator</code> API, you can see this exception for the
+    /// following reasons:
     /// 
-    ///  
+    ///  <ul> <li> 
     /// <para>
-    /// For all OrganizationConfigRule and OrganizationConformancePack APIs, AWS Config throws
-    /// an exception if APIs are called from member accounts. All APIs must be called from
-    /// organization master account.
+    /// No permission to call <code>EnableAWSServiceAccess</code> API
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// The configuration aggregator cannot be updated because your AWS Organization management
+    /// account or the delegated administrator role changed. Delete this aggregator and create
+    /// a new one with the current AWS Organization.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// The configuration aggregator is associated with a previous AWS Organization and AWS
+    /// Config cannot aggregate data with current AWS Organization. Delete this aggregator
+    /// and create a new one with the current AWS Organization.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// You are not a registered delegated administrator for AWS Config with permissions to
+    /// call <code>ListDelegatedAdministrators</code> API. Ensure that the management account
+    /// registers delagated administrator for AWS Config service principle name before the
+    /// delegated administrator creates an aggregator.
+    /// </para>
+    ///  </li> </ul> 
+    /// <para>
+    /// For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code>
+    /// APIs, AWS Config throws an exception if APIs are called from member accounts. All
+    /// APIs must be called from organization master account.
     /// </para>
     /// </summary>
     #if !NETSTANDARD

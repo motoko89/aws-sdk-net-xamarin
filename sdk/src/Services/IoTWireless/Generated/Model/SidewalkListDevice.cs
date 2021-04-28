@@ -34,6 +34,9 @@ namespace Amazon.IoTWireless.Model
     public partial class SidewalkListDevice
     {
         private string _amazonId;
+        private List<CertificateList> _deviceCertificates = new List<CertificateList>();
+        private string _sidewalkId;
+        private string _sidewalkManufacturingSn;
 
         /// <summary>
         /// Gets and sets the property AmazonId. 
@@ -52,6 +55,62 @@ namespace Amazon.IoTWireless.Model
         internal bool IsSetAmazonId()
         {
             return this._amazonId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property DeviceCertificates. 
+        /// <para>
+        /// The sidewalk device certificates for Ed25519 and P256r1.
+        /// </para>
+        /// </summary>
+        public List<CertificateList> DeviceCertificates
+        {
+            get { return this._deviceCertificates; }
+            set { this._deviceCertificates = value; }
+        }
+
+        // Check to see if DeviceCertificates property is set
+        internal bool IsSetDeviceCertificates()
+        {
+            return this._deviceCertificates != null && this._deviceCertificates.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property SidewalkId. 
+        /// <para>
+        /// The sidewalk device identification.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Max=256)]
+        public string SidewalkId
+        {
+            get { return this._sidewalkId; }
+            set { this._sidewalkId = value; }
+        }
+
+        // Check to see if SidewalkId property is set
+        internal bool IsSetSidewalkId()
+        {
+            return this._sidewalkId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property SidewalkManufacturingSn. 
+        /// <para>
+        /// The Sidewalk manufacturing series number.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Max=64)]
+        public string SidewalkManufacturingSn
+        {
+            get { return this._sidewalkManufacturingSn; }
+            set { this._sidewalkManufacturingSn = value; }
+        }
+
+        // Check to see if SidewalkManufacturingSn property is set
+        internal bool IsSetSidewalkManufacturingSn()
+        {
+            return this._sidewalkManufacturingSn != null;
         }
 
     }

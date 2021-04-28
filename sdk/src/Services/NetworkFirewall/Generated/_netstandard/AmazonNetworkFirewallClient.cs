@@ -97,10 +97,6 @@ namespace Amazon.NetworkFirewall
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// Rate limit traffic going from AWS to on-premises IP destinations.
-    /// </para>
-    ///  </li> <li> 
-    /// <para>
     /// Use stateful protocol detection to filter protocols like HTTPS, regardless of the
     /// port used.
     /// </para>
@@ -147,9 +143,6 @@ namespace Amazon.NetworkFirewall
     /// </para>
     ///  </li> </ol>
     /// </summary>
-#if NETSTANDARD13
-    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
-#endif
     public partial class AmazonNetworkFirewallClient : AmazonServiceClient, IAmazonNetworkFirewall
     {
         private static IServiceMetadata serviceMetadata = new AmazonNetworkFirewallMetadata();
@@ -476,6 +469,10 @@ namespace Amazon.NetworkFirewall
         /// </param>
         /// 
         /// <returns>The response from the AssociateSubnets service method, as returned by NetworkFirewall.</returns>
+        /// <exception cref="Amazon.NetworkFirewall.Model.InsufficientCapacityException">
+        /// AWS doesn't currently have enough available capacity to fulfill your request. Try
+        /// your request later.
+        /// </exception>
         /// <exception cref="Amazon.NetworkFirewall.Model.InternalServerErrorException">
         /// Your request is valid, but Network Firewall couldn’t perform the operation because
         /// of a system problem. Retry your request.
@@ -949,6 +946,24 @@ namespace Amazon.NetworkFirewall
         /// Your request is valid, but Network Firewall couldn’t perform the operation because
         /// of a system problem. Retry your request.
         /// </exception>
+        /// <exception cref="Amazon.NetworkFirewall.Model.InvalidRequestException">
+        /// The operation failed because of a problem with your request. Examples include: 
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You specified an unsupported parameter name or value.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to update a property with a value that isn't among the available types.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Your request references an ARN that is malformed, or corresponds to a resource that
+        /// isn't valid in the context of the request.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
         /// <exception cref="Amazon.NetworkFirewall.Model.ResourceNotFoundException">
         /// Unable to locate a resource using the parameters that you provided.
         /// </exception>
@@ -1247,6 +1262,24 @@ namespace Amazon.NetworkFirewall
         /// <exception cref="Amazon.NetworkFirewall.Model.InternalServerErrorException">
         /// Your request is valid, but Network Firewall couldn’t perform the operation because
         /// of a system problem. Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.NetworkFirewall.Model.InvalidRequestException">
+        /// The operation failed because of a problem with your request. Examples include: 
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You specified an unsupported parameter name or value.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to update a property with a value that isn't among the available types.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Your request references an ARN that is malformed, or corresponds to a resource that
+        /// isn't valid in the context of the request.
+        /// </para>
+        ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.NetworkFirewall.Model.ResourceNotFoundException">
         /// Unable to locate a resource using the parameters that you provided.
@@ -1619,6 +1652,24 @@ namespace Amazon.NetworkFirewall
         /// </param>
         /// 
         /// <returns>The response from the ListTagsForResource service method, as returned by NetworkFirewall.</returns>
+        /// <exception cref="Amazon.NetworkFirewall.Model.InvalidRequestException">
+        /// The operation failed because of a problem with your request. Examples include: 
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You specified an unsupported parameter name or value.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to update a property with a value that isn't among the available types.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Your request references an ARN that is malformed, or corresponds to a resource that
+        /// isn't valid in the context of the request.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
         /// <exception cref="Amazon.NetworkFirewall.Model.ResourceNotFoundException">
         /// Unable to locate a resource using the parameters that you provided.
         /// </exception>

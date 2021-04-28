@@ -60,12 +60,17 @@ namespace Amazon.Macie2.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/invitations/accept";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetAdministratorAccountId())
+                {
+                    context.Writer.WritePropertyName("administratorAccountId");
+                    context.Writer.Write(publicRequest.AdministratorAccountId);
+                }
+
                 if(publicRequest.IsSetInvitationId())
                 {
                     context.Writer.WritePropertyName("invitationId");

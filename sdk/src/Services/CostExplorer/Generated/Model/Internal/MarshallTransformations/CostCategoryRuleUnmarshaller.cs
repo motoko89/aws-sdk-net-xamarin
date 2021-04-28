@@ -64,10 +64,22 @@ namespace Amazon.CostExplorer.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("InheritedValue", targetDepth))
+                {
+                    var unmarshaller = CostCategoryInheritedValueDimensionUnmarshaller.Instance;
+                    unmarshalledObject.InheritedValue = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Rule", targetDepth))
                 {
                     var unmarshaller = ExpressionUnmarshaller.Instance;
                     unmarshalledObject.Rule = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("Type", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.Type = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("Value", targetDepth))

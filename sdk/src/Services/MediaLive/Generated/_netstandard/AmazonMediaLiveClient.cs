@@ -40,9 +40,6 @@ namespace Amazon.MediaLive
     ///
     /// API for AWS Elemental MediaLive
     /// </summary>
-#if NETSTANDARD13
-    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
-#endif
     public partial class AmazonMediaLiveClient : AmazonServiceClient, IAmazonMediaLive
     {
         private static IServiceMetadata serviceMetadata = new AmazonMediaLiveMetadata();
@@ -890,6 +887,58 @@ namespace Amazon.MediaLive
             options.ResponseUnmarshaller = CreateMultiplexProgramResponseUnmarshaller.Instance;
 
             return InvokeAsync<CreateMultiplexProgramResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreatePartnerInput
+
+        internal virtual CreatePartnerInputResponse CreatePartnerInput(CreatePartnerInputRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreatePartnerInputRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreatePartnerInputResponseUnmarshaller.Instance;
+
+            return Invoke<CreatePartnerInputResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Create a partner input
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreatePartnerInput service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreatePartnerInput service method, as returned by MediaLive.</returns>
+        /// <exception cref="Amazon.MediaLive.Model.BadGatewayException">
+        /// Placeholder documentation for BadGatewayException
+        /// </exception>
+        /// <exception cref="Amazon.MediaLive.Model.BadRequestException">
+        /// Placeholder documentation for BadRequestException
+        /// </exception>
+        /// <exception cref="Amazon.MediaLive.Model.ForbiddenException">
+        /// Placeholder documentation for ForbiddenException
+        /// </exception>
+        /// <exception cref="Amazon.MediaLive.Model.GatewayTimeoutException">
+        /// Placeholder documentation for GatewayTimeoutException
+        /// </exception>
+        /// <exception cref="Amazon.MediaLive.Model.InternalServerErrorException">
+        /// Placeholder documentation for InternalServerErrorException
+        /// </exception>
+        /// <exception cref="Amazon.MediaLive.Model.TooManyRequestsException">
+        /// Placeholder documentation for TooManyRequestsException
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/CreatePartnerInput">REST API Reference for CreatePartnerInput Operation</seealso>
+        public virtual Task<CreatePartnerInputResponse> CreatePartnerInputAsync(CreatePartnerInputRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreatePartnerInputRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreatePartnerInputResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreatePartnerInputResponse>(request, options, cancellationToken);
         }
 
         #endregion

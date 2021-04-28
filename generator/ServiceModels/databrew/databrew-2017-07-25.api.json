@@ -667,6 +667,7 @@
       "error":{"httpStatusCode":409},
       "exception":true
     },
+    "CreateColumn":{"type":"boolean"},
     "CreateDatasetRequest":{
       "type":"structure",
       "required":[
@@ -675,8 +676,10 @@
       ],
       "members":{
         "Name":{"shape":"DatasetName"},
+        "Format":{"shape":"InputFormat"},
         "FormatOptions":{"shape":"FormatOptions"},
         "Input":{"shape":"Input"},
+        "PathOptions":{"shape":"PathOptions"},
         "Tags":{"shape":"TagMap"}
       }
     },
@@ -706,7 +709,8 @@
         "OutputLocation":{"shape":"S3Location"},
         "RoleArn":{"shape":"Arn"},
         "Tags":{"shape":"TagMap"},
-        "Timeout":{"shape":"Timeout"}
+        "Timeout":{"shape":"Timeout"},
+        "JobSample":{"shape":"JobSample"}
       }
     },
     "CreateProfileJobResponse":{
@@ -819,7 +823,8 @@
     "CsvOptions":{
       "type":"structure",
       "members":{
-        "Delimiter":{"shape":"Delimiter"}
+        "Delimiter":{"shape":"Delimiter"},
+        "HeaderRow":{"shape":"HeaderRow"}
       }
     },
     "CsvOutputOptions":{
@@ -841,7 +846,24 @@
         "TempDirectory":{"shape":"S3Location"}
       }
     },
+    "DatabaseInputDefinition":{
+      "type":"structure",
+      "required":[
+        "GlueConnectionName",
+        "DatabaseTableName"
+      ],
+      "members":{
+        "GlueConnectionName":{"shape":"GlueConnectionName"},
+        "DatabaseTableName":{"shape":"DatabaseTableName"},
+        "TempDirectory":{"shape":"S3Location"}
+      }
+    },
     "DatabaseName":{
+      "type":"string",
+      "max":255,
+      "min":1
+    },
+    "DatabaseTableName":{
       "type":"string",
       "max":255,
       "min":1
@@ -857,11 +879,13 @@
         "CreatedBy":{"shape":"CreatedBy"},
         "CreateDate":{"shape":"Date"},
         "Name":{"shape":"DatasetName"},
+        "Format":{"shape":"InputFormat"},
         "FormatOptions":{"shape":"FormatOptions"},
         "Input":{"shape":"Input"},
         "LastModifiedDate":{"shape":"Date"},
         "LastModifiedBy":{"shape":"LastModifiedBy"},
         "Source":{"shape":"Source"},
+        "PathOptions":{"shape":"PathOptions"},
         "Tags":{"shape":"TagMap"},
         "ResourceArn":{"shape":"Arn"}
       }
@@ -875,7 +899,35 @@
       "max":255,
       "min":1
     },
+    "DatasetParameter":{
+      "type":"structure",
+      "required":[
+        "Name",
+        "Type"
+      ],
+      "members":{
+        "Name":{"shape":"PathParameterName"},
+        "Type":{"shape":"ParameterType"},
+        "DatetimeOptions":{"shape":"DatetimeOptions"},
+        "CreateColumn":{"shape":"CreateColumn"},
+        "Filter":{"shape":"FilterExpression"}
+      }
+    },
     "Date":{"type":"timestamp"},
+    "DatetimeFormat":{
+      "type":"string",
+      "max":100,
+      "min":2
+    },
+    "DatetimeOptions":{
+      "type":"structure",
+      "required":["Format"],
+      "members":{
+        "Format":{"shape":"DatetimeFormat"},
+        "TimezoneOffset":{"shape":"TimezoneOffset"},
+        "LocaleCode":{"shape":"LocaleCode"}
+      }
+    },
     "DeleteDatasetRequest":{
       "type":"structure",
       "required":["Name"],
@@ -1004,11 +1056,13 @@
         "CreatedBy":{"shape":"CreatedBy"},
         "CreateDate":{"shape":"Date"},
         "Name":{"shape":"DatasetName"},
+        "Format":{"shape":"InputFormat"},
         "FormatOptions":{"shape":"FormatOptions"},
         "Input":{"shape":"Input"},
         "LastModifiedDate":{"shape":"Date"},
         "LastModifiedBy":{"shape":"LastModifiedBy"},
         "Source":{"shape":"Source"},
+        "PathOptions":{"shape":"PathOptions"},
         "Tags":{"shape":"TagMap"},
         "ResourceArn":{"shape":"Arn"}
       }
@@ -1046,7 +1100,8 @@
         "ResourceArn":{"shape":"Arn"},
         "RoleArn":{"shape":"Arn"},
         "Tags":{"shape":"TagMap"},
-        "Timeout":{"shape":"Timeout"}
+        "Timeout":{"shape":"Timeout"},
+        "JobSample":{"shape":"JobSample"}
       }
     },
     "DescribeJobRunRequest":{
@@ -1085,7 +1140,8 @@
         "Outputs":{"shape":"OutputList"},
         "RecipeReference":{"shape":"RecipeReference"},
         "StartedBy":{"shape":"StartedBy"},
-        "StartedOn":{"shape":"Date"}
+        "StartedOn":{"shape":"Date"},
+        "JobSample":{"shape":"JobSample"}
       }
     },
     "DescribeProjectRequest":{
@@ -1200,10 +1256,37 @@
       "type":"structure",
       "members":{
         "SheetNames":{"shape":"SheetNameList"},
-        "SheetIndexes":{"shape":"SheetIndexList"}
+        "SheetIndexes":{"shape":"SheetIndexList"},
+        "HeaderRow":{"shape":"HeaderRow"}
       }
     },
     "ExecutionTime":{"type":"integer"},
+    "Expression":{
+      "type":"string",
+      "max":1024,
+      "min":4,
+      "pattern":"^[<>0-9A-Za-z_:)(!= ]+$"
+    },
+    "FilesLimit":{
+      "type":"structure",
+      "required":["MaxFiles"],
+      "members":{
+        "MaxFiles":{"shape":"MaxFiles"},
+        "OrderedBy":{"shape":"OrderedBy"},
+        "Order":{"shape":"Order"}
+      }
+    },
+    "FilterExpression":{
+      "type":"structure",
+      "required":[
+        "Expression",
+        "ValuesMap"
+      ],
+      "members":{
+        "Expression":{"shape":"Expression"},
+        "ValuesMap":{"shape":"ValuesMap"}
+      }
+    },
     "FormatOptions":{
       "type":"structure",
       "members":{
@@ -1212,6 +1295,12 @@
         "Csv":{"shape":"CsvOptions"}
       }
     },
+    "GlueConnectionName":{
+      "type":"string",
+      "max":255,
+      "min":1
+    },
+    "HeaderRow":{"type":"boolean"},
     "HiddenColumnList":{
       "type":"list",
       "member":{"shape":"ColumnName"}
@@ -1220,8 +1309,18 @@
       "type":"structure",
       "members":{
         "S3InputDefinition":{"shape":"S3Location"},
-        "DataCatalogInputDefinition":{"shape":"DataCatalogInputDefinition"}
+        "DataCatalogInputDefinition":{"shape":"DataCatalogInputDefinition"},
+        "DatabaseInputDefinition":{"shape":"DatabaseInputDefinition"}
       }
+    },
+    "InputFormat":{
+      "type":"string",
+      "enum":[
+        "CSV",
+        "JSON",
+        "PARQUET",
+        "EXCEL"
+      ]
     },
     "InternalServerException":{
       "type":"structure",
@@ -1254,7 +1353,8 @@
         "ResourceArn":{"shape":"Arn"},
         "RoleArn":{"shape":"Arn"},
         "Timeout":{"shape":"Timeout"},
-        "Tags":{"shape":"TagMap"}
+        "Tags":{"shape":"TagMap"},
+        "JobSample":{"shape":"JobSample"}
       }
     },
     "JobList":{
@@ -1287,7 +1387,8 @@
         "Outputs":{"shape":"OutputList"},
         "RecipeReference":{"shape":"RecipeReference"},
         "StartedBy":{"shape":"StartedBy"},
-        "StartedOn":{"shape":"Date"}
+        "StartedOn":{"shape":"Date"},
+        "JobSample":{"shape":"JobSample"}
       }
     },
     "JobRunErrorMessage":{"type":"string"},
@@ -1312,6 +1413,14 @@
         "TIMEOUT"
       ]
     },
+    "JobSample":{
+      "type":"structure",
+      "members":{
+        "Mode":{"shape":"SampleMode"},
+        "Size":{"shape":"JobSize"}
+      }
+    },
+    "JobSize":{"type":"long"},
     "JobType":{
       "type":"string",
       "enum":[
@@ -1541,6 +1650,12 @@
         "Tags":{"shape":"TagMap"}
       }
     },
+    "LocaleCode":{
+      "type":"string",
+      "max":100,
+      "min":2,
+      "pattern":"^[A-Za-z0-9_\\.#@\\-]+$"
+    },
     "LogGroupName":{
       "type":"string",
       "max":512,
@@ -1554,6 +1669,10 @@
       ]
     },
     "MaxCapacity":{"type":"integer"},
+    "MaxFiles":{
+      "type":"integer",
+      "min":1
+    },
     "MaxResults100":{
       "type":"integer",
       "max":100,
@@ -1576,6 +1695,17 @@
       "max":128,
       "min":1,
       "pattern":"^[A-Z\\_]+$"
+    },
+    "Order":{
+      "type":"string",
+      "enum":[
+        "DESCENDING",
+        "ASCENDING"
+      ]
+    },
+    "OrderedBy":{
+      "type":"string",
+      "enum":["LAST_MODIFIED_DATE"]
     },
     "Output":{
       "type":"structure",
@@ -1624,9 +1754,37 @@
       "min":1,
       "pattern":"^[A-Za-z0-9]+$"
     },
+    "ParameterType":{
+      "type":"string",
+      "enum":[
+        "Datetime",
+        "Number",
+        "String"
+      ]
+    },
     "ParameterValue":{
       "type":"string",
-      "max":8192,
+      "max":12288,
+      "min":1
+    },
+    "PathOptions":{
+      "type":"structure",
+      "members":{
+        "LastModifiedDateCondition":{"shape":"FilterExpression"},
+        "FilesLimit":{"shape":"FilesLimit"},
+        "Parameters":{"shape":"PathParametersMap"}
+      }
+    },
+    "PathParameterName":{
+      "type":"string",
+      "max":255,
+      "min":1
+    },
+    "PathParametersMap":{
+      "type":"map",
+      "key":{"shape":"PathParameterName"},
+      "value":{"shape":"DatasetParameter"},
+      "max":10,
       "min":1
     },
     "Preview":{"type":"boolean"},
@@ -1791,6 +1949,13 @@
         "Type":{"shape":"SampleType"}
       }
     },
+    "SampleMode":{
+      "type":"string",
+      "enum":[
+        "FULL_DATASET",
+        "CUSTOM_ROWS"
+      ]
+    },
     "SampleSize":{
       "type":"integer",
       "max":5000,
@@ -1903,7 +2068,8 @@
       "type":"string",
       "enum":[
         "S3",
-        "DATA-CATALOG"
+        "DATA-CATALOG",
+        "DATABASE"
       ]
     },
     "StartColumnIndex":{
@@ -2035,6 +2201,12 @@
       "type":"integer",
       "min":0
     },
+    "TimezoneOffset":{
+      "type":"string",
+      "max":6,
+      "min":1,
+      "pattern":"^(Z|[-+](\\d|\\d{2}|\\d{2}:?\\d{2}))$"
+    },
     "UntagResourceRequest":{
       "type":"structure",
       "required":[
@@ -2071,8 +2243,10 @@
           "location":"uri",
           "locationName":"name"
         },
+        "Format":{"shape":"InputFormat"},
         "FormatOptions":{"shape":"FormatOptions"},
-        "Input":{"shape":"Input"}
+        "Input":{"shape":"Input"},
+        "PathOptions":{"shape":"PathOptions"}
       }
     },
     "UpdateDatasetResponse":{
@@ -2102,7 +2276,8 @@
         "MaxRetries":{"shape":"MaxRetries"},
         "OutputLocation":{"shape":"S3Location"},
         "RoleArn":{"shape":"Arn"},
-        "Timeout":{"shape":"Timeout"}
+        "Timeout":{"shape":"Timeout"},
+        "JobSample":{"shape":"JobSample"}
       }
     },
     "UpdateProfileJobResponse":{
@@ -2216,6 +2391,17 @@
       },
       "error":{"httpStatusCode":400},
       "exception":true
+    },
+    "ValueReference":{
+      "type":"string",
+      "max":128,
+      "min":2,
+      "pattern":"^:[A-Za-z0-9_]+$"
+    },
+    "ValuesMap":{
+      "type":"map",
+      "key":{"shape":"ValueReference"},
+      "value":{"shape":"ConditionValue"}
     },
     "ViewFrame":{
       "type":"structure",

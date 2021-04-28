@@ -51,6 +51,17 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.RepositoryAccessMode);
             }
 
+            if(requestObject.IsSetRepositoryAuthConfig())
+            {
+                context.Writer.WritePropertyName("RepositoryAuthConfig");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = RepositoryAuthConfigMarshaller.Instance;
+                marshaller.Marshall(requestObject.RepositoryAuthConfig, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
         }
 
         /// <summary>

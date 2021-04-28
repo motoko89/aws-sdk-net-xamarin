@@ -84,6 +84,12 @@ namespace Amazon.AutoScaling.Model.Internal.MarshallTransformations
                         unmarshalledObject.PercentageComplete = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("ProgressDetails", targetDepth))
+                    {
+                        var unmarshaller = InstanceRefreshProgressDetailsUnmarshaller.Instance;
+                        unmarshalledObject.ProgressDetails = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("StartTime", targetDepth))
                     {
                         var unmarshaller = DateTimeUnmarshaller.Instance;

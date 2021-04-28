@@ -81,9 +81,25 @@ namespace Amazon.TranscribeService
     {
 
         /// <summary>
+        /// Constant EnAU for CLMLanguageCode
+        /// </summary>
+        public static readonly CLMLanguageCode EnAU = new CLMLanguageCode("en-AU");
+        /// <summary>
+        /// Constant EnGB for CLMLanguageCode
+        /// </summary>
+        public static readonly CLMLanguageCode EnGB = new CLMLanguageCode("en-GB");
+        /// <summary>
         /// Constant EnUS for CLMLanguageCode
         /// </summary>
         public static readonly CLMLanguageCode EnUS = new CLMLanguageCode("en-US");
+        /// <summary>
+        /// Constant EsUS for CLMLanguageCode
+        /// </summary>
+        public static readonly CLMLanguageCode EsUS = new CLMLanguageCode("es-US");
+        /// <summary>
+        /// Constant HiIN for CLMLanguageCode
+        /// </summary>
+        public static readonly CLMLanguageCode HiIN = new CLMLanguageCode("hi-IN");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -744,6 +760,10 @@ namespace Amazon.TranscribeService
         /// Constant Remove for VocabularyFilterMethod
         /// </summary>
         public static readonly VocabularyFilterMethod Remove = new VocabularyFilterMethod("remove");
+        /// <summary>
+        /// Constant Tag for VocabularyFilterMethod
+        /// </summary>
+        public static readonly VocabularyFilterMethod Tag = new VocabularyFilterMethod("tag");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant

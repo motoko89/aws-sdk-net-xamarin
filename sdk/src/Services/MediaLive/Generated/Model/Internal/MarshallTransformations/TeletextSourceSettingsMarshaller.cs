@@ -45,6 +45,17 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(TeletextSourceSettings requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetOutputRectangle())
+            {
+                context.Writer.WritePropertyName("outputRectangle");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = CaptionRectangleMarshaller.Instance;
+                marshaller.Marshall(requestObject.OutputRectangle, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetPageNumber())
             {
                 context.Writer.WritePropertyName("pageNumber");

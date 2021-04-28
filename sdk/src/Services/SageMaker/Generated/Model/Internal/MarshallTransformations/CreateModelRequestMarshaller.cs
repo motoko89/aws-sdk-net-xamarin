@@ -62,7 +62,6 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -94,6 +93,17 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("ExecutionRoleArn");
                     context.Writer.Write(publicRequest.ExecutionRoleArn);
+                }
+
+                if(publicRequest.IsSetInferenceExecutionConfig())
+                {
+                    context.Writer.WritePropertyName("InferenceExecutionConfig");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = InferenceExecutionConfigMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.InferenceExecutionConfig, context);
+
+                    context.Writer.WriteObjectEnd();
                 }
 
                 if(publicRequest.IsSetModelName())

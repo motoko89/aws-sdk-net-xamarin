@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ElasticFileSystem.Model
 {
     /// <summary>
-    /// Returned if the AWS Backup service is not available in the region that the request
+    /// Returned if the AWS Backup service is not available in the Region in which the request
     /// was made.
     /// </summary>
     #if !NETSTANDARD

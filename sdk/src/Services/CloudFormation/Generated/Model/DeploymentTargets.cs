@@ -29,10 +29,10 @@ using Amazon.Runtime.Internal;
 namespace Amazon.CloudFormation.Model
 {
     /// <summary>
-    /// [<code>Service-managed</code> permissions] The AWS Organizations accounts to which
-    /// StackSets deploys. StackSets does not deploy stack instances to the organization management
-    /// account, even if the organization management account is in your organization or in
-    /// an OU in your organization.
+    /// [Service-managed permissions] The AWS Organizations accounts to which StackSets deploys.
+    /// StackSets does not deploy stack instances to the organization management account,
+    /// even if the organization management account is in your organization or in an OU in
+    /// your organization.
     /// 
     ///  
     /// <para>
@@ -43,6 +43,7 @@ namespace Amazon.CloudFormation.Model
     public partial class DeploymentTargets
     {
         private List<string> _accounts = new List<string>();
+        private string _accountsUrl;
         private List<string> _organizationalUnitIds = new List<string>();
 
         /// <summary>
@@ -61,6 +62,22 @@ namespace Amazon.CloudFormation.Model
         internal bool IsSetAccounts()
         {
             return this._accounts != null && this._accounts.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property AccountsUrl.
+        /// </summary>
+        [AWSProperty(Min=1, Max=5120)]
+        public string AccountsUrl
+        {
+            get { return this._accountsUrl; }
+            set { this._accountsUrl = value; }
+        }
+
+        // Check to see if AccountsUrl property is set
+        internal bool IsSetAccountsUrl()
+        {
+            return this._accountsUrl != null;
         }
 
         /// <summary>

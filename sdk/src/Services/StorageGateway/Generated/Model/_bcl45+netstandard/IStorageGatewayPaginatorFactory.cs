@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -52,6 +51,11 @@ namespace Amazon.StorageGateway.Model
         IListFileSharesPaginator ListFileShares(ListFileSharesRequest request);
 
         /// <summary>
+        /// Paginator for ListFileSystemAssociations operation
+        ///</summary>
+        IListFileSystemAssociationsPaginator ListFileSystemAssociations(ListFileSystemAssociationsRequest request);
+
+        /// <summary>
         /// Paginator for ListGateways operation
         ///</summary>
         IListGatewaysPaginator ListGateways(ListGatewaysRequest request);
@@ -77,4 +81,3 @@ namespace Amazon.StorageGateway.Model
         IListVolumesPaginator ListVolumes(ListVolumesRequest request);
     }
 }
-#endif

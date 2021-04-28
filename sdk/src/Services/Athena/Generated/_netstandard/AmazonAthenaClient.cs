@@ -59,9 +59,6 @@ namespace Amazon.Athena
     /// and Code Samples</a> in the <i>Amazon Athena User Guide</i>.
     /// </para>
     /// </summary>
-#if NETSTANDARD13
-    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
-#endif
     public partial class AmazonAthenaClient : AmazonServiceClient, IAmazonAthena
     {
         private static IServiceMetadata serviceMetadata = new AmazonAthenaMetadata();
@@ -463,6 +460,47 @@ namespace Amazon.Athena
 
         #endregion
         
+        #region  CreatePreparedStatement
+
+        internal virtual CreatePreparedStatementResponse CreatePreparedStatement(CreatePreparedStatementRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreatePreparedStatementRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreatePreparedStatementResponseUnmarshaller.Instance;
+
+            return Invoke<CreatePreparedStatementResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates a prepared statement for use with SQL queries in Athena.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreatePreparedStatement service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreatePreparedStatement service method, as returned by Athena.</returns>
+        /// <exception cref="Amazon.Athena.Model.InternalServerException">
+        /// Indicates a platform issue, which may be due to a transient condition or outage.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.InvalidRequestException">
+        /// Indicates that something is wrong with the input to the request. For example, a required
+        /// parameter may be missing or out of range.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/CreatePreparedStatement">REST API Reference for CreatePreparedStatement Operation</seealso>
+        public virtual Task<CreatePreparedStatementResponse> CreatePreparedStatementAsync(CreatePreparedStatementRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreatePreparedStatementRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreatePreparedStatementResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreatePreparedStatementResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateWorkGroup
 
         internal virtual CreateWorkGroupResponse CreateWorkGroup(CreateWorkGroupRequest request)
@@ -589,6 +627,50 @@ namespace Amazon.Athena
             options.ResponseUnmarshaller = DeleteNamedQueryResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteNamedQueryResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeletePreparedStatement
+
+        internal virtual DeletePreparedStatementResponse DeletePreparedStatement(DeletePreparedStatementRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeletePreparedStatementRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeletePreparedStatementResponseUnmarshaller.Instance;
+
+            return Invoke<DeletePreparedStatementResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes the prepared statement with the specified name from the specified workgroup.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeletePreparedStatement service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeletePreparedStatement service method, as returned by Athena.</returns>
+        /// <exception cref="Amazon.Athena.Model.InternalServerException">
+        /// Indicates a platform issue, which may be due to a transient condition or outage.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.InvalidRequestException">
+        /// Indicates that something is wrong with the input to the request. For example, a required
+        /// parameter may be missing or out of range.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.ResourceNotFoundException">
+        /// A resource, such as a workgroup, was not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/DeletePreparedStatement">REST API Reference for DeletePreparedStatement Operation</seealso>
+        public virtual Task<DeletePreparedStatementResponse> DeletePreparedStatementAsync(DeletePreparedStatementRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeletePreparedStatementRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeletePreparedStatementResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeletePreparedStatementResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -761,6 +843,50 @@ namespace Amazon.Athena
             options.ResponseUnmarshaller = GetNamedQueryResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetNamedQueryResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetPreparedStatement
+
+        internal virtual GetPreparedStatementResponse GetPreparedStatement(GetPreparedStatementRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetPreparedStatementRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetPreparedStatementResponseUnmarshaller.Instance;
+
+            return Invoke<GetPreparedStatementResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Retrieves the prepared statement with the specified name from the specified workgroup.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetPreparedStatement service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetPreparedStatement service method, as returned by Athena.</returns>
+        /// <exception cref="Amazon.Athena.Model.InternalServerException">
+        /// Indicates a platform issue, which may be due to a transient condition or outage.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.InvalidRequestException">
+        /// Indicates that something is wrong with the input to the request. For example, a required
+        /// parameter may be missing or out of range.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.ResourceNotFoundException">
+        /// A resource, such as a workgroup, was not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/GetPreparedStatement">REST API Reference for GetPreparedStatement Operation</seealso>
+        public virtual Task<GetPreparedStatementResponse> GetPreparedStatementAsync(GetPreparedStatementRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetPreparedStatementRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetPreparedStatementResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetPreparedStatementResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1134,6 +1260,47 @@ namespace Amazon.Athena
             options.ResponseUnmarshaller = ListNamedQueriesResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListNamedQueriesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListPreparedStatements
+
+        internal virtual ListPreparedStatementsResponse ListPreparedStatements(ListPreparedStatementsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListPreparedStatementsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListPreparedStatementsResponseUnmarshaller.Instance;
+
+            return Invoke<ListPreparedStatementsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Lists the prepared statements in the specfied workgroup.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListPreparedStatements service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListPreparedStatements service method, as returned by Athena.</returns>
+        /// <exception cref="Amazon.Athena.Model.InternalServerException">
+        /// Indicates a platform issue, which may be due to a transient condition or outage.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.InvalidRequestException">
+        /// Indicates that something is wrong with the input to the request. For example, a required
+        /// parameter may be missing or out of range.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/ListPreparedStatements">REST API Reference for ListPreparedStatements Operation</seealso>
+        public virtual Task<ListPreparedStatementsResponse> ListPreparedStatementsAsync(ListPreparedStatementsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListPreparedStatementsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListPreparedStatementsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListPreparedStatementsResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1552,6 +1719,50 @@ namespace Amazon.Athena
             options.ResponseUnmarshaller = UpdateDataCatalogResponseUnmarshaller.Instance;
 
             return InvokeAsync<UpdateDataCatalogResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdatePreparedStatement
+
+        internal virtual UpdatePreparedStatementResponse UpdatePreparedStatement(UpdatePreparedStatementRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdatePreparedStatementRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdatePreparedStatementResponseUnmarshaller.Instance;
+
+            return Invoke<UpdatePreparedStatementResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Updates a prepared statement.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdatePreparedStatement service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdatePreparedStatement service method, as returned by Athena.</returns>
+        /// <exception cref="Amazon.Athena.Model.InternalServerException">
+        /// Indicates a platform issue, which may be due to a transient condition or outage.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.InvalidRequestException">
+        /// Indicates that something is wrong with the input to the request. For example, a required
+        /// parameter may be missing or out of range.
+        /// </exception>
+        /// <exception cref="Amazon.Athena.Model.ResourceNotFoundException">
+        /// A resource, such as a workgroup, was not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/athena-2017-05-18/UpdatePreparedStatement">REST API Reference for UpdatePreparedStatement Operation</seealso>
+        public virtual Task<UpdatePreparedStatementResponse> UpdatePreparedStatementAsync(UpdatePreparedStatementRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdatePreparedStatementRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdatePreparedStatementResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdatePreparedStatementResponse>(request, options, cancellationToken);
         }
 
         #endregion

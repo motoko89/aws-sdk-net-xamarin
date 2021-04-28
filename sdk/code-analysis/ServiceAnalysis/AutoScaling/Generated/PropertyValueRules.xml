@@ -202,6 +202,11 @@
     <max>255</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.AutoScaling.Model.DeleteWarmPoolRequest.AutoScalingGroupName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.AutoScaling.Model.DescribeAutoScalingGroupsRequest.NextToken</property>
   </property-value-rule>
   <property-value-rule>
@@ -301,6 +306,17 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.AutoScaling.Model.DescribeTagsResponse.NextToken</property>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AutoScaling.Model.DescribeWarmPoolRequest.AutoScalingGroupName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AutoScaling.Model.DescribeWarmPoolRequest.NextToken</property>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AutoScaling.Model.DescribeWarmPoolResponse.NextToken</property>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.AutoScaling.Model.DetachInstancesRequest.AutoScalingGroupName</property>
@@ -434,6 +450,24 @@
     <max>255</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.AutoScaling.Model.PutScheduledUpdateGroupActionRequest.TimeZone</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AutoScaling.Model.PutWarmPoolRequest.AutoScalingGroupName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AutoScaling.Model.PutWarmPoolRequest.MaxGroupPreparedCapacity</property>
+    <min>-1</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AutoScaling.Model.PutWarmPoolRequest.MinSize</property>
+    <min>0</min>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.AutoScaling.Model.RecordLifecycleActionHeartbeatRequest.AutoScalingGroupName</property>
     <min>1</min>
     <max>1600</max>
@@ -533,9 +567,19 @@
     <property>Amazon.AutoScaling.Model.Activity.ActivityId</property>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.AutoScaling.Model.Activity.AutoScalingGroupARN</property>
+    <min>1</min>
+    <max>1600</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.AutoScaling.Model.Activity.AutoScalingGroupName</property>
     <min>1</min>
     <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AutoScaling.Model.Activity.AutoScalingGroupState</property>
+    <min>1</min>
+    <max>32</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.AutoScaling.Model.Activity.Cause</property>
@@ -764,6 +808,24 @@
     <max>1023</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.AutoScaling.Model.InstanceRefreshLivePoolProgress.InstancesToUpdate</property>
+    <min>0</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AutoScaling.Model.InstanceRefreshLivePoolProgress.PercentageComplete</property>
+    <min>0</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AutoScaling.Model.InstanceRefreshWarmPoolProgress.InstancesToUpdate</property>
+    <min>0</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AutoScaling.Model.InstanceRefreshWarmPoolProgress.PercentageComplete</property>
+    <min>0</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.AutoScaling.Model.InstancesDistribution.OnDemandAllocationStrategy</property>
   </property-value-rule>
   <property-value-rule>
@@ -962,6 +1024,11 @@
     <max>255</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.AutoScaling.Model.RefreshPreferences.CheckpointDelay</property>
+    <min>0</min>
+    <max>172800</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.AutoScaling.Model.RefreshPreferences.InstanceWarmup</property>
     <min>0</min>
   </property-value-rule>
@@ -1021,12 +1088,22 @@
     <max>255</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.AutoScaling.Model.ScheduledUpdateGroupAction.TimeZone</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.AutoScaling.Model.ScheduledUpdateGroupActionRequest.Recurrence</property>
     <min>1</min>
     <max>255</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.AutoScaling.Model.ScheduledUpdateGroupActionRequest.ScheduledActionName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AutoScaling.Model.ScheduledUpdateGroupActionRequest.TimeZone</property>
     <min>1</min>
     <max>255</max>
   </property-value-rule>
@@ -1071,5 +1148,13 @@
     <property>Amazon.AutoScaling.Model.TagDescription.Value</property>
     <min>0</min>
     <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AutoScaling.Model.WarmPoolConfiguration.MaxGroupPreparedCapacity</property>
+    <min>-1</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.AutoScaling.Model.WarmPoolConfiguration.MinSize</property>
+    <min>0</min>
   </property-value-rule>
 </property-value-rules>

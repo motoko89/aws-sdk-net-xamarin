@@ -118,7 +118,7 @@ namespace Amazon.Personalize.Model
         /// <summary>
         /// Gets and sets the property LastUpdatedDateTime. 
         /// <para>
-        /// The date and time (in Unix time) that the dataset was last updated.
+        /// The date and time (in Unix time) that the dataset import job status was last updated.
         /// </para>
         /// </summary>
         public DateTime LastUpdatedDateTime

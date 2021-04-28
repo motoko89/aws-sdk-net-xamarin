@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -187,6 +186,45 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
 
             _mockClient.Setup(x => x.DescribeEndpoints(request)).Returns(response);
             var paginator = _mockClient.Object.Paginators.DescribeEndpoints(request);
+
+            // Should work the first time
+            paginator.Responses.ToList();
+
+            // Second time should throw an exception
+            paginator.Responses.ToList();
+        }
+
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("DatabaseMigrationService")]
+        public void DescribeEndpointSettingsTest_TwoPages()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeEndpointSettingsRequest>();
+
+            var firstResponse = InstantiateClassGenerator.Execute<DescribeEndpointSettingsResponse>();
+            var secondResponse = InstantiateClassGenerator.Execute<DescribeEndpointSettingsResponse>();
+            secondResponse.Marker = null;
+
+            _mockClient.SetupSequence(x => x.DescribeEndpointSettings(request)).Returns(firstResponse).Returns(secondResponse);
+            var paginator = _mockClient.Object.Paginators.DescribeEndpointSettings(request);
+            
+            Assert.AreEqual(2, paginator.Responses.ToList().Count);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("DatabaseMigrationService")]
+        [ExpectedException(typeof(System.InvalidOperationException), "Paginator has already been consumed and cannot be reused. Please create a new instance.")]
+        public void DescribeEndpointSettingsTest__OnlyUsedOnce()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeEndpointSettingsRequest>();
+
+            var response = InstantiateClassGenerator.Execute<DescribeEndpointSettingsResponse>();
+            response.Marker = null;
+
+            _mockClient.Setup(x => x.DescribeEndpointSettings(request)).Returns(response);
+            var paginator = _mockClient.Object.Paginators.DescribeEndpointSettings(request);
 
             // Should work the first time
             paginator.Responses.ToList();
@@ -743,4 +781,3 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
 
     }
 }
-#endif

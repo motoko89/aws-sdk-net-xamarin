@@ -33,9 +33,11 @@ namespace Amazon.AccessAnalyzer
     /// you to identify any policies that grant access to an external principal. It does this
     /// by using logic-based reasoning to analyze resource-based policies in your AWS environment.
     /// An external principal can be another AWS account, a root user, an IAM user or role,
-    /// a federated user, an AWS service, or an anonymous user. This guide describes the AWS
-    /// IAM Access Analyzer operations that you can call programmatically. For general information
-    /// about Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">AWS
+    /// a federated user, an AWS service, or an anonymous user. You can also use Access Analyzer
+    /// to preview and validate public and cross-account access to your resources before deploying
+    /// permissions changes. This guide describes the AWS IAM Access Analyzer operations that
+    /// you can call programmatically. For general information about Access Analyzer, see
+    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">AWS
     /// IAM Access Analyzer</a> in the <b>IAM User Guide</b>.
     /// 
     ///  
@@ -112,6 +114,120 @@ namespace Amazon.AccessAnalyzer
 
         #endregion
         
+        #region  CancelPolicyGeneration
+
+
+        /// <summary>
+        /// Cancels the requested policy generation.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CancelPolicyGeneration service method.</param>
+        /// 
+        /// <returns>The response from the CancelPolicyGeneration service method, as returned by AccessAnalyzer.</returns>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.InternalServerException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ThrottlingException">
+        /// Throttling limit exceeded error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ValidationException">
+        /// Validation exception error.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/CancelPolicyGeneration">REST API Reference for CancelPolicyGeneration Operation</seealso>
+        CancelPolicyGenerationResponse CancelPolicyGeneration(CancelPolicyGenerationRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CancelPolicyGeneration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CancelPolicyGeneration operation on AmazonAccessAnalyzerClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCancelPolicyGeneration
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/CancelPolicyGeneration">REST API Reference for CancelPolicyGeneration Operation</seealso>
+        IAsyncResult BeginCancelPolicyGeneration(CancelPolicyGenerationRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CancelPolicyGeneration operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCancelPolicyGeneration.</param>
+        /// 
+        /// <returns>Returns a  CancelPolicyGenerationResult from AccessAnalyzer.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/CancelPolicyGeneration">REST API Reference for CancelPolicyGeneration Operation</seealso>
+        CancelPolicyGenerationResponse EndCancelPolicyGeneration(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  CreateAccessPreview
+
+
+        /// <summary>
+        /// Creates an access preview that allows you to preview Access Analyzer findings for
+        /// your resource before deploying resource permissions.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateAccessPreview service method.</param>
+        /// 
+        /// <returns>The response from the CreateAccessPreview service method, as returned by AccessAnalyzer.</returns>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ConflictException">
+        /// A conflict exception error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.InternalServerException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ResourceNotFoundException">
+        /// The specified resource could not be found.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ServiceQuotaExceededException">
+        /// Service quote met error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ThrottlingException">
+        /// Throttling limit exceeded error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ValidationException">
+        /// Validation exception error.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/CreateAccessPreview">REST API Reference for CreateAccessPreview Operation</seealso>
+        CreateAccessPreviewResponse CreateAccessPreview(CreateAccessPreviewRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateAccessPreview operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateAccessPreview operation on AmazonAccessAnalyzerClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateAccessPreview
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/CreateAccessPreview">REST API Reference for CreateAccessPreview Operation</seealso>
+        IAsyncResult BeginCreateAccessPreview(CreateAccessPreviewRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CreateAccessPreview operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCreateAccessPreview.</param>
+        /// 
+        /// <returns>Returns a  CreateAccessPreviewResult from AccessAnalyzer.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/CreateAccessPreview">REST API Reference for CreateAccessPreview Operation</seealso>
+        CreateAccessPreviewResponse EndCreateAccessPreview(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  CreateAnalyzer
 
 
@@ -176,6 +292,12 @@ namespace Amazon.AccessAnalyzer
         /// <summary>
         /// Creates an archive rule for the specified analyzer. Archive rules automatically archive
         /// new findings that meet the criteria you define when you create the rule.
+        /// 
+        ///  
+        /// <para>
+        /// To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">Access
+        /// Analyzer filter keys</a> in the <b>IAM User Guide</b>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateArchiveRule service method.</param>
         /// 
@@ -341,6 +463,61 @@ namespace Amazon.AccessAnalyzer
         /// <returns>Returns a  DeleteArchiveRuleResult from AccessAnalyzer.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/DeleteArchiveRule">REST API Reference for DeleteArchiveRule Operation</seealso>
         DeleteArchiveRuleResponse EndDeleteArchiveRule(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  GetAccessPreview
+
+
+        /// <summary>
+        /// Retrieves information about an access preview for the specified analyzer.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetAccessPreview service method.</param>
+        /// 
+        /// <returns>The response from the GetAccessPreview service method, as returned by AccessAnalyzer.</returns>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.InternalServerException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ResourceNotFoundException">
+        /// The specified resource could not be found.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ThrottlingException">
+        /// Throttling limit exceeded error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ValidationException">
+        /// Validation exception error.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/GetAccessPreview">REST API Reference for GetAccessPreview Operation</seealso>
+        GetAccessPreviewResponse GetAccessPreview(GetAccessPreviewRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetAccessPreview operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetAccessPreview operation on AmazonAccessAnalyzerClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetAccessPreview
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/GetAccessPreview">REST API Reference for GetAccessPreview Operation</seealso>
+        IAsyncResult BeginGetAccessPreview(GetAccessPreviewRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetAccessPreview operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetAccessPreview.</param>
+        /// 
+        /// <returns>Returns a  GetAccessPreviewResult from AccessAnalyzer.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/GetAccessPreview">REST API Reference for GetAccessPreview Operation</seealso>
+        GetAccessPreviewResponse EndGetAccessPreview(IAsyncResult asyncResult);
 
         #endregion
         
@@ -570,6 +747,171 @@ namespace Amazon.AccessAnalyzer
 
         #endregion
         
+        #region  GetGeneratedPolicy
+
+
+        /// <summary>
+        /// Retrieves the policy that was generated using <code>StartPolicyGeneration</code>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetGeneratedPolicy service method.</param>
+        /// 
+        /// <returns>The response from the GetGeneratedPolicy service method, as returned by AccessAnalyzer.</returns>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.InternalServerException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ThrottlingException">
+        /// Throttling limit exceeded error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ValidationException">
+        /// Validation exception error.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/GetGeneratedPolicy">REST API Reference for GetGeneratedPolicy Operation</seealso>
+        GetGeneratedPolicyResponse GetGeneratedPolicy(GetGeneratedPolicyRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetGeneratedPolicy operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetGeneratedPolicy operation on AmazonAccessAnalyzerClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetGeneratedPolicy
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/GetGeneratedPolicy">REST API Reference for GetGeneratedPolicy Operation</seealso>
+        IAsyncResult BeginGetGeneratedPolicy(GetGeneratedPolicyRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetGeneratedPolicy operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetGeneratedPolicy.</param>
+        /// 
+        /// <returns>Returns a  GetGeneratedPolicyResult from AccessAnalyzer.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/GetGeneratedPolicy">REST API Reference for GetGeneratedPolicy Operation</seealso>
+        GetGeneratedPolicyResponse EndGetGeneratedPolicy(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  ListAccessPreviewFindings
+
+
+        /// <summary>
+        /// Retrieves a list of access preview findings generated by the specified access preview.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListAccessPreviewFindings service method.</param>
+        /// 
+        /// <returns>The response from the ListAccessPreviewFindings service method, as returned by AccessAnalyzer.</returns>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ConflictException">
+        /// A conflict exception error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.InternalServerException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ResourceNotFoundException">
+        /// The specified resource could not be found.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ThrottlingException">
+        /// Throttling limit exceeded error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ValidationException">
+        /// Validation exception error.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/ListAccessPreviewFindings">REST API Reference for ListAccessPreviewFindings Operation</seealso>
+        ListAccessPreviewFindingsResponse ListAccessPreviewFindings(ListAccessPreviewFindingsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListAccessPreviewFindings operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListAccessPreviewFindings operation on AmazonAccessAnalyzerClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListAccessPreviewFindings
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/ListAccessPreviewFindings">REST API Reference for ListAccessPreviewFindings Operation</seealso>
+        IAsyncResult BeginListAccessPreviewFindings(ListAccessPreviewFindingsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListAccessPreviewFindings operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListAccessPreviewFindings.</param>
+        /// 
+        /// <returns>Returns a  ListAccessPreviewFindingsResult from AccessAnalyzer.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/ListAccessPreviewFindings">REST API Reference for ListAccessPreviewFindings Operation</seealso>
+        ListAccessPreviewFindingsResponse EndListAccessPreviewFindings(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  ListAccessPreviews
+
+
+        /// <summary>
+        /// Retrieves a list of access previews for the specified analyzer.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListAccessPreviews service method.</param>
+        /// 
+        /// <returns>The response from the ListAccessPreviews service method, as returned by AccessAnalyzer.</returns>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.InternalServerException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ResourceNotFoundException">
+        /// The specified resource could not be found.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ThrottlingException">
+        /// Throttling limit exceeded error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ValidationException">
+        /// Validation exception error.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/ListAccessPreviews">REST API Reference for ListAccessPreviews Operation</seealso>
+        ListAccessPreviewsResponse ListAccessPreviews(ListAccessPreviewsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListAccessPreviews operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListAccessPreviews operation on AmazonAccessAnalyzerClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListAccessPreviews
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/ListAccessPreviews">REST API Reference for ListAccessPreviews Operation</seealso>
+        IAsyncResult BeginListAccessPreviews(ListAccessPreviewsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListAccessPreviews operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListAccessPreviews.</param>
+        /// 
+        /// <returns>Returns a  ListAccessPreviewsResult from AccessAnalyzer.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/ListAccessPreviews">REST API Reference for ListAccessPreviews Operation</seealso>
+        ListAccessPreviewsResponse EndListAccessPreviews(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  ListAnalyzedResources
 
 
@@ -738,7 +1080,8 @@ namespace Amazon.AccessAnalyzer
         /// 
         ///  
         /// <para>
-        /// To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">Access
+        /// To learn about filter keys that you can use to retrieve a list of findings, see <a
+        /// href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">Access
         /// Analyzer filter keys</a> in the <b>IAM User Guide</b>.
         /// </para>
         /// </summary>
@@ -788,6 +1131,58 @@ namespace Amazon.AccessAnalyzer
         /// <returns>Returns a  ListFindingsResult from AccessAnalyzer.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/ListFindings">REST API Reference for ListFindings Operation</seealso>
         ListFindingsResponse EndListFindings(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  ListPolicyGenerations
+
+
+        /// <summary>
+        /// Lists all of the policy generations requested in the last seven days.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListPolicyGenerations service method.</param>
+        /// 
+        /// <returns>The response from the ListPolicyGenerations service method, as returned by AccessAnalyzer.</returns>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.InternalServerException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ThrottlingException">
+        /// Throttling limit exceeded error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ValidationException">
+        /// Validation exception error.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/ListPolicyGenerations">REST API Reference for ListPolicyGenerations Operation</seealso>
+        ListPolicyGenerationsResponse ListPolicyGenerations(ListPolicyGenerationsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListPolicyGenerations operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListPolicyGenerations operation on AmazonAccessAnalyzerClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListPolicyGenerations
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/ListPolicyGenerations">REST API Reference for ListPolicyGenerations Operation</seealso>
+        IAsyncResult BeginListPolicyGenerations(ListPolicyGenerationsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListPolicyGenerations operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListPolicyGenerations.</param>
+        /// 
+        /// <returns>Returns a  ListPolicyGenerationsResult from AccessAnalyzer.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/ListPolicyGenerations">REST API Reference for ListPolicyGenerations Operation</seealso>
+        ListPolicyGenerationsResponse EndListPolicyGenerations(IAsyncResult asyncResult);
 
         #endregion
         
@@ -843,6 +1238,64 @@ namespace Amazon.AccessAnalyzer
         /// <returns>Returns a  ListTagsForResourceResult from AccessAnalyzer.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
         ListTagsForResourceResponse EndListTagsForResource(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  StartPolicyGeneration
+
+
+        /// <summary>
+        /// Starts the policy generation request.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartPolicyGeneration service method.</param>
+        /// 
+        /// <returns>The response from the StartPolicyGeneration service method, as returned by AccessAnalyzer.</returns>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ConflictException">
+        /// A conflict exception error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.InternalServerException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ServiceQuotaExceededException">
+        /// Service quote met error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ThrottlingException">
+        /// Throttling limit exceeded error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ValidationException">
+        /// Validation exception error.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/StartPolicyGeneration">REST API Reference for StartPolicyGeneration Operation</seealso>
+        StartPolicyGenerationResponse StartPolicyGeneration(StartPolicyGenerationRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartPolicyGeneration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartPolicyGeneration operation on AmazonAccessAnalyzerClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStartPolicyGeneration
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/StartPolicyGeneration">REST API Reference for StartPolicyGeneration Operation</seealso>
+        IAsyncResult BeginStartPolicyGeneration(StartPolicyGenerationRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  StartPolicyGeneration operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginStartPolicyGeneration.</param>
+        /// 
+        /// <returns>Returns a  StartPolicyGenerationResult from AccessAnalyzer.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/StartPolicyGeneration">REST API Reference for StartPolicyGeneration Operation</seealso>
+        StartPolicyGenerationResponse EndStartPolicyGeneration(IAsyncResult asyncResult);
 
         #endregion
         
@@ -1118,6 +1571,60 @@ namespace Amazon.AccessAnalyzer
         /// <returns>Returns a  UpdateFindingsResult from AccessAnalyzer.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/UpdateFindings">REST API Reference for UpdateFindings Operation</seealso>
         UpdateFindingsResponse EndUpdateFindings(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  ValidatePolicy
+
+
+        /// <summary>
+        /// Requests the validation of a policy and returns a list of findings. The findings help
+        /// you identify issues and provide actionable recommendations to resolve the issue and
+        /// enable you to author functional policies that meet security best practices.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ValidatePolicy service method.</param>
+        /// 
+        /// <returns>The response from the ValidatePolicy service method, as returned by AccessAnalyzer.</returns>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.InternalServerException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ThrottlingException">
+        /// Throttling limit exceeded error.
+        /// </exception>
+        /// <exception cref="Amazon.AccessAnalyzer.Model.ValidationException">
+        /// Validation exception error.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/ValidatePolicy">REST API Reference for ValidatePolicy Operation</seealso>
+        ValidatePolicyResponse ValidatePolicy(ValidatePolicyRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ValidatePolicy operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ValidatePolicy operation on AmazonAccessAnalyzerClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndValidatePolicy
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/ValidatePolicy">REST API Reference for ValidatePolicy Operation</seealso>
+        IAsyncResult BeginValidatePolicy(ValidatePolicyRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ValidatePolicy operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginValidatePolicy.</param>
+        /// 
+        /// <returns>Returns a  ValidatePolicyResult from AccessAnalyzer.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/accessanalyzer-2019-11-01/ValidatePolicy">REST API Reference for ValidatePolicy Operation</seealso>
+        ValidatePolicyResponse EndValidatePolicy(IAsyncResult asyncResult);
 
         #endregion
         

@@ -29,32 +29,24 @@ using Amazon.Runtime.Internal;
 namespace Amazon.WAFV2.Model
 {
     /// <summary>
-    /// <note> 
-    /// <para>
-    /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-    /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-    /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-    /// WAF Developer Guide</a>. 
-    /// </para>
-    ///  </note> 
-    /// <para>
-    ///  A Web ACL defines a collection of rules to use to inspect and control web requests.
+    /// A Web ACL defines a collection of rules to use to inspect and control web requests.
     /// Each rule has an action defined (allow, block, or count) for requests that match the
     /// statement of the rule. In the Web ACL, you assign a default action to take (allow,
     /// block) for any request that does not match any of the rules. The rules in a Web ACL
     /// can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule
     /// group. You can associate a Web ACL with one or more AWS resources to protect. The
     /// resources can be Amazon CloudFront, an Amazon API Gateway REST API, an Application
-    /// Load Balancer, or an AWS AppSync GraphQL API. 
-    /// </para>
+    /// Load Balancer, or an AWS AppSync GraphQL API.
     /// </summary>
     public partial class WebACL
     {
         private string _arn;
         private long? _capacity;
+        private Dictionary<string, CustomResponseBody> _customResponseBodies = new Dictionary<string, CustomResponseBody>();
         private DefaultAction _defaultAction;
         private string _description;
         private string _id;
+        private string _labelNamespace;
         private bool? _managedByFirewallManager;
         private string _name;
         private List<FirewallManagerRuleGroup> _postProcessFirewallManagerRuleGroups = new List<FirewallManagerRuleGroup>();
@@ -111,6 +103,41 @@ namespace Amazon.WAFV2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property CustomResponseBodies. 
+        /// <para>
+        /// A map of custom response keys and content bodies. When you create a rule with a block
+        /// action, you can send a custom response to the web request. You define these for the
+        /// web ACL, and then use them in the rules and default actions that you define in the
+        /// web ACL. 
+        /// </para>
+        ///  
+        /// <para>
+        /// For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing
+        /// web requests and responses in AWS WAF</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
+        /// WAF Developer Guide</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// For information about the limits on count and size for custom request and response
+        /// settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">AWS
+        /// WAF quotas</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
+        /// WAF Developer Guide</a>. 
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1)]
+        public Dictionary<string, CustomResponseBody> CustomResponseBodies
+        {
+            get { return this._customResponseBodies; }
+            set { this._customResponseBodies = value; }
+        }
+
+        // Check to see if CustomResponseBodies property is set
+        internal bool IsSetCustomResponseBodies()
+        {
+            return this._customResponseBodies != null && this._customResponseBodies.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property DefaultAction. 
         /// <para>
         /// The action to perform if none of the <code>Rules</code> contained in the <code>WebACL</code>
@@ -133,8 +160,7 @@ namespace Amazon.WAFV2.Model
         /// <summary>
         /// Gets and sets the property Description. 
         /// <para>
-        /// A description of the Web ACL that helps with identification. You cannot change the
-        /// description of a Web ACL after you create it.
+        /// A description of the Web ACL that helps with identification. 
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=256)]
@@ -169,6 +195,46 @@ namespace Amazon.WAFV2.Model
         internal bool IsSetId()
         {
             return this._id != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property LabelNamespace. 
+        /// <para>
+        /// The label namespace prefix for this web ACL. All labels added by rules in this web
+        /// ACL have this prefix. 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// The syntax for the label namespace prefix for a web ACL is the following: 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>awswaf:&lt;account ID&gt;:webacl:&lt;web ACL name&gt;:</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// When a rule with a label matches a web request, AWS WAF adds the fully qualified label
+        /// to the request. A fully qualified label is made up of the label namespace from the
+        /// rule group or web ACL where the rule is defined and the label from the rule, separated
+        /// by a colon: 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>&lt;label namespace&gt;:&lt;label from rule&gt;</code> 
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
+        public string LabelNamespace
+        {
+            get { return this._labelNamespace; }
+            set { this._labelNamespace = value; }
+        }
+
+        // Check to see if LabelNamespace property is set
+        internal bool IsSetLabelNamespace()
+        {
+            return this._labelNamespace != null;
         }
 
         /// <summary>

@@ -60,7 +60,6 @@ namespace Amazon.LocationService.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/tracking/v0/trackers";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -76,6 +75,12 @@ namespace Amazon.LocationService.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("PricingPlan");
                     context.Writer.Write(publicRequest.PricingPlan);
+                }
+
+                if(publicRequest.IsSetPricingPlanDataSource())
+                {
+                    context.Writer.WritePropertyName("PricingPlanDataSource");
+                    context.Writer.Write(publicRequest.PricingPlanDataSource);
                 }
 
                 if(publicRequest.IsSetTrackerName())

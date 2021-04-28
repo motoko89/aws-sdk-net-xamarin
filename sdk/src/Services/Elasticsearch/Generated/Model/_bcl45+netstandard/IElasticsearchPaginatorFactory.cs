@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -25,6 +24,11 @@ namespace Amazon.Elasticsearch.Model
     ///</summary>
     public interface IElasticsearchPaginatorFactory
     {
+
+        /// <summary>
+        /// Paginator for DescribeDomainAutoTunes operation
+        ///</summary>
+        IDescribeDomainAutoTunesPaginator DescribeDomainAutoTunes(DescribeDomainAutoTunesRequest request);
 
         /// <summary>
         /// Paginator for DescribeInboundCrossClusterSearchConnections operation
@@ -82,4 +86,3 @@ namespace Amazon.Elasticsearch.Model
         IListPackagesForDomainPaginator ListPackagesForDomain(ListPackagesForDomainRequest request);
     }
 }
-#endif

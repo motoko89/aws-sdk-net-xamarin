@@ -34,6 +34,7 @@ namespace Amazon.Redshift.Model
     public partial class Cluster
     {
         private bool? _allowVersionUpgrade;
+        private AquaConfiguration _aquaConfiguration;
         private int? _automatedSnapshotRetentionPeriod;
         private string _availabilityZone;
         private string _availabilityZoneRelocationStatus;
@@ -79,6 +80,7 @@ namespace Amazon.Redshift.Model
         private string _snapshotScheduleIdentifier;
         private ScheduleState _snapshotScheduleState;
         private List<Tag> _tags = new List<Tag>();
+        private long? _totalStorageCapacityInMegaBytes;
         private string _vpcId;
         private List<VpcSecurityGroupMembership> _vpcSecurityGroups = new List<VpcSecurityGroupMembership>();
 
@@ -99,6 +101,24 @@ namespace Amazon.Redshift.Model
         internal bool IsSetAllowVersionUpgrade()
         {
             return this._allowVersionUpgrade.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property AquaConfiguration. 
+        /// <para>
+        /// The AQUA (Advanced Query Accelerator) configuration of the cluster.
+        /// </para>
+        /// </summary>
+        public AquaConfiguration AquaConfiguration
+        {
+            get { return this._aquaConfiguration; }
+            set { this._aquaConfiguration = value; }
+        }
+
+        // Check to see if AquaConfiguration property is set
+        internal bool IsSetAquaConfiguration()
+        {
+            return this._aquaConfiguration != null;
         }
 
         /// <summary>
@@ -1094,6 +1114,24 @@ namespace Amazon.Redshift.Model
         internal bool IsSetTags()
         {
             return this._tags != null && this._tags.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property TotalStorageCapacityInMegaBytes. 
+        /// <para>
+        /// The total storage capacity of the cluster in megabytes. 
+        /// </para>
+        /// </summary>
+        public long TotalStorageCapacityInMegaBytes
+        {
+            get { return this._totalStorageCapacityInMegaBytes.GetValueOrDefault(); }
+            set { this._totalStorageCapacityInMegaBytes = value; }
+        }
+
+        // Check to see if TotalStorageCapacityInMegaBytes property is set
+        internal bool IsSetTotalStorageCapacityInMegaBytes()
+        {
+            return this._totalStorageCapacityInMegaBytes.HasValue; 
         }
 
         /// <summary>

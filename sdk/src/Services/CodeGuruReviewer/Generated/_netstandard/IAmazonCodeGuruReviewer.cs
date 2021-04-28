@@ -33,8 +33,8 @@ namespace Amazon.CodeGuruReviewer
     ///
     /// This section provides documentation for the Amazon CodeGuru Reviewer API operations.
     /// CodeGuru Reviewer is a service that uses program analysis and machine learning to
-    /// detect potential defects that are difficult for developers to find and recommends
-    /// fixes in your Java code.
+    /// detect potential defects that are difficult for developers to find and recommendations
+    /// to address them in your Java and Python code.
     /// 
     ///  
     /// <para>
@@ -53,9 +53,6 @@ namespace Amazon.CodeGuruReviewer
     /// Reviewer User Guide</i>. 
     /// </para>
     /// </summary>
-#if NETSTANDARD13
-    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
-#endif
     public partial interface IAmazonCodeGuruReviewer : IAmazonService, IDisposable
     {
 #if AWS_ASYNC_ENUMERABLES_API
@@ -86,9 +83,8 @@ namespace Amazon.CodeGuruReviewer
         ///  
         /// <para>
         /// Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar Connections
-        /// to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/reviewer-ug/step-one.html#select-repository-source-provider">Connect
-        /// to a repository source provider</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i>
-        /// 
+        /// to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html">Associate
+        /// a repository</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i> 
         /// </para>
         ///  <note> 
         /// <para>

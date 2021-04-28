@@ -36,7 +36,7 @@ namespace Amazon.ElastiCache.Model
     ///  
     /// <para>
     /// This API can be used to create a standalone regional replication group or a secondary
-    /// replication group associated with a Global Datastore.
+    /// replication group associated with a Global datastore.
     /// </para>
     ///  
     /// <para>
@@ -97,6 +97,7 @@ namespace Amazon.ElastiCache.Model
         private string _engineVersion;
         private string _globalReplicationGroupId;
         private string _kmsKeyId;
+        private List<LogDeliveryConfigurationRequest> _logDeliveryConfigurations = new List<LogDeliveryConfigurationRequest>();
         private bool? _multiAZEnabled;
         private List<NodeGroupConfiguration> _nodeGroupConfiguration = new List<NodeGroupConfiguration>();
         private string _notificationTopicArn;
@@ -503,6 +504,7 @@ namespace Amazon.ElastiCache.Model
         /// Gets and sets the property Engine. 
         /// <para>
         /// The name of the cache engine to be used for the clusters in this replication group.
+        /// Must be Redis.
         /// </para>
         /// </summary>
         public string Engine
@@ -548,7 +550,7 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property GlobalReplicationGroupId. 
         /// <para>
-        /// The name of the Global Datastore
+        /// The name of the Global datastore
         /// </para>
         /// </summary>
         public string GlobalReplicationGroupId
@@ -579,6 +581,24 @@ namespace Amazon.ElastiCache.Model
         internal bool IsSetKmsKeyId()
         {
             return this._kmsKeyId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property LogDeliveryConfigurations. 
+        /// <para>
+        /// Specifies the destination, format and type of the logs.
+        /// </para>
+        /// </summary>
+        public List<LogDeliveryConfigurationRequest> LogDeliveryConfigurations
+        {
+            get { return this._logDeliveryConfigurations; }
+            set { this._logDeliveryConfigurations = value; }
+        }
+
+        // Check to see if LogDeliveryConfigurations property is set
+        internal bool IsSetLogDeliveryConfigurations()
+        {
+            return this._logDeliveryConfigurations != null && this._logDeliveryConfigurations.Count > 0; 
         }
 
         /// <summary>
@@ -1056,10 +1076,11 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property Tags. 
         /// <para>
-        /// A list of cost allocation tags to be added to this resource. Tags are comma-separated
-        /// key,value pairs (e.g. Key=<code>myKey</code>, Value=<code>myKeyValue</code>. You can
-        /// include multiple tags as shown following: Key=<code>myKey</code>, Value=<code>myKeyValue</code>
-        /// Key=<code>mySecondKey</code>, Value=<code>mySecondKeyValue</code>.
+        /// A list of tags to be added to this resource. Tags are comma-separated key,value pairs
+        /// (e.g. Key=<code>myKey</code>, Value=<code>myKeyValue</code>. You can include multiple
+        /// tags as shown following: Key=<code>myKey</code>, Value=<code>myKeyValue</code> Key=<code>mySecondKey</code>,
+        /// Value=<code>mySecondKeyValue</code>. Tags on replication groups will be replicated
+        /// to all nodes.
         /// </para>
         /// </summary>
         public List<Tag> Tags

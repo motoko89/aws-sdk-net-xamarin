@@ -43,9 +43,6 @@ namespace Amazon.Glue
     /// Defines the public endpoint for the AWS Glue service.
     /// </para>
     /// </summary>
-#if NETSTANDARD13
-    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
-#endif
     public partial class AmazonGlueClient : AmazonServiceClient, IAmazonGlue
     {
         private static IServiceMetadata serviceMetadata = new AmazonGlueMetadata();
@@ -4399,14 +4396,14 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Retrieves the security configurations for the resource policies set on individual
-        /// resources, and also the account-level policy.
+        /// Retrieves the resource policies set on individual resources by AWS Resource Access
+        /// Manager during cross-account permission grants. Also retrieves the Data Catalog resource
+        /// policy.
         /// 
         ///  
         /// <para>
-        /// This operation also returns the Data Catalog resource policy. However, if you enabled
-        /// metadata encryption in Data Catalog settings, and you do not have permission on the
-        /// AWS KMS key, the operation can't return the Data Catalog resource policy.
+        /// If you enabled metadata encryption in Data Catalog settings, and you do not have permission
+        /// on the AWS KMS key, the operation can't return the Data Catalog resource policy.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetResourcePolicies service method.</param>

@@ -63,7 +63,6 @@ namespace Amazon.SageMakerRuntime.Model.Internal.MarshallTransformations
                 throw new AmazonSageMakerRuntimeException("Request object does not have required field EndpointName set");
             request.AddPathResource("{EndpointName}", StringUtils.FromString(publicRequest.EndpointName));
             request.ResourcePath = "/endpoints/{EndpointName}/invocations";
-            request.MarshallerVersion = 2;
             request.ContentStream =  publicRequest.Body ?? new MemoryStream();
             request.Headers[Amazon.Util.HeaderKeys.ContentLengthHeader] =  
                 request.ContentStream.Length.ToString(CultureInfo.InvariantCulture);
@@ -80,6 +79,9 @@ namespace Amazon.SageMakerRuntime.Model.Internal.MarshallTransformations
         
             if(publicRequest.IsSetInferenceId())
                 request.Headers["X-Amzn-SageMaker-Inference-Id"] = publicRequest.InferenceId;
+        
+            if(publicRequest.IsSetTargetContainerHostname())
+                request.Headers["X-Amzn-SageMaker-Target-Container-Hostname"] = publicRequest.TargetContainerHostname;
         
             if(publicRequest.IsSetTargetModel())
                 request.Headers["X-Amzn-SageMaker-Target-Model"] = publicRequest.TargetModel;

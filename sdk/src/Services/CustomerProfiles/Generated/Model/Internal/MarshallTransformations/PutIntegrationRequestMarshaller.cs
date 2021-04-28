@@ -63,12 +63,22 @@ namespace Amazon.CustomerProfiles.Model.Internal.MarshallTransformations
                 throw new AmazonCustomerProfilesException("Request object does not have required field DomainName set");
             request.AddPathResource("{DomainName}", StringUtils.FromString(publicRequest.DomainName));
             request.ResourcePath = "/domains/{DomainName}/integrations";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetFlowDefinition())
+                {
+                    context.Writer.WritePropertyName("FlowDefinition");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = FlowDefinitionMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.FlowDefinition, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetObjectTypeName())
                 {
                     context.Writer.WritePropertyName("ObjectTypeName");

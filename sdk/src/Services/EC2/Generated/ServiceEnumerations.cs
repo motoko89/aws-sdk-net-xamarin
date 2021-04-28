@@ -305,6 +305,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly AllocationStrategy CapacityOptimized = new AllocationStrategy("capacityOptimized");
         /// <summary>
+        /// Constant CapacityOptimizedPrioritized for AllocationStrategy
+        /// </summary>
+        public static readonly AllocationStrategy CapacityOptimizedPrioritized = new AllocationStrategy("capacityOptimizedPrioritized");
+        /// <summary>
         /// Constant Diversified for AllocationStrategy
         /// </summary>
         public static readonly AllocationStrategy Diversified = new AllocationStrategy("diversified");
@@ -1152,6 +1156,106 @@ namespace Amazon.EC2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator BgpStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type BootModeType.
+    /// </summary>
+    public class BootModeType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant LegacyBios for BootModeType
+        /// </summary>
+        public static readonly BootModeType LegacyBios = new BootModeType("legacy-bios");
+        /// <summary>
+        /// Constant Uefi for BootModeType
+        /// </summary>
+        public static readonly BootModeType Uefi = new BootModeType("uefi");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public BootModeType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static BootModeType FindValue(string value)
+        {
+            return FindValue<BootModeType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator BootModeType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type BootModeValues.
+    /// </summary>
+    public class BootModeValues : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant LegacyBios for BootModeValues
+        /// </summary>
+        public static readonly BootModeValues LegacyBios = new BootModeValues("legacy-bios");
+        /// <summary>
+        /// Constant Uefi for BootModeValues
+        /// </summary>
+        public static readonly BootModeValues Uefi = new BootModeValues("uefi");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public BootModeValues(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static BootModeValues FindValue(string value)
+        {
+            return FindValue<BootModeValues>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator BootModeValues(string value)
         {
             return FindValue(value);
         }
@@ -4745,6 +4849,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly ImageAttributeName BlockDeviceMapping = new ImageAttributeName("blockDeviceMapping");
         /// <summary>
+        /// Constant BootMode for ImageAttributeName
+        /// </summary>
+        public static readonly ImageAttributeName BootMode = new ImageAttributeName("bootMode");
+        /// <summary>
         /// Constant Description for ImageAttributeName
         /// </summary>
         public static readonly ImageAttributeName Description = new ImageAttributeName("description");
@@ -6985,6 +7093,42 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType X1eXlarge = new InstanceType("x1e.xlarge");
         /// <summary>
+        /// Constant X2gd12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType X2gd12xlarge = new InstanceType("x2gd.12xlarge");
+        /// <summary>
+        /// Constant X2gd16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType X2gd16xlarge = new InstanceType("x2gd.16xlarge");
+        /// <summary>
+        /// Constant X2gd2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType X2gd2xlarge = new InstanceType("x2gd.2xlarge");
+        /// <summary>
+        /// Constant X2gd4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType X2gd4xlarge = new InstanceType("x2gd.4xlarge");
+        /// <summary>
+        /// Constant X2gd8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType X2gd8xlarge = new InstanceType("x2gd.8xlarge");
+        /// <summary>
+        /// Constant X2gdLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType X2gdLarge = new InstanceType("x2gd.large");
+        /// <summary>
+        /// Constant X2gdMedium for InstanceType
+        /// </summary>
+        public static readonly InstanceType X2gdMedium = new InstanceType("x2gd.medium");
+        /// <summary>
+        /// Constant X2gdMetal for InstanceType
+        /// </summary>
+        public static readonly InstanceType X2gdMetal = new InstanceType("x2gd.metal");
+        /// <summary>
+        /// Constant X2gdXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType X2gdXlarge = new InstanceType("x2gd.xlarge");
+        /// <summary>
         /// Constant Z1d12xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType Z1d12xlarge = new InstanceType("z1d.12xlarge");
@@ -8607,6 +8751,64 @@ namespace Amazon.EC2
 
 
     /// <summary>
+    /// Constants used for properties of type PartitionLoadFrequency.
+    /// </summary>
+    public class PartitionLoadFrequency : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Daily for PartitionLoadFrequency
+        /// </summary>
+        public static readonly PartitionLoadFrequency Daily = new PartitionLoadFrequency("daily");
+        /// <summary>
+        /// Constant Monthly for PartitionLoadFrequency
+        /// </summary>
+        public static readonly PartitionLoadFrequency Monthly = new PartitionLoadFrequency("monthly");
+        /// <summary>
+        /// Constant None for PartitionLoadFrequency
+        /// </summary>
+        public static readonly PartitionLoadFrequency None = new PartitionLoadFrequency("none");
+        /// <summary>
+        /// Constant Weekly for PartitionLoadFrequency
+        /// </summary>
+        public static readonly PartitionLoadFrequency Weekly = new PartitionLoadFrequency("weekly");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public PartitionLoadFrequency(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static PartitionLoadFrequency FindValue(string value)
+        {
+            return FindValue<PartitionLoadFrequency>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator PartitionLoadFrequency(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type PaymentOption.
     /// </summary>
     public class PaymentOption : ConstantClass
@@ -9306,6 +9508,72 @@ namespace Amazon.EC2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ReplacementStrategy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ReplaceRootVolumeTaskState.
+    /// </summary>
+    public class ReplaceRootVolumeTaskState : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Failed for ReplaceRootVolumeTaskState
+        /// </summary>
+        public static readonly ReplaceRootVolumeTaskState Failed = new ReplaceRootVolumeTaskState("failed");
+        /// <summary>
+        /// Constant FailedDetached for ReplaceRootVolumeTaskState
+        /// </summary>
+        public static readonly ReplaceRootVolumeTaskState FailedDetached = new ReplaceRootVolumeTaskState("failed-detached");
+        /// <summary>
+        /// Constant Failing for ReplaceRootVolumeTaskState
+        /// </summary>
+        public static readonly ReplaceRootVolumeTaskState Failing = new ReplaceRootVolumeTaskState("failing");
+        /// <summary>
+        /// Constant InProgress for ReplaceRootVolumeTaskState
+        /// </summary>
+        public static readonly ReplaceRootVolumeTaskState InProgress = new ReplaceRootVolumeTaskState("in-progress");
+        /// <summary>
+        /// Constant Pending for ReplaceRootVolumeTaskState
+        /// </summary>
+        public static readonly ReplaceRootVolumeTaskState Pending = new ReplaceRootVolumeTaskState("pending");
+        /// <summary>
+        /// Constant Succeeded for ReplaceRootVolumeTaskState
+        /// </summary>
+        public static readonly ReplaceRootVolumeTaskState Succeeded = new ReplaceRootVolumeTaskState("succeeded");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ReplaceRootVolumeTaskState(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ReplaceRootVolumeTaskState FindValue(string value)
+        {
+            return FindValue<ReplaceRootVolumeTaskState>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ReplaceRootVolumeTaskState(string value)
         {
             return FindValue(value);
         }
@@ -10590,6 +10858,10 @@ namespace Amazon.EC2
         /// Constant CapacityOptimized for SpotAllocationStrategy
         /// </summary>
         public static readonly SpotAllocationStrategy CapacityOptimized = new SpotAllocationStrategy("capacity-optimized");
+        /// <summary>
+        /// Constant CapacityOptimizedPrioritized for SpotAllocationStrategy
+        /// </summary>
+        public static readonly SpotAllocationStrategy CapacityOptimizedPrioritized = new SpotAllocationStrategy("capacity-optimized-prioritized");
         /// <summary>
         /// Constant Diversified for SpotAllocationStrategy
         /// </summary>

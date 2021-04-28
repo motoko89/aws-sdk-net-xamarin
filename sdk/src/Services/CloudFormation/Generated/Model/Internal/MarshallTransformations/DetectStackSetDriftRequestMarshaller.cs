@@ -58,6 +58,10 @@ namespace Amazon.CloudFormation.Model.Internal.MarshallTransformations
 
             if(publicRequest != null)
             {
+                if(publicRequest.IsSetCallAs())
+                {
+                    request.Parameters.Add("CallAs", StringUtils.FromString(publicRequest.CallAs));
+                }
                 if(publicRequest.IsSetOperationId())
                 {
                     request.Parameters.Add("OperationId", StringUtils.FromString(publicRequest.OperationId));
@@ -83,6 +87,10 @@ namespace Amazon.CloudFormation.Model.Internal.MarshallTransformations
                     if(publicRequest.OperationPreferences.IsSetMaxConcurrentPercentage())
                     {
                         request.Parameters.Add("OperationPreferences" + "." + "MaxConcurrentPercentage", StringUtils.FromInt(publicRequest.OperationPreferences.MaxConcurrentPercentage));
+                    }
+                    if(publicRequest.OperationPreferences.IsSetRegionConcurrencyType())
+                    {
+                        request.Parameters.Add("OperationPreferences" + "." + "RegionConcurrencyType", StringUtils.FromString(publicRequest.OperationPreferences.RegionConcurrencyType));
                     }
                     if(publicRequest.OperationPreferences.IsSetRegionOrder())
                     {

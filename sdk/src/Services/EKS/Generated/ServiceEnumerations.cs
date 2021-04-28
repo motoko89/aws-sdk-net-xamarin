@@ -35,6 +35,10 @@ namespace Amazon.EKS
         /// </summary>
         public static readonly AddonIssueCode AccessDenied = new AddonIssueCode("AccessDenied");
         /// <summary>
+        /// Constant AdmissionRequestDenied for AddonIssueCode
+        /// </summary>
+        public static readonly AddonIssueCode AdmissionRequestDenied = new AddonIssueCode("AdmissionRequestDenied");
+        /// <summary>
         /// Constant ClusterUnreachable for AddonIssueCode
         /// </summary>
         public static readonly AddonIssueCode ClusterUnreachable = new AddonIssueCode("ClusterUnreachable");
@@ -174,6 +178,10 @@ namespace Amazon.EKS
         /// Constant AL2_x86_64_GPU for AMITypes
         /// </summary>
         public static readonly AMITypes AL2_x86_64_GPU = new AMITypes("AL2_x86_64_GPU");
+        /// <summary>
+        /// Constant CUSTOM for AMITypes
+        /// </summary>
+        public static readonly AMITypes CUSTOM = new AMITypes("CUSTOM");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -323,6 +331,60 @@ namespace Amazon.EKS
 
 
     /// <summary>
+    /// Constants used for properties of type ConfigStatus.
+    /// </summary>
+    public class ConfigStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ACTIVE for ConfigStatus
+        /// </summary>
+        public static readonly ConfigStatus ACTIVE = new ConfigStatus("ACTIVE");
+        /// <summary>
+        /// Constant CREATING for ConfigStatus
+        /// </summary>
+        public static readonly ConfigStatus CREATING = new ConfigStatus("CREATING");
+        /// <summary>
+        /// Constant DELETING for ConfigStatus
+        /// </summary>
+        public static readonly ConfigStatus DELETING = new ConfigStatus("DELETING");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ConfigStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ConfigStatus FindValue(string value)
+        {
+            return FindValue<ConfigStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ConfigStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ErrorCode.
     /// </summary>
     public class ErrorCode : ConstantClass
@@ -332,6 +394,10 @@ namespace Amazon.EKS
         /// Constant AccessDenied for ErrorCode
         /// </summary>
         public static readonly ErrorCode AccessDenied = new ErrorCode("AccessDenied");
+        /// <summary>
+        /// Constant AdmissionRequestDenied for ErrorCode
+        /// </summary>
+        public static readonly ErrorCode AdmissionRequestDenied = new ErrorCode("AdmissionRequestDenied");
         /// <summary>
         /// Constant ClusterUnreachable for ErrorCode
         /// </summary>
@@ -797,6 +863,10 @@ namespace Amazon.EKS
         /// </summary>
         public static readonly UpdateParamType DesiredSize = new UpdateParamType("DesiredSize");
         /// <summary>
+        /// Constant EncryptionConfig for UpdateParamType
+        /// </summary>
+        public static readonly UpdateParamType EncryptionConfig = new UpdateParamType("EncryptionConfig");
+        /// <summary>
         /// Constant EndpointPrivateAccess for UpdateParamType
         /// </summary>
         public static readonly UpdateParamType EndpointPrivateAccess = new UpdateParamType("EndpointPrivateAccess");
@@ -805,6 +875,10 @@ namespace Amazon.EKS
         /// </summary>
         public static readonly UpdateParamType EndpointPublicAccess = new UpdateParamType("EndpointPublicAccess");
         /// <summary>
+        /// Constant IdentityProviderConfig for UpdateParamType
+        /// </summary>
+        public static readonly UpdateParamType IdentityProviderConfig = new UpdateParamType("IdentityProviderConfig");
+        /// <summary>
         /// Constant LabelsToAdd for UpdateParamType
         /// </summary>
         public static readonly UpdateParamType LabelsToAdd = new UpdateParamType("LabelsToAdd");
@@ -812,6 +886,14 @@ namespace Amazon.EKS
         /// Constant LabelsToRemove for UpdateParamType
         /// </summary>
         public static readonly UpdateParamType LabelsToRemove = new UpdateParamType("LabelsToRemove");
+        /// <summary>
+        /// Constant LaunchTemplateName for UpdateParamType
+        /// </summary>
+        public static readonly UpdateParamType LaunchTemplateName = new UpdateParamType("LaunchTemplateName");
+        /// <summary>
+        /// Constant LaunchTemplateVersion for UpdateParamType
+        /// </summary>
+        public static readonly UpdateParamType LaunchTemplateVersion = new UpdateParamType("LaunchTemplateVersion");
         /// <summary>
         /// Constant MaxSize for UpdateParamType
         /// </summary>
@@ -949,9 +1031,21 @@ namespace Amazon.EKS
         /// </summary>
         public static readonly UpdateType AddonUpdate = new UpdateType("AddonUpdate");
         /// <summary>
+        /// Constant AssociateEncryptionConfig for UpdateType
+        /// </summary>
+        public static readonly UpdateType AssociateEncryptionConfig = new UpdateType("AssociateEncryptionConfig");
+        /// <summary>
+        /// Constant AssociateIdentityProviderConfig for UpdateType
+        /// </summary>
+        public static readonly UpdateType AssociateIdentityProviderConfig = new UpdateType("AssociateIdentityProviderConfig");
+        /// <summary>
         /// Constant ConfigUpdate for UpdateType
         /// </summary>
         public static readonly UpdateType ConfigUpdate = new UpdateType("ConfigUpdate");
+        /// <summary>
+        /// Constant DisassociateIdentityProviderConfig for UpdateType
+        /// </summary>
+        public static readonly UpdateType DisassociateIdentityProviderConfig = new UpdateType("DisassociateIdentityProviderConfig");
         /// <summary>
         /// Constant EndpointAccessUpdate for UpdateType
         /// </summary>

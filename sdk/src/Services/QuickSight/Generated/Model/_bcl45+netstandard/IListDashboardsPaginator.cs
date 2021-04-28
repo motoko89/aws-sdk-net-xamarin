@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -30,6 +29,10 @@ namespace Amazon.QuickSight.Model
         /// Enumerable containing all full responses for the operation
         /// </summary>
         IPaginatedEnumerable<ListDashboardsResponse> Responses { get; }
+
+        /// <summary>
+        /// Enumerable containing all of the DashboardSummaryList
+        /// </summary>
+        IPaginatedEnumerable<DashboardSummary> DashboardSummaryList { get; }
     }
 }
-#endif

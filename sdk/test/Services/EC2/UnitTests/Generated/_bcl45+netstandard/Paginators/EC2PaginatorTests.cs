@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -1993,6 +1992,45 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
         [TestMethod]
         [TestCategory("UnitTest")]
         [TestCategory("EC2")]
+        public void DescribeReplaceRootVolumeTasksTest_TwoPages()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeReplaceRootVolumeTasksRequest>();
+
+            var firstResponse = InstantiateClassGenerator.Execute<DescribeReplaceRootVolumeTasksResponse>();
+            var secondResponse = InstantiateClassGenerator.Execute<DescribeReplaceRootVolumeTasksResponse>();
+            secondResponse.NextToken = null;
+
+            _mockClient.SetupSequence(x => x.DescribeReplaceRootVolumeTasks(request)).Returns(firstResponse).Returns(secondResponse);
+            var paginator = _mockClient.Object.Paginators.DescribeReplaceRootVolumeTasks(request);
+            
+            Assert.AreEqual(2, paginator.Responses.ToList().Count);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("EC2")]
+        [ExpectedException(typeof(System.InvalidOperationException), "Paginator has already been consumed and cannot be reused. Please create a new instance.")]
+        public void DescribeReplaceRootVolumeTasksTest__OnlyUsedOnce()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeReplaceRootVolumeTasksRequest>();
+
+            var response = InstantiateClassGenerator.Execute<DescribeReplaceRootVolumeTasksResponse>();
+            response.NextToken = null;
+
+            _mockClient.Setup(x => x.DescribeReplaceRootVolumeTasks(request)).Returns(response);
+            var paginator = _mockClient.Object.Paginators.DescribeReplaceRootVolumeTasks(request);
+
+            // Should work the first time
+            paginator.Responses.ToList();
+
+            // Second time should throw an exception
+            paginator.Responses.ToList();
+        }
+
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("EC2")]
         public void DescribeReservedInstancesModificationsTest_TwoPages()
         {
             var request = InstantiateClassGenerator.Execute<DescribeReservedInstancesModificationsRequest>();
@@ -2410,6 +2448,45 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
 
             _mockClient.Setup(x => x.DescribeStaleSecurityGroups(request)).Returns(response);
             var paginator = _mockClient.Object.Paginators.DescribeStaleSecurityGroups(request);
+
+            // Should work the first time
+            paginator.Responses.ToList();
+
+            // Second time should throw an exception
+            paginator.Responses.ToList();
+        }
+
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("EC2")]
+        public void DescribeStoreImageTasksTest_TwoPages()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeStoreImageTasksRequest>();
+
+            var firstResponse = InstantiateClassGenerator.Execute<DescribeStoreImageTasksResponse>();
+            var secondResponse = InstantiateClassGenerator.Execute<DescribeStoreImageTasksResponse>();
+            secondResponse.NextToken = null;
+
+            _mockClient.SetupSequence(x => x.DescribeStoreImageTasks(request)).Returns(firstResponse).Returns(secondResponse);
+            var paginator = _mockClient.Object.Paginators.DescribeStoreImageTasks(request);
+            
+            Assert.AreEqual(2, paginator.Responses.ToList().Count);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("EC2")]
+        [ExpectedException(typeof(System.InvalidOperationException), "Paginator has already been consumed and cannot be reused. Please create a new instance.")]
+        public void DescribeStoreImageTasksTest__OnlyUsedOnce()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeStoreImageTasksRequest>();
+
+            var response = InstantiateClassGenerator.Execute<DescribeStoreImageTasksResponse>();
+            response.NextToken = null;
+
+            _mockClient.Setup(x => x.DescribeStoreImageTasks(request)).Returns(response);
+            var paginator = _mockClient.Object.Paginators.DescribeStoreImageTasks(request);
 
             // Should work the first time
             paginator.Responses.ToList();
@@ -3785,4 +3862,3 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
 
     }
 }
-#endif

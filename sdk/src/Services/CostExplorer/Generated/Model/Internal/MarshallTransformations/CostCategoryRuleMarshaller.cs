@@ -45,6 +45,17 @@ namespace Amazon.CostExplorer.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(CostCategoryRule requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetInheritedValue())
+            {
+                context.Writer.WritePropertyName("InheritedValue");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = CostCategoryInheritedValueDimensionMarshaller.Instance;
+                marshaller.Marshall(requestObject.InheritedValue, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetRule())
             {
                 context.Writer.WritePropertyName("Rule");
@@ -54,6 +65,12 @@ namespace Amazon.CostExplorer.Model.Internal.MarshallTransformations
                 marshaller.Marshall(requestObject.Rule, context);
 
                 context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetType())
+            {
+                context.Writer.WritePropertyName("Type");
+                context.Writer.Write(requestObject.Type);
             }
 
             if(requestObject.IsSetValue())

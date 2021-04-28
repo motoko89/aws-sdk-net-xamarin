@@ -64,6 +64,12 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("copyrightHolder", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.CopyrightHolder = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("fillLineGap", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

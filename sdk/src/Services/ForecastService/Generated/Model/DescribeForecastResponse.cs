@@ -35,6 +35,7 @@ namespace Amazon.ForecastService.Model
     {
         private DateTime? _creationTime;
         private string _datasetGroupArn;
+        private long? _estimatedTimeRemainingInMinutes;
         private string _forecastArn;
         private string _forecastName;
         private List<string> _forecastTypes = new List<string>();
@@ -78,6 +79,24 @@ namespace Amazon.ForecastService.Model
         internal bool IsSetDatasetGroupArn()
         {
             return this._datasetGroupArn != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property EstimatedTimeRemainingInMinutes. 
+        /// <para>
+        /// The estimated time in minutes for the forecast job to complete.
+        /// </para>
+        /// </summary>
+        public long EstimatedTimeRemainingInMinutes
+        {
+            get { return this._estimatedTimeRemainingInMinutes.GetValueOrDefault(); }
+            set { this._estimatedTimeRemainingInMinutes = value; }
+        }
+
+        // Check to see if EstimatedTimeRemainingInMinutes property is set
+        internal bool IsSetEstimatedTimeRemainingInMinutes()
+        {
+            return this._estimatedTimeRemainingInMinutes.HasValue; 
         }
 
         /// <summary>
@@ -140,11 +159,30 @@ namespace Amazon.ForecastService.Model
         /// <summary>
         /// Gets and sets the property LastModificationTime. 
         /// <para>
-        /// Initially, the same as <code>CreationTime</code> (status is <code>CREATE_PENDING</code>).
-        /// Updated when inference (creating the forecast) starts (status changed to <code>CREATE_IN_PROGRESS</code>),
-        /// and when inference is complete (status changed to <code>ACTIVE</code>) or fails (status
-        /// changed to <code>CREATE_FAILED</code>).
+        /// The last time the resource was modified. The timestamp depends on the status of the
+        /// job:
         /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>CREATE_PENDING</code> - The <code>CreationTime</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>CREATE_IN_PROGRESS</code> - The current timestamp.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>CREATE_STOPPING</code> - The current timestamp.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>CREATE_STOPPED</code> - When the job stopped.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or failed.
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         public DateTime LastModificationTime
         {
@@ -208,6 +246,10 @@ namespace Amazon.ForecastService.Model
         /// <para>
         ///  <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>CREATE_FAILED</code>
         /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>

@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -437,6 +436,14 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Paginator for DescribeReplaceRootVolumeTasks operation
+        ///</summary>
+        public IDescribeReplaceRootVolumeTasksPaginator DescribeReplaceRootVolumeTasks(DescribeReplaceRootVolumeTasksRequest request) 
+        {
+            return new DescribeReplaceRootVolumeTasksPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for DescribeReservedInstancesModifications operation
         ///</summary>
         public IDescribeReservedInstancesModificationsPaginator DescribeReservedInstancesModifications(DescribeReservedInstancesModificationsRequest request) 
@@ -522,6 +529,14 @@ namespace Amazon.EC2.Model
         public IDescribeStaleSecurityGroupsPaginator DescribeStaleSecurityGroups(DescribeStaleSecurityGroupsRequest request) 
         {
             return new DescribeStaleSecurityGroupsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for DescribeStoreImageTasks operation
+        ///</summary>
+        public IDescribeStoreImageTasksPaginator DescribeStoreImageTasks(DescribeStoreImageTasksRequest request) 
+        {
+            return new DescribeStoreImageTasksPaginator(this.client, request);
         }
 
         /// <summary>
@@ -805,4 +820,3 @@ namespace Amazon.EC2.Model
         }
     }
 }
-#endif

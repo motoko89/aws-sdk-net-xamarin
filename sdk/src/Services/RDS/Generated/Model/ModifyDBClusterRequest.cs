@@ -382,11 +382,19 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property EnableGlobalWriteForwarding. 
         /// <para>
-        /// A value that indicates whether to enable write operations to be forwarded from this
-        /// cluster to the primary cluster in an Aurora global database. The resulting changes
-        /// are replicated back to this cluster. This parameter only applies to DB clusters that
-        /// are secondary clusters in an Aurora global database. By default, Aurora disallows
-        /// write operations for secondary clusters.
+        /// A value that indicates whether to enable this DB cluster to forward write operations
+        /// to the primary cluster of an Aurora global database (<a>GlobalCluster</a>). By default,
+        /// write operations are not allowed on Aurora DB clusters that are secondary clusters
+        /// in an Aurora global database.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can set this value only on Aurora DB clusters that are members of an Aurora global
+        /// database. With this parameter enabled, a secondary cluster can forward writes to the
+        /// current primary cluster and the resulting changes are replicated back to this cluster.
+        /// For the primary DB cluster of an Aurora global database, this value is used immediately
+        /// if the primary is demoted by the <a>FailoverGlobalCluster</a> API operation, but it
+        /// does nothing until then. 
         /// </para>
         /// </summary>
         public bool EnableGlobalWriteForwarding
@@ -630,9 +638,8 @@ namespace Amazon.RDS.Model
         ///  
         /// <para>
         /// The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region. To see the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
-        /// Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora
-        /// User Guide.</i> 
+        /// for each AWS Region. To view the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow">
+        /// Backup window</a> in the <i>Amazon Aurora User Guide.</i> 
         /// </para>
         ///  
         /// <para>

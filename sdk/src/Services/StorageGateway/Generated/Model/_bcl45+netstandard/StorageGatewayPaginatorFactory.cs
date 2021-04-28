@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -77,6 +76,14 @@ namespace Amazon.StorageGateway.Model
         }
 
         /// <summary>
+        /// Paginator for ListFileSystemAssociations operation
+        ///</summary>
+        public IListFileSystemAssociationsPaginator ListFileSystemAssociations(ListFileSystemAssociationsRequest request) 
+        {
+            return new ListFileSystemAssociationsPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for ListGateways operation
         ///</summary>
         public IListGatewaysPaginator ListGateways(ListGatewaysRequest request) 
@@ -117,4 +124,3 @@ namespace Amazon.StorageGateway.Model
         }
     }
 }
-#endif

@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -37,6 +36,11 @@ namespace Amazon.IVS.Model
         IListPlaybackKeyPairsPaginator ListPlaybackKeyPairs(ListPlaybackKeyPairsRequest request);
 
         /// <summary>
+        /// Paginator for ListRecordingConfigurations operation
+        ///</summary>
+        IListRecordingConfigurationsPaginator ListRecordingConfigurations(ListRecordingConfigurationsRequest request);
+
+        /// <summary>
         /// Paginator for ListStreamKeys operation
         ///</summary>
         IListStreamKeysPaginator ListStreamKeys(ListStreamKeysRequest request);
@@ -52,4 +56,3 @@ namespace Amazon.IVS.Model
         IListTagsForResourcePaginator ListTagsForResource(ListTagsForResourceRequest request);
     }
 }
-#endif

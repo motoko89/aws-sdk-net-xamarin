@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -55,6 +54,10 @@ namespace Amazon.CloudWatch.Model
         /// Paginator for ListMetrics operation
         ///</summary>
         IListMetricsPaginator ListMetrics(ListMetricsRequest request);
+
+        /// <summary>
+        /// Paginator for ListMetricStreams operation
+        ///</summary>
+        IListMetricStreamsPaginator ListMetricStreams(ListMetricStreamsRequest request);
     }
 }
-#endif

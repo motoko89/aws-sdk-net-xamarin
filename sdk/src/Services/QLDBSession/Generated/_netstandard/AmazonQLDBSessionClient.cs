@@ -62,9 +62,6 @@ namespace Amazon.QLDBSession
     /// </para>
     ///  </li> </ul> </note>
     /// </summary>
-#if NETSTANDARD13
-    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
-#endif
     public partial class AmazonQLDBSessionClient : AmazonServiceClient, IAmazonQLDBSession
     {
         private static IServiceMetadata serviceMetadata = new AmazonQLDBSessionMetadata();
@@ -312,6 +309,9 @@ namespace Amazon.QLDBSession
         /// <exception cref="Amazon.QLDBSession.Model.BadRequestException">
         /// Returned if the request is malformed or contains an error such as an invalid parameter
         /// value or a missing required parameter.
+        /// </exception>
+        /// <exception cref="Amazon.QLDBSession.Model.CapacityExceededException">
+        /// Returned when the request exceeds the processing capacity of the ledger.
         /// </exception>
         /// <exception cref="Amazon.QLDBSession.Model.InvalidSessionException">
         /// Returned if the session doesn't exist anymore because it timed out or expired.

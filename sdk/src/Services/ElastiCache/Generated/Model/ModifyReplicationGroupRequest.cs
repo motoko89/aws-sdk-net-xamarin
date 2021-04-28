@@ -60,6 +60,7 @@ namespace Amazon.ElastiCache.Model
         private string _cacheParameterGroupName;
         private List<string> _cacheSecurityGroupNames = new List<string>();
         private string _engineVersion;
+        private List<LogDeliveryConfigurationRequest> _logDeliveryConfigurations = new List<LogDeliveryConfigurationRequest>();
         private bool? _multiAZEnabled;
         private string _nodeGroupId;
         private string _notificationTopicArn;
@@ -312,11 +313,28 @@ namespace Amazon.ElastiCache.Model
         }
 
         /// <summary>
+        /// Gets and sets the property LogDeliveryConfigurations. 
+        /// <para>
+        /// Specifies the destination, format and type of the logs.
+        /// </para>
+        /// </summary>
+        public List<LogDeliveryConfigurationRequest> LogDeliveryConfigurations
+        {
+            get { return this._logDeliveryConfigurations; }
+            set { this._logDeliveryConfigurations = value; }
+        }
+
+        // Check to see if LogDeliveryConfigurations property is set
+        internal bool IsSetLogDeliveryConfigurations()
+        {
+            return this._logDeliveryConfigurations != null && this._logDeliveryConfigurations.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property MultiAZEnabled. 
         /// <para>
-        /// A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more
-        /// information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html">Minimizing
-        /// Downtime: Multi-AZ</a>.
+        /// A list of tags to be added to this resource. A tag is a key-value pair. A tag key
+        /// must be accompanied by a tag value, although null is accepted.
         /// </para>
         /// </summary>
         public bool MultiAZEnabled

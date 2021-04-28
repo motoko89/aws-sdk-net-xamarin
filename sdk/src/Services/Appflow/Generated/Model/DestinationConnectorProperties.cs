@@ -33,12 +33,34 @@ namespace Amazon.Appflow.Model
     /// </summary>
     public partial class DestinationConnectorProperties
     {
+        private CustomerProfilesDestinationProperties _customerProfiles;
         private EventBridgeDestinationProperties _eventBridge;
+        private HoneycodeDestinationProperties _honeycode;
+        private LookoutMetricsDestinationProperties _lookoutMetrics;
         private RedshiftDestinationProperties _redshift;
         private S3DestinationProperties _s3;
         private SalesforceDestinationProperties _salesforce;
         private SnowflakeDestinationProperties _snowflake;
         private UpsolverDestinationProperties _upsolver;
+        private ZendeskDestinationProperties _zendesk;
+
+        /// <summary>
+        /// Gets and sets the property CustomerProfiles. 
+        /// <para>
+        ///  The properties required to query Amazon Connect Customer Profiles. 
+        /// </para>
+        /// </summary>
+        public CustomerProfilesDestinationProperties CustomerProfiles
+        {
+            get { return this._customerProfiles; }
+            set { this._customerProfiles = value; }
+        }
+
+        // Check to see if CustomerProfiles property is set
+        internal bool IsSetCustomerProfiles()
+        {
+            return this._customerProfiles != null;
+        }
 
         /// <summary>
         /// Gets and sets the property EventBridge. 
@@ -56,6 +78,42 @@ namespace Amazon.Appflow.Model
         internal bool IsSetEventBridge()
         {
             return this._eventBridge != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Honeycode. 
+        /// <para>
+        ///  The properties required to query Amazon Honeycode. 
+        /// </para>
+        /// </summary>
+        public HoneycodeDestinationProperties Honeycode
+        {
+            get { return this._honeycode; }
+            set { this._honeycode = value; }
+        }
+
+        // Check to see if Honeycode property is set
+        internal bool IsSetHoneycode()
+        {
+            return this._honeycode != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property LookoutMetrics. 
+        /// <para>
+        ///  The properties required to query Amazon Lookout for Metrics. 
+        /// </para>
+        /// </summary>
+        public LookoutMetricsDestinationProperties LookoutMetrics
+        {
+            get { return this._lookoutMetrics; }
+            set { this._lookoutMetrics = value; }
+        }
+
+        // Check to see if LookoutMetrics property is set
+        internal bool IsSetLookoutMetrics()
+        {
+            return this._lookoutMetrics != null;
         }
 
         /// <summary>
@@ -146,6 +204,21 @@ namespace Amazon.Appflow.Model
         internal bool IsSetUpsolver()
         {
             return this._upsolver != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Zendesk.
+        /// </summary>
+        public ZendeskDestinationProperties Zendesk
+        {
+            get { return this._zendesk; }
+            set { this._zendesk = value; }
+        }
+
+        // Check to see if Zendesk property is set
+        internal bool IsSetZendesk()
+        {
+            return this._zendesk != null;
         }
 
     }

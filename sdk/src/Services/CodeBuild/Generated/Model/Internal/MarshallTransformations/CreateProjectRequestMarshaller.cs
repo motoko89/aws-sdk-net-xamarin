@@ -62,7 +62,6 @@ namespace Amazon.CodeBuild.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -105,6 +104,12 @@ namespace Amazon.CodeBuild.Model.Internal.MarshallTransformations
                     marshaller.Marshall(publicRequest.Cache, context);
 
                     context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetConcurrentBuildLimit())
+                {
+                    context.Writer.WritePropertyName("concurrentBuildLimit");
+                    context.Writer.Write(publicRequest.ConcurrentBuildLimit);
                 }
 
                 if(publicRequest.IsSetDescription())

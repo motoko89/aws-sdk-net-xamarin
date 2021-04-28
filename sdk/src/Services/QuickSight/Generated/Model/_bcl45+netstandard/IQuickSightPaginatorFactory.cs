@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -77,6 +76,16 @@ namespace Amazon.QuickSight.Model
         IListTemplateVersionsPaginator ListTemplateVersions(ListTemplateVersionsRequest request);
 
         /// <summary>
+        /// Paginator for ListThemes operation
+        ///</summary>
+        IListThemesPaginator ListThemes(ListThemesRequest request);
+
+        /// <summary>
+        /// Paginator for ListThemeVersions operation
+        ///</summary>
+        IListThemeVersionsPaginator ListThemeVersions(ListThemeVersionsRequest request);
+
+        /// <summary>
         /// Paginator for SearchAnalyses operation
         ///</summary>
         ISearchAnalysesPaginator SearchAnalyses(SearchAnalysesRequest request);
@@ -87,4 +96,3 @@ namespace Amazon.QuickSight.Model
         ISearchDashboardsPaginator SearchDashboards(SearchDashboardsRequest request);
     }
 }
-#endif

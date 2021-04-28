@@ -30,7 +30,7 @@ namespace Amazon.RDS.Model
 {
     /// <summary>
     /// Container for the parameters to the DeleteDBProxy operation.
-    /// Deletes an existing proxy.
+    /// Deletes an existing DB proxy.
     /// </summary>
     public partial class DeleteDBProxyRequest : AmazonRDSRequest
     {

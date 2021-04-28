@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -34,6 +33,14 @@ namespace Amazon.Elasticsearch.Model
         internal ElasticsearchPaginatorFactory(IAmazonElasticsearch client) 
         {
             this.client = client;
+        }
+
+        /// <summary>
+        /// Paginator for DescribeDomainAutoTunes operation
+        ///</summary>
+        public IDescribeDomainAutoTunesPaginator DescribeDomainAutoTunes(DescribeDomainAutoTunesRequest request) 
+        {
+            return new DescribeDomainAutoTunesPaginator(this.client, request);
         }
 
         /// <summary>
@@ -125,4 +132,3 @@ namespace Amazon.Elasticsearch.Model
         }
     }
 }
-#endif

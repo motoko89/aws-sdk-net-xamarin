@@ -62,12 +62,17 @@ namespace Amazon.SimpleSystemsManagement.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetChangeDetails())
+                {
+                    context.Writer.WritePropertyName("ChangeDetails");
+                    context.Writer.Write(publicRequest.ChangeDetails);
+                }
+
                 if(publicRequest.IsSetChangeRequestName())
                 {
                     context.Writer.WritePropertyName("ChangeRequestName");
@@ -125,6 +130,12 @@ namespace Amazon.SimpleSystemsManagement.Model.Internal.MarshallTransformations
                         context.Writer.WriteObjectEnd();
                     }
                     context.Writer.WriteArrayEnd();
+                }
+
+                if(publicRequest.IsSetScheduledEndTime())
+                {
+                    context.Writer.WritePropertyName("ScheduledEndTime");
+                    context.Writer.Write(publicRequest.ScheduledEndTime);
                 }
 
                 if(publicRequest.IsSetScheduledTime())

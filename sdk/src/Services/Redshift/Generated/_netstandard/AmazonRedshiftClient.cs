@@ -74,9 +74,6 @@ namespace Amazon.Redshift
     /// the databases that make up your data warehouse. 
     /// </para>
     /// </summary>
-#if NETSTANDARD13
-    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
-#endif
     public partial class AmazonRedshiftClient : AmazonServiceClient, IAmazonRedshift
     {
         private static IServiceMetadata serviceMetadata = new AmazonRedshiftMetadata();
@@ -352,6 +349,51 @@ namespace Amazon.Redshift
 
         #endregion
         
+        #region  AddPartner
+
+        internal virtual AddPartnerResponse AddPartner(AddPartnerRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AddPartnerRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AddPartnerResponseUnmarshaller.Instance;
+
+            return Invoke<AddPartnerResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Adds a partner integration to a cluster. This operation authorizes a partner to push
+        /// status updates for the specified database. To complete the integration, you also set
+        /// up the integration on the partner website.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AddPartner service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AddPartner service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.ClusterNotFoundException">
+        /// The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.PartnerNotFoundException">
+        /// The name of the partner was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.UnauthorizedPartnerIntegrationException">
+        /// The partner integration is not authorized.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/AddPartner">REST API Reference for AddPartner Operation</seealso>
+        public virtual Task<AddPartnerResponse> AddPartnerAsync(AddPartnerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AddPartnerRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AddPartnerResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AddPartnerResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  AuthorizeClusterSecurityGroupIngress
 
         internal virtual AuthorizeClusterSecurityGroupIngressResponse AuthorizeClusterSecurityGroupIngress(AuthorizeClusterSecurityGroupIngressRequest request)
@@ -419,6 +461,58 @@ namespace Amazon.Redshift
             options.ResponseUnmarshaller = AuthorizeClusterSecurityGroupIngressResponseUnmarshaller.Instance;
 
             return InvokeAsync<AuthorizeClusterSecurityGroupIngressResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  AuthorizeEndpointAccess
+
+        internal virtual AuthorizeEndpointAccessResponse AuthorizeEndpointAccess(AuthorizeEndpointAccessRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AuthorizeEndpointAccessRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AuthorizeEndpointAccessResponseUnmarshaller.Instance;
+
+            return Invoke<AuthorizeEndpointAccessResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Grants access to a cluster.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AuthorizeEndpointAccess service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AuthorizeEndpointAccess service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.ClusterNotFoundException">
+        /// The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.EndpointAuthorizationAlreadyExistsException">
+        /// The authorization already exists for this endpoint.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.EndpointAuthorizationsPerClusterLimitExceededException">
+        /// The number of endpoint authorizations per cluster has exceeded its limit.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidAuthorizationStateException">
+        /// The status of the authorization is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidClusterStateException">
+        /// The specified cluster is not in the <code>available</code> state.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.UnsupportedOperationException">
+        /// The requested operation isn't supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/AuthorizeEndpointAccess">REST API Reference for AuthorizeEndpointAccess Operation</seealso>
+        public virtual Task<AuthorizeEndpointAccessResponse> AuthorizeEndpointAccessAsync(AuthorizeEndpointAccessRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AuthorizeEndpointAccessRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AuthorizeEndpointAccessResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AuthorizeEndpointAccessResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1059,6 +1153,70 @@ namespace Amazon.Redshift
 
         #endregion
         
+        #region  CreateEndpointAccess
+
+        internal virtual CreateEndpointAccessResponse CreateEndpointAccess(CreateEndpointAccessRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateEndpointAccessRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateEndpointAccessResponseUnmarshaller.Instance;
+
+            return Invoke<CreateEndpointAccessResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates a Redshift-managed VPC endpoint.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateEndpointAccess service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateEndpointAccess service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.AccessToClusterDeniedException">
+        /// You are not authorized to access the cluster.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.ClusterNotFoundException">
+        /// The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.ClusterSubnetGroupNotFoundException">
+        /// The cluster subnet group name does not refer to an existing cluster subnet group.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.EndpointAlreadyExistsException">
+        /// The account already has a Redshift-managed VPC endpoint with the given identifier.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.EndpointsPerAuthorizationLimitExceededException">
+        /// The number of Redshift-managed VPC endpoints per authorization has exceeded its limit.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.EndpointsPerClusterLimitExceededException">
+        /// The number of Redshift-managed VPC endpoints per cluster has exceeded its limit.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidClusterSecurityGroupStateException">
+        /// The state of the cluster security group is not <code>available</code>.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidClusterStateException">
+        /// The specified cluster is not in the <code>available</code> state.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.UnauthorizedOperationException">
+        /// Your account is not authorized to perform the requested operation.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.UnsupportedOperationException">
+        /// The requested operation isn't supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateEndpointAccess">REST API Reference for CreateEndpointAccess Operation</seealso>
+        public virtual Task<CreateEndpointAccessResponse> CreateEndpointAccessAsync(CreateEndpointAccessRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateEndpointAccessRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateEndpointAccessResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateEndpointAccessResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateEventSubscription
 
         internal virtual CreateEventSubscriptionResponse CreateEventSubscription(CreateEventSubscriptionRequest request)
@@ -1179,8 +1337,8 @@ namespace Amazon.Redshift
         /// The command returns a public key, which you must store in the HSM. In addition to
         /// creating the HSM certificate, you must create an Amazon Redshift HSM configuration
         /// that provides a cluster the information needed to store and use encryption keys in
-        /// the HSM. For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware
-        /// Security Modules</a> in the Amazon Redshift Cluster Management Guide.
+        /// the HSM. For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html#working-with-HSM">Hardware
+        /// Security Modules</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateHsmClientCertificate service method.</param>
@@ -1826,6 +1984,55 @@ namespace Amazon.Redshift
 
         #endregion
         
+        #region  DeleteEndpointAccess
+
+        internal virtual DeleteEndpointAccessResponse DeleteEndpointAccess(DeleteEndpointAccessRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteEndpointAccessRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteEndpointAccessResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteEndpointAccessResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes a Redshift-managed VPC endpoint.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteEndpointAccess service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteEndpointAccess service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.ClusterNotFoundException">
+        /// The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.EndpointNotFoundException">
+        /// The endpoint name doesn't refer to an existing endpoint.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidClusterSecurityGroupStateException">
+        /// The state of the cluster security group is not <code>available</code>.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidClusterStateException">
+        /// The specified cluster is not in the <code>available</code> state.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidEndpointStateException">
+        /// The status of the endpoint is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteEndpointAccess">REST API Reference for DeleteEndpointAccess Operation</seealso>
+        public virtual Task<DeleteEndpointAccessResponse> DeleteEndpointAccessAsync(DeleteEndpointAccessRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteEndpointAccessRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteEndpointAccessResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteEndpointAccessResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteEventSubscription
 
         internal virtual DeleteEventSubscriptionResponse DeleteEventSubscription(DeleteEventSubscriptionRequest request)
@@ -1946,6 +2153,50 @@ namespace Amazon.Redshift
             options.ResponseUnmarshaller = DeleteHsmConfigurationResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteHsmConfigurationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeletePartner
+
+        internal virtual DeletePartnerResponse DeletePartner(DeletePartnerRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeletePartnerRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeletePartnerResponseUnmarshaller.Instance;
+
+            return Invoke<DeletePartnerResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes a partner integration from a cluster. Data can still flow to the cluster until
+        /// the integration is deleted at the partner's website.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeletePartner service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeletePartner service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.ClusterNotFoundException">
+        /// The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.PartnerNotFoundException">
+        /// The name of the partner was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.UnauthorizedPartnerIntegrationException">
+        /// The partner integration is not authorized.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeletePartner">REST API Reference for DeletePartner Operation</seealso>
+        public virtual Task<DeletePartnerResponse> DeletePartnerAsync(DeletePartnerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeletePartnerRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeletePartnerResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeletePartnerResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -2940,6 +3191,89 @@ namespace Amazon.Redshift
 
         #endregion
         
+        #region  DescribeEndpointAccess
+
+        internal virtual DescribeEndpointAccessResponse DescribeEndpointAccess(DescribeEndpointAccessRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeEndpointAccessRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeEndpointAccessResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeEndpointAccessResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Describes a Redshift-managed VPC endpoint.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeEndpointAccess service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeEndpointAccess service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.ClusterNotFoundException">
+        /// The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.EndpointNotFoundException">
+        /// The endpoint name doesn't refer to an existing endpoint.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidClusterStateException">
+        /// The specified cluster is not in the <code>available</code> state.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeEndpointAccess">REST API Reference for DescribeEndpointAccess Operation</seealso>
+        public virtual Task<DescribeEndpointAccessResponse> DescribeEndpointAccessAsync(DescribeEndpointAccessRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeEndpointAccessRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeEndpointAccessResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeEndpointAccessResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeEndpointAuthorization
+
+        internal virtual DescribeEndpointAuthorizationResponse DescribeEndpointAuthorization(DescribeEndpointAuthorizationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeEndpointAuthorizationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeEndpointAuthorizationResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeEndpointAuthorizationResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Describes an endpoint authorization.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeEndpointAuthorization service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeEndpointAuthorization service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.ClusterNotFoundException">
+        /// The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.UnsupportedOperationException">
+        /// The requested operation isn't supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeEndpointAuthorization">REST API Reference for DescribeEndpointAuthorization Operation</seealso>
+        public virtual Task<DescribeEndpointAuthorizationResponse> DescribeEndpointAuthorizationAsync(DescribeEndpointAuthorizationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeEndpointAuthorizationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeEndpointAuthorizationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeEndpointAuthorizationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DescribeEventCategories
 
         internal virtual DescribeEventCategoriesResponse DescribeEventCategories()
@@ -3499,6 +3833,46 @@ namespace Amazon.Redshift
             options.ResponseUnmarshaller = DescribeOrderableClusterOptionsResponseUnmarshaller.Instance;
 
             return InvokeAsync<DescribeOrderableClusterOptionsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribePartners
+
+        internal virtual DescribePartnersResponse DescribePartners(DescribePartnersRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribePartnersRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribePartnersResponseUnmarshaller.Instance;
+
+            return Invoke<DescribePartnersResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Returns information about the partner integrations defined for a cluster.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribePartners service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribePartners service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.ClusterNotFoundException">
+        /// The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.UnauthorizedPartnerIntegrationException">
+        /// The partner integration is not authorized.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribePartners">REST API Reference for DescribePartners Operation</seealso>
+        public virtual Task<DescribePartnersResponse> DescribePartnersAsync(DescribePartnersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribePartnersRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribePartnersResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribePartnersResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -4403,6 +4777,46 @@ namespace Amazon.Redshift
 
         #endregion
         
+        #region  ModifyAquaConfiguration
+
+        internal virtual ModifyAquaConfigurationResponse ModifyAquaConfiguration(ModifyAquaConfigurationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyAquaConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyAquaConfigurationResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyAquaConfigurationResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Modifies whether a cluster can use AQUA (Advanced Query Accelerator).
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyAquaConfiguration service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyAquaConfiguration service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.ClusterNotFoundException">
+        /// The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.UnsupportedOperationException">
+        /// The requested operation isn't supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyAquaConfiguration">REST API Reference for ModifyAquaConfiguration Operation</seealso>
+        public virtual Task<ModifyAquaConfigurationResponse> ModifyAquaConfigurationAsync(ModifyAquaConfigurationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyAquaConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyAquaConfigurationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyAquaConfigurationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ModifyCluster
 
         internal virtual ModifyClusterResponse ModifyCluster(ModifyClusterRequest request)
@@ -4845,6 +5259,58 @@ namespace Amazon.Redshift
             options.ResponseUnmarshaller = ModifyClusterSubnetGroupResponseUnmarshaller.Instance;
 
             return InvokeAsync<ModifyClusterSubnetGroupResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ModifyEndpointAccess
+
+        internal virtual ModifyEndpointAccessResponse ModifyEndpointAccess(ModifyEndpointAccessRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyEndpointAccessRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyEndpointAccessResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyEndpointAccessResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Modifies a Redshift-managed VPC endpoint.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyEndpointAccess service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyEndpointAccess service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.ClusterNotFoundException">
+        /// The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.EndpointNotFoundException">
+        /// The endpoint name doesn't refer to an existing endpoint.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidClusterSecurityGroupStateException">
+        /// The state of the cluster security group is not <code>available</code>.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidClusterStateException">
+        /// The specified cluster is not in the <code>available</code> state.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidEndpointStateException">
+        /// The status of the endpoint is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.UnauthorizedOperationException">
+        /// Your account is not authorized to perform the requested operation.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyEndpointAccess">REST API Reference for ModifyEndpointAccess Operation</seealso>
+        public virtual Task<ModifyEndpointAccessResponse> ModifyEndpointAccessAsync(ModifyEndpointAccessRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyEndpointAccessRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyEndpointAccessResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyEndpointAccessResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -5713,6 +6179,61 @@ namespace Amazon.Redshift
 
         #endregion
         
+        #region  RevokeEndpointAccess
+
+        internal virtual RevokeEndpointAccessResponse RevokeEndpointAccess(RevokeEndpointAccessRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RevokeEndpointAccessRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RevokeEndpointAccessResponseUnmarshaller.Instance;
+
+            return Invoke<RevokeEndpointAccessResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Revokes access to a cluster.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RevokeEndpointAccess service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the RevokeEndpointAccess service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.ClusterNotFoundException">
+        /// The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.EndpointAuthorizationNotFoundException">
+        /// The authorization for this endpoint can't be found.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.EndpointNotFoundException">
+        /// The endpoint name doesn't refer to an existing endpoint.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidAuthorizationStateException">
+        /// The status of the authorization is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidClusterSecurityGroupStateException">
+        /// The state of the cluster security group is not <code>available</code>.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidClusterStateException">
+        /// The specified cluster is not in the <code>available</code> state.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidEndpointStateException">
+        /// The status of the endpoint is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/RevokeEndpointAccess">REST API Reference for RevokeEndpointAccess Operation</seealso>
+        public virtual Task<RevokeEndpointAccessResponse> RevokeEndpointAccessAsync(RevokeEndpointAccessRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RevokeEndpointAccessRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RevokeEndpointAccessResponseUnmarshaller.Instance;
+
+            return InvokeAsync<RevokeEndpointAccessResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  RevokeSnapshotAccess
 
         internal virtual RevokeSnapshotAccessResponse RevokeSnapshotAccess(RevokeSnapshotAccessRequest request)
@@ -5806,6 +6327,49 @@ namespace Amazon.Redshift
             options.ResponseUnmarshaller = RotateEncryptionKeyResponseUnmarshaller.Instance;
 
             return InvokeAsync<RotateEncryptionKeyResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdatePartnerStatus
+
+        internal virtual UpdatePartnerStatusResponse UpdatePartnerStatus(UpdatePartnerStatusRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdatePartnerStatusRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdatePartnerStatusResponseUnmarshaller.Instance;
+
+            return Invoke<UpdatePartnerStatusResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Updates the status of a partner integration.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdatePartnerStatus service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdatePartnerStatus service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.ClusterNotFoundException">
+        /// The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.PartnerNotFoundException">
+        /// The name of the partner was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.UnauthorizedPartnerIntegrationException">
+        /// The partner integration is not authorized.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/UpdatePartnerStatus">REST API Reference for UpdatePartnerStatus Operation</seealso>
+        public virtual Task<UpdatePartnerStatusResponse> UpdatePartnerStatusAsync(UpdatePartnerStatusRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdatePartnerStatusRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdatePartnerStatusResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdatePartnerStatusResponse>(request, options, cancellationToken);
         }
 
         #endregion

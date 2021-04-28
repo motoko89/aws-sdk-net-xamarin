@@ -326,7 +326,14 @@ namespace Amazon.CodeBuild.Model
         /// <summary>
         /// Gets and sets the property ExportedEnvironmentVariables. 
         /// <para>
-        ///  A list of exported environment variables for this build. 
+        /// A list of exported environment variables for this build.
+        /// </para>
+        ///  
+        /// <para>
+        /// Exported environment variables are used in conjunction with AWS CodePipeline to export
+        /// environment variables from the current build stage to subsequent stages in the pipeline.
+        /// For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-variables.html">Working
+        /// with variables</a> in the <i>AWS CodePipeline User Guide</i>.
         /// </para>
         /// </summary>
         public List<ExportedEnvironmentVariable> ExportedEnvironmentVariables
@@ -538,7 +545,7 @@ namespace Amazon.CodeBuild.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  For Amazon Simple Storage Service (Amazon S3), this does not apply. 
+        ///  For Amazon S3, this does not apply. 
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -619,8 +626,8 @@ namespace Amazon.CodeBuild.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents
-        /// the build input ZIP file to use.
+        /// For Amazon S3: the version ID of the object that represents the build input ZIP file
+        /// to use.
         /// </para>
         ///  </li> </ul>
         /// </summary>

@@ -62,7 +62,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// <summary>
         /// Gets and sets the property Description. 
         /// <para>
-        /// The detailed description of the EMR Studio.
+        /// The detailed description of the Amazon EMR Studio.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=256)]

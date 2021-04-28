@@ -37,6 +37,7 @@ namespace Amazon.MediaTailor.Model
         private AvailSuppression _availSuppression;
         private Bumper _bumper;
         private CdnConfiguration _cdnConfiguration;
+        private Dictionary<string, Dictionary<string, string>> _configurationAliases = new Dictionary<string, Dictionary<string, string>>();
         private DashConfiguration _dashConfiguration;
         private HlsConfiguration _hlsConfiguration;
         private LivePreRollConfiguration _livePreRollConfiguration;
@@ -75,8 +76,9 @@ namespace Amazon.MediaTailor.Model
         /// <summary>
         /// Gets and sets the property AvailSuppression. 
         /// <para>
-        /// The configuration for Avail Suppression. Ad suppression can be used to turn off ad
-        /// personalization in a long manifest, or if a viewer joins mid-break.
+        /// The configuration for avail suppression, also known as ad suppression. For more information
+        /// about ad suppression, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad
+        /// Suppression</a>.
         /// </para>
         /// </summary>
         public AvailSuppression AvailSuppression
@@ -95,7 +97,7 @@ namespace Amazon.MediaTailor.Model
         /// Gets and sets the property Bumper. 
         /// <para>
         /// The configuration for bumpers. Bumpers are short audio or video clips that play at
-        /// the start or before the end of an ad break. 
+        /// the start or before the end of an ad break. To learn more about bumpers, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html">Bumpers</a>.
         /// </para>
         /// </summary>
         public Bumper Bumper
@@ -114,7 +116,7 @@ namespace Amazon.MediaTailor.Model
         /// Gets and sets the property CdnConfiguration. 
         /// <para>
         /// The configuration for using a content delivery network (CDN), like Amazon CloudFront,
-        /// for content and ad segment management. 
+        /// for content and ad segment management.
         /// </para>
         /// </summary>
         public CdnConfiguration CdnConfiguration
@@ -130,9 +132,29 @@ namespace Amazon.MediaTailor.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ConfigurationAliases. 
+        /// <para>
+        /// The player parameters and aliases used as dynamic variables during session initialization.
+        /// For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html">Domain
+        /// Variables</a>.
+        /// </para>
+        /// </summary>
+        public Dictionary<string, Dictionary<string, string>> ConfigurationAliases
+        {
+            get { return this._configurationAliases; }
+            set { this._configurationAliases = value; }
+        }
+
+        // Check to see if ConfigurationAliases property is set
+        internal bool IsSetConfigurationAliases()
+        {
+            return this._configurationAliases != null && this._configurationAliases.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property DashConfiguration. 
         /// <para>
-        /// The configuration for DASH content. 
+        /// The configuration for DASH content.
         /// </para>
         /// </summary>
         public DashConfiguration DashConfiguration
@@ -150,7 +172,7 @@ namespace Amazon.MediaTailor.Model
         /// <summary>
         /// Gets and sets the property HlsConfiguration. 
         /// <para>
-        /// The configuration for HLS content. 
+        /// The configuration for HLS content.
         /// </para>
         /// </summary>
         public HlsConfiguration HlsConfiguration
@@ -223,7 +245,13 @@ namespace Amazon.MediaTailor.Model
         /// <summary>
         /// Gets and sets the property PersonalizationThresholdSeconds. 
         /// <para>
-        /// The maximum duration of underfilled ad time (in seconds) allowed in an ad break.
+        /// Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad
+        /// break. If the duration of underfilled ad time exceeds the personalization threshold,
+        /// then the personalization of the ad break is abandoned and the underlying content is
+        /// shown. This feature applies to <i>ad replacement</i> in live and VOD streams, rather
+        /// than ad insertion, because it relies on an underlying content stream. For more information
+        /// about ad break behavior, including ad replacement and insertion, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html">Ad
+        /// Behavior in AWS Elemental MediaTailor</a>.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1)]
@@ -242,7 +270,7 @@ namespace Amazon.MediaTailor.Model
         /// <summary>
         /// Gets and sets the property PlaybackConfigurationArn. 
         /// <para>
-        /// The Amazon Resource Name (ARN) for the playback configuration. 
+        /// The Amazon Resource Name (ARN) for the playback configuration.
         /// </para>
         /// </summary>
         public string PlaybackConfigurationArn
@@ -261,7 +289,7 @@ namespace Amazon.MediaTailor.Model
         /// Gets and sets the property PlaybackEndpointPrefix. 
         /// <para>
         /// The URL that the player accesses to get a manifest from AWS Elemental MediaTailor.
-        /// This session will use server-side reporting. 
+        /// This session will use server-side reporting.
         /// </para>
         /// </summary>
         public string PlaybackEndpointPrefix
@@ -280,7 +308,6 @@ namespace Amazon.MediaTailor.Model
         /// Gets and sets the property SessionInitializationEndpointPrefix. 
         /// <para>
         /// The URL that the player uses to initialize a session that uses client-side reporting.
-        /// 
         /// </para>
         /// </summary>
         public string SessionInitializationEndpointPrefix
@@ -303,7 +330,7 @@ namespace Amazon.MediaTailor.Model
         /// content. Configuring the slate is optional for non-VPAID playback configurations.
         /// For VPAID, the slate is required because MediaTailor provides it in the slots designated
         /// for dynamic ad content. The slate must be a high-quality asset that contains both
-        /// audio and video. 
+        /// audio and video.
         /// </para>
         /// </summary>
         public string SlateAdUrl
@@ -321,7 +348,7 @@ namespace Amazon.MediaTailor.Model
         /// <summary>
         /// Gets and sets the property Tags. 
         /// <para>
-        /// The tags assigned to the playback configuration. 
+        /// The tags assigned to the playback configuration.
         /// </para>
         /// </summary>
         public Dictionary<string, string> Tags
@@ -359,7 +386,7 @@ namespace Amazon.MediaTailor.Model
         /// <summary>
         /// Gets and sets the property VideoContentSourceUrl. 
         /// <para>
-        /// The URL prefix for the master playlist for the stream, minus the asset ID. The maximum
+        /// The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum
         /// length is 512 characters.
         /// </para>
         /// </summary>

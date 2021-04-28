@@ -64,6 +64,12 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("DatabaseInputDefinition", targetDepth))
+                {
+                    var unmarshaller = DatabaseInputDefinitionUnmarshaller.Instance;
+                    unmarshalledObject.DatabaseInputDefinition = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("DataCatalogInputDefinition", targetDepth))
                 {
                     var unmarshaller = DataCatalogInputDefinitionUnmarshaller.Instance;

@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -238,6 +237,45 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
         [TestMethod]
         [TestCategory("UnitTest")]
         [TestCategory("Imagebuilder")]
+        public void ListImagePackagesTest_TwoPages()
+        {
+            var request = InstantiateClassGenerator.Execute<ListImagePackagesRequest>();
+
+            var firstResponse = InstantiateClassGenerator.Execute<ListImagePackagesResponse>();
+            var secondResponse = InstantiateClassGenerator.Execute<ListImagePackagesResponse>();
+            secondResponse.NextToken = null;
+
+            _mockClient.SetupSequence(x => x.ListImagePackages(request)).Returns(firstResponse).Returns(secondResponse);
+            var paginator = _mockClient.Object.Paginators.ListImagePackages(request);
+            
+            Assert.AreEqual(2, paginator.Responses.ToList().Count);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Imagebuilder")]
+        [ExpectedException(typeof(System.InvalidOperationException), "Paginator has already been consumed and cannot be reused. Please create a new instance.")]
+        public void ListImagePackagesTest__OnlyUsedOnce()
+        {
+            var request = InstantiateClassGenerator.Execute<ListImagePackagesRequest>();
+
+            var response = InstantiateClassGenerator.Execute<ListImagePackagesResponse>();
+            response.NextToken = null;
+
+            _mockClient.Setup(x => x.ListImagePackages(request)).Returns(response);
+            var paginator = _mockClient.Object.Paginators.ListImagePackages(request);
+
+            // Should work the first time
+            paginator.Responses.ToList();
+
+            // Second time should throw an exception
+            paginator.Responses.ToList();
+        }
+
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Imagebuilder")]
         public void ListImagePipelineImagesTest_TwoPages()
         {
             var request = InstantiateClassGenerator.Execute<ListImagePipelineImagesRequest>();
@@ -431,4 +469,3 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
 
     }
 }
-#endif

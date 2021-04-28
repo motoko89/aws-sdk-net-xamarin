@@ -36,11 +36,13 @@ namespace Amazon.GlueDataBrew.Model
         private string _accountId;
         private DateTime? _createDate;
         private string _createdBy;
+        private InputFormat _format;
         private FormatOptions _formatOptions;
         private Input _input;
         private string _lastModifiedBy;
         private DateTime? _lastModifiedDate;
         private string _name;
+        private PathOptions _pathOptions;
         private string _resourceArn;
         private Source _source;
         private Dictionary<string, string> _tags = new Dictionary<string, string>();
@@ -101,9 +103,27 @@ namespace Amazon.GlueDataBrew.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Format. 
+        /// <para>
+        /// The file format of a dataset that is created from an S3 file or folder.
+        /// </para>
+        /// </summary>
+        public InputFormat Format
+        {
+            get { return this._format; }
+            set { this._format = value; }
+        }
+
+        // Check to see if Format property is set
+        internal bool IsSetFormat()
+        {
+            return this._format != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property FormatOptions. 
         /// <para>
-        /// Options that define how DataBrew interprets the data in the dataset.
+        /// A set of options that define how DataBrew interprets the data in the dataset.
         /// </para>
         /// </summary>
         public FormatOptions FormatOptions
@@ -191,6 +211,24 @@ namespace Amazon.GlueDataBrew.Model
         internal bool IsSetName()
         {
             return this._name != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PathOptions. 
+        /// <para>
+        /// A set of options that defines how DataBrew interprets an S3 path of the dataset.
+        /// </para>
+        /// </summary>
+        public PathOptions PathOptions
+        {
+            get { return this._pathOptions; }
+            set { this._pathOptions = value; }
+        }
+
+        // Check to see if PathOptions property is set
+        internal bool IsSetPathOptions()
+        {
+            return this._pathOptions != null;
         }
 
         /// <summary>

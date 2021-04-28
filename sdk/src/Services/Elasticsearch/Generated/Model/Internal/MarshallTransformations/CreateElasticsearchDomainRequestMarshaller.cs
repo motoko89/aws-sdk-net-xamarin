@@ -60,7 +60,6 @@ namespace Amazon.Elasticsearch.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/2015-01-01/es/domain";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -93,6 +92,17 @@ namespace Amazon.Elasticsearch.Model.Internal.MarshallTransformations
 
                     var marshaller = AdvancedSecurityOptionsInputMarshaller.Instance;
                     marshaller.Marshall(publicRequest.AdvancedSecurityOptions, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetAutoTuneOptions())
+                {
+                    context.Writer.WritePropertyName("AutoTuneOptions");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = AutoTuneOptionsInputMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.AutoTuneOptions, context);
 
                     context.Writer.WriteObjectEnd();
                 }
@@ -203,6 +213,22 @@ namespace Amazon.Elasticsearch.Model.Internal.MarshallTransformations
                     marshaller.Marshall(publicRequest.SnapshotOptions, context);
 
                     context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetTagList())
+                {
+                    context.Writer.WritePropertyName("TagList");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestTagListListValue in publicRequest.TagList)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = TagMarshaller.Instance;
+                        marshaller.Marshall(publicRequestTagListListValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteArrayEnd();
                 }
 
                 if(publicRequest.IsSetVPCOptions())

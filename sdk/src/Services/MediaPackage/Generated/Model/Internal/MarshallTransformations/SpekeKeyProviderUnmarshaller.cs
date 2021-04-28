@@ -70,6 +70,12 @@ namespace Amazon.MediaPackage.Model.Internal.MarshallTransformations
                     unmarshalledObject.CertificateArn = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("encryptionContractConfiguration", targetDepth))
+                {
+                    var unmarshaller = EncryptionContractConfigurationUnmarshaller.Instance;
+                    unmarshalledObject.EncryptionContractConfiguration = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("resourceId", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

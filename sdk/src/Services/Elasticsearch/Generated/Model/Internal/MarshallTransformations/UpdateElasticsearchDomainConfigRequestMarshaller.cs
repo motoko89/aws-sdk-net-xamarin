@@ -63,7 +63,6 @@ namespace Amazon.Elasticsearch.Model.Internal.MarshallTransformations
                 throw new AmazonElasticsearchException("Request object does not have required field DomainName set");
             request.AddPathResource("{DomainName}", StringUtils.FromString(publicRequest.DomainName));
             request.ResourcePath = "/2015-01-01/es/domain/{DomainName}/config";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -96,6 +95,17 @@ namespace Amazon.Elasticsearch.Model.Internal.MarshallTransformations
 
                     var marshaller = AdvancedSecurityOptionsInputMarshaller.Instance;
                     marshaller.Marshall(publicRequest.AdvancedSecurityOptions, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetAutoTuneOptions())
+                {
+                    context.Writer.WritePropertyName("AutoTuneOptions");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = AutoTuneOptionsMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.AutoTuneOptions, context);
 
                     context.Writer.WriteObjectEnd();
                 }

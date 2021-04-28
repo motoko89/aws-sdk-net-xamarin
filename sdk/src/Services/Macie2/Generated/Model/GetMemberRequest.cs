@@ -30,8 +30,8 @@ namespace Amazon.Macie2.Model
 {
     /// <summary>
     /// Container for the parameters to the GetMember operation.
-    /// Retrieves information about a member account that's associated with an Amazon Macie
-    /// master account.
+    /// Retrieves information about an account that's associated with an Amazon Macie administrator
+    /// account.
     /// </summary>
     public partial class GetMemberRequest : AmazonMacie2Request
     {

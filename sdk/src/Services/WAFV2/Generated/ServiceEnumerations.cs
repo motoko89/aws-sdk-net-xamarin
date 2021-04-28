@@ -25,6 +25,114 @@ namespace Amazon.WAFV2
 {
 
     /// <summary>
+    /// Constants used for properties of type ActionValue.
+    /// </summary>
+    public class ActionValue : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ALLOW for ActionValue
+        /// </summary>
+        public static readonly ActionValue ALLOW = new ActionValue("ALLOW");
+        /// <summary>
+        /// Constant BLOCK for ActionValue
+        /// </summary>
+        public static readonly ActionValue BLOCK = new ActionValue("BLOCK");
+        /// <summary>
+        /// Constant COUNT for ActionValue
+        /// </summary>
+        public static readonly ActionValue COUNT = new ActionValue("COUNT");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ActionValue(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ActionValue FindValue(string value)
+        {
+            return FindValue<ActionValue>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ActionValue(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type BodyParsingFallbackBehavior.
+    /// </summary>
+    public class BodyParsingFallbackBehavior : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant EVALUATE_AS_STRING for BodyParsingFallbackBehavior
+        /// </summary>
+        public static readonly BodyParsingFallbackBehavior EVALUATE_AS_STRING = new BodyParsingFallbackBehavior("EVALUATE_AS_STRING");
+        /// <summary>
+        /// Constant MATCH for BodyParsingFallbackBehavior
+        /// </summary>
+        public static readonly BodyParsingFallbackBehavior MATCH = new BodyParsingFallbackBehavior("MATCH");
+        /// <summary>
+        /// Constant NO_MATCH for BodyParsingFallbackBehavior
+        /// </summary>
+        public static readonly BodyParsingFallbackBehavior NO_MATCH = new BodyParsingFallbackBehavior("NO_MATCH");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public BodyParsingFallbackBehavior(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static BodyParsingFallbackBehavior FindValue(string value)
+        {
+            return FindValue<BodyParsingFallbackBehavior>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator BodyParsingFallbackBehavior(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ComparisonOperator.
     /// </summary>
     public class ComparisonOperator : ConstantClass
@@ -1179,6 +1287,106 @@ namespace Amazon.WAFV2
 
 
     /// <summary>
+    /// Constants used for properties of type FilterBehavior.
+    /// </summary>
+    public class FilterBehavior : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DROP for FilterBehavior
+        /// </summary>
+        public static readonly FilterBehavior DROP = new FilterBehavior("DROP");
+        /// <summary>
+        /// Constant KEEP for FilterBehavior
+        /// </summary>
+        public static readonly FilterBehavior KEEP = new FilterBehavior("KEEP");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public FilterBehavior(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static FilterBehavior FindValue(string value)
+        {
+            return FindValue<FilterBehavior>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator FilterBehavior(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type FilterRequirement.
+    /// </summary>
+    public class FilterRequirement : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant MEETS_ALL for FilterRequirement
+        /// </summary>
+        public static readonly FilterRequirement MEETS_ALL = new FilterRequirement("MEETS_ALL");
+        /// <summary>
+        /// Constant MEETS_ANY for FilterRequirement
+        /// </summary>
+        public static readonly FilterRequirement MEETS_ANY = new FilterRequirement("MEETS_ANY");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public FilterRequirement(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static FilterRequirement FindValue(string value)
+        {
+            return FindValue<FilterRequirement>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator FilterRequirement(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ForwardedIPPosition.
     /// </summary>
     public class ForwardedIPPosition : ConstantClass
@@ -1283,6 +1491,110 @@ namespace Amazon.WAFV2
 
 
     /// <summary>
+    /// Constants used for properties of type JsonMatchScope.
+    /// </summary>
+    public class JsonMatchScope : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ALL for JsonMatchScope
+        /// </summary>
+        public static readonly JsonMatchScope ALL = new JsonMatchScope("ALL");
+        /// <summary>
+        /// Constant KEY for JsonMatchScope
+        /// </summary>
+        public static readonly JsonMatchScope KEY = new JsonMatchScope("KEY");
+        /// <summary>
+        /// Constant VALUE for JsonMatchScope
+        /// </summary>
+        public static readonly JsonMatchScope VALUE = new JsonMatchScope("VALUE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public JsonMatchScope(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static JsonMatchScope FindValue(string value)
+        {
+            return FindValue<JsonMatchScope>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator JsonMatchScope(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type LabelMatchScope.
+    /// </summary>
+    public class LabelMatchScope : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant LABEL for LabelMatchScope
+        /// </summary>
+        public static readonly LabelMatchScope LABEL = new LabelMatchScope("LABEL");
+        /// <summary>
+        /// Constant NAMESPACE for LabelMatchScope
+        /// </summary>
+        public static readonly LabelMatchScope NAMESPACE = new LabelMatchScope("NAMESPACE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public LabelMatchScope(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static LabelMatchScope FindValue(string value)
+        {
+            return FindValue<LabelMatchScope>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator LabelMatchScope(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ParameterExceptionField.
     /// </summary>
     public class ParameterExceptionField : ConstantClass
@@ -1293,9 +1605,25 @@ namespace Amazon.WAFV2
         /// </summary>
         public static readonly ParameterExceptionField AND_STATEMENT = new ParameterExceptionField("AND_STATEMENT");
         /// <summary>
+        /// Constant BODY_PARSING_FALLBACK_BEHAVIOR for ParameterExceptionField
+        /// </summary>
+        public static readonly ParameterExceptionField BODY_PARSING_FALLBACK_BEHAVIOR = new ParameterExceptionField("BODY_PARSING_FALLBACK_BEHAVIOR");
+        /// <summary>
         /// Constant BYTE_MATCH_STATEMENT for ParameterExceptionField
         /// </summary>
         public static readonly ParameterExceptionField BYTE_MATCH_STATEMENT = new ParameterExceptionField("BYTE_MATCH_STATEMENT");
+        /// <summary>
+        /// Constant CUSTOM_REQUEST_HANDLING for ParameterExceptionField
+        /// </summary>
+        public static readonly ParameterExceptionField CUSTOM_REQUEST_HANDLING = new ParameterExceptionField("CUSTOM_REQUEST_HANDLING");
+        /// <summary>
+        /// Constant CUSTOM_RESPONSE for ParameterExceptionField
+        /// </summary>
+        public static readonly ParameterExceptionField CUSTOM_RESPONSE = new ParameterExceptionField("CUSTOM_RESPONSE");
+        /// <summary>
+        /// Constant CUSTOM_RESPONSE_BODY for ParameterExceptionField
+        /// </summary>
+        public static readonly ParameterExceptionField CUSTOM_RESPONSE_BODY = new ParameterExceptionField("CUSTOM_RESPONSE_BODY");
         /// <summary>
         /// Constant DEFAULT_ACTION for ParameterExceptionField
         /// </summary>
@@ -1316,6 +1644,10 @@ namespace Amazon.WAFV2
         /// Constant FIELD_TO_MATCH for ParameterExceptionField
         /// </summary>
         public static readonly ParameterExceptionField FIELD_TO_MATCH = new ParameterExceptionField("FIELD_TO_MATCH");
+        /// <summary>
+        /// Constant FILTER_CONDITION for ParameterExceptionField
+        /// </summary>
+        public static readonly ParameterExceptionField FILTER_CONDITION = new ParameterExceptionField("FILTER_CONDITION");
         /// <summary>
         /// Constant FIREWALL_MANAGER_STATEMENT for ParameterExceptionField
         /// </summary>
@@ -1352,6 +1684,22 @@ namespace Amazon.WAFV2
         /// Constant IP_SET_REFERENCE_STATEMENT for ParameterExceptionField
         /// </summary>
         public static readonly ParameterExceptionField IP_SET_REFERENCE_STATEMENT = new ParameterExceptionField("IP_SET_REFERENCE_STATEMENT");
+        /// <summary>
+        /// Constant JSON_MATCH_PATTERN for ParameterExceptionField
+        /// </summary>
+        public static readonly ParameterExceptionField JSON_MATCH_PATTERN = new ParameterExceptionField("JSON_MATCH_PATTERN");
+        /// <summary>
+        /// Constant JSON_MATCH_SCOPE for ParameterExceptionField
+        /// </summary>
+        public static readonly ParameterExceptionField JSON_MATCH_SCOPE = new ParameterExceptionField("JSON_MATCH_SCOPE");
+        /// <summary>
+        /// Constant LABEL_MATCH_STATEMENT for ParameterExceptionField
+        /// </summary>
+        public static readonly ParameterExceptionField LABEL_MATCH_STATEMENT = new ParameterExceptionField("LABEL_MATCH_STATEMENT");
+        /// <summary>
+        /// Constant LOGGING_FILTER for ParameterExceptionField
+        /// </summary>
+        public static readonly ParameterExceptionField LOGGING_FILTER = new ParameterExceptionField("LOGGING_FILTER");
         /// <summary>
         /// Constant MANAGED_RULE_SET for ParameterExceptionField
         /// </summary>
@@ -1400,6 +1748,10 @@ namespace Amazon.WAFV2
         /// Constant RESOURCE_TYPE for ParameterExceptionField
         /// </summary>
         public static readonly ParameterExceptionField RESOURCE_TYPE = new ParameterExceptionField("RESOURCE_TYPE");
+        /// <summary>
+        /// Constant RESPONSE_CONTENT_TYPE for ParameterExceptionField
+        /// </summary>
+        public static readonly ParameterExceptionField RESPONSE_CONTENT_TYPE = new ParameterExceptionField("RESPONSE_CONTENT_TYPE");
         /// <summary>
         /// Constant RULE for ParameterExceptionField
         /// </summary>
@@ -1656,6 +2008,60 @@ namespace Amazon.WAFV2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ResourceType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ResponseContentType.
+    /// </summary>
+    public class ResponseContentType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant APPLICATION_JSON for ResponseContentType
+        /// </summary>
+        public static readonly ResponseContentType APPLICATION_JSON = new ResponseContentType("APPLICATION_JSON");
+        /// <summary>
+        /// Constant TEXT_HTML for ResponseContentType
+        /// </summary>
+        public static readonly ResponseContentType TEXT_HTML = new ResponseContentType("TEXT_HTML");
+        /// <summary>
+        /// Constant TEXT_PLAIN for ResponseContentType
+        /// </summary>
+        public static readonly ResponseContentType TEXT_PLAIN = new ResponseContentType("TEXT_PLAIN");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ResponseContentType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ResponseContentType FindValue(string value)
+        {
+            return FindValue<ResponseContentType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ResponseContentType(string value)
         {
             return FindValue(value);
         }

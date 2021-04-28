@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -277,6 +276,11 @@ namespace Amazon.EC2.Model
         IDescribePublicIpv4PoolsPaginator DescribePublicIpv4Pools(DescribePublicIpv4PoolsRequest request);
 
         /// <summary>
+        /// Paginator for DescribeReplaceRootVolumeTasks operation
+        ///</summary>
+        IDescribeReplaceRootVolumeTasksPaginator DescribeReplaceRootVolumeTasks(DescribeReplaceRootVolumeTasksRequest request);
+
+        /// <summary>
         /// Paginator for DescribeReservedInstancesModifications operation
         ///</summary>
         IDescribeReservedInstancesModificationsPaginator DescribeReservedInstancesModifications(DescribeReservedInstancesModificationsRequest request);
@@ -330,6 +334,11 @@ namespace Amazon.EC2.Model
         /// Paginator for DescribeStaleSecurityGroups operation
         ///</summary>
         IDescribeStaleSecurityGroupsPaginator DescribeStaleSecurityGroups(DescribeStaleSecurityGroupsRequest request);
+
+        /// <summary>
+        /// Paginator for DescribeStoreImageTasks operation
+        ///</summary>
+        IDescribeStoreImageTasksPaginator DescribeStoreImageTasks(DescribeStoreImageTasksRequest request);
 
         /// <summary>
         /// Paginator for DescribeSubnets operation
@@ -507,4 +516,3 @@ namespace Amazon.EC2.Model
         ISearchTransitGatewayMulticastGroupsPaginator SearchTransitGatewayMulticastGroups(SearchTransitGatewayMulticastGroupsRequest request);
     }
 }
-#endif

@@ -60,7 +60,6 @@ namespace Amazon.MediaPackageVod.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/packaging_groups";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -73,6 +72,17 @@ namespace Amazon.MediaPackageVod.Model.Internal.MarshallTransformations
 
                     var marshaller = AuthorizationMarshaller.Instance;
                     marshaller.Marshall(publicRequest.Authorization, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetEgressAccessLogs())
+                {
+                    context.Writer.WritePropertyName("egressAccessLogs");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = EgressAccessLogsMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.EgressAccessLogs, context);
 
                     context.Writer.WriteObjectEnd();
                 }

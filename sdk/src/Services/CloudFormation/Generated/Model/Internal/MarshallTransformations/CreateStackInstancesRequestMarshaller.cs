@@ -67,6 +67,10 @@ namespace Amazon.CloudFormation.Model.Internal.MarshallTransformations
                         publicRequestlistValueIndex++;
                     }
                 }
+                if(publicRequest.IsSetCallAs())
+                {
+                    request.Parameters.Add("CallAs", StringUtils.FromString(publicRequest.CallAs));
+                }
                 if(publicRequest.IsSetDeploymentTargets())
                 {
                     if(publicRequest.DeploymentTargets.IsSetAccounts())
@@ -77,6 +81,10 @@ namespace Amazon.CloudFormation.Model.Internal.MarshallTransformations
                             request.Parameters.Add("DeploymentTargets" + "." + "Accounts" + "." + "member" + "." + publicRequestDeploymentTargetslistValueIndex, StringUtils.FromString(publicRequestDeploymentTargetslistValue));
                             publicRequestDeploymentTargetslistValueIndex++;
                         }
+                    }
+                    if(publicRequest.DeploymentTargets.IsSetAccountsUrl())
+                    {
+                        request.Parameters.Add("DeploymentTargets" + "." + "AccountsUrl", StringUtils.FromString(publicRequest.DeploymentTargets.AccountsUrl));
                     }
                     if(publicRequest.DeploymentTargets.IsSetOrganizationalUnitIds())
                     {
@@ -113,6 +121,10 @@ namespace Amazon.CloudFormation.Model.Internal.MarshallTransformations
                     if(publicRequest.OperationPreferences.IsSetMaxConcurrentPercentage())
                     {
                         request.Parameters.Add("OperationPreferences" + "." + "MaxConcurrentPercentage", StringUtils.FromInt(publicRequest.OperationPreferences.MaxConcurrentPercentage));
+                    }
+                    if(publicRequest.OperationPreferences.IsSetRegionConcurrencyType())
+                    {
+                        request.Parameters.Add("OperationPreferences" + "." + "RegionConcurrencyType", StringUtils.FromString(publicRequest.OperationPreferences.RegionConcurrencyType));
                     }
                     if(publicRequest.OperationPreferences.IsSetRegionOrder())
                     {

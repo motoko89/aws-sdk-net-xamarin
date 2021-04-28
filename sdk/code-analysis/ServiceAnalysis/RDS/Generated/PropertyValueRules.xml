@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="utf-16"?>
 <property-value-rules>
   <property-value-rule>
+    <property>Amazon.RDS.Model.CreateDBProxyEndpointRequest.DBProxyEndpointName</property>
+    <min>1</min>
+    <max>63</max>
+    <pattern>[a-zA-Z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.RDS.Model.CreateDBProxyEndpointRequest.DBProxyName</property>
+    <min>1</min>
+    <max>63</max>
+    <pattern>[a-zA-Z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.RDS.Model.DeleteDBProxyEndpointRequest.DBProxyEndpointName</property>
+    <min>1</min>
+    <max>63</max>
+    <pattern>[a-zA-Z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.RDS.Model.DescribeDBProxiesRequest.MaxRecords</property>
+    <min>20</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.RDS.Model.DescribeDBProxyEndpointsRequest.DBProxyEndpointName</property>
+    <min>1</min>
+    <max>63</max>
+    <pattern>[a-zA-Z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.RDS.Model.DescribeDBProxyEndpointsRequest.DBProxyName</property>
+    <min>1</min>
+    <max>63</max>
+    <pattern>[a-zA-Z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.RDS.Model.DescribeDBProxyEndpointsRequest.MaxRecords</property>
     <min>20</min>
     <max>100</max>
   </property-value-rule>
@@ -19,5 +54,35 @@
     <property>Amazon.RDS.Model.DescribeExportTasksRequest.MaxRecords</property>
     <min>20</min>
     <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.RDS.Model.FailoverGlobalClusterRequest.GlobalClusterIdentifier</property>
+    <min>1</min>
+    <max>255</max>
+    <pattern>[A-Za-z][0-9A-Za-z-:._]*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.RDS.Model.FailoverGlobalClusterRequest.TargetDbClusterIdentifier</property>
+    <min>1</min>
+    <max>255</max>
+    <pattern>[A-Za-z][0-9A-Za-z-:._]*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.RDS.Model.ModifyDBInstanceRequest.AwsBackupRecoveryPointArn</property>
+    <min>43</min>
+    <max>350</max>
+    <pattern>^arn:aws[a-z-]*:backup:[-a-z0-9]+:[0-9]{12}:[-a-z]+:([a-z0-9\-]+:)?[a-z][a-z0-9\-]{0,255}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.RDS.Model.ModifyDBProxyEndpointRequest.DBProxyEndpointName</property>
+    <min>1</min>
+    <max>63</max>
+    <pattern>[a-zA-Z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.RDS.Model.ModifyDBProxyEndpointRequest.NewDBProxyEndpointName</property>
+    <min>1</min>
+    <max>63</max>
+    <pattern>[a-zA-Z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*</pattern>
   </property-value-rule>
 </property-value-rules>

@@ -76,6 +76,12 @@ namespace Amazon.Imagebuilder.Model.Internal.MarshallTransformations
                     unmarshalledObject.ScheduleExpression = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("timezone", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.Timezone = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

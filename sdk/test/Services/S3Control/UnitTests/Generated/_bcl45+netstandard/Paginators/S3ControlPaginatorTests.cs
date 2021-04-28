@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -70,6 +69,45 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
 
             _mockClient.Setup(x => x.ListAccessPoints(request)).Returns(response);
             var paginator = _mockClient.Object.Paginators.ListAccessPoints(request);
+
+            // Should work the first time
+            paginator.Responses.ToList();
+
+            // Second time should throw an exception
+            paginator.Responses.ToList();
+        }
+
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("S3Control")]
+        public void ListAccessPointsForObjectLambdaTest_TwoPages()
+        {
+            var request = InstantiateClassGenerator.Execute<ListAccessPointsForObjectLambdaRequest>();
+
+            var firstResponse = InstantiateClassGenerator.Execute<ListAccessPointsForObjectLambdaResponse>();
+            var secondResponse = InstantiateClassGenerator.Execute<ListAccessPointsForObjectLambdaResponse>();
+            secondResponse.NextToken = null;
+
+            _mockClient.SetupSequence(x => x.ListAccessPointsForObjectLambda(request)).Returns(firstResponse).Returns(secondResponse);
+            var paginator = _mockClient.Object.Paginators.ListAccessPointsForObjectLambda(request);
+            
+            Assert.AreEqual(2, paginator.Responses.ToList().Count);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("S3Control")]
+        [ExpectedException(typeof(System.InvalidOperationException), "Paginator has already been consumed and cannot be reused. Please create a new instance.")]
+        public void ListAccessPointsForObjectLambdaTest__OnlyUsedOnce()
+        {
+            var request = InstantiateClassGenerator.Execute<ListAccessPointsForObjectLambdaRequest>();
+
+            var response = InstantiateClassGenerator.Execute<ListAccessPointsForObjectLambdaResponse>();
+            response.NextToken = null;
+
+            _mockClient.Setup(x => x.ListAccessPointsForObjectLambda(request)).Returns(response);
+            var paginator = _mockClient.Object.Paginators.ListAccessPointsForObjectLambda(request);
 
             // Should work the first time
             paginator.Responses.ToList();
@@ -156,6 +194,44 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
             paginator.Responses.ToList();
         }
 
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("S3Control")]
+        public void ListStorageLensConfigurationsTest_TwoPages()
+        {
+            var request = InstantiateClassGenerator.Execute<ListStorageLensConfigurationsRequest>();
+
+            var firstResponse = InstantiateClassGenerator.Execute<ListStorageLensConfigurationsResponse>();
+            var secondResponse = InstantiateClassGenerator.Execute<ListStorageLensConfigurationsResponse>();
+            secondResponse.NextToken = null;
+
+            _mockClient.SetupSequence(x => x.ListStorageLensConfigurations(request)).Returns(firstResponse).Returns(secondResponse);
+            var paginator = _mockClient.Object.Paginators.ListStorageLensConfigurations(request);
+            
+            Assert.AreEqual(2, paginator.Responses.ToList().Count);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("S3Control")]
+        [ExpectedException(typeof(System.InvalidOperationException), "Paginator has already been consumed and cannot be reused. Please create a new instance.")]
+        public void ListStorageLensConfigurationsTest__OnlyUsedOnce()
+        {
+            var request = InstantiateClassGenerator.Execute<ListStorageLensConfigurationsRequest>();
+
+            var response = InstantiateClassGenerator.Execute<ListStorageLensConfigurationsResponse>();
+            response.NextToken = null;
+
+            _mockClient.Setup(x => x.ListStorageLensConfigurations(request)).Returns(response);
+            var paginator = _mockClient.Object.Paginators.ListStorageLensConfigurations(request);
+
+            // Should work the first time
+            paginator.Responses.ToList();
+
+            // Second time should throw an exception
+            paginator.Responses.ToList();
+        }
+
     }
 }
-#endif

@@ -60,8 +60,8 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// You can't delete a parameter label. If you no longer want to use a parameter label,
-    /// then you must move it to a different version of a parameter.
+    /// If you no longer want to use a parameter label, then you can either delete it or move
+    /// it to a different version of a parameter.
     /// </para>
     ///  </li> <li> 
     /// <para>

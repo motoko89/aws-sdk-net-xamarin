@@ -29,28 +29,21 @@ using Amazon.Runtime.Internal;
 namespace Amazon.WAFV2.Model
 {
     /// <summary>
-    /// <note> 
-    /// <para>
-    /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-    /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-    /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-    /// WAF Developer Guide</a>. 
-    /// </para>
-    ///  </note> 
-    /// <para>
-    ///  A rule group defines a collection of rules to inspect and control web requests that
+    /// A rule group defines a collection of rules to inspect and control web requests that
     /// you can use in a <a>WebACL</a>. When you create a rule group, you define an immutable
     /// capacity limit. If you update a rule group, you must stay within the capacity. This
     /// allows others to reuse the rule group with confidence in its capacity requirements.
-    /// 
-    /// </para>
     /// </summary>
     public partial class RuleGroup
     {
         private string _arn;
+        private List<LabelSummary> _availableLabels = new List<LabelSummary>();
         private long? _capacity;
+        private List<LabelSummary> _consumedLabels = new List<LabelSummary>();
+        private Dictionary<string, CustomResponseBody> _customResponseBodies = new Dictionary<string, CustomResponseBody>();
         private string _description;
         private string _id;
+        private string _labelNamespace;
         private string _name;
         private List<Rule> _rules = new List<Rule>();
         private VisibilityConfig _visibilityConfig;
@@ -72,6 +65,25 @@ namespace Amazon.WAFV2.Model
         internal bool IsSetARN()
         {
             return this._arn != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property AvailableLabels. 
+        /// <para>
+        /// The labels that one or more rules in this rule group add to matching web ACLs. These
+        /// labels are defined in the <code>RuleLabels</code> for a <a>Rule</a>.
+        /// </para>
+        /// </summary>
+        public List<LabelSummary> AvailableLabels
+        {
+            get { return this._availableLabels; }
+            set { this._availableLabels = value; }
+        }
+
+        // Check to see if AvailableLabels property is set
+        internal bool IsSetAvailableLabels()
+        {
+            return this._availableLabels != null && this._availableLabels.Count > 0; 
         }
 
         /// <summary>
@@ -109,10 +121,63 @@ namespace Amazon.WAFV2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ConsumedLabels. 
+        /// <para>
+        /// The labels that one or more rules in this rule group match against in label match
+        /// statements. These labels are defined in a <code>LabelMatchStatement</code> specification,
+        /// in the <a>Statement</a> definition of a rule. 
+        /// </para>
+        /// </summary>
+        public List<LabelSummary> ConsumedLabels
+        {
+            get { return this._consumedLabels; }
+            set { this._consumedLabels = value; }
+        }
+
+        // Check to see if ConsumedLabels property is set
+        internal bool IsSetConsumedLabels()
+        {
+            return this._consumedLabels != null && this._consumedLabels.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property CustomResponseBodies. 
+        /// <para>
+        /// A map of custom response keys and content bodies. When you create a rule with a block
+        /// action, you can send a custom response to the web request. You define these for the
+        /// rule group, and then use them in the rules that you define in the rule group. 
+        /// </para>
+        ///  
+        /// <para>
+        /// For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing
+        /// web requests and responses in AWS WAF</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
+        /// WAF Developer Guide</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// For information about the limits on count and size for custom request and response
+        /// settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">AWS
+        /// WAF quotas</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
+        /// WAF Developer Guide</a>. 
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1)]
+        public Dictionary<string, CustomResponseBody> CustomResponseBodies
+        {
+            get { return this._customResponseBodies; }
+            set { this._customResponseBodies = value; }
+        }
+
+        // Check to see if CustomResponseBodies property is set
+        internal bool IsSetCustomResponseBodies()
+        {
+            return this._customResponseBodies != null && this._customResponseBodies.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property Description. 
         /// <para>
-        /// A description of the rule group that helps with identification. You cannot change
-        /// the description of a rule group after you create it.
+        /// A description of the rule group that helps with identification. 
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=256)]
@@ -146,6 +211,46 @@ namespace Amazon.WAFV2.Model
         internal bool IsSetId()
         {
             return this._id != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property LabelNamespace. 
+        /// <para>
+        /// The label namespace prefix for this rule group. All labels added by rules in this
+        /// rule group have this prefix. 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// The syntax for the label namespace prefix for your rule groups is the following: 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>awswaf:&lt;account ID&gt;:rulegroup:&lt;rule group name&gt;:</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// When a rule with a label matches a web request, AWS WAF adds the fully qualified label
+        /// to the request. A fully qualified label is made up of the label namespace from the
+        /// rule group or web ACL where the rule is defined and the label from the rule, separated
+        /// by a colon: 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>&lt;label namespace&gt;:&lt;label from rule&gt;</code> 
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
+        public string LabelNamespace
+        {
+            get { return this._labelNamespace; }
+            set { this._labelNamespace = value; }
+        }
+
+        // Check to see if LabelNamespace property is set
+        internal bool IsSetLabelNamespace()
+        {
+            return this._labelNamespace != null;
         }
 
         /// <summary>

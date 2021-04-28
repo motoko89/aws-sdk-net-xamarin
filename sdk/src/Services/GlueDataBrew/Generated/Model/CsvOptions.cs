@@ -29,17 +29,18 @@ using Amazon.Runtime.Internal;
 namespace Amazon.GlueDataBrew.Model
 {
     /// <summary>
-    /// Options that define how DataBrew will read a Csv file when creating a dataset from
-    /// that file.
+    /// Represents a set of options that define how DataBrew will read a comma-separated value
+    /// (CSV) file when creating a dataset from that file.
     /// </summary>
     public partial class CsvOptions
     {
         private string _delimiter;
+        private bool? _headerRow;
 
         /// <summary>
         /// Gets and sets the property Delimiter. 
         /// <para>
-        /// A single character that specifies the delimiter being used in the Csv file.
+        /// A single character that specifies the delimiter being used in the CSV file.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=1)]
@@ -53,6 +54,25 @@ namespace Amazon.GlueDataBrew.Model
         internal bool IsSetDelimiter()
         {
             return this._delimiter != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property HeaderRow. 
+        /// <para>
+        /// A variable that specifies whether the first row in the file is parsed as the header.
+        /// If this value is false, column names are auto-generated.
+        /// </para>
+        /// </summary>
+        public bool HeaderRow
+        {
+            get { return this._headerRow.GetValueOrDefault(); }
+            set { this._headerRow = value; }
+        }
+
+        // Check to see if HeaderRow property is set
+        internal bool IsSetHeaderRow()
+        {
+            return this._headerRow.HasValue; 
         }
 
     }

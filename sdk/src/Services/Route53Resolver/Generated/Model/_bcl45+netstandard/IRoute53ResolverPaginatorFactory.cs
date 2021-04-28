@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -25,6 +24,36 @@ namespace Amazon.Route53Resolver.Model
     ///</summary>
     public interface IRoute53ResolverPaginatorFactory
     {
+
+        /// <summary>
+        /// Paginator for ListFirewallConfigs operation
+        ///</summary>
+        IListFirewallConfigsPaginator ListFirewallConfigs(ListFirewallConfigsRequest request);
+
+        /// <summary>
+        /// Paginator for ListFirewallDomainLists operation
+        ///</summary>
+        IListFirewallDomainListsPaginator ListFirewallDomainLists(ListFirewallDomainListsRequest request);
+
+        /// <summary>
+        /// Paginator for ListFirewallDomains operation
+        ///</summary>
+        IListFirewallDomainsPaginator ListFirewallDomains(ListFirewallDomainsRequest request);
+
+        /// <summary>
+        /// Paginator for ListFirewallRuleGroupAssociations operation
+        ///</summary>
+        IListFirewallRuleGroupAssociationsPaginator ListFirewallRuleGroupAssociations(ListFirewallRuleGroupAssociationsRequest request);
+
+        /// <summary>
+        /// Paginator for ListFirewallRuleGroups operation
+        ///</summary>
+        IListFirewallRuleGroupsPaginator ListFirewallRuleGroups(ListFirewallRuleGroupsRequest request);
+
+        /// <summary>
+        /// Paginator for ListFirewallRules operation
+        ///</summary>
+        IListFirewallRulesPaginator ListFirewallRules(ListFirewallRulesRequest request);
 
         /// <summary>
         /// Paginator for ListResolverDnssecConfigs operation
@@ -67,4 +96,3 @@ namespace Amazon.Route53Resolver.Model
         IListTagsForResourcePaginator ListTagsForResource(ListTagsForResourceRequest request);
     }
 }
-#endif

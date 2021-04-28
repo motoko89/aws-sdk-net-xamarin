@@ -102,9 +102,9 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property ApprovedPatchesComplianceLevel. 
         /// <para>
-        /// Defines the compliance level for approved patches. This means that if an approved
-        /// patch is reported as missing, this is the severity of the compliance violation. The
-        /// default value is UNSPECIFIED.
+        /// Defines the compliance level for approved patches. When an approved patch is reported
+        /// as missing, this value describes the severity of the compliance violation. The default
+        /// value is UNSPECIFIED.
         /// </para>
         /// </summary>
         public PatchComplianceLevel ApprovedPatchesComplianceLevel

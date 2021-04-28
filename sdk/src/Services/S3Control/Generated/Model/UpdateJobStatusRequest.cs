@@ -30,9 +30,9 @@ namespace Amazon.S3Control.Model
 {
     /// <summary>
     /// Container for the parameters to the UpdateJobStatus operation.
-    /// Updates the status for the specified job. Use this operation to confirm that you want
+    /// Updates the status for the specified job. Use this action to confirm that you want
     /// to run a job or to cancel an existing job. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3
-    /// Batch Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
+    /// Batch Operations</a> in the <i>Amazon Simple Storage Service User Guide</i>.
     /// 
     ///   
     /// <para>
@@ -68,7 +68,10 @@ namespace Amazon.S3Control.Model
         private string _statusUpdateReason;
 
         /// <summary>
-        /// Gets and sets the property AccountId.
+        /// Gets and sets the property AccountId. 
+        /// <para>
+        /// The AWS account ID associated with the S3 Batch Operations job.
+        /// </para>
         /// </summary>
         [AWSProperty(Required=true, Max=64)]
         public string AccountId

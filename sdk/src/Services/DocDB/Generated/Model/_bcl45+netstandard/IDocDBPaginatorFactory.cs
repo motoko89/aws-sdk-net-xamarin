@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -72,6 +71,11 @@ namespace Amazon.DocDB.Model
         IDescribeEventsPaginator DescribeEvents(DescribeEventsRequest request);
 
         /// <summary>
+        /// Paginator for DescribeEventSubscriptions operation
+        ///</summary>
+        IDescribeEventSubscriptionsPaginator DescribeEventSubscriptions(DescribeEventSubscriptionsRequest request);
+
+        /// <summary>
         /// Paginator for DescribeOrderableDBInstanceOptions operation
         ///</summary>
         IDescribeOrderableDBInstanceOptionsPaginator DescribeOrderableDBInstanceOptions(DescribeOrderableDBInstanceOptionsRequest request);
@@ -82,4 +86,3 @@ namespace Amazon.DocDB.Model
         IDescribePendingMaintenanceActionsPaginator DescribePendingMaintenanceActions(DescribePendingMaintenanceActionsRequest request);
     }
 }
-#endif

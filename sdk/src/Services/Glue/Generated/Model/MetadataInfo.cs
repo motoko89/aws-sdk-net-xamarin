@@ -35,6 +35,7 @@ namespace Amazon.Glue.Model
     {
         private string _createdTime;
         private string _metadataValue;
+        private List<OtherMetadataValueListItem> _otherMetadataValueList = new List<OtherMetadataValueListItem>();
 
         /// <summary>
         /// Gets and sets the property CreatedTime. 
@@ -71,6 +72,24 @@ namespace Amazon.Glue.Model
         internal bool IsSetMetadataValue()
         {
             return this._metadataValue != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property OtherMetadataValueList. 
+        /// <para>
+        /// Other metadata belonging to the same metadata key.
+        /// </para>
+        /// </summary>
+        public List<OtherMetadataValueListItem> OtherMetadataValueList
+        {
+            get { return this._otherMetadataValueList; }
+            set { this._otherMetadataValueList = value; }
+        }
+
+        // Check to see if OtherMetadataValueList property is set
+        internal bool IsSetOtherMetadataValueList()
+        {
+            return this._otherMetadataValueList != null && this._otherMetadataValueList.Count > 0; 
         }
 
     }

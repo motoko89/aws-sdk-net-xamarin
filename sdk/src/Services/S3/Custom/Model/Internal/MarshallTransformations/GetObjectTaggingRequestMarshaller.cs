@@ -44,6 +44,8 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
 
             if (getObjectTaggingRequest.IsSetExpectedBucketOwner())
                 request.Headers.Add(S3Constants.AmzHeaderExpectedBucketOwner, S3Transforms.ToStringValue(getObjectTaggingRequest.ExpectedBucketOwner));
+            if (getObjectTaggingRequest.IsSetRequestPayer())
+                request.Headers.Add(S3Constants.AmzHeaderRequestPayer, S3Transforms.ToStringValue(getObjectTaggingRequest.RequestPayer));
 
             request.UseQueryString = true;
 
@@ -52,7 +54,6 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
             if (string.IsNullOrEmpty(getObjectTaggingRequest.Key))
                 throw new System.ArgumentException("Key is a required property and must be set before making this call.", "GetObjectTaggingRequest.Key");
 
-			request.MarshallerVersion = 2;
 			request.ResourcePath = string.Format(CultureInfo.InvariantCulture, "/{0}/{1}", 
                                                  S3Transforms.ToStringValue(getObjectTaggingRequest.BucketName), 
                                                  S3Transforms.ToStringValue(getObjectTaggingRequest.Key));

@@ -70,6 +70,12 @@ namespace Amazon.ElasticMapReduce.Model.Internal.MarshallTransformations
                     unmarshalledObject.AllocationStrategy = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("CapacityReservationOptions", targetDepth))
+                {
+                    var unmarshaller = OnDemandCapacityReservationOptionsUnmarshaller.Instance;
+                    unmarshalledObject.CapacityReservationOptions = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

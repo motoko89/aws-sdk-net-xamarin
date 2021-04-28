@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -45,6 +44,14 @@ namespace Amazon.S3Control.Model
         }
 
         /// <summary>
+        /// Paginator for ListAccessPointsForObjectLambda operation
+        ///</summary>
+        public IListAccessPointsForObjectLambdaPaginator ListAccessPointsForObjectLambda(ListAccessPointsForObjectLambdaRequest request) 
+        {
+            return new ListAccessPointsForObjectLambdaPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for ListJobs operation
         ///</summary>
         public IListJobsPaginator ListJobs(ListJobsRequest request) 
@@ -59,6 +66,13 @@ namespace Amazon.S3Control.Model
         {
             return new ListRegionalBucketsPaginator(this.client, request);
         }
+
+        /// <summary>
+        /// Paginator for ListStorageLensConfigurations operation
+        ///</summary>
+        public IListStorageLensConfigurationsPaginator ListStorageLensConfigurations(ListStorageLensConfigurationsRequest request) 
+        {
+            return new ListStorageLensConfigurationsPaginator(this.client, request);
+        }
     }
 }
-#endif

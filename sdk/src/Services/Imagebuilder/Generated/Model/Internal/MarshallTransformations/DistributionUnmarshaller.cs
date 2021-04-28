@@ -76,6 +76,12 @@ namespace Amazon.Imagebuilder.Model.Internal.MarshallTransformations
                     unmarshalledObject.ContainerDistributionConfiguration = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("launchTemplateConfigurations", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<LaunchTemplateConfiguration, LaunchTemplateConfigurationUnmarshaller>(LaunchTemplateConfigurationUnmarshaller.Instance);
+                    unmarshalledObject.LaunchTemplateConfigurations = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("licenseConfigurationArns", targetDepth))
                 {
                     var unmarshaller = new ListUnmarshaller<string, StringUnmarshaller>(StringUnmarshaller.Instance);

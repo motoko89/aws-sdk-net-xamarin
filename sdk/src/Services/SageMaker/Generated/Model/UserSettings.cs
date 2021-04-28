@@ -30,8 +30,8 @@ namespace Amazon.SageMaker.Model
 {
     /// <summary>
     /// A collection of settings that apply to users of Amazon SageMaker Studio. These settings
-    /// are specified when the <a>CreateUserProfile</a> API is called, and as <code>DefaultUserSettings</code>
-    /// when the <a>CreateDomain</a> API is called.
+    /// are specified when the <code>CreateUserProfile</code> API is called, and as <code>DefaultUserSettings</code>
+    /// when the <code>CreateDomain</code> API is called.
     /// 
     ///  
     /// <para>
@@ -143,7 +143,7 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property SharingSettings. 
         /// <para>
-        /// The sharing settings.
+        /// Specifies options for sharing SageMaker Studio notebooks.
         /// </para>
         /// </summary>
         public SharingSettings SharingSettings

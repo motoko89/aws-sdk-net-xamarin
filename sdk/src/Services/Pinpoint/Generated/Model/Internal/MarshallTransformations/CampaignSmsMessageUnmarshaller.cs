@@ -70,16 +70,34 @@ namespace Amazon.Pinpoint.Model.Internal.MarshallTransformations
                     unmarshalledObject.Body = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("EntityId", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.EntityId = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("MessageType", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.MessageType = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("OriginationNumber", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.OriginationNumber = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("SenderId", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.SenderId = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("TemplateId", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.TemplateId = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

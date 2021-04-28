@@ -62,7 +62,6 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -100,6 +99,12 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("enableECSManagedTags");
                     context.Writer.Write(publicRequest.EnableECSManagedTags);
+                }
+
+                if(publicRequest.IsSetEnableExecuteCommand())
+                {
+                    context.Writer.WritePropertyName("enableExecuteCommand");
+                    context.Writer.Write(publicRequest.EnableExecuteCommand);
                 }
 
                 if(publicRequest.IsSetGroup())

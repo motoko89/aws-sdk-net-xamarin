@@ -60,7 +60,6 @@ namespace Amazon.IVS.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/UpdateChannel";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -88,6 +87,12 @@ namespace Amazon.IVS.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("name");
                     context.Writer.Write(publicRequest.Name);
+                }
+
+                if(publicRequest.IsSetRecordingConfigurationArn())
+                {
+                    context.Writer.WritePropertyName("recordingConfigurationArn");
+                    context.Writer.Write(publicRequest.RecordingConfigurationArn);
                 }
 
                 if(publicRequest.IsSetType())

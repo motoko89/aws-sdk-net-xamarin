@@ -60,7 +60,6 @@ namespace Amazon.Macie2.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/usage/statistics";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -103,6 +102,12 @@ namespace Amazon.Macie2.Model.Internal.MarshallTransformations
                     marshaller.Marshall(publicRequest.SortBy, context);
 
                     context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetTimeRange())
+                {
+                    context.Writer.WritePropertyName("timeRange");
+                    context.Writer.Write(publicRequest.TimeRange);
                 }
 
         

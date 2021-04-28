@@ -79,7 +79,7 @@ namespace Amazon.SecretsManager.Model
         /// <summary>
         /// Gets and sets the property Name. 
         /// <para>
-        /// The friendly name of the secret that is now scheduled for deletion.
+        /// The friendly name of the secret currently scheduled for deletion.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=256)]

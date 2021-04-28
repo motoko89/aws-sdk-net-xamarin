@@ -575,10 +575,10 @@ namespace Amazon.SageMaker
 
 
         /// <summary>
-        /// Creates a running App for the specified UserProfile. Supported Apps are JupyterServer
-        /// and KernelGateway. This operation is automatically invoked by Amazon SageMaker Studio
-        /// upon access to the associated Domain, and when new kernel configurations are selected
-        /// by the user. A user may have multiple Apps active simultaneously.
+        /// Creates a running app for the specified UserProfile. Supported apps are <code>JupyterServer</code>
+        /// and <code>KernelGateway</code>. This operation is automatically invoked by Amazon
+        /// SageMaker Studio upon access to the associated Domain, and when new kernel configurations
+        /// are selected by the user. A user may have multiple Apps active simultaneously.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateApp service method.</param>
         /// 
@@ -602,10 +602,10 @@ namespace Amazon.SageMaker
 
 
         /// <summary>
-        /// Creates a running App for the specified UserProfile. Supported Apps are JupyterServer
-        /// and KernelGateway. This operation is automatically invoked by Amazon SageMaker Studio
-        /// upon access to the associated Domain, and when new kernel configurations are selected
-        /// by the user. A user may have multiple Apps active simultaneously.
+        /// Creates a running app for the specified UserProfile. Supported apps are <code>JupyterServer</code>
+        /// and <code>KernelGateway</code>. This operation is automatically invoked by Amazon
+        /// SageMaker Studio upon access to the associated Domain, and when new kernel configurations
+        /// are selected by the user. A user may have multiple Apps active simultaneously.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateApp service method.</param>
         /// <param name="cancellationToken">
@@ -746,14 +746,12 @@ namespace Amazon.SageMaker
         /// 
         ///  
         /// <para>
-        /// Find the best performing model after you run an Autopilot job by calling . Deploy
-        /// that model by following the steps described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html">Step
-        /// 6.1: Deploy the Model to Amazon SageMaker Hosting Services</a>.
+        /// Find the best performing model after you run an Autopilot job by calling .
         /// </para>
         ///  
         /// <para>
-        /// For information about how to use Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">
-        /// Automate Model Development with Amazon SageMaker Autopilot</a>.
+        /// For information about how to use Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">Automate
+        /// Model Development with Amazon SageMaker Autopilot</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateAutoMLJob service method.</param>
@@ -782,14 +780,12 @@ namespace Amazon.SageMaker
         /// 
         ///  
         /// <para>
-        /// Find the best performing model after you run an Autopilot job by calling . Deploy
-        /// that model by following the steps described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html">Step
-        /// 6.1: Deploy the Model to Amazon SageMaker Hosting Services</a>.
+        /// Find the best performing model after you run an Autopilot job by calling .
         /// </para>
         ///  
         /// <para>
-        /// For information about how to use Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">
-        /// Automate Model Development with Amazon SageMaker Autopilot</a>.
+        /// For information about how to use Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">Automate
+        /// Model Development with Amazon SageMaker Autopilot</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateAutoMLJob service method.</param>
@@ -3326,9 +3322,10 @@ namespace Amazon.SageMaker
         /// 
         ///  <note> 
         /// <para>
-        /// The URL that you get from a call to <code>CreatePresignedDomainUrl</code> is valid
-        /// only for 5 minutes. If you try to use the URL after the 5-minute limit expires, you
-        /// are directed to the AWS console sign-in page.
+        /// The URL that you get from a call to <code>CreatePresignedDomainUrl</code> has a default
+        /// timeout of 5 minutes. You can configure this value using <code>ExpiresInSeconds</code>.
+        /// If you try to use the URL after the timeout limit expires, you are directed to the
+        /// AWS console sign-in page.
         /// </para>
         ///  </note>
         /// </summary>
@@ -3358,9 +3355,10 @@ namespace Amazon.SageMaker
         /// 
         ///  <note> 
         /// <para>
-        /// The URL that you get from a call to <code>CreatePresignedDomainUrl</code> is valid
-        /// only for 5 minutes. If you try to use the URL after the 5-minute limit expires, you
-        /// are directed to the AWS console sign-in page.
+        /// The URL that you get from a call to <code>CreatePresignedDomainUrl</code> has a default
+        /// timeout of 5 minutes. You can configure this value using <code>ExpiresInSeconds</code>.
+        /// If you try to use the URL after the timeout limit expires, you are directed to the
+        /// AWS console sign-in page.
         /// </para>
         ///  </note>
         /// </summary>
@@ -3660,6 +3658,10 @@ namespace Amazon.SageMaker
         /// to set a time limit for training. Use <code>MaxWaitTimeInSeconds</code> to specify
         /// how long you are willing to wait for a managed spot training job to complete. 
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>Environment</code> - The environment variables to set in the Docker container.
+        /// </para>
         ///  </li> </ul> 
         /// <para>
         ///  For more information about Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
@@ -3752,6 +3754,10 @@ namespace Amazon.SageMaker
         ///  <code>StoppingCondition</code> - To help cap training costs, use <code>MaxRuntimeInSeconds</code>
         /// to set a time limit for training. Use <code>MaxWaitTimeInSeconds</code> to specify
         /// how long you are willing to wait for a managed spot training job to complete. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>Environment</code> - The environment variables to set in the Docker container.
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -6520,7 +6526,7 @@ namespace Amazon.SageMaker
 
 
         /// <summary>
-        /// Returns information about an Amazon SageMaker job.
+        /// Returns information about an Amazon SageMaker AutoML job.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAutoMLJob service method.</param>
         /// 
@@ -6540,7 +6546,7 @@ namespace Amazon.SageMaker
 
 
         /// <summary>
-        /// Returns information about an Amazon SageMaker job.
+        /// Returns information about an Amazon SageMaker AutoML job.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAutoMLJob service method.</param>
         /// <param name="cancellationToken">
@@ -8104,7 +8110,16 @@ namespace Amazon.SageMaker
 
 
         /// <summary>
-        /// Returns information about a training job.
+        /// Returns information about a training job. 
+        /// 
+        ///  
+        /// <para>
+        /// Some of the attributes below only appear if the training job successfully starts.
+        /// If the training job fails, <code>TrainingJobStatus</code> is <code>Failed</code> and,
+        /// depending on the <code>FailureReason</code>, attributes like <code>TrainingStartTime</code>,
+        /// <code>TrainingTimeInSeconds</code>, <code>TrainingEndTime</code>, and <code>BillableTimeInSeconds</code>
+        /// may not be present in the response.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeTrainingJob service method.</param>
         /// 
@@ -8124,7 +8139,16 @@ namespace Amazon.SageMaker
 
 
         /// <summary>
-        /// Returns information about a training job.
+        /// Returns information about a training job. 
+        /// 
+        ///  
+        /// <para>
+        /// Some of the attributes below only appear if the training job successfully starts.
+        /// If the training job fails, <code>TrainingJobStatus</code> is <code>Failed</code> and,
+        /// depending on the <code>FailureReason</code>, attributes like <code>TrainingStartTime</code>,
+        /// <code>TrainingTimeInSeconds</code>, <code>TrainingEndTime</code>, and <code>BillableTimeInSeconds</code>
+        /// may not be present in the response.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeTrainingJob service method.</param>
         /// <param name="cancellationToken">
@@ -9083,7 +9107,7 @@ namespace Amazon.SageMaker
 
 
         /// <summary>
-        /// List the Candidates created for the job.
+        /// List the candidates created for the job.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListCandidatesForAutoMLJob service method.</param>
         /// 
@@ -9103,7 +9127,7 @@ namespace Amazon.SageMaker
 
 
         /// <summary>
-        /// List the Candidates created for the job.
+        /// List the candidates created for the job.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListCandidatesForAutoMLJob service method.</param>
         /// <param name="cancellationToken">
@@ -10714,6 +10738,35 @@ namespace Amazon.SageMaker
 
         /// <summary>
         /// Lists training jobs.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// When <code>StatusEquals</code> and <code>MaxResults</code> are set at the same time,
+        /// the <code>MaxResults</code> number of training jobs are first retrieved ignoring the
+        /// <code>StatusEquals</code> parameter and then they are filtered by the <code>StatusEquals</code>
+        /// parameter, which is returned as a response. For example, if <code>ListTrainingJobs</code>
+        /// is invoked with the following parameters:
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>{ ... MaxResults: 100, StatusEquals: InProgress ... }</code> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Then, 100 trainings jobs with any status including those other than <code>InProgress</code>
+        /// are selected first (sorted according the creation time, from the latest to the oldest)
+        /// and those with status <code>InProgress</code> are returned.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can quickly test the API using the following AWS CLI code.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>aws sagemaker list-training-jobs --max-results 100 --status-equals InProgress</code>
+        /// 
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListTrainingJobs service method.</param>
         /// 
@@ -10731,6 +10784,35 @@ namespace Amazon.SageMaker
 
         /// <summary>
         /// Lists training jobs.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// When <code>StatusEquals</code> and <code>MaxResults</code> are set at the same time,
+        /// the <code>MaxResults</code> number of training jobs are first retrieved ignoring the
+        /// <code>StatusEquals</code> parameter and then they are filtered by the <code>StatusEquals</code>
+        /// parameter, which is returned as a response. For example, if <code>ListTrainingJobs</code>
+        /// is invoked with the following parameters:
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>{ ... MaxResults: 100, StatusEquals: InProgress ... }</code> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Then, 100 trainings jobs with any status including those other than <code>InProgress</code>
+        /// are selected first (sorted according the creation time, from the latest to the oldest)
+        /// and those with status <code>InProgress</code> are returned.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can quickly test the API using the following AWS CLI code.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>aws sagemaker list-training-jobs --max-results 100 --status-equals InProgress</code>
+        /// 
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListTrainingJobs service method.</param>
         /// <param name="cancellationToken">

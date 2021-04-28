@@ -62,7 +62,6 @@ namespace Amazon.Comprehend.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -79,6 +78,12 @@ namespace Amazon.Comprehend.Model.Internal.MarshallTransformations
                     context.Writer.WritePropertyName("ClientRequestToken");
                     context.Writer.Write(Guid.NewGuid().ToString());                                                
                 }
+                if(publicRequest.IsSetDataAccessRoleArn())
+                {
+                    context.Writer.WritePropertyName("DataAccessRoleArn");
+                    context.Writer.Write(publicRequest.DataAccessRoleArn);
+                }
+
                 if(publicRequest.IsSetDesiredInferenceUnits())
                 {
                     context.Writer.WritePropertyName("DesiredInferenceUnits");

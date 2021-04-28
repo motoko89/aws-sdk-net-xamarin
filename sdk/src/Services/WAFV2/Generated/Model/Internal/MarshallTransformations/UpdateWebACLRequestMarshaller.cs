@@ -62,12 +62,30 @@ namespace Amazon.WAFV2.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetCustomResponseBodies())
+                {
+                    context.Writer.WritePropertyName("CustomResponseBodies");
+                    context.Writer.WriteObjectStart();
+                    foreach (var publicRequestCustomResponseBodiesKvp in publicRequest.CustomResponseBodies)
+                    {
+                        context.Writer.WritePropertyName(publicRequestCustomResponseBodiesKvp.Key);
+                        var publicRequestCustomResponseBodiesValue = publicRequestCustomResponseBodiesKvp.Value;
+
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = CustomResponseBodyMarshaller.Instance;
+                        marshaller.Marshall(publicRequestCustomResponseBodiesValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetDefaultAction())
                 {
                     context.Writer.WritePropertyName("DefaultAction");

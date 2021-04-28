@@ -60,7 +60,6 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/profileJobs";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -82,6 +81,17 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("EncryptionMode");
                     context.Writer.Write(publicRequest.EncryptionMode);
+                }
+
+                if(publicRequest.IsSetJobSample())
+                {
+                    context.Writer.WritePropertyName("JobSample");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = JobSampleMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.JobSample, context);
+
+                    context.Writer.WriteObjectEnd();
                 }
 
                 if(publicRequest.IsSetLogSubscription())

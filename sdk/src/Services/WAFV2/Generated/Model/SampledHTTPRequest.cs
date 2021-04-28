@@ -29,25 +29,18 @@ using Amazon.Runtime.Internal;
 namespace Amazon.WAFV2.Model
 {
     /// <summary>
-    /// <note> 
-    /// <para>
-    /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-    /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-    /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-    /// WAF Developer Guide</a>. 
-    /// </para>
-    ///  </note> 
-    /// <para>
     /// Represents a single sampled web request. The response from <a>GetSampledRequests</a>
     /// includes a <code>SampledHTTPRequests</code> complex type that appears as <code>SampledRequests</code>
     /// in the response syntax. <code>SampledHTTPRequests</code> contains an array of <code>SampledHTTPRequest</code>
     /// objects.
-    /// </para>
     /// </summary>
     public partial class SampledHTTPRequest
     {
         private string _action;
+        private List<Label> _labels = new List<Label>();
         private HTTPRequest _request;
+        private List<HTTPHeader> _requestHeadersInserted = new List<HTTPHeader>();
+        private int? _responseCodeSent;
         private string _ruleNameWithinRuleGroup;
         private DateTime? _timestamp;
         private long? _weight;
@@ -72,6 +65,32 @@ namespace Amazon.WAFV2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Labels. 
+        /// <para>
+        /// Labels applied to the web request by matching rules. AWS WAF applies fully qualified
+        /// labels to matching web requests. A fully qualified label is the concatenation of a
+        /// label namespace and a rule label. The rule's rule group or web ACL defines the label
+        /// namespace. 
+        /// </para>
+        ///  
+        /// <para>
+        /// For example, <code>awswaf:111122223333:myRuleGroup:testRules:testNS1:testNS2:labelNameA</code>
+        /// or <code>awswaf:managed:aws:managed-rule-set:header:encoding:utf8</code>. 
+        /// </para>
+        /// </summary>
+        public List<Label> Labels
+        {
+            get { return this._labels; }
+            set { this._labels = value; }
+        }
+
+        // Check to see if Labels property is set
+        internal bool IsSetLabels()
+        {
+            return this._labels != null && this._labels.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property Request. 
         /// <para>
         /// A complex type that contains detailed information about the request.
@@ -88,6 +107,44 @@ namespace Amazon.WAFV2.Model
         internal bool IsSetRequest()
         {
             return this._request != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property RequestHeadersInserted. 
+        /// <para>
+        /// Custom request headers inserted by AWS WAF into the request, according to the custom
+        /// request configuration for the matching rule action.
+        /// </para>
+        /// </summary>
+        public List<HTTPHeader> RequestHeadersInserted
+        {
+            get { return this._requestHeadersInserted; }
+            set { this._requestHeadersInserted = value; }
+        }
+
+        // Check to see if RequestHeadersInserted property is set
+        internal bool IsSetRequestHeadersInserted()
+        {
+            return this._requestHeadersInserted != null && this._requestHeadersInserted.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property ResponseCodeSent. 
+        /// <para>
+        /// The response code that was sent for the request.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=200, Max=600)]
+        public int ResponseCodeSent
+        {
+            get { return this._responseCodeSent.GetValueOrDefault(); }
+            set { this._responseCodeSent = value; }
+        }
+
+        // Check to see if ResponseCodeSent property is set
+        internal bool IsSetResponseCodeSent()
+        {
+            return this._responseCodeSent.HasValue; 
         }
 
         /// <summary>

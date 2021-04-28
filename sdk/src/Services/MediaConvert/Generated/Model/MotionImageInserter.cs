@@ -29,7 +29,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.MediaConvert.Model
 {
     /// <summary>
-    /// Overlay motion graphics on top of your video at the time that you specify.
+    /// Overlay motion graphics on top of your video. The motion graphics that you specify
+    /// here appear on all outputs in all output groups. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/motion-graphic-overlay.html.
     /// </summary>
     public partial class MotionImageInserter
     {
@@ -72,7 +73,7 @@ namespace Amazon.MediaConvert.Model
         /// there can be only 10 images in the sequence, with the last image being overlay_9.png.
         /// But if the first image is overlay_00.png, there can be 100 images in the sequence.
         /// </summary>
-        [AWSProperty(Min=14, Max=1285)]
+        [AWSProperty(Min=14)]
         public string Input
         {
             get { return this._input; }

@@ -60,12 +60,23 @@ namespace Amazon.ElasticFileSystem.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/2015-02-01/file-systems";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetAvailabilityZoneName())
+                {
+                    context.Writer.WritePropertyName("AvailabilityZoneName");
+                    context.Writer.Write(publicRequest.AvailabilityZoneName);
+                }
+
+                if(publicRequest.IsSetBackup())
+                {
+                    context.Writer.WritePropertyName("Backup");
+                    context.Writer.Write(publicRequest.Backup);
+                }
+
                 if(publicRequest.IsSetCreationToken())
                 {
                     context.Writer.WritePropertyName("CreationToken");

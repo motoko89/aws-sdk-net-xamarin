@@ -30,16 +30,20 @@ namespace Amazon.SecurityHub.Model
 {
     /// <summary>
     /// Container for the parameters to the AcceptInvitation operation.
-    /// Accepts the invitation to be a member account and be monitored by the Security Hub
-    /// master account that the invitation was sent from.
+    /// This method is deprecated. Instead, use <code>AcceptAdministratorInvitation</code>.
     /// 
+    ///  
+    /// <para>
+    /// Accepts the invitation to be a member account and be monitored by the Security Hub
+    /// administrator account that the invitation was sent from.
+    /// </para>
     ///  
     /// <para>
     /// This operation is only used by member accounts that are not added through Organizations.
     /// </para>
     ///  
     /// <para>
-    /// When the member account accepts the invitation, permission is granted to the master
+    /// When the member account accepts the invitation, permission is granted to the administrator
     /// account to view findings generated in the member account.
     /// </para>
     /// </summary>
@@ -51,7 +55,7 @@ namespace Amazon.SecurityHub.Model
         /// <summary>
         /// Gets and sets the property InvitationId. 
         /// <para>
-        /// The ID of the invitation sent from the Security Hub master account.
+        /// The identifier of the invitation sent from the Security Hub administrator account.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -70,7 +74,7 @@ namespace Amazon.SecurityHub.Model
         /// <summary>
         /// Gets and sets the property MasterId. 
         /// <para>
-        /// The account ID of the Security Hub master account that sent the invitation.
+        /// The account ID of the Security Hub administrator account that sent the invitation.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

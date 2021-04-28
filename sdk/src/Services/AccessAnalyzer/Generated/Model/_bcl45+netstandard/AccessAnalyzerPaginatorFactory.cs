@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -37,6 +36,22 @@ namespace Amazon.AccessAnalyzer.Model
         }
 
         /// <summary>
+        /// Paginator for ListAccessPreviewFindings operation
+        ///</summary>
+        public IListAccessPreviewFindingsPaginator ListAccessPreviewFindings(ListAccessPreviewFindingsRequest request) 
+        {
+            return new ListAccessPreviewFindingsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListAccessPreviews operation
+        ///</summary>
+        public IListAccessPreviewsPaginator ListAccessPreviews(ListAccessPreviewsRequest request) 
+        {
+            return new ListAccessPreviewsPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for ListAnalyzedResources operation
         ///</summary>
         public IListAnalyzedResourcesPaginator ListAnalyzedResources(ListAnalyzedResourcesRequest request) 
@@ -67,6 +82,21 @@ namespace Amazon.AccessAnalyzer.Model
         {
             return new ListFindingsPaginator(this.client, request);
         }
+
+        /// <summary>
+        /// Paginator for ListPolicyGenerations operation
+        ///</summary>
+        public IListPolicyGenerationsPaginator ListPolicyGenerations(ListPolicyGenerationsRequest request) 
+        {
+            return new ListPolicyGenerationsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ValidatePolicy operation
+        ///</summary>
+        public IValidatePolicyPaginator ValidatePolicy(ValidatePolicyRequest request) 
+        {
+            return new ValidatePolicyPaginator(this.client, request);
+        }
     }
 }
-#endif

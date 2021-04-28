@@ -719,6 +719,11 @@
     <max>63</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.SageMaker.Model.CreatePresignedDomainUrlRequest.ExpiresInSeconds</property>
+    <min>5</min>
+    <max>300</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.SageMaker.Model.CreatePresignedDomainUrlRequest.SessionExpirationDurationInSeconds</property>
     <min>1800</min>
     <max>43200</max>
@@ -4613,6 +4618,10 @@
     <pattern>^(https|s3)://([^/]+)/?(.*)$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.SageMaker.Model.AutoMLPartialFailureReason.PartialFailureMessage</property>
+    <max>1024</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.SageMaker.Model.AutoMLS3DataSource.S3Uri</property>
     <max>1024</max>
     <pattern>^(https|s3)://([^/]+)/?(.*)$</pattern>
@@ -4636,6 +4645,10 @@
     <property>Amazon.SageMaker.Model.CacheHitResult.SourcePipelineExecutionArn</property>
     <max>256</max>
     <pattern>^arn:aws[a-z\-]*:sagemaker:[a-z0-9\-]*:[0-9]{12}:pipeline\/.*\/execution\/.*$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SageMaker.Model.CandidateArtifactLocations.Explainability</property>
+    <min>1</min>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SageMaker.Model.CapacitySize.Value</property>
@@ -5459,7 +5472,6 @@
   <property-value-rule>
     <property>Amazon.SageMaker.Model.HumanTaskConfig.TaskAvailabilityLifetimeInSeconds</property>
     <min>60</min>
-    <max>864000</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SageMaker.Model.HumanTaskConfig.TaskDescription</property>
@@ -5470,7 +5482,6 @@
   <property-value-rule>
     <property>Amazon.SageMaker.Model.HumanTaskConfig.TaskTimeLimitInSeconds</property>
     <min>30</min>
-    <max>604800</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SageMaker.Model.HumanTaskConfig.TaskTitle</property>
@@ -5626,6 +5637,12 @@
     <min>1</min>
     <max>1024</max>
     <pattern>[\S\s]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SageMaker.Model.InputConfig.FrameworkVersion</property>
+    <min>3</min>
+    <max>10</max>
+    <pattern>[0-9]\.[A-Za-z0-9.]+</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SageMaker.Model.InputConfig.S3Uri</property>
@@ -6692,6 +6709,16 @@
     <pattern>^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.SageMaker.Model.ProductionVariantCoreDumpConfig.DestinationS3Uri</property>
+    <max>512</max>
+    <pattern>^(https|s3)://([^/])/?(.*)$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SageMaker.Model.ProductionVariantCoreDumpConfig.KmsKeyId</property>
+    <max>2048</max>
+    <pattern>.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.SageMaker.Model.ProductionVariantSummary.CurrentInstanceCount</property>
     <min>1</min>
   </property-value-rule>
@@ -6860,6 +6887,12 @@
     <pattern>[\S\s]+</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.SageMaker.Model.RepositoryAuthConfig.RepositoryCredentialsProviderArn</property>
+    <min>1</min>
+    <max>2048</max>
+    <pattern>.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.SageMaker.Model.ResourceConfig.InstanceCount</property>
     <min>1</min>
   </property-value-rule>
@@ -6899,6 +6932,11 @@
     <property>Amazon.SageMaker.Model.S3StorageConfig.KmsKeyId</property>
     <max>2048</max>
     <pattern>.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SageMaker.Model.S3StorageConfig.ResolvedOutputS3Uri</property>
+    <max>1024</max>
+    <pattern>^(https|s3)://([^/]+)/?(.*)$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SageMaker.Model.S3StorageConfig.S3Uri</property>

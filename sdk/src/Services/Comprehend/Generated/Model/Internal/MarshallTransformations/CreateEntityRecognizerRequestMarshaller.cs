@@ -62,7 +62,6 @@ namespace Amazon.Comprehend.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -100,6 +99,12 @@ namespace Amazon.Comprehend.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("LanguageCode");
                     context.Writer.Write(publicRequest.LanguageCode);
+                }
+
+                if(publicRequest.IsSetModelKmsKeyId())
+                {
+                    context.Writer.WritePropertyName("ModelKmsKeyId");
+                    context.Writer.Write(publicRequest.ModelKmsKeyId);
                 }
 
                 if(publicRequest.IsSetRecognizerName())

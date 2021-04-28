@@ -79,6 +79,56 @@ namespace Amazon.CloudFormation
 
 
     /// <summary>
+    /// Constants used for properties of type CallAs.
+    /// </summary>
+    public class CallAs : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DELEGATED_ADMIN for CallAs
+        /// </summary>
+        public static readonly CallAs DELEGATED_ADMIN = new CallAs("DELEGATED_ADMIN");
+        /// <summary>
+        /// Constant SELF for CallAs
+        /// </summary>
+        public static readonly CallAs SELF = new CallAs("SELF");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public CallAs(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static CallAs FindValue(string value)
+        {
+            return FindValue<CallAs>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator CallAs(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type Capability.
     /// </summary>
     public class Capability : ConstantClass
@@ -958,6 +1008,56 @@ namespace Amazon.CloudFormation
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ProvisioningType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type RegionConcurrencyType.
+    /// </summary>
+    public class RegionConcurrencyType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant PARALLEL for RegionConcurrencyType
+        /// </summary>
+        public static readonly RegionConcurrencyType PARALLEL = new RegionConcurrencyType("PARALLEL");
+        /// <summary>
+        /// Constant SEQUENTIAL for RegionConcurrencyType
+        /// </summary>
+        public static readonly RegionConcurrencyType SEQUENTIAL = new RegionConcurrencyType("SEQUENTIAL");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public RegionConcurrencyType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static RegionConcurrencyType FindValue(string value)
+        {
+            return FindValue<RegionConcurrencyType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator RegionConcurrencyType(string value)
         {
             return FindValue(value);
         }

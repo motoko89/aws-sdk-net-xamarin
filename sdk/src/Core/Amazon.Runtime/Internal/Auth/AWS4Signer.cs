@@ -18,7 +18,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Globalization;
-using System.Text.RegularExpressions;
 using Amazon.Util;
 using Amazon.Runtime.Internal.Util;
 
@@ -738,14 +737,15 @@ namespace Amazon.Runtime.Internal.Auth
         /// <remarks>For AWS4 signing, all headers are considered viable for inclusion</remarks>
         protected static IDictionary<string, string> SortAndPruneHeaders(IEnumerable<KeyValuePair<string, string>> requestHeaders)
         {
-            var sortedHeaders = new SortedDictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            // Refer https://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html. (Step #4: "Build the canonical headers list by sorting the (lowercase) headers by character code"). StringComparer.OrdinalIgnoreCase incorrectly places '_' after lowercase chracters.
+            var sortedHeaders = new SortedDictionary<string, string>(StringComparer.Ordinal);
             foreach (var header in requestHeaders)
             {
                 if (_headersToIgnoreWhenSigning.Contains(header.Key))
                 {
                     continue;
                 }
-                sortedHeaders.Add(header.Key, header.Value);
+                sortedHeaders.Add(header.Key.ToLowerInvariant(), header.Value);
             }
             
             return sortedHeaders;
@@ -961,6 +961,12 @@ namespace Amazon.Runtime.Internal.Auth
         internal const string XAmzCredential = "X-Amz-Credential";
         internal const string XAmzExpires = "X-Amz-Expires";
 
+        private static HashSet<string> ServicesUsingUnsignedPayload = new HashSet<string>()
+        {
+            "s3",
+            "s3-object-lambda"
+        };
+
         /// <summary>
         /// Calculates and signs the specified request using the AWS4 signing protocol by using the
         /// AWS account credentials given in the method parameters. The resulting signature is added
@@ -1031,7 +1037,10 @@ namespace Amazon.Runtime.Internal.Auth
                                                  string awsAccessKeyId,
                                                  string awsSecretAccessKey)
         {
-            return SignRequest(request, clientConfig, metrics, awsAccessKeyId, awsSecretAccessKey, "s3", null);
+            var service = "s3";
+            if (!string.IsNullOrEmpty(request.OverrideSigningServiceName))
+                service = request.OverrideSigningServiceName;
+            return SignRequest(request, clientConfig, metrics, awsAccessKeyId, awsSecretAccessKey, service, null);
         }
 
         /// <summary>
@@ -1123,7 +1132,7 @@ namespace Amazon.Runtime.Internal.Auth
                                                        request.HttpMethod,
                                                        sortedHeaders,
                                                        canonicalQueryParams,
-                                                       service == "s3" ? UnsignedPayload : EmptyBodySha256,
+                                                       ServicesUsingUnsignedPayload.Contains(service) ? UnsignedPayload : EmptyBodySha256,
                                                        request.PathResources,
                                                        request.MarshallerVersion,
                                                        service);

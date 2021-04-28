@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -58,6 +57,14 @@ namespace Amazon.GameLift.Model
         public IDescribeFleetEventsPaginator DescribeFleetEvents(DescribeFleetEventsRequest request) 
         {
             return new DescribeFleetEventsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for DescribeFleetLocationAttributes operation
+        ///</summary>
+        public IDescribeFleetLocationAttributesPaginator DescribeFleetLocationAttributes(DescribeFleetLocationAttributesRequest request) 
+        {
+            return new DescribeFleetLocationAttributesPaginator(this.client, request);
         }
 
         /// <summary>
@@ -197,4 +204,3 @@ namespace Amazon.GameLift.Model
         }
     }
 }
-#endif

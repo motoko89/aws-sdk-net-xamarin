@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -77,6 +76,16 @@ namespace Amazon.Redshift.Model
         IDescribeDefaultClusterParametersPaginator DescribeDefaultClusterParameters(DescribeDefaultClusterParametersRequest request);
 
         /// <summary>
+        /// Paginator for DescribeEndpointAccess operation
+        ///</summary>
+        IDescribeEndpointAccessPaginator DescribeEndpointAccess(DescribeEndpointAccessRequest request);
+
+        /// <summary>
+        /// Paginator for DescribeEndpointAuthorization operation
+        ///</summary>
+        IDescribeEndpointAuthorizationPaginator DescribeEndpointAuthorization(DescribeEndpointAuthorizationRequest request);
+
+        /// <summary>
         /// Paginator for DescribeEvents operation
         ///</summary>
         IDescribeEventsPaginator DescribeEvents(DescribeEventsRequest request);
@@ -152,4 +161,3 @@ namespace Amazon.Redshift.Model
         IGetReservedNodeExchangeOfferingsPaginator GetReservedNodeExchangeOfferings(GetReservedNodeExchangeOfferingsRequest request);
     }
 }
-#endif

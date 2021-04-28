@@ -62,7 +62,6 @@ namespace Amazon.CodePipeline.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -78,6 +77,12 @@ namespace Amazon.CodePipeline.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("nextToken");
                     context.Writer.Write(publicRequest.NextToken);
+                }
+
+                if(publicRequest.IsSetRegionFilter())
+                {
+                    context.Writer.WritePropertyName("regionFilter");
+                    context.Writer.Write(publicRequest.RegionFilter);
                 }
 
         

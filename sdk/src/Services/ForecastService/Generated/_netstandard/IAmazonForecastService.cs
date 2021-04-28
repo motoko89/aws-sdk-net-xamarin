@@ -33,9 +33,6 @@ namespace Amazon.ForecastService
     ///
     /// Provides APIs for creating and managing Amazon Forecast resources.
     /// </summary>
-#if NETSTANDARD13
-    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
-#endif
     public partial interface IAmazonForecastService : IAmazonService, IDisposable
     {
 #if AWS_ASYNC_ENUMERABLES_API
@@ -1420,6 +1417,67 @@ namespace Amazon.ForecastService
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/forecast-2018-06-26/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
         Task<ListTagsForResourceResponse> ListTagsForResourceAsync(ListTagsForResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  StopResource
+
+
+
+        /// <summary>
+        /// Stops a resource.
+        /// 
+        ///  
+        /// <para>
+        /// The resource undergoes the following states: <code>CREATE_STOPPING</code> and <code>CREATE_STOPPED</code>.
+        /// You cannot resume a resource once it has been stopped.
+        /// </para>
+        ///  
+        /// <para>
+        /// This operation can be applied to the following resources (and their corresponding
+        /// child resources):
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Dataset Import Job
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Predictor Job
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Forecast Job
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Forecast Export Job
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Predictor Backtest Export Job
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StopResource service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StopResource service method, as returned by ForecastService.</returns>
+        /// <exception cref="Amazon.ForecastService.Model.InvalidInputException">
+        /// We can't process the request because it includes an invalid value or a value that
+        /// exceeds the valid range.
+        /// </exception>
+        /// <exception cref="Amazon.ForecastService.Model.LimitExceededException">
+        /// The limit on the number of resources per account has been exceeded.
+        /// </exception>
+        /// <exception cref="Amazon.ForecastService.Model.ResourceNotFoundException">
+        /// We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+        /// again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/forecast-2018-06-26/StopResource">REST API Reference for StopResource Operation</seealso>
+        Task<StopResourceResponse> StopResourceAsync(StopResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 

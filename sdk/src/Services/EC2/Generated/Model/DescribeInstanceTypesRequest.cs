@@ -166,6 +166,11 @@ namespace Amazon.EC2.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
+        ///  <code>network-info.efa-info.maximum-efa-interfaces</code> - The maximum number of
+        /// Elastic Fabric Adapters (EFAs) per instance.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         ///  <code>network-info.efa-supported</code> - Indicates whether the instance type supports
         /// Elastic Fabric Adapter (EFA) (<code>true</code> | <code>false</code>).
         /// </para>
@@ -208,6 +213,10 @@ namespace Amazon.EC2.Model
         /// <para>
         ///  <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in
         /// GHz.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>supported-boot-mode</code> - The boot mode (<code>legacy-bios</code> | <code>uefi</code>).
         /// </para>
         ///  </li> <li> 
         /// <para>

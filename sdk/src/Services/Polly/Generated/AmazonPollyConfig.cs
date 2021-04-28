@@ -32,7 +32,7 @@ namespace Amazon.Polly
     public partial class AmazonPollyConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.5.1.31");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.15");
 
         private string _userAgent = UserAgentString;
 

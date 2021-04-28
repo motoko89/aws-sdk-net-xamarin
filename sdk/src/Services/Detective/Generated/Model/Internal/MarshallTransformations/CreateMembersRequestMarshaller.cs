@@ -60,7 +60,6 @@ namespace Amazon.Detective.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/graph/members";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -80,6 +79,12 @@ namespace Amazon.Detective.Model.Internal.MarshallTransformations
                         context.Writer.WriteObjectEnd();
                     }
                     context.Writer.WriteArrayEnd();
+                }
+
+                if(publicRequest.IsSetDisableEmailNotification())
+                {
+                    context.Writer.WritePropertyName("DisableEmailNotification");
+                    context.Writer.Write(publicRequest.DisableEmailNotification);
                 }
 
                 if(publicRequest.IsSetGraphArn())

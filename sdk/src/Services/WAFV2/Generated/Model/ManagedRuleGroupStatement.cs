@@ -29,19 +29,10 @@ using Amazon.Runtime.Internal;
 namespace Amazon.WAFV2.Model
 {
     /// <summary>
-    /// <note> 
-    /// <para>
-    /// This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November,
-    /// 2019. For information, including how to migrate your AWS WAF resources from the prior
-    /// release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
-    /// WAF Developer Guide</a>. 
-    /// </para>
-    ///  </note> 
-    /// <para>
     /// A rule statement used to run the rules that are defined in a managed rule group. To
     /// use this, provide the vendor name and the name of the rule group in this statement.
     /// You can retrieve the required names by calling <a>ListAvailableManagedRuleGroups</a>.
-    /// </para>
+    /// 
     ///  
     /// <para>
     /// You can't nest a <code>ManagedRuleGroupStatement</code>, for example for use inside
@@ -53,6 +44,7 @@ namespace Amazon.WAFV2.Model
     {
         private List<ExcludedRule> _excludedRules = new List<ExcludedRule>();
         private string _name;
+        private Statement _scopeDownStatement;
         private string _vendorName;
 
         /// <summary>
@@ -93,6 +85,21 @@ namespace Amazon.WAFV2.Model
         internal bool IsSetName()
         {
             return this._name != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ScopeDownStatement.
+        /// </summary>
+        public Statement ScopeDownStatement
+        {
+            get { return this._scopeDownStatement; }
+            set { this._scopeDownStatement = value; }
+        }
+
+        // Check to see if ScopeDownStatement property is set
+        internal bool IsSetScopeDownStatement()
+        {
+            return this._scopeDownStatement != null;
         }
 
         /// <summary>

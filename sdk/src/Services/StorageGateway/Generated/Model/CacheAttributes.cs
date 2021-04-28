@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.StorageGateway.Model
 {
     /// <summary>
-    /// Lists refresh cache information.
+    /// The refresh cache information for the file share.
     /// </summary>
     public partial class CacheAttributes
     {
@@ -40,8 +40,8 @@ namespace Amazon.StorageGateway.Model
         /// <para>
         /// Refreshes a file share's cache by using Time To Live (TTL). TTL is the length of time
         /// since the last refresh after which access to the directory would cause the file gateway
-        /// to first refresh that directory's contents from the Amazon S3 bucket. The TTL duration
-        /// is in seconds.
+        /// to first refresh that directory's contents from the Amazon S3 bucket or Amazon FSx
+        /// file system. The TTL duration is in seconds.
         /// </para>
         ///  
         /// <para>

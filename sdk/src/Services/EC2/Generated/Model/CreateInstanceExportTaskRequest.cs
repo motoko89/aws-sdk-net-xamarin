@@ -36,7 +36,7 @@ namespace Amazon.EC2.Model
     /// <para>
     /// For information about the supported operating systems, image formats, and known limitations
     /// for the types of instances you can export, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html">Exporting
-    /// an Instance as a VM Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
+    /// an instance as a VM Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
     /// </para>
     /// </summary>
     public partial class CreateInstanceExportTaskRequest : AmazonEC2Request
@@ -69,7 +69,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property ExportToS3Task. 
         /// <para>
-        /// The format and location for an instance export task.
+        /// The format and location for an export instance task.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -107,7 +107,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property TagSpecifications. 
         /// <para>
-        /// The tags to apply to the instance export task during creation.
+        /// The tags to apply to the export instance task during creation.
         /// </para>
         /// </summary>
         public List<TagSpecification> TagSpecifications

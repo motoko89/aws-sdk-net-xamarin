@@ -63,9 +63,6 @@ namespace Amazon.AppStream
     /// </para>
     ///  </li> </ul>
     /// </summary>
-#if NETSTANDARD13
-    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
-#endif
     public partial interface IAmazonAppStream : IAmazonService, IDisposable
     {
 #if AWS_ASYNC_ENUMERABLES_API
@@ -92,7 +89,7 @@ namespace Amazon.AppStream
         /// An API error occurred. Wait a few minutes and try again.
         /// </exception>
         /// <exception cref="Amazon.AppStream.Model.IncompatibleImageException">
-        /// The image does not support storage connectors.
+        /// The image can't be updated because it's not compatible for updates.
         /// </exception>
         /// <exception cref="Amazon.AppStream.Model.InvalidAccountStatusException">
         /// The resource cannot be created because your AWS account is suspended. For assistance,
@@ -176,7 +173,7 @@ namespace Amazon.AppStream
         /// 
         /// <returns>The response from the CopyImage service method, as returned by AppStream.</returns>
         /// <exception cref="Amazon.AppStream.Model.IncompatibleImageException">
-        /// The image does not support storage connectors.
+        /// The image can't be updated because it's not compatible for updates.
         /// </exception>
         /// <exception cref="Amazon.AppStream.Model.InvalidAccountStatusException">
         /// The resource cannot be created because your AWS account is suspended. For assistance,
@@ -255,7 +252,7 @@ namespace Amazon.AppStream
         /// An API error occurred. Wait a few minutes and try again.
         /// </exception>
         /// <exception cref="Amazon.AppStream.Model.IncompatibleImageException">
-        /// The image does not support storage connectors.
+        /// The image can't be updated because it's not compatible for updates.
         /// </exception>
         /// <exception cref="Amazon.AppStream.Model.InvalidAccountStatusException">
         /// The resource cannot be created because your AWS account is suspended. For assistance,
@@ -315,7 +312,7 @@ namespace Amazon.AppStream
         /// An API error occurred. Wait a few minutes and try again.
         /// </exception>
         /// <exception cref="Amazon.AppStream.Model.IncompatibleImageException">
-        /// The image does not support storage connectors.
+        /// The image can't be updated because it's not compatible for updates.
         /// </exception>
         /// <exception cref="Amazon.AppStream.Model.InvalidAccountStatusException">
         /// The resource cannot be created because your AWS account is suspended. For assistance,
@@ -444,6 +441,54 @@ namespace Amazon.AppStream
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/CreateStreamingURL">REST API Reference for CreateStreamingURL Operation</seealso>
         Task<CreateStreamingURLResponse> CreateStreamingURLAsync(CreateStreamingURLRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  CreateUpdatedImage
+
+
+
+        /// <summary>
+        /// Creates a new image with the latest Windows operating system updates, driver updates,
+        /// and AppStream 2.0 agent software.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see the "Update an Image by Using Managed AppStream 2.0 Image
+        /// Updates" section in <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html">Administer
+        /// Your AppStream 2.0 Images</a>, in the <i>Amazon AppStream 2.0 Administration Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateUpdatedImage service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateUpdatedImage service method, as returned by AppStream.</returns>
+        /// <exception cref="Amazon.AppStream.Model.ConcurrentModificationException">
+        /// An API error occurred. Wait a few minutes and try again.
+        /// </exception>
+        /// <exception cref="Amazon.AppStream.Model.IncompatibleImageException">
+        /// The image can't be updated because it's not compatible for updates.
+        /// </exception>
+        /// <exception cref="Amazon.AppStream.Model.InvalidAccountStatusException">
+        /// The resource cannot be created because your AWS account is suspended. For assistance,
+        /// contact AWS Support.
+        /// </exception>
+        /// <exception cref="Amazon.AppStream.Model.LimitExceededException">
+        /// The requested limit exceeds the permitted limit for an account.
+        /// </exception>
+        /// <exception cref="Amazon.AppStream.Model.OperationNotPermittedException">
+        /// The attempted operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.AppStream.Model.ResourceAlreadyExistsException">
+        /// The specified resource already exists.
+        /// </exception>
+        /// <exception cref="Amazon.AppStream.Model.ResourceNotFoundException">
+        /// The specified resource was not found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/CreateUpdatedImage">REST API Reference for CreateUpdatedImage Operation</seealso>
+        Task<CreateUpdatedImageResponse> CreateUpdatedImageAsync(CreateUpdatedImageRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -1194,7 +1239,7 @@ namespace Amazon.AppStream
         /// An API error occurred. Wait a few minutes and try again.
         /// </exception>
         /// <exception cref="Amazon.AppStream.Model.IncompatibleImageException">
-        /// The image does not support storage connectors.
+        /// The image can't be updated because it's not compatible for updates.
         /// </exception>
         /// <exception cref="Amazon.AppStream.Model.InvalidAccountStatusException">
         /// The resource cannot be created because your AWS account is suspended. For assistance,
@@ -1400,7 +1445,7 @@ namespace Amazon.AppStream
         /// An API error occurred. Wait a few minutes and try again.
         /// </exception>
         /// <exception cref="Amazon.AppStream.Model.IncompatibleImageException">
-        /// The image does not support storage connectors.
+        /// The image can't be updated because it's not compatible for updates.
         /// </exception>
         /// <exception cref="Amazon.AppStream.Model.InvalidAccountStatusException">
         /// The resource cannot be created because your AWS account is suspended. For assistance,
@@ -1480,7 +1525,7 @@ namespace Amazon.AppStream
         /// An API error occurred. Wait a few minutes and try again.
         /// </exception>
         /// <exception cref="Amazon.AppStream.Model.IncompatibleImageException">
-        /// The image does not support storage connectors.
+        /// The image can't be updated because it's not compatible for updates.
         /// </exception>
         /// <exception cref="Amazon.AppStream.Model.InvalidAccountStatusException">
         /// The resource cannot be created because your AWS account is suspended. For assistance,

@@ -31,6 +31,7 @@ namespace Amazon.S3.Model
 
         private string md5Digest;
         private string expectedBucketOwner;
+        private RequestPayer requestPayer;
 
         /// <summary>
         /// <para>The bucket name containing the object.</para>
@@ -117,7 +118,7 @@ namespace Amazon.S3.Model
         }
 
         /// <summary>
-        /// The account id of the expected bucket owner. 
+        /// The account ID of the expected bucket owner. 
         /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
         public string ExpectedBucketOwner
@@ -133,6 +134,21 @@ namespace Amazon.S3.Model
         internal bool IsSetExpectedBucketOwner()
         {
             return !String.IsNullOrEmpty(this.expectedBucketOwner);
+        }
+
+        /// <summary>
+        /// <para>Confirms that the requester knows that they will be charged for the request. 
+        /// Bucket owners need not specify this parameter in their requests</para>.
+        /// </summary>
+        public RequestPayer RequestPayer
+        {
+            get { return this.requestPayer; }
+            set { this.requestPayer = value; }
+        }
+
+        internal bool IsSetRequestPayer()
+        {
+            return requestPayer != null;
         }
     }
 }

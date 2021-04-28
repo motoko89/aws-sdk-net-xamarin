@@ -194,9 +194,10 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property Groups. 
         /// <para>
-        /// [EC2-VPC] Changes the security groups of the instance. You must specify at least one
-        /// security group, even if it's just the default security group for the VPC. You must
-        /// specify the security group ID, not the security group name.
+        /// [EC2-VPC] Replaces the security groups of the instance with the specified security
+        /// groups. You must specify at least one security group, even if it's just the default
+        /// security group for the VPC. You must specify the security group ID, not the security
+        /// group name.
         /// </para>
         /// </summary>
         public List<string> Groups
@@ -310,9 +311,11 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property SourceDestCheck. 
         /// <para>
-        /// Specifies whether source/destination checking is enabled. A value of <code>true</code>
-        /// means that checking is enabled, and <code>false</code> means that checking is disabled.
-        /// This value must be <code>false</code> for a NAT instance to perform NAT.
+        /// Enable or disable source/destination checks, which ensure that the instance is either
+        /// the source or the destination of any traffic that it receives. If the value is <code>true</code>,
+        /// source/destination checks are enabled; otherwise, they are disabled. The default value
+        /// is <code>true</code>. You must disable source/destination checks if the instance runs
+        /// services such as network address translation, routing, or firewalls.
         /// </para>
         /// </summary>
         public bool SourceDestCheck

@@ -83,7 +83,7 @@ namespace Amazon.AutoScaling.Model
         /// <para>
         /// Specifies that the group is to be deleted along with all instances associated with
         /// the group, without waiting for all instances to be terminated. This parameter also
-        /// deletes any lifecycle actions associated with the group.
+        /// deletes any outstanding lifecycle actions associated with the group.
         /// </para>
         /// </summary>
         public bool ForceDelete

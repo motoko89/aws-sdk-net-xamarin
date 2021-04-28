@@ -41,6 +41,7 @@ namespace Amazon.CodeBuild.Model
         private ProjectCache _cacheOverride;
         private string _certificateOverride;
         private ComputeType _computeTypeOverride;
+        private bool? _debugSessionEnabled;
         private string _encryptionKeyOverride;
         private EnvironmentType _environmentTypeOverride;
         private List<EnvironmentVariable> _environmentVariablesOverride = new List<EnvironmentVariable>();
@@ -206,6 +207,27 @@ namespace Amazon.CodeBuild.Model
         internal bool IsSetComputeTypeOverride()
         {
             return this._computeTypeOverride != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property DebugSessionEnabled. 
+        /// <para>
+        /// Specifies if session debugging is enabled for this batch build. For more information,
+        /// see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html">Viewing
+        /// a running build in Session Manager</a>. Batch session debugging is not supported for
+        /// matrix batch builds.
+        /// </para>
+        /// </summary>
+        public bool DebugSessionEnabled
+        {
+            get { return this._debugSessionEnabled.GetValueOrDefault(); }
+            set { this._debugSessionEnabled = value; }
+        }
+
+        // Check to see if DebugSessionEnabled property is set
+        internal bool IsSetDebugSessionEnabled()
+        {
+            return this._debugSessionEnabled.HasValue; 
         }
 
         /// <summary>
@@ -695,7 +717,7 @@ namespace Amazon.CodeBuild.Model
         /// code you want to build. If a branch name is specified, the branch's HEAD commit ID
         /// is used. If not specified, the default branch's HEAD commit ID is used.
         /// </para>
-        ///  </dd> <dt>Amazon Simple Storage Service (Amazon S3)</dt> <dd> 
+        ///  </dd> <dt>Amazon S3</dt> <dd> 
         /// <para>
         /// The version ID of the object that represents the build input ZIP file to use.
         /// </para>

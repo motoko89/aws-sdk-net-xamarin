@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -66,6 +65,14 @@ namespace Amazon.DatabaseMigrationService.Model
         public IDescribeEndpointsPaginator DescribeEndpoints(DescribeEndpointsRequest request) 
         {
             return new DescribeEndpointsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for DescribeEndpointSettings operation
+        ///</summary>
+        public IDescribeEndpointSettingsPaginator DescribeEndpointSettings(DescribeEndpointSettingsRequest request) 
+        {
+            return new DescribeEndpointSettingsPaginator(this.client, request);
         }
 
         /// <summary>
@@ -181,4 +188,3 @@ namespace Amazon.DatabaseMigrationService.Model
         }
     }
 }
-#endif

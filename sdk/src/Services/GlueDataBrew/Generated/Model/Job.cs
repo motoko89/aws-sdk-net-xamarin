@@ -39,6 +39,7 @@ namespace Amazon.GlueDataBrew.Model
         private string _datasetName;
         private string _encryptionKeyArn;
         private EncryptionMode _encryptionMode;
+        private JobSample _jobSample;
         private string _lastModifiedBy;
         private DateTime? _lastModifiedDate;
         private LogSubscription _logSubscription;
@@ -156,7 +157,7 @@ namespace Amazon.GlueDataBrew.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>SSE-KMS</code> - Server-side encryption with AWS KMS-managed keys.
+        ///  <code>SSE-KMS</code> - Server-side encryption with keys managed by AWS KMS.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -174,6 +175,27 @@ namespace Amazon.GlueDataBrew.Model
         internal bool IsSetEncryptionMode()
         {
             return this._encryptionMode != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property JobSample. 
+        /// <para>
+        /// A sample configuration for profile jobs only, which determines the number of rows
+        /// on which the profile job is run. If a <code>JobSample</code> value isn't provided,
+        /// the default value is used. The default value is CUSTOM_ROWS for the mode parameter
+        /// and 20,000 for the size parameter.
+        /// </para>
+        /// </summary>
+        public JobSample JobSample
+        {
+            get { return this._jobSample; }
+            set { this._jobSample = value; }
+        }
+
+        // Check to see if JobSample property is set
+        internal bool IsSetJobSample()
+        {
+            return this._jobSample != null;
         }
 
         /// <summary>
@@ -364,7 +386,7 @@ namespace Amazon.GlueDataBrew.Model
         /// <summary>
         /// Gets and sets the property RoleArn. 
         /// <para>
-        /// The Amazon Resource Name (ARN) of the role that will be assumed for this job.
+        /// The Amazon Resource Name (ARN) of the role to be assumed for this job.
         /// </para>
         /// </summary>
         [AWSProperty(Min=20, Max=2048)]

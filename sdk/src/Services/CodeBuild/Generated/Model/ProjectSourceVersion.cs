@@ -39,7 +39,8 @@ namespace Amazon.CodeBuild.Model
         /// <summary>
         /// Gets and sets the property SourceIdentifier. 
         /// <para>
-        /// An identifier for a source in the build project.
+        /// An identifier for a source in the build project. The identifier can only contain alphanumeric
+        /// characters and underscores, and must be less than 128 characters in length. 
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -81,8 +82,8 @@ namespace Amazon.CodeBuild.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents
-        /// the build input ZIP file to use.
+        /// For Amazon S3: the version ID of the object that represents the build input ZIP file
+        /// to use.
         /// </para>
         ///  </li> </ul> 
         /// <para>

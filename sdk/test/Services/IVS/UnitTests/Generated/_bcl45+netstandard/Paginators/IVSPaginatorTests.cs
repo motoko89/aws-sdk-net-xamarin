@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -109,6 +108,45 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
 
             _mockClient.Setup(x => x.ListPlaybackKeyPairs(request)).Returns(response);
             var paginator = _mockClient.Object.Paginators.ListPlaybackKeyPairs(request);
+
+            // Should work the first time
+            paginator.Responses.ToList();
+
+            // Second time should throw an exception
+            paginator.Responses.ToList();
+        }
+
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("IVS")]
+        public void ListRecordingConfigurationsTest_TwoPages()
+        {
+            var request = InstantiateClassGenerator.Execute<ListRecordingConfigurationsRequest>();
+
+            var firstResponse = InstantiateClassGenerator.Execute<ListRecordingConfigurationsResponse>();
+            var secondResponse = InstantiateClassGenerator.Execute<ListRecordingConfigurationsResponse>();
+            secondResponse.NextToken = null;
+
+            _mockClient.SetupSequence(x => x.ListRecordingConfigurations(request)).Returns(firstResponse).Returns(secondResponse);
+            var paginator = _mockClient.Object.Paginators.ListRecordingConfigurations(request);
+            
+            Assert.AreEqual(2, paginator.Responses.ToList().Count);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("IVS")]
+        [ExpectedException(typeof(System.InvalidOperationException), "Paginator has already been consumed and cannot be reused. Please create a new instance.")]
+        public void ListRecordingConfigurationsTest__OnlyUsedOnce()
+        {
+            var request = InstantiateClassGenerator.Execute<ListRecordingConfigurationsRequest>();
+
+            var response = InstantiateClassGenerator.Execute<ListRecordingConfigurationsResponse>();
+            response.NextToken = null;
+
+            _mockClient.Setup(x => x.ListRecordingConfigurations(request)).Returns(response);
+            var paginator = _mockClient.Object.Paginators.ListRecordingConfigurations(request);
 
             // Should work the first time
             paginator.Responses.ToList();
@@ -236,4 +274,3 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
 
     }
 }
-#endif

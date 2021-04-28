@@ -70,6 +70,12 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
                     unmarshalledObject.ColorSpace = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("colorSpaceSettings", targetDepth))
+                {
+                    var unmarshaller = VideoSelectorColorSpaceSettingsUnmarshaller.Instance;
+                    unmarshalledObject.ColorSpaceSettings = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("colorSpaceUsage", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

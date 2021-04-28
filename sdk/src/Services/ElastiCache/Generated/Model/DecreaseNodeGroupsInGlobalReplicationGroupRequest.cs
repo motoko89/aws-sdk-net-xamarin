@@ -30,7 +30,7 @@ namespace Amazon.ElastiCache.Model
 {
     /// <summary>
     /// Container for the parameters to the DecreaseNodeGroupsInGlobalReplicationGroup operation.
-    /// Decreases the number of node groups in a Global Datastore
+    /// Decreases the number of node groups in a Global datastore
     /// </summary>
     public partial class DecreaseNodeGroupsInGlobalReplicationGroupRequest : AmazonElastiCacheRequest
     {
@@ -64,9 +64,9 @@ namespace Amazon.ElastiCache.Model
         /// Gets and sets the property GlobalNodeGroupsToRemove. 
         /// <para>
         /// If the value of NodeGroupCount is less than the current number of node groups (shards),
-        /// then either NodeGroupsToRemove or NodeGroupsToRetain is required. NodeGroupsToRemove
+        /// then either NodeGroupsToRemove or NodeGroupsToRetain is required. GlobalNodeGroupsToRemove
         /// is a list of NodeGroupIds to remove from the cluster. ElastiCache for Redis will attempt
-        /// to remove all node groups listed by NodeGroupsToRemove from the cluster. 
+        /// to remove all node groups listed by GlobalNodeGroupsToRemove from the cluster. 
         /// </para>
         /// </summary>
         public List<string> GlobalNodeGroupsToRemove
@@ -85,9 +85,9 @@ namespace Amazon.ElastiCache.Model
         /// Gets and sets the property GlobalNodeGroupsToRetain. 
         /// <para>
         /// If the value of NodeGroupCount is less than the current number of node groups (shards),
-        /// then either NodeGroupsToRemove or NodeGroupsToRetain is required. NodeGroupsToRemove
-        /// is a list of NodeGroupIds to remove from the cluster. ElastiCache for Redis will attempt
-        /// to remove all node groups listed by NodeGroupsToRemove from the cluster. 
+        /// then either NodeGroupsToRemove or NodeGroupsToRetain is required. GlobalNodeGroupsToRetain
+        /// is a list of NodeGroupIds to retain from the cluster. ElastiCache for Redis will attempt
+        /// to retain all node groups listed by GlobalNodeGroupsToRetain from the cluster. 
         /// </para>
         /// </summary>
         public List<string> GlobalNodeGroupsToRetain
@@ -105,7 +105,7 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property GlobalReplicationGroupId. 
         /// <para>
-        /// The name of the Global Datastore
+        /// The name of the Global datastore
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

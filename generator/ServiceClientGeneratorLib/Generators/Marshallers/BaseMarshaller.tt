@@ -27,14 +27,6 @@ using Amazon.Runtime.Internal.Util;
 #>
 
 <#+
-    protected int MarshallerVersion
-    {
-        get
-        {
-            return 2;
-        }
-    }
-
 	// Only applicable for rest-json and rest-xml
     // Generates code to add members to the header of the request
     // If it's a custom marshaller then it calls the custom marshaller first
@@ -199,6 +191,14 @@ using Amazon.Runtime.Internal.Util;
 				request.Parameters.Add("<#=member.MarshallLocationName#>", <#=member.PrimitiveMarshaller#>(<#=variableName#>.<#=member.PropertyName#>));
 <#+			
 				}
+                if(member.IsIdempotent)
+	            {
+#>
+            else            
+                request.Parameters.Add("<#=member.MarshallLocationName#>", System.Guid.NewGuid().ToString());
+                
+<#+ 
+	            }
 			}
 		}
 	}

@@ -222,9 +222,6 @@ namespace Amazon.GlobalAccelerator
     /// </para>
     ///  </dd> </dl>
     /// </summary>
-#if NETSTANDARD13
-    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
-#endif
     public partial interface IAmazonGlobalAccelerator : IAmazonService, IDisposable
     {
 #if AWS_ASYNC_ENUMERABLES_API
@@ -426,6 +423,12 @@ namespace Amazon.GlobalAccelerator
         /// individual port mappings that can receive traffic, see the <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html">
         /// AllowCustomRoutingTraffic</a> operation.
         /// </para>
+        ///  <important> 
+        /// <para>
+        /// Global Accelerator is a global service that supports endpoints in multiple AWS Regions
+        /// but you must specify the US West (Oregon) Region to create or update accelerators.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateCustomRoutingAccelerator service method.</param>
         /// <param name="cancellationToken">

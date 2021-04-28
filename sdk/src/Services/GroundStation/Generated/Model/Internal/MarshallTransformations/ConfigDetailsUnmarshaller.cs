@@ -76,6 +76,12 @@ namespace Amazon.GroundStation.Model.Internal.MarshallTransformations
                     unmarshalledObject.EndpointDetails = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("s3RecordingDetails", targetDepth))
+                {
+                    var unmarshaller = S3RecordingDetailsUnmarshaller.Instance;
+                    unmarshalledObject.S3RecordingDetails = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

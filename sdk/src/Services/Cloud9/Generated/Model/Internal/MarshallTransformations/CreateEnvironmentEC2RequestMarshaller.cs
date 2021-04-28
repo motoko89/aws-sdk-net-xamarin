@@ -62,7 +62,6 @@ namespace Amazon.Cloud9.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -90,6 +89,12 @@ namespace Amazon.Cloud9.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("description");
                     context.Writer.Write(publicRequest.Description);
+                }
+
+                if(publicRequest.IsSetImageId())
+                {
+                    context.Writer.WritePropertyName("imageId");
+                    context.Writer.Write(publicRequest.ImageId);
                 }
 
                 if(publicRequest.IsSetInstanceType())

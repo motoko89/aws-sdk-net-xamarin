@@ -51,16 +51,34 @@ namespace Amazon.Pinpoint.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.Body);
             }
 
+            if(requestObject.IsSetEntityId())
+            {
+                context.Writer.WritePropertyName("EntityId");
+                context.Writer.Write(requestObject.EntityId);
+            }
+
             if(requestObject.IsSetMessageType())
             {
                 context.Writer.WritePropertyName("MessageType");
                 context.Writer.Write(requestObject.MessageType);
             }
 
+            if(requestObject.IsSetOriginationNumber())
+            {
+                context.Writer.WritePropertyName("OriginationNumber");
+                context.Writer.Write(requestObject.OriginationNumber);
+            }
+
             if(requestObject.IsSetSenderId())
             {
                 context.Writer.WritePropertyName("SenderId");
                 context.Writer.Write(requestObject.SenderId);
+            }
+
+            if(requestObject.IsSetTemplateId())
+            {
+                context.Writer.WritePropertyName("TemplateId");
+                context.Writer.Write(requestObject.TemplateId);
             }
 
         }

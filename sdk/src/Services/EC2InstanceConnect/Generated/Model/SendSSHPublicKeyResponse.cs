@@ -39,7 +39,7 @@ namespace Amazon.EC2InstanceConnect.Model
         /// <summary>
         /// Gets and sets the property RequestId. 
         /// <para>
-        /// The request ID as logged by EC2 Connect. Please provide this when contacting AWS Support.
+        /// The ID of the request. Please provide this ID when contacting AWS Support for assistance.
         /// </para>
         /// </summary>
         public string RequestId
@@ -57,7 +57,7 @@ namespace Amazon.EC2InstanceConnect.Model
         /// <summary>
         /// Gets and sets the property Success. 
         /// <para>
-        /// Indicates request success.
+        /// Is true if the request succeeds and an error otherwise.
         /// </para>
         /// </summary>
         public bool Success

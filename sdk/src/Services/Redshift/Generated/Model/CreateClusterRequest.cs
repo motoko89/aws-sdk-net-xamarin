@@ -45,6 +45,7 @@ namespace Amazon.Redshift.Model
     {
         private string _additionalInfo;
         private bool? _allowVersionUpgrade;
+        private AquaConfigurationStatus _aquaConfigurationStatus;
         private int? _automatedSnapshotRetentionPeriod;
         private string _availabilityZone;
         private bool? _availabilityZoneRelocation;
@@ -124,11 +125,49 @@ namespace Amazon.Redshift.Model
         }
 
         /// <summary>
+        /// Gets and sets the property AquaConfigurationStatus. 
+        /// <para>
+        /// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator)
+        /// when it is created. Possible values include the following.
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift
+        /// node type.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// disabled - Don't use AQUA. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// auto - Amazon Redshift determines whether to use AQUA.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        public AquaConfigurationStatus AquaConfigurationStatus
+        {
+            get { return this._aquaConfigurationStatus; }
+            set { this._aquaConfigurationStatus = value; }
+        }
+
+        // Check to see if AquaConfigurationStatus property is set
+        internal bool IsSetAquaConfigurationStatus()
+        {
+            return this._aquaConfigurationStatus != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property AutomatedSnapshotRetentionPeriod. 
         /// <para>
         /// The number of days that automated snapshots are retained. If the value is 0, automated
         /// snapshots are disabled. Even if automated snapshots are disabled, you can still create
         /// manual snapshots when you want with <a>CreateClusterSnapshot</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// You can't disable automated snapshots for RA3 node types. Set the automated retention
+        /// period from 1-35 days.
         /// </para>
         ///  
         /// <para>

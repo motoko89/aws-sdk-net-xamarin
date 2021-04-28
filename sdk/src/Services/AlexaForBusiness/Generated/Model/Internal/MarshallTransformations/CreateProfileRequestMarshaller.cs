@@ -62,7 +62,6 @@ namespace Amazon.AlexaForBusiness.Model.Internal.MarshallTransformations
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -85,6 +84,12 @@ namespace Amazon.AlexaForBusiness.Model.Internal.MarshallTransformations
                     context.Writer.WritePropertyName("ClientRequestToken");
                     context.Writer.Write(Guid.NewGuid().ToString());                                                
                 }
+                if(publicRequest.IsSetDataRetentionOptIn())
+                {
+                    context.Writer.WritePropertyName("DataRetentionOptIn");
+                    context.Writer.Write(publicRequest.DataRetentionOptIn);
+                }
+
                 if(publicRequest.IsSetDistanceUnit())
                 {
                     context.Writer.WritePropertyName("DistanceUnit");

@@ -1200,10 +1200,26 @@ namespace Amazon.ComputeOptimizer
         /// 
         ///  
         /// <para>
-        /// For example, it returns the number of Amazon EC2 instances in an account that are
-        /// under-provisioned, over-provisioned, or optimized. It also returns the number of Auto
-        /// Scaling groups in an account that are not optimized, or optimized.
+        /// It returns the number of:
         /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Amazon EC2 instances in an account that are <code>Underprovisioned</code>, <code>Overprovisioned</code>,
+        /// or <code>Optimized</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Auto Scaling groups in an account that are <code>NotOptimized</code>, or <code>Optimized</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Amazon EBS volumes in an account that are <code>NotOptimized</code>, or <code>Optimized</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Lambda functions in an account that are <code>NotOptimized</code>, or <code>Optimized</code>.
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetRecommendationSummaries service method.</param>
         /// 
@@ -1245,10 +1261,26 @@ namespace Amazon.ComputeOptimizer
         /// 
         ///  
         /// <para>
-        /// For example, it returns the number of Amazon EC2 instances in an account that are
-        /// under-provisioned, over-provisioned, or optimized. It also returns the number of Auto
-        /// Scaling groups in an account that are not optimized, or optimized.
+        /// It returns the number of:
         /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Amazon EC2 instances in an account that are <code>Underprovisioned</code>, <code>Overprovisioned</code>,
+        /// or <code>Optimized</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Auto Scaling groups in an account that are <code>NotOptimized</code>, or <code>Optimized</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Amazon EBS volumes in an account that are <code>NotOptimized</code>, or <code>Optimized</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Lambda functions in an account that are <code>NotOptimized</code>, or <code>Optimized</code>.
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetRecommendationSummaries service method.</param>
         /// <param name="cancellationToken">
@@ -1293,13 +1325,27 @@ namespace Amazon.ComputeOptimizer
 
 
         /// <summary>
-        /// Updates the enrollment (opt in) status of an account to the AWS Compute Optimizer
-        /// service.
+        /// Updates the enrollment (opt in and opt out) status of an account to the AWS Compute
+        /// Optimizer service.
         /// 
         ///  
         /// <para>
         /// If the account is a management account of an organization, this action can also be
         /// used to enroll member accounts within the organization.
+        /// </para>
+        ///  
+        /// <para>
+        /// You must have the appropriate permissions to opt in to Compute Optimizer, to view
+        /// its recommendations, and to opt out. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/ug/security-iam.html">Controlling
+        /// access with AWS Identity and Access Management</a> in the <i>Compute Optimizer User
+        /// Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// When you opt in, Compute Optimizer automatically creates a Service-Linked Role in
+        /// your account to access its data. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/ug/using-service-linked-roles.html">Using
+        /// Service-Linked Roles for AWS Compute Optimizer</a> in the <i>Compute Optimizer User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateEnrollmentStatus service method.</param>
@@ -1335,13 +1381,27 @@ namespace Amazon.ComputeOptimizer
 
 
         /// <summary>
-        /// Updates the enrollment (opt in) status of an account to the AWS Compute Optimizer
-        /// service.
+        /// Updates the enrollment (opt in and opt out) status of an account to the AWS Compute
+        /// Optimizer service.
         /// 
         ///  
         /// <para>
         /// If the account is a management account of an organization, this action can also be
         /// used to enroll member accounts within the organization.
+        /// </para>
+        ///  
+        /// <para>
+        /// You must have the appropriate permissions to opt in to Compute Optimizer, to view
+        /// its recommendations, and to opt out. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/ug/security-iam.html">Controlling
+        /// access with AWS Identity and Access Management</a> in the <i>Compute Optimizer User
+        /// Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// When you opt in, Compute Optimizer automatically creates a Service-Linked Role in
+        /// your account to access its data. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/ug/using-service-linked-roles.html">Using
+        /// Service-Linked Roles for AWS Compute Optimizer</a> in the <i>Compute Optimizer User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateEnrollmentStatus service method.</param>

@@ -1,4 +1,3 @@
-#if !NETSTANDARD13
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -30,6 +29,11 @@ namespace Amazon.FraudDetector.Model
         /// Paginator for DescribeModelVersions operation
         ///</summary>
         IDescribeModelVersionsPaginator DescribeModelVersions(DescribeModelVersionsRequest request);
+
+        /// <summary>
+        /// Paginator for GetBatchPredictionJobs operation
+        ///</summary>
+        IGetBatchPredictionJobsPaginator GetBatchPredictionJobs(GetBatchPredictionJobsRequest request);
 
         /// <summary>
         /// Paginator for GetDetectors operation
@@ -82,4 +86,3 @@ namespace Amazon.FraudDetector.Model
         IListTagsForResourcePaginator ListTagsForResource(ListTagsForResourceRequest request);
     }
 }
-#endif

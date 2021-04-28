@@ -109,7 +109,7 @@ namespace Amazon.S3
                 }
 
                 var fallbackToSigV2 = useSigV2Fallback && !AWSConfigsS3.UseSigV4SetExplicitly;
-                if (endpoint == RegionEndpoint.USEast1 && fallbackToSigV2)
+                if (endpoint?.SystemName == RegionEndpoint.USEast1.SystemName && fallbackToSigV2)
                 {
                     aws4Signing = false;
                 }
@@ -203,9 +203,6 @@ namespace Amazon.S3
 
             AmazonS3Util.SetMetadataHeaders(request, getPreSignedUrlRequest.Metadata);
 
-            if (!string.IsNullOrEmpty(token))
-                request.Headers[HeaderKeys.XAmzSecurityTokenHeader] = token;
-
             if (getPreSignedUrlRequest.ServerSideEncryptionMethod != null && getPreSignedUrlRequest.ServerSideEncryptionMethod != ServerSideEncryptionMethod.None)
                 request.Headers.Add(HeaderKeys.XAmzServerSideEncryptionHeader, S3Transforms.ToStringValue(getPreSignedUrlRequest.ServerSideEncryptionMethod));
             if (getPreSignedUrlRequest.IsSetServerSideEncryptionCustomerMethod())
@@ -240,7 +237,7 @@ namespace Amazon.S3
             queryParameters.Add(aws4Signing ? "X-Amz-Expires" : "Expires", expires.ToString(CultureInfo.InvariantCulture));
 
             if (!string.IsNullOrEmpty(token))
-                queryParameters.Add("x-amz-security-token", token);
+                queryParameters.Add(aws4Signing ? "X-Amz-Security-Token" : "x-amz-security-token", token);
             if (!aws4Signing)
                 queryParameters.Add("AWSAccessKeyId", accessKey);
             if (getPreSignedUrlRequest.IsSetVersionId())
@@ -269,7 +266,6 @@ namespace Amazon.S3
             foreach (string k in getPreSignedUrlRequest.Parameters.Keys)
                 queryParameters.Add(k, getPreSignedUrlRequest.Parameters[k]);
 
-			request.MarshallerVersion = 2;
             request.ResourcePath = uriResourcePath.ToString();
             request.UseQueryString = true;
 

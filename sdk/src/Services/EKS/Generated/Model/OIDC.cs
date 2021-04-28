@@ -30,7 +30,7 @@ namespace Amazon.EKS.Model
 {
     /// <summary>
     /// An object representing the <a href="https://openid.net/connect/">OpenID Connect</a>
-    /// identity provider information for the cluster.
+    /// (OIDC) identity provider information for the cluster.
     /// </summary>
     public partial class OIDC
     {
@@ -39,7 +39,7 @@ namespace Amazon.EKS.Model
         /// <summary>
         /// Gets and sets the property Issuer. 
         /// <para>
-        /// The issuer URL for the OpenID Connect identity provider.
+        /// The issuer URL for the OIDC identity provider.
         /// </para>
         /// </summary>
         public string Issuer

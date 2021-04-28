@@ -67,6 +67,17 @@ namespace Amazon.WAFV2.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.Name);
             }
 
+            if(requestObject.IsSetScopeDownStatement())
+            {
+                context.Writer.WritePropertyName("ScopeDownStatement");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = StatementMarshaller.Instance;
+                marshaller.Marshall(requestObject.ScopeDownStatement, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetVendorName())
             {
                 context.Writer.WritePropertyName("VendorName");

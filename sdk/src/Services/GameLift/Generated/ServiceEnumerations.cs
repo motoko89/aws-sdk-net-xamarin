@@ -1305,6 +1305,38 @@ namespace Amazon.GameLift
         /// </summary>
         public static readonly GameServerGroupInstanceType C59xlarge = new GameServerGroupInstanceType("c5.9xlarge");
         /// <summary>
+        /// Constant C5a12xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType C5a12xlarge = new GameServerGroupInstanceType("c5a.12xlarge");
+        /// <summary>
+        /// Constant C5a16xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType C5a16xlarge = new GameServerGroupInstanceType("c5a.16xlarge");
+        /// <summary>
+        /// Constant C5a24xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType C5a24xlarge = new GameServerGroupInstanceType("c5a.24xlarge");
+        /// <summary>
+        /// Constant C5a2xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType C5a2xlarge = new GameServerGroupInstanceType("c5a.2xlarge");
+        /// <summary>
+        /// Constant C5a4xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType C5a4xlarge = new GameServerGroupInstanceType("c5a.4xlarge");
+        /// <summary>
+        /// Constant C5a8xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType C5a8xlarge = new GameServerGroupInstanceType("c5a.8xlarge");
+        /// <summary>
+        /// Constant C5aLarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType C5aLarge = new GameServerGroupInstanceType("c5a.large");
+        /// <summary>
+        /// Constant C5aXlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType C5aXlarge = new GameServerGroupInstanceType("c5a.xlarge");
+        /// <summary>
         /// Constant C5Large for GameServerGroupInstanceType
         /// </summary>
         public static readonly GameServerGroupInstanceType C5Large = new GameServerGroupInstanceType("c5.large");
@@ -1356,6 +1388,38 @@ namespace Amazon.GameLift
         /// Constant M58xlarge for GameServerGroupInstanceType
         /// </summary>
         public static readonly GameServerGroupInstanceType M58xlarge = new GameServerGroupInstanceType("m5.8xlarge");
+        /// <summary>
+        /// Constant M5a12xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType M5a12xlarge = new GameServerGroupInstanceType("m5a.12xlarge");
+        /// <summary>
+        /// Constant M5a16xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType M5a16xlarge = new GameServerGroupInstanceType("m5a.16xlarge");
+        /// <summary>
+        /// Constant M5a24xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType M5a24xlarge = new GameServerGroupInstanceType("m5a.24xlarge");
+        /// <summary>
+        /// Constant M5a2xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType M5a2xlarge = new GameServerGroupInstanceType("m5a.2xlarge");
+        /// <summary>
+        /// Constant M5a4xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType M5a4xlarge = new GameServerGroupInstanceType("m5a.4xlarge");
+        /// <summary>
+        /// Constant M5a8xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType M5a8xlarge = new GameServerGroupInstanceType("m5a.8xlarge");
+        /// <summary>
+        /// Constant M5aLarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType M5aLarge = new GameServerGroupInstanceType("m5a.large");
+        /// <summary>
+        /// Constant M5aXlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType M5aXlarge = new GameServerGroupInstanceType("m5a.xlarge");
         /// <summary>
         /// Constant M5Large for GameServerGroupInstanceType
         /// </summary>
@@ -1412,6 +1476,38 @@ namespace Amazon.GameLift
         /// Constant R58xlarge for GameServerGroupInstanceType
         /// </summary>
         public static readonly GameServerGroupInstanceType R58xlarge = new GameServerGroupInstanceType("r5.8xlarge");
+        /// <summary>
+        /// Constant R5a12xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType R5a12xlarge = new GameServerGroupInstanceType("r5a.12xlarge");
+        /// <summary>
+        /// Constant R5a16xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType R5a16xlarge = new GameServerGroupInstanceType("r5a.16xlarge");
+        /// <summary>
+        /// Constant R5a24xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType R5a24xlarge = new GameServerGroupInstanceType("r5a.24xlarge");
+        /// <summary>
+        /// Constant R5a2xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType R5a2xlarge = new GameServerGroupInstanceType("r5a.2xlarge");
+        /// <summary>
+        /// Constant R5a4xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType R5a4xlarge = new GameServerGroupInstanceType("r5a.4xlarge");
+        /// <summary>
+        /// Constant R5a8xlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType R5a8xlarge = new GameServerGroupInstanceType("r5a.8xlarge");
+        /// <summary>
+        /// Constant R5aLarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType R5aLarge = new GameServerGroupInstanceType("r5a.large");
+        /// <summary>
+        /// Constant R5aXlarge for GameServerGroupInstanceType
+        /// </summary>
+        public static readonly GameServerGroupInstanceType R5aXlarge = new GameServerGroupInstanceType("r5a.xlarge");
         /// <summary>
         /// Constant R5Large for GameServerGroupInstanceType
         /// </summary>
@@ -2001,6 +2097,52 @@ namespace Amazon.GameLift
 
 
     /// <summary>
+    /// Constants used for properties of type LocationUpdateStatus.
+    /// </summary>
+    public class LocationUpdateStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant PENDING_UPDATE for LocationUpdateStatus
+        /// </summary>
+        public static readonly LocationUpdateStatus PENDING_UPDATE = new LocationUpdateStatus("PENDING_UPDATE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public LocationUpdateStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static LocationUpdateStatus FindValue(string value)
+        {
+            return FindValue<LocationUpdateStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator LocationUpdateStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type MatchmakingConfigurationStatus.
     /// </summary>
     public class MatchmakingConfigurationStatus : ConstantClass
@@ -2366,6 +2508,64 @@ namespace Amazon.GameLift
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator PolicyType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type PriorityType.
+    /// </summary>
+    public class PriorityType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant COST for PriorityType
+        /// </summary>
+        public static readonly PriorityType COST = new PriorityType("COST");
+        /// <summary>
+        /// Constant DESTINATION for PriorityType
+        /// </summary>
+        public static readonly PriorityType DESTINATION = new PriorityType("DESTINATION");
+        /// <summary>
+        /// Constant LATENCY for PriorityType
+        /// </summary>
+        public static readonly PriorityType LATENCY = new PriorityType("LATENCY");
+        /// <summary>
+        /// Constant LOCATION for PriorityType
+        /// </summary>
+        public static readonly PriorityType LOCATION = new PriorityType("LOCATION");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public PriorityType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static PriorityType FindValue(string value)
+        {
+            return FindValue<PriorityType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator PriorityType(string value)
         {
             return FindValue(value);
         }

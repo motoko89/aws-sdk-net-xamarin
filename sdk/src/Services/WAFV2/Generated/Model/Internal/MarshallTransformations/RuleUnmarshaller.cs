@@ -88,6 +88,12 @@ namespace Amazon.WAFV2.Model.Internal.MarshallTransformations
                     unmarshalledObject.Priority = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("RuleLabels", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<Label, LabelUnmarshaller>(LabelUnmarshaller.Instance);
+                    unmarshalledObject.RuleLabels = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Statement", targetDepth))
                 {
                     var unmarshaller = StatementUnmarshaller.Instance;

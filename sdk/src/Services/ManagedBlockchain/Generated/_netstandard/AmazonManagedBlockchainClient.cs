@@ -46,11 +46,10 @@ namespace Amazon.ManagedBlockchain
     ///  
     /// <para>
     /// Managed Blockchain supports the Hyperledger Fabric and Ethereum open-source frameworks.
-    /// Ethereum on Managed Blockchain is in preview release and is subject to change. Because
-    /// of fundamental differences between the frameworks, some API actions or data types
-    /// may only apply in the context of one framework and not the other. For example, actions
-    /// related to Hyperledger Fabric network members such as <code>CreateMember</code> and
-    /// <code>DeleteMember</code> do not apply to Ethereum.
+    /// Because of fundamental differences between the frameworks, some API actions or data
+    /// types may only apply in the context of one framework and not the other. For example,
+    /// actions related to Hyperledger Fabric network members such as <code>CreateMember</code>
+    /// and <code>DeleteMember</code> do not apply to Ethereum.
     /// </para>
     ///  
     /// <para>
@@ -59,9 +58,6 @@ namespace Amazon.ManagedBlockchain
     /// framework are similarly indicated.
     /// </para>
     /// </summary>
-#if NETSTANDARD13
-    [Obsolete("Support for .NET Standard 1.3 is in maintenance mode and will only receive critical bug fixes and security patches. Visit https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/migration-from-net-standard-1-3.html for further details.")]
-#endif
     public partial class AmazonManagedBlockchainClient : AmazonServiceClient, IAmazonManagedBlockchain
     {
         private static IServiceMetadata serviceMetadata = new AmazonManagedBlockchainMetadata();
@@ -433,10 +429,6 @@ namespace Amazon.ManagedBlockchain
         ///  
         /// <para>
         /// Applies to Hyperledger Fabric and Ethereum.
-        /// </para>
-        ///  
-        /// <para>
-        /// Ethereum on Managed Blockchain is in preview release and is subject to change.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateNode service method.</param>

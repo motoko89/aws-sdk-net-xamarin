@@ -611,6 +611,70 @@ namespace Amazon.DirectConnect
 
         #endregion
         
+        #region  AssociateMacSecKey
+
+
+        /// <summary>
+        /// Associates a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity Association
+        /// Key (CAK) pair with an AWS Direct Connect dedicated connection.
+        /// 
+        ///  
+        /// <para>
+        /// You must supply either the <code>secretARN,</code> or the CKN/CAK (<code>ckn</code>
+        /// and <code>cak</code>) pair in the request.
+        /// </para>
+        ///  
+        /// <para>
+        /// For information about MAC Security (MACsec) key considerations, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-key-consideration">MACsec
+        /// pre-shared CKN/CAK key considerations </a> in the <i>AWS Direct Connect User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssociateMacSecKey service method.</param>
+        /// 
+        /// <returns>The response from the AssociateMacSecKey service method, as returned by DirectConnect.</returns>
+        /// <exception cref="Amazon.DirectConnect.Model.DirectConnectClientException">
+        /// One or more parameters are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.DirectConnect.Model.DirectConnectServerException">
+        /// A server-side error occurred.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AssociateMacSecKey">REST API Reference for AssociateMacSecKey Operation</seealso>
+        AssociateMacSecKeyResponse AssociateMacSecKey(AssociateMacSecKeyRequest request);
+
+
+
+        /// <summary>
+        /// Associates a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity Association
+        /// Key (CAK) pair with an AWS Direct Connect dedicated connection.
+        /// 
+        ///  
+        /// <para>
+        /// You must supply either the <code>secretARN,</code> or the CKN/CAK (<code>ckn</code>
+        /// and <code>cak</code>) pair in the request.
+        /// </para>
+        ///  
+        /// <para>
+        /// For information about MAC Security (MACsec) key considerations, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-key-consideration">MACsec
+        /// pre-shared CKN/CAK key considerations </a> in the <i>AWS Direct Connect User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssociateMacSecKey service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AssociateMacSecKey service method, as returned by DirectConnect.</returns>
+        /// <exception cref="Amazon.DirectConnect.Model.DirectConnectClientException">
+        /// One or more parameters are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.DirectConnect.Model.DirectConnectServerException">
+        /// A server-side error occurred.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AssociateMacSecKey">REST API Reference for AssociateMacSecKey Operation</seealso>
+        Task<AssociateMacSecKeyResponse> AssociateMacSecKeyAsync(AssociateMacSecKeyRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  AssociateVirtualInterface
 
 
@@ -921,7 +985,7 @@ namespace Amazon.DirectConnect
         ///  
         /// <para>
         /// For a public virtual interface, the Autonomous System Number (ASN) must be private
-        /// or already whitelisted for the virtual interface.
+        /// or already on the allow list for the virtual interface.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateBGPPeer service method.</param>
@@ -961,7 +1025,7 @@ namespace Amazon.DirectConnect
         ///  
         /// <para>
         /// For a public virtual interface, the Autonomous System Number (ASN) must be private
-        /// or already whitelisted for the virtual interface.
+        /// or already on the allow list for the virtual interface.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateBGPPeer service method.</param>
@@ -2324,13 +2388,53 @@ namespace Amazon.DirectConnect
 
 
         /// <summary>
-        /// Lists the associations between your Direct Connect gateways and virtual private gateways.
-        /// You must specify a Direct Connect gateway, a virtual private gateway, or both. If
-        /// you specify a Direct Connect gateway, the response contains all virtual private gateways
-        /// associated with the Direct Connect gateway. If you specify a virtual private gateway,
-        /// the response contains all Direct Connect gateways associated with the virtual private
-        /// gateway. If you specify both, the response contains the association between the Direct
-        /// Connect gateway and the virtual private gateway.
+        /// Lists the associations between your Direct Connect gateways and virtual private gateways
+        /// and transit gateways. You must specify one of the following:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// A Direct Connect gateway
+        /// </para>
+        ///  
+        /// <para>
+        /// The response contains all virtual private gateways and transit gateways associated
+        /// with the Direct Connect gateway.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// A virtual private gateway
+        /// </para>
+        ///  
+        /// <para>
+        /// The response contains the Direct Connect gateway.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// A transit gateway
+        /// </para>
+        ///  
+        /// <para>
+        /// The response contains the Direct Connect gateway.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// A Direct Connect gateway and a virtual private gateway
+        /// </para>
+        ///  
+        /// <para>
+        /// The response contains the association between the Direct Connect gateway and virtual
+        /// private gateway.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// A Direct Connect gateway and a transit gateway
+        /// </para>
+        ///  
+        /// <para>
+        /// The response contains the association between the Direct Connect gateway and transit
+        /// gateway.
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeDirectConnectGatewayAssociations service method.</param>
         /// 
@@ -2347,13 +2451,53 @@ namespace Amazon.DirectConnect
 
 
         /// <summary>
-        /// Lists the associations between your Direct Connect gateways and virtual private gateways.
-        /// You must specify a Direct Connect gateway, a virtual private gateway, or both. If
-        /// you specify a Direct Connect gateway, the response contains all virtual private gateways
-        /// associated with the Direct Connect gateway. If you specify a virtual private gateway,
-        /// the response contains all Direct Connect gateways associated with the virtual private
-        /// gateway. If you specify both, the response contains the association between the Direct
-        /// Connect gateway and the virtual private gateway.
+        /// Lists the associations between your Direct Connect gateways and virtual private gateways
+        /// and transit gateways. You must specify one of the following:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// A Direct Connect gateway
+        /// </para>
+        ///  
+        /// <para>
+        /// The response contains all virtual private gateways and transit gateways associated
+        /// with the Direct Connect gateway.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// A virtual private gateway
+        /// </para>
+        ///  
+        /// <para>
+        /// The response contains the Direct Connect gateway.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// A transit gateway
+        /// </para>
+        ///  
+        /// <para>
+        /// The response contains the Direct Connect gateway.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// A Direct Connect gateway and a virtual private gateway
+        /// </para>
+        ///  
+        /// <para>
+        /// The response contains the association between the Direct Connect gateway and virtual
+        /// private gateway.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// A Direct Connect gateway and a transit gateway
+        /// </para>
+        ///  
+        /// <para>
+        /// The response contains the association between the Direct Connect gateway and transit
+        /// gateway.
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeDirectConnectGatewayAssociations service method.</param>
         /// <param name="cancellationToken">
@@ -3148,6 +3292,48 @@ namespace Amazon.DirectConnect
 
         #endregion
         
+        #region  DisassociateMacSecKey
+
+
+        /// <summary>
+        /// Removes the association between a MAC Security (MACsec) security key and an AWS Direct
+        /// Connect dedicated connection.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateMacSecKey service method.</param>
+        /// 
+        /// <returns>The response from the DisassociateMacSecKey service method, as returned by DirectConnect.</returns>
+        /// <exception cref="Amazon.DirectConnect.Model.DirectConnectClientException">
+        /// One or more parameters are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.DirectConnect.Model.DirectConnectServerException">
+        /// A server-side error occurred.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DisassociateMacSecKey">REST API Reference for DisassociateMacSecKey Operation</seealso>
+        DisassociateMacSecKeyResponse DisassociateMacSecKey(DisassociateMacSecKeyRequest request);
+
+
+
+        /// <summary>
+        /// Removes the association between a MAC Security (MACsec) security key and an AWS Direct
+        /// Connect dedicated connection.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateMacSecKey service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DisassociateMacSecKey service method, as returned by DirectConnect.</returns>
+        /// <exception cref="Amazon.DirectConnect.Model.DirectConnectClientException">
+        /// One or more parameters are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.DirectConnect.Model.DirectConnectServerException">
+        /// A server-side error occurred.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DisassociateMacSecKey">REST API Reference for DisassociateMacSecKey Operation</seealso>
+        Task<DisassociateMacSecKeyResponse> DisassociateMacSecKeyAsync(DisassociateMacSecKeyRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  ListVirtualInterfaceTestHistory
 
 
@@ -3406,6 +3592,74 @@ namespace Amazon.DirectConnect
 
         #endregion
         
+        #region  UpdateConnection
+
+
+        /// <summary>
+        /// Updates the AWS Direct Connect dedicated connection configuration.
+        /// 
+        ///  
+        /// <para>
+        /// You can update the following parameters for a connection:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// The connection name
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The connection's MAC Security (MACsec) encryption mode.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateConnection service method.</param>
+        /// 
+        /// <returns>The response from the UpdateConnection service method, as returned by DirectConnect.</returns>
+        /// <exception cref="Amazon.DirectConnect.Model.DirectConnectClientException">
+        /// One or more parameters are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.DirectConnect.Model.DirectConnectServerException">
+        /// A server-side error occurred.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/UpdateConnection">REST API Reference for UpdateConnection Operation</seealso>
+        UpdateConnectionResponse UpdateConnection(UpdateConnectionRequest request);
+
+
+
+        /// <summary>
+        /// Updates the AWS Direct Connect dedicated connection configuration.
+        /// 
+        ///  
+        /// <para>
+        /// You can update the following parameters for a connection:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// The connection name
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The connection's MAC Security (MACsec) encryption mode.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateConnection service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateConnection service method, as returned by DirectConnect.</returns>
+        /// <exception cref="Amazon.DirectConnect.Model.DirectConnectClientException">
+        /// One or more parameters are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.DirectConnect.Model.DirectConnectServerException">
+        /// A server-side error occurred.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/UpdateConnection">REST API Reference for UpdateConnection Operation</seealso>
+        Task<UpdateConnectionResponse> UpdateConnectionAsync(UpdateConnectionRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  UpdateDirectConnectGatewayAssociation
 
 
@@ -3464,7 +3718,7 @@ namespace Amazon.DirectConnect
         /// 
         ///  
         /// <para>
-        /// You can update the following attributes:
+        /// You can update the following LAG attributes:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -3475,14 +3729,25 @@ namespace Amazon.DirectConnect
         /// The value for the minimum number of connections that must be operational for the LAG
         /// itself to be operational. 
         /// </para>
-        ///  </li> </ul> 
+        ///  </li> <li> 
         /// <para>
-        /// When you create a LAG, the default value for the minimum number of operational connections
-        /// is zero (0). If you update this value and the number of operational connections falls
-        /// below the specified value, the LAG automatically goes down to avoid over-utilization
-        /// of the remaining connections. Adjust this value with care, as it could force the LAG
-        /// down if it is set higher than the current number of operational connections.
+        /// The LAG's MACsec encryption mode.
         /// </para>
+        ///  
+        /// <para>
+        /// AWS assigns this value to each connection which is part of the LAG.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The tags
+        /// </para>
+        ///  </li> </ul> <note> 
+        /// <para>
+        /// If you adjust the threshold value for the minimum number of operational connections,
+        /// ensure that the new value does not cause the LAG to fall below the threshold and become
+        /// non-operational.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateLag service method.</param>
         /// 
@@ -3503,7 +3768,7 @@ namespace Amazon.DirectConnect
         /// 
         ///  
         /// <para>
-        /// You can update the following attributes:
+        /// You can update the following LAG attributes:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -3514,14 +3779,25 @@ namespace Amazon.DirectConnect
         /// The value for the minimum number of connections that must be operational for the LAG
         /// itself to be operational. 
         /// </para>
-        ///  </li> </ul> 
+        ///  </li> <li> 
         /// <para>
-        /// When you create a LAG, the default value for the minimum number of operational connections
-        /// is zero (0). If you update this value and the number of operational connections falls
-        /// below the specified value, the LAG automatically goes down to avoid over-utilization
-        /// of the remaining connections. Adjust this value with care, as it could force the LAG
-        /// down if it is set higher than the current number of operational connections.
+        /// The LAG's MACsec encryption mode.
         /// </para>
+        ///  
+        /// <para>
+        /// AWS assigns this value to each connection which is part of the LAG.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The tags
+        /// </para>
+        ///  </li> </ul> <note> 
+        /// <para>
+        /// If you adjust the threshold value for the minimum number of operational connections,
+        /// ensure that the new value does not cause the LAG to fall below the threshold and become
+        /// non-operational.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateLag service method.</param>
         /// <param name="cancellationToken">

@@ -64,6 +64,12 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("efsVolumeConfiguration", targetDepth))
+                {
+                    var unmarshaller = EFSVolumeConfigurationUnmarshaller.Instance;
+                    unmarshalledObject.EfsVolumeConfiguration = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("host", targetDepth))
                 {
                     var unmarshaller = HostUnmarshaller.Instance;

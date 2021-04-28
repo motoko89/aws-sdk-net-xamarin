@@ -60,7 +60,6 @@ namespace Amazon.KinesisVideoArchivedMedia.Model.Internal.MarshallTransformation
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/listFragments";
-            request.MarshallerVersion = 2;
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))
             {
                 JsonWriter writer = new JsonWriter(stringWriter);
@@ -87,6 +86,12 @@ namespace Amazon.KinesisVideoArchivedMedia.Model.Internal.MarshallTransformation
                 {
                     context.Writer.WritePropertyName("NextToken");
                     context.Writer.Write(publicRequest.NextToken);
+                }
+
+                if(publicRequest.IsSetStreamARN())
+                {
+                    context.Writer.WritePropertyName("StreamARN");
+                    context.Writer.Write(publicRequest.StreamARN);
                 }
 
                 if(publicRequest.IsSetStreamName())
