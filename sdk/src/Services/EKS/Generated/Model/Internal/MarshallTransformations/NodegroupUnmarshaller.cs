@@ -184,6 +184,18 @@ namespace Amazon.EKS.Model.Internal.MarshallTransformations
                     unmarshalledObject.Tags = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("taints", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<Taint, TaintUnmarshaller>(TaintUnmarshaller.Instance);
+                    unmarshalledObject.Taints = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("updateConfig", targetDepth))
+                {
+                    var unmarshaller = NodegroupUpdateConfigUnmarshaller.Instance;
+                    unmarshalledObject.UpdateConfig = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("version", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

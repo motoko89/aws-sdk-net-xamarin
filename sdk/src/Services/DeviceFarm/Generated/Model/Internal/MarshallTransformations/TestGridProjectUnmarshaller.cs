@@ -88,6 +88,12 @@ namespace Amazon.DeviceFarm.Model.Internal.MarshallTransformations
                     unmarshalledObject.Name = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("vpcConfig", targetDepth))
+                {
+                    var unmarshaller = TestGridVpcConfigUnmarshaller.Instance;
+                    unmarshalledObject.VpcConfig = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

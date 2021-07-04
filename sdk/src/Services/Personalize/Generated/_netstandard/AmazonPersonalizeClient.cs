@@ -556,9 +556,8 @@ namespace Amazon.Personalize
         /// Creates a job that exports data from your dataset to an Amazon S3 bucket. To allow
         /// Amazon Personalize to export the training data, you must specify an service-linked
         /// AWS Identity and Access Management (IAM) role that gives Amazon Personalize <code>PutObject</code>
-        /// permissions for your Amazon S3 bucket. For information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/export-permissions.html">Dataset
-        /// export job permissions requirements</a> in the Amazon Personalize developer guide.
-        /// 
+        /// permissions for your Amazon S3 bucket. For information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/export-data.html">Exporting
+        /// a dataset</a> in the Amazon Personalize developer guide. 
         /// 
         ///  
         /// <para>
@@ -1192,7 +1191,27 @@ namespace Amazon.Personalize
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED
+        /// CREATE PENDING
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// CREATE IN_PROGRESS
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// ACTIVE
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// CREATE FAILED
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// CREATE STOPPING
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// CREATE STOPPED
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -2744,6 +2763,73 @@ namespace Amazon.Personalize
             options.ResponseUnmarshaller = ListSolutionVersionsResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListSolutionVersionsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  StopSolutionVersionCreation
+
+        internal virtual StopSolutionVersionCreationResponse StopSolutionVersionCreation(StopSolutionVersionCreationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StopSolutionVersionCreationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StopSolutionVersionCreationResponseUnmarshaller.Instance;
+
+            return Invoke<StopSolutionVersionCreationResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Stops creating a solution version that is in a state of CREATE_PENDING or CREATE IN_PROGRESS.
+        /// 
+        /// 
+        ///  
+        /// <para>
+        /// Depending on the current state of the solution version, the solution version state
+        /// changes as follows:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// CREATE_PENDING &gt; CREATE_STOPPED
+        /// </para>
+        ///  
+        /// <para>
+        /// or
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// CREATE_IN_PROGRESS &gt; CREATE_STOPPING &gt; CREATE_STOPPED
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// You are billed for all of the training completed up until you stop the solution version
+        /// creation. You cannot resume creating a solution version once it has been stopped.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StopSolutionVersionCreation service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StopSolutionVersionCreation service method, as returned by Personalize.</returns>
+        /// <exception cref="Amazon.Personalize.Model.InvalidInputException">
+        /// Provide a valid value for the field or parameter.
+        /// </exception>
+        /// <exception cref="Amazon.Personalize.Model.ResourceInUseException">
+        /// The specified resource is in use.
+        /// </exception>
+        /// <exception cref="Amazon.Personalize.Model.ResourceNotFoundException">
+        /// Could not find the specified resource.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/personalize-2018-05-22/StopSolutionVersionCreation">REST API Reference for StopSolutionVersionCreation Operation</seealso>
+        public virtual Task<StopSolutionVersionCreationResponse> StopSolutionVersionCreationAsync(StopSolutionVersionCreationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StopSolutionVersionCreationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StopSolutionVersionCreationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<StopSolutionVersionCreationResponse>(request, options, cancellationToken);
         }
 
         #endregion

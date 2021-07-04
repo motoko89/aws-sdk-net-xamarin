@@ -38,10 +38,15 @@ namespace Amazon.KinesisAnalyticsV2.Model
         private ApplicationConfigurationDescription _applicationConfigurationDescription;
         private string _applicationDescription;
         private ApplicationMaintenanceConfigurationDescription _applicationMaintenanceConfigurationDescription;
+        private ApplicationMode _applicationMode;
         private string _applicationName;
         private ApplicationStatus _applicationStatus;
         private long? _applicationVersionId;
+        private long? _applicationVersionRolledBackFrom;
+        private long? _applicationVersionRolledBackTo;
+        private long? _applicationVersionUpdatedFrom;
         private List<CloudWatchLoggingOptionDescription> _cloudWatchLoggingOptionDescriptions = new List<CloudWatchLoggingOptionDescription>();
+        private string _conditionalToken;
         private DateTime? _createTimestamp;
         private DateTime? _lastUpdateTimestamp;
         private RuntimeEnvironment _runtimeEnvironment;
@@ -69,7 +74,8 @@ namespace Amazon.KinesisAnalyticsV2.Model
         /// <summary>
         /// Gets and sets the property ApplicationConfigurationDescription. 
         /// <para>
-        /// Provides details about the application's Java, SQL, or Scala code and starting parameters.
+        /// Describes details about the application code and starting parameters for a Kinesis
+        /// Data Analytics application.
         /// </para>
         /// </summary>
         public ApplicationConfigurationDescription ApplicationConfigurationDescription
@@ -106,7 +112,7 @@ namespace Amazon.KinesisAnalyticsV2.Model
         /// <summary>
         /// Gets and sets the property ApplicationMaintenanceConfigurationDescription. 
         /// <para>
-        /// Describes the time window for automatic application maintenance.
+        /// The details of the maintenance configuration for the application.
         /// </para>
         /// </summary>
         public ApplicationMaintenanceConfigurationDescription ApplicationMaintenanceConfigurationDescription
@@ -119,6 +125,25 @@ namespace Amazon.KinesisAnalyticsV2.Model
         internal bool IsSetApplicationMaintenanceConfigurationDescription()
         {
             return this._applicationMaintenanceConfigurationDescription != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ApplicationMode. 
+        /// <para>
+        /// To create a Kinesis Data Analytics Studio notebook, you must set the mode to <code>INTERACTIVE</code>.
+        /// However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
+        /// </para>
+        /// </summary>
+        public ApplicationMode ApplicationMode
+        {
+            get { return this._applicationMode; }
+            set { this._applicationMode = value; }
+        }
+
+        // Check to see if ApplicationMode property is set
+        internal bool IsSetApplicationMode()
+        {
+            return this._applicationMode != null;
         }
 
         /// <summary>
@@ -180,6 +205,65 @@ namespace Amazon.KinesisAnalyticsV2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ApplicationVersionRolledBackFrom. 
+        /// <para>
+        /// If you reverted the application using <a>RollbackApplication</a>, the application
+        /// version when <code>RollbackApplication</code> was called.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=999999999)]
+        public long ApplicationVersionRolledBackFrom
+        {
+            get { return this._applicationVersionRolledBackFrom.GetValueOrDefault(); }
+            set { this._applicationVersionRolledBackFrom = value; }
+        }
+
+        // Check to see if ApplicationVersionRolledBackFrom property is set
+        internal bool IsSetApplicationVersionRolledBackFrom()
+        {
+            return this._applicationVersionRolledBackFrom.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property ApplicationVersionRolledBackTo. 
+        /// <para>
+        /// The version to which you want to roll back the application.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=999999999)]
+        public long ApplicationVersionRolledBackTo
+        {
+            get { return this._applicationVersionRolledBackTo.GetValueOrDefault(); }
+            set { this._applicationVersionRolledBackTo = value; }
+        }
+
+        // Check to see if ApplicationVersionRolledBackTo property is set
+        internal bool IsSetApplicationVersionRolledBackTo()
+        {
+            return this._applicationVersionRolledBackTo.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property ApplicationVersionUpdatedFrom. 
+        /// <para>
+        /// The previous application version before the latest application update. <a>RollbackApplication</a>
+        /// reverts the application to this version.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=999999999)]
+        public long ApplicationVersionUpdatedFrom
+        {
+            get { return this._applicationVersionUpdatedFrom.GetValueOrDefault(); }
+            set { this._applicationVersionUpdatedFrom = value; }
+        }
+
+        // Check to see if ApplicationVersionUpdatedFrom property is set
+        internal bool IsSetApplicationVersionUpdatedFrom()
+        {
+            return this._applicationVersionUpdatedFrom.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property CloudWatchLoggingOptionDescriptions. 
         /// <para>
         /// Describes the application Amazon CloudWatch logging options.
@@ -195,6 +279,25 @@ namespace Amazon.KinesisAnalyticsV2.Model
         internal bool IsSetCloudWatchLoggingOptionDescriptions()
         {
             return this._cloudWatchLoggingOptionDescriptions != null && this._cloudWatchLoggingOptionDescriptions.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property ConditionalToken. 
+        /// <para>
+        /// A value you use to implement strong concurrency for application updates.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=512)]
+        public string ConditionalToken
+        {
+            get { return this._conditionalToken; }
+            set { this._conditionalToken = value; }
+        }
+
+        // Check to see if ConditionalToken property is set
+        internal bool IsSetConditionalToken()
+        {
+            return this._conditionalToken != null;
         }
 
         /// <summary>

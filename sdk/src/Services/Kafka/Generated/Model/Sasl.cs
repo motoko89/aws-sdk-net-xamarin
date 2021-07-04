@@ -33,7 +33,26 @@ namespace Amazon.Kafka.Model
     /// </summary>
     public partial class Sasl
     {
+        private Iam _iam;
         private Scram _scram;
+
+        /// <summary>
+        /// Gets and sets the property Iam.             
+        /// <para>
+        /// Indicates whether IAM access control is enabled.
+        /// </para>
+        /// </summary>
+        public Iam Iam
+        {
+            get { return this._iam; }
+            set { this._iam = value; }
+        }
+
+        // Check to see if Iam property is set
+        internal bool IsSetIam()
+        {
+            return this._iam != null;
+        }
 
         /// <summary>
         /// Gets and sets the property Scram.             

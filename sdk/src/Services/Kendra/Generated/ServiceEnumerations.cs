@@ -726,6 +726,10 @@ namespace Amazon.Kendra
         /// Constant SHAREPOINT for DataSourceType
         /// </summary>
         public static readonly DataSourceType SHAREPOINT = new DataSourceType("SHAREPOINT");
+        /// <summary>
+        /// Constant WEBCRAWLER for DataSourceType
+        /// </summary>
+        public static readonly DataSourceType WEBCRAWLER = new DataSourceType("WEBCRAWLER");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -814,6 +818,72 @@ namespace Amazon.Kendra
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator DocumentAttributeValueType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type DocumentStatus.
+    /// </summary>
+    public class DocumentStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant FAILED for DocumentStatus
+        /// </summary>
+        public static readonly DocumentStatus FAILED = new DocumentStatus("FAILED");
+        /// <summary>
+        /// Constant INDEXED for DocumentStatus
+        /// </summary>
+        public static readonly DocumentStatus INDEXED = new DocumentStatus("INDEXED");
+        /// <summary>
+        /// Constant NOT_FOUND for DocumentStatus
+        /// </summary>
+        public static readonly DocumentStatus NOT_FOUND = new DocumentStatus("NOT_FOUND");
+        /// <summary>
+        /// Constant PROCESSING for DocumentStatus
+        /// </summary>
+        public static readonly DocumentStatus PROCESSING = new DocumentStatus("PROCESSING");
+        /// <summary>
+        /// Constant UPDATE_FAILED for DocumentStatus
+        /// </summary>
+        public static readonly DocumentStatus UPDATE_FAILED = new DocumentStatus("UPDATE_FAILED");
+        /// <summary>
+        /// Constant UPDATED for DocumentStatus
+        /// </summary>
+        public static readonly DocumentStatus UPDATED = new DocumentStatus("UPDATED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public DocumentStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static DocumentStatus FindValue(string value)
+        {
+            return FindValue<DocumentStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator DocumentStatus(string value)
         {
             return FindValue(value);
         }
@@ -1203,6 +1273,56 @@ namespace Amazon.Kendra
 
 
     /// <summary>
+    /// Constants used for properties of type Mode.
+    /// </summary>
+    public class Mode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ENABLED for Mode
+        /// </summary>
+        public static readonly Mode ENABLED = new Mode("ENABLED");
+        /// <summary>
+        /// Constant LEARN_ONLY for Mode
+        /// </summary>
+        public static readonly Mode LEARN_ONLY = new Mode("LEARN_ONLY");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public Mode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static Mode FindValue(string value)
+        {
+            return FindValue<Mode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator Mode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type Order.
     /// </summary>
     public class Order : ConstantClass
@@ -1400,6 +1520,122 @@ namespace Amazon.Kendra
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator QueryResultType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type QuerySuggestionsBlockListStatus.
+    /// </summary>
+    public class QuerySuggestionsBlockListStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ACTIVE for QuerySuggestionsBlockListStatus
+        /// </summary>
+        public static readonly QuerySuggestionsBlockListStatus ACTIVE = new QuerySuggestionsBlockListStatus("ACTIVE");
+        /// <summary>
+        /// Constant ACTIVE_BUT_UPDATE_FAILED for QuerySuggestionsBlockListStatus
+        /// </summary>
+        public static readonly QuerySuggestionsBlockListStatus ACTIVE_BUT_UPDATE_FAILED = new QuerySuggestionsBlockListStatus("ACTIVE_BUT_UPDATE_FAILED");
+        /// <summary>
+        /// Constant CREATING for QuerySuggestionsBlockListStatus
+        /// </summary>
+        public static readonly QuerySuggestionsBlockListStatus CREATING = new QuerySuggestionsBlockListStatus("CREATING");
+        /// <summary>
+        /// Constant DELETING for QuerySuggestionsBlockListStatus
+        /// </summary>
+        public static readonly QuerySuggestionsBlockListStatus DELETING = new QuerySuggestionsBlockListStatus("DELETING");
+        /// <summary>
+        /// Constant FAILED for QuerySuggestionsBlockListStatus
+        /// </summary>
+        public static readonly QuerySuggestionsBlockListStatus FAILED = new QuerySuggestionsBlockListStatus("FAILED");
+        /// <summary>
+        /// Constant UPDATING for QuerySuggestionsBlockListStatus
+        /// </summary>
+        public static readonly QuerySuggestionsBlockListStatus UPDATING = new QuerySuggestionsBlockListStatus("UPDATING");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public QuerySuggestionsBlockListStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static QuerySuggestionsBlockListStatus FindValue(string value)
+        {
+            return FindValue<QuerySuggestionsBlockListStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator QuerySuggestionsBlockListStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type QuerySuggestionsStatus.
+    /// </summary>
+    public class QuerySuggestionsStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ACTIVE for QuerySuggestionsStatus
+        /// </summary>
+        public static readonly QuerySuggestionsStatus ACTIVE = new QuerySuggestionsStatus("ACTIVE");
+        /// <summary>
+        /// Constant UPDATING for QuerySuggestionsStatus
+        /// </summary>
+        public static readonly QuerySuggestionsStatus UPDATING = new QuerySuggestionsStatus("UPDATING");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public QuerySuggestionsStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static QuerySuggestionsStatus FindValue(string value)
+        {
+            return FindValue<QuerySuggestionsStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator QuerySuggestionsStatus(string value)
         {
             return FindValue(value);
         }
@@ -1885,6 +2121,14 @@ namespace Amazon.Kendra
     {
 
         /// <summary>
+        /// Constant SHAREPOINT_2013 for SharePointVersion
+        /// </summary>
+        public static readonly SharePointVersion SHAREPOINT_2013 = new SharePointVersion("SHAREPOINT_2013");
+        /// <summary>
+        /// Constant SHAREPOINT_2016 for SharePointVersion
+        /// </summary>
+        public static readonly SharePointVersion SHAREPOINT_2016 = new SharePointVersion("SHAREPOINT_2016");
+        /// <summary>
         /// Constant SHAREPOINT_ONLINE for SharePointVersion
         /// </summary>
         public static readonly SharePointVersion SHAREPOINT_ONLINE = new SharePointVersion("SHAREPOINT_ONLINE");
@@ -2084,6 +2328,60 @@ namespace Amazon.Kendra
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator UserContextPolicy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type WebCrawlerMode.
+    /// </summary>
+    public class WebCrawlerMode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant EVERYTHING for WebCrawlerMode
+        /// </summary>
+        public static readonly WebCrawlerMode EVERYTHING = new WebCrawlerMode("EVERYTHING");
+        /// <summary>
+        /// Constant HOST_ONLY for WebCrawlerMode
+        /// </summary>
+        public static readonly WebCrawlerMode HOST_ONLY = new WebCrawlerMode("HOST_ONLY");
+        /// <summary>
+        /// Constant SUBDOMAINS for WebCrawlerMode
+        /// </summary>
+        public static readonly WebCrawlerMode SUBDOMAINS = new WebCrawlerMode("SUBDOMAINS");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public WebCrawlerMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static WebCrawlerMode FindValue(string value)
+        {
+            return FindValue<WebCrawlerMode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator WebCrawlerMode(string value)
         {
             return FindValue(value);
         }

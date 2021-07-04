@@ -34,6 +34,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
 using System.Linq;
+using Amazon.Runtime.Internal.Util;
 
 namespace Amazon.S3.Util
 {
@@ -293,6 +294,18 @@ namespace Amazon.S3.Util
         }
 
         /// <summary>
+        /// Generates an MD5 Digest for the stream specified
+        /// </summary>
+        /// <param name="input">The Stream for which the MD5 Digest needs
+        /// to be computed.</param>
+        /// <returns>A string representation of the hash with base64 encoding
+        /// </returns>
+        public static string GenerateMD5ChecksumForStream(Stream input)
+        {
+            return AWSSDKUtils.GenerateMD5ChecksumForStream(input);
+        }
+
+        /// <summary>
         /// Generates an MD5 Digest for the string-based content
         /// </summary>
         /// <param name="content">The content for which the MD5 Digest needs
@@ -333,13 +346,16 @@ namespace Amazon.S3.Util
         private static string EscapeNonAscii(string text)
         {
             var sb = new StringBuilder("");
-            foreach (char c in text)
+            if (text != null)
             {
-                sb.Append(
-                    ((int)c > 127) 
-                    ? Uri.EscapeDataString(c.ToString()) 
-                    : c.ToString()
-                );
+                foreach (char c in text)
+                {
+                    sb.Append(
+                        ((int)c > 127)
+                        ? Uri.EscapeDataString(c.ToString())
+                        : c.ToString()
+                    );
+                }
             }
             return sb.ToString();
         }
@@ -499,8 +515,8 @@ namespace Amazon.S3.Util
 
         internal static string SerializeTaggingToXml(Tagging tagging)
         {
-            var stringWriter = new StringWriter(CultureInfo.InvariantCulture);
-            using (var xmlWriter = XmlWriter.Create(stringWriter, new XmlWriterSettings() { Encoding = Encoding.UTF8, OmitXmlDeclaration = true }))
+            var stringWriter = new XMLEncodedStringWriter(CultureInfo.InvariantCulture);
+            using (var xmlWriter = XmlWriter.Create(stringWriter, new XmlWriterSettings() { Encoding = Encoding.UTF8, OmitXmlDeclaration = true, NewLineHandling = NewLineHandling.Entitize }))
             {
                 xmlWriter.WriteStartElement("Tagging", "");
 

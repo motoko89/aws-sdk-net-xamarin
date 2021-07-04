@@ -57,6 +57,12 @@ namespace Amazon.Chime.Model.Internal.MarshallTransformations
                     response.E164PhoneNumbers = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("NextToken", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.NextToken = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
 
             return response;

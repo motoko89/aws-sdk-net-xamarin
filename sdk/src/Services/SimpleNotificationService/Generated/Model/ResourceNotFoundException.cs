@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.SimpleNotificationService.Model
 {
     /// <summary>
-    /// Can't tag resource. Verify that the topic exists.
+    /// Can’t perform the action on the specified resource. Make sure that the resource exists.
     /// </summary>
     #if !NETSTANDARD
     [Serializable]

@@ -48,7 +48,7 @@ namespace Amazon.Connect.Model
     ///  <ul> <li> 
     /// <para>
     /// API rate limit is exceeded. API TPS throttling returns a <code>TooManyRequests</code>
-    /// exception from the API Gateway.
+    /// exception.
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -164,7 +164,8 @@ namespace Amazon.Connect.Model
         /// <summary>
         /// Gets and sets the property InstanceId. 
         /// <para>
-        /// The identifier of the Amazon Connect instance.
+        /// The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// ARN of the instance.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=100)]

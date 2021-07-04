@@ -34,9 +34,9 @@ namespace Amazon.SageMaker.Model
     /// 
     ///  
     /// <para>
-    /// A model package is used to create Amazon SageMaker models or list on AWS Marketplace.
-    /// Buyers can subscribe to model packages listed on AWS Marketplace to create models
-    /// in Amazon SageMaker.
+    /// A model package is used to create Amazon SageMaker models or list on Amazon Web Services
+    /// Marketplace. Buyers can subscribe to model packages listed on Amazon Web Services
+    /// Marketplace to create models in Amazon SageMaker.
     /// </para>
     /// </summary>
     public partial class DeleteModelPackageRequest : AmazonSageMakerRequest
@@ -46,8 +46,12 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property ModelPackageName. 
         /// <para>
-        /// The name of the model package. The name must have 1 to 63 characters. Valid characters
-        /// are a-z, A-Z, 0-9, and - (hyphen).
+        /// The name or Amazon Resource Name (ARN) of the model package to delete.
+        /// </para>
+        ///  
+        /// <para>
+        /// When you specify a name, the name must have 1 to 63 characters. Valid characters are
+        /// a-z, A-Z, 0-9, and - (hyphen).
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=176)]

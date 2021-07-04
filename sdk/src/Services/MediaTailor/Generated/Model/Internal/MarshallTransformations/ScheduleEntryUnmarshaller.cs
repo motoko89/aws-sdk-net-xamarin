@@ -94,6 +94,12 @@ namespace Amazon.MediaTailor.Model.Internal.MarshallTransformations
                     unmarshalledObject.ProgramName = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("ScheduleAdBreaks", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<ScheduleAdBreak, ScheduleAdBreakUnmarshaller>(ScheduleAdBreakUnmarshaller.Instance);
+                    unmarshalledObject.ScheduleAdBreaks = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("SourceLocationName", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

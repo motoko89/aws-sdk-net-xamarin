@@ -58,7 +58,7 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property Name. 
         /// <para>
-        /// The name of the kernel.
+        /// The name of the Jupyter kernel in the image. This value is case sensitive.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Max=1024)]

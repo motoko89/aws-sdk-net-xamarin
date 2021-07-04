@@ -34,6 +34,15 @@ namespace Amazon.SageMaker.Model
     /// action or activity. For example, a model deployment or an HPO job. Generally, an action
     /// involves at least one input or output artifact. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon
     /// SageMaker ML Lineage Tracking</a>.
+    /// 
+    ///  <note> 
+    /// <para>
+    ///  <code>CreateAction</code> can only be invoked from within an SageMaker managed environment.
+    /// This includes SageMaker training jobs, processing jobs, transform jobs, and SageMaker
+    /// notebooks. A call to <code>CreateAction</code> from outside one of these environments
+    /// results in an error.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class CreateActionRequest : AmazonSageMakerRequest
     {
@@ -49,7 +58,7 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property ActionName. 
         /// <para>
-        /// The name of the action. Must be unique to your account in an AWS Region.
+        /// The name of the action. Must be unique to your account in an Amazon Web Services Region.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=120)]

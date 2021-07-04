@@ -835,8 +835,8 @@ namespace Amazon.ECS
 
 
         /// <summary>
-        /// Describes Amazon Elastic Container Service container instances. Returns metadata about
-        /// registered and remaining resources on each container instance requested.
+        /// Describes one or more container instances. Returns metadata about each container instance
+        /// requested.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeContainerInstances service method.</param>
         /// <param name="cancellationToken">
@@ -1187,7 +1187,8 @@ namespace Amazon.ECS
 
 
         /// <summary>
-        /// Lists the services that are running in a specified cluster.
+        /// Returns a list of services. You can filter the results by cluster, launch type, and
+        /// scheduling strategy.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListServices service method.</param>
         /// <param name="cancellationToken">
@@ -1322,15 +1323,14 @@ namespace Amazon.ECS
 
 
         /// <summary>
-        /// Returns a list of tasks for a specified cluster. You can filter the results by family
-        /// name, by a particular container instance, or by the desired status of the task with
-        /// the <code>family</code>, <code>containerInstance</code>, and <code>desiredStatus</code>
-        /// parameters.
+        /// Returns a list of tasks. You can filter the results by cluster, task definition family,
+        /// container instance, launch type, what IAM principal started the task, or by the desired
+        /// status of the task.
         /// 
         ///  
         /// <para>
         /// Recently stopped tasks might appear in the returned results. Currently, stopped tasks
-        /// appear in the returned results for at least one hour. 
+        /// appear in the returned results for at least one hour.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListTasks service method.</param>
@@ -2015,12 +2015,21 @@ namespace Amazon.ECS
         /// your container instance was launched with the Amazon ECS-optimized AMI or another
         /// operating system.
         /// 
-        ///  
+        ///  <note> 
         /// <para>
-        ///  <code>UpdateContainerAgent</code> requires the Amazon ECS-optimized AMI or Amazon
-        /// Linux with the <code>ecs-init</code> service installed and running. For help updating
-        /// the Amazon ECS container agent on other operating systems, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually
-        /// Updating the Amazon ECS Container Agent</a> in the <i>Amazon Elastic Container Service
+        /// The <code>UpdateContainerAgent</code> API isn't supported for container instances
+        /// using the Amazon ECS-optimized Amazon Linux 2 (arm64) AMI. To update the container
+        /// agent, you can update the <code>ecs-init</code> package which will update the agent.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/agent-update-ecs-ami.html">Updating
+        /// the Amazon ECS container agent</a> in the <i>Amazon Elastic Container Service Developer
+        /// Guide</i>.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// The <code>UpdateContainerAgent</code> API requires an Amazon ECS-optimized AMI or
+        /// Amazon Linux AMI with the <code>ecs-init</code> service installed and running. For
+        /// help updating the Amazon ECS container agent on other operating systems, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually
+        /// updating the Amazon ECS container agent</a> in the <i>Amazon Elastic Container Service
         /// Developer Guide</i>.
         /// </para>
         /// </summary>

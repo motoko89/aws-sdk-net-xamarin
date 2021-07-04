@@ -46,6 +46,7 @@ namespace Amazon.ECS.Model
         private DateTime? _createdAt;
         private string _desiredStatus;
         private bool? _enableExecuteCommand;
+        private EphemeralStorage _ephemeralStorage;
         private DateTime? _executionStoppedAt;
         private string _group;
         private HealthStatus _healthStatus;
@@ -349,6 +350,24 @@ namespace Amazon.ECS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EphemeralStorage. 
+        /// <para>
+        /// The ephemeral storage settings for the task.
+        /// </para>
+        /// </summary>
+        public EphemeralStorage EphemeralStorage
+        {
+            get { return this._ephemeralStorage; }
+            set { this._ephemeralStorage = value; }
+        }
+
+        // Check to see if EphemeralStorage property is set
+        internal bool IsSetEphemeralStorage()
+        {
+            return this._ephemeralStorage != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property ExecutionStoppedAt. 
         /// <para>
         /// The Unix timestamp for when the task execution stopped.
@@ -455,8 +474,8 @@ namespace Amazon.ECS.Model
         /// <summary>
         /// Gets and sets the property LaunchType. 
         /// <para>
-        /// The launch type on which your task is running. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
-        /// ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+        /// The infrastructure on which your task is running. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+        /// ECS launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
         /// </para>
         /// </summary>
         public LaunchType LaunchType

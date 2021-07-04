@@ -59,7 +59,7 @@ namespace Amazon.GlueDataBrew.Model
         /// <summary>
         /// Gets and sets the property GlueConnectionName. 
         /// <para>
-        /// The AWS Glue Connection that stores the connection information for the target database.
+        /// The Glue Connection that stores the connection information for the target database.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=255)]

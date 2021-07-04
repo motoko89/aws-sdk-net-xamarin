@@ -6859,6 +6859,29 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("Redshift")]
+        public void DisableLogging_InvalidClusterStateExceptionMarshallTest()
+        {
+            var operation = service_model.FindOperation("DisableLogging");
+
+            var request = InstantiateClassGenerator.Execute<DisableLoggingRequest>();
+            var marshaller = new DisableLoggingRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+            var exception = operation.Exceptions.First(e => e.Name.Equals("InvalidClusterStateException"));
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute(exception);
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), true, null, true);
+            var response = DisableLoggingResponseUnmarshaller.Instance.UnmarshallException(context, null, System.Net.HttpStatusCode.OK);
+
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("Redshift")]
         public void DisableSnapshotCopyMarshallTest()
         {
             var operation = service_model.FindOperation("DisableSnapshotCopy");
@@ -7670,6 +7693,29 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             validator.Validate();
 
             var exception = operation.Exceptions.First(e => e.Name.Equals("ClusterNotFoundException"));
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute(exception);
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), true, null, true);
+            var response = ModifyAquaConfigurationResponseUnmarshaller.Instance.UnmarshallException(context, null, System.Net.HttpStatusCode.OK);
+
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("Redshift")]
+        public void ModifyAquaConfiguration_InvalidClusterStateExceptionMarshallTest()
+        {
+            var operation = service_model.FindOperation("ModifyAquaConfiguration");
+
+            var request = InstantiateClassGenerator.Execute<ModifyAquaConfigurationRequest>();
+            var marshaller = new ModifyAquaConfigurationRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+            var exception = operation.Exceptions.First(e => e.Name.Equals("InvalidClusterStateException"));
             var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute(exception);
             var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), true, null, true);
             var response = ModifyAquaConfigurationResponseUnmarshaller.Instance.UnmarshallException(context, null, System.Net.HttpStatusCode.OK);

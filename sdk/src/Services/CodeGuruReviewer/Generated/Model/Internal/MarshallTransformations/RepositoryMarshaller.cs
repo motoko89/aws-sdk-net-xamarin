@@ -78,6 +78,17 @@ namespace Amazon.CodeGuruReviewer.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetS3Bucket())
+            {
+                context.Writer.WritePropertyName("S3Bucket");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = S3RepositoryMarshaller.Instance;
+                marshaller.Marshall(requestObject.S3Bucket, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
         }
 
         /// <summary>

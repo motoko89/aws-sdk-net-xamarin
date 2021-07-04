@@ -46,6 +46,7 @@ namespace Amazon.EC2.Model
         private InstanceMatchCriteria _instanceMatchCriteria;
         private CapacityReservationInstancePlatform _instancePlatform;
         private string _instanceType;
+        private string _outpostArn;
         private string _ownerId;
         private DateTime? _startDate;
         private CapacityReservationState _state;
@@ -324,9 +325,28 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property OutpostArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of the Outpost on which the Capacity Reservation was
+        /// created.
+        /// </para>
+        /// </summary>
+        public string OutpostArn
+        {
+            get { return this._outpostArn; }
+            set { this._outpostArn = value; }
+        }
+
+        // Check to see if OutpostArn property is set
+        internal bool IsSetOutpostArn()
+        {
+            return this._outpostArn != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property OwnerId. 
         /// <para>
-        /// The ID of the AWS account that owns the Capacity Reservation.
+        /// The ID of the account that owns the Capacity Reservation.
         /// </para>
         /// </summary>
         public string OwnerId
@@ -433,12 +453,12 @@ namespace Amazon.EC2.Model
         ///  <ul> <li> 
         /// <para>
         ///  <code>default</code> - The Capacity Reservation is created on hardware that is shared
-        /// with other AWS accounts.
+        /// with other accounts.
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware
-        /// that is dedicated to a single AWS account.
+        /// that is dedicated to a single account.
         /// </para>
         ///  </li> </ul>
         /// </summary>

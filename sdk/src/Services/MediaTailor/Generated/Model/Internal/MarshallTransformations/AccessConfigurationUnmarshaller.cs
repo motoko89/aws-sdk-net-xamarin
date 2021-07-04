@@ -70,6 +70,12 @@ namespace Amazon.MediaTailor.Model.Internal.MarshallTransformations
                     unmarshalledObject.AccessType = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("SecretsManagerAccessTokenConfiguration", targetDepth))
+                {
+                    var unmarshaller = SecretsManagerAccessTokenConfigurationUnmarshaller.Instance;
+                    unmarshalledObject.SecretsManagerAccessTokenConfiguration = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

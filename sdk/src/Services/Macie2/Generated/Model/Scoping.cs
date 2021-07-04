@@ -29,9 +29,9 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Macie2.Model
 {
     /// <summary>
-    /// Specifies one or more property- and tag-based conditions that refine the scope of
-    /// a classification job. These conditions define criteria that determine which objects
-    /// a job analyzes. Exclude conditions take precedence over include conditions.
+    /// Specifies one or more property- and tag-based conditions that define criteria for
+    /// including or excluding S3 objects from a classification job. Exclude conditions take
+    /// precedence over include conditions.
     /// </summary>
     public partial class Scoping
     {
@@ -41,7 +41,7 @@ namespace Amazon.Macie2.Model
         /// <summary>
         /// Gets and sets the property Excludes. 
         /// <para>
-        /// The property- or tag-based conditions that determine which objects to exclude from
+        /// The property- and tag-based conditions that determine which objects to exclude from
         /// the analysis.
         /// </para>
         /// </summary>
@@ -60,8 +60,8 @@ namespace Amazon.Macie2.Model
         /// <summary>
         /// Gets and sets the property Includes. 
         /// <para>
-        /// The property- or tag-based conditions that determine which objects to include in the
-        /// analysis.
+        /// The property- and tag-based conditions that determine which objects to include in
+        /// the analysis.
         /// </para>
         /// </summary>
         public JobScopingBlock Includes

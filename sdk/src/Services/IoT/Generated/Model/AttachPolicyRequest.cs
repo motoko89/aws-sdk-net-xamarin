@@ -60,7 +60,7 @@ namespace Amazon.IoT.Model
         /// Gets and sets the property Target. 
         /// <para>
         /// The <a href="https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html">identity</a>
-        /// to which the policy is attached.
+        /// to which the policy is attached. For example, a thing group or a certificate.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

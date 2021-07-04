@@ -37,6 +37,7 @@ namespace Amazon.QLDB.Model
         private DateTime? _creationDateTime;
         private bool? _deletionProtection;
         private string _name;
+        private PermissionsMode _permissionsMode;
         private LedgerState _state;
 
         /// <summary>
@@ -86,10 +87,8 @@ namespace Amazon.QLDB.Model
         ///  
         /// <para>
         /// If deletion protection is enabled, you must first disable it before you can delete
-        /// the ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can
-        /// disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.
-        /// The QLDB console disables deletion protection for you when you use it to delete a
-        /// ledger.
+        /// the ledger. You can disable it by calling the <code>UpdateLedger</code> operation
+        /// to set the flag to <code>false</code>.
         /// </para>
         /// </summary>
         public bool DeletionProtection
@@ -121,6 +120,24 @@ namespace Amazon.QLDB.Model
         internal bool IsSetName()
         {
             return this._name != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PermissionsMode. 
+        /// <para>
+        /// The permissions mode of the ledger that you created.
+        /// </para>
+        /// </summary>
+        public PermissionsMode PermissionsMode
+        {
+            get { return this._permissionsMode; }
+            set { this._permissionsMode = value; }
+        }
+
+        // Check to see if PermissionsMode property is set
+        internal bool IsSetPermissionsMode()
+        {
+            return this._permissionsMode != null;
         }
 
         /// <summary>

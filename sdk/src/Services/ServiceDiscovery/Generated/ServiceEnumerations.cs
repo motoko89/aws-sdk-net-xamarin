@@ -251,6 +251,10 @@ namespace Amazon.ServiceDiscovery
         /// </summary>
         public static readonly HealthStatusFilter HEALTHY = new HealthStatusFilter("HEALTHY");
         /// <summary>
+        /// Constant HEALTHY_OR_ELSE_ALL for HealthStatusFilter
+        /// </summary>
+        public static readonly HealthStatusFilter HEALTHY_OR_ELSE_ALL = new HealthStatusFilter("HEALTHY_OR_ELSE_ALL");
+        /// <summary>
         /// Constant UNHEALTHY for HealthStatusFilter
         /// </summary>
         public static readonly HealthStatusFilter UNHEALTHY = new HealthStatusFilter("UNHEALTHY");
@@ -586,6 +590,10 @@ namespace Amazon.ServiceDiscovery
         /// Constant REGISTER_INSTANCE for OperationType
         /// </summary>
         public static readonly OperationType REGISTER_INSTANCE = new OperationType("REGISTER_INSTANCE");
+        /// <summary>
+        /// Constant UPDATE_NAMESPACE for OperationType
+        /// </summary>
+        public static readonly OperationType UPDATE_NAMESPACE = new OperationType("UPDATE_NAMESPACE");
         /// <summary>
         /// Constant UPDATE_SERVICE for OperationType
         /// </summary>

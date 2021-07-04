@@ -97,6 +97,12 @@ namespace Amazon.KeyManagementService.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.KeyUsage);
                 }
 
+                if(publicRequest.IsSetMultiRegion())
+                {
+                    context.Writer.WritePropertyName("MultiRegion");
+                    context.Writer.Write(publicRequest.MultiRegion);
+                }
+
                 if(publicRequest.IsSetOrigin())
                 {
                     context.Writer.WritePropertyName("Origin");

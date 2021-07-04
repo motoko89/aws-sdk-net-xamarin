@@ -62,6 +62,22 @@ namespace Amazon.Snowball.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetTargetOnDeviceServices())
+            {
+                context.Writer.WritePropertyName("TargetOnDeviceServices");
+                context.Writer.WriteArrayStart();
+                foreach(var requestObjectTargetOnDeviceServicesListValue in requestObject.TargetOnDeviceServices)
+                {
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = TargetOnDeviceServiceMarshaller.Instance;
+                    marshaller.Marshall(requestObjectTargetOnDeviceServicesListValue, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+                context.Writer.WriteArrayEnd();
+            }
+
         }
 
         /// <summary>

@@ -76,6 +76,12 @@ namespace Amazon.DAX.Model.Internal.MarshallTransformations
                     unmarshalledObject.Port = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("URL", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.URL = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

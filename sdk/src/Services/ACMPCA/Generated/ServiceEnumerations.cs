@@ -547,6 +547,56 @@ namespace Amazon.ACMPCA
 
 
     /// <summary>
+    /// Constants used for properties of type KeyStorageSecurityStandard.
+    /// </summary>
+    public class KeyStorageSecurityStandard : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant FIPS_140_2_LEVEL_2_OR_HIGHER for KeyStorageSecurityStandard
+        /// </summary>
+        public static readonly KeyStorageSecurityStandard FIPS_140_2_LEVEL_2_OR_HIGHER = new KeyStorageSecurityStandard("FIPS_140_2_LEVEL_2_OR_HIGHER");
+        /// <summary>
+        /// Constant FIPS_140_2_LEVEL_3_OR_HIGHER for KeyStorageSecurityStandard
+        /// </summary>
+        public static readonly KeyStorageSecurityStandard FIPS_140_2_LEVEL_3_OR_HIGHER = new KeyStorageSecurityStandard("FIPS_140_2_LEVEL_3_OR_HIGHER");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public KeyStorageSecurityStandard(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static KeyStorageSecurityStandard FindValue(string value)
+        {
+            return FindValue<KeyStorageSecurityStandard>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator KeyStorageSecurityStandard(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type PolicyQualifierId.
     /// </summary>
     public class PolicyQualifierId : ConstantClass
@@ -710,6 +760,56 @@ namespace Amazon.ACMPCA
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator RevocationReason(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type S3ObjectAcl.
+    /// </summary>
+    public class S3ObjectAcl : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant BUCKET_OWNER_FULL_CONTROL for S3ObjectAcl
+        /// </summary>
+        public static readonly S3ObjectAcl BUCKET_OWNER_FULL_CONTROL = new S3ObjectAcl("BUCKET_OWNER_FULL_CONTROL");
+        /// <summary>
+        /// Constant PUBLIC_READ for S3ObjectAcl
+        /// </summary>
+        public static readonly S3ObjectAcl PUBLIC_READ = new S3ObjectAcl("PUBLIC_READ");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public S3ObjectAcl(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static S3ObjectAcl FindValue(string value)
+        {
+            return FindValue<S3ObjectAcl>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator S3ObjectAcl(string value)
         {
             return FindValue(value);
         }

@@ -34,7 +34,132 @@ namespace Amazon.Snowball.Model
     /// center. Your AWS account must have the right trust policies and permissions in place
     /// to create a job for a Snow device. If you're creating a job for a node in a cluster,
     /// you only need to provide the <code>clusterId</code> value; the other job attributes
-    /// are inherited from the cluster.
+    /// are inherited from the cluster. 
+    /// 
+    ///  <note> 
+    /// <para>
+    /// Only the Snowball; Edge device type is supported when ordering clustered jobs.
+    /// </para>
+    ///  
+    /// <para>
+    /// The device capacity is optional.
+    /// </para>
+    ///  
+    /// <para>
+    /// Availability of device types differ by AWS Region. For more information about Region
+    /// availability, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&amp;loc=4">AWS
+    /// Regional Services</a>.
+    /// </para>
+    ///  </note>  <p class="title"> <b>AWS Snow Family device types and their capacities.</b>
+    /// 
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// Snow Family device type: <b>SNC1_SSD</b> 
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// Capacity: T14
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Description: Snowcone 
+    /// </para>
+    ///  </li> </ul>  </li> <li> 
+    /// <para>
+    /// Snow Family device type: <b>SNC1_HDD</b> 
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// Capacity: T8
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Description: Snowcone 
+    /// </para>
+    ///  </li> </ul>  </li> <li> 
+    /// <para>
+    /// Device type: <b>EDGE_S</b> 
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// Capacity: T98
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Description: Snowball Edge Storage Optimized for data transfer only 
+    /// </para>
+    ///  </li> </ul>  </li> <li> 
+    /// <para>
+    /// Device type: <b>EDGE_CG</b> 
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// Capacity: T42
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Description: Snowball Edge Compute Optimized with GPU
+    /// </para>
+    ///  </li> </ul>  </li> <li> 
+    /// <para>
+    /// Device type: <b>EDGE_C</b> 
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// Capacity: T42
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Description: Snowball Edge Compute Optimized without GPU
+    /// </para>
+    ///  </li> </ul>  </li> <li> 
+    /// <para>
+    /// Device type: <b>EDGE</b> 
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// Capacity: T100
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Description: Snowball Edge Storage Optimized with EC2 Compute
+    /// </para>
+    ///  </li> </ul>  </li> <li> 
+    /// <para>
+    /// Device type: <b>STANDARD</b> 
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// Capacity: T50
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Description: Original Snowball device
+    /// </para>
+    ///  <note> 
+    /// <para>
+    /// This device is only available in the Ningxia, Beijing, and Singapore AWS Regions.
+    /// 
+    /// </para>
+    ///  </note> </li> </ul>  </li> <li> 
+    /// <para>
+    /// Device type: <b>STANDARD</b> 
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// Capacity: T80
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Description: Original Snowball device
+    /// </para>
+    ///  <note> 
+    /// <para>
+    /// This device is only available in the Ningxia, Beijing, and Singapore AWS Regions.
+    /// 
+    /// </para>
+    ///  </note> </li> </ul>  </li> </ul>
     /// </summary>
     public partial class CreateJobRequest : AmazonSnowballRequest
     {
@@ -45,7 +170,10 @@ namespace Amazon.Snowball.Model
         private string _forwardingAddressId;
         private JobType _jobType;
         private string _kmsKeyARN;
+        private string _longTermPricingId;
         private Notification _notification;
+        private OnDeviceServiceConfiguration _onDeviceServiceConfiguration;
+        private RemoteManagement _remoteManagement;
         private JobResource _resources;
         private string _roleARN;
         private ShippingOption _shippingOption;
@@ -100,7 +228,7 @@ namespace Amazon.Snowball.Model
         /// Photos 2016-08-11</code>.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1)]
+        [AWSProperty(Min=1, Max=1024)]
         public string Description
         {
             get { return this._description; }
@@ -118,6 +246,12 @@ namespace Amazon.Snowball.Model
         /// <para>
         /// Defines the device configuration for an AWS Snowcone job.
         /// </para>
+        ///  
+        /// <para>
+        /// For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html"
+        /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html"
+        /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.
+        /// </para>
         /// </summary>
         public DeviceConfiguration DeviceConfiguration
         {
@@ -134,7 +268,7 @@ namespace Amazon.Snowball.Model
         /// <summary>
         /// Gets and sets the property ForwardingAddressId. 
         /// <para>
-        /// The forwarding address ID for a job. This field is not supported in most regions.
+        /// The forwarding address ID for a job. This field is not supported in most Regions.
         /// </para>
         /// </summary>
         [AWSProperty(Min=40, Max=40)]
@@ -190,6 +324,25 @@ namespace Amazon.Snowball.Model
         }
 
         /// <summary>
+        /// Gets and sets the property LongTermPricingId. 
+        /// <para>
+        /// The ID of the long-term pricing type for the device.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=41, Max=41)]
+        public string LongTermPricingId
+        {
+            get { return this._longTermPricingId; }
+            set { this._longTermPricingId = value; }
+        }
+
+        // Check to see if LongTermPricingId property is set
+        internal bool IsSetLongTermPricingId()
+        {
+            return this._longTermPricingId != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Notification. 
         /// <para>
         /// Defines the Amazon Simple Notification Service (Amazon SNS) notification settings
@@ -206,6 +359,47 @@ namespace Amazon.Snowball.Model
         internal bool IsSetNotification()
         {
             return this._notification != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property OnDeviceServiceConfiguration. 
+        /// <para>
+        /// Specifies the service or services on the Snow Family device that your transferred
+        /// data will be exported from or imported into. AWS Snow Family supports Amazon S3 and
+        /// NFS (Network File System).
+        /// </para>
+        /// </summary>
+        public OnDeviceServiceConfiguration OnDeviceServiceConfiguration
+        {
+            get { return this._onDeviceServiceConfiguration; }
+            set { this._onDeviceServiceConfiguration = value; }
+        }
+
+        // Check to see if OnDeviceServiceConfiguration property is set
+        internal bool IsSetOnDeviceServiceConfiguration()
+        {
+            return this._onDeviceServiceConfiguration != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property RemoteManagement. 
+        /// <para>
+        /// Allows you to securely operate and manage Snowcone devices remotely from outside of
+        /// your internal network. When set to <code>INSTALLED_AUTOSTART</code>, remote management
+        /// will automatically be available when the device arrives at your location. Otherwise,
+        /// you need to use the Snowball Client to manage the device.
+        /// </para>
+        /// </summary>
+        public RemoteManagement RemoteManagement
+        {
+            get { return this._remoteManagement; }
+            set { this._remoteManagement = value; }
+        }
+
+        // Check to see if RemoteManagement property is set
+        internal bool IsSetRemoteManagement()
+        {
+            return this._remoteManagement != null;
         }
 
         /// <summary>
@@ -307,6 +501,12 @@ namespace Amazon.Snowball.Model
         /// what size Snow device you'd like for this job. In all other regions, Snowballs come
         /// with 80 TB in storage capacity.
         /// </para>
+        ///  
+        /// <para>
+        /// For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html"
+        /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html"
+        /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.
+        /// </para>
         /// </summary>
         public SnowballCapacity SnowballCapacityPreference
         {
@@ -339,6 +539,12 @@ namespace Amazon.Snowball.Model
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html">Snowball
         /// Edge Device Options</a> in the Snowball Edge Developer Guide.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html"
+        /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html"
+        /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.
         /// </para>
         /// </summary>
         public SnowballType SnowballType

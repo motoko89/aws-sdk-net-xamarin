@@ -30,13 +30,8 @@ namespace Amazon.Connect.Model
 {
     /// <summary>
     /// Container for the parameters to the DeleteIntegrationAssociation operation.
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Deletes an AppIntegration association from an Amazon Connect instance. The association
     /// must not have any use cases associated with it.
-    /// </para>
     /// </summary>
     public partial class DeleteIntegrationAssociationRequest : AmazonConnectRequest
     {
@@ -46,7 +41,8 @@ namespace Amazon.Connect.Model
         /// <summary>
         /// Gets and sets the property InstanceId. 
         /// <para>
-        /// The identifier of the Amazon Connect instance.
+        /// The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// ARN of the instance.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=100)]

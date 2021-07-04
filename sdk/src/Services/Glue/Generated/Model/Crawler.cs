@@ -31,7 +31,7 @@ namespace Amazon.Glue.Model
     /// <summary>
     /// Specifies a crawler program that examines a data source and uses classifiers to try
     /// to determine its schema. If successful, the crawler records metadata concerning the
-    /// data source in the AWS Glue Data Catalog.
+    /// data source in the Glue Data Catalog.
     /// </summary>
     public partial class Crawler
     {
@@ -78,8 +78,8 @@ namespace Amazon.Glue.Model
         /// Gets and sets the property Configuration. 
         /// <para>
         /// Crawler configuration information. This versioned JSON string allows users to specify
-        /// aspects of a crawler's behavior. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring
-        /// a Crawler</a>.
+        /// aspects of a crawler's behavior. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/define-crawler.html#crawler-data-stores-exclude">Include
+        /// and Exclude Patterns</a>.
         /// </para>
         /// </summary>
         public string Configuration

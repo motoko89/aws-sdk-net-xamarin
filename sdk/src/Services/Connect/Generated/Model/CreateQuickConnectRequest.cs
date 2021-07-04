@@ -30,12 +30,7 @@ namespace Amazon.Connect.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateQuickConnect operation.
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Creates a quick connect for the specified Amazon Connect instance.
-    /// </para>
     /// </summary>
     public partial class CreateQuickConnectRequest : AmazonConnectRequest
     {
@@ -51,7 +46,7 @@ namespace Amazon.Connect.Model
         /// The description of the quick connect.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=0, Max=250)]
+        [AWSProperty(Min=1, Max=250)]
         public string Description
         {
             get { return this._description; }
@@ -67,7 +62,8 @@ namespace Amazon.Connect.Model
         /// <summary>
         /// Gets and sets the property InstanceId. 
         /// <para>
-        /// The identifier of the Amazon Connect instance.
+        /// The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// ARN of the instance.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=100)]
@@ -127,7 +123,7 @@ namespace Amazon.Connect.Model
         /// One or more tags.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=200)]
+        [AWSProperty(Min=1, Max=50)]
         public Dictionary<string, string> Tags
         {
             get { return this._tags; }

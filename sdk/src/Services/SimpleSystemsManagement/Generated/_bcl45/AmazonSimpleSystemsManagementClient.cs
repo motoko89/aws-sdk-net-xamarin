@@ -60,13 +60,32 @@ namespace Amazon.SimpleSystemsManagement
     /// see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Setting
     /// up AWS Systems Manager</a> in the <i>AWS Systems Manager User Guide</i>.
     /// </para>
-    ///  
+    ///  <p class="title"> <b>Related resources</b> 
+    /// </para>
+    ///  <ul> <li> 
     /// <para>
-    /// For information about other API actions you can perform on EC2 instances, see the
-    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>.
     /// For information about how to use a Query API, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making
     /// API requests</a>. 
     /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// For information about other API actions you can perform on EC2 instances, see the
+    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// For information about AWS AppConfig, a capability of Systems Manager, see the <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/">AWS
+    /// AppConfig User Guide</a> and the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/">AWS
+    /// AppConfig API Reference</a>.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// For information about AWS Incident Manager, a capability of Systems Manager, see the
+    /// <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/">AWS Incident
+    /// Manager User Guide</a> and the <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/">AWS
+    /// Incident Manager API Reference</a>.
+    /// </para>
+    ///  </li> </ul>
     /// </summary>
     public partial class AmazonSimpleSystemsManagementClient : AmazonServiceClient, IAmazonSimpleSystemsManagement
     {
@@ -405,6 +424,87 @@ namespace Amazon.SimpleSystemsManagement
 
         #endregion
         
+        #region  AssociateOpsItemRelatedItem
+
+
+        /// <summary>
+        /// Associates a related resource to a Systems Manager OpsCenter OpsItem. For example,
+        /// you can associate an Incident Manager incident or analysis with an OpsItem. Incident
+        /// Manager is a capability of AWS Systems Manager.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssociateOpsItemRelatedItem service method.</param>
+        /// 
+        /// <returns>The response from the AssociateOpsItemRelatedItem service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemInvalidParameterException">
+        /// A specified parameter argument isn't valid. Verify the available arguments and try
+        /// again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemLimitExceededException">
+        /// The request caused OpsItems to exceed one or more quotas. For information about OpsItem
+        /// quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What
+        /// are the resource limits for OpsCenter?</a>.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemNotFoundException">
+        /// The specified OpsItem ID doesn't exist. Verify the ID and try again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemRelatedItemAlreadyExistsException">
+        /// The Amazon Resource Name (ARN) is already associated with the OpsItem.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/AssociateOpsItemRelatedItem">REST API Reference for AssociateOpsItemRelatedItem Operation</seealso>
+        public virtual AssociateOpsItemRelatedItemResponse AssociateOpsItemRelatedItem(AssociateOpsItemRelatedItemRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateOpsItemRelatedItemRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateOpsItemRelatedItemResponseUnmarshaller.Instance;
+
+            return Invoke<AssociateOpsItemRelatedItemResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Associates a related resource to a Systems Manager OpsCenter OpsItem. For example,
+        /// you can associate an Incident Manager incident or analysis with an OpsItem. Incident
+        /// Manager is a capability of AWS Systems Manager.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssociateOpsItemRelatedItem service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AssociateOpsItemRelatedItem service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemInvalidParameterException">
+        /// A specified parameter argument isn't valid. Verify the available arguments and try
+        /// again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemLimitExceededException">
+        /// The request caused OpsItems to exceed one or more quotas. For information about OpsItem
+        /// quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What
+        /// are the resource limits for OpsCenter?</a>.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemNotFoundException">
+        /// The specified OpsItem ID doesn't exist. Verify the ID and try again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemRelatedItemAlreadyExistsException">
+        /// The Amazon Resource Name (ARN) is already associated with the OpsItem.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/AssociateOpsItemRelatedItem">REST API Reference for AssociateOpsItemRelatedItem Operation</seealso>
+        public virtual Task<AssociateOpsItemRelatedItemResponse> AssociateOpsItemRelatedItemAsync(AssociateOpsItemRelatedItemRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateOpsItemRelatedItemRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateOpsItemRelatedItemResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<AssociateOpsItemRelatedItemResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CancelCommand
 
 
@@ -422,7 +522,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidInstanceIdException">
         /// The following problems can cause this exception:
@@ -469,7 +569,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidInstanceIdException">
         /// The following problems can cause this exception:
@@ -516,7 +616,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidInstanceIdException">
         /// The following problems can cause this exception:
@@ -567,7 +667,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidInstanceIdException">
         /// The following problems can cause this exception:
@@ -617,7 +717,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidInstanceIdException">
         /// The following problems can cause this exception:
@@ -667,7 +767,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidInstanceIdException">
         /// The following problems can cause this exception:
@@ -5794,6 +5894,79 @@ namespace Amazon.SimpleSystemsManagement
 
         #endregion
         
+        #region  DisassociateOpsItemRelatedItem
+
+
+        /// <summary>
+        /// Deletes the association between an OpsItem and a related resource. For example, this
+        /// API action can delete an Incident Manager incident from an OpsItem. Incident Manager
+        /// is a capability of AWS Systems Manager.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateOpsItemRelatedItem service method.</param>
+        /// 
+        /// <returns>The response from the DisassociateOpsItemRelatedItem service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemInvalidParameterException">
+        /// A specified parameter argument isn't valid. Verify the available arguments and try
+        /// again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemNotFoundException">
+        /// The specified OpsItem ID doesn't exist. Verify the ID and try again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemRelatedItemAssociationNotFoundException">
+        /// The association was not found using the parameters you specified in the call. Verify
+        /// the information and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DisassociateOpsItemRelatedItem">REST API Reference for DisassociateOpsItemRelatedItem Operation</seealso>
+        public virtual DisassociateOpsItemRelatedItemResponse DisassociateOpsItemRelatedItem(DisassociateOpsItemRelatedItemRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateOpsItemRelatedItemRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateOpsItemRelatedItemResponseUnmarshaller.Instance;
+
+            return Invoke<DisassociateOpsItemRelatedItemResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Deletes the association between an OpsItem and a related resource. For example, this
+        /// API action can delete an Incident Manager incident from an OpsItem. Incident Manager
+        /// is a capability of AWS Systems Manager.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateOpsItemRelatedItem service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DisassociateOpsItemRelatedItem service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemInvalidParameterException">
+        /// A specified parameter argument isn't valid. Verify the available arguments and try
+        /// again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemNotFoundException">
+        /// The specified OpsItem ID doesn't exist. Verify the ID and try again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemRelatedItemAssociationNotFoundException">
+        /// The association was not found using the parameters you specified in the call. Verify
+        /// the information and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DisassociateOpsItemRelatedItem">REST API Reference for DisassociateOpsItemRelatedItem Operation</seealso>
+        public virtual Task<DisassociateOpsItemRelatedItemResponse> DisassociateOpsItemRelatedItemAsync(DisassociateOpsItemRelatedItemRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateOpsItemRelatedItemRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateOpsItemRelatedItemResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DisassociateOpsItemRelatedItemResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  GetAutomationExecution
 
 
@@ -5970,7 +6143,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidInstanceIdException">
         /// The following problems can cause this exception:
@@ -6031,7 +6204,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidInstanceIdException">
         /// The following problems can cause this exception:
@@ -7882,7 +8055,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterKeyException">
         /// The specified key is not valid.
@@ -7932,7 +8105,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterKeyException">
         /// The specified key is not valid.
@@ -7984,7 +8157,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterKeyException">
         /// The specified key is not valid.
@@ -8040,7 +8213,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterKeyException">
         /// The specified key is not valid.
@@ -8092,7 +8265,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterKeyException">
         /// The specified key is not valid.
@@ -8147,7 +8320,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterKeyException">
         /// The specified key is not valid.
@@ -8200,7 +8373,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterKeyException">
         /// The specified key is not valid.
@@ -8246,7 +8419,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterKeyException">
         /// The specified key is not valid.
@@ -8294,7 +8467,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterKeyException">
         /// The specified key is not valid.
@@ -8346,7 +8519,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterKeyException">
         /// The specified key is not valid.
@@ -8394,7 +8567,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterKeyException">
         /// The specified key is not valid.
@@ -8445,7 +8618,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidCommandIdException">
-        /// 
+        /// The specified command ID is not valid. Verify the ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterKeyException">
         /// The specified key is not valid.
@@ -9033,6 +9206,61 @@ namespace Amazon.SimpleSystemsManagement
             options.ResponseUnmarshaller = ListOpsItemEventsResponseUnmarshaller.Instance;
             
             return InvokeAsync<ListOpsItemEventsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListOpsItemRelatedItems
+
+
+        /// <summary>
+        /// Lists all related-item resources associated with an OpsItem.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListOpsItemRelatedItems service method.</param>
+        /// 
+        /// <returns>The response from the ListOpsItemRelatedItems service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemInvalidParameterException">
+        /// A specified parameter argument isn't valid. Verify the available arguments and try
+        /// again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListOpsItemRelatedItems">REST API Reference for ListOpsItemRelatedItems Operation</seealso>
+        public virtual ListOpsItemRelatedItemsResponse ListOpsItemRelatedItems(ListOpsItemRelatedItemsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListOpsItemRelatedItemsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListOpsItemRelatedItemsResponseUnmarshaller.Instance;
+
+            return Invoke<ListOpsItemRelatedItemsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Lists all related-item resources associated with an OpsItem.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListOpsItemRelatedItems service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListOpsItemRelatedItems service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemInvalidParameterException">
+        /// A specified parameter argument isn't valid. Verify the available arguments and try
+        /// again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListOpsItemRelatedItems">REST API Reference for ListOpsItemRelatedItems Operation</seealso>
+        public virtual Task<ListOpsItemRelatedItemsResponse> ListOpsItemRelatedItemsAsync(ListOpsItemRelatedItemsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListOpsItemRelatedItemsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListOpsItemRelatedItemsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ListOpsItemRelatedItemsResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -9841,9 +10069,9 @@ namespace Amazon.SimpleSystemsManagement
         /// This safeguard is to prevent parameter versions with mission critical labels assigned
         /// to them from being deleted. To continue creating new parameters, first move the label
         /// from the oldest version of the parameter to a newer one for use in your operations.
-        /// For information about moving parameter labels, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-console-move">Move
-        /// a parameter label (console)</a> or <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-cli-move">Move
-        /// a parameter label (CLI) </a> in the <i>AWS Systems Manager User Guide</i>. 
+        /// For information about moving parameter labels, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-console-move">Move
+        /// a parameter label (console)</a> or <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-cli-move">Move
+        /// a parameter label (CLI)</a> in the <i>AWS Systems Manager User Guide</i>. 
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ParameterPatternMismatchException">
@@ -9935,9 +10163,9 @@ namespace Amazon.SimpleSystemsManagement
         /// This safeguard is to prevent parameter versions with mission critical labels assigned
         /// to them from being deleted. To continue creating new parameters, first move the label
         /// from the oldest version of the parameter to a newer one for use in your operations.
-        /// For information about moving parameter labels, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-console-move">Move
-        /// a parameter label (console)</a> or <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-cli-move">Move
-        /// a parameter label (CLI) </a> in the <i>AWS Systems Manager User Guide</i>. 
+        /// For information about moving parameter labels, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-console-move">Move
+        /// a parameter label (console)</a> or <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-cli-move">Move
+        /// a parameter label (CLI)</a> in the <i>AWS Systems Manager User Guide</i>. 
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ParameterPatternMismatchException">

@@ -120,8 +120,8 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property ReverseOrder. 
         /// <para>
-        /// A boolean that indicates whether to list step executions in reverse order by start
-        /// time. The default value is 'false'.
+        /// Indicates whether to list step executions in reverse order by start time. The default
+        /// value is 'false'.
         /// </para>
         /// </summary>
         public bool ReverseOrder

@@ -38,14 +38,15 @@ namespace Amazon.AutoScaling
     /// Amazon EC2 Auto Scaling 
     /// <para>
     /// Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances
-    /// based on user-defined scaling policies, scheduled actions, and health checks. Use
-    /// this service with AWS Auto Scaling, Amazon CloudWatch, and Elastic Load Balancing.
+    /// based on user-defined scaling policies, scheduled actions, and health checks.
     /// </para>
     ///  
     /// <para>
-    /// For more information, including information about granting IAM users required permissions
-    /// for Amazon EC2 Auto Scaling actions, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Amazon
-    /// EC2 Auto Scaling User Guide</a>.
+    /// For more information about Amazon EC2 Auto Scaling, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Amazon
+    /// EC2 Auto Scaling User Guide</a>. For information about granting IAM users required
+    /// permissions for calls to Amazon EC2 Auto Scaling, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-permissions.html">Granting
+    /// IAM users required permissions for Amazon EC2 Auto Scaling resources</a> in the <i>Amazon
+    /// EC2 Auto Scaling API Reference</i>.
     /// </para>
     /// </summary>
     public partial class AmazonAutoScalingClient : AmazonServiceClient, IAmazonAutoScaling
@@ -637,9 +638,9 @@ namespace Amazon.AutoScaling
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing
-        /// Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto
-        /// Scaling User Guide</i>.
+        /// This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance
+        /// refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in
+        /// your Auto Scaling group after you make configuration changes.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CancelInstanceRefresh service method.</param>
@@ -1532,6 +1533,12 @@ namespace Amazon.AutoScaling
 
         /// <summary>
         /// Deletes the warm pool for the specified Auto Scaling group.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm
+        /// pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteWarmPool service method.</param>
         /// 
@@ -1601,11 +1608,13 @@ namespace Amazon.AutoScaling
         #region  DescribeAccountLimits
 
         /// <summary>
-        /// Describes the current Amazon EC2 Auto Scaling resource quotas for your AWS account.
+        /// Describes the current Amazon EC2 Auto Scaling resource quotas for your account.
         /// 
         ///  
         /// <para>
-        /// For information about requesting an increase, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon
+        /// When you establish an account, the account has initial quotas on the maximum number
+        /// of Auto Scaling groups and launch configurations that you can create in a given Region.
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon
         /// EC2 Auto Scaling service quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
         /// </para>
         /// </summary>
@@ -1622,11 +1631,13 @@ namespace Amazon.AutoScaling
         }
 
         /// <summary>
-        /// Describes the current Amazon EC2 Auto Scaling resource quotas for your AWS account.
+        /// Describes the current Amazon EC2 Auto Scaling resource quotas for your account.
         /// 
         ///  
         /// <para>
-        /// For information about requesting an increase, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon
+        /// When you establish an account, the account has initial quotas on the maximum number
+        /// of Auto Scaling groups and launch configurations that you can create in a given Region.
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon
         /// EC2 Auto Scaling service quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
         /// </para>
         /// </summary>
@@ -1686,9 +1697,7 @@ namespace Amazon.AutoScaling
         #region  DescribeAdjustmentTypes
 
         /// <summary>
-        /// Describes the available adjustment types for Amazon EC2 Auto Scaling scaling policies.
-        /// These settings apply to step scaling policies and simple scaling policies; they do
-        /// not apply to target tracking scaling policies.
+        /// Describes the available adjustment types for step scaling and simple scaling policies.
         /// 
         ///  
         /// <para>
@@ -1696,15 +1705,15 @@ namespace Amazon.AutoScaling
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// ChangeInCapacity
+        ///  <code>ChangeInCapacity</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// ExactCapacity
+        ///  <code>ExactCapacity</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// PercentChangeInCapacity
+        ///  <code>PercentChangeInCapacity</code> 
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -1721,9 +1730,7 @@ namespace Amazon.AutoScaling
         }
 
         /// <summary>
-        /// Describes the available adjustment types for Amazon EC2 Auto Scaling scaling policies.
-        /// These settings apply to step scaling policies and simple scaling policies; they do
-        /// not apply to target tracking scaling policies.
+        /// Describes the available adjustment types for step scaling and simple scaling policies.
         /// 
         ///  
         /// <para>
@@ -1731,15 +1738,15 @@ namespace Amazon.AutoScaling
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// ChangeInCapacity
+        ///  <code>ChangeInCapacity</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// ExactCapacity
+        ///  <code>ExactCapacity</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// PercentChangeInCapacity
+        ///  <code>PercentChangeInCapacity</code> 
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -1799,7 +1806,14 @@ namespace Amazon.AutoScaling
         #region  DescribeAutoScalingGroups
 
         /// <summary>
-        /// Describes one or more Auto Scaling groups.
+        /// Gets information about the Auto Scaling groups in the account and Region.
+        /// 
+        ///  
+        /// <para>
+        /// This operation returns information about instances in Auto Scaling groups. To retrieve
+        /// information about the instances in a warm pool, you must call the <a>DescribeWarmPool</a>
+        /// API. 
+        /// </para>
         /// </summary>
         /// 
         /// <returns>The response from the DescribeAutoScalingGroups service method, as returned by AutoScaling.</returns>
@@ -1817,7 +1831,14 @@ namespace Amazon.AutoScaling
         }
 
         /// <summary>
-        /// Describes one or more Auto Scaling groups.
+        /// Gets information about the Auto Scaling groups in the account and Region.
+        /// 
+        ///  
+        /// <para>
+        /// This operation returns information about instances in Auto Scaling groups. To retrieve
+        /// information about the instances in a warm pool, you must call the <a>DescribeWarmPool</a>
+        /// API. 
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAutoScalingGroups service method.</param>
         /// 
@@ -1878,7 +1899,7 @@ namespace Amazon.AutoScaling
         #region  DescribeAutoScalingInstances
 
         /// <summary>
-        /// Describes one or more Auto Scaling instances.
+        /// Gets information about the Auto Scaling instances in the account and Region.
         /// </summary>
         /// 
         /// <returns>The response from the DescribeAutoScalingInstances service method, as returned by AutoScaling.</returns>
@@ -1896,7 +1917,7 @@ namespace Amazon.AutoScaling
         }
 
         /// <summary>
-        /// Describes one or more Auto Scaling instances.
+        /// Gets information about the Auto Scaling instances in the account and Region.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAutoScalingInstances service method.</param>
         /// 
@@ -2030,11 +2051,23 @@ namespace Amazon.AutoScaling
         #region  DescribeInstanceRefreshes
 
         /// <summary>
-        /// Describes one or more instance refreshes.
+        /// Gets information about the instance refreshes for the specified Auto Scaling group.
         /// 
         ///  
         /// <para>
-        /// You can determine the status of a request by looking at the <code>Status</code> parameter.
+        /// This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance
+        /// refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in
+        /// your Auto Scaling group after you make configuration changes.
+        /// </para>
+        ///  
+        /// <para>
+        /// To help you determine the status of an instance refresh, this operation returns information
+        /// about the instance refreshes you previously initiated, including their status, end
+        /// time, the percentage of the instance refresh that is complete, and the number of instances
+        /// remaining to update before the instance refresh is complete.
+        /// </para>
+        ///  
+        /// <para>
         /// The following are the possible statuses: 
         /// </para>
         ///  <ul> <li> 
@@ -2064,12 +2097,7 @@ namespace Amazon.AutoScaling
         /// <para>
         ///  <code>Cancelled</code> - The operation is cancelled. 
         /// </para>
-        ///  </li> </ul> 
-        /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing
-        /// Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto
-        /// Scaling User Guide</i>.
-        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceRefreshes service method.</param>
         /// 
@@ -2130,7 +2158,7 @@ namespace Amazon.AutoScaling
         #region  DescribeLaunchConfigurations
 
         /// <summary>
-        /// Describes one or more launch configurations.
+        /// Gets information about the launch configurations in the account and Region.
         /// </summary>
         /// 
         /// <returns>The response from the DescribeLaunchConfigurations service method, as returned by AutoScaling.</returns>
@@ -2148,7 +2176,7 @@ namespace Amazon.AutoScaling
         }
 
         /// <summary>
-        /// Describes one or more launch configurations.
+        /// Gets information about the launch configurations in the account and Region.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLaunchConfigurations service method.</param>
         /// 
@@ -2209,7 +2237,7 @@ namespace Amazon.AutoScaling
         #region  DescribeLifecycleHooks
 
         /// <summary>
-        /// Describes the lifecycle hooks for the specified Auto Scaling group.
+        /// Gets information about the lifecycle hooks for the specified Auto Scaling group.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLifecycleHooks service method.</param>
         /// 
@@ -2275,11 +2303,11 @@ namespace Amazon.AutoScaling
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// autoscaling:EC2_INSTANCE_LAUNCHING
+        ///  <code>autoscaling:EC2_INSTANCE_LAUNCHING</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// autoscaling:EC2_INSTANCE_TERMINATING
+        ///  <code>autoscaling:EC2_INSTANCE_TERMINATING</code> 
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -2339,13 +2367,41 @@ namespace Amazon.AutoScaling
         #region  DescribeLoadBalancers
 
         /// <summary>
-        /// Describes the load balancers for the specified Auto Scaling group.
+        /// Gets information about the load balancers for the specified Auto Scaling group.
         /// 
         ///  
         /// <para>
         /// This operation describes only Classic Load Balancers. If you have Application Load
         /// Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DescribeLoadBalancerTargetGroups</a>
         /// API instead.
+        /// </para>
+        ///  
+        /// <para>
+        /// To determine the availability of registered instances, use the <code>State</code>
+        /// element in the response. When you attach a load balancer to an Auto Scaling group,
+        /// the initial <code>State</code> value is <code>Adding</code>. The state transitions
+        /// to <code>Added</code> after all Auto Scaling instances are registered with the load
+        /// balancer. If Elastic Load Balancing health checks are enabled for the Auto Scaling
+        /// group, the state transitions to <code>InService</code> after at least one Auto Scaling
+        /// instance passes the health check. When the load balancer is in the <code>InService</code>
+        /// state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported
+        /// as unhealthy. If no registered instances pass the health checks, the load balancer
+        /// doesn't enter the <code>InService</code> state. 
+        /// </para>
+        ///  
+        /// <para>
+        /// Load balancers also have an <code>InService</code> state if you attach them in the
+        /// <a>CreateAutoScalingGroup</a> API call. If your load balancer state is <code>InService</code>,
+        /// but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a>
+        /// and take any corrective actions necessary.
+        /// </para>
+        ///  
+        /// <para>
+        /// For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting
+        /// Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User
+        /// Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Elastic
+        /// Load Balancing and Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User
+        /// Guide</i>. 
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLoadBalancers service method.</param>
@@ -2404,7 +2460,37 @@ namespace Amazon.AutoScaling
         #region  DescribeLoadBalancerTargetGroups
 
         /// <summary>
-        /// Describes the target groups for the specified Auto Scaling group.
+        /// Gets information about the load balancer target groups for the specified Auto Scaling
+        /// group.
+        /// 
+        ///  
+        /// <para>
+        /// To determine the availability of registered instances, use the <code>State</code>
+        /// element in the response. When you attach a target group to an Auto Scaling group,
+        /// the initial <code>State</code> value is <code>Adding</code>. The state transitions
+        /// to <code>Added</code> after all Auto Scaling instances are registered with the target
+        /// group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group,
+        /// the state transitions to <code>InService</code> after at least one Auto Scaling instance
+        /// passes the health check. When the target group is in the <code>InService</code> state,
+        /// Amazon EC2 Auto Scaling can terminate and replace any instances that are reported
+        /// as unhealthy. If no registered instances pass the health checks, the target group
+        /// doesn't enter the <code>InService</code> state. 
+        /// </para>
+        ///  
+        /// <para>
+        /// Target groups also have an <code>InService</code> state if you attach them in the
+        /// <a>CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>,
+        /// but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a>
+        /// and take any corrective actions necessary.
+        /// </para>
+        ///  
+        /// <para>
+        /// For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting
+        /// Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User
+        /// Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Elastic
+        /// Load Balancing and Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User
+        /// Guide</i>. 
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLoadBalancerTargetGroups service method.</param>
         /// 
@@ -2547,7 +2633,8 @@ namespace Amazon.AutoScaling
         #region  DescribeNotificationConfigurations
 
         /// <summary>
-        /// Describes the notification actions associated with the specified Auto Scaling group.
+        /// Gets information about the Amazon SNS notifications that are configured for one or
+        /// more Auto Scaling groups.
         /// </summary>
         /// 
         /// <returns>The response from the DescribeNotificationConfigurations service method, as returned by AutoScaling.</returns>
@@ -2565,7 +2652,8 @@ namespace Amazon.AutoScaling
         }
 
         /// <summary>
-        /// Describes the notification actions associated with the specified Auto Scaling group.
+        /// Gets information about the Amazon SNS notifications that are configured for one or
+        /// more Auto Scaling groups.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeNotificationConfigurations service method.</param>
         /// 
@@ -2626,7 +2714,7 @@ namespace Amazon.AutoScaling
         #region  DescribePolicies
 
         /// <summary>
-        /// Describes the policies for the specified Auto Scaling group.
+        /// Gets information about the scaling policies in the account and Region.
         /// </summary>
         /// 
         /// <returns>The response from the DescribePolicies service method, as returned by AutoScaling.</returns>
@@ -2647,7 +2735,7 @@ namespace Amazon.AutoScaling
         }
 
         /// <summary>
-        /// Describes the policies for the specified Auto Scaling group.
+        /// Gets information about the scaling policies in the account and Region.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribePolicies service method.</param>
         /// 
@@ -2711,16 +2799,23 @@ namespace Amazon.AutoScaling
         #region  DescribeScalingActivities
 
         /// <summary>
-        /// Describes one or more scaling activities for the specified Auto Scaling group.
+        /// Gets information about the scaling activities in the account and Region.
         /// 
         ///  
         /// <para>
-        /// To view the scaling activities from the Amazon EC2 Auto Scaling console, choose the
-        /// <b>Activity</b> tab of the Auto Scaling group. When scaling events occur, you see
-        /// scaling activity messages in the <b>Activity history</b>. For more information, see
-        /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying
+        /// When scaling events occur, you see a record of the scaling activity in the scaling
+        /// activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying
         /// a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling
         /// User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// If the scaling event succeeds, the value of the <code>StatusCode</code> element in
+        /// the response is <code>Successful</code>. If an attempt to launch instances failed,
+        /// the <code>StatusCode</code> value is <code>Failed</code> or <code>Cancelled</code>
+        /// and the <code>StatusMessage</code> element in the response indicates the cause of
+        /// the failure. For help interpreting the <code>StatusMessage</code>, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html">Troubleshooting
+        /// Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. 
         /// </para>
         /// </summary>
         /// 
@@ -2739,16 +2834,23 @@ namespace Amazon.AutoScaling
         }
 
         /// <summary>
-        /// Describes one or more scaling activities for the specified Auto Scaling group.
+        /// Gets information about the scaling activities in the account and Region.
         /// 
         ///  
         /// <para>
-        /// To view the scaling activities from the Amazon EC2 Auto Scaling console, choose the
-        /// <b>Activity</b> tab of the Auto Scaling group. When scaling events occur, you see
-        /// scaling activity messages in the <b>Activity history</b>. For more information, see
-        /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying
+        /// When scaling events occur, you see a record of the scaling activity in the scaling
+        /// activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying
         /// a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling
         /// User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// If the scaling event succeeds, the value of the <code>StatusCode</code> element in
+        /// the response is <code>Successful</code>. If an attempt to launch instances failed,
+        /// the <code>StatusCode</code> value is <code>Failed</code> or <code>Cancelled</code>
+        /// and the <code>StatusMessage</code> element in the response indicates the cause of
+        /// the failure. For help interpreting the <code>StatusMessage</code>, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html">Troubleshooting
+        /// Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. 
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeScalingActivities service method.</param>
@@ -2885,9 +2987,14 @@ namespace Amazon.AutoScaling
         #region  DescribeScheduledActions
 
         /// <summary>
-        /// Describes the actions scheduled for your Auto Scaling group that haven't run or that
-        /// have not reached their end time. To describe the actions that have already run, call
+        /// Gets information about the scheduled actions that haven't run or that have not reached
+        /// their end time.
+        /// 
+        ///  
+        /// <para>
+        /// To describe the scaling activities for scheduled actions that have already run, call
         /// the <a>DescribeScalingActivities</a> API.
+        /// </para>
         /// </summary>
         /// 
         /// <returns>The response from the DescribeScheduledActions service method, as returned by AutoScaling.</returns>
@@ -2905,9 +3012,14 @@ namespace Amazon.AutoScaling
         }
 
         /// <summary>
-        /// Describes the actions scheduled for your Auto Scaling group that haven't run or that
-        /// have not reached their end time. To describe the actions that have already run, call
+        /// Gets information about the scheduled actions that haven't run or that have not reached
+        /// their end time.
+        /// 
+        ///  
+        /// <para>
+        /// To describe the scaling activities for scheduled actions that have already run, call
         /// the <a>DescribeScalingActivities</a> API.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeScheduledActions service method.</param>
         /// 
@@ -3170,7 +3282,13 @@ namespace Amazon.AutoScaling
         #region  DescribeWarmPool
 
         /// <summary>
-        /// Describes a warm pool and its instances.
+        /// Gets information about a warm pool and its instances.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm
+        /// pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeWarmPool service method.</param>
         /// 
@@ -3772,6 +3890,82 @@ namespace Amazon.AutoScaling
 
         #endregion
         
+        #region  GetPredictiveScalingForecast
+
+        /// <summary>
+        /// Retrieves the forecast data for a predictive scaling policy.
+        /// 
+        ///  
+        /// <para>
+        /// Load forecasts are predictions of the hourly load values using historical load data
+        /// from CloudWatch and an analysis of historical trends. Capacity forecasts are represented
+        /// as predicted values for the minimum capacity that is needed on an hourly basis, based
+        /// on the hourly load forecast.
+        /// </para>
+        ///  
+        /// <para>
+        /// A minimum of 24 hours of data is required to create the initial forecasts. However,
+        /// having a full 14 days of historical data results in more accurate forecasts.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html">Predictive
+        /// scaling for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetPredictiveScalingForecast service method.</param>
+        /// 
+        /// <returns>The response from the GetPredictiveScalingForecast service method, as returned by AutoScaling.</returns>
+        /// <exception cref="Amazon.AutoScaling.Model.ResourceContentionException">
+        /// You already have a pending update to an Amazon EC2 Auto Scaling resource (for example,
+        /// an Auto Scaling group, instance, or load balancer).
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/GetPredictiveScalingForecast">REST API Reference for GetPredictiveScalingForecast Operation</seealso>
+        public virtual GetPredictiveScalingForecastResponse GetPredictiveScalingForecast(GetPredictiveScalingForecastRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetPredictiveScalingForecastRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetPredictiveScalingForecastResponseUnmarshaller.Instance;
+
+            return Invoke<GetPredictiveScalingForecastResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetPredictiveScalingForecast operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetPredictiveScalingForecast operation on AmazonAutoScalingClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetPredictiveScalingForecast
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/GetPredictiveScalingForecast">REST API Reference for GetPredictiveScalingForecast Operation</seealso>
+        public virtual IAsyncResult BeginGetPredictiveScalingForecast(GetPredictiveScalingForecastRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetPredictiveScalingForecastRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetPredictiveScalingForecastResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetPredictiveScalingForecast operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetPredictiveScalingForecast.</param>
+        /// 
+        /// <returns>Returns a  GetPredictiveScalingForecastResult from AutoScaling.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/GetPredictiveScalingForecast">REST API Reference for GetPredictiveScalingForecast Operation</seealso>
+        public virtual GetPredictiveScalingForecastResponse EndGetPredictiveScalingForecast(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetPredictiveScalingForecastResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  PutLifecycleHook
 
         /// <summary>
@@ -3978,14 +4172,26 @@ namespace Amazon.AutoScaling
         #region  PutScalingPolicy
 
         /// <summary>
-        /// Creates or updates a scaling policy for an Auto Scaling group.
+        /// Creates or updates a scaling policy for an Auto Scaling group. Scaling policies are
+        /// used to scale an Auto Scaling group based on configurable metrics. If no policies
+        /// are defined, the dynamic scaling and predictive scaling features are not used. 
         /// 
         ///  
         /// <para>
-        /// For more information about using scaling policies to scale your Auto Scaling group,
-        /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html">Target
+        /// For more information about using dynamic scaling, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html">Target
         /// tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html">Step
         /// and simple scaling policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about using predictive scaling, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html">Predictive
+        /// scaling for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can view the scaling policies for an Auto Scaling group using the <a>DescribePolicies</a>
+        /// API call. If you are no longer using a scaling policy, you can delete it by calling
+        /// the <a>DeletePolicy</a> API.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutScalingPolicy service method.</param>
@@ -4060,6 +4266,12 @@ namespace Amazon.AutoScaling
         /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled
         /// scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
         /// </para>
+        ///  
+        /// <para>
+        /// You can view the scheduled actions for an Auto Scaling group using the <a>DescribeScheduledActions</a>
+        /// API call. If you are no longer using a scheduled action, you can delete it by calling
+        /// the <a>DeleteScheduledAction</a> API.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutScheduledUpdateGroupAction service method.</param>
         /// 
@@ -4126,10 +4338,11 @@ namespace Amazon.AutoScaling
         #region  PutWarmPool
 
         /// <summary>
-        /// Adds a warm pool to the specified Auto Scaling group. A warm pool is a pool of pre-initialized
-        /// EC2 instances that sits alongside the Auto Scaling group. Whenever your application
-        /// needs to scale out, the Auto Scaling group can draw on the warm pool to meet its new
-        /// desired capacity. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm
+        /// Creates or updates a warm pool for the specified Auto Scaling group. A warm pool is
+        /// a pool of pre-initialized EC2 instances that sits alongside the Auto Scaling group.
+        /// Whenever your application needs to scale out, the Auto Scaling group can draw on the
+        /// warm pool to meet its new desired capacity. For more information and example configurations,
+        /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm
         /// pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
         /// 
         ///  
@@ -4590,17 +4803,17 @@ namespace Amazon.AutoScaling
         /// 
         ///  
         /// <para>
-        /// If successful, this call creates a new instance refresh request with a unique ID that
+        /// This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance
+        /// refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in
+        /// your Auto Scaling group after you make configuration changes.
+        /// </para>
+        ///  
+        /// <para>
+        /// If the call succeeds, it creates a new instance refresh request with a unique ID that
         /// you can use to track its progress. To query its status, call the <a>DescribeInstanceRefreshes</a>
         /// API. To describe the instance refreshes that have already run, call the <a>DescribeInstanceRefreshes</a>
         /// API. To cancel an instance refresh operation in progress, use the <a>CancelInstanceRefresh</a>
         /// API. 
-        /// </para>
-        ///  
-        /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing
-        /// Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto
-        /// Scaling User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartInstanceRefresh service method.</param>

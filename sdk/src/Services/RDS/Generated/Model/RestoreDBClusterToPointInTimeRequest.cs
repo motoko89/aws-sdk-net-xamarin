@@ -67,11 +67,13 @@ namespace Amazon.RDS.Model
         private string _domainIAMRoleName;
         private List<string> _enableCloudwatchLogsExports = new List<string>();
         private bool? _enableIAMDatabaseAuthentication;
+        private string _engineMode;
         private string _kmsKeyId;
         private string _optionGroupName;
         private int? _port;
         private DateTime? _restoreToTimeUtc;
         private string _restoreType;
+        private ScalingConfiguration _scalingConfiguration;
         private string _sourceDBClusterIdentifier;
         private List<Tag> _tags = new List<Tag>();
         private bool? _useLatestRestorableTime;
@@ -323,8 +325,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property EnableIAMDatabaseAuthentication. 
         /// <para>
-        /// A value that indicates whether to enable mapping of AWS Identity and Access Management
-        /// (IAM) accounts to database accounts. By default, mapping is disabled.
+        /// A value that indicates whether to enable mapping of Amazon Web Services Identity and
+        /// Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         /// </para>
         ///  
         /// <para>
@@ -345,23 +347,45 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EngineMode. 
+        /// <para>
+        /// The engine mode of the new cluster. Specify <code>provisioned</code> or <code>serverless</code>,
+        /// depending on the type of the cluster you are creating. You can create an Aurora Serverless
+        /// clone from a provisioned cluster, or a provisioned clone from an Aurora Serverless
+        /// cluster. To create a clone that is an Aurora Serverless cluster, the original cluster
+        /// must be an Aurora Serverless cluster or an encrypted provisioned cluster.
+        /// </para>
+        /// </summary>
+        public string EngineMode
+        {
+            get { return this._engineMode; }
+            set { this._engineMode = value; }
+        }
+
+        // Check to see if EngineMode property is set
+        internal bool IsSetEngineMode()
+        {
+            return this._engineMode != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property KmsKeyId. 
         /// <para>
-        /// The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted
-        /// DB cluster.
+        /// The Amazon Web Services KMS key identifier to use when restoring an encrypted DB cluster
+        /// from an encrypted DB cluster.
         /// </para>
         ///  
         /// <para>
-        /// The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the
-        /// AWS KMS customer master key (CMK). To use a CMK in a different AWS account, specify
-        /// the key ARN or alias ARN.
+        /// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// name for the Amazon Web Services KMS customer master key (CMK). To use a CMK in a
+        /// different Amazon Web Services account, specify the key ARN or alias ARN.
         /// </para>
         ///  
         /// <para>
-        /// You can restore to a new DB cluster and encrypt the new DB cluster with a AWS KMS
-        /// CMK that is different than the AWS KMS key used to encrypt the source DB cluster.
-        /// The new DB cluster is encrypted with the AWS KMS CMK identified by the <code>KmsKeyId</code>
-        /// parameter.
+        /// You can restore to a new DB cluster and encrypt the new DB cluster with a Amazon Web
+        /// Services KMS CMK that is different than the Amazon Web Services KMS key used to encrypt
+        /// the source DB cluster. The new DB cluster is encrypted with the Amazon Web Services
+        /// KMS CMK identified by the <code>KmsKeyId</code> parameter.
         /// </para>
         ///  
         /// <para>
@@ -371,7 +395,7 @@ namespace Amazon.RDS.Model
         ///  <ul> <li> 
         /// <para>
         /// If the DB cluster is encrypted, then the restored DB cluster is encrypted using the
-        /// AWS KMS CMK that was used to encrypt the source DB cluster.
+        /// Amazon Web Services KMS CMK that was used to encrypt the source DB cluster.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -522,6 +546,25 @@ namespace Amazon.RDS.Model
         internal bool IsSetRestoreType()
         {
             return this._restoreType != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ScalingConfiguration. 
+        /// <para>
+        /// For DB clusters in <code>serverless</code> DB engine mode, the scaling properties
+        /// of the DB cluster.
+        /// </para>
+        /// </summary>
+        public ScalingConfiguration ScalingConfiguration
+        {
+            get { return this._scalingConfiguration; }
+            set { this._scalingConfiguration = value; }
+        }
+
+        // Check to see if ScalingConfiguration property is set
+        internal bool IsSetScalingConfiguration()
+        {
+            return this._scalingConfiguration != null;
         }
 
         /// <summary>

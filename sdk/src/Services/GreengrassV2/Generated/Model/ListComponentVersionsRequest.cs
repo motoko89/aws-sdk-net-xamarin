@@ -30,7 +30,8 @@ namespace Amazon.GreengrassV2.Model
 {
     /// <summary>
     /// Container for the parameters to the ListComponentVersions operation.
-    /// Retrieves a paginated list of all versions for a component.
+    /// Retrieves a paginated list of all versions for a component. Greater versions are listed
+    /// first.
     /// </summary>
     public partial class ListComponentVersionsRequest : AmazonGreengrassV2Request
     {

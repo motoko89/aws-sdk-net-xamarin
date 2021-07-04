@@ -96,6 +96,10 @@ namespace Amazon.KeyManagementService.Model.Internal.MarshallTransformations
                 {
                     return CustomKeyStoreNotFoundExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
                 }
+                if (errorResponse.Code != null && errorResponse.Code.Equals("InvalidMarkerException"))
+                {
+                    return InvalidMarkerExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
+                }
                 if (errorResponse.Code != null && errorResponse.Code.Equals("KMSInternalException"))
                 {
                     return KMSInternalExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);

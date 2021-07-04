@@ -588,8 +588,8 @@ namespace Amazon.IoTSiteWise
         ///  </li> </ul> <important> 
         /// <para>
         /// With respect to Unix epoch time, AWS IoT SiteWise accepts only TQVs that have a timestamp
-        /// of no more than 7 days in the past and no more than 5 minutes in the future. AWS IoT
-        /// SiteWise rejects timestamps outside of the inclusive range of [-7 days, +5 minutes]
+        /// of no more than 7 days in the past and no more than 10 minutes in the future. AWS
+        /// IoT SiteWise rejects timestamps outside of the inclusive range of [-7 days, +10 minutes]
         /// and returns a <code>TimestampOutOfRangeException</code> error.
         /// </para>
         ///  
@@ -679,8 +679,8 @@ namespace Amazon.IoTSiteWise
         ///  </li> </ul> <important> 
         /// <para>
         /// With respect to Unix epoch time, AWS IoT SiteWise accepts only TQVs that have a timestamp
-        /// of no more than 7 days in the past and no more than 5 minutes in the future. AWS IoT
-        /// SiteWise rejects timestamps outside of the inclusive range of [-7 days, +5 minutes]
+        /// of no more than 7 days in the past and no more than 10 minutes in the future. AWS
+        /// IoT SiteWise rejects timestamps outside of the inclusive range of [-7 days, +10 minutes]
         /// and returns a <code>TimestampOutOfRangeException</code> error.
         /// </para>
         ///  
@@ -3586,6 +3586,137 @@ namespace Amazon.IoTSiteWise
             options.ResponseUnmarshaller = GetAssetPropertyValueHistoryResponseUnmarshaller.Instance;
             
             return InvokeAsync<GetAssetPropertyValueHistoryResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetInterpolatedAssetPropertyValues
+
+
+        /// <summary>
+        /// Get interpolated values for an asset property for a specified time interval, during
+        /// a period of time. For example, you can use the this operation to return the interpolated
+        /// temperature values for a wind turbine every 24 hours over a duration of 7 days.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// This API isn't available in China (Beijing).
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// To identify an asset property, you must specify one of the following:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// The <code>assetId</code> and <code>propertyId</code> of an asset property.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// A <code>propertyAlias</code>, which is a data stream alias (for example, <code>/company/windfarm/3/turbine/7/temperature</code>).
+        /// To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetInterpolatedAssetPropertyValues service method.</param>
+        /// 
+        /// <returns>The response from the GetInterpolatedAssetPropertyValues service method, as returned by IoTSiteWise.</returns>
+        /// <exception cref="Amazon.IoTSiteWise.Model.InternalFailureException">
+        /// AWS IoT SiteWise can't process your request right now. Try again later.
+        /// </exception>
+        /// <exception cref="Amazon.IoTSiteWise.Model.InvalidRequestException">
+        /// The request isn't valid. This can occur if your request contains malformed JSON or
+        /// unsupported characters. Check your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.IoTSiteWise.Model.ResourceNotFoundException">
+        /// The requested resource can't be found.
+        /// </exception>
+        /// <exception cref="Amazon.IoTSiteWise.Model.ServiceUnavailableException">
+        /// The requested service is unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.IoTSiteWise.Model.ThrottlingException">
+        /// Your request exceeded a rate limit. For example, you might have exceeded the number
+        /// of AWS IoT SiteWise assets that can be created per second, the allowed number of messages
+        /// per second, and so on.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
+        /// in the <i>AWS IoT SiteWise User Guide</i>.
+        /// </para>
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotsitewise-2019-12-02/GetInterpolatedAssetPropertyValues">REST API Reference for GetInterpolatedAssetPropertyValues Operation</seealso>
+        public virtual GetInterpolatedAssetPropertyValuesResponse GetInterpolatedAssetPropertyValues(GetInterpolatedAssetPropertyValuesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetInterpolatedAssetPropertyValuesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetInterpolatedAssetPropertyValuesResponseUnmarshaller.Instance;
+
+            return Invoke<GetInterpolatedAssetPropertyValuesResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Get interpolated values for an asset property for a specified time interval, during
+        /// a period of time. For example, you can use the this operation to return the interpolated
+        /// temperature values for a wind turbine every 24 hours over a duration of 7 days.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// This API isn't available in China (Beijing).
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// To identify an asset property, you must specify one of the following:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// The <code>assetId</code> and <code>propertyId</code> of an asset property.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// A <code>propertyAlias</code>, which is a data stream alias (for example, <code>/company/windfarm/3/turbine/7/temperature</code>).
+        /// To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetInterpolatedAssetPropertyValues service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetInterpolatedAssetPropertyValues service method, as returned by IoTSiteWise.</returns>
+        /// <exception cref="Amazon.IoTSiteWise.Model.InternalFailureException">
+        /// AWS IoT SiteWise can't process your request right now. Try again later.
+        /// </exception>
+        /// <exception cref="Amazon.IoTSiteWise.Model.InvalidRequestException">
+        /// The request isn't valid. This can occur if your request contains malformed JSON or
+        /// unsupported characters. Check your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.IoTSiteWise.Model.ResourceNotFoundException">
+        /// The requested resource can't be found.
+        /// </exception>
+        /// <exception cref="Amazon.IoTSiteWise.Model.ServiceUnavailableException">
+        /// The requested service is unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.IoTSiteWise.Model.ThrottlingException">
+        /// Your request exceeded a rate limit. For example, you might have exceeded the number
+        /// of AWS IoT SiteWise assets that can be created per second, the allowed number of messages
+        /// per second, and so on.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
+        /// in the <i>AWS IoT SiteWise User Guide</i>.
+        /// </para>
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotsitewise-2019-12-02/GetInterpolatedAssetPropertyValues">REST API Reference for GetInterpolatedAssetPropertyValues Operation</seealso>
+        public virtual Task<GetInterpolatedAssetPropertyValuesResponse> GetInterpolatedAssetPropertyValuesAsync(GetInterpolatedAssetPropertyValuesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetInterpolatedAssetPropertyValuesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetInterpolatedAssetPropertyValuesResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<GetInterpolatedAssetPropertyValuesResponse>(request, options, cancellationToken);
         }
 
         #endregion

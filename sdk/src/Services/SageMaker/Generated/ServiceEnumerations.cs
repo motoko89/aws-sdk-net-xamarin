@@ -1039,6 +1039,10 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly AutoMLJobSecondaryStatus Completed = new AutoMLJobSecondaryStatus("Completed");
         /// <summary>
+        /// Constant DeployingModel for AutoMLJobSecondaryStatus
+        /// </summary>
+        public static readonly AutoMLJobSecondaryStatus DeployingModel = new AutoMLJobSecondaryStatus("DeployingModel");
+        /// <summary>
         /// Constant ExplainabilityError for AutoMLJobSecondaryStatus
         /// </summary>
         public static readonly AutoMLJobSecondaryStatus ExplainabilityError = new AutoMLJobSecondaryStatus("ExplainabilityError");
@@ -1062,6 +1066,10 @@ namespace Amazon.SageMaker
         /// Constant MaxCandidatesReached for AutoMLJobSecondaryStatus
         /// </summary>
         public static readonly AutoMLJobSecondaryStatus MaxCandidatesReached = new AutoMLJobSecondaryStatus("MaxCandidatesReached");
+        /// <summary>
+        /// Constant ModelDeploymentError for AutoMLJobSecondaryStatus
+        /// </summary>
+        public static readonly AutoMLJobSecondaryStatus ModelDeploymentError = new AutoMLJobSecondaryStatus("ModelDeploymentError");
         /// <summary>
         /// Constant ModelTuning for AutoMLJobSecondaryStatus
         /// </summary>
@@ -2578,6 +2586,102 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator EdgePackagingJobStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type EdgePresetDeploymentStatus.
+    /// </summary>
+    public class EdgePresetDeploymentStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant COMPLETED for EdgePresetDeploymentStatus
+        /// </summary>
+        public static readonly EdgePresetDeploymentStatus COMPLETED = new EdgePresetDeploymentStatus("COMPLETED");
+        /// <summary>
+        /// Constant FAILED for EdgePresetDeploymentStatus
+        /// </summary>
+        public static readonly EdgePresetDeploymentStatus FAILED = new EdgePresetDeploymentStatus("FAILED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public EdgePresetDeploymentStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static EdgePresetDeploymentStatus FindValue(string value)
+        {
+            return FindValue<EdgePresetDeploymentStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator EdgePresetDeploymentStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type EdgePresetDeploymentType.
+    /// </summary>
+    public class EdgePresetDeploymentType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant GreengrassV2Component for EdgePresetDeploymentType
+        /// </summary>
+        public static readonly EdgePresetDeploymentType GreengrassV2Component = new EdgePresetDeploymentType("GreengrassV2Component");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public EdgePresetDeploymentType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static EdgePresetDeploymentType FindValue(string value)
+        {
+            return FindValue<EdgePresetDeploymentType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator EdgePresetDeploymentType(string value)
         {
             return FindValue(value);
         }
@@ -6335,6 +6439,30 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly ProcessingInstanceType MlC5Xlarge = new ProcessingInstanceType("ml.c5.xlarge");
         /// <summary>
+        /// Constant MlG4dn12xlarge for ProcessingInstanceType
+        /// </summary>
+        public static readonly ProcessingInstanceType MlG4dn12xlarge = new ProcessingInstanceType("ml.g4dn.12xlarge");
+        /// <summary>
+        /// Constant MlG4dn16xlarge for ProcessingInstanceType
+        /// </summary>
+        public static readonly ProcessingInstanceType MlG4dn16xlarge = new ProcessingInstanceType("ml.g4dn.16xlarge");
+        /// <summary>
+        /// Constant MlG4dn2xlarge for ProcessingInstanceType
+        /// </summary>
+        public static readonly ProcessingInstanceType MlG4dn2xlarge = new ProcessingInstanceType("ml.g4dn.2xlarge");
+        /// <summary>
+        /// Constant MlG4dn4xlarge for ProcessingInstanceType
+        /// </summary>
+        public static readonly ProcessingInstanceType MlG4dn4xlarge = new ProcessingInstanceType("ml.g4dn.4xlarge");
+        /// <summary>
+        /// Constant MlG4dn8xlarge for ProcessingInstanceType
+        /// </summary>
+        public static readonly ProcessingInstanceType MlG4dn8xlarge = new ProcessingInstanceType("ml.g4dn.8xlarge");
+        /// <summary>
+        /// Constant MlG4dnXlarge for ProcessingInstanceType
+        /// </summary>
+        public static readonly ProcessingInstanceType MlG4dnXlarge = new ProcessingInstanceType("ml.g4dn.xlarge");
+        /// <summary>
         /// Constant MlM410xlarge for ProcessingInstanceType
         /// </summary>
         public static readonly ProcessingInstanceType MlM410xlarge = new ProcessingInstanceType("ml.m4.10xlarge");
@@ -8155,6 +8283,10 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly SecondaryStatus PreparingTrainingStack = new SecondaryStatus("PreparingTrainingStack");
         /// <summary>
+        /// Constant Restarting for SecondaryStatus
+        /// </summary>
+        public static readonly SecondaryStatus Restarting = new SecondaryStatus("Restarting");
+        /// <summary>
         /// Constant Starting for SecondaryStatus
         /// </summary>
         public static readonly SecondaryStatus Starting = new SecondaryStatus("Starting");
@@ -8914,6 +9046,10 @@ namespace Amazon.SageMaker
         /// Constant Amba_cv22 for TargetDevice
         /// </summary>
         public static readonly TargetDevice Amba_cv22 = new TargetDevice("amba_cv22");
+        /// <summary>
+        /// Constant Amba_cv25 for TargetDevice
+        /// </summary>
+        public static readonly TargetDevice Amba_cv25 = new TargetDevice("amba_cv25");
         /// <summary>
         /// Constant Coreml for TargetDevice
         /// </summary>
@@ -9734,6 +9870,30 @@ namespace Amazon.SageMaker
         /// Constant MlC5Xlarge for TransformInstanceType
         /// </summary>
         public static readonly TransformInstanceType MlC5Xlarge = new TransformInstanceType("ml.c5.xlarge");
+        /// <summary>
+        /// Constant MlG4dn12xlarge for TransformInstanceType
+        /// </summary>
+        public static readonly TransformInstanceType MlG4dn12xlarge = new TransformInstanceType("ml.g4dn.12xlarge");
+        /// <summary>
+        /// Constant MlG4dn16xlarge for TransformInstanceType
+        /// </summary>
+        public static readonly TransformInstanceType MlG4dn16xlarge = new TransformInstanceType("ml.g4dn.16xlarge");
+        /// <summary>
+        /// Constant MlG4dn2xlarge for TransformInstanceType
+        /// </summary>
+        public static readonly TransformInstanceType MlG4dn2xlarge = new TransformInstanceType("ml.g4dn.2xlarge");
+        /// <summary>
+        /// Constant MlG4dn4xlarge for TransformInstanceType
+        /// </summary>
+        public static readonly TransformInstanceType MlG4dn4xlarge = new TransformInstanceType("ml.g4dn.4xlarge");
+        /// <summary>
+        /// Constant MlG4dn8xlarge for TransformInstanceType
+        /// </summary>
+        public static readonly TransformInstanceType MlG4dn8xlarge = new TransformInstanceType("ml.g4dn.8xlarge");
+        /// <summary>
+        /// Constant MlG4dnXlarge for TransformInstanceType
+        /// </summary>
+        public static readonly TransformInstanceType MlG4dnXlarge = new TransformInstanceType("ml.g4dn.xlarge");
         /// <summary>
         /// Constant MlM410xlarge for TransformInstanceType
         /// </summary>

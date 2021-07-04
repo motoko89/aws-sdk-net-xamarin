@@ -30,8 +30,8 @@ namespace Amazon.SageMaker.Model
 {
     /// <summary>
     /// Container for the parameters to the DeleteExperiment operation.
-    /// Deletes an Amazon SageMaker experiment. All trials associated with the experiment
-    /// must be deleted first. Use the <a>ListTrials</a> API to get a list of the trials associated
+    /// Deletes an SageMaker experiment. All trials associated with the experiment must be
+    /// deleted first. Use the <a>ListTrials</a> API to get a list of the trials associated
     /// with the experiment.
     /// </summary>
     public partial class DeleteExperimentRequest : AmazonSageMakerRequest

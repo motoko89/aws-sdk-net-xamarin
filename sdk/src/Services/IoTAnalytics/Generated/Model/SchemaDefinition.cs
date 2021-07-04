@@ -42,7 +42,7 @@ namespace Amazon.IoTAnalytics.Model
         /// </para>
         ///  
         /// <para>
-        /// Each schema can have up to 100 columns. Each column can have up to 100 nested types
+        /// Each schema can have up to 100 columns. Each column can have up to 100 nested types.
         /// </para>
         /// </summary>
         public List<Column> Columns

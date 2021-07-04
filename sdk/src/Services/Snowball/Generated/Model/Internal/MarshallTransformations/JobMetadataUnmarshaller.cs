@@ -136,10 +136,28 @@ namespace Amazon.Snowball.Model.Internal.MarshallTransformations
                     unmarshalledObject.KmsKeyARN = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("LongTermPricingId", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.LongTermPricingId = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Notification", targetDepth))
                 {
                     var unmarshaller = NotificationUnmarshaller.Instance;
                     unmarshalledObject.Notification = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("OnDeviceServiceConfiguration", targetDepth))
+                {
+                    var unmarshaller = OnDeviceServiceConfigurationUnmarshaller.Instance;
+                    unmarshalledObject.OnDeviceServiceConfiguration = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("RemoteManagement", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.RemoteManagement = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("Resources", targetDepth))

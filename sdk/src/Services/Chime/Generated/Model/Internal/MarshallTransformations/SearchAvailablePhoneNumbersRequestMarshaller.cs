@@ -75,6 +75,9 @@ namespace Amazon.Chime.Model.Internal.MarshallTransformations
             if (publicRequest.IsSetNextToken())
                 request.Parameters.Add("next-token", StringUtils.FromString(publicRequest.NextToken));
             
+            if (publicRequest.IsSetPhoneNumberType())
+                request.Parameters.Add("phone-number-type", StringUtils.FromString(publicRequest.PhoneNumberType));
+            
             if (publicRequest.IsSetState())
                 request.Parameters.Add("state", StringUtils.FromString(publicRequest.State));
             

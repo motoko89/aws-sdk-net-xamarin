@@ -82,6 +82,12 @@ namespace Amazon.CodeGuruReviewer.Model.Internal.MarshallTransformations
                     unmarshalledObject.FilePath = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("RecommendationCategory", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.RecommendationCategory = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("RecommendationId", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

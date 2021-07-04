@@ -104,6 +104,28 @@ namespace Amazon.EKS.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
+                if(publicRequest.IsSetTaints())
+                {
+                    context.Writer.WritePropertyName("taints");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = UpdateTaintsPayloadMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.Taints, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetUpdateConfig())
+                {
+                    context.Writer.WritePropertyName("updateConfig");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = NodegroupUpdateConfigMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.UpdateConfig, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
         
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();

@@ -42,6 +42,7 @@ namespace Amazon.LexModelsV2.Model
         private string _description;
         private string _intentId;
         private string _localeId;
+        private MultipleValuesSetting _multipleValuesSetting;
         private ObfuscationSetting _obfuscationSetting;
         private string _slotName;
         private string _slotTypeId;
@@ -128,7 +129,8 @@ namespace Amazon.LexModelsV2.Model
         /// <para>
         /// The identifier of the language and locale that the slot will be used in. The string
         /// must match one of the supported locales. All of the bots, intents, slot types used
-        /// by the slot must have the same locale. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.
+        /// by the slot must have the same locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported
+        /// languages</a>.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -142,6 +144,30 @@ namespace Amazon.LexModelsV2.Model
         internal bool IsSetLocaleId()
         {
             return this._localeId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property MultipleValuesSetting. 
+        /// <para>
+        /// Indicates whether the slot returns multiple values in one response. Multi-value slots
+        /// are only available in the en-US locale. If you set this value to <code>true</code>
+        /// in any other locale, Amazon Lex throws a <code>ValidationException</code>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// If the <code>multipleValuesSetting</code> is not set, the default value is <code>false</code>.
+        /// </para>
+        /// </summary>
+        public MultipleValuesSetting MultipleValuesSetting
+        {
+            get { return this._multipleValuesSetting; }
+            set { this._multipleValuesSetting = value; }
+        }
+
+        // Check to see if MultipleValuesSetting property is set
+        internal bool IsSetMultipleValuesSetting()
+        {
+            return this._multipleValuesSetting != null;
         }
 
         /// <summary>

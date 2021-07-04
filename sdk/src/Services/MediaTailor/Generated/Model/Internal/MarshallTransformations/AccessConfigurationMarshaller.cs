@@ -51,6 +51,17 @@ namespace Amazon.MediaTailor.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.AccessType);
             }
 
+            if(requestObject.IsSetSecretsManagerAccessTokenConfiguration())
+            {
+                context.Writer.WritePropertyName("SecretsManagerAccessTokenConfiguration");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = SecretsManagerAccessTokenConfigurationMarshaller.Instance;
+                marshaller.Marshall(requestObject.SecretsManagerAccessTokenConfiguration, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
         }
 
         /// <summary>

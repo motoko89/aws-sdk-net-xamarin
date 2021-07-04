@@ -30,12 +30,7 @@ namespace Amazon.Connect.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateIntegrationAssociation operation.
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Create an AppIntegration association with an Amazon Connect instance.
-    /// </para>
     /// </summary>
     public partial class CreateIntegrationAssociationRequest : AmazonConnectRequest
     {
@@ -45,11 +40,13 @@ namespace Amazon.Connect.Model
         private string _sourceApplicationName;
         private string _sourceApplicationUrl;
         private SourceType _sourceType;
+        private Dictionary<string, string> _tags = new Dictionary<string, string>();
 
         /// <summary>
         /// Gets and sets the property InstanceId. 
         /// <para>
-        /// The identifier of the Amazon Connect instance.
+        /// The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// ARN of the instance.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=100)]
@@ -158,6 +155,25 @@ namespace Amazon.Connect.Model
         internal bool IsSetSourceType()
         {
             return this._sourceType != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// One or more tags.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=50)]
+        public Dictionary<string, string> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
     }

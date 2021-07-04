@@ -46,7 +46,7 @@ namespace Amazon.Connect.Model
         /// The description.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=0, Max=250)]
+        [AWSProperty(Min=1, Max=250)]
         public string Description
         {
             get { return this._description; }
@@ -138,7 +138,7 @@ namespace Amazon.Connect.Model
         /// One or more tags.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=200)]
+        [AWSProperty(Min=1, Max=50)]
         public Dictionary<string, string> Tags
         {
             get { return this._tags; }

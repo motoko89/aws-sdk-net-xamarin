@@ -36,6 +36,7 @@ namespace Amazon.SageMaker.Model
     {
         private string _description;
         private string _deviceFleetName;
+        private bool? _enableIotRoleAlias;
         private EdgeOutputConfig _outputConfig;
         private string _roleArn;
         private List<Tag> _tags = new List<Tag>();
@@ -79,6 +80,30 @@ namespace Amazon.SageMaker.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EnableIotRoleAlias. 
+        /// <para>
+        /// Whether to create an Amazon Web Services IoT Role Alias during device fleet creation.
+        /// The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
+        /// </para>
+        ///  
+        /// <para>
+        /// For example, if your device fleet is called "demo-fleet", the name of the role alias
+        /// will be "SageMakerEdge-demo-fleet".
+        /// </para>
+        /// </summary>
+        public bool EnableIotRoleAlias
+        {
+            get { return this._enableIotRoleAlias.GetValueOrDefault(); }
+            set { this._enableIotRoleAlias = value; }
+        }
+
+        // Check to see if EnableIotRoleAlias property is set
+        internal bool IsSetEnableIotRoleAlias()
+        {
+            return this._enableIotRoleAlias.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property OutputConfig. 
         /// <para>
         /// The output configuration for storing sample data collected by the fleet.
@@ -100,7 +125,8 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property RoleArn. 
         /// <para>
-        /// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+        /// The Amazon Resource Name (ARN) that has access to Amazon Web Services Internet of
+        /// Things (IoT).
         /// </para>
         /// </summary>
         [AWSProperty(Min=20, Max=2048)]

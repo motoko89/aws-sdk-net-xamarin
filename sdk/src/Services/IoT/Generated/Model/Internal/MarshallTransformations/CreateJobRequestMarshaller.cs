@@ -108,6 +108,12 @@ namespace Amazon.IoT.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
+                if(publicRequest.IsSetJobTemplateArn())
+                {
+                    context.Writer.WritePropertyName("jobTemplateArn");
+                    context.Writer.Write(publicRequest.JobTemplateArn);
+                }
+
                 if(publicRequest.IsSetNamespaceId())
                 {
                     context.Writer.WritePropertyName("namespaceId");

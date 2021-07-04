@@ -61,8 +61,8 @@ namespace Amazon.S3Control.Model.Internal.MarshallTransformations
                 request.Headers["x-amz-account-id"] = publicRequest.AccountId;
             request.ResourcePath = "/v20180820/jobs";
 
-            var stringWriter = new StringWriter(CultureInfo.InvariantCulture);
-            using (var xmlWriter = XmlWriter.Create(stringWriter, new XmlWriterSettings() { Encoding = System.Text.Encoding.UTF8, OmitXmlDeclaration = true }))
+            var stringWriter = new XMLEncodedStringWriter(CultureInfo.InvariantCulture);
+            using (var xmlWriter = XmlWriter.Create(stringWriter, new XmlWriterSettings() { Encoding = System.Text.Encoding.UTF8, OmitXmlDeclaration = true, NewLineHandling = NewLineHandling.Entitize }))
             {   
                 xmlWriter.WriteStartElement("CreateJobRequest", "http://awss3control.amazonaws.com/doc/2018-08-20/");    
                 if(publicRequest.IsSetClientRequestToken())
@@ -252,6 +252,9 @@ namespace Amazon.S3Control.Model.Internal.MarshallTransformations
                             }            
                             xmlWriter.WriteEndElement();            
                         }
+                        if(publicRequest.Operation.S3PutObjectCopy.IsSetBucketKeyEnabled())
+                            xmlWriter.WriteElementString("BucketKeyEnabled", "http://awss3control.amazonaws.com/doc/2018-08-20/", StringUtils.FromBool(publicRequest.Operation.S3PutObjectCopy.BucketKeyEnabled));                 
+        
                         if(publicRequest.Operation.S3PutObjectCopy.IsSetCannedAccessControlList())
                             xmlWriter.WriteElementString("CannedAccessControlList", "http://awss3control.amazonaws.com/doc/2018-08-20/", StringUtils.FromString(publicRequest.Operation.S3PutObjectCopy.CannedAccessControlList));                 
         

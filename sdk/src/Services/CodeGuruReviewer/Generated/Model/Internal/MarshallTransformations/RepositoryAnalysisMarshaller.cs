@@ -56,6 +56,17 @@ namespace Amazon.CodeGuruReviewer.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetSourceCodeType())
+            {
+                context.Writer.WritePropertyName("SourceCodeType");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = SourceCodeTypeMarshaller.Instance;
+                marshaller.Marshall(requestObject.SourceCodeType, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
         }
 
         /// <summary>

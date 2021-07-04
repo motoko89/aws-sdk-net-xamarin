@@ -64,6 +64,12 @@ namespace Amazon.CostExplorer.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("DiskResourceUtilization", targetDepth))
+                {
+                    var unmarshaller = DiskResourceUtilizationUnmarshaller.Instance;
+                    unmarshalledObject.DiskResourceUtilization = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("EBSResourceUtilization", targetDepth))
                 {
                     var unmarshaller = EBSResourceUtilizationUnmarshaller.Instance;
@@ -86,6 +92,12 @@ namespace Amazon.CostExplorer.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.MaxStorageUtilizationPercentage = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("NetworkResourceUtilization", targetDepth))
+                {
+                    var unmarshaller = NetworkResourceUtilizationUnmarshaller.Instance;
+                    unmarshalledObject.NetworkResourceUtilization = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

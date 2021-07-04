@@ -31,12 +31,12 @@ namespace Amazon.SageMaker.Model
     /// <summary>
     /// Container for the parameters to the DescribeModelPackage operation.
     /// Returns a description of the specified model package, which is used to create Amazon
-    /// SageMaker models or list them on AWS Marketplace.
+    /// SageMaker models or list them on Amazon Web Services Marketplace.
     /// 
     ///  
     /// <para>
     /// To create models in Amazon SageMaker, buyers can subscribe to model packages listed
-    /// on AWS Marketplace.
+    /// on Amazon Web Services Marketplace.
     /// </para>
     /// </summary>
     public partial class DescribeModelPackageRequest : AmazonSageMakerRequest
@@ -46,7 +46,12 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property ModelPackageName. 
         /// <para>
-        /// The name of the model package to describe.
+        /// The name or Amazon Resource Name (ARN) of the model package to describe.
+        /// </para>
+        ///  
+        /// <para>
+        /// When you specify a name, the name must have 1 to 63 characters. Valid characters are
+        /// a-z, A-Z, 0-9, and - (hyphen).
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=176)]

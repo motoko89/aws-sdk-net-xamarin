@@ -62,10 +62,15 @@ namespace Amazon.SecurityHub.Model
         private AwsDynamoDbTableDetails _awsDynamoDbTable;
         private AwsEc2EipDetails _awsEc2Eip;
         private AwsEc2InstanceDetails _awsEc2Instance;
+        private AwsEc2NetworkAclDetails _awsEc2NetworkAcl;
         private AwsEc2NetworkInterfaceDetails _awsEc2NetworkInterface;
         private AwsEc2SecurityGroupDetails _awsEc2SecurityGroup;
+        private AwsEc2SubnetDetails _awsEc2Subnet;
         private AwsEc2VolumeDetails _awsEc2Volume;
         private AwsEc2VpcDetails _awsEc2Vpc;
+        private AwsEcsClusterDetails _awsEcsCluster;
+        private AwsEcsTaskDefinitionDetails _awsEcsTaskDefinition;
+        private AwsElasticBeanstalkEnvironmentDetails _awsElasticBeanstalkEnvironment;
         private AwsElasticsearchDomainDetails _awsElasticsearchDomain;
         private AwsElbLoadBalancerDetails _awsElbLoadBalancer;
         private AwsElbv2LoadBalancerDetails _awsElbv2LoadBalancer;
@@ -294,7 +299,7 @@ namespace Amazon.SecurityHub.Model
         /// <summary>
         /// Gets and sets the property AwsEc2Instance. 
         /// <para>
-        /// Details about an Amazon EC2 instance related to a finding.
+        /// Details about an EC2 instance related to a finding.
         /// </para>
         /// </summary>
         public AwsEc2InstanceDetails AwsEc2Instance
@@ -307,6 +312,24 @@ namespace Amazon.SecurityHub.Model
         internal bool IsSetAwsEc2Instance()
         {
             return this._awsEc2Instance != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property AwsEc2NetworkAcl. 
+        /// <para>
+        /// Details about an EC2 network access control list (ACL).
+        /// </para>
+        /// </summary>
+        public AwsEc2NetworkAclDetails AwsEc2NetworkAcl
+        {
+            get { return this._awsEc2NetworkAcl; }
+            set { this._awsEc2NetworkAcl = value; }
+        }
+
+        // Check to see if AwsEc2NetworkAcl property is set
+        internal bool IsSetAwsEc2NetworkAcl()
+        {
+            return this._awsEc2NetworkAcl != null;
         }
 
         /// <summary>
@@ -346,6 +369,24 @@ namespace Amazon.SecurityHub.Model
         }
 
         /// <summary>
+        /// Gets and sets the property AwsEc2Subnet. 
+        /// <para>
+        /// Details about a subnet in EC2.
+        /// </para>
+        /// </summary>
+        public AwsEc2SubnetDetails AwsEc2Subnet
+        {
+            get { return this._awsEc2Subnet; }
+            set { this._awsEc2Subnet = value; }
+        }
+
+        // Check to see if AwsEc2Subnet property is set
+        internal bool IsSetAwsEc2Subnet()
+        {
+            return this._awsEc2Subnet != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property AwsEc2Volume. 
         /// <para>
         /// Details for an EC2 volume.
@@ -379,6 +420,61 @@ namespace Amazon.SecurityHub.Model
         internal bool IsSetAwsEc2Vpc()
         {
             return this._awsEc2Vpc != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property AwsEcsCluster. 
+        /// <para>
+        /// Details about an ECS cluster.
+        /// </para>
+        /// </summary>
+        public AwsEcsClusterDetails AwsEcsCluster
+        {
+            get { return this._awsEcsCluster; }
+            set { this._awsEcsCluster = value; }
+        }
+
+        // Check to see if AwsEcsCluster property is set
+        internal bool IsSetAwsEcsCluster()
+        {
+            return this._awsEcsCluster != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property AwsEcsTaskDefinition. 
+        /// <para>
+        /// Details about a task definition. A task definition describes the container and volume
+        /// definitions of an Amazon Elastic Container Service task.
+        /// </para>
+        /// </summary>
+        public AwsEcsTaskDefinitionDetails AwsEcsTaskDefinition
+        {
+            get { return this._awsEcsTaskDefinition; }
+            set { this._awsEcsTaskDefinition = value; }
+        }
+
+        // Check to see if AwsEcsTaskDefinition property is set
+        internal bool IsSetAwsEcsTaskDefinition()
+        {
+            return this._awsEcsTaskDefinition != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property AwsElasticBeanstalkEnvironment. 
+        /// <para>
+        /// Details about an Elastic Beanstalk environment.
+        /// </para>
+        /// </summary>
+        public AwsElasticBeanstalkEnvironmentDetails AwsElasticBeanstalkEnvironment
+        {
+            get { return this._awsElasticBeanstalkEnvironment; }
+            set { this._awsElasticBeanstalkEnvironment = value; }
+        }
+
+        // Check to see if AwsElasticBeanstalkEnvironment property is set
+        internal bool IsSetAwsElasticBeanstalkEnvironment()
+        {
+            return this._awsElasticBeanstalkEnvironment != null;
         }
 
         /// <summary>

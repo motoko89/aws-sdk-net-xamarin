@@ -36,6 +36,7 @@ namespace Amazon.Macie2.Model
         private long? _bucketCount;
         private BucketCountByEffectivePermission _bucketCountByEffectivePermission;
         private BucketCountByEncryptionType _bucketCountByEncryptionType;
+        private BucketCountPolicyAllowsUnencryptedObjectUploads _bucketCountByObjectEncryptionRequirement;
         private BucketCountBySharedAccessType _bucketCountBySharedAccessType;
         private long? _classifiableObjectCount;
         private long? _classifiableSizeInBytes;
@@ -86,9 +87,9 @@ namespace Amazon.Macie2.Model
         /// <summary>
         /// Gets and sets the property BucketCountByEncryptionType. 
         /// <para>
-        /// The total number of buckets, grouped by default server-side encryption type. This
-        /// object also reports the total number of buckets that don't encrypt new objects by
-        /// default.
+        /// The total number of buckets that use certain types of server-side encryption to encrypt
+        /// new objects by default. This object also reports the total number of buckets that
+        /// don't encrypt new objects by default.
         /// </para>
         /// </summary>
         public BucketCountByEncryptionType BucketCountByEncryptionType
@@ -104,9 +105,28 @@ namespace Amazon.Macie2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property BucketCountByObjectEncryptionRequirement. 
+        /// <para>
+        /// The total number of buckets whose bucket policies do or don't require server-side
+        /// encryption of objects when objects are uploaded to the buckets.
+        /// </para>
+        /// </summary>
+        public BucketCountPolicyAllowsUnencryptedObjectUploads BucketCountByObjectEncryptionRequirement
+        {
+            get { return this._bucketCountByObjectEncryptionRequirement; }
+            set { this._bucketCountByObjectEncryptionRequirement = value; }
+        }
+
+        // Check to see if BucketCountByObjectEncryptionRequirement property is set
+        internal bool IsSetBucketCountByObjectEncryptionRequirement()
+        {
+            return this._bucketCountByObjectEncryptionRequirement != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property BucketCountBySharedAccessType. 
         /// <para>
-        /// The total number of buckets that are shared with another AWS account.
+        /// The total number of buckets that are or aren't shared with another AWS account.
         /// </para>
         /// </summary>
         public BucketCountBySharedAccessType BucketCountBySharedAccessType
@@ -232,13 +252,15 @@ namespace Amazon.Macie2.Model
         /// <summary>
         /// Gets and sets the property SizeInBytesCompressed. 
         /// <para>
-        /// The total compressed storage size, in bytes, of the buckets.
+        /// The total storage size, in bytes, of the objects that are compressed (.gz, .gzip,
+        /// .zip) files in the buckets.
         /// </para>
         ///  
         /// <para>
         /// If versioning is enabled for any of the buckets, Macie calculates this value based
-        /// on the size of the latest version of each object in those buckets. This value doesn't
-        /// reflect the storage size of all versions of the objects in the buckets.
+        /// on the size of the latest version of each applicable object in those buckets. This
+        /// value doesn't reflect the storage size of all versions of the applicable objects in
+        /// the buckets.
         /// </para>
         /// </summary>
         public long SizeInBytesCompressed

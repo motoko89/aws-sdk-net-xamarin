@@ -552,8 +552,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Advertises an IPv4 or IPv6 address range that is provisioned for use with your AWS
-        /// resources through bring your own IP addresses (BYOIP).
+        /// Advertises an IPv4 or IPv6 address range that is provisioned for use with your Amazon
+        /// Web Services resources through bring your own IP addresses (BYOIP).
         /// 
         ///  
         /// <para>
@@ -563,14 +563,15 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// We recommend that you stop advertising the BYOIP CIDR from other locations when you
-        /// advertise it from AWS. To minimize down time, you can configure your AWS resources
-        /// to use an address from a BYOIP CIDR before it is advertised, and then simultaneously
-        /// stop advertising it from the current location and start advertising it through AWS.
+        /// advertise it from Amazon Web Services. To minimize down time, you can configure your
+        /// Amazon Web Services resources to use an address from a BYOIP CIDR before it is advertised,
+        /// and then simultaneously stop advertising it from the current location and start advertising
+        /// it through Amazon Web Services.
         /// </para>
         ///  
         /// <para>
         /// It can take a few minutes before traffic to the specified addresses starts routing
-        /// to AWS because of BGP propagation delays.
+        /// to Amazon Web Services because of BGP propagation delays.
         /// </para>
         ///  
         /// <para>
@@ -612,25 +613,25 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Allocates an Elastic IP address to your AWS account. After you allocate the Elastic
-        /// IP address you can associate it with an instance or network interface. After you release
+        /// Allocates an Elastic IP address to your account. After you allocate the Elastic IP
+        /// address you can associate it with an instance or network interface. After you release
         /// an Elastic IP address, it is released to the IP address pool and can be allocated
-        /// to a different AWS account.
+        /// to a different account.
         /// 
         ///  
         /// <para>
-        /// You can allocate an Elastic IP address from an address pool owned by AWS or from an
-        /// address pool created from a public IPv4 address range that you have brought to AWS
-        /// for use with your AWS resources using bring your own IP addresses (BYOIP). For more
-        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
+        /// You can allocate an Elastic IP address from an address pool owned by Amazon Web Services
+        /// or from an address pool created from a public IPv4 address range that you have brought
+        /// to Amazon Web Services for use with your Amazon Web Services resources using bring
+        /// your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
         /// Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// [EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You
         /// cannot recover an Elastic IP address that you released after it is allocated to another
-        /// AWS account. You cannot recover an Elastic IP address for EC2-Classic. To attempt
-        /// to recover an Elastic IP address that you released, specify it in this operation.
+        /// account. You cannot recover an Elastic IP address for EC2-Classic. To attempt to recover
+        /// an Elastic IP address that you released, specify it in this operation.
         /// </para>
         ///  
         /// <para>
@@ -664,25 +665,25 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Allocates an Elastic IP address to your AWS account. After you allocate the Elastic
-        /// IP address you can associate it with an instance or network interface. After you release
+        /// Allocates an Elastic IP address to your account. After you allocate the Elastic IP
+        /// address you can associate it with an instance or network interface. After you release
         /// an Elastic IP address, it is released to the IP address pool and can be allocated
-        /// to a different AWS account.
+        /// to a different account.
         /// 
         ///  
         /// <para>
-        /// You can allocate an Elastic IP address from an address pool owned by AWS or from an
-        /// address pool created from a public IPv4 address range that you have brought to AWS
-        /// for use with your AWS resources using bring your own IP addresses (BYOIP). For more
-        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
+        /// You can allocate an Elastic IP address from an address pool owned by Amazon Web Services
+        /// or from an address pool created from a public IPv4 address range that you have brought
+        /// to Amazon Web Services for use with your Amazon Web Services resources using bring
+        /// your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
         /// Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// [EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You
         /// cannot recover an Elastic IP address that you released after it is allocated to another
-        /// AWS account. You cannot recover an Elastic IP address for EC2-Classic. To attempt
-        /// to recover an Elastic IP address that you released, specify it in this operation.
+        /// account. You cannot recover an Elastic IP address for EC2-Classic. To attempt to recover
+        /// an Elastic IP address that you released, specify it in this operation.
         /// </para>
         ///  
         /// <para>
@@ -1310,6 +1311,53 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = AssociateTransitGatewayRouteTableResponseUnmarshaller.Instance;
 
             return InvokeAsync<AssociateTransitGatewayRouteTableResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  AssociateTrunkInterface
+
+        internal virtual AssociateTrunkInterfaceResponse AssociateTrunkInterface(AssociateTrunkInterfaceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateTrunkInterfaceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateTrunkInterfaceResponseUnmarshaller.Instance;
+
+            return Invoke<AssociateTrunkInterfaceResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Associates a branch network interface with a trunk network interface.
+        /// 
+        ///  
+        /// <para>
+        /// Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a>
+        /// command and set <code>--interface-type</code> to <code>trunk</code>. You must also
+        /// create a network interface for each branch network interface that you want to associate
+        /// with the trunk network interface.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/eni-trunking.html">
+        /// Network interface trunking</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssociateTrunkInterface service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AssociateTrunkInterface service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateTrunkInterface">REST API Reference for AssociateTrunkInterface Operation</seealso>
+        public virtual Task<AssociateTrunkInterfaceResponse> AssociateTrunkInterfaceAsync(AssociateTrunkInterfaceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateTrunkInterfaceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateTrunkInterfaceResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AssociateTrunkInterfaceResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -3336,12 +3384,27 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates a NAT gateway in the specified public subnet. This action creates a network
-        /// interface in the specified subnet with a private IP address from the IP address range
-        /// of the subnet. Internet-bound traffic from a private subnet can be routed to the NAT
-        /// gateway, therefore enabling instances in the private subnet to connect to the internet.
+        /// Creates a NAT gateway in the specified subnet. This action creates a network interface
+        /// in the specified subnet with a private IP address from the IP address range of the
+        /// subnet. You can create either a public NAT gateway or a private NAT gateway.
+        /// 
+        ///  
+        /// <para>
+        /// With a public NAT gateway, internet-bound traffic from a private subnet can be routed
+        /// to the NAT gateway, so that instances in a private subnet can connect to the internet.
+        /// </para>
+        ///  
+        /// <para>
+        /// With a private NAT gateway, private communication is routed across VPCs and on-premises
+        /// networks through a transit gateway or virtual private gateway. Common use cases include
+        /// running large workloads behind a small pool of allowlisted IPv4 addresses, preserving
+        /// private IPv4 addresses, and communicating between overlapping networks.
+        /// </para>
+        ///  
+        /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT
         /// Gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateNatGateway service method.</param>
         /// <param name="cancellationToken">
@@ -3554,12 +3617,12 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Grants an AWS-authorized account permission to attach the specified network interface
-        /// to an instance in their account.
+        /// Grants an Amazon Web Services-authorized account permission to attach the specified
+        /// network interface to an instance in their account.
         /// 
         ///  
         /// <para>
-        /// You can grant permission to a single AWS account only, and only one account at a time.
+        /// You can grant permission to a single account only, and only one account at a time.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateNetworkInterfacePermission service method.</param>
@@ -4103,7 +4166,7 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.
-        /// You can create one data feed per AWS account. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
+        /// You can create one data feed per account. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
         /// Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSpotDatafeedSubscription service method.</param>
@@ -5958,9 +6021,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Deletes the specified NAT gateway. Deleting a NAT gateway disassociates its Elastic
-        /// IP address, but does not release the address from your account. Deleting a NAT gateway
-        /// does not delete any NAT gateway routes in your route tables.
+        /// Deletes the specified NAT gateway. Deleting a public NAT gateway disassociates its
+        /// Elastic IP address, but does not release the address from your account. Deleting a
+        /// NAT gateway does not delete any NAT gateway routes in your route tables.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteNatGateway service method.</param>
         /// <param name="cancellationToken">
@@ -7406,9 +7469,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Releases the specified address range that you provisioned for use with your AWS resources
-        /// through bring your own IP addresses (BYOIP) and deletes the corresponding address
-        /// pool.
+        /// Releases the specified address range that you provisioned for use with your Amazon
+        /// Web Services resources through bring your own IP addresses (BYOIP) and deletes the
+        /// corresponding address pool.
         /// 
         ///  
         /// <para>
@@ -8060,7 +8123,7 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Describes one or more of your Capacity Reservations. The results describe only the
-        /// Capacity Reservations in the AWS Region that you're currently using.
+        /// Capacity Reservations in the Region that you're currently using.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeCapacityReservations service method.</param>
         /// <param name="cancellationToken">
@@ -9315,8 +9378,8 @@ namespace Amazon.EC2
         /// <para>
         /// Recently deregistered images appear in the returned results for a short interval and
         /// then return empty results. After all instances that reference a deregistered AMI are
-        /// terminated, specifying the ID of the image results in an error indicating that the
-        /// AMI ID cannot be found.
+        /// terminated, specifying the ID of the image will eventually return an error indicating
+        /// that the AMI ID cannot be found.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -9345,8 +9408,8 @@ namespace Amazon.EC2
         /// <para>
         /// Recently deregistered images appear in the returned results for a short interval and
         /// then return empty results. After all instances that reference a deregistered AMI are
-        /// terminated, specifying the ID of the image results in an error indicating that the
-        /// AMI ID cannot be found.
+        /// terminated, specifying the ID of the image will eventually return an error indicating
+        /// that the AMI ID cannot be found.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeImages service method.</param>
@@ -10307,7 +10370,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes your managed prefix lists and any AWS-managed prefix lists.
+        /// Describes your managed prefix lists and any Amazon Web Services-managed prefix lists.
         /// 
         ///  
         /// <para>
@@ -10727,8 +10790,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes available AWS services in a prefix list format, which includes the prefix
-        /// list name and prefix list ID of the service and the IP address range for the service.
+        /// Describes available Amazon Web Services services in a prefix list format, which includes
+        /// the prefix list name and prefix list ID of the service and the IP address range for
+        /// the service.
         /// 
         ///  
         /// <para>
@@ -12727,6 +12791,40 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DescribeTrunkInterfaceAssociations
+
+        internal virtual DescribeTrunkInterfaceAssociationsResponse DescribeTrunkInterfaceAssociations(DescribeTrunkInterfaceAssociationsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeTrunkInterfaceAssociationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeTrunkInterfaceAssociationsResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeTrunkInterfaceAssociationsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Describes one or more network interface trunk associations.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeTrunkInterfaceAssociations service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeTrunkInterfaceAssociations service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeTrunkInterfaceAssociations">REST API Reference for DescribeTrunkInterfaceAssociations Operation</seealso>
+        public virtual Task<DescribeTrunkInterfaceAssociationsResponse> DescribeTrunkInterfaceAssociationsAsync(DescribeTrunkInterfaceAssociationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeTrunkInterfaceAssociationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeTrunkInterfaceAssociationsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeTrunkInterfaceAssociationsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DescribeVolumeAttribute
 
         internal virtual DescribeVolumeAttributeResponse DescribeVolumeAttribute(DescribeVolumeAttributeRequest request)
@@ -13885,6 +13983,46 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DisableImageDeprecation
+
+        internal virtual DisableImageDeprecationResponse DisableImageDeprecation(DisableImageDeprecationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisableImageDeprecationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisableImageDeprecationResponseUnmarshaller.Instance;
+
+            return Invoke<DisableImageDeprecationResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Cancels the deprecation of the specified AMI.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate
+        /// an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisableImageDeprecation service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DisableImageDeprecation service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableImageDeprecation">REST API Reference for DisableImageDeprecation Operation</seealso>
+        public virtual Task<DisableImageDeprecationResponse> DisableImageDeprecationAsync(DisableImageDeprecationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisableImageDeprecationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisableImageDeprecationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DisableImageDeprecationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DisableSerialConsoleAccess
 
         internal virtual DisableSerialConsoleAccessResponse DisableSerialConsoleAccess(DisableSerialConsoleAccessRequest request)
@@ -14393,6 +14531,40 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DisassociateTrunkInterface
+
+        internal virtual DisassociateTrunkInterfaceResponse DisassociateTrunkInterface(DisassociateTrunkInterfaceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateTrunkInterfaceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateTrunkInterfaceResponseUnmarshaller.Instance;
+
+            return Invoke<DisassociateTrunkInterfaceResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Removes an association between a branch network interface with a trunk network interface.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateTrunkInterface service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DisassociateTrunkInterface service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateTrunkInterface">REST API Reference for DisassociateTrunkInterface Operation</seealso>
+        public virtual Task<DisassociateTrunkInterfaceResponse> DisassociateTrunkInterfaceAsync(DisassociateTrunkInterfaceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateTrunkInterfaceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateTrunkInterfaceResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DisassociateTrunkInterfaceResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DisassociateVpcCidrBlock
 
         internal virtual DisassociateVpcCidrBlockResponse DisassociateVpcCidrBlock(DisassociateVpcCidrBlockRequest request)
@@ -14537,6 +14709,46 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = EnableFastSnapshotRestoresResponseUnmarshaller.Instance;
 
             return InvokeAsync<EnableFastSnapshotRestoresResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  EnableImageDeprecation
+
+        internal virtual EnableImageDeprecationResponse EnableImageDeprecation(EnableImageDeprecationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = EnableImageDeprecationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = EnableImageDeprecationResponseUnmarshaller.Instance;
+
+            return Invoke<EnableImageDeprecationResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Enables deprecation of the specified AMI at the specified date and time.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate
+        /// an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the EnableImageDeprecation service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the EnableImageDeprecation service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableImageDeprecation">REST API Reference for EnableImageDeprecation Operation</seealso>
+        public virtual Task<EnableImageDeprecationResponse> EnableImageDeprecationAsync(EnableImageDeprecationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = EnableImageDeprecationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = EnableImageDeprecationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<EnableImageDeprecationResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -15005,9 +15217,9 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Gets usage information about a Capacity Reservation. If the Capacity Reservation is
-        /// shared, it shows usage information for the Capacity Reservation owner and each AWS
-        /// account that is currently using the shared capacity. If the Capacity Reservation is
-        /// not shared, it shows only the Capacity Reservation owner's usage.
+        /// shared, it shows usage information for the Capacity Reservation owner and each account
+        /// that is currently using the shared capacity. If the Capacity Reservation is not shared,
+        /// it shows only the Capacity Reservation owner's usage.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetCapacityReservationUsage service method.</param>
         /// <param name="cancellationToken">
@@ -16262,17 +16474,17 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Modifies the default credit option for CPU usage of burstable performance instances.
-        /// The default credit option is set at the account level per AWS Region, and is specified
+        /// The default credit option is set at the account level per Region, and is specified
         /// per instance family. All new burstable performance instances in the account launch
         /// using the default credit option.
         /// 
         ///  
         /// <para>
         ///  <code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which
-        /// works at an AWS Region level and modifies the credit option for each Availability
-        /// Zone. All zones in a Region are updated within five minutes. But if instances are
-        /// launched during this operation, they might not get the new credit option until the
-        /// zone is updated. To verify whether the update has occurred, you can call <code>GetDefaultCreditSpecification</code>
+        /// works at an Region level and modifies the credit option for each Availability Zone.
+        /// All zones in a Region are updated within five minutes. But if instances are launched
+        /// during this operation, they might not get the new credit option until the zone is
+        /// updated. To verify whether the update has occurred, you can call <code>GetDefaultCreditSpecification</code>
         /// and check <code>DefaultCreditSpecification</code> for updates.
         /// </para>
         ///  
@@ -18230,17 +18442,17 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Provisions an IPv4 or IPv6 address range for use with your AWS resources through bring
-        /// your own IP addresses (BYOIP) and creates a corresponding address pool. After the
-        /// address range is provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.
+        /// Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services resources
+        /// through bring your own IP addresses (BYOIP) and creates a corresponding address pool.
+        /// After the address range is provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.
         /// 
         ///  
         /// <para>
-        /// AWS verifies that you own the address range and are authorized to advertise it. You
-        /// must ensure that the address range is registered to you and that you created an RPKI
-        /// ROA to authorize Amazon ASNs 16509 and 14618 to advertise the address range. For more
-        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
-        /// Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// Amazon Web Services verifies that you own the address range and are authorized to
+        /// advertise it. You must ensure that the address range is registered to you and that
+        /// you created an RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the
+        /// address range. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
+        /// your own IP addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -18905,7 +19117,7 @@ namespace Amazon.EC2
         /// to update your DNS records and any servers or devices that communicate with the address.
         /// If you attempt to release an Elastic IP address that you already released, you'll
         /// get an <code>AuthFailure</code> error if the address is already allocated to another
-        /// AWS account.
+        /// account.
         /// </para>
         ///  
         /// <para>
@@ -20215,12 +20427,9 @@ namespace Amazon.EC2
         /// and started. When an instance is stopped, the compute resources are released and you
         /// are not billed for instance usage. However, your root partition Amazon EBS volume
         /// remains and continues to persist your data, and you are charged for Amazon EBS volume
-        /// usage. You can restart your instance at any time. Every time you start your Windows
-        /// instance, Amazon EC2 charges you for a full instance hour. If you stop and restart
-        /// your Windows instance, a new instance hour begins and Amazon EC2 charges you for another
-        /// full instance hour even if you are still within the same 60-minute period when it
-        /// was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute
-        /// minimum for instance usage, and thereafter charges per second for instance usage.
+        /// usage. You can restart your instance at any time. Every time you start your instance,
+        /// Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges
+        /// per second for instance usage.
         /// </para>
         ///  
         /// <para>
@@ -20365,12 +20574,9 @@ namespace Amazon.EC2
         /// <para>
         /// We don't charge usage for a stopped instance, or data transfer fees; however, your
         /// root partition Amazon EBS volume remains and continues to persist your data, and you
-        /// are charged for Amazon EBS volume usage. Every time you start your Windows instance,
-        /// Amazon EC2 charges you for a full instance hour. If you stop and restart your Windows
-        /// instance, a new instance hour begins and Amazon EC2 charges you for another full instance
-        /// hour even if you are still within the same 60-minute period when it was stopped. Every
-        /// time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance
-        /// usage, and thereafter charges per second for instance usage.
+        /// are charged for Amazon EBS volume usage. Every time you start your instance, Amazon
+        /// EC2 charges a one-minute minimum for instance usage, and thereafter charges per second
+        /// for instance usage.
         /// </para>
         ///  
         /// <para>
@@ -20482,6 +20688,57 @@ namespace Amazon.EC2
         /// single incorrect instance ID), none of the instances are terminated.
         /// </para>
         ///  
+        /// <para>
+        /// If you terminate multiple instances across multiple Availability Zones, and one or
+        /// more of the specified instances are enabled for termination protection, the request
+        /// fails with the following results:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// The specified instances that are in the same Availability Zone as the protected instance
+        /// are not terminated.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The specified instances that are in different Availability Zones, where no other specified
+        /// instances are protected, are successfully terminated.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For example, say you have the following instances:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Instance A: <code>us-east-1a</code>; Not protected
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Instance B: <code>us-east-1a</code>; Not protected
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Instance C: <code>us-east-1b</code>; Protected
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Instance D: <code>us-east-1b</code>; not protected
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// If you attempt to terminate all of these instances in the same request, the request
+        /// reports failure with the following results:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Instance A and Instance B are successfully terminated because none of the specified
+        /// instances in <code>us-east-1a</code> are enabled for termination protection.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Instance C and Instance D fail to terminate because at least one of the specified
+        /// instances in <code>us-east-1b</code> (Instance C) is enabled for termination protection.
+        /// </para>
+        ///  </li> </ul> 
         /// <para>
         /// Terminated instances remain visible after termination (for approximately one hour).
         /// </para>
@@ -20738,7 +20995,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// It can take a few minutes before traffic to the specified addresses stops routing
-        /// to AWS because of BGP propagation delays.
+        /// to Amazon Web Services because of BGP propagation delays.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the WithdrawByoipCidr service method.</param>

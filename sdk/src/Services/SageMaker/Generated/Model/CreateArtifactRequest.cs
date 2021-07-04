@@ -34,6 +34,15 @@ namespace Amazon.SageMaker.Model
     /// a URI addressable object or data. Some examples are the S3 URI of a dataset and the
     /// ECR registry path of an image. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon
     /// SageMaker ML Lineage Tracking</a>.
+    /// 
+    ///  <note> 
+    /// <para>
+    ///  <code>CreateArtifact</code> can only be invoked from within an SageMaker managed
+    /// environment. This includes SageMaker training jobs, processing jobs, transform jobs,
+    /// and SageMaker notebooks. A call to <code>CreateArtifact</code> from outside one of
+    /// these environments results in an error.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class CreateArtifactRequest : AmazonSageMakerRequest
     {
@@ -47,7 +56,8 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property ArtifactName. 
         /// <para>
-        /// The name of the artifact. Must be unique to your account in an AWS Region.
+        /// The name of the artifact. Must be unique to your account in an Amazon Web Services
+        /// Region.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=120)]

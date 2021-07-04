@@ -109,6 +109,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* The Amazon AppIntegrations service (in preview release) enables you to configure and reuse connections to external applications.
 * [AWSSDK.ApplicationAutoScaling](https://www.nuget.org/packages/AWSSDK.ApplicationAutoScaling/)
 	* Application Auto Scaling is a general purpose Auto Scaling service for supported elastic AWS resources. With Application Auto Scaling, you can automatically scale your AWS resources, with an experience similar to that of Amazon EC2 Auto Scaling.
+* [AWSSDK.ApplicationCostProfiler](https://www.nuget.org/packages/AWSSDK.ApplicationCostProfiler/)
+	* APIs for AWS Application Cost Profiler.
 * [AWSSDK.ApplicationDiscoveryService](https://www.nuget.org/packages/AWSSDK.ApplicationDiscoveryService/)
 	* AWS Application Discovery Service helps Systems Integrators quickly and reliably plan application migration projects by automatically identifying applications running in your data center, their associated dependencies, and their performance profile.
 * [AWSSDK.ApplicationInsights](https://www.nuget.org/packages/AWSSDK.ApplicationInsights/)
@@ -117,6 +119,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* AWS App Mesh is a service mesh that makes it easy to monitor and control communications between microservices of an application. AWS App Mesh APIs are available for preview in eu-west-1, us-east-1, us-east-2, and us-west-2 regions.
 * [AWSSDK.AppRegistry](https://www.nuget.org/packages/AWSSDK.AppRegistry/)
 	* AWS Service Catalog AppRegistry provides a repository of your applications, their resources, and the application metadata that you use within your enterprise.
+* [AWSSDK.AppRunner](https://www.nuget.org/packages/AWSSDK.AppRunner/)
+	* AWS App Runner is a service that provides a fast, simple, and cost-effective way to deploy from source code or a container image directly to a scalable and secure web application in the AWS Cloud.
 * [AWSSDK.AppStream](https://www.nuget.org/packages/AWSSDK.AppStream/)
 	* Amazon AppStream is a fully managed, secure application streaming service that allows you to stream desktop applications from AWS to a web browser.
 * [AWSSDK.AppSync](https://www.nuget.org/packages/AWSSDK.AppSync/)
@@ -283,6 +287,10 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* This release adds support for Amazon EMR on EKS, a simple way to run Spark on Kubernetes.
 * [AWSSDK.EventBridge](https://www.nuget.org/packages/AWSSDK.EventBridge/)
 	* Amazon EventBridge is a serverless event bus service that makes it easy to connect your applications with data from a variety of sources, including AWS services, partner applications, and your own applications.
+* [AWSSDK.Finspace](https://www.nuget.org/packages/AWSSDK.Finspace/)
+	* This is the initial SDK release for the management APIs for Amazon FinSpace. Amazon FinSpace is a data management and analytics service for the financial services industry (FSI).
+* [AWSSDK.FinSpaceData](https://www.nuget.org/packages/AWSSDK.FinSpaceData/)
+	* This is the initial SDK release for the data APIs for Amazon FinSpace. Amazon FinSpace is a data management and analytics application for the financial services industry (FSI).
 * [AWSSDK.FIS](https://www.nuget.org/packages/AWSSDK.FIS/)
 	* Initial release of AWS Fault Injection Simulator, a managed service that enables you to perform fault injection experiments on your AWS workloads
 * [AWSSDK.FMS](https://www.nuget.org/packages/AWSSDK.FMS/)
@@ -453,6 +461,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* (New Service) AWS Network Firewall is a managed network layer firewall service that makes it easy to secure your virtual private cloud (VPC) networks and block malicious traffic.
 * [AWSSDK.NetworkManager](https://www.nuget.org/packages/AWSSDK.NetworkManager/)
 	* This is the initial SDK release for AWS Network Manager.
+* [AWSSDK.NimbleStudio](https://www.nuget.org/packages/AWSSDK.NimbleStudio/)
+	* Amazon Nimble Studio is a virtual studio service that empowers visual effects, animation, and interactive content teams to create content securely within a scalable, private cloud service.
 * [AWSSDK.OpsWorks](https://www.nuget.org/packages/AWSSDK.OpsWorks/)
 	* AWS OpsWorks is an application management service that makes it easy to deploy and operate applications of all shapes and sizes. You can define the application's architecture and the specification of each component including package installation, software configuration and resources such as storage.
 * [AWSSDK.OpsWorksCM](https://www.nuget.org/packages/AWSSDK.OpsWorksCM/)
@@ -481,6 +491,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* We launched new service, Price List Service.
 * [AWSSDK.PrometheusService](https://www.nuget.org/packages/AWSSDK.PrometheusService/)
 	* (New Service) Amazon Managed Service for Prometheus is a fully managed Prometheus-compatible monitoring service that makes it easy to monitor containerized applications securely and at scale.
+* [AWSSDK.Proton](https://www.nuget.org/packages/AWSSDK.Proton/)
+	* This is the initial SDK release for AWS Proton
 * [AWSSDK.QLDB](https://www.nuget.org/packages/AWSSDK.QLDB/)
 	* Introduces operations needed for managing Amazon QLDB ledgers. This includes the ability to create, delete, modify, and describe Amazon QLDB ledgers. This also includes the ability to cryptographically verify documents and export the journal in a ledger.
 * [AWSSDK.QLDBSession](https://www.nuget.org/packages/AWSSDK.QLDBSession/)
@@ -565,6 +577,10 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* Amazon Snowball is a petabyte-scale data transport solution that uses secure appliances to transfer large amounts of data into and out of the AWS cloud
 * [AWSSDK.SQS](https://www.nuget.org/packages/AWSSDK.SQS/)
 	* Amazon Simple Queue Service (SQS) is a fast, reliable, scalable, fully managed message queuing service. SQS makes it simple and cost-effective to decouple the components of a cloud application.
+* [AWSSDK.SSMContacts](https://www.nuget.org/packages/AWSSDK.SSMContacts/)
+	* AWS Systems Manager Incident Manager enables faster resolution of critical application availability and performance issues, management of contacts and post incident analysis
+* [AWSSDK.SSMIncidents](https://www.nuget.org/packages/AWSSDK.SSMIncidents/)
+	* AWS Systems Manager Incident Manager enables faster resolution of critical application availability and performance issues, management of contacts and post-incident analysis
 * [AWSSDK.SSO](https://www.nuget.org/packages/AWSSDK.SSO/)
 	* This is an initial release of AWS Single Sign-On (SSO) end-user access. This release adds support for accessing AWS accounts assigned in AWS SSO using short term credentials.
 * [AWSSDK.SSOAdmin](https://www.nuget.org/packages/AWSSDK.SSOAdmin/)
@@ -578,7 +594,7 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 * [AWSSDK.Synthetics](https://www.nuget.org/packages/AWSSDK.Synthetics/)
 	* Introducing CloudWatch Synthetics. This is the first public release of CloudWatch Synthetics.
 * [AWSSDK.Textract](https://www.nuget.org/packages/AWSSDK.Textract/)
-	* This release is intended ONLY for customers that are officially part of the Amazon Textract Preview program. If you are not officially part of the Amazon Textract program THIS WILL NOT WORK. Our two main regions for Amazon Textract Preview are N. Virginia and Dublin. Also some members have been added to Oregon and Ohio. If you are outside of any of these AWS regions, Amazon Textract Preview definitely will not work. If you would like to be part of the Amazon Textract program, you can officially request sign up here - https://pages.awscloud.com/textract-preview.html. To set expectations appropriately, we are aiming to admit new preview participants once a week until General Availability.
+	* Amazon Textract enables you to add document text detection and analysis to your applications. You provide a document image to the Amazon Textract API, and the service detects the document text. Amazon Textract works with formatted text and can detect words and lines of words that are located close to each other. It can also analyze a document for items such as related text, tables, key-value pairs, and selection elements.
 * [AWSSDK.TimestreamQuery](https://www.nuget.org/packages/AWSSDK.TimestreamQuery/)
 	* (New Service) Amazon Timestream is a fast, scalable, fully managed, purpose-built time series database that makes it easy to store and analyze trillions of time series data points per day.
 * [AWSSDK.TimestreamWrite](https://www.nuget.org/packages/AWSSDK.TimestreamWrite/)

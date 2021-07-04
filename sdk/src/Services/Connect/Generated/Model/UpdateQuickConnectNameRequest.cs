@@ -30,14 +30,9 @@ namespace Amazon.Connect.Model
 {
     /// <summary>
     /// Container for the parameters to the UpdateQuickConnectName operation.
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Updates the name and description of a quick connect. The request accepts the following
     /// data in JSON format. At least <code>Name</code> or <code>Description</code> must be
     /// provided.
-    /// </para>
     /// </summary>
     public partial class UpdateQuickConnectNameRequest : AmazonConnectRequest
     {
@@ -68,7 +63,8 @@ namespace Amazon.Connect.Model
         /// <summary>
         /// Gets and sets the property InstanceId. 
         /// <para>
-        /// The identifier of the Amazon Connect instance.
+        /// The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// ARN of the instance.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=100)]

@@ -313,6 +313,22 @@ namespace Amazon.ComputeOptimizer
         /// </summary>
         public static readonly ExportableAutoScalingGroupField UtilizationMetricsCpuMaximum = new ExportableAutoScalingGroupField("UtilizationMetricsCpuMaximum");
         /// <summary>
+        /// Constant UtilizationMetricsDiskReadBytesPerSecondMaximum for ExportableAutoScalingGroupField
+        /// </summary>
+        public static readonly ExportableAutoScalingGroupField UtilizationMetricsDiskReadBytesPerSecondMaximum = new ExportableAutoScalingGroupField("UtilizationMetricsDiskReadBytesPerSecondMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsDiskReadOpsPerSecondMaximum for ExportableAutoScalingGroupField
+        /// </summary>
+        public static readonly ExportableAutoScalingGroupField UtilizationMetricsDiskReadOpsPerSecondMaximum = new ExportableAutoScalingGroupField("UtilizationMetricsDiskReadOpsPerSecondMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsDiskWriteBytesPerSecondMaximum for ExportableAutoScalingGroupField
+        /// </summary>
+        public static readonly ExportableAutoScalingGroupField UtilizationMetricsDiskWriteBytesPerSecondMaximum = new ExportableAutoScalingGroupField("UtilizationMetricsDiskWriteBytesPerSecondMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsDiskWriteOpsPerSecondMaximum for ExportableAutoScalingGroupField
+        /// </summary>
+        public static readonly ExportableAutoScalingGroupField UtilizationMetricsDiskWriteOpsPerSecondMaximum = new ExportableAutoScalingGroupField("UtilizationMetricsDiskWriteOpsPerSecondMaximum");
+        /// <summary>
         /// Constant UtilizationMetricsEbsReadBytesPerSecondMaximum for ExportableAutoScalingGroupField
         /// </summary>
         public static readonly ExportableAutoScalingGroupField UtilizationMetricsEbsReadBytesPerSecondMaximum = new ExportableAutoScalingGroupField("UtilizationMetricsEbsReadBytesPerSecondMaximum");
@@ -332,6 +348,22 @@ namespace Amazon.ComputeOptimizer
         /// Constant UtilizationMetricsMemoryMaximum for ExportableAutoScalingGroupField
         /// </summary>
         public static readonly ExportableAutoScalingGroupField UtilizationMetricsMemoryMaximum = new ExportableAutoScalingGroupField("UtilizationMetricsMemoryMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsNetworkInBytesPerSecondMaximum for ExportableAutoScalingGroupField
+        /// </summary>
+        public static readonly ExportableAutoScalingGroupField UtilizationMetricsNetworkInBytesPerSecondMaximum = new ExportableAutoScalingGroupField("UtilizationMetricsNetworkInBytesPerSecondMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsNetworkOutBytesPerSecondMaximum for ExportableAutoScalingGroupField
+        /// </summary>
+        public static readonly ExportableAutoScalingGroupField UtilizationMetricsNetworkOutBytesPerSecondMaximum = new ExportableAutoScalingGroupField("UtilizationMetricsNetworkOutBytesPerSecondMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsNetworkPacketsInPerSecondMaximum for ExportableAutoScalingGroupField
+        /// </summary>
+        public static readonly ExportableAutoScalingGroupField UtilizationMetricsNetworkPacketsInPerSecondMaximum = new ExportableAutoScalingGroupField("UtilizationMetricsNetworkPacketsInPerSecondMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsNetworkPacketsOutPerSecondMaximum for ExportableAutoScalingGroupField
+        /// </summary>
+        public static readonly ExportableAutoScalingGroupField UtilizationMetricsNetworkPacketsOutPerSecondMaximum = new ExportableAutoScalingGroupField("UtilizationMetricsNetworkPacketsOutPerSecondMaximum");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -415,6 +447,10 @@ namespace Amazon.ComputeOptimizer
         /// </summary>
         public static readonly ExportableInstanceField Finding = new ExportableInstanceField("Finding");
         /// <summary>
+        /// Constant FindingReasonCodes for ExportableInstanceField
+        /// </summary>
+        public static readonly ExportableInstanceField FindingReasonCodes = new ExportableInstanceField("FindingReasonCodes");
+        /// <summary>
         /// Constant InstanceArn for ExportableInstanceField
         /// </summary>
         public static readonly ExportableInstanceField InstanceArn = new ExportableInstanceField("InstanceArn");
@@ -450,6 +486,10 @@ namespace Amazon.ComputeOptimizer
         /// Constant RecommendationOptionsPerformanceRisk for ExportableInstanceField
         /// </summary>
         public static readonly ExportableInstanceField RecommendationOptionsPerformanceRisk = new ExportableInstanceField("RecommendationOptionsPerformanceRisk");
+        /// <summary>
+        /// Constant RecommendationOptionsPlatformDifferences for ExportableInstanceField
+        /// </summary>
+        public static readonly ExportableInstanceField RecommendationOptionsPlatformDifferences = new ExportableInstanceField("RecommendationOptionsPlatformDifferences");
         /// <summary>
         /// Constant RecommendationOptionsProjectedUtilizationMetricsCpuMaximum for ExportableInstanceField
         /// </summary>
@@ -487,6 +527,22 @@ namespace Amazon.ComputeOptimizer
         /// </summary>
         public static readonly ExportableInstanceField UtilizationMetricsCpuMaximum = new ExportableInstanceField("UtilizationMetricsCpuMaximum");
         /// <summary>
+        /// Constant UtilizationMetricsDiskReadBytesPerSecondMaximum for ExportableInstanceField
+        /// </summary>
+        public static readonly ExportableInstanceField UtilizationMetricsDiskReadBytesPerSecondMaximum = new ExportableInstanceField("UtilizationMetricsDiskReadBytesPerSecondMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsDiskReadOpsPerSecondMaximum for ExportableInstanceField
+        /// </summary>
+        public static readonly ExportableInstanceField UtilizationMetricsDiskReadOpsPerSecondMaximum = new ExportableInstanceField("UtilizationMetricsDiskReadOpsPerSecondMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsDiskWriteBytesPerSecondMaximum for ExportableInstanceField
+        /// </summary>
+        public static readonly ExportableInstanceField UtilizationMetricsDiskWriteBytesPerSecondMaximum = new ExportableInstanceField("UtilizationMetricsDiskWriteBytesPerSecondMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsDiskWriteOpsPerSecondMaximum for ExportableInstanceField
+        /// </summary>
+        public static readonly ExportableInstanceField UtilizationMetricsDiskWriteOpsPerSecondMaximum = new ExportableInstanceField("UtilizationMetricsDiskWriteOpsPerSecondMaximum");
+        /// <summary>
         /// Constant UtilizationMetricsEbsReadBytesPerSecondMaximum for ExportableInstanceField
         /// </summary>
         public static readonly ExportableInstanceField UtilizationMetricsEbsReadBytesPerSecondMaximum = new ExportableInstanceField("UtilizationMetricsEbsReadBytesPerSecondMaximum");
@@ -506,6 +562,22 @@ namespace Amazon.ComputeOptimizer
         /// Constant UtilizationMetricsMemoryMaximum for ExportableInstanceField
         /// </summary>
         public static readonly ExportableInstanceField UtilizationMetricsMemoryMaximum = new ExportableInstanceField("UtilizationMetricsMemoryMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsNetworkInBytesPerSecondMaximum for ExportableInstanceField
+        /// </summary>
+        public static readonly ExportableInstanceField UtilizationMetricsNetworkInBytesPerSecondMaximum = new ExportableInstanceField("UtilizationMetricsNetworkInBytesPerSecondMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsNetworkOutBytesPerSecondMaximum for ExportableInstanceField
+        /// </summary>
+        public static readonly ExportableInstanceField UtilizationMetricsNetworkOutBytesPerSecondMaximum = new ExportableInstanceField("UtilizationMetricsNetworkOutBytesPerSecondMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsNetworkPacketsInPerSecondMaximum for ExportableInstanceField
+        /// </summary>
+        public static readonly ExportableInstanceField UtilizationMetricsNetworkPacketsInPerSecondMaximum = new ExportableInstanceField("UtilizationMetricsNetworkPacketsInPerSecondMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsNetworkPacketsOutPerSecondMaximum for ExportableInstanceField
+        /// </summary>
+        public static readonly ExportableInstanceField UtilizationMetricsNetworkPacketsOutPerSecondMaximum = new ExportableInstanceField("UtilizationMetricsNetworkPacketsOutPerSecondMaximum");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -536,6 +608,274 @@ namespace Amazon.ComputeOptimizer
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ExportableInstanceField(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ExportableLambdaFunctionField.
+    /// </summary>
+    public class ExportableLambdaFunctionField : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AccountId for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField AccountId = new ExportableLambdaFunctionField("AccountId");
+        /// <summary>
+        /// Constant CurrentConfigurationMemorySize for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField CurrentConfigurationMemorySize = new ExportableLambdaFunctionField("CurrentConfigurationMemorySize");
+        /// <summary>
+        /// Constant CurrentConfigurationTimeout for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField CurrentConfigurationTimeout = new ExportableLambdaFunctionField("CurrentConfigurationTimeout");
+        /// <summary>
+        /// Constant CurrentCostAverage for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField CurrentCostAverage = new ExportableLambdaFunctionField("CurrentCostAverage");
+        /// <summary>
+        /// Constant CurrentCostTotal for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField CurrentCostTotal = new ExportableLambdaFunctionField("CurrentCostTotal");
+        /// <summary>
+        /// Constant Finding for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField Finding = new ExportableLambdaFunctionField("Finding");
+        /// <summary>
+        /// Constant FindingReasonCodes for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField FindingReasonCodes = new ExportableLambdaFunctionField("FindingReasonCodes");
+        /// <summary>
+        /// Constant FunctionArn for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField FunctionArn = new ExportableLambdaFunctionField("FunctionArn");
+        /// <summary>
+        /// Constant FunctionVersion for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField FunctionVersion = new ExportableLambdaFunctionField("FunctionVersion");
+        /// <summary>
+        /// Constant LastRefreshTimestamp for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField LastRefreshTimestamp = new ExportableLambdaFunctionField("LastRefreshTimestamp");
+        /// <summary>
+        /// Constant LookbackPeriodInDays for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField LookbackPeriodInDays = new ExportableLambdaFunctionField("LookbackPeriodInDays");
+        /// <summary>
+        /// Constant NumberOfInvocations for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField NumberOfInvocations = new ExportableLambdaFunctionField("NumberOfInvocations");
+        /// <summary>
+        /// Constant RecommendationOptionsConfigurationMemorySize for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField RecommendationOptionsConfigurationMemorySize = new ExportableLambdaFunctionField("RecommendationOptionsConfigurationMemorySize");
+        /// <summary>
+        /// Constant RecommendationOptionsCostHigh for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField RecommendationOptionsCostHigh = new ExportableLambdaFunctionField("RecommendationOptionsCostHigh");
+        /// <summary>
+        /// Constant RecommendationOptionsCostLow for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField RecommendationOptionsCostLow = new ExportableLambdaFunctionField("RecommendationOptionsCostLow");
+        /// <summary>
+        /// Constant RecommendationOptionsProjectedUtilizationMetricsDurationExpected for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField RecommendationOptionsProjectedUtilizationMetricsDurationExpected = new ExportableLambdaFunctionField("RecommendationOptionsProjectedUtilizationMetricsDurationExpected");
+        /// <summary>
+        /// Constant RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound = new ExportableLambdaFunctionField("RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound");
+        /// <summary>
+        /// Constant RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound = new ExportableLambdaFunctionField("RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound");
+        /// <summary>
+        /// Constant UtilizationMetricsDurationAverage for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField UtilizationMetricsDurationAverage = new ExportableLambdaFunctionField("UtilizationMetricsDurationAverage");
+        /// <summary>
+        /// Constant UtilizationMetricsDurationMaximum for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField UtilizationMetricsDurationMaximum = new ExportableLambdaFunctionField("UtilizationMetricsDurationMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsMemoryAverage for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField UtilizationMetricsMemoryAverage = new ExportableLambdaFunctionField("UtilizationMetricsMemoryAverage");
+        /// <summary>
+        /// Constant UtilizationMetricsMemoryMaximum for ExportableLambdaFunctionField
+        /// </summary>
+        public static readonly ExportableLambdaFunctionField UtilizationMetricsMemoryMaximum = new ExportableLambdaFunctionField("UtilizationMetricsMemoryMaximum");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ExportableLambdaFunctionField(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ExportableLambdaFunctionField FindValue(string value)
+        {
+            return FindValue<ExportableLambdaFunctionField>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ExportableLambdaFunctionField(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ExportableVolumeField.
+    /// </summary>
+    public class ExportableVolumeField : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AccountId for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField AccountId = new ExportableVolumeField("AccountId");
+        /// <summary>
+        /// Constant CurrentConfigurationVolumeBaselineIOPS for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField CurrentConfigurationVolumeBaselineIOPS = new ExportableVolumeField("CurrentConfigurationVolumeBaselineIOPS");
+        /// <summary>
+        /// Constant CurrentConfigurationVolumeBaselineThroughput for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField CurrentConfigurationVolumeBaselineThroughput = new ExportableVolumeField("CurrentConfigurationVolumeBaselineThroughput");
+        /// <summary>
+        /// Constant CurrentConfigurationVolumeBurstIOPS for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField CurrentConfigurationVolumeBurstIOPS = new ExportableVolumeField("CurrentConfigurationVolumeBurstIOPS");
+        /// <summary>
+        /// Constant CurrentConfigurationVolumeBurstThroughput for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField CurrentConfigurationVolumeBurstThroughput = new ExportableVolumeField("CurrentConfigurationVolumeBurstThroughput");
+        /// <summary>
+        /// Constant CurrentConfigurationVolumeSize for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField CurrentConfigurationVolumeSize = new ExportableVolumeField("CurrentConfigurationVolumeSize");
+        /// <summary>
+        /// Constant CurrentConfigurationVolumeType for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField CurrentConfigurationVolumeType = new ExportableVolumeField("CurrentConfigurationVolumeType");
+        /// <summary>
+        /// Constant CurrentMonthlyPrice for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField CurrentMonthlyPrice = new ExportableVolumeField("CurrentMonthlyPrice");
+        /// <summary>
+        /// Constant Finding for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField Finding = new ExportableVolumeField("Finding");
+        /// <summary>
+        /// Constant LastRefreshTimestamp for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField LastRefreshTimestamp = new ExportableVolumeField("LastRefreshTimestamp");
+        /// <summary>
+        /// Constant LookbackPeriodInDays for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField LookbackPeriodInDays = new ExportableVolumeField("LookbackPeriodInDays");
+        /// <summary>
+        /// Constant RecommendationOptionsConfigurationVolumeBaselineIOPS for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField RecommendationOptionsConfigurationVolumeBaselineIOPS = new ExportableVolumeField("RecommendationOptionsConfigurationVolumeBaselineIOPS");
+        /// <summary>
+        /// Constant RecommendationOptionsConfigurationVolumeBaselineThroughput for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField RecommendationOptionsConfigurationVolumeBaselineThroughput = new ExportableVolumeField("RecommendationOptionsConfigurationVolumeBaselineThroughput");
+        /// <summary>
+        /// Constant RecommendationOptionsConfigurationVolumeBurstIOPS for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField RecommendationOptionsConfigurationVolumeBurstIOPS = new ExportableVolumeField("RecommendationOptionsConfigurationVolumeBurstIOPS");
+        /// <summary>
+        /// Constant RecommendationOptionsConfigurationVolumeBurstThroughput for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField RecommendationOptionsConfigurationVolumeBurstThroughput = new ExportableVolumeField("RecommendationOptionsConfigurationVolumeBurstThroughput");
+        /// <summary>
+        /// Constant RecommendationOptionsConfigurationVolumeSize for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField RecommendationOptionsConfigurationVolumeSize = new ExportableVolumeField("RecommendationOptionsConfigurationVolumeSize");
+        /// <summary>
+        /// Constant RecommendationOptionsConfigurationVolumeType for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField RecommendationOptionsConfigurationVolumeType = new ExportableVolumeField("RecommendationOptionsConfigurationVolumeType");
+        /// <summary>
+        /// Constant RecommendationOptionsMonthlyPrice for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField RecommendationOptionsMonthlyPrice = new ExportableVolumeField("RecommendationOptionsMonthlyPrice");
+        /// <summary>
+        /// Constant RecommendationOptionsPerformanceRisk for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField RecommendationOptionsPerformanceRisk = new ExportableVolumeField("RecommendationOptionsPerformanceRisk");
+        /// <summary>
+        /// Constant UtilizationMetricsVolumeReadBytesPerSecondMaximum for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField UtilizationMetricsVolumeReadBytesPerSecondMaximum = new ExportableVolumeField("UtilizationMetricsVolumeReadBytesPerSecondMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsVolumeReadOpsPerSecondMaximum for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField UtilizationMetricsVolumeReadOpsPerSecondMaximum = new ExportableVolumeField("UtilizationMetricsVolumeReadOpsPerSecondMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsVolumeWriteBytesPerSecondMaximum for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField UtilizationMetricsVolumeWriteBytesPerSecondMaximum = new ExportableVolumeField("UtilizationMetricsVolumeWriteBytesPerSecondMaximum");
+        /// <summary>
+        /// Constant UtilizationMetricsVolumeWriteOpsPerSecondMaximum for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField UtilizationMetricsVolumeWriteOpsPerSecondMaximum = new ExportableVolumeField("UtilizationMetricsVolumeWriteOpsPerSecondMaximum");
+        /// <summary>
+        /// Constant VolumeArn for ExportableVolumeField
+        /// </summary>
+        public static readonly ExportableVolumeField VolumeArn = new ExportableVolumeField("VolumeArn");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ExportableVolumeField(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ExportableVolumeField FindValue(string value)
+        {
+            return FindValue<ExportableVolumeField>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ExportableVolumeField(string value)
         {
             return FindValue(value);
         }
@@ -598,6 +938,10 @@ namespace Amazon.ComputeOptimizer
         /// Constant Finding for FilterName
         /// </summary>
         public static readonly FilterName Finding = new FilterName("Finding");
+        /// <summary>
+        /// Constant FindingReasonCodes for FilterName
+        /// </summary>
+        public static readonly FilterName FindingReasonCodes = new FilterName("FindingReasonCodes");
         /// <summary>
         /// Constant RecommendationSourceType for FilterName
         /// </summary>
@@ -740,6 +1084,112 @@ namespace Amazon.ComputeOptimizer
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator FindingReasonCode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type InstanceRecommendationFindingReasonCode.
+    /// </summary>
+    public class InstanceRecommendationFindingReasonCode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CPUOverprovisioned for InstanceRecommendationFindingReasonCode
+        /// </summary>
+        public static readonly InstanceRecommendationFindingReasonCode CPUOverprovisioned = new InstanceRecommendationFindingReasonCode("CPUOverprovisioned");
+        /// <summary>
+        /// Constant CPUUnderprovisioned for InstanceRecommendationFindingReasonCode
+        /// </summary>
+        public static readonly InstanceRecommendationFindingReasonCode CPUUnderprovisioned = new InstanceRecommendationFindingReasonCode("CPUUnderprovisioned");
+        /// <summary>
+        /// Constant DiskIOPSOverprovisioned for InstanceRecommendationFindingReasonCode
+        /// </summary>
+        public static readonly InstanceRecommendationFindingReasonCode DiskIOPSOverprovisioned = new InstanceRecommendationFindingReasonCode("DiskIOPSOverprovisioned");
+        /// <summary>
+        /// Constant DiskIOPSUnderprovisioned for InstanceRecommendationFindingReasonCode
+        /// </summary>
+        public static readonly InstanceRecommendationFindingReasonCode DiskIOPSUnderprovisioned = new InstanceRecommendationFindingReasonCode("DiskIOPSUnderprovisioned");
+        /// <summary>
+        /// Constant DiskThroughputOverprovisioned for InstanceRecommendationFindingReasonCode
+        /// </summary>
+        public static readonly InstanceRecommendationFindingReasonCode DiskThroughputOverprovisioned = new InstanceRecommendationFindingReasonCode("DiskThroughputOverprovisioned");
+        /// <summary>
+        /// Constant DiskThroughputUnderprovisioned for InstanceRecommendationFindingReasonCode
+        /// </summary>
+        public static readonly InstanceRecommendationFindingReasonCode DiskThroughputUnderprovisioned = new InstanceRecommendationFindingReasonCode("DiskThroughputUnderprovisioned");
+        /// <summary>
+        /// Constant EBSIOPSOverprovisioned for InstanceRecommendationFindingReasonCode
+        /// </summary>
+        public static readonly InstanceRecommendationFindingReasonCode EBSIOPSOverprovisioned = new InstanceRecommendationFindingReasonCode("EBSIOPSOverprovisioned");
+        /// <summary>
+        /// Constant EBSIOPSUnderprovisioned for InstanceRecommendationFindingReasonCode
+        /// </summary>
+        public static readonly InstanceRecommendationFindingReasonCode EBSIOPSUnderprovisioned = new InstanceRecommendationFindingReasonCode("EBSIOPSUnderprovisioned");
+        /// <summary>
+        /// Constant EBSThroughputOverprovisioned for InstanceRecommendationFindingReasonCode
+        /// </summary>
+        public static readonly InstanceRecommendationFindingReasonCode EBSThroughputOverprovisioned = new InstanceRecommendationFindingReasonCode("EBSThroughputOverprovisioned");
+        /// <summary>
+        /// Constant EBSThroughputUnderprovisioned for InstanceRecommendationFindingReasonCode
+        /// </summary>
+        public static readonly InstanceRecommendationFindingReasonCode EBSThroughputUnderprovisioned = new InstanceRecommendationFindingReasonCode("EBSThroughputUnderprovisioned");
+        /// <summary>
+        /// Constant MemoryOverprovisioned for InstanceRecommendationFindingReasonCode
+        /// </summary>
+        public static readonly InstanceRecommendationFindingReasonCode MemoryOverprovisioned = new InstanceRecommendationFindingReasonCode("MemoryOverprovisioned");
+        /// <summary>
+        /// Constant MemoryUnderprovisioned for InstanceRecommendationFindingReasonCode
+        /// </summary>
+        public static readonly InstanceRecommendationFindingReasonCode MemoryUnderprovisioned = new InstanceRecommendationFindingReasonCode("MemoryUnderprovisioned");
+        /// <summary>
+        /// Constant NetworkBandwidthOverprovisioned for InstanceRecommendationFindingReasonCode
+        /// </summary>
+        public static readonly InstanceRecommendationFindingReasonCode NetworkBandwidthOverprovisioned = new InstanceRecommendationFindingReasonCode("NetworkBandwidthOverprovisioned");
+        /// <summary>
+        /// Constant NetworkBandwidthUnderprovisioned for InstanceRecommendationFindingReasonCode
+        /// </summary>
+        public static readonly InstanceRecommendationFindingReasonCode NetworkBandwidthUnderprovisioned = new InstanceRecommendationFindingReasonCode("NetworkBandwidthUnderprovisioned");
+        /// <summary>
+        /// Constant NetworkPPSOverprovisioned for InstanceRecommendationFindingReasonCode
+        /// </summary>
+        public static readonly InstanceRecommendationFindingReasonCode NetworkPPSOverprovisioned = new InstanceRecommendationFindingReasonCode("NetworkPPSOverprovisioned");
+        /// <summary>
+        /// Constant NetworkPPSUnderprovisioned for InstanceRecommendationFindingReasonCode
+        /// </summary>
+        public static readonly InstanceRecommendationFindingReasonCode NetworkPPSUnderprovisioned = new InstanceRecommendationFindingReasonCode("NetworkPPSUnderprovisioned");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public InstanceRecommendationFindingReasonCode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static InstanceRecommendationFindingReasonCode FindValue(string value)
+        {
+            return FindValue<InstanceRecommendationFindingReasonCode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator InstanceRecommendationFindingReasonCode(string value)
         {
             return FindValue(value);
         }
@@ -1227,6 +1677,22 @@ namespace Amazon.ComputeOptimizer
         /// </summary>
         public static readonly MetricName Cpu = new MetricName("Cpu");
         /// <summary>
+        /// Constant DISK_READ_BYTES_PER_SECOND for MetricName
+        /// </summary>
+        public static readonly MetricName DISK_READ_BYTES_PER_SECOND = new MetricName("DISK_READ_BYTES_PER_SECOND");
+        /// <summary>
+        /// Constant DISK_READ_OPS_PER_SECOND for MetricName
+        /// </summary>
+        public static readonly MetricName DISK_READ_OPS_PER_SECOND = new MetricName("DISK_READ_OPS_PER_SECOND");
+        /// <summary>
+        /// Constant DISK_WRITE_BYTES_PER_SECOND for MetricName
+        /// </summary>
+        public static readonly MetricName DISK_WRITE_BYTES_PER_SECOND = new MetricName("DISK_WRITE_BYTES_PER_SECOND");
+        /// <summary>
+        /// Constant DISK_WRITE_OPS_PER_SECOND for MetricName
+        /// </summary>
+        public static readonly MetricName DISK_WRITE_OPS_PER_SECOND = new MetricName("DISK_WRITE_OPS_PER_SECOND");
+        /// <summary>
         /// Constant EBS_READ_BYTES_PER_SECOND for MetricName
         /// </summary>
         public static readonly MetricName EBS_READ_BYTES_PER_SECOND = new MetricName("EBS_READ_BYTES_PER_SECOND");
@@ -1246,6 +1712,22 @@ namespace Amazon.ComputeOptimizer
         /// Constant Memory for MetricName
         /// </summary>
         public static readonly MetricName Memory = new MetricName("Memory");
+        /// <summary>
+        /// Constant NETWORK_IN_BYTES_PER_SECOND for MetricName
+        /// </summary>
+        public static readonly MetricName NETWORK_IN_BYTES_PER_SECOND = new MetricName("NETWORK_IN_BYTES_PER_SECOND");
+        /// <summary>
+        /// Constant NETWORK_OUT_BYTES_PER_SECOND for MetricName
+        /// </summary>
+        public static readonly MetricName NETWORK_OUT_BYTES_PER_SECOND = new MetricName("NETWORK_OUT_BYTES_PER_SECOND");
+        /// <summary>
+        /// Constant NETWORK_PACKETS_IN_PER_SECOND for MetricName
+        /// </summary>
+        public static readonly MetricName NETWORK_PACKETS_IN_PER_SECOND = new MetricName("NETWORK_PACKETS_IN_PER_SECOND");
+        /// <summary>
+        /// Constant NETWORK_PACKETS_OUT_PER_SECOND for MetricName
+        /// </summary>
+        public static readonly MetricName NETWORK_PACKETS_OUT_PER_SECOND = new MetricName("NETWORK_PACKETS_OUT_PER_SECOND");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -1333,6 +1815,68 @@ namespace Amazon.ComputeOptimizer
 
 
     /// <summary>
+    /// Constants used for properties of type PlatformDifference.
+    /// </summary>
+    public class PlatformDifference : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Hypervisor for PlatformDifference
+        /// </summary>
+        public static readonly PlatformDifference Hypervisor = new PlatformDifference("Hypervisor");
+        /// <summary>
+        /// Constant InstanceStoreAvailability for PlatformDifference
+        /// </summary>
+        public static readonly PlatformDifference InstanceStoreAvailability = new PlatformDifference("InstanceStoreAvailability");
+        /// <summary>
+        /// Constant NetworkInterface for PlatformDifference
+        /// </summary>
+        public static readonly PlatformDifference NetworkInterface = new PlatformDifference("NetworkInterface");
+        /// <summary>
+        /// Constant StorageInterface for PlatformDifference
+        /// </summary>
+        public static readonly PlatformDifference StorageInterface = new PlatformDifference("StorageInterface");
+        /// <summary>
+        /// Constant VirtualizationType for PlatformDifference
+        /// </summary>
+        public static readonly PlatformDifference VirtualizationType = new PlatformDifference("VirtualizationType");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public PlatformDifference(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static PlatformDifference FindValue(string value)
+        {
+            return FindValue<PlatformDifference>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator PlatformDifference(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type RecommendationSourceType.
     /// </summary>
     public class RecommendationSourceType : ConstantClass
@@ -1401,9 +1945,17 @@ namespace Amazon.ComputeOptimizer
         /// </summary>
         public static readonly ResourceType AutoScalingGroup = new ResourceType("AutoScalingGroup");
         /// <summary>
+        /// Constant EbsVolume for ResourceType
+        /// </summary>
+        public static readonly ResourceType EbsVolume = new ResourceType("EbsVolume");
+        /// <summary>
         /// Constant Ec2Instance for ResourceType
         /// </summary>
         public static readonly ResourceType Ec2Instance = new ResourceType("Ec2Instance");
+        /// <summary>
+        /// Constant LambdaFunction for ResourceType
+        /// </summary>
+        public static readonly ResourceType LambdaFunction = new ResourceType("LambdaFunction");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant

@@ -30,17 +30,17 @@ namespace Amazon.EC2.Model
 {
     /// <summary>
     /// Container for the parameters to the ProvisionByoipCidr operation.
-    /// Provisions an IPv4 or IPv6 address range for use with your AWS resources through bring
-    /// your own IP addresses (BYOIP) and creates a corresponding address pool. After the
-    /// address range is provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.
+    /// Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services resources
+    /// through bring your own IP addresses (BYOIP) and creates a corresponding address pool.
+    /// After the address range is provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.
     /// 
     ///  
     /// <para>
-    /// AWS verifies that you own the address range and are authorized to advertise it. You
-    /// must ensure that the address range is registered to you and that you created an RPKI
-    /// ROA to authorize Amazon ASNs 16509 and 14618 to advertise the address range. For more
-    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
-    /// Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Amazon Web Services verifies that you own the address range and are authorized to
+    /// advertise it. You must ensure that the address range is registered to you and that
+    /// you created an RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the
+    /// address range. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
+    /// your own IP addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     ///  
     /// <para>
@@ -56,6 +56,7 @@ namespace Amazon.EC2.Model
         private string _cidr;
         private CidrAuthorizationContext _cidrAuthorizationContext;
         private string _description;
+        private bool? _multiRegion;
         private List<TagSpecification> _poolTagSpecifications = new List<TagSpecification>();
         private bool? _publiclyAdvertisable;
 
@@ -116,6 +117,21 @@ namespace Amazon.EC2.Model
         internal bool IsSetDescription()
         {
             return this._description != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property MultiRegion. <para>Reserved.</para>
+        /// </summary>
+        public bool MultiRegion
+        {
+            get { return this._multiRegion.GetValueOrDefault(); }
+            set { this._multiRegion = value; }
+        }
+
+        // Check to see if MultiRegion property is set
+        internal bool IsSetMultiRegion()
+        {
+            return this._multiRegion.HasValue; 
         }
 
         /// <summary>

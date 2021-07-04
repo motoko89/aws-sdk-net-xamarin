@@ -79,6 +79,12 @@ namespace Amazon.AutoScaling.Model.Internal.MarshallTransformations
                         unmarshalledObject.CapacityRebalance = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("Context", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.Context = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("CreatedTime", targetDepth))
                     {
                         var unmarshaller = DateTimeUnmarshaller.Instance;
@@ -176,6 +182,12 @@ namespace Amazon.AutoScaling.Model.Internal.MarshallTransformations
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
                         unmarshalledObject.PlacementGroup = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("PredictedCapacity", targetDepth))
+                    {
+                        var unmarshaller = IntUnmarshaller.Instance;
+                        unmarshalledObject.PredictedCapacity = unmarshaller.Unmarshall(context);
                         continue;
                     }
                     if (context.TestExpression("ServiceLinkedRoleARN", targetDepth))

@@ -70,6 +70,18 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     unmarshalledObject.KmsKeyId = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("PresetDeploymentConfig", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.PresetDeploymentConfig = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("PresetDeploymentType", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.PresetDeploymentType = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("S3OutputLocation", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

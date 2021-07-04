@@ -43,7 +43,7 @@ namespace Amazon.Snowball.Model
         /// to.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1)]
+        [AWSProperty(Min=1, Max=1024)]
         public string AddressId
         {
             get { return this._addressId; }

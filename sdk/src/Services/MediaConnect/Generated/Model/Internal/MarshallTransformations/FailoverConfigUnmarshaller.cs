@@ -64,10 +64,22 @@ namespace Amazon.MediaConnect.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("failoverMode", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.FailoverMode = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("recoveryWindow", targetDepth))
                 {
                     var unmarshaller = IntUnmarshaller.Instance;
                     unmarshalledObject.RecoveryWindow = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("sourcePriority", targetDepth))
+                {
+                    var unmarshaller = SourcePriorityUnmarshaller.Instance;
+                    unmarshalledObject.SourcePriority = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("state", targetDepth))

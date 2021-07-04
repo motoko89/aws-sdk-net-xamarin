@@ -311,7 +311,7 @@ namespace Amazon.QLDB
         #region  CreateLedger
 
         /// <summary>
-        /// Creates a new ledger in your AWS account.
+        /// Creates a new ledger in your AWS account in the current Region.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLedger service method.</param>
         /// 
@@ -382,10 +382,8 @@ namespace Amazon.QLDB
         ///  
         /// <para>
         /// If deletion protection is enabled, you must first disable it before you can delete
-        /// the ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can
-        /// disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.
-        /// The QLDB console disables deletion protection for you when you use it to delete a
-        /// ledger.
+        /// the ledger. You can disable it by calling the <code>UpdateLedger</code> operation
+        /// to set the flag to <code>false</code>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteLedger service method.</param>
@@ -454,7 +452,14 @@ namespace Amazon.QLDB
         /// <summary>
         /// Returns detailed information about a given Amazon QLDB journal stream. The output
         /// includes the Amazon Resource Name (ARN), stream name, current status, creation time,
-        /// and the parameters of your original stream creation request.
+        /// and the parameters of the original stream creation request.
+        /// 
+        ///  
+        /// <para>
+        /// This action does not return any expired journal streams. For more information, see
+        /// <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration">Expiration
+        /// for terminal streams</a> in the <i>Amazon QLDB Developer Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeJournalKinesisStream service method.</param>
         /// 
@@ -518,13 +523,14 @@ namespace Amazon.QLDB
 
         /// <summary>
         /// Returns information about a journal export job, including the ledger name, export
-        /// ID, when it was created, current status, and its start and end time export parameters.
+        /// ID, creation time, current status, and the parameters of the original export creation
+        /// request.
         /// 
         ///  
         /// <para>
         /// This action does not return any expired export jobs. For more information, see <a
         /// href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export
-        /// Job Expiration</a> in the <i>Amazon QLDB Developer Guide</i>.
+        /// job expiration</a> in the <i>Amazon QLDB Developer Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -946,6 +952,12 @@ namespace Amazon.QLDB
         /// 
         ///  
         /// <para>
+        /// This action does not return any expired journal streams. For more information, see
+        /// <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration">Expiration
+        /// for terminal streams</a> in the <i>Amazon QLDB Developer Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
         /// This action returns a maximum of <code>MaxResults</code> items. It is paginated so
         /// that you can retrieve all the items by calling <code>ListJournalKinesisStreamsForLedger</code>
         /// multiple times.
@@ -1025,7 +1037,7 @@ namespace Amazon.QLDB
         /// <para>
         /// This action does not return any expired export jobs. For more information, see <a
         /// href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export
-        /// Job Expiration</a> in the <i>Amazon QLDB Developer Guide</i>.
+        /// job expiration</a> in the <i>Amazon QLDB Developer Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListJournalS3Exports service method.</param>
@@ -1092,7 +1104,7 @@ namespace Amazon.QLDB
         /// <para>
         /// This action does not return any expired export jobs. For more information, see <a
         /// href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export
-        /// Job Expiration</a> in the <i>Amazon QLDB Developer Guide</i>.
+        /// job expiration</a> in the <i>Amazon QLDB Developer Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListJournalS3ExportsForLedger service method.</param>
@@ -1513,6 +1525,75 @@ namespace Amazon.QLDB
         public virtual UpdateLedgerResponse EndUpdateLedger(IAsyncResult asyncResult)
         {
             return EndInvoke<UpdateLedgerResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  UpdateLedgerPermissionsMode
+
+        /// <summary>
+        /// Updates the permissions mode of a ledger.
+        /// 
+        ///  <important> 
+        /// <para>
+        /// Before you switch to the <code>STANDARD</code> permissions mode, you must first create
+        /// all required IAM policies and table tags to avoid disruption to your users. To learn
+        /// more, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/ledger-management.basics.html#ledger-mgmt.basics.update-permissions.migrating">Migrating
+        /// to the standard permissions mode</a> in the <i>Amazon QLDB Developer Guide</i>.
+        /// </para>
+        ///  </important>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateLedgerPermissionsMode service method.</param>
+        /// 
+        /// <returns>The response from the UpdateLedgerPermissionsMode service method, as returned by QLDB.</returns>
+        /// <exception cref="Amazon.QLDB.Model.InvalidParameterException">
+        /// One or more parameters in the request aren't valid.
+        /// </exception>
+        /// <exception cref="Amazon.QLDB.Model.ResourceNotFoundException">
+        /// The specified resource doesn't exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/qldb-2019-01-02/UpdateLedgerPermissionsMode">REST API Reference for UpdateLedgerPermissionsMode Operation</seealso>
+        public virtual UpdateLedgerPermissionsModeResponse UpdateLedgerPermissionsMode(UpdateLedgerPermissionsModeRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateLedgerPermissionsModeRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateLedgerPermissionsModeResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateLedgerPermissionsModeResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateLedgerPermissionsMode operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateLedgerPermissionsMode operation on AmazonQLDBClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateLedgerPermissionsMode
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/qldb-2019-01-02/UpdateLedgerPermissionsMode">REST API Reference for UpdateLedgerPermissionsMode Operation</seealso>
+        public virtual IAsyncResult BeginUpdateLedgerPermissionsMode(UpdateLedgerPermissionsModeRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateLedgerPermissionsModeRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateLedgerPermissionsModeResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateLedgerPermissionsMode operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateLedgerPermissionsMode.</param>
+        /// 
+        /// <returns>Returns a  UpdateLedgerPermissionsModeResult from QLDB.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/qldb-2019-01-02/UpdateLedgerPermissionsMode">REST API Reference for UpdateLedgerPermissionsMode Operation</seealso>
+        public virtual UpdateLedgerPermissionsModeResponse EndUpdateLedgerPermissionsMode(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateLedgerPermissionsModeResponse>(asyncResult);
         }
 
         #endregion

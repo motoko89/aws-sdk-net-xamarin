@@ -42,6 +42,7 @@ namespace Amazon.Snowball.Model
         private string _forwardingAddressId;
         private string _jobId;
         private Notification _notification;
+        private OnDeviceServiceConfiguration _onDeviceServiceConfiguration;
         private JobResource _resources;
         private string _roleARN;
         private ShippingOption _shippingOption;
@@ -72,7 +73,7 @@ namespace Amazon.Snowball.Model
         /// The updated description of this job's <a>JobMetadata</a> object.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1)]
+        [AWSProperty(Min=1, Max=1024)]
         public string Description
         {
             get { return this._description; }
@@ -143,6 +144,26 @@ namespace Amazon.Snowball.Model
         }
 
         /// <summary>
+        /// Gets and sets the property OnDeviceServiceConfiguration. 
+        /// <para>
+        /// Specifies the service or services on the Snow Family device that your transferred
+        /// data will be exported from or imported into. AWS Snow Family supports Amazon S3 and
+        /// NFS (Network File System).
+        /// </para>
+        /// </summary>
+        public OnDeviceServiceConfiguration OnDeviceServiceConfiguration
+        {
+            get { return this._onDeviceServiceConfiguration; }
+            set { this._onDeviceServiceConfiguration = value; }
+        }
+
+        // Check to see if OnDeviceServiceConfiguration property is set
+        internal bool IsSetOnDeviceServiceConfiguration()
+        {
+            return this._onDeviceServiceConfiguration != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Resources. 
         /// <para>
         /// The updated <code>JobResource</code> object, or the updated <a>JobResource</a> object.
@@ -205,6 +226,12 @@ namespace Amazon.Snowball.Model
         /// <para>
         /// The updated <code>SnowballCapacityPreference</code> of this job's <a>JobMetadata</a>
         /// object. The 50 TB Snowballs are only available in the US regions.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html"
+        /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html"
+        /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.
         /// </para>
         /// </summary>
         public SnowballCapacity SnowballCapacityPreference

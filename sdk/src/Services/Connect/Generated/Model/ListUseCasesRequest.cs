@@ -30,12 +30,7 @@ namespace Amazon.Connect.Model
 {
     /// <summary>
     /// Container for the parameters to the ListUseCases operation.
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
-    /// Lists the use cases. 
-    /// </para>
+    /// Lists the use cases.
     /// </summary>
     public partial class ListUseCasesRequest : AmazonConnectRequest
     {
@@ -47,7 +42,8 @@ namespace Amazon.Connect.Model
         /// <summary>
         /// Gets and sets the property InstanceId. 
         /// <para>
-        /// The identifier of the Amazon Connect instance.
+        /// The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// ARN of the instance.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=100)]

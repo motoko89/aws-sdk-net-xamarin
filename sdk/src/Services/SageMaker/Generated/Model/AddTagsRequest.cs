@@ -37,8 +37,8 @@ namespace Amazon.SageMaker.Model
     ///  
     /// <para>
     /// Each tag consists of a key and an optional value. Tag keys must be unique per resource.
-    /// For more information about tags, see For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
-    /// Tagging Strategies</a>.
+    /// For more information about tags, see For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Amazon
+    /// Web Services Tagging Strategies</a>.
     /// </para>
     ///  <note> 
     /// <para>
@@ -49,6 +49,16 @@ namespace Amazon.SageMaker.Model
     /// job are also added to all training jobs that the hyperparameter tuning job launches,
     /// add the tags when you first create the tuning job by specifying them in the <code>Tags</code>
     /// parameter of <a>CreateHyperParameterTuningJob</a> 
+    /// </para>
+    ///  </note> <note> 
+    /// <para>
+    /// Tags that you add to a SageMaker Studio Domain or User Profile by calling this API
+    /// are also added to any Apps that the Domain or User Profile launches after you call
+    /// this API, but not to Apps that the Domain or User Profile launched before you called
+    /// this API. To make sure that the tags associated with a Domain or User Profile are
+    /// also added to all Apps that the Domain or User Profile launches, add the tags when
+    /// you first create the Domain or User Profile by specifying them in the <code>Tags</code>
+    /// parameter of <a>CreateDomain</a> or <a>CreateUserProfile</a>.
     /// </para>
     ///  </note>
     /// </summary>
@@ -79,10 +89,10 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property Tags. 
         /// <para>
-        /// An array of key-value pairs. You can use tags to categorize your AWS resources in
-        /// different ways, for example, by purpose, owner, or environment. For more information,
-        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// AWS Resources</a>.
+        /// An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+        /// resources in different ways, for example, by purpose, owner, or environment. For more
+        /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web Services Resources</a>.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=0, Max=50)]

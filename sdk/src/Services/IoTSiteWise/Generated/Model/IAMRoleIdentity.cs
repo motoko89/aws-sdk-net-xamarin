@@ -40,7 +40,7 @@ namespace Amazon.IoTSiteWise.Model
         /// <summary>
         /// Gets and sets the property Arn. 
         /// <para>
-        /// The ARN of the IAM role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.htmll#identifiers-arns">IAM
+        /// The ARN of the IAM role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
         /// ARNs</a> in the <i>IAM User Guide</i>.
         /// </para>
         /// </summary>

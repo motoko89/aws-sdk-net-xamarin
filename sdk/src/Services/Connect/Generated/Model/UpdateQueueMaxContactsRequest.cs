@@ -47,7 +47,8 @@ namespace Amazon.Connect.Model
         /// <summary>
         /// Gets and sets the property InstanceId. 
         /// <para>
-        /// The identifier of the Amazon Connect instance.
+        /// The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// ARN of the instance.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=100)]
@@ -69,7 +70,7 @@ namespace Amazon.Connect.Model
         /// The maximum number of contacts that can be in the queue before it is considered full.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=0)]
+        [AWSProperty(Min=0)]
         public int MaxContacts
         {
             get { return this._maxContacts.GetValueOrDefault(); }

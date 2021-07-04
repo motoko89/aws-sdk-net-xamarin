@@ -60,6 +60,7 @@ namespace Amazon.ECS.Model
     {
         private List<ContainerDefinition> _containerDefinitions = new List<ContainerDefinition>();
         private string _cpu;
+        private EphemeralStorage _ephemeralStorage;
         private string _executionRoleArn;
         private string _family;
         private List<InferenceAccelerator> _inferenceAccelerators = new List<InferenceAccelerator>();
@@ -159,6 +160,33 @@ namespace Amazon.ECS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EphemeralStorage. 
+        /// <para>
+        /// The amount of ephemeral storage to allocate for the task. This parameter is used to
+        /// expand the total amount of ephemeral storage available, beyond the default amount,
+        /// for tasks hosted on AWS Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html">Fargate
+        /// task storage</a> in the <i>Amazon ECS User Guide for AWS Fargate</i>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// This parameter is only supported for tasks hosted on AWS Fargate using platform version
+        /// <code>1.4.0</code> or later.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        public EphemeralStorage EphemeralStorage
+        {
+            get { return this._ephemeralStorage; }
+            set { this._ephemeralStorage = value; }
+        }
+
+        // Check to see if EphemeralStorage property is set
+        internal bool IsSetEphemeralStorage()
+        {
+            return this._ephemeralStorage != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property ExecutionRoleArn. 
         /// <para>
         /// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS
@@ -187,7 +215,7 @@ namespace Amazon.ECS.Model
         /// You must specify a <code>family</code> for a task definition, which allows you to
         /// track multiple versions of the same task definition. The <code>family</code> is used
         /// as a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers,
-        /// and hyphens are allowed.
+        /// underscores, and hyphens are allowed.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -468,7 +496,21 @@ namespace Amazon.ECS.Model
         }
 
         /// <summary>
-        /// Gets and sets the property ProxyConfiguration.
+        /// Gets and sets the property ProxyConfiguration. 
+        /// <para>
+        /// The configuration details for the App Mesh proxy.
+        /// </para>
+        ///  
+        /// <para>
+        /// For tasks hosted on Amazon EC2 instances, the container instances require at least
+        /// version <code>1.26.0</code> of the container agent and at least version <code>1.26.0-1</code>
+        /// of the <code>ecs-init</code> package to enable a proxy configuration. If your container
+        /// instances are launched from the Amazon ECS-optimized AMI version <code>20190301</code>
+        /// or later, then they contain the required versions of the container agent and <code>ecs-init</code>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-ami-versions.html">Amazon
+        /// ECS-optimized AMI versions</a> in the <i>Amazon Elastic Container Service Developer
+        /// Guide</i>.
+        /// </para>
         /// </summary>
         public ProxyConfiguration ProxyConfiguration
         {

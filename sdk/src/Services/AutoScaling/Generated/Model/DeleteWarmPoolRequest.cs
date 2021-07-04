@@ -31,6 +31,12 @@ namespace Amazon.AutoScaling.Model
     /// <summary>
     /// Container for the parameters to the DeleteWarmPool operation.
     /// Deletes the warm pool for the specified Auto Scaling group.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm
+    /// pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// </para>
     /// </summary>
     public partial class DeleteWarmPoolRequest : AmazonAutoScalingRequest
     {
@@ -59,9 +65,9 @@ namespace Amazon.AutoScaling.Model
         /// <summary>
         /// Gets and sets the property ForceDelete. 
         /// <para>
-        /// Specifies that the warm pool is to be deleted along with all instances associated
-        /// with the warm pool, without waiting for all instances to be terminated. This parameter
-        /// also deletes any outstanding lifecycle actions associated with the warm pool instances.
+        /// Specifies that the warm pool is to be deleted along with all of its associated instances,
+        /// without waiting for all instances to be terminated. This parameter also deletes any
+        /// outstanding lifecycle actions associated with the warm pool instances.
         /// </para>
         /// </summary>
         public bool ForceDelete

@@ -673,6 +673,78 @@ namespace Amazon.Chime
 
         #endregion
         
+        #region  BatchCreateChannelMembership
+
+        /// <summary>
+        /// Adds a specified number of users to a channel.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchCreateChannelMembership service method.</param>
+        /// 
+        /// <returns>The response from the BatchCreateChannelMembership service method, as returned by Chime.</returns>
+        /// <exception cref="Amazon.Chime.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/BatchCreateChannelMembership">REST API Reference for BatchCreateChannelMembership Operation</seealso>
+        public virtual BatchCreateChannelMembershipResponse BatchCreateChannelMembership(BatchCreateChannelMembershipRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchCreateChannelMembershipRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchCreateChannelMembershipResponseUnmarshaller.Instance;
+
+            return Invoke<BatchCreateChannelMembershipResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the BatchCreateChannelMembership operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the BatchCreateChannelMembership operation on AmazonChimeClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndBatchCreateChannelMembership
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/BatchCreateChannelMembership">REST API Reference for BatchCreateChannelMembership Operation</seealso>
+        public virtual IAsyncResult BeginBatchCreateChannelMembership(BatchCreateChannelMembershipRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchCreateChannelMembershipRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchCreateChannelMembershipResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  BatchCreateChannelMembership operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginBatchCreateChannelMembership.</param>
+        /// 
+        /// <returns>Returns a  BatchCreateChannelMembershipResult from Chime.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/BatchCreateChannelMembership">REST API Reference for BatchCreateChannelMembership Operation</seealso>
+        public virtual BatchCreateChannelMembershipResponse EndBatchCreateChannelMembership(IAsyncResult asyncResult)
+        {
+            return EndInvoke<BatchCreateChannelMembershipResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  BatchCreateRoomMembership
 
         /// <summary>
@@ -933,8 +1005,9 @@ namespace Amazon.Chime
         /// Removes the suspension from up to 50 previously suspended users for the specified
         /// Amazon Chime <code>EnterpriseLWA</code> account. Only users on <code>EnterpriseLWA</code>
         /// accounts can be unsuspended using this action. For more information about different
-        /// account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing
-        /// Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration Guide</i>.
+        /// account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">
+        /// Managing Your Amazon Chime Accounts </a> in the account types, in the <i>Amazon Chime
+        /// Administration Guide</i>. 
         /// 
         ///  
         /// <para>
@@ -1017,14 +1090,14 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Updates phone number product types or calling names. You can update one attribute
-        /// at a time for each <code>UpdatePhoneNumberRequestItem</code> . For example, you can
-        /// update either the product type or the calling name. 
+        /// at a time for each <code>UpdatePhoneNumberRequestItem</code>. For example, you can
+        /// update the product type or the calling name.
         /// 
         ///  
         /// <para>
-        /// For product types, choose from Amazon Chime Business Calling and Amazon Chime Voice
-        /// Connector. For toll-free numbers, you must use the Amazon Chime Voice Connector product
-        /// type.
+        /// For toll-free numbers, you cannot use the Amazon Chime Business Calling product type.
+        /// For numbers outside the U.S., you must use the Amazon Chime SIP Media Application
+        /// Dial-In product type.
         /// </para>
         ///  
         /// <para>
@@ -1105,9 +1178,9 @@ namespace Amazon.Chime
         #region  BatchUpdateUser
 
         /// <summary>
-        /// Updates user details within the <a>UpdateUserRequestItem</a> object for up to 20
-        /// users for the specified Amazon Chime account. Currently, only <code>LicenseType</code>
-        /// updates are supported for this action.
+        /// Updates user details within the <a>UpdateUserRequestItem</a> object for up to 20 users
+        /// for the specified Amazon Chime account. Currently, only <code>LicenseType</code> updates
+        /// are supported for this action.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchUpdateUser service method.</param>
         /// 
@@ -2325,9 +2398,9 @@ namespace Amazon.Chime
         #region  CreatePhoneNumberOrder
 
         /// <summary>
-        /// Creates an order for phone numbers to be provisioned. Choose from Amazon Chime Business
-        /// Calling and Amazon Chime Voice Connector product types. For toll-free numbers, you
-        /// must use the Amazon Chime Voice Connector product type.
+        /// Creates an order for phone numbers to be provisioned. For toll-free numbers, you cannot
+        /// use the Amazon Chime Business Calling product type. For numbers outside the U.S.,
+        /// you must use the Amazon Chime SIP Media Application Dial-In product type.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreatePhoneNumberOrder service method.</param>
         /// 
@@ -3153,8 +3226,8 @@ namespace Amazon.Chime
         /// </para>
         ///  
         /// <para>
-        ///  After 90 days, deleted accounts are permanently removed from your <code>Disabled</code>
-        /// accounts list. 
+        /// After 90 days, deleted accounts are permanently removed from your <code>Disabled</code>
+        /// accounts list.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAccount service method.</param>
@@ -3530,9 +3603,9 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their
-        /// <code>JoinToken</code> . Attendees are automatically deleted when a Amazon Chime SDK
+        /// <code>JoinToken</code>. Attendees are automatically deleted when a Amazon Chime SDK
         /// meeting is deleted. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i> .
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAttendee service method.</param>
         /// 
@@ -3780,6 +3853,10 @@ namespace Amazon.Chime
         /// <returns>The response from the DeleteChannelMembership service method, as returned by Chime.</returns>
         /// <exception cref="Amazon.Chime.Model.BadRequestException">
         /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ConflictException">
+        /// The request could not be processed because of conflict in the current state of the
+        /// resource.
         /// </exception>
         /// <exception cref="Amazon.Chime.Model.ForbiddenException">
         /// The client is permanently forbidden from making the request.
@@ -4076,11 +4153,10 @@ namespace Amazon.Chime
         #region  DeleteMeeting
 
         /// <summary>
-        /// Deletes the specified Amazon Chime SDK meeting. When a meeting is deleted, its attendees
-        /// are also deleted, clients connected to the meeting are disconnected, and clients can
-        /// no longer join the meeting. For more information about the Amazon Chime SDK, see <a
-        /// href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon
-        /// Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
+        /// Deletes the specified Amazon Chime SDK meeting. The operation deletes all attendees,
+        /// disconnects all clients, and prevents new clients from joining the meeting. For more
+        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteMeeting service method.</param>
         /// 
@@ -4155,14 +4231,14 @@ namespace Amazon.Chime
         #region  DeletePhoneNumber
 
         /// <summary>
-        /// Moves the specified phone number into the <b>Deletionqueue</b>. A phone number must
+        /// Moves the specified phone number into the <b>Deletion queue</b>. A phone number must
         /// be disassociated from any users or Amazon Chime Voice Connectors before it can be
         /// deleted.
         /// 
         ///  
         /// <para>
-        ///  Deleted phone numbers remain in the <b>Deletion queue</b> for 7 days before they
-        /// are deleted permanently. 
+        /// Deleted phone numbers remain in the <b>Deletion queue</b> for 7 days before they are
+        /// deleted permanently.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeletePhoneNumber service method.</param>
@@ -7384,7 +7460,7 @@ namespace Amazon.Chime
         /// <summary>
         /// Gets the retention settings for the specified Amazon Chime Enterprise account. For
         /// more information about retention settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing
-        /// Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i> .
+        /// Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetRetentionSettings service method.</param>
         /// 
@@ -8073,7 +8149,7 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,name,
-        /// and associated <code>VoiceConnectorItems</code> .
+        /// and associated <code>VoiceConnectorItems</code>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorGroup service method.</param>
         /// 
@@ -8681,7 +8757,7 @@ namespace Amazon.Chime
         /// <summary>
         /// Lists the Amazon Chime accounts under the administrator's AWS account. You can filter
         /// accounts by account name prefix. To find out which Amazon Chime account a user belongs
-        /// to, toucan filter by the user's email address, which returns one account result.
+        /// to, you can filter by the user's email address, which returns one account result.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAccounts service method.</param>
         /// 
@@ -8974,7 +9050,7 @@ namespace Amazon.Chime
         /// <summary>
         /// Lists the attendees for the specified Amazon Chime SDK meeting. For more information
         /// about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i> .
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAttendees service method.</param>
         /// 
@@ -9440,7 +9516,7 @@ namespace Amazon.Chime
 
         /// <summary>
         /// List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>.
-        /// By default, sorted by creation timestamp in descending order .
+        /// By default, sorted by creation timestamp in descending order.
         /// 
         ///  <note> 
         /// <para>
@@ -9611,8 +9687,7 @@ namespace Amazon.Chime
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account
-        /// 
+        /// Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -9777,7 +9852,7 @@ namespace Amazon.Chime
         /// <summary>
         /// Lists up to 100 active Amazon Chime SDK meetings. For more information about the
         /// Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i> .
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListMeetings service method.</param>
         /// 
@@ -10437,6 +10512,81 @@ namespace Amazon.Chime
         public virtual ListSipRulesResponse EndListSipRules(IAsyncResult asyncResult)
         {
             return EndInvoke<ListSipRulesResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  ListSupportedPhoneNumberCountries
+
+        /// <summary>
+        /// Lists supported phone number countries.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListSupportedPhoneNumberCountries service method.</param>
+        /// 
+        /// <returns>The response from the ListSupportedPhoneNumberCountries service method, as returned by Chime.</returns>
+        /// <exception cref="Amazon.Chime.Model.AccessDeniedException">
+        /// You don't have permissions to perform the requested operation.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListSupportedPhoneNumberCountries">REST API Reference for ListSupportedPhoneNumberCountries Operation</seealso>
+        public virtual ListSupportedPhoneNumberCountriesResponse ListSupportedPhoneNumberCountries(ListSupportedPhoneNumberCountriesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListSupportedPhoneNumberCountriesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListSupportedPhoneNumberCountriesResponseUnmarshaller.Instance;
+
+            return Invoke<ListSupportedPhoneNumberCountriesResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListSupportedPhoneNumberCountries operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListSupportedPhoneNumberCountries operation on AmazonChimeClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListSupportedPhoneNumberCountries
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListSupportedPhoneNumberCountries">REST API Reference for ListSupportedPhoneNumberCountries Operation</seealso>
+        public virtual IAsyncResult BeginListSupportedPhoneNumberCountries(ListSupportedPhoneNumberCountriesRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListSupportedPhoneNumberCountriesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListSupportedPhoneNumberCountriesResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListSupportedPhoneNumberCountries operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListSupportedPhoneNumberCountries.</param>
+        /// 
+        /// <returns>Returns a  ListSupportedPhoneNumberCountriesResult from Chime.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListSupportedPhoneNumberCountries">REST API Reference for ListSupportedPhoneNumberCountries Operation</seealso>
+        public virtual ListSupportedPhoneNumberCountriesResponse EndListSupportedPhoneNumberCountries(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListSupportedPhoneNumberCountriesResponse>(asyncResult);
         }
 
         #endregion
@@ -11121,14 +11271,14 @@ namespace Amazon.Chime
         /// using AWS CloudTrail to monitor usage of this API for your account. For more information,
         /// see <a href="https://docs.aws.amazon.com/chime/latest/ag/cloudtrail.html">Logging
         /// Amazon Chime API Calls with AWS CloudTrail</a> in the <i>Amazon Chime Administration
-        /// Guide</i> . 
+        /// Guide</i>.
         /// 
         ///  
         /// <para>
         ///  To turn off existing retention settings, remove the number of days from the corresponding
         /// <b>RetentionDays</b> field in the <b>RetentionSettings</b> object. For more information
         /// about retention settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing
-        /// Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i> . 
+        /// Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutRetentionSettings service method.</param>
@@ -12294,7 +12444,11 @@ namespace Amazon.Chime
         #region  SearchAvailablePhoneNumbers
 
         /// <summary>
-        /// Searches phone numbers that can be ordered.
+        /// Searches for phone numbers that can be ordered. For US numbers, provide at least one
+        /// of the following search filters: <code>AreaCode</code>, <code>City</code>, <code>State</code>,
+        /// or <code>TollFreePrefix</code>. If you provide <code>City</code>, you must also provide
+        /// <code>State</code>. Numbers outside the US only support the <code>PhoneNumberType</code>
+        /// filter, which you must use.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SearchAvailablePhoneNumbers service method.</param>
         /// 
@@ -12908,7 +13062,7 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Updates account details for the specified Amazon Chime account. Currently, only account
-        /// name updates are supported for this action.
+        /// name and default license updates are supported for this action.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateAccount service method.</param>
         /// 
@@ -13625,12 +13779,14 @@ namespace Amazon.Chime
         /// 
         ///  
         /// <para>
-        /// For toll-free numbers, you must use the Amazon Chime Voice Connector product type.
+        /// For toll-free numbers, you cannot use the Amazon Chime Business Calling product type.
+        /// For numbers outside the U.S., you must use the Amazon Chime SIP Media Application
+        /// Dial-In product type.
         /// </para>
         ///  
         /// <para>
-        /// Updates to outbound calling names can take up to 72 hours to complete. Pending updates
-        /// to outbound calling names must be complete before you can request another update.
+        /// Updates to outbound calling names can take 72 hours to complete. Pending updates to
+        /// outbound calling names must be complete before you can request another update.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdatePhoneNumber service method.</param>
@@ -14081,6 +14237,85 @@ namespace Amazon.Chime
         public virtual UpdateSipMediaApplicationResponse EndUpdateSipMediaApplication(IAsyncResult asyncResult)
         {
             return EndInvoke<UpdateSipMediaApplicationResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  UpdateSipMediaApplicationCall
+
+        /// <summary>
+        /// Allows you to trigger a Lambda function at any time while a call is active, and replace
+        /// the current actions with new actions returned by the invocation.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateSipMediaApplicationCall service method.</param>
+        /// 
+        /// <returns>The response from the UpdateSipMediaApplicationCall service method, as returned by Chime.</returns>
+        /// <exception cref="Amazon.Chime.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.NotFoundException">
+        /// One or more of the resources in the request does not exist in the system.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ResourceLimitExceededException">
+        /// The request exceeds the resource limit.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateSipMediaApplicationCall">REST API Reference for UpdateSipMediaApplicationCall Operation</seealso>
+        public virtual UpdateSipMediaApplicationCallResponse UpdateSipMediaApplicationCall(UpdateSipMediaApplicationCallRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateSipMediaApplicationCallRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateSipMediaApplicationCallResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateSipMediaApplicationCallResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateSipMediaApplicationCall operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateSipMediaApplicationCall operation on AmazonChimeClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateSipMediaApplicationCall
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateSipMediaApplicationCall">REST API Reference for UpdateSipMediaApplicationCall Operation</seealso>
+        public virtual IAsyncResult BeginUpdateSipMediaApplicationCall(UpdateSipMediaApplicationCallRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateSipMediaApplicationCallRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateSipMediaApplicationCallResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateSipMediaApplicationCall operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateSipMediaApplicationCall.</param>
+        /// 
+        /// <returns>Returns a  UpdateSipMediaApplicationCallResult from Chime.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateSipMediaApplicationCall">REST API Reference for UpdateSipMediaApplicationCall Operation</seealso>
+        public virtual UpdateSipMediaApplicationCallResponse EndUpdateSipMediaApplicationCall(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateSipMediaApplicationCallResponse>(asyncResult);
         }
 
         #endregion

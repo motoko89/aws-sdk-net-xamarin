@@ -1,3 +1,654 @@
+### 3.7.65.0 (2021-07-02 18:11 UTC)
+* EC2 (3.7.15.0)
+	* This release removes network-insights-boundary
+* ElasticLoadBalancingV2 (3.7.0.37)
+	* Documentation updates for elasticloadbalancingv2
+
+### 3.7.64.0 (2021-07-01 18:14 UTC)
+* EC2 (3.7.14.0)
+	* Adding a new reserved field to support future infrastructure improvements for Amazon EC2 Fleet.
+* SageMaker (3.7.8.0)
+	* SageMaker model registry now supports up to 5 containers and associated environment variables.
+* SQS (3.7.0.37)
+	* Documentation updates for Amazon SQS.
+* Core 3.7.0.38
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.63.0 (2021-06-30 18:13 UTC)
+* AutoScaling (3.7.4.0)
+	* Amazon EC2 Auto Scaling infrastructure improvements and optimizations.
+* GlueDataBrew (3.7.2.0)
+	* Adds support for the output of job results to the AWS Glue Data Catalog.
+* Kendra (3.7.6.2)
+	* Amazon Kendra Enterprise Edition now offered in smaller more granular units to enable customers with smaller workloads. Virtual Storage Capacity units now offer scaling in increments of 100,000 documents (up to 30GB) per unit and Virtual Query Units offer scaling increments of 8,000 queries per day.
+* MediaPackageVod (3.7.2.0)
+	* Add support for Widevine DRM on CMAF packaging configurations. Both Widevine and FairPlay DRMs can now be used simultaneously, with CBCS encryption.
+* ServiceDiscovery (3.7.3.0)
+	* AWS Cloud Map now allows configuring the TTL of the SOA record for a hosted zone to control the negative caching for new services.
+* SSMContacts (3.7.1.0)
+	* Fixes the tag key length range to 128 chars,  tag value length to 256 chars; Adds support for UTF-8 chars for contact and channel names, Allows users to unset name in UpdateContact API; Adds throttling exception to StopEngagement API, validation exception to APIs UntagResource, ListTagsForResource
+
+### 3.7.62.0 (2021-06-28 18:14 UTC)
+* Glue (3.7.4.0)
+	* Add JSON Support for Glue Schema Registry
+* MediaConvert (3.7.3.0)
+	* MediaConvert adds support for HDR10+, ProRes 4444,  and XAVC outputs, ADM/DAMF support for Dolby Atmos ingest, and alternative audio and WebVTT caption ingest via HLS inputs. MediaConvert also now supports creating trickplay outputs for Roku devices for HLS, CMAF, and DASH output groups.
+* Redshift (3.7.6.0)
+	* Added InvalidClusterStateFault to the DisableLogging API, thrown when calling the API on a non available cluster.
+* SageMaker (3.7.7.0)
+	* Sagemaker Neo now supports running compilation jobs using customer's Amazon VPC
+
+### 3.7.61.0 (2021-06-25 18:17 UTC)
+* AmplifyBackend (3.7.1.0)
+	* Imports an existing backend authentication resource.
+* Proton (3.7.1.0)
+	* Added waiters for template registration, service operations, and environment deployments.
+* Snowball (3.7.2.0)
+	* AWS Snow Family customers can remotely monitor and operate their connected AWS Snowcone devices. AWS Snowball Edge Storage Optimized customers can now import and export their data using NFS.
+* Core 3.7.0.37
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.60.0 (2021-06-24 18:25 UTC)
+* Chime (3.7.6.0)
+	* Adds EventIngestionUrl field to MediaPlacement
+* Cloud9 (3.7.1.32)
+	* Minor update to AWS Cloud9 documentation to allow correct parsing of outputted text
+* CodeBuild (3.7.2.0)
+	* BucketOwnerAccess is currently not supported
+* Connect (3.7.3.3)
+	* Released Amazon Connect quick connects management API for general availability (GA). For more information, see https://docs.aws.amazon.com/connect/latest/APIReference/Welcome.html
+* DAX (3.7.1.0)
+	* Add support for encryption in transit to DAX clusters.
+* Kendra (3.7.6.0)
+	* Amazon Kendra now supports SharePoint 2013 and SharePoint 2016 when using a SharePoint data source.
+* SecurityHub (3.7.3.0)
+	* Added new resource details for ECS clusters and ECS task definitions. Added additional information for S3 buckets, Elasticsearch domains, and API Gateway V2 stages.
+* Transfer (3.7.2.0)
+	* Customers can successfully use legacy clients with Transfer Family endpoints enabled for FTPS and FTP behind routers, firewalls, and load balancers by providing a Custom IP address used for data channel communication.
+* WAFV2 (3.7.3.0)
+	* Added support for 15 new text transformation.
+* Core 3.7.0.36
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.59.0 (2021-06-23 18:25 UTC)
+* Cloud9 (3.7.1.31)
+	* Updated documentation for CreateEnvironmentEC2 to explain that because Amazon Linux AMI has ended standard support as of December 31, 2020, we recommend you choose Amazon Linux 2--which includes long term support through 2023--for new AWS Cloud9 environments.
+* CloudFront (3.7.2.0)
+	* Amazon CloudFront adds support for a new security policy, TLSv1.2_2021.
+* CloudSearch (3.7.1.0)
+	* This release replaces previous generation CloudSearch instances with equivalent new instances that provide better stability at the same price.
+* CloudWatchEvents (3.7.3.0)
+	* Added the following parameters to ECS targets: CapacityProviderStrategy, EnableECSManagedTags, EnableExecuteCommand, PlacementConstraints, PlacementStrategy, PropagateTags, ReferenceId, and Tags
+* CodeGuruReviewer (3.7.2.0)
+	* Adds support for S3 based full repository analysis and changed lines scan.
+* DocDB (3.7.2.5)
+	* DocumentDB documentation-only edits
+* EC2 (3.7.13.0)
+	* This release adds support for provisioning your own IP (BYOIP) range in multiple regions. This feature is in limited Preview for this release. Contact your account manager if you are interested in this feature.
+* EventBridge (3.7.3.0)
+	* Added the following parameters to ECS targets: CapacityProviderStrategy, EnableECSManagedTags, EnableExecuteCommand, PlacementConstraints, PlacementStrategy, PropagateTags, ReferenceId, and Tags
+* LicenseManager (3.7.2.0)
+	* AWS License Manager now allows license administrators and end users to communicate to each other by setting custom status reasons when updating the status on a granted license.
+* MediaTailor (3.7.2.0)
+	* Update GetChannelSchedule to return information on ad breaks.
+* QuickSight (3.7.3.0)
+	* Releasing new APIs for AWS QuickSight Folders
+
+### 3.7.58.0 (2021-06-21 18:35 UTC)
+* CloudFormation (3.7.3.0)
+	* CloudFormation registry service now supports 3rd party public type sharing
+* Core 3.7.0.35
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.57.0 (2021-06-17 18:29 UTC)
+* Chime (3.7.5.0)
+	* This release adds a new API UpdateSipMediaApplicationCall, to update an in-progress call for SipMediaApplication.
+* Kendra (3.7.5.0)
+	* Amazon Kendra now supports the indexing of web documents for search through the web crawler.
+* RDS (3.7.2.0)
+	* This release enables Database Activity Streams for RDS Oracle
+* SageMaker (3.7.6.0)
+	* Enable ml.g4dn instance types for SageMaker Batch Transform and SageMaker Processing
+* Core 3.7.0.34
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.56.0 (2021-06-16 18:13 UTC)
+* EC2 (3.7.12.0)
+	* This release adds support for VLAN-tagged network traffic over an Elastic Network Interface (ENI). This feature is in limited Preview for this release. Contact your account manager if you are interested in this feature.
+* KeyManagementService (3.7.1.0)
+	* Adds support for multi-Region keys
+* MediaTailor (3.7.1.0)
+	* Adds AWS Secrets Manager Access Token Authentication for Source Locations
+* RDS (3.7.1.0)
+	* This release enables fast cloning in Aurora Serverless. You can now clone between Aurora Serverless clusters and Aurora Provisioned clusters.
+
+### 3.7.55.0 (2021-06-15 18:14 UTC)
+* Connect (3.7.3.0)
+	* This release adds new sets of APIs: AssociateBot, DisassociateBot, and ListBots. You can use it to programmatically add an Amazon Lex bot or Amazon Lex V2 bot on the specified Amazon Connect instance
+* EC2 (3.7.11.0)
+	* EC2 M5n, M5dn, R5n, R5dn metal instances with 100 Gbps network performance and Elastic Fabric Adapter (EFA) for ultra low latency
+* LexModelsV2 (3.7.3.0)
+	* This release adds support for Multi Valued slots in Amazon Lex V2 APIs for model building
+* LexRuntimeV2 (3.7.1.0)
+	* This release adds support for Multi Valued slots in Amazon Lex V2 APIs for runtime
+* RedshiftDataAPIService (3.7.1.0)
+	* Redshift Data API service now supports SQL parameterization.
+* Core 3.7.0.33
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.54.0 (2021-06-14 18:17 UTC)
+* GreengrassV2 (3.7.1.0)
+	* We have verified the APIs being released here and are ready to release
+* IoTAnalytics (3.7.1.0)
+	* Adds support for data store partitions.
+* LookoutMetrics (3.7.4.0)
+	* Added "LEARNING" status for anomaly detector and updated description for "Offset" parameter in MetricSet APIs.
+
+### 3.7.53.0 (2021-06-11 18:19 UTC)
+* EC2 (3.7.10.0)
+	* Amazon EC2 adds new AMI property to flag outdated AMIs
+* MediaConnect (3.7.3.0)
+	* When you enable source failover, you can now designate one of two sources as the primary source. You can choose between two failover modes to prevent any disruption to the video stream. Merge combines the sources into a single stream. Failover allows switching between a primary and a backup stream.
+* MediaLive (3.7.4.0)
+	* AWS MediaLive now supports OCR-based conversion of DVB-Sub and SCTE-27 image-based source captions to WebVTT, and supports ingest of ad avail decorations in HLS input manifests.
+* Core 3.7.0.32
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.52.1 (2021-06-10 23:02 UTC)
+* S3 (3.7.1.1)
+	* Fixed an issue where ScanRange option for S3 Select is not working.
+
+### 3.7.52.0 (2021-06-10 18:23 UTC)
+* Appflow (3.7.2.0)
+	* Adding MAP_ALL task type support.
+* AppMesh (3.7.1.0)
+	* AppMesh now supports additional routing capabilities in match and rewrites for Gateway Routes and Routes. Additionally, App Mesh also supports specifying DNS Response Types in Virtual Nodes.
+* Chime (3.7.4.0)
+	* This SDK release adds support for UpdateAccount API to allow users to update their default license on Chime account.
+* CognitoIdentityProvider (3.7.1.0)
+	* Amazon Cognito now supports targeted sign out through refresh token revocation
+* EC2 (3.7.9.0)
+	* This release adds a new optional parameter connectivityType (public, private) for the CreateNatGateway API. Private NatGateway does not require customers to attach an InternetGateway to the VPC and can be used for communication with other VPCs and on-premise networks.
+* ManagedBlockchain (3.7.1.0)
+	* This release supports KMS customer-managed Customer Master Keys (CMKs) on member-specific Hyperledger Fabric resources.
+* RAM (3.7.1.0)
+	* AWS Resource Access Manager (RAM) is releasing new field isResourceTypeDefault in ListPermissions and GetPermission response, and adding permissionArn parameter to GetResourceShare request to filter by permission attached
+* Redshift (3.7.5.0)
+	* Added InvalidClusterStateFault to the ModifyAquaConfiguration API, thrown when calling the API on a non available cluster.
+* SageMaker (3.7.5.0)
+	* Using SageMaker Edge Manager with AWS IoT Greengrass v2 simplifies accessing, maintaining, and deploying models to your devices. You can now create deployable IoT Greengrass components during edge packaging jobs. You can choose to create a device fleet with or without creating an AWS IoT role alias.
+* SageMakerFeatureStoreRuntime (3.7.1.0)
+	* Release BatchGetRecord API for AWS SageMaker Feature Store Runtime.
+
+### 3.7.51.0 (2021-06-09 18:25 UTC)
+* Kendra (3.7.4.0)
+	* AWS Kendra now supports checking document status.
+* PersonalizeEvents (3.7.1.0)
+	* Support for unstructured text inputs in the items dataset to to automatically extract key information from product/content description as an input when creating solution versions.
+* Proton (3.7.0.0)
+	* This is the initial SDK release for AWS Proton
+* Transfer (3.7.1.4)
+	* Documentation updates for the AWS Transfer Family service.
+
+### 3.7.50.0 (2021-06-08 18:14 UTC)
+* CognitoIdentityProvider (3.7.0.31)
+	* Documentation updates for cognito-idp
+* FSx (3.7.3.0)
+	* This release adds support for auditing end-user access to files, folders, and file shares using Windows event logs, enabling customers to meet their security and compliance needs.
+* Macie2 (3.7.3.0)
+	* This release of the Amazon Macie API introduces stricter validation of S3 object criteria for classification jobs.
+* ServiceCatalog (3.7.1.0)
+	* increase max pagesize for List/Search apis
+
+### 3.7.49.0 (2021-06-07 18:19 UTC)
+* EKS (3.7.4.0)
+	* Added updateConfig option that allows customers to control upgrade velocity in Managed Node Group.
+* Glue (3.7.3.0)
+	* Add SampleSize variable to S3Target to enable s3-sampling feature through API.
+* Personalize (3.7.4.0)
+	* Update regex validation in kmsKeyArn and s3 path API parameters for AWS Personalize APIs
+* SageMaker (3.7.4.0)
+	* AWS SageMaker - Releasing new APIs related to Callback steps in model building pipelines. Adds experiment integration to model building pipelines.
+
+### 3.7.48.0 (2021-06-04 18:14 UTC)
+* AutoScaling (3.7.3.1)
+	* Documentation updates for Amazon EC2 Auto Scaling
+* CloudTrail (3.7.0.30)
+	* AWS CloudTrail supports data events on new service resources, including Amazon DynamoDB tables and S3 Object Lambda access points.
+* MediaLive (3.7.3.0)
+	* Add support for automatically setting the H.264 adaptive quantization and GOP B-frame fields.
+* PI (3.7.1.0)
+	* The new GetDimensionKeyDetails action retrieves the attributes of the specified dimension group for a DB instance or data source.
+* QLDB (3.7.1.3)
+	* Documentation updates for Amazon QLDB
+* RDS (3.7.0.30)
+	* Documentation updates for RDS: fixing an outdated link to the RDS documentation in DBInstance$DBInstanceStatus
+
+### 3.7.47.0 (2021-06-03 18:12 UTC)
+* ForecastService (3.7.4.0)
+	* Added optional field AutoMLOverrideStrategy to CreatePredictor API that allows users to customize AutoML strategy. If provided in CreatePredictor request, this field is visible in DescribePredictor and GetAccuracyMetrics responses.
+* Route53Resolver (3.7.1.24)
+	* Documentation updates for Route 53 Resolver
+* S3 (3.7.1.0)
+	* S3 Inventory now supports Bucket Key Status
+* S3Control (3.7.1.0)
+	* Amazon S3 Batch Operations now supports S3 Bucket Keys.
+* SimpleSystemsManagement (3.7.3.12)
+	* Documentation updates for ssm to fix customer reported issue
+
+### 3.7.46.0 (2021-06-02 18:14 UTC)
+* AutoScaling (3.7.3.0)
+	* You can now launch EC2 instances with GP3 volumes when using Auto Scaling groups with Launch Configurations
+* Braket (3.7.1.0)
+	* Introduction of a RETIRED status for devices.
+* DocDB (3.7.2.0)
+	* This SDK release adds support for DocDB global clusters.
+* ECS (3.7.2.3)
+	* Documentation updates for Amazon ECS.
+* IdentityManagement (3.7.2.7)
+	* Documentation updates for AWS Identity and Access Management (IAM).
+* Lightsail (3.7.1.24)
+	* Documentation updates for Lightsail
+
+### 3.7.45.0 (2021-06-01 18:13 UTC)
+* EC2 (3.7.8.0)
+	* Added idempotency to CreateNetworkInterface using the ClientToken parameter.
+* IoTWireless (3.7.5.0)
+	* Added six new public customer logging APIs to allow customers to set/get/reset log levels at resource type and resource id level. The log level set from the APIs will be used to filter log messages that can be emitted to CloudWatch in customer accounts.
+* Polly (3.7.1.0)
+	* Amazon Polly adds new Canadian French voice - Gabrielle. Gabrielle is available as Neural voice only.
+* ServiceDiscovery (3.7.2.0)
+	* Bugfixes - The DiscoverInstances API operation now provides an option to return all instances for health-checked services when there are no healthy instances available.
+* SimpleNotificationService (3.7.2.0)
+	* This release adds SMS sandbox in Amazon SNS and the ability to view all configured origination numbers. The SMS sandbox provides a safe environment for sending SMS messages, without risking your reputation as an SMS sender.
+
+### 3.7.44.0 (2021-05-28 18:26 UTC)
+* DataSync (3.7.1.0)
+	* Added SecurityDescriptorCopyFlags option that allows for control of which components of SMB security descriptors are copied from source to destination objects.
+* LocationService (3.7.2.0)
+	* Adds support for calculation of routes, resource tagging and customer provided KMS keys.
+* LookoutMetrics (3.7.3.0)
+	* Allowing dot(.) character in table name for RDS and Redshift as source connector.
+* Core 3.7.0.31
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.43.1 (2021-05-27 22:21 UTC)
+* S3 (3.7.0.31)
+	* Updated to use new Core, version 3.7.0.30
+	* Added logic to automatically calculate MD5 for simple/multi-part uploads in TransferUtility. Add S3 Arn support for FIPS.
+* Textract (3.7.0.29)
+	* Changed description for AWSSDK.Textract package.
+* Core 3.7.0.30
+	* Auto-generation of standard endpoints added.
+
+### 3.7.43.0 (2021-05-27 18:15 UTC)
+* DeviceFarm (3.7.1.0)
+	* Introduces support for using our desktop testing service with applications hosted within your Virtual Private Cloud (VPC).
+* FSx (3.7.2.0)
+	* This release adds LZ4 data compression support to FSx for Lustre to reduce storage consumption of both file system storage and file system backups.
+* IoTEvents (3.7.1.0)
+	* Releasing new APIs for AWS IoT Events Alarms
+* IoTEventsData (3.7.1.0)
+	* Releasing new APIs for AWS IoT Events Alarms
+* IoTSiteWise (3.7.2.0)
+	* IoT SiteWise Monitor Portal API updates to add alarms feature configuration.
+* Kendra (3.7.3.0)
+	* Amazon Kendra now suggests popular queries in order to help guide query typing and help overall accuracy.
+* Lightsail (3.7.1.22)
+	* Documentation updates for Lightsail
+* ResourceGroups (3.7.0.28)
+	* Documentation updates for Resource Groups.
+* SQS (3.7.0.29)
+	* Documentation updates for Amazon SQS for General Availability of high throughput for FIFO queues.
+* Core 3.7.0.29
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.42.0 (2021-05-26 22:23 UTC)
+* ACMPCA (3.7.2.0)
+	* This release enables customers to store CRLs in S3 buckets with Block Public Access enabled. The release adds the S3ObjectAcl parameter to the CreateCertificateAuthority and UpdateCertificateAuthority APIs to allow customers to choose whether their CRL will be publicly available.
+* CloudFront (3.7.1.11)
+	* Documentation fix for CloudFront
+* ECS (3.7.2.0)
+	* The release adds support for registering External instances to your Amazon ECS clusters.
+* MWAA (3.7.1.0)
+	* Adds scheduler count selection for Environments using Airflow version 2.0.2 or later.
+* Outposts (3.7.1.0)
+	* Add ConflictException to DeleteOutpost, CreateOutpost
+* QLDB (3.7.1.0)
+	* Support STANDARD permissions mode in CreateLedger and DescribeLedger. Add UpdateLedgerPermissionsMode to update permissions mode on existing ledgers.
+* Core 3.7.0.28
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.41.0 (2021-05-25 18:12 UTC)
+* IoT (3.7.2.0)
+	* This release includes support for a new feature: Job templates for AWS IoT Device Management Jobs. The release includes job templates as a new resource and APIs for managing job templates.
+* Transfer (3.7.1.0)
+	* AWS Transfer Family customers can now use AWS Managed Active Directory or AD Connector to authenticate their end users, enabling seamless migration of file transfer workflows that rely on AD authentication, without changing end users' credentials or needing a custom authorizer.
+* WorkSpaces (3.7.1.0)
+	* Adds support for Linux device types in WorkspaceAccessProperties
+
+### 3.7.40.0 (2021-05-24 18:16 UTC)
+* CloudWatchLogs (3.7.1.0)
+	* This release provides dimensions and unit support for metric filters.
+* ComputeOptimizer (3.7.2.0)
+	* Adds support for 1) additional instance types, 2) additional instance metrics, 3) finding reasons for instance recommendations, and 4) platform differences between a current instance and a recommended instance type.
+* CostExplorer (3.7.2.0)
+	* Introduced FindingReasonCodes, PlatformDifferences, DiskResourceUtilization and NetworkResourceUtilization to GetRightsizingRecommendation action
+* EC2 (3.7.7.0)
+	* This release adds support for creating and managing EC2 On-Demand Capacity Reservations on Outposts.
+* QuickSight (3.7.2.0)
+	* Add new parameters on RegisterUser and UpdateUser APIs to assign or update external ID associated to QuickSight users federated through web identity.
+* Core 3.7.0.27
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.39.0 (2021-05-21 18:14 UTC)
+* ElasticFileSystem (3.7.1.0)
+	* EFS now supports account preferences. Utilizing the new capability, users can customize some aspects of their experience using EFS APIs and the EFS Console. The first preference clients are able to set is whether to start using longer File System and Mount Target IDs before EFS migrates to such IDs.
+* ForecastService (3.7.3.0)
+	* Updated attribute statistics in DescribeDatasetImportJob response to support Long values
+* OpsWorksCM (3.7.0.25)
+	* New PUPPET_API_CRL attribute returned by DescribeServers API; new EngineVersion of 2019 available for Puppet Enterprise servers.
+* S3 (3.7.0.27)
+	* Documentation updates for Amazon S3
+* Core 3.7.0.26
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.38.0 (2021-05-20 18:14 UTC)
+* IdentityManagement (3.7.2.1)
+	* Documentation updates for AWS Identity and Access Management (IAM).
+* LexModelsV2 (3.7.2.0)
+	* Customers can now use resource-based policies to control access to their Lex V2 bots. This release adds APIs to attach and manage permissions for a bot or a bot alias. For details, see: https://docs.aws.amazon.com/lexv2/latest/dg/security_iam_service-with-iam.html
+* Personalize (3.7.3.0)
+	* Added new API to stop a solution version creation that is pending or in progress for Amazon Personalize
+* QuickSight (3.7.1.0)
+	* Add ARN based Row Level Security support to CreateDataSet/UpdateDataSet APIs.
+* Core 3.7.0.25
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.37.0 (2021-05-19 18:14 UTC)
+* AutoScaling (3.7.2.0)
+	* With this release, customers can easily use Predictive Scaling as a policy directly through Amazon EC2 Auto Scaling configurations to proactively scale their applications ahead of predicted demand.
+* EKS (3.7.3.0)
+	* Update the EKS AddonActive waiter.
+* IdentityManagement (3.7.2.0)
+	* Add pagination to ListUserTags operation
+* KinesisAnalyticsV2 (3.7.4.0)
+	* Kinesis Data Analytics now allows rapid iteration on Apache Flink stream processing through the Kinesis Data Analytics Studio feature.
+* Lightsail (3.7.1.17)
+	* Documentation updates for Amazon Lightsail.
+* Rekognition (3.7.1.0)
+	* Amazon Rekognition Custom Labels adds support for customer managed encryption, using AWS Key Management Service, of image files copied into the service and files written back to the customer.
+* Core 3.7.0.24
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.36.1 (2021-05-18 21:53 UTC)
+* S3 (3.7.0.24)
+	* Updated to use new Core, version 3.7.0.23
+	* Prevent null exception due to null header keys during request signing
+* Core 3.7.0.23
+	* Delay SSO Options Validation; Prevent null exception due to null header keys during request signing
+	* All services packages updated to require new Core
+
+### 3.7.36.0 (2021-05-18 18:16 UTC)
+* AppRunner (3.7.0.0)
+	* AWS App Runner is a service that provides a fast, simple, and cost-effective way to deploy from source code or a container image directly to a scalable and secure web application in the AWS Cloud.
+* AWSSupport (3.7.0.22)
+	* Documentation updates for support
+* ComputeOptimizer (3.7.1.0)
+	* This release enables compute optimizer to support exporting  recommendations to Amazon S3 for EBS volumes and Lambda Functions.
+* IoTSiteWise (3.7.1.7)
+	* Documentation updates for AWS IoT SiteWise.
+* LexModelsV2 (3.7.1.0)
+	* This release adds support for exporting and importing Lex V2 bots and bot locales. It also adds validations to enforce minimum number of tags on Lex V2 resources. For details, see https://docs.aws.amazon.com/lexv2/latest/dg/importing-exporting.html
+* LicenseManager (3.7.1.0)
+	* AWS License Manager now supports periodic report generation.
+* Personalize (3.7.2.0)
+	* Amazon Personalize now supports the ability to optimize a solution for a custom objective in addition to maximizing relevance.
+
+### 3.7.35.0 (2021-05-17 18:16 UTC)
+* ApplicationCostProfiler (3.7.0.0)
+	* APIs for AWS Application Cost Profiler.
+* AugmentedAIRuntime (3.7.0.22)
+	* Documentation updates for Amazon A2I Runtime model
+* ElastiCache (3.7.2.9)
+	* Documentation updates for elasticache
+* IoTDeviceAdvisor (3.7.1.0)
+	* AWS IoT Core Device Advisor is fully managed test capability for IoT devices. Device manufacturers can use Device Advisor to test their IoT devices for reliable and secure connectivity with AWS IoT.
+* MediaConnect (3.7.2.0)
+	* MediaConnect now supports JPEG XS for AWS Cloud Digital Interface (AWS CDI) uncompressed workflows, allowing you to establish a bridge between your on-premises live video network and the AWS Cloud.
+* Neptune (3.7.1.0)
+	* Neptune support for CopyTagsToSnapshots
+
+### 3.7.34.0 (2021-05-14 18:18 UTC)
+* CloudWatchEvents (3.7.2.0)
+	* Update InputTransformer variable limit from 10 to 100 variables.
+* Detective (3.7.2.8)
+	* Updated descriptions of array parameters to add the restrictions on the array and value lengths.
+* Elasticsearch (3.7.1.0)
+	* Adds support for cold storage.
+* EventBridge (3.7.2.0)
+	* Update InputTransformer variable limit from 10 to 100 variables.
+* Imagebuilder (3.7.1.14)
+	* Text-only updates for bundled documentation feedback tickets - spring 2021.
+* Macie2 (3.7.2.0)
+	* This release of the Amazon Macie API adds support for defining run-time, S3 bucket criteria for classification jobs. It also adds resources for querying data about AWS resources that Macie monitors.
+* SecurityHub (3.7.2.5)
+	* Updated descriptions to add notes on array lengths.
+* TranscribeService (3.7.3.0)
+	* Transcribe Medical now supports identification of PHI entities within transcripts
+* Core 3.7.0.22
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.33.0 (2021-05-12 18:11 UTC)
+* EC2 (3.7.6.0)
+	* High Memory virtual instances are powered by Intel Sky Lake CPUs and offer up to 12TB of memory.
+* Core 3.7.0.21
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.32.0 (2021-05-11 18:34 UTC)
+* S3Control (3.7.0.20)
+	* Documentation updates for Amazon S3-control
+* SSMContacts (3.7.0.0)
+	* AWS Systems Manager Incident Manager enables faster resolution of critical application availability and performance issues, management of contacts and post incident analysis
+* SSMIncidents (3.7.0.0)
+	* AWS Systems Manager Incident Manager enables faster resolution of critical application availability and performance issues, management of contacts and post-incident analysis
+
+### 3.7.31.1 (2021-05-10 21:35 UTC)
+* CloudFront (3.7.1.3)
+	* Updated to use new Core, version 3.7.0.20
+	* Encode additional end-of-line characters in requests for XML-based services
+* Route53 (3.7.0.20)
+	* Updated to use new Core, version 3.7.0.20
+	* Encode additional end-of-line characters in requests for XML-based services
+* S3 (3.7.0.21)
+	* Updated to use new Core, version 3.7.0.20
+	* Encode additional end-of-line characters in requests for XML-based services
+* S3Control (3.7.0.19)
+	* Updated to use new Core, version 3.7.0.20
+	* Encode additional end-of-line characters in requests for XML-based services
+* Core 3.7.0.20
+	* Fixes an issue where leading/trailing space(s) in metadata value causes signature mismatch error while uploading an S3 object; Encode additional end-of-line characters in requests for XML-based services; Add support for fips-aws-global pseudo region
+	* All services packages updated to require new Core
+
+### 3.7.31.0 (2021-05-10 18:19 UTC)
+* CodeArtifact (3.7.0.18)
+	* Documentation updates for CodeArtifact
+* ConfigService (3.7.3.0)
+	* Adds paginator to multiple APIs: By default, the paginator allows user to iterate over the results and allows the CLI to return up to 1000 results.
+* ECS (3.7.1.3)
+	* This release contains updates for Amazon ECS.
+* EKS (3.7.2.0)
+	* This release updates create-nodegroup and update-nodegroup-config APIs for adding/updating taints on managed nodegroups.
+* IoTWireless (3.7.4.0)
+	* Add three new optional fields to support filtering and configurable sub-band in WirelessGateway APIs. The filtering is for all the RF region supported. The sub-band configuration is only applicable to LoRa gateways of US915 or AU915 RF region.
+* KinesisAnalyticsV2 (3.7.3.0)
+	* Amazon Kinesis Analytics now supports ListApplicationVersions and DescribeApplicationVersion API for Apache Flink applications
+* MediaConvert (3.7.2.0)
+	* AWS Elemental MediaConvert SDK has added support for Kantar SNAP File Audio Watermarking with a Kantar Watermarking account, and Display Definition Segment(DDS) segment data controls for DVB-Sub caption outputs.
+* SimpleSystemsManagement (3.7.3.0)
+	* This release adds new APIs to associate, disassociate and list related items in SSM OpsCenter; and this release adds DisplayName as a version-level attribute for SSM Documents and introduces two new document types: ProblemAnalysis, ProblemAnalysisTemplate.
+* Core 3.7.0.19
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.30.0 (2021-05-07 18:11 UTC)
+* Connect (3.7.2.0)
+	* Adds tagging support for Connect APIs CreateIntegrationAssociation and CreateUseCase.
+* LakeFormation (3.7.1.0)
+	* This release adds Tag Based Access Control to AWS Lake Formation service
+* LookoutMetrics (3.7.2.0)
+	* Enforcing UUID style for parameters that are already in UUID format today. Documentation specifying eventual consistency of lookoutmetrics resources.
+
+### 3.7.29.0 (2021-05-06 18:13 UTC)
+* Kafka (3.7.1.0)
+	* IAM Access Control for Amazon MSK enables you to create clusters that use IAM to authenticate clients and to allow or deny Apache Kafka actions for those clients.
+* ServiceDiscovery (3.7.1.0)
+	* Bugfix: Improved input validation for RegisterInstance action, InstanceId field
+* SimpleSystemsManagement (3.7.2.0)
+	* SSM feature release - ChangeCalendar integration with StateManager.
+* Snowball (3.7.1.0)
+	* AWS Snow Family adds APIs for ordering and managing Snow jobs with long term pricing
+* Core 3.7.0.18
+	* Updating endpoints.json file
+
+
+	* All services packages updated to require new Core
+
+### 3.7.28.0 (2021-05-05 19:40 UTC)
+* AuditManager (3.7.3.0)
+	* This release updates the CreateAssessmentFrameworkControlSet and UpdateAssessmentFrameworkControlSet API data types. For both of these data types, the control set name is now a required attribute.
+* KinesisAnalyticsV2 (3.7.2.0)
+	* Amazon Kinesis Analytics now supports RollbackApplication for Apache Flink applications to revert the application to the previous running version
+* NimbleStudio (3.7.0.2)
+	* Documentation Updates for Amazon Nimble Studio.
+* SageMaker (3.7.3.0)
+	* Amazon SageMaker Autopilot now provides the ability to automatically deploy the best model to an endpoint
+
+### 3.7.27.1 (2021-05-05 02:45 UTC)
+* Finspace (3.7.0.1)
+	* Documentation updates for FinSpace API.
+* FinSpaceData (3.7.0.1)
+	* Documentation updates for FinSpaceData API.
+
+### 3.7.27.0 (2021-05-04 18:13 UTC)
+* ACMPCA (3.7.1.0)
+	* This release adds the KeyStorageSecurityStandard parameter to the CreateCertificateAuthority API to allow customers to mandate a security standard to which the CA key will be stored within.
+* AWSHealth (3.7.0.17)
+	* Documentation updates for health
+* Chime (3.7.3.0)
+	* This release adds the ability to search for and order international phone numbers for Amazon Chime SIP media applications.
+* DevOpsGuru (3.7.1.0)
+	* Added GetCostEstimation and StartCostEstimation to get the monthly resource usage cost and added ability to view resource health by AWS service name and to search insights be AWS service name.
+* SageMaker (3.7.2.0)
+	* Enable retrying Training and Tuning Jobs that fail with InternalServerError by setting RetryStrategy.
+
+### 3.7.26.0 (2021-05-03 20:53 UTC)
+* Chime (3.7.2.0)
+	* Added new BatchCreateChannelMembership API to support multiple membership creation for channels
+* Finspace (3.7.0.0)
+	* This is the initial SDK release for the management APIs for Amazon FinSpace. Amazon FinSpace is a data management and analytics service for the financial services industry (FSI).
+* FinSpaceData (3.7.0.0)
+	* This is the initial SDK release for the data APIs for Amazon FinSpace. Amazon FinSpace is a data management and analytics application for the financial services industry (FSI).
+* MTurk (3.7.0.17)
+	* Documentation updates for Amazon Mechanical Turk, GetAccountBalanceOperation operation
+* SecurityHub (3.7.2.0)
+	* Updated ASFF to add the following new resource details objects: AwsEc2NetworkAcl, AwsEc2Subnet, and AwsElasticBeanstalkEnvironment.
+
+### 3.7.25.0 (2021-04-30 18:15 UTC)
+* CloudFront (3.7.1.0)
+	* CloudFront now supports CloudFront Functions, a native feature of CloudFront that enables you to write lightweight functions in JavaScript for high-scale, latency-sensitive CDN customizations.
+* CustomerProfiles (3.7.2.0)
+	* This release introduces GetMatches and MergeProfiles APIs to fetch and merge duplicate profiles
+* ForecastService (3.7.2.0)
+	* Added new DeleteResourceTree operation that helps in deleting all the child resources of a given resource including the given resource.
+* MarketplaceCatalog (3.7.1.0)
+	* Allows user defined names for Changes in a ChangeSet. Users can use ChangeNames to reference properties in another Change within a ChangeSet. This feature allows users to make changes to an entity when the entity identifier is not yet available while constructing the StartChangeSet request.
+* Personalize (3.7.1.3)
+	* Update URL for dataset export job documentation.
+* RoboMaker (3.7.2.0)
+	* Adds ROS2 Foxy as a supported Robot Software Suite Version and Gazebo 11 as a supported Simulation Software Suite Version
+
+### 3.7.24.1 (2021-04-30 02:38 UTC)
+* S3 (3.7.0.18)
+	* Fixes an issue where RecordDelimiter '\n' in CSV InputSerialization/OutputSerialization does not work for AmazonS3Client.SelectObjectContentAsync
+* Core 3.7.0.17
+	* Update service nuget ranges to [3.7.X, 4.0).
+Added retry logic for intermittent SSL_ERROR_ZERO_RETURN.
+Fixed Arn.TryParse method to never throw exceptions.
+	* All services packages updated to require new Core
+
+### 3.7.24.0 (2021-04-29 18:16 UTC)
+* Chime (3.7.1.0)
+	* Increase AppInstanceUserId length to 64 characters
+* ECS (3.7.1.0)
+	* Add support for EphemeralStorage on TaskDefinition and TaskOverride
+* Macie2 (3.7.1.0)
+	* The Amazon Macie API now provides S3 bucket metadata that indicates whether a bucket policy requires server-side encryption of objects when objects are uploaded to the bucket.
+* Organizations (3.7.0.16)
+	* Minor text updates for AWS Organizations API Reference
+
+### 3.7.23.0 (2021-04-28 18:14 UTC)
+* CloudFormation (3.7.2.0)
+	* Add CallAs parameter to GetTemplateSummary to enable use with StackSets delegated administrator integration
+* Connect (3.7.1.0)
+	* Updated max number of tags that can be attached from 200 to 50. MaxContacts is now an optional parameter for the UpdateQueueMaxContact API.
+* IoTSiteWise (3.7.1.0)
+	* AWS IoT SiteWise interpolation API will get interpolated values for an asset property per specified time interval during a period of time.
+* MediaPackageVod (3.7.1.0)
+	* MediaPackage now offers the option to place your Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) encoder metadata in every video segment instead of in the init fragment for DASH and CMAF endpoints.
+* NimbleStudio (3.7.0.0)
+	* Amazon Nimble Studio is a virtual studio service that empowers visual effects, animation, and interactive content teams to create content securely within a scalable, private cloud service.
+
 ### 3.7.22.0 (2021-04-27 18:14 UTC)
 * AuditManager (3.7.2.0)
 	* This release restricts using backslashes in control, assessment, and framework names. The controlSetName field of the UpdateAssessmentFrameworkControlSet API now allows strings without backslashes.

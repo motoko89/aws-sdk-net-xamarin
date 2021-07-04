@@ -73,6 +73,7 @@ namespace Amazon.EC2.Model
         private InstanceMatchCriteria _instanceMatchCriteria;
         private CapacityReservationInstancePlatform _instancePlatform;
         private string _instanceType;
+        private string _outpostArn;
         private List<TagSpecification> _tagSpecifications = new List<TagSpecification>();
         private CapacityReservationTenancy _tenancy;
 
@@ -333,6 +334,24 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property OutpostArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        /// </para>
+        /// </summary>
+        public string OutpostArn
+        {
+            get { return this._outpostArn; }
+            set { this._outpostArn = value; }
+        }
+
+        // Check to see if OutpostArn property is set
+        internal bool IsSetOutpostArn()
+        {
+            return this._outpostArn != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property TagSpecifications. 
         /// <para>
         /// The tags to apply to the Capacity Reservation during launch.
@@ -359,12 +378,12 @@ namespace Amazon.EC2.Model
         ///  <ul> <li> 
         /// <para>
         ///  <code>default</code> - The Capacity Reservation is created on hardware that is shared
-        /// with other AWS accounts.
+        /// with other accounts.
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware
-        /// that is dedicated to a single AWS account.
+        /// that is dedicated to a single account.
         /// </para>
         ///  </li> </ul>
         /// </summary>

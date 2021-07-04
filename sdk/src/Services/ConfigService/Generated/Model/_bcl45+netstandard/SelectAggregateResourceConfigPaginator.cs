@@ -41,6 +41,12 @@ namespace Amazon.ConfigService.Model
         /// </summary>
         public IPaginatedEnumerable<SelectAggregateResourceConfigResponse> Responses => new PaginatedResponse<SelectAggregateResourceConfigResponse>(this);
 
+        /// <summary>
+        /// Enumerable containing all of the Results
+        /// </summary>
+        public IPaginatedEnumerable<string> Results => 
+            new PaginatedResultKeyResponse<SelectAggregateResourceConfigResponse, string>(this, (i) => i.Results);
+
         internal SelectAggregateResourceConfigPaginator(IAmazonConfigService client, SelectAggregateResourceConfigRequest request)
         {
             this._client = client;

@@ -44,8 +44,8 @@ namespace Amazon.SQS.Model
     /// standard queue into a FIFO queue. You must either create a new FIFO queue for your
     /// application or delete your existing standard queue and recreate it as a FIFO queue.
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-moving">Moving
-    /// From a Standard Queue to a FIFO Queue</a> in the <i>Amazon Simple Queue Service Developer
-    /// Guide</i>. 
+    /// From a Standard Queue to a FIFO Queue</a> in the <i>Amazon SQS Developer Guide</i>.
+    /// 
     /// </para>
     ///  </note> </li> <li> 
     /// <para>
@@ -103,8 +103,8 @@ namespace Amazon.SQS.Model
     /// <para>
     /// Cross-account permissions don't apply to this action. For more information, see <a
     /// href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
-    /// cross-account permissions to a role and a user name</a> in the <i>Amazon Simple Queue
-    /// Service Developer Guide</i>.
+    /// cross-account permissions to a role and a user name</a> in the <i>Amazon SQS Developer
+    /// Guide</i>.
     /// </para>
     ///  </note>
     /// </summary>
@@ -158,9 +158,9 @@ namespace Amazon.SQS.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>Policy</code> – The queue's policy. A valid AWS policy. For more information
-        /// about policy structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html">Overview
-        /// of AWS IAM Policies</a> in the <i>Amazon IAM User Guide</i>. 
+        ///  <code>Policy</code> – The queue's policy. A valid Amazon Web Services policy. For
+        /// more information about policy structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html">Overview
+        /// of Amazon Web Services IAM Policies</a> in the <i>Amazon IAM User Guide</i>. 
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -173,8 +173,7 @@ namespace Amazon.SQS.Model
         ///  <code>RedrivePolicy</code> – The string that includes the parameters for the dead-letter
         /// queue functionality of the source queue as a JSON object. For more information about
         /// the redrive policy and dead-letter queues, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">Using
-        /// Amazon SQS Dead-Letter Queues</a> in the <i>Amazon Simple Queue Service Developer
-        /// Guide</i>.
+        /// Amazon SQS Dead-Letter Queues</a> in the <i>Amazon SQS Developer Guide</i>.
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -199,7 +198,7 @@ namespace Amazon.SQS.Model
         ///  <code>VisibilityTimeout</code> – The visibility timeout for the queue, in seconds.
         /// Valid values: An integer from 0 to 43,200 (12 hours). Default: 30. For more information
         /// about the visibility timeout, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
-        /// Timeout</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
+        /// Timeout</a> in the <i>Amazon SQS Developer Guide</i>.
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -207,18 +206,18 @@ namespace Amazon.SQS.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>KmsMasterKeyId</code> – The ID of an AWS-managed customer master key (CMK)
-        /// for Amazon SQS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key
-        /// Terms</a>. While the alias of the AWS-managed CMK for Amazon SQS is always <code>alias/aws/sqs</code>,
-        /// the alias of a custom CMK can, for example, be <code>alias/<i>MyAlias</i> </code>.
-        /// For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a>
-        /// in the <i>AWS Key Management Service API Reference</i>. 
+        ///  <code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master
+        /// key (CMK) for Amazon SQS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key
+        /// Terms</a>. While the alias of the Amazon Web Services managed CMK for Amazon SQS is
+        /// always <code>alias/aws/sqs</code>, the alias of a custom CMK can, for example, be
+        /// <code>alias/<i>MyAlias</i> </code>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a>
+        /// in the <i>Key Management Service API Reference</i>. 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>KmsDataKeyReusePeriodSeconds</code> – The length of time, in seconds, for which
         /// Amazon SQS can reuse a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">data
-        /// key</a> to encrypt or decrypt messages before calling AWS KMS again. An integer representing
+        /// key</a> to encrypt or decrypt messages before calling KMS again. An integer representing
         /// seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300
         /// (5 minutes). A shorter time period provides better security but results in more calls
         /// to KMS which might incur charges after Free Tier. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How
@@ -239,16 +238,15 @@ namespace Amazon.SQS.Model
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-understanding-logic">FIFO
-        /// Queue Logic</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html">FIFO
+        /// queue logic</a> in the <i>Amazon SQS Developer Guide</i>.
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>ContentBasedDeduplication</code> – Enables content-based deduplication. Valid
         /// values are <code>true</code> and <code>false</code>. For more information, see <a
-        /// href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing">Exactly-Once
-        /// Processing</a> in the <i>Amazon Simple Queue Service Developer Guide</i>. Note the
-        /// following: 
+        /// href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once
+        /// processing</a> in the <i>Amazon SQS Developer Guide</i>. Note the following: 
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -290,18 +288,8 @@ namespace Amazon.SQS.Model
         /// </para>
         ///  </li> </ul> </li> </ul> 
         /// <para>
-        ///  <b>Preview: High throughput for FIFO queues</b> 
-        /// </para>
-        ///  
-        /// <para>
-        ///  <b>High throughput for Amazon SQS FIFO queues is in preview release and is subject
-        /// to change.</b> This feature provides a high number of transactions per second (TPS)
-        /// for messages in FIFO queues. For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas
-        /// related to messages</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
-        /// </para>
-        ///  
-        /// <para>
-        /// This preview includes two new attributes:
+        /// The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high
+        /// throughput for FIFO queues</a>:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -331,33 +319,12 @@ namespace Amazon.SQS.Model
         ///  </li> </ul> 
         /// <para>
         /// If you set these attributes to anything other than the values shown for enabling high
-        /// throughput, standard throughput is in effect and deduplication occurs as specified.
+        /// throughput, normal throughput is in effect and deduplication occurs as specified.
         /// </para>
         ///  
         /// <para>
-        /// This preview is available in the following AWS Regions:
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// US East (Ohio); us-east-2
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// US East (N. Virginia); us-east-1
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// US West (Oregon); us-west-2
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Europe (Ireland); eu-west-1
-        /// </para>
-        ///  </li> </ul> 
-        /// <para>
-        /// For more information about high throughput for FIFO queues, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">Preview:
-        /// High throughput for FIFO queues</a> in the <i>Amazon Simple Queue Service Developer
-        /// Guide</i>.
+        /// For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas
+        /// related to messages</a> in the <i>Amazon SQS Developer Guide</i>.
         /// </para>
         /// </summary>
         public Dictionary<string, string> Attributes
@@ -412,7 +379,7 @@ namespace Amazon.SQS.Model
         /// <para>
         /// Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a
         /// href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
-        /// Your Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
+        /// Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -437,8 +404,8 @@ namespace Amazon.SQS.Model
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// For a full list of tag restrictions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues">Limits
-        /// Related to Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
+        /// For a full list of tag restrictions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues">Quotas
+        /// related to queues</a> in the <i>Amazon SQS Developer Guide</i>.
         /// </para>
         ///  <note> 
         /// <para>
@@ -449,8 +416,8 @@ namespace Amazon.SQS.Model
         /// <para>
         /// Cross-account permissions don't apply to this action. For more information, see <a
         /// href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
-        /// cross-account permissions to a role and a user name</a> in the <i>Amazon Simple Queue
-        /// Service Developer Guide</i>.
+        /// cross-account permissions to a role and a user name</a> in the <i>Amazon SQS Developer
+        /// Guide</i>.
         /// </para>
         ///  </note>
         /// </summary>

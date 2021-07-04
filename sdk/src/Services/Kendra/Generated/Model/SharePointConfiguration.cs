@@ -41,6 +41,7 @@ namespace Amazon.Kendra.Model
         private List<string> _inclusionPatterns = new List<string>();
         private string _secretArn;
         private SharePointVersion _sharePointVersion;
+        private S3Path _sslCertificateS3Path;
         private List<string> _urls = new List<string>();
         private bool? _useChangeLog;
         private DataSourceVpcConfiguration _vpcConfiguration;
@@ -217,6 +218,21 @@ namespace Amazon.Kendra.Model
         internal bool IsSetSharePointVersion()
         {
             return this._sharePointVersion != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property SslCertificateS3Path.
+        /// </summary>
+        public S3Path SslCertificateS3Path
+        {
+            get { return this._sslCertificateS3Path; }
+            set { this._sslCertificateS3Path = value; }
+        }
+
+        // Check to see if SslCertificateS3Path property is set
+        internal bool IsSetSslCertificateS3Path()
+        {
+            return this._sslCertificateS3Path != null;
         }
 
         /// <summary>

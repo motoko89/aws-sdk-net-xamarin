@@ -30,12 +30,12 @@ namespace Amazon.ServiceDiscovery.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateService operation.
-    /// Creates a service, which defines the configuration for the following entities:
+    /// Creates a service. This action defines the configuration for the following entities:
     /// 
     ///  <ul> <li> 
     /// <para>
     /// For public and private DNS namespaces, one of the following combinations of DNS records
-    /// in Amazon Route 53:
+    /// in Amazon Route 53:
     /// </para>
     ///  <ul> <li> 
     /// <para>
@@ -64,14 +64,14 @@ namespace Amazon.ServiceDiscovery.Model
     ///  </li> </ul> 
     /// <para>
     /// After you create the service, you can submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a>
-    /// request, and AWS Cloud Map uses the values in the configuration to create the specified
+    /// request, and Cloud Map uses the values in the configuration to create the specified
     /// entities.
     /// </para>
     ///  
     /// <para>
     /// For the current quota on the number of instances that you can register using the same
-    /// namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
-    /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
+    /// namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
+    /// Map quotas</a> in the <i>Cloud Map Developer Guide</i>.
     /// </para>
     /// </summary>
     public partial class CreateServiceRequest : AmazonServiceDiscoveryRequest
@@ -90,8 +90,8 @@ namespace Amazon.ServiceDiscovery.Model
         /// Gets and sets the property CreatorRequestId. 
         /// <para>
         /// A unique string that identifies the request and that allows failed <code>CreateService</code>
-        /// requests to be retried without the risk of executing the operation twice. <code>CreatorRequestId</code>
-        /// can be any unique string, for example, a date/time stamp.
+        /// requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code>
+        /// can be any unique string (for example, a date/timestamp).
         /// </para>
         /// </summary>
         [AWSProperty(Max=64)]
@@ -129,8 +129,8 @@ namespace Amazon.ServiceDiscovery.Model
         /// <summary>
         /// Gets and sets the property DnsConfig. 
         /// <para>
-        /// A complex type that contains information about the Amazon Route 53 records that you
-        /// want AWS Cloud Map to create when you register an instance. 
+        /// A complex type that contains information about the Amazon Route 53 records that you
+        /// want Cloud Map to create when you register an instance. 
         /// </para>
         /// </summary>
         public DnsConfig DnsConfig
@@ -149,9 +149,9 @@ namespace Amazon.ServiceDiscovery.Model
         /// Gets and sets the property HealthCheckConfig. 
         /// <para>
         ///  <i>Public DNS and HTTP namespaces only.</i> A complex type that contains settings
-        /// for an optional Route 53 health check. If you specify settings for a health check,
-        /// AWS Cloud Map associates the health check with all the Route 53 DNS records that you
-        /// specify in <code>DnsConfig</code>.
+        /// for an optional Route 53 health check. If you specify settings for a health check,
+        /// Cloud Map associates the health check with all the Route 53 DNS records that you specify
+        /// in <code>DnsConfig</code>.
         /// </para>
         ///  <important> 
         /// <para>
@@ -160,8 +160,8 @@ namespace Amazon.ServiceDiscovery.Model
         /// </para>
         ///  </important> 
         /// <para>
-        /// For information about the charges for health checks, see <a href="http://aws.amazon.com/cloud-map/pricing/">AWS
-        /// Cloud Map Pricing</a>.
+        /// For information about the charges for health checks, see <a href="http://aws.amazon.com/cloud-map/pricing/">Cloud
+        /// Map Pricing</a>.
         /// </para>
         /// </summary>
         public HealthCheckConfig HealthCheckConfig
@@ -211,34 +211,35 @@ namespace Amazon.ServiceDiscovery.Model
         /// </para>
         ///  
         /// <para>
-        /// If you want AWS Cloud Map to create an <code>SRV</code> record when you register an
-        /// instance, and if you're using a system that requires a specific <code>SRV</code> format,
-        /// such as <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for <code>Name</code>:
+        /// If you want Cloud Map to create an <code>SRV</code> record when you register an instance
+        /// and you're using a system that requires a specific <code>SRV</code> format, such as
+        /// <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for <code>Name</code>:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Start the name with an underscore (_), such as <code>_exampleservice</code> 
+        /// Start the name with an underscore (_), such as <code>_exampleservice</code>.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// End the name with <i>._protocol</i>, such as <code>._tcp</code> 
+        /// End the name with <i>._protocol</i>, such as <code>._tcp</code>.
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// When you register an instance, AWS Cloud Map creates an <code>SRV</code> record and
-        /// assigns a name to the record by concatenating the service name and the namespace name,
-        /// for example:
+        /// When you register an instance, Cloud Map creates an <code>SRV</code> record and assigns
+        /// a name to the record by concatenating the service name and the namespace name (for
+        /// example,
         /// </para>
         ///  
         /// <para>
-        ///  <code>_exampleservice._tcp.example.com</code> 
+        ///  <code>_exampleservice._tcp.example.com</code>).
         /// </para>
         ///  <note> 
         /// <para>
-        /// For a single DNS namespace, you cannot create two services with names that differ
-        /// only by case (such as EXAMPLE and example). Otherwise, these services will have the
-        /// same DNS name. However, you can create multiple HTTP services with names that differ
-        /// only by case because HTTP services are case sensitive.
+        /// For services that are accessible by DNS queries, you can't create multiple services
+        /// with names that differ only by case (such as EXAMPLE and example). Otherwise, these
+        /// services have the same DNS name and can't be distinguished. However, if you use a
+        /// namespace that's only accessible by API calls, then you can create services that with
+        /// names that differ only by case.
         /// </para>
         ///  </note>
         /// </summary>
@@ -258,7 +259,9 @@ namespace Amazon.ServiceDiscovery.Model
         /// <summary>
         /// Gets and sets the property NamespaceId. 
         /// <para>
-        /// The ID of the namespace that you want to use to create the service.
+        /// The ID of the namespace that you want to use to create the service. The namespace
+        /// ID must be specified, but it can be specified either here or in the <code>DnsConfig</code>
+        /// object.
         /// </para>
         /// </summary>
         [AWSProperty(Max=64)]
@@ -277,9 +280,9 @@ namespace Amazon.ServiceDiscovery.Model
         /// <summary>
         /// Gets and sets the property Tags. 
         /// <para>
-        /// The tags to add to the service. Each tag consists of a key and an optional value,
-        /// both of which you define. Tag keys can have a maximum character length of 128 characters,
-        /// and tag values can have a maximum length of 256 characters.
+        /// The tags to add to the service. Each tag consists of a key and an optional value that
+        /// you define. Tags keys can be up to 128 characters in length, and tag values can be
+        /// up to 256 characters in length.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=200)]
@@ -299,8 +302,8 @@ namespace Amazon.ServiceDiscovery.Model
         /// Gets and sets the property Type. 
         /// <para>
         /// If present, specifies that the service instances are only discoverable using the <code>DiscoverInstances</code>
-        /// API operation. No DNS records will be registered for the service instances. The only
-        /// valid value is <code>HTTP</code>.
+        /// API operation. No DNS records is registered for the service instances. The only valid
+        /// value is <code>HTTP</code>.
         /// </para>
         /// </summary>
         public ServiceTypeOption Type

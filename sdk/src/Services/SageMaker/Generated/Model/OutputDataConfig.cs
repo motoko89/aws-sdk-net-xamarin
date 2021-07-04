@@ -39,9 +39,9 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property KmsKeyId. 
         /// <para>
-        /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt
-        /// the model artifacts at rest using Amazon S3 server-side encryption. The <code>KmsKeyId</code>
-        /// can be any of the following formats: 
+        /// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
+        /// Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side
+        /// encryption. The <code>KmsKeyId</code> can be any of the following formats: 
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.SageMaker.Model
         /// account. Amazon SageMaker uses server-side encryption with KMS-managed keys for <code>OutputDataConfig</code>.
         /// If you use a bucket policy with an <code>s3:PutObject</code> permission that only
         /// allows objects with server-side encryption, set the condition key of <code>s3:x-amz-server-side-encryption</code>
-        /// to <code>"aws:kms"</code>. For more information, see <a href="https://docs.aws.amazon.com/mazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed
+        /// to <code>"aws:kms"</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed
         /// Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i> 
         /// </para>
         ///  
@@ -92,7 +92,8 @@ namespace Amazon.SageMaker.Model
         /// The KMS key policy must grant permission to the IAM role that you specify in your
         /// <code>CreateTrainingJob</code>, <code>CreateTransformJob</code>, or <code>CreateHyperParameterTuningJob</code>
         /// requests. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
-        /// Key Policies in AWS KMS</a> in the <i>AWS Key Management Service Developer Guide</i>.
+        /// Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management
+        /// Service Developer Guide</i>.
         /// </para>
         /// </summary>
         [AWSProperty(Max=2048)]

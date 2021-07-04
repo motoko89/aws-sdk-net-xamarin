@@ -30,13 +30,7 @@ namespace Amazon.Connect.Model
 {
     /// <summary>
     /// Container for the parameters to the ListQuickConnects operation.
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Provides information about the quick connects for the specified Amazon Connect instance.
-    /// 
-    /// </para>
     /// </summary>
     public partial class ListQuickConnectsRequest : AmazonConnectRequest
     {
@@ -48,7 +42,8 @@ namespace Amazon.Connect.Model
         /// <summary>
         /// Gets and sets the property InstanceId. 
         /// <para>
-        /// The identifier of the Amazon Connect instance.
+        /// The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// ARN of the instance.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=100)]

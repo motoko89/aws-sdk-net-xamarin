@@ -38,7 +38,7 @@ namespace Amazon.Chime.Model
         /// <summary>
         /// Gets and sets the property ChannelBan. 
         /// <para>
-        /// The the details of the ban.
+        /// The details of the ban.
         /// </para>
         /// </summary>
         public ChannelBan ChannelBan

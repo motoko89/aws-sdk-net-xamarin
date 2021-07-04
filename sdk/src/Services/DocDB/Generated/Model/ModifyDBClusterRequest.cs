@@ -206,9 +206,8 @@ namespace Amazon.DocDB.Model
         /// <summary>
         /// Gets and sets the property EngineVersion. 
         /// <para>
-        /// The version number of the database engine to which you want to upgrade. Changing this
-        /// parameter results in an outage. The change is applied during the next maintenance
-        /// window unless the <code>ApplyImmediately</code> parameter is set to <code>true</code>.
+        /// The version number of the database engine to which you want to upgrade. Modifying
+        /// engine version is not supported on Amazon DocumentDB.
         /// </para>
         /// </summary>
         public string EngineVersion
@@ -320,7 +319,7 @@ namespace Amazon.DocDB.Model
         ///  
         /// <para>
         /// The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region. 
+        /// for each Region. 
         /// </para>
         ///  
         /// <para>
@@ -369,7 +368,7 @@ namespace Amazon.DocDB.Model
         ///  
         /// <para>
         /// The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region, occurring on a random day of the week. 
+        /// for each Region, occurring on a random day of the week. 
         /// </para>
         ///  
         /// <para>

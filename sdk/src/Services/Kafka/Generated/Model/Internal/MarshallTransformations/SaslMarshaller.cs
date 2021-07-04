@@ -45,6 +45,17 @@ namespace Amazon.Kafka.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(Sasl requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetIam())
+            {
+                context.Writer.WritePropertyName("iam");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = IamMarshaller.Instance;
+                marshaller.Marshall(requestObject.Iam, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetScram())
             {
                 context.Writer.WritePropertyName("scram");

@@ -381,6 +381,56 @@ namespace Amazon.FSx
 
 
     /// <summary>
+    /// Constants used for properties of type DataCompressionType.
+    /// </summary>
+    public class DataCompressionType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant LZ4 for DataCompressionType
+        /// </summary>
+        public static readonly DataCompressionType LZ4 = new DataCompressionType("LZ4");
+        /// <summary>
+        /// Constant NONE for DataCompressionType
+        /// </summary>
+        public static readonly DataCompressionType NONE = new DataCompressionType("NONE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public DataCompressionType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static DataCompressionType FindValue(string value)
+        {
+            return FindValue<DataCompressionType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator DataCompressionType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type DataRepositoryLifecycle.
     /// </summary>
     public class DataRepositoryLifecycle : ConstantClass
@@ -1192,6 +1242,64 @@ namespace Amazon.FSx
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator StorageType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type WindowsAccessAuditLogLevel.
+    /// </summary>
+    public class WindowsAccessAuditLogLevel : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DISABLED for WindowsAccessAuditLogLevel
+        /// </summary>
+        public static readonly WindowsAccessAuditLogLevel DISABLED = new WindowsAccessAuditLogLevel("DISABLED");
+        /// <summary>
+        /// Constant FAILURE_ONLY for WindowsAccessAuditLogLevel
+        /// </summary>
+        public static readonly WindowsAccessAuditLogLevel FAILURE_ONLY = new WindowsAccessAuditLogLevel("FAILURE_ONLY");
+        /// <summary>
+        /// Constant SUCCESS_AND_FAILURE for WindowsAccessAuditLogLevel
+        /// </summary>
+        public static readonly WindowsAccessAuditLogLevel SUCCESS_AND_FAILURE = new WindowsAccessAuditLogLevel("SUCCESS_AND_FAILURE");
+        /// <summary>
+        /// Constant SUCCESS_ONLY for WindowsAccessAuditLogLevel
+        /// </summary>
+        public static readonly WindowsAccessAuditLogLevel SUCCESS_ONLY = new WindowsAccessAuditLogLevel("SUCCESS_ONLY");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public WindowsAccessAuditLogLevel(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static WindowsAccessAuditLogLevel FindValue(string value)
+        {
+            return FindValue<WindowsAccessAuditLogLevel>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator WindowsAccessAuditLogLevel(string value)
         {
             return FindValue(value);
         }

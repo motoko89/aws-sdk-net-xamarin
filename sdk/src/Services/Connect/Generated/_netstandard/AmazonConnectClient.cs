@@ -345,6 +345,67 @@ namespace Amazon.Connect
 
         #endregion
         
+        #region  AssociateBot
+
+        internal virtual AssociateBotResponse AssociateBot(AssociateBotRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateBotRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateBotResponseUnmarshaller.Instance;
+
+            return Invoke<AssociateBotResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// This API is in preview release for Amazon Connect and is subject to change.
+        /// 
+        ///  
+        /// <para>
+        /// Allows the specified Amazon Connect instance to access the specified Amazon Lex or
+        /// Amazon Lex V2 bot.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssociateBot service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AssociateBot service method, as returned by Connect.</returns>
+        /// <exception cref="Amazon.Connect.Model.InternalServiceException">
+        /// Request processing failed because of an error or failure with the service.
+        /// </exception>
+        /// <exception cref="Amazon.Connect.Model.InvalidRequestException">
+        /// The request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Connect.Model.LimitExceededException">
+        /// The allowed limit for the resource has been exceeded.
+        /// </exception>
+        /// <exception cref="Amazon.Connect.Model.ResourceConflictException">
+        /// A resource already has that name.
+        /// </exception>
+        /// <exception cref="Amazon.Connect.Model.ResourceNotFoundException">
+        /// The specified resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Connect.Model.ServiceQuotaExceededException">
+        /// The service quota has been exceeded.
+        /// </exception>
+        /// <exception cref="Amazon.Connect.Model.ThrottlingException">
+        /// The throttling limit has been exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/connect-2017-08-08/AssociateBot">REST API Reference for AssociateBot Operation</seealso>
+        public virtual Task<AssociateBotResponse> AssociateBotAsync(AssociateBotRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateBotRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateBotResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AssociateBotResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  AssociateInstanceStorageConfig
 
         internal virtual AssociateInstanceStorageConfigResponse AssociateInstanceStorageConfig(AssociateInstanceStorageConfigRequest request)
@@ -783,6 +844,14 @@ namespace Amazon.Connect
         /// Kinesis. It also does not allow for any configurations on features, such as Contact
         /// Lens for Amazon Connect. 
         /// </para>
+        ///  
+        /// <para>
+        /// Amazon Connect enforces a limit on the total number of instances that you can create
+        /// or delete in 30 days. If you exceed this limit, you will get an error message indicating
+        /// there has been an excessive number of attempts at creating or deleting instances.
+        /// You must wait 30 days before you can restart creating and deleting instances in your
+        /// account.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateInstance service method.</param>
         /// <param name="cancellationToken">
@@ -831,12 +900,7 @@ namespace Amazon.Connect
 
 
         /// <summary>
-        /// This API is in preview release for Amazon Connect and is subject to change.
-        /// 
-        ///  
-        /// <para>
         /// Create an AppIntegration association with an Amazon Connect instance.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateIntegrationAssociation service method.</param>
         /// <param name="cancellationToken">
@@ -945,12 +1009,7 @@ namespace Amazon.Connect
 
 
         /// <summary>
-        /// This API is in preview release for Amazon Connect and is subject to change.
-        /// 
-        ///  
-        /// <para>
         /// Creates a quick connect for the specified Amazon Connect instance.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateQuickConnect service method.</param>
         /// <param name="cancellationToken">
@@ -1060,12 +1119,7 @@ namespace Amazon.Connect
 
 
         /// <summary>
-        /// This API is in preview release for Amazon Connect and is subject to change.
-        /// 
-        ///  
-        /// <para>
         /// Creates a use case for an AppIntegration association.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateUseCase service method.</param>
         /// <param name="cancellationToken">
@@ -1237,6 +1291,14 @@ namespace Amazon.Connect
         /// <para>
         /// Deletes the Amazon Connect instance.
         /// </para>
+        ///  
+        /// <para>
+        /// Amazon Connect enforces a limit on the total number of instances that you can create
+        /// or delete in 30 days. If you exceed this limit, you will get an error message indicating
+        /// there has been an excessive number of attempts at creating or deleting instances.
+        /// You must wait 30 days before you can restart creating and deleting instances in your
+        /// account.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteInstance service method.</param>
         /// <param name="cancellationToken">
@@ -1279,13 +1341,8 @@ namespace Amazon.Connect
 
 
         /// <summary>
-        /// This API is in preview release for Amazon Connect and is subject to change.
-        /// 
-        ///  
-        /// <para>
         /// Deletes an AppIntegration association from an Amazon Connect instance. The association
         /// must not have any use cases associated with it.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteIntegrationAssociation service method.</param>
         /// <param name="cancellationToken">
@@ -1331,12 +1388,7 @@ namespace Amazon.Connect
 
 
         /// <summary>
-        /// This API is in preview release for Amazon Connect and is subject to change.
-        /// 
-        ///  
-        /// <para>
         /// Deletes a quick connect.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteQuickConnect service method.</param>
         /// <param name="cancellationToken">
@@ -1385,12 +1437,7 @@ namespace Amazon.Connect
 
 
         /// <summary>
-        /// This API is in preview release for Amazon Connect and is subject to change.
-        /// 
-        ///  
-        /// <para>
         /// Deletes a use case from an AppIntegration association.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteUseCase service method.</param>
         /// <param name="cancellationToken">
@@ -1876,12 +1923,7 @@ namespace Amazon.Connect
 
 
         /// <summary>
-        /// This API is in preview release for Amazon Connect and is subject to change.
-        /// 
-        ///  
-        /// <para>
         /// Describes the quick connect.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeQuickConnect service method.</param>
         /// <param name="cancellationToken">
@@ -2164,6 +2206,58 @@ namespace Amazon.Connect
             options.ResponseUnmarshaller = DisassociateApprovedOriginResponseUnmarshaller.Instance;
 
             return InvokeAsync<DisassociateApprovedOriginResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DisassociateBot
+
+        internal virtual DisassociateBotResponse DisassociateBot(DisassociateBotRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateBotRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateBotResponseUnmarshaller.Instance;
+
+            return Invoke<DisassociateBotResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// This API is in preview release for Amazon Connect and is subject to change.
+        /// 
+        ///  
+        /// <para>
+        /// Revokes authorization from the specified instance to access the specified Amazon Lex
+        /// or Amazon Lex V2 bot. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateBot service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DisassociateBot service method, as returned by Connect.</returns>
+        /// <exception cref="Amazon.Connect.Model.InternalServiceException">
+        /// Request processing failed because of an error or failure with the service.
+        /// </exception>
+        /// <exception cref="Amazon.Connect.Model.InvalidRequestException">
+        /// The request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Connect.Model.ResourceNotFoundException">
+        /// The specified resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Connect.Model.ThrottlingException">
+        /// The throttling limit has been exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/connect-2017-08-08/DisassociateBot">REST API Reference for DisassociateBot Operation</seealso>
+        public virtual Task<DisassociateBotResponse> DisassociateBotAsync(DisassociateBotRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateBotRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateBotResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DisassociateBotResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -2603,6 +2697,18 @@ namespace Amazon.Connect
 
         /// <summary>
         /// Retrieves a token for federation.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// This API doesn't support root users. If you try to invoke GetFederationToken with
+        /// root credentials, an error message similar to the following one appears: 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>Provided identity: Principal: .... User: .... cannot be used for federation
+        /// with Amazon Connect</code> 
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetFederationToken service method.</param>
         /// <param name="cancellationToken">
@@ -2745,6 +2851,58 @@ namespace Amazon.Connect
             options.ResponseUnmarshaller = ListApprovedOriginsResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListApprovedOriginsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListBots
+
+        internal virtual ListBotsResponse ListBots(ListBotsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListBotsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListBotsResponseUnmarshaller.Instance;
+
+            return Invoke<ListBotsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// This API is in preview release for Amazon Connect and is subject to change.
+        /// 
+        ///  
+        /// <para>
+        /// For the specified version of Amazon Lex, returns a paginated list of all the Amazon
+        /// Lex bots currently associated with the instance. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListBots service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListBots service method, as returned by Connect.</returns>
+        /// <exception cref="Amazon.Connect.Model.InternalServiceException">
+        /// Request processing failed because of an error or failure with the service.
+        /// </exception>
+        /// <exception cref="Amazon.Connect.Model.InvalidRequestException">
+        /// The request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Connect.Model.ResourceNotFoundException">
+        /// The specified resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Connect.Model.ThrottlingException">
+        /// The throttling limit has been exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/connect-2017-08-08/ListBots">REST API Reference for ListBots Operation</seealso>
+        public virtual Task<ListBotsResponse> ListBotsAsync(ListBotsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListBotsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListBotsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListBotsResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -3035,13 +3193,8 @@ namespace Amazon.Connect
 
 
         /// <summary>
-        /// This API is in preview release for Amazon Connect and is subject to change.
-        /// 
-        ///  
-        /// <para>
         /// Provides summary information about the AppIntegration associations for the specified
         /// Amazon Connect instance.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListIntegrationAssociations service method.</param>
         /// <param name="cancellationToken">
@@ -3361,6 +3514,12 @@ namespace Amazon.Connect
         /// 
         ///  
         /// <para>
+        /// If you do not specify a <code>QueueTypes</code> parameter, both standard and agent
+        /// queues are returned. This might cause an unexpected truncation of results if you have
+        /// more than 1000 agents and you limit the number of results of the API call in code.
+        /// </para>
+        ///  
+        /// <para>
         /// For more information about queues, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html">Queues:
         /// Standard and Agent</a> in the <i>Amazon Connect Administrator Guide</i>.
         /// </para>
@@ -3412,13 +3571,7 @@ namespace Amazon.Connect
 
 
         /// <summary>
-        /// This API is in preview release for Amazon Connect and is subject to change.
-        /// 
-        ///  
-        /// <para>
         /// Provides information about the quick connects for the specified Amazon Connect instance.
-        /// 
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListQuickConnects service method.</param>
         /// <param name="cancellationToken">
@@ -3739,12 +3892,7 @@ namespace Amazon.Connect
 
 
         /// <summary>
-        /// This API is in preview release for Amazon Connect and is subject to change.
-        /// 
-        ///  
-        /// <para>
-        /// Lists the use cases. 
-        /// </para>
+        /// Lists the use cases.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListUseCases service method.</param>
         /// <param name="cancellationToken">
@@ -3962,7 +4110,7 @@ namespace Amazon.Connect
         ///  <ul> <li> 
         /// <para>
         /// API rate limit is exceeded. API TPS throttling returns a <code>TooManyRequests</code>
-        /// exception from the API Gateway.
+        /// exception.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -4478,21 +4626,24 @@ namespace Amazon.Connect
 
 
         /// <summary>
-        /// Creates or updates the contact attributes associated with the specified contact.
+        /// Creates or updates user-defined contact attributes associated with the specified contact.
         /// 
         ///  
         /// <para>
-        /// You can add or update attributes for both ongoing and completed contacts. For example,
-        /// while the call is active, you can update the customer's name or the reason the customer
-        /// called. You can add notes about steps that the agent took during the call that display
-        /// to the next agent that takes the call. You can also update attributes for a contact
-        /// using data from your CRM application and save the data with the contact in Amazon
-        /// Connect. You could also flag calls for additional analysis, such as legal review or
-        /// to identify abusive callers.
+        /// You can create or update user-defined attributes for both ongoing and completed contacts.
+        /// For example, while the call is active, you can update the customer's name or the reason
+        /// the customer called. You can add notes about steps that the agent took during the
+        /// call that display to the next agent that takes the call. You can also update attributes
+        /// for a contact using data from your CRM application and save the data with the contact
+        /// in Amazon Connect. You could also flag calls for additional analysis, such as legal
+        /// review or to identify abusive callers.
         /// </para>
         ///  
         /// <para>
         /// Contact attributes are available in Amazon Connect for 24 months, and are then deleted.
+        /// For information about CTR retention and the maximum size of the CTR attributes section,
+        /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
+        /// specifications</a> in the <i>Amazon Connect Administrator Guide</i>. 
         /// </para>
         ///  
         /// <para>
@@ -5048,12 +5199,7 @@ namespace Amazon.Connect
 
 
         /// <summary>
-        /// This API is in preview release for Amazon Connect and is subject to change.
-        /// 
-        ///  
-        /// <para>
         /// Updates the configuration settings for the specified quick connect.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateQuickConnectConfig service method.</param>
         /// <param name="cancellationToken">
@@ -5102,14 +5248,9 @@ namespace Amazon.Connect
 
 
         /// <summary>
-        /// This API is in preview release for Amazon Connect and is subject to change.
-        /// 
-        ///  
-        /// <para>
         /// Updates the name and description of a quick connect. The request accepts the following
         /// data in JSON format. At least <code>Name</code> or <code>Description</code> must be
         /// provided.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateQuickConnectName service method.</param>
         /// <param name="cancellationToken">

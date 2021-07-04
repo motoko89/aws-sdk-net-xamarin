@@ -400,6 +400,96 @@ namespace Amazon.LexModelsV2
 
         #endregion
         
+        #region  CreateExport
+
+
+        /// <summary>
+        /// Creates a zip archive containing the contents of a bot or a bot locale. The archive
+        /// contains a directory structure that contains JSON files that define the bot.
+        /// 
+        ///  
+        /// <para>
+        /// You can create an archive that contains the complete definition of a bot, or you can
+        /// specify that the archive contain only the definition of a single bot locale.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about exporting bots, and about the structure of the export archive,
+        /// see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/importing-exporting.html">
+        /// Importing and exporting bots </a> 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateExport service method.</param>
+        /// 
+        /// <returns>The response from the CreateExport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/CreateExport">REST API Reference for CreateExport Operation</seealso>
+        CreateExportResponse CreateExport(CreateExportRequest request);
+
+
+
+        /// <summary>
+        /// Creates a zip archive containing the contents of a bot or a bot locale. The archive
+        /// contains a directory structure that contains JSON files that define the bot.
+        /// 
+        ///  
+        /// <para>
+        /// You can create an archive that contains the complete definition of a bot, or you can
+        /// specify that the archive contain only the definition of a single bot locale.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about exporting bots, and about the structure of the export archive,
+        /// see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/importing-exporting.html">
+        /// Importing and exporting bots </a> 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateExport service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateExport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/CreateExport">REST API Reference for CreateExport Operation</seealso>
+        Task<CreateExportResponse> CreateExportAsync(CreateExportRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  CreateIntent
 
 
@@ -554,6 +644,154 @@ namespace Amazon.LexModelsV2
 
         #endregion
         
+        #region  CreateResourcePolicy
+
+
+        /// <summary>
+        /// Creates a new resource policy with the specified policy statements.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateResourcePolicy service method.</param>
+        /// 
+        /// <returns>The response from the CreateResourcePolicy service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/CreateResourcePolicy">REST API Reference for CreateResourcePolicy Operation</seealso>
+        CreateResourcePolicyResponse CreateResourcePolicy(CreateResourcePolicyRequest request);
+
+
+
+        /// <summary>
+        /// Creates a new resource policy with the specified policy statements.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateResourcePolicy service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateResourcePolicy service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/CreateResourcePolicy">REST API Reference for CreateResourcePolicy Operation</seealso>
+        Task<CreateResourcePolicyResponse> CreateResourcePolicyAsync(CreateResourcePolicyRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  CreateResourcePolicyStatement
+
+
+        /// <summary>
+        /// Adds a new resource policy statement to a bot or bot alias. If a resource policy exists,
+        /// the statement is added to the current resource policy. If a policy doesn't exist,
+        /// a new policy is created.
+        /// 
+        ///  
+        /// <para>
+        /// You can't create a resource policy statement that allows cross-account access.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateResourcePolicyStatement service method.</param>
+        /// 
+        /// <returns>The response from the CreateResourcePolicyStatement service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/CreateResourcePolicyStatement">REST API Reference for CreateResourcePolicyStatement Operation</seealso>
+        CreateResourcePolicyStatementResponse CreateResourcePolicyStatement(CreateResourcePolicyStatementRequest request);
+
+
+
+        /// <summary>
+        /// Adds a new resource policy statement to a bot or bot alias. If a resource policy exists,
+        /// the statement is added to the current resource policy. If a policy doesn't exist,
+        /// a new policy is created.
+        /// 
+        ///  
+        /// <para>
+        /// You can't create a resource policy statement that allows cross-account access.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateResourcePolicyStatement service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateResourcePolicyStatement service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/CreateResourcePolicyStatement">REST API Reference for CreateResourcePolicyStatement Operation</seealso>
+        Task<CreateResourcePolicyStatementResponse> CreateResourcePolicyStatementAsync(CreateResourcePolicyStatementRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  CreateSlot
 
 
@@ -697,6 +935,66 @@ namespace Amazon.LexModelsV2
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/CreateSlotType">REST API Reference for CreateSlotType Operation</seealso>
         Task<CreateSlotTypeResponse> CreateSlotTypeAsync(CreateSlotTypeRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  CreateUploadUrl
+
+
+        /// <summary>
+        /// Gets a pre-signed S3 write URL that you use to upload the zip archive when importing
+        /// a bot or a bot locale.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateUploadUrl service method.</param>
+        /// 
+        /// <returns>The response from the CreateUploadUrl service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/CreateUploadUrl">REST API Reference for CreateUploadUrl Operation</seealso>
+        CreateUploadUrlResponse CreateUploadUrl(CreateUploadUrlRequest request);
+
+
+
+        /// <summary>
+        /// Gets a pre-signed S3 write URL that you use to upload the zip archive when importing
+        /// a bot or a bot locale.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateUploadUrl service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateUploadUrl service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/CreateUploadUrl">REST API Reference for CreateUploadUrl Operation</seealso>
+        Task<CreateUploadUrlResponse> CreateUploadUrlAsync(CreateUploadUrlRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -998,6 +1296,122 @@ namespace Amazon.LexModelsV2
 
         #endregion
         
+        #region  DeleteExport
+
+
+        /// <summary>
+        /// Removes a previous export and the associated files stored in an S3 bucket.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteExport service method.</param>
+        /// 
+        /// <returns>The response from the DeleteExport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DeleteExport">REST API Reference for DeleteExport Operation</seealso>
+        DeleteExportResponse DeleteExport(DeleteExportRequest request);
+
+
+
+        /// <summary>
+        /// Removes a previous export and the associated files stored in an S3 bucket.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteExport service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteExport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DeleteExport">REST API Reference for DeleteExport Operation</seealso>
+        Task<DeleteExportResponse> DeleteExportAsync(DeleteExportRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DeleteImport
+
+
+        /// <summary>
+        /// Removes a previous import and the associated file stored in an S3 bucket.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteImport service method.</param>
+        /// 
+        /// <returns>The response from the DeleteImport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DeleteImport">REST API Reference for DeleteImport Operation</seealso>
+        DeleteImportResponse DeleteImport(DeleteImportRequest request);
+
+
+
+        /// <summary>
+        /// Removes a previous import and the associated file stored in an S3 bucket.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteImport service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteImport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DeleteImport">REST API Reference for DeleteImport Operation</seealso>
+        Task<DeleteImportResponse> DeleteImportAsync(DeleteImportRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DeleteIntent
 
 
@@ -1069,6 +1483,118 @@ namespace Amazon.LexModelsV2
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DeleteIntent">REST API Reference for DeleteIntent Operation</seealso>
         Task<DeleteIntentResponse> DeleteIntentAsync(DeleteIntentRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DeleteResourcePolicy
+
+
+        /// <summary>
+        /// Removes an existing policy from a bot or bot alias. If the resource doesn't have a
+        /// policy attached, Amazon Lex returns an exception.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteResourcePolicy service method.</param>
+        /// 
+        /// <returns>The response from the DeleteResourcePolicy service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DeleteResourcePolicy">REST API Reference for DeleteResourcePolicy Operation</seealso>
+        DeleteResourcePolicyResponse DeleteResourcePolicy(DeleteResourcePolicyRequest request);
+
+
+
+        /// <summary>
+        /// Removes an existing policy from a bot or bot alias. If the resource doesn't have a
+        /// policy attached, Amazon Lex returns an exception.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteResourcePolicy service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteResourcePolicy service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DeleteResourcePolicy">REST API Reference for DeleteResourcePolicy Operation</seealso>
+        Task<DeleteResourcePolicyResponse> DeleteResourcePolicyAsync(DeleteResourcePolicyRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DeleteResourcePolicyStatement
+
+
+        /// <summary>
+        /// Deletes a policy statement from a resource policy. If you delete the last statement
+        /// from a policy, the policy is deleted. If you specify a statement ID that doesn't exist
+        /// in the policy, or if the bot or bot alias doesn't have a policy attached, Amazon Lex
+        /// returns an exception.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteResourcePolicyStatement service method.</param>
+        /// 
+        /// <returns>The response from the DeleteResourcePolicyStatement service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DeleteResourcePolicyStatement">REST API Reference for DeleteResourcePolicyStatement Operation</seealso>
+        DeleteResourcePolicyStatementResponse DeleteResourcePolicyStatement(DeleteResourcePolicyStatementRequest request);
+
+
+
+        /// <summary>
+        /// Deletes a policy statement from a resource policy. If you delete the last statement
+        /// from a policy, the policy is deleted. If you specify a statement ID that doesn't exist
+        /// in the policy, or if the bot or bot alias doesn't have a policy attached, Amazon Lex
+        /// returns an exception.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteResourcePolicyStatement service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteResourcePolicyStatement service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DeleteResourcePolicyStatement">REST API Reference for DeleteResourcePolicyStatement Operation</seealso>
+        Task<DeleteResourcePolicyStatementResponse> DeleteResourcePolicyStatementAsync(DeleteResourcePolicyStatementRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -1446,6 +1972,110 @@ namespace Amazon.LexModelsV2
 
         #endregion
         
+        #region  DescribeExport
+
+
+        /// <summary>
+        /// Gets information about a specific export.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeExport service method.</param>
+        /// 
+        /// <returns>The response from the DescribeExport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeExport">REST API Reference for DescribeExport Operation</seealso>
+        DescribeExportResponse DescribeExport(DescribeExportRequest request);
+
+
+
+        /// <summary>
+        /// Gets information about a specific export.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeExport service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeExport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeExport">REST API Reference for DescribeExport Operation</seealso>
+        Task<DescribeExportResponse> DescribeExportAsync(DescribeExportRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DescribeImport
+
+
+        /// <summary>
+        /// Gets information about a specific import.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeImport service method.</param>
+        /// 
+        /// <returns>The response from the DescribeImport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeImport">REST API Reference for DescribeImport Operation</seealso>
+        DescribeImportResponse DescribeImport(DescribeImportRequest request);
+
+
+
+        /// <summary>
+        /// Gets information about a specific import.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeImport service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeImport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeImport">REST API Reference for DescribeImport Operation</seealso>
+        Task<DescribeImportResponse> DescribeImportAsync(DescribeImportRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DescribeIntent
 
 
@@ -1501,6 +2131,52 @@ namespace Amazon.LexModelsV2
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeIntent">REST API Reference for DescribeIntent Operation</seealso>
         Task<DescribeIntentResponse> DescribeIntentAsync(DescribeIntentRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DescribeResourcePolicy
+
+
+        /// <summary>
+        /// Gets the resource policy and policy revision for a bot or bot alias.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeResourcePolicy service method.</param>
+        /// 
+        /// <returns>The response from the DescribeResourcePolicy service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeResourcePolicy">REST API Reference for DescribeResourcePolicy Operation</seealso>
+        DescribeResourcePolicyResponse DescribeResourcePolicy(DescribeResourcePolicyRequest request);
+
+
+
+        /// <summary>
+        /// Gets the resource policy and policy revision for a bot or bot alias.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeResourcePolicy service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeResourcePolicy service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeResourcePolicy">REST API Reference for DescribeResourcePolicy Operation</seealso>
+        Task<DescribeResourcePolicyResponse> DescribeResourcePolicyAsync(DescribeResourcePolicyRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -1974,6 +2650,98 @@ namespace Amazon.LexModelsV2
 
         #endregion
         
+        #region  ListExports
+
+
+        /// <summary>
+        /// Lists the exports for a bot or bot locale. Exports are kept in the list for 7 days.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListExports service method.</param>
+        /// 
+        /// <returns>The response from the ListExports service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListExports">REST API Reference for ListExports Operation</seealso>
+        ListExportsResponse ListExports(ListExportsRequest request);
+
+
+
+        /// <summary>
+        /// Lists the exports for a bot or bot locale. Exports are kept in the list for 7 days.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListExports service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListExports service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListExports">REST API Reference for ListExports Operation</seealso>
+        Task<ListExportsResponse> ListExportsAsync(ListExportsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  ListImports
+
+
+        /// <summary>
+        /// Lists the imports for a bot or bot locale. Imports are kept in the list for 7 days.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListImports service method.</param>
+        /// 
+        /// <returns>The response from the ListImports service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListImports">REST API Reference for ListImports Operation</seealso>
+        ListImportsResponse ListImports(ListImportsRequest request);
+
+
+
+        /// <summary>
+        /// Lists the imports for a bot or bot locale. Imports are kept in the list for 7 days.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListImports service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListImports service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListImports">REST API Reference for ListImports Operation</seealso>
+        Task<ListImportsResponse> ListImportsAsync(ListImportsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  ListIntents
 
 
@@ -2181,6 +2949,72 @@ namespace Amazon.LexModelsV2
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
         Task<ListTagsForResourceResponse> ListTagsForResourceAsync(ListTagsForResourceRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  StartImport
+
+
+        /// <summary>
+        /// Starts importing a bot or bot locale from a zip archive that you uploaded to an S3
+        /// bucket.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartImport service method.</param>
+        /// 
+        /// <returns>The response from the StartImport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/StartImport">REST API Reference for StartImport Operation</seealso>
+        StartImportResponse StartImport(StartImportRequest request);
+
+
+
+        /// <summary>
+        /// Starts importing a bot or bot locale from a zip archive that you uploaded to an S3
+        /// bucket.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartImport service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartImport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/StartImport">REST API Reference for StartImport Operation</seealso>
+        Task<StartImportResponse> StartImportAsync(StartImportRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -2482,6 +3316,84 @@ namespace Amazon.LexModelsV2
 
         #endregion
         
+        #region  UpdateExport
+
+
+        /// <summary>
+        /// Updates the password used to protect an export zip archive.
+        /// 
+        ///  
+        /// <para>
+        /// The password is not required. If you don't supply a password, Amazon Lex generates
+        /// a zip file that is not protected by a password. This is the archive that is available
+        /// at the pre-signed S3 URL provided by the operation.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateExport service method.</param>
+        /// 
+        /// <returns>The response from the UpdateExport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/UpdateExport">REST API Reference for UpdateExport Operation</seealso>
+        UpdateExportResponse UpdateExport(UpdateExportRequest request);
+
+
+
+        /// <summary>
+        /// Updates the password used to protect an export zip archive.
+        /// 
+        ///  
+        /// <para>
+        /// The password is not required. If you don't supply a password, Amazon Lex generates
+        /// a zip file that is not protected by a password. This is the archive that is available
+        /// at the pre-signed S3 URL provided by the operation.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateExport service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateExport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/UpdateExport">REST API Reference for UpdateExport Operation</seealso>
+        Task<UpdateExportResponse> UpdateExportAsync(UpdateExportRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  UpdateIntent
 
 
@@ -2543,6 +3455,72 @@ namespace Amazon.LexModelsV2
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/UpdateIntent">REST API Reference for UpdateIntent Operation</seealso>
         Task<UpdateIntentResponse> UpdateIntentAsync(UpdateIntentRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  UpdateResourcePolicy
+
+
+        /// <summary>
+        /// Replaces the existing resource policy for a bot or bot alias with a new one. If the
+        /// policy doesn't exist, Amazon Lex returns an exception.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateResourcePolicy service method.</param>
+        /// 
+        /// <returns>The response from the UpdateResourcePolicy service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/UpdateResourcePolicy">REST API Reference for UpdateResourcePolicy Operation</seealso>
+        UpdateResourcePolicyResponse UpdateResourcePolicy(UpdateResourcePolicyRequest request);
+
+
+
+        /// <summary>
+        /// Replaces the existing resource policy for a bot or bot alias with a new one. If the
+        /// policy doesn't exist, Amazon Lex returns an exception.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateResourcePolicy service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateResourcePolicy service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/UpdateResourcePolicy">REST API Reference for UpdateResourcePolicy Operation</seealso>
+        Task<UpdateResourcePolicyResponse> UpdateResourcePolicyAsync(UpdateResourcePolicyRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         

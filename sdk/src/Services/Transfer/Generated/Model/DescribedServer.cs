@@ -42,6 +42,7 @@ namespace Amazon.Transfer.Model
         private IdentityProviderDetails _identityProviderDetails;
         private IdentityProviderType _identityProviderType;
         private string _loggingRole;
+        private ProtocolDetails _protocolDetails;
         private List<string> _protocols = new List<string>();
         private string _securityPolicyName;
         private string _serverId;
@@ -71,8 +72,8 @@ namespace Amazon.Transfer.Model
         /// <summary>
         /// Gets and sets the property Certificate. 
         /// <para>
-        /// Specifies the ARN of the AWS Certificate Manager (ACM) certificate. Required when
-        /// <code>Protocols</code> is set to <code>FTPS</code>.
+        /// Specifies the ARN of the Amazon Web ServicesCertificate Manager (ACM) certificate.
+        /// Required when <code>Protocols</code> is set to <code>FTPS</code>.
         /// </para>
         /// </summary>
         [AWSProperty(Max=1600)]
@@ -89,7 +90,10 @@ namespace Amazon.Transfer.Model
         }
 
         /// <summary>
-        /// Gets and sets the property Domain.
+        /// Gets and sets the property Domain. 
+        /// <para>
+        /// Specifies the domain of the storage system that is used for file transfers.
+        /// </para>
         /// </summary>
         public Domain Domain
         {
@@ -106,8 +110,11 @@ namespace Amazon.Transfer.Model
         /// <summary>
         /// Gets and sets the property EndpointDetails. 
         /// <para>
-        /// Specifies the virtual private cloud (VPC) endpoint settings that you configured for
-        /// your server.
+        /// The virtual private cloud (VPC) endpoint settings that are configured for your server.
+        /// When you host your endpoint within your VPC, you can make it accessible only to resources
+        /// within your VPC, or you can attach Elastic IP addresses and make it accessible to
+        /// clients over the internet. Your VPC's default security groups are automatically assigned
+        /// to your endpoint.
         /// </para>
         /// </summary>
         public EndpointDetails EndpointDetails
@@ -165,7 +172,8 @@ namespace Amazon.Transfer.Model
         /// Gets and sets the property IdentityProviderDetails. 
         /// <para>
         /// Specifies information to call a customer-supplied authentication API. This field is
-        /// not populated when the <code>IdentityProviderType</code> of a server is <code>SERVICE_MANAGED</code>.
+        /// not populated when the <code>IdentityProviderType</code> of a server is <code>AWS_DIRECTORY_SERVICE</code>
+        /// or <code>SERVICE_MANAGED</code>.
         /// </para>
         /// </summary>
         public IdentityProviderDetails IdentityProviderDetails
@@ -183,10 +191,24 @@ namespace Amazon.Transfer.Model
         /// <summary>
         /// Gets and sets the property IdentityProviderType. 
         /// <para>
-        /// Specifies the mode of authentication method enabled for this service. A value of <code>SERVICE_MANAGED</code>
-        /// means that you are using this server to store and access user credentials within the
-        /// service. A value of <code>API_GATEWAY</code> indicates that you have integrated an
-        /// API Gateway endpoint that will be invoked for authenticating your user into the service.
+        /// Specifies the mode of authentication for a server. The default value is <code>SERVICE_MANAGED</code>,
+        /// which allows you to store and access user credentials within the Amazon Web Services
+        /// Transfer Family service.
+        /// </para>
+        ///  
+        /// <para>
+        /// Use <code>AWS_DIRECTORY_SERVICE</code> to provide access to Active Directory groups
+        /// in Amazon Web Services Managed Active Directory or Microsoft Active Directory in your
+        /// on-premises environment or in Amazon Web Services using AD Connectors. This option
+        /// also requires you to provide a Directory ID using the <code>IdentityProviderDetails</code>
+        /// parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// Use the <code>API_GATEWAY</code> value to integrate with an identity provider of your
+        /// choosing. The <code>API_GATEWAY</code> setting requires you to provide an API Gateway
+        /// endpoint URL to call for authentication using the <code>IdentityProviderDetails</code>
+        /// parameter.
         /// </para>
         /// </summary>
         public IdentityProviderType IdentityProviderType
@@ -204,9 +226,10 @@ namespace Amazon.Transfer.Model
         /// <summary>
         /// Gets and sets the property LoggingRole. 
         /// <para>
-        /// Specifies the AWS Identity and Access Management (IAM) role that allows a server to
-        /// turn on Amazon CloudWatch logging for Amazon S3 events. When set, user activity can
-        /// be viewed in your CloudWatch logs.
+        /// Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access
+        /// Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for
+        /// Amazon S3 or Amazon EFS events. When set, user activity can be viewed in your CloudWatch
+        /// logs.
         /// </para>
         /// </summary>
         [AWSProperty(Min=20, Max=2048)]
@@ -220,6 +243,30 @@ namespace Amazon.Transfer.Model
         internal bool IsSetLoggingRole()
         {
             return this._loggingRole != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ProtocolDetails. 
+        /// <para>
+        ///  The protocol settings that are configured for your server. 
+        /// </para>
+        ///  
+        /// <para>
+        ///  Use the <code>PassiveIp</code> parameter to indicate passive mode. Enter a single
+        /// dotted-quad IPv4 address, such as the external IP address of a firewall, router, or
+        /// load balancer. 
+        /// </para>
+        /// </summary>
+        public ProtocolDetails ProtocolDetails
+        {
+            get { return this._protocolDetails; }
+            set { this._protocolDetails = value; }
+        }
+
+        // Check to see if ProtocolDetails property is set
+        internal bool IsSetProtocolDetails()
+        {
+            return this._protocolDetails != null;
         }
 
         /// <summary>

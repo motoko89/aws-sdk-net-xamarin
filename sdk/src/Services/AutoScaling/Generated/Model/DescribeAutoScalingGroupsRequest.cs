@@ -30,7 +30,14 @@ namespace Amazon.AutoScaling.Model
 {
     /// <summary>
     /// Container for the parameters to the DescribeAutoScalingGroups operation.
-    /// Describes one or more Auto Scaling groups.
+    /// Gets information about the Auto Scaling groups in the account and Region.
+    /// 
+    ///  
+    /// <para>
+    /// This operation returns information about instances in Auto Scaling groups. To retrieve
+    /// information about the instances in a warm pool, you must call the <a>DescribeWarmPool</a>
+    /// API. 
+    /// </para>
     /// </summary>
     public partial class DescribeAutoScalingGroupsRequest : AmazonAutoScalingRequest
     {

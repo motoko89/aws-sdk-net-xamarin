@@ -30,15 +30,15 @@ namespace Amazon.ServiceDiscovery.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateHttpNamespace operation.
-    /// Creates an HTTP namespace. Service instances that you register using an HTTP namespace
-    /// can be discovered using a <code>DiscoverInstances</code> request but can't be discovered
-    /// using DNS. 
+    /// Creates an HTTP namespace. Service instances registered using an HTTP namespace can
+    /// be discovered using a <code>DiscoverInstances</code> request but can't be discovered
+    /// using DNS.
     /// 
     ///  
     /// <para>
     /// For the current quota on the number of namespaces that you can create using the same
-    /// AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
-    /// Cloud Map quotas</a> in the <i>AWS Cloud Map Developer Guide</i>.
+    /// account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
+    /// Map quotas</a> in the <i>Cloud Map Developer Guide</i>.
     /// </para>
     /// </summary>
     public partial class CreateHttpNamespaceRequest : AmazonServiceDiscoveryRequest
@@ -52,8 +52,8 @@ namespace Amazon.ServiceDiscovery.Model
         /// Gets and sets the property CreatorRequestId. 
         /// <para>
         /// A unique string that identifies the request and that allows failed <code>CreateHttpNamespace</code>
-        /// requests to be retried without the risk of executing the operation twice. <code>CreatorRequestId</code>
-        /// can be any unique string, for example, a date/time stamp.
+        /// requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code>
+        /// can be any unique string (for example, a date/time stamp).
         /// </para>
         /// </summary>
         [AWSProperty(Max=64)]
@@ -110,9 +110,9 @@ namespace Amazon.ServiceDiscovery.Model
         /// <summary>
         /// Gets and sets the property Tags. 
         /// <para>
-        /// The tags to add to the namespace. Each tag consists of a key and an optional value,
-        /// both of which you define. Tag keys can have a maximum character length of 128 characters,
-        /// and tag values can have a maximum length of 256 characters.
+        /// The tags to add to the namespace. Each tag consists of a key and an optional value
+        /// that you define. Tags keys can be up to 128 characters in length, and tag values can
+        /// be up to 256 characters in length.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=200)]

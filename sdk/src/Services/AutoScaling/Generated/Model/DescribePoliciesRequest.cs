@@ -30,7 +30,7 @@ namespace Amazon.AutoScaling.Model
 {
     /// <summary>
     /// Container for the parameters to the DescribePolicies operation.
-    /// Describes the policies for the specified Auto Scaling group.
+    /// Gets information about the scaling policies in the account and Region.
     /// </summary>
     public partial class DescribePoliciesRequest : AmazonAutoScalingRequest
     {
@@ -101,8 +101,12 @@ namespace Amazon.AutoScaling.Model
         /// Gets and sets the property PolicyNames. 
         /// <para>
         /// The names of one or more policies. If you omit this parameter, all policies are described.
-        /// If a group name is provided, the results are limited to that group. This list is limited
-        /// to 50 items. If you specify an unknown policy name, it is ignored with no error.
+        /// If a group name is provided, the results are limited to that group. If you specify
+        /// an unknown policy name, it is ignored with no error.
+        /// </para>
+        ///  
+        /// <para>
+        /// Array Members: Maximum number of 50 items.
         /// </para>
         /// </summary>
         public List<string> PolicyNames
@@ -121,7 +125,7 @@ namespace Amazon.AutoScaling.Model
         /// Gets and sets the property PolicyTypes. 
         /// <para>
         /// One or more policy types. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>,
-        /// and <code>TargetTrackingScaling</code>.
+        /// <code>TargetTrackingScaling</code>, and <code>PredictiveScaling</code>.
         /// </para>
         /// </summary>
         public List<string> PolicyTypes

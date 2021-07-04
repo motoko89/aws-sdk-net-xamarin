@@ -40,6 +40,10 @@ namespace Amazon.FSx.Model
     /// </para>
     ///  <ul> <li> 
     /// <para>
+    /// AuditLogConfiguration
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
     /// AutomaticBackupRetentionDays
     /// </para>
     ///  </li> <li> 
@@ -77,6 +81,10 @@ namespace Amazon.FSx.Model
     ///  </li> <li> 
     /// <para>
     /// DailyAutomaticBackupStartTime
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// DataCompressionType
     /// </para>
     ///  </li> <li> 
     /// <para>

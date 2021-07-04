@@ -42,6 +42,7 @@ namespace Amazon.Snowball.Model
         private JobType _jobType;
         private string _kmsKeyARN;
         private Notification _notification;
+        private OnDeviceServiceConfiguration _onDeviceServiceConfiguration;
         private JobResource _resources;
         private string _roleARN;
         private ShippingOption _shippingOption;
@@ -73,7 +74,7 @@ namespace Amazon.Snowball.Model
         /// The automatically generated ID for a cluster.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1)]
+        [AWSProperty(Min=1, Max=1024)]
         public string ClusterId
         {
             get { return this._clusterId; }
@@ -128,7 +129,7 @@ namespace Amazon.Snowball.Model
         /// The optional description of the cluster.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1)]
+        [AWSProperty(Min=1, Max=1024)]
         public string Description
         {
             get { return this._description; }
@@ -218,6 +219,25 @@ namespace Amazon.Snowball.Model
         internal bool IsSetNotification()
         {
             return this._notification != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property OnDeviceServiceConfiguration. 
+        /// <para>
+        /// Represents metadata and configuration settings for services on an AWS Snow Family
+        /// device.
+        /// </para>
+        /// </summary>
+        public OnDeviceServiceConfiguration OnDeviceServiceConfiguration
+        {
+            get { return this._onDeviceServiceConfiguration; }
+            set { this._onDeviceServiceConfiguration = value; }
+        }
+
+        // Check to see if OnDeviceServiceConfiguration property is set
+        internal bool IsSetOnDeviceServiceConfiguration()
+        {
+            return this._onDeviceServiceConfiguration != null;
         }
 
         /// <summary>

@@ -30,19 +30,21 @@ namespace Amazon.ServiceDiscovery.Model
 {
     /// <summary>
     /// Container for the parameters to the CreatePrivateDnsNamespace operation.
-    /// Creates a private namespace based on DNS, which will be visible only inside a specified
+    /// Creates a private namespace based on DNS, which is visible only inside a specified
     /// Amazon VPC. The namespace defines your service naming scheme. For example, if you
     /// name your namespace <code>example.com</code> and name your service <code>backend</code>,
-    /// the resulting DNS name for the service will be <code>backend.example.com</code>. For
-    /// the current quota on the number of namespaces that you can create using the same AWS
-    /// account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
-    /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
+    /// the resulting DNS name for the service is <code>backend.example.com</code>. Service
+    /// instances that are registered using a private DNS namespace can be discovered using
+    /// either a <code>DiscoverInstances</code> request or using DNS. For the current quota
+    /// on the number of namespaces that you can create using the same account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
+    /// Map quotas</a> in the <i>Cloud Map Developer Guide</i>.
     /// </summary>
     public partial class CreatePrivateDnsNamespaceRequest : AmazonServiceDiscoveryRequest
     {
         private string _creatorRequestId;
         private string _description;
         private string _name;
+        private PrivateDnsNamespaceProperties _properties;
         private List<Tag> _tags = new List<Tag>();
         private string _vpc;
 
@@ -50,8 +52,8 @@ namespace Amazon.ServiceDiscovery.Model
         /// Gets and sets the property CreatorRequestId. 
         /// <para>
         /// A unique string that identifies the request and that allows failed <code>CreatePrivateDnsNamespace</code>
-        /// requests to be retried without the risk of executing the operation twice. <code>CreatorRequestId</code>
-        /// can be any unique string, for example, a date/time stamp.
+        /// requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code>
+        /// can be any unique string (for example, a date/timestamp).
         /// </para>
         /// </summary>
         [AWSProperty(Max=64)]
@@ -90,7 +92,7 @@ namespace Amazon.ServiceDiscovery.Model
         /// Gets and sets the property Name. 
         /// <para>
         /// The name that you want to assign to this namespace. When you create a private DNS
-        /// namespace, AWS Cloud Map automatically creates an Amazon Route 53 private hosted zone
+        /// namespace, Cloud Map automatically creates an Amazon Route 53 private hosted zone
         /// that has the same name as the namespace.
         /// </para>
         /// </summary>
@@ -108,11 +110,29 @@ namespace Amazon.ServiceDiscovery.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Properties. 
+        /// <para>
+        /// Properties for the private DNS namespace.
+        /// </para>
+        /// </summary>
+        public PrivateDnsNamespaceProperties Properties
+        {
+            get { return this._properties; }
+            set { this._properties = value; }
+        }
+
+        // Check to see if Properties property is set
+        internal bool IsSetProperties()
+        {
+            return this._properties != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Tags. 
         /// <para>
-        /// The tags to add to the namespace. Each tag consists of a key and an optional value,
-        /// both of which you define. Tag keys can have a maximum character length of 128 characters,
-        /// and tag values can have a maximum length of 256 characters.
+        /// The tags to add to the namespace. Each tag consists of a key and an optional value
+        /// that you define. Tags keys can be up to 128 characters in length, and tag values can
+        /// be up to 256 characters in length.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=200)]

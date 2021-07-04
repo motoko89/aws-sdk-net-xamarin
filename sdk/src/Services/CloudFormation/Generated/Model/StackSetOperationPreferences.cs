@@ -60,6 +60,10 @@ namespace Amazon.CloudFormation.Model
         /// Conditional: You must specify either <code>FailureToleranceCount</code> or <code>FailureTolerancePercentage</code>
         /// (but not both).
         /// </para>
+        ///  
+        /// <para>
+        /// By default, <code>0</code> is specified.
+        /// </para>
         /// </summary>
         [AWSProperty(Min=0)]
         public int FailureToleranceCount
@@ -90,6 +94,10 @@ namespace Amazon.CloudFormation.Model
         /// <para>
         /// Conditional: You must specify either <code>FailureToleranceCount</code> or <code>FailureTolerancePercentage</code>,
         /// but not both.
+        /// </para>
+        ///  
+        /// <para>
+        /// By default, <code>0</code> is specified.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=100)]
@@ -122,6 +130,10 @@ namespace Amazon.CloudFormation.Model
         /// <para>
         /// Conditional: You must specify either <code>MaxConcurrentCount</code> or <code>MaxConcurrentPercentage</code>,
         /// but not both.
+        /// </para>
+        ///  
+        /// <para>
+        /// By default, <code>1</code> is specified.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1)]
@@ -159,6 +171,10 @@ namespace Amazon.CloudFormation.Model
         /// Conditional: You must specify either <code>MaxConcurrentCount</code> or <code>MaxConcurrentPercentage</code>,
         /// but not both.
         /// </para>
+        ///  
+        /// <para>
+        /// By default, <code>1</code> is specified.
+        /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=100)]
         public int MaxConcurrentPercentage
@@ -174,7 +190,11 @@ namespace Amazon.CloudFormation.Model
         }
 
         /// <summary>
-        /// Gets and sets the property RegionConcurrencyType.
+        /// Gets and sets the property RegionConcurrencyType. 
+        /// <para>
+        /// The concurrency type of deploying StackSets operations in regions, could be in parallel
+        /// or one region at a time.
+        /// </para>
         /// </summary>
         public RegionConcurrencyType RegionConcurrencyType
         {

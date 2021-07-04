@@ -34,6 +34,7 @@ namespace Amazon.Chime.Model
     public partial class SearchAvailablePhoneNumbersResponse : AmazonWebServiceResponse
     {
         private List<string> _e164PhoneNumbers = new List<string>();
+        private string _nextToken;
 
         /// <summary>
         /// Gets and sets the property E164PhoneNumbers. 
@@ -51,6 +52,24 @@ namespace Amazon.Chime.Model
         internal bool IsSetE164PhoneNumbers()
         {
             return this._e164PhoneNumbers != null && this._e164PhoneNumbers.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property NextToken. 
+        /// <para>
+        /// The token used to retrieve the next page of search results.
+        /// </para>
+        /// </summary>
+        public string NextToken
+        {
+            get { return this._nextToken; }
+            set { this._nextToken = value; }
+        }
+
+        // Check to see if NextToken property is set
+        internal bool IsSetNextToken()
+        {
+            return this._nextToken != null;
         }
 
     }

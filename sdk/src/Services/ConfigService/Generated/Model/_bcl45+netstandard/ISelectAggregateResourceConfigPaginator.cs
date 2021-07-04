@@ -29,5 +29,10 @@ namespace Amazon.ConfigService.Model
         /// Enumerable containing all full responses for the operation
         /// </summary>
         IPaginatedEnumerable<SelectAggregateResourceConfigResponse> Responses { get; }
+
+        /// <summary>
+        /// Enumerable containing all of the Results
+        /// </summary>
+        IPaginatedEnumerable<string> Results { get; }
     }
 }

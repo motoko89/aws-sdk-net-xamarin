@@ -38,6 +38,7 @@ namespace Amazon.MediaTailor.Model
         private string _arn;
         private string _channelName;
         private string _programName;
+        private List<ScheduleAdBreak> _scheduleAdBreaks = new List<ScheduleAdBreak>();
         private string _sourceLocationName;
         private string _vodSourceName;
 
@@ -132,6 +133,24 @@ namespace Amazon.MediaTailor.Model
         internal bool IsSetProgramName()
         {
             return this._programName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ScheduleAdBreaks. 
+        /// <para>
+        /// The schedule's ad break properties.
+        /// </para>
+        /// </summary>
+        public List<ScheduleAdBreak> ScheduleAdBreaks
+        {
+            get { return this._scheduleAdBreaks; }
+            set { this._scheduleAdBreaks = value; }
+        }
+
+        // Check to see if ScheduleAdBreaks property is set
+        internal bool IsSetScheduleAdBreaks()
+        {
+            return this._scheduleAdBreaks != null && this._scheduleAdBreaks.Count > 0; 
         }
 
         /// <summary>

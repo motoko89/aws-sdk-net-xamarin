@@ -64,8 +64,8 @@ namespace Amazon.CloudFront.Model.Internal.MarshallTransformations
             request.AddPathResource("{Id}", StringUtils.FromString(publicRequest.Id));
             request.ResourcePath = "/2020-05-31/distribution/{Id}/config";
 
-            var stringWriter = new StringWriter(CultureInfo.InvariantCulture);
-            using (var xmlWriter = XmlWriter.Create(stringWriter, new XmlWriterSettings() { Encoding = System.Text.Encoding.UTF8, OmitXmlDeclaration = true }))
+            var stringWriter = new XMLEncodedStringWriter(CultureInfo.InvariantCulture);
+            using (var xmlWriter = XmlWriter.Create(stringWriter, new XmlWriterSettings() { Encoding = System.Text.Encoding.UTF8, OmitXmlDeclaration = true, NewLineHandling = NewLineHandling.Entitize }))
             {   
                 if (publicRequest.IsSetDistributionConfig())
                 {
@@ -238,6 +238,36 @@ namespace Amazon.CloudFront.Model.Internal.MarshallTransformations
                         
                                         xmlWriter.WriteEndElement();
                                     }
+                                    xmlWriter.WriteEndElement();
+                                }
+                                
+                                if (publicRequestDistributionConfigCacheBehaviorsItemsValue.FunctionAssociations != null) 
+                                {
+                                    xmlWriter.WriteStartElement("FunctionAssociations", "http://cloudfront.amazonaws.com/doc/2020-05-31/");            
+                                    var publicRequestDistributionConfigCacheBehaviorsItemsValueFunctionAssociationsItems = publicRequestDistributionConfigCacheBehaviorsItemsValue.FunctionAssociations.Items;
+                                    if (publicRequestDistributionConfigCacheBehaviorsItemsValueFunctionAssociationsItems != null && publicRequestDistributionConfigCacheBehaviorsItemsValueFunctionAssociationsItems.Count > 0) 
+                                    {                        
+                                        xmlWriter.WriteStartElement("Items", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+                                        foreach (var publicRequestDistributionConfigCacheBehaviorsItemsValueFunctionAssociationsItemsValue in publicRequestDistributionConfigCacheBehaviorsItemsValueFunctionAssociationsItems) 
+                                        {
+                                        
+                                        if (publicRequestDistributionConfigCacheBehaviorsItemsValueFunctionAssociationsItemsValue != null) 
+                                        {
+                                            xmlWriter.WriteStartElement("FunctionAssociation", "http://cloudfront.amazonaws.com/doc/2020-05-31/");            
+                                            if(publicRequestDistributionConfigCacheBehaviorsItemsValueFunctionAssociationsItemsValue.IsSetEventType())
+                                                xmlWriter.WriteElementString("EventType", "http://cloudfront.amazonaws.com/doc/2020-05-31/", StringUtils.FromString(publicRequestDistributionConfigCacheBehaviorsItemsValueFunctionAssociationsItemsValue.EventType));                 
+                            
+                                            if(publicRequestDistributionConfigCacheBehaviorsItemsValueFunctionAssociationsItemsValue.IsSetFunctionARN())
+                                                xmlWriter.WriteElementString("FunctionARN", "http://cloudfront.amazonaws.com/doc/2020-05-31/", StringUtils.FromString(publicRequestDistributionConfigCacheBehaviorsItemsValueFunctionAssociationsItemsValue.FunctionARN));                 
+                            
+                                            xmlWriter.WriteEndElement();
+                                        }
+                                        }            
+                                        xmlWriter.WriteEndElement();            
+                                    }
+                                    if(publicRequestDistributionConfigCacheBehaviorsItemsValue.FunctionAssociations.IsSetQuantity())
+                                        xmlWriter.WriteElementString("Quantity", "http://cloudfront.amazonaws.com/doc/2020-05-31/", StringUtils.FromInt(publicRequestDistributionConfigCacheBehaviorsItemsValue.FunctionAssociations.Quantity));                 
+                    
                                     xmlWriter.WriteEndElement();
                                 }
                                 
@@ -534,6 +564,36 @@ namespace Amazon.CloudFront.Model.Internal.MarshallTransformations
                 
                                 xmlWriter.WriteEndElement();
                             }
+                            xmlWriter.WriteEndElement();
+                        }
+                        
+                        if (publicRequest.DistributionConfig.DefaultCacheBehavior.FunctionAssociations != null) 
+                        {
+                            xmlWriter.WriteStartElement("FunctionAssociations", "http://cloudfront.amazonaws.com/doc/2020-05-31/");            
+                            var publicRequestDistributionConfigDefaultCacheBehaviorFunctionAssociationsItems = publicRequest.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items;
+                            if (publicRequestDistributionConfigDefaultCacheBehaviorFunctionAssociationsItems != null && publicRequestDistributionConfigDefaultCacheBehaviorFunctionAssociationsItems.Count > 0) 
+                            {                        
+                                xmlWriter.WriteStartElement("Items", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+                                foreach (var publicRequestDistributionConfigDefaultCacheBehaviorFunctionAssociationsItemsValue in publicRequestDistributionConfigDefaultCacheBehaviorFunctionAssociationsItems) 
+                                {
+                                
+                                if (publicRequestDistributionConfigDefaultCacheBehaviorFunctionAssociationsItemsValue != null) 
+                                {
+                                    xmlWriter.WriteStartElement("FunctionAssociation", "http://cloudfront.amazonaws.com/doc/2020-05-31/");            
+                                    if(publicRequestDistributionConfigDefaultCacheBehaviorFunctionAssociationsItemsValue.IsSetEventType())
+                                        xmlWriter.WriteElementString("EventType", "http://cloudfront.amazonaws.com/doc/2020-05-31/", StringUtils.FromString(publicRequestDistributionConfigDefaultCacheBehaviorFunctionAssociationsItemsValue.EventType));                 
+                    
+                                    if(publicRequestDistributionConfigDefaultCacheBehaviorFunctionAssociationsItemsValue.IsSetFunctionARN())
+                                        xmlWriter.WriteElementString("FunctionARN", "http://cloudfront.amazonaws.com/doc/2020-05-31/", StringUtils.FromString(publicRequestDistributionConfigDefaultCacheBehaviorFunctionAssociationsItemsValue.FunctionARN));                 
+                    
+                                    xmlWriter.WriteEndElement();
+                                }
+                                }            
+                                xmlWriter.WriteEndElement();            
+                            }
+                            if(publicRequest.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.IsSetQuantity())
+                                xmlWriter.WriteElementString("Quantity", "http://cloudfront.amazonaws.com/doc/2020-05-31/", StringUtils.FromInt(publicRequest.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity));                 
+            
                             xmlWriter.WriteEndElement();
                         }
                         

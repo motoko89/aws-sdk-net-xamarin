@@ -59,6 +59,8 @@ namespace Amazon.DocDB.Model
         private string _preferredBackupWindow;
         private string _preferredMaintenanceWindow;
         private string _readerEndpoint;
+        private List<string> _readReplicaIdentifiers = new List<string>();
+        private string _replicationSourceIdentifier;
         private string _status;
         private bool? _storageEncrypted;
         private List<VpcSecurityGroupMembership> _vpcSecurityGroups = new List<VpcSecurityGroupMembership>();
@@ -66,9 +68,9 @@ namespace Amazon.DocDB.Model
         /// <summary>
         /// Gets and sets the property AssociatedRoles. 
         /// <para>
-        /// Provides a list of the AWS Identity and Access Management (IAM) roles that are associated
-        /// with the cluster. IAM roles that are associated with a cluster grant permission for
-        /// the cluster to access other AWS services on your behalf.
+        /// Provides a list of the Identity and Access Management (IAM) roles that are associated
+        /// with the cluster. (IAM) roles that are associated with a cluster grant permission
+        /// for the cluster to access other Amazon Web Services services on your behalf.
         /// </para>
         /// </summary>
         public List<DBClusterRole> AssociatedRoles
@@ -214,8 +216,8 @@ namespace Amazon.DocDB.Model
         /// <summary>
         /// Gets and sets the property DbClusterResourceId. 
         /// <para>
-        /// The AWS Region-unique, immutable identifier for the cluster. This identifier is found
-        /// in AWS CloudTrail log entries whenever the AWS KMS key for the cluster is accessed.
+        /// The Region-unique, immutable identifier for the cluster. This identifier is found
+        /// in CloudTrail log entries whenever the KMS key for the cluster is accessed.
         /// </para>
         /// </summary>
         public string DbClusterResourceId
@@ -382,8 +384,8 @@ namespace Amazon.DocDB.Model
         /// <summary>
         /// Gets and sets the property KmsKeyId. 
         /// <para>
-        /// If <code>StorageEncrypted</code> is <code>true</code>, the AWS KMS key identifier
-        /// for the encrypted cluster.
+        /// If <code>StorageEncrypted</code> is <code>true</code>, the KMS key identifier for
+        /// the encrypted cluster.
         /// </para>
         /// </summary>
         public string KmsKeyId
@@ -554,6 +556,43 @@ namespace Amazon.DocDB.Model
         internal bool IsSetReaderEndpoint()
         {
             return this._readerEndpoint != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ReadReplicaIdentifiers. 
+        /// <para>
+        /// Contains one or more identifiers of the secondary clusters that are associated with
+        /// this cluster.
+        /// </para>
+        /// </summary>
+        public List<string> ReadReplicaIdentifiers
+        {
+            get { return this._readReplicaIdentifiers; }
+            set { this._readReplicaIdentifiers = value; }
+        }
+
+        // Check to see if ReadReplicaIdentifiers property is set
+        internal bool IsSetReadReplicaIdentifiers()
+        {
+            return this._readReplicaIdentifiers != null && this._readReplicaIdentifiers.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property ReplicationSourceIdentifier. 
+        /// <para>
+        /// Contains the identifier of the source cluster if this cluster is a secondary cluster.
+        /// </para>
+        /// </summary>
+        public string ReplicationSourceIdentifier
+        {
+            get { return this._replicationSourceIdentifier; }
+            set { this._replicationSourceIdentifier = value; }
+        }
+
+        // Check to see if ReplicationSourceIdentifier property is set
+        internal bool IsSetReplicationSourceIdentifier()
+        {
+            return this._replicationSourceIdentifier != null;
         }
 
         /// <summary>

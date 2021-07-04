@@ -76,6 +76,12 @@ namespace Amazon.Snowball.Model.Internal.MarshallTransformations
                     unmarshalledObject.KeyRange = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("TargetOnDeviceServices", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<TargetOnDeviceService, TargetOnDeviceServiceUnmarshaller>(TargetOnDeviceServiceUnmarshaller.Instance);
+                    unmarshalledObject.TargetOnDeviceServices = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

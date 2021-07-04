@@ -30,7 +30,7 @@ namespace Amazon.GlueDataBrew.Model
 {
     /// <summary>
     /// Represents the JSON-specific options that define how input is to be interpreted by
-    /// AWS Glue DataBrew.
+    /// Glue DataBrew.
     /// </summary>
     public partial class JsonOptions
     {

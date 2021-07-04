@@ -321,9 +321,9 @@ namespace Amazon.DocDB
 
         /// <summary>
         /// Adds metadata tags to an Amazon DocumentDB resource. You can use these tags with cost
-        /// allocation reporting to track costs that are associated with Amazon DocumentDB resources.
-        /// or in a <code>Condition</code> statement in an AWS Identity and Access Management
-        /// (IAM) policy for Amazon DocumentDB.
+        /// allocation reporting to track costs that are associated with Amazon DocumentDB resources
+        /// or in a <code>Condition</code> statement in an Identity and Access Management (IAM)
+        /// policy for Amazon DocumentDB.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AddTagsToResource service method.</param>
         /// <param name="cancellationToken">
@@ -459,7 +459,7 @@ namespace Amazon.DocDB
         /// <para>
         /// To copy a cluster snapshot from a shared manual cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code>
         /// must be the Amazon Resource Name (ARN) of the shared cluster snapshot. You can only
-        /// copy a shared DB cluster snapshot, whether encrypted or not, in the same AWS Region.
+        /// copy a shared DB cluster snapshot, whether encrypted or not, in the same Region.
         /// </para>
         ///  
         /// <para>
@@ -487,7 +487,7 @@ namespace Amazon.DocDB
         /// The cluster isn't in a valid state.
         /// </exception>
         /// <exception cref="Amazon.DocDB.Model.KMSKeyNotAccessibleException">
-        /// An error occurred when accessing an AWS KMS key.
+        /// An error occurred when accessing an KMS key.
         /// </exception>
         /// <exception cref="Amazon.DocDB.Model.SnapshotQuotaExceededException">
         /// The request would cause you to exceed the allowed number of snapshots.
@@ -550,6 +550,9 @@ namespace Amazon.DocDB
         /// <exception cref="Amazon.DocDB.Model.DBSubnetGroupNotFoundException">
         /// <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group.
         /// </exception>
+        /// <exception cref="Amazon.DocDB.Model.GlobalClusterNotFoundException">
+        /// The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.
+        /// </exception>
         /// <exception cref="Amazon.DocDB.Model.InsufficientStorageClusterCapacityException">
         /// There is not enough storage available for the current action. You might be able to
         /// resolve this error by updating your subnet group to use different Availability Zones
@@ -564,6 +567,9 @@ namespace Amazon.DocDB
         /// <exception cref="Amazon.DocDB.Model.InvalidDBSubnetGroupStateException">
         /// The subnet group can't be deleted because it's in use.
         /// </exception>
+        /// <exception cref="Amazon.DocDB.Model.InvalidGlobalClusterStateException">
+        /// The requested operation can't be performed while the cluster is in this state.
+        /// </exception>
         /// <exception cref="Amazon.DocDB.Model.InvalidSubnetException">
         /// The requested subnet is not valid, or multiple subnets were requested that are not
         /// all in a common virtual private cloud (VPC).
@@ -573,7 +579,7 @@ namespace Amazon.DocDB
         /// of changes that were made.
         /// </exception>
         /// <exception cref="Amazon.DocDB.Model.KMSKeyNotAccessibleException">
-        /// An error occurred when accessing an AWS KMS key.
+        /// An error occurred when accessing an KMS key.
         /// </exception>
         /// <exception cref="Amazon.DocDB.Model.StorageQuotaExceededException">
         /// The request would cause you to exceed the allowed amount of storage available across
@@ -768,7 +774,7 @@ namespace Amazon.DocDB
         /// of changes that were made.
         /// </exception>
         /// <exception cref="Amazon.DocDB.Model.KMSKeyNotAccessibleException">
-        /// An error occurred when accessing an AWS KMS key.
+        /// An error occurred when accessing an KMS key.
         /// </exception>
         /// <exception cref="Amazon.DocDB.Model.StorageQuotaExceededException">
         /// The request would cause you to exceed the allowed amount of storage available across
@@ -805,7 +811,7 @@ namespace Amazon.DocDB
 
         /// <summary>
         /// Creates a new subnet group. subnet groups must contain at least one subnet in at least
-        /// two Availability Zones in the AWS Region.
+        /// two Availability Zones in the Region.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateDBSubnetGroup service method.</param>
         /// <param name="cancellationToken">
@@ -918,6 +924,69 @@ namespace Amazon.DocDB
             options.ResponseUnmarshaller = CreateEventSubscriptionResponseUnmarshaller.Instance;
 
             return InvokeAsync<CreateEventSubscriptionResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateGlobalCluster
+
+        internal virtual CreateGlobalClusterResponse CreateGlobalCluster(CreateGlobalClusterRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateGlobalClusterRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateGlobalClusterResponseUnmarshaller.Instance;
+
+            return Invoke<CreateGlobalClusterResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates an Amazon DocumentDB global cluster that can span multiple multiple Regions.
+        /// The global cluster contains one primary cluster with read-write capability, and up-to
+        /// give read-only secondary clusters. Global clusters uses storage-based fast replication
+        /// across regions with latencies less than one second, using dedicated infrastructure
+        /// with no impact to your workload’s performance.
+        /// 
+        ///   
+        /// <para>
+        /// You can create a global cluster that is initially empty, and then add a primary and
+        /// a secondary to it. Or you can specify an existing cluster during the create operation,
+        /// and this cluster becomes the primary of the global cluster. 
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// This action only applies to Amazon DocumentDB clusters.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateGlobalCluster service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateGlobalCluster service method, as returned by DocDB.</returns>
+        /// <exception cref="Amazon.DocDB.Model.DBClusterNotFoundException">
+        /// <code>DBClusterIdentifier</code> doesn't refer to an existing cluster.
+        /// </exception>
+        /// <exception cref="Amazon.DocDB.Model.GlobalClusterAlreadyExistsException">
+        /// The <code>GlobalClusterIdentifier</code> already exists. Choose a new global cluster
+        /// identifier (unique name) to create a new global cluster.
+        /// </exception>
+        /// <exception cref="Amazon.DocDB.Model.GlobalClusterQuotaExceededException">
+        /// The number of global clusters for this account is already at the maximum allowed.
+        /// </exception>
+        /// <exception cref="Amazon.DocDB.Model.InvalidDBClusterStateException">
+        /// The cluster isn't in a valid state.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/docdb-2014-10-31/CreateGlobalCluster">REST API Reference for CreateGlobalCluster Operation</seealso>
+        public virtual Task<CreateGlobalClusterResponse> CreateGlobalClusterAsync(CreateGlobalClusterRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateGlobalClusterRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateGlobalClusterResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateGlobalClusterResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1201,6 +1270,53 @@ namespace Amazon.DocDB
 
         #endregion
         
+        #region  DeleteGlobalCluster
+
+        internal virtual DeleteGlobalClusterResponse DeleteGlobalCluster(DeleteGlobalClusterRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteGlobalClusterRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteGlobalClusterResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteGlobalClusterResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes a global cluster. The primary and secondary clusters must already be detached
+        /// or deleted before attempting to delete a global cluster.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// This action only applies to Amazon DocumentDB clusters.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteGlobalCluster service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteGlobalCluster service method, as returned by DocDB.</returns>
+        /// <exception cref="Amazon.DocDB.Model.GlobalClusterNotFoundException">
+        /// The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.
+        /// </exception>
+        /// <exception cref="Amazon.DocDB.Model.InvalidGlobalClusterStateException">
+        /// The requested operation can't be performed while the cluster is in this state.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/docdb-2014-10-31/DeleteGlobalCluster">REST API Reference for DeleteGlobalCluster Operation</seealso>
+        public virtual Task<DeleteGlobalClusterResponse> DeleteGlobalClusterAsync(DeleteGlobalClusterRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteGlobalClusterRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteGlobalClusterResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteGlobalClusterResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DescribeCertificates
 
         internal virtual DescribeCertificatesResponse DescribeCertificates(DescribeCertificatesRequest request)
@@ -1216,7 +1332,7 @@ namespace Amazon.DocDB
 
         /// <summary>
         /// Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB
-        /// for this AWS account.
+        /// for this account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeCertificates service method.</param>
         /// <param name="cancellationToken">
@@ -1375,11 +1491,11 @@ namespace Amazon.DocDB
         /// 
         ///  
         /// <para>
-        /// When you share snapshots with other AWS accounts, <code>DescribeDBClusterSnapshotAttributes</code>
-        /// returns the <code>restore</code> attribute and a list of IDs for the AWS accounts
-        /// that are authorized to copy or restore the manual cluster snapshot. If <code>all</code>
+        /// When you share snapshots with other accounts, <code>DescribeDBClusterSnapshotAttributes</code>
+        /// returns the <code>restore</code> attribute and a list of IDs for the accounts that
+        /// are authorized to copy or restore the manual cluster snapshot. If <code>all</code>
         /// is included in the list of values for the <code>restore</code> attribute, then the
-        /// manual cluster snapshot is public and can be copied or restored by all AWS accounts.
+        /// manual cluster snapshot is public and can be copied or restored by all accounts.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeDBClusterSnapshotAttributes service method.</param>
@@ -1697,6 +1813,49 @@ namespace Amazon.DocDB
             options.ResponseUnmarshaller = DescribeEventSubscriptionsResponseUnmarshaller.Instance;
 
             return InvokeAsync<DescribeEventSubscriptionsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeGlobalClusters
+
+        internal virtual DescribeGlobalClustersResponse DescribeGlobalClusters(DescribeGlobalClustersRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeGlobalClustersRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeGlobalClustersResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeGlobalClustersResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Returns information about Amazon DocumentDB global clusters. This API supports pagination.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// This action only applies to Amazon DocumentDB clusters.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeGlobalClusters service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeGlobalClusters service method, as returned by DocDB.</returns>
+        /// <exception cref="Amazon.DocDB.Model.GlobalClusterNotFoundException">
+        /// The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/docdb-2014-10-31/DescribeGlobalClusters">REST API Reference for DescribeGlobalClusters Operation</seealso>
+        public virtual Task<DescribeGlobalClustersResponse> DescribeGlobalClustersAsync(DescribeGlobalClustersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeGlobalClustersRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeGlobalClustersResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeGlobalClustersResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -2021,20 +2180,19 @@ namespace Amazon.DocDB
 
         /// <summary>
         /// Adds an attribute and values to, or removes an attribute and values from, a manual
-        /// DB cluster snapshot.
+        /// cluster snapshot.
         /// 
         ///  
         /// <para>
-        /// To share a manual cluster snapshot with other AWS accounts, specify <code>restore</code>
+        /// To share a manual cluster snapshot with other accounts, specify <code>restore</code>
         /// as the <code>AttributeName</code>, and use the <code>ValuesToAdd</code> parameter
-        /// to add a list of IDs of the AWS accounts that are authorized to restore the manual
-        /// cluster snapshot. Use the value <code>all</code> to make the manual cluster snapshot
-        /// public, which means that it can be copied or restored by all AWS accounts. Do not
-        /// add the <code>all</code> value for any manual DB cluster snapshots that contain private
-        /// information that you don't want available to all AWS accounts. If a manual cluster
-        /// snapshot is encrypted, it can be shared, but only by specifying a list of authorized
-        /// AWS account IDs for the <code>ValuesToAdd</code> parameter. You can't use <code>all</code>
-        /// as a value for that parameter in this case.
+        /// to add a list of IDs of the accounts that are authorized to restore the manual cluster
+        /// snapshot. Use the value <code>all</code> to make the manual cluster snapshot public,
+        /// which means that it can be copied or restored by all accounts. Do not add the <code>all</code>
+        /// value for any manual cluster snapshots that contain private information that you don't
+        /// want available to all accounts. If a manual cluster snapshot is encrypted, it can
+        /// be shared, but only by specifying a list of authorized account IDs for the <code>ValuesToAdd</code>
+        /// parameter. You can't use <code>all</code> as a value for that parameter in this case.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyDBClusterSnapshotAttribute service method.</param>
@@ -2164,7 +2322,7 @@ namespace Amazon.DocDB
 
         /// <summary>
         /// Modifies an existing subnet group. subnet groups must contain at least one subnet
-        /// in at least two Availability Zones in the AWS Region.
+        /// in at least two Availability Zones in the Region.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyDBSubnetGroup service method.</param>
         /// <param name="cancellationToken">
@@ -2253,6 +2411,54 @@ namespace Amazon.DocDB
 
         #endregion
         
+        #region  ModifyGlobalCluster
+
+        internal virtual ModifyGlobalClusterResponse ModifyGlobalCluster(ModifyGlobalClusterRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyGlobalClusterRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyGlobalClusterResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyGlobalClusterResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Modify a setting for an Amazon DocumentDB global cluster. You can change one or more
+        /// configuration parameters (for example: deletion protection), or the global cluster
+        /// identifier by specifying these parameters and the new values in the request.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// This action only applies to Amazon DocumentDB clusters.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyGlobalCluster service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyGlobalCluster service method, as returned by DocDB.</returns>
+        /// <exception cref="Amazon.DocDB.Model.GlobalClusterNotFoundException">
+        /// The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.
+        /// </exception>
+        /// <exception cref="Amazon.DocDB.Model.InvalidGlobalClusterStateException">
+        /// The requested operation can't be performed while the cluster is in this state.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/docdb-2014-10-31/ModifyGlobalCluster">REST API Reference for ModifyGlobalCluster Operation</seealso>
+        public virtual Task<ModifyGlobalClusterResponse> ModifyGlobalClusterAsync(ModifyGlobalClusterRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyGlobalClusterRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyGlobalClusterResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyGlobalClusterResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  RebootDBInstance
 
         internal virtual RebootDBInstanceResponse RebootDBInstance(RebootDBInstanceRequest request)
@@ -2299,6 +2505,57 @@ namespace Amazon.DocDB
             options.ResponseUnmarshaller = RebootDBInstanceResponseUnmarshaller.Instance;
 
             return InvokeAsync<RebootDBInstanceResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  RemoveFromGlobalCluster
+
+        internal virtual RemoveFromGlobalClusterResponse RemoveFromGlobalCluster(RemoveFromGlobalClusterRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RemoveFromGlobalClusterRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RemoveFromGlobalClusterResponseUnmarshaller.Instance;
+
+            return Invoke<RemoveFromGlobalClusterResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Detaches an Amazon DocumentDB secondary cluster from a global cluster. The cluster
+        /// becomes a standalone cluster with read-write capability instead of being read-only
+        /// and receiving data from a primary in a different region. 
+        /// 
+        ///  <note> 
+        /// <para>
+        /// This action only applies to Amazon DocumentDB clusters.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RemoveFromGlobalCluster service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the RemoveFromGlobalCluster service method, as returned by DocDB.</returns>
+        /// <exception cref="Amazon.DocDB.Model.DBClusterNotFoundException">
+        /// <code>DBClusterIdentifier</code> doesn't refer to an existing cluster.
+        /// </exception>
+        /// <exception cref="Amazon.DocDB.Model.GlobalClusterNotFoundException">
+        /// The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.
+        /// </exception>
+        /// <exception cref="Amazon.DocDB.Model.InvalidGlobalClusterStateException">
+        /// The requested operation can't be performed while the cluster is in this state.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/docdb-2014-10-31/RemoveFromGlobalCluster">REST API Reference for RemoveFromGlobalCluster Operation</seealso>
+        public virtual Task<RemoveFromGlobalClusterResponse> RemoveFromGlobalClusterAsync(RemoveFromGlobalClusterRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RemoveFromGlobalClusterRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RemoveFromGlobalClusterResponseUnmarshaller.Instance;
+
+            return InvokeAsync<RemoveFromGlobalClusterResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -2516,7 +2773,7 @@ namespace Amazon.DocDB
         /// of changes that were made.
         /// </exception>
         /// <exception cref="Amazon.DocDB.Model.KMSKeyNotAccessibleException">
-        /// An error occurred when accessing an AWS KMS key.
+        /// An error occurred when accessing an KMS key.
         /// </exception>
         /// <exception cref="Amazon.DocDB.Model.StorageQuotaExceededException">
         /// The request would cause you to exceed the allowed amount of storage available across
@@ -2605,7 +2862,7 @@ namespace Amazon.DocDB
         /// of changes that were made.
         /// </exception>
         /// <exception cref="Amazon.DocDB.Model.KMSKeyNotAccessibleException">
-        /// An error occurred when accessing an AWS KMS key.
+        /// An error occurred when accessing an KMS key.
         /// </exception>
         /// <exception cref="Amazon.DocDB.Model.StorageQuotaExceededException">
         /// The request would cause you to exceed the allowed amount of storage available across

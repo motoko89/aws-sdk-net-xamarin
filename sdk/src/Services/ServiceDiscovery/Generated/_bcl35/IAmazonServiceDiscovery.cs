@@ -29,13 +29,15 @@ namespace Amazon.ServiceDiscovery
     /// <summary>
     /// Interface for accessing ServiceDiscovery
     ///
-    /// AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces that
-    /// your microservice applications run in. When an instance of the service becomes available,
-    /// you can call the AWS Cloud Map API to register the instance with AWS Cloud Map. For
-    /// public or private DNS namespaces, AWS Cloud Map automatically creates DNS records
-    /// and an optional health check. Clients that submit public or private DNS queries, or
-    /// HTTP requests, for the service receive an answer that contains up to eight healthy
-    /// records.
+    /// Cloud Map 
+    /// <para>
+    /// With Cloud Map, you can configure public DNS, private DNS, or HTTP namespaces that
+    /// your microservice applications run in. When an instance becomes available, you can
+    /// call the Cloud Map API to register the instance with Cloud Map. For public or private
+    /// DNS namespaces, Cloud Map automatically creates DNS records and an optional health
+    /// check. Clients that submit public or private DNS queries, or HTTP requests, for the
+    /// service receive an answer that contains up to eight healthy records. 
+    /// </para>
     /// </summary>
     public partial interface IAmazonServiceDiscovery : IAmazonService, IDisposable
     {
@@ -54,15 +56,15 @@ namespace Amazon.ServiceDiscovery
 
 
         /// <summary>
-        /// Creates an HTTP namespace. Service instances that you register using an HTTP namespace
-        /// can be discovered using a <code>DiscoverInstances</code> request but can't be discovered
-        /// using DNS. 
+        /// Creates an HTTP namespace. Service instances registered using an HTTP namespace can
+        /// be discovered using a <code>DiscoverInstances</code> request but can't be discovered
+        /// using DNS.
         /// 
         ///  
         /// <para>
         /// For the current quota on the number of namespaces that you can create using the same
-        /// AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
-        /// Cloud Map quotas</a> in the <i>AWS Cloud Map Developer Guide</i>.
+        /// account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
+        /// Map quotas</a> in the <i>Cloud Map Developer Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateHttpNamespace service method.</param>
@@ -121,13 +123,14 @@ namespace Amazon.ServiceDiscovery
 
 
         /// <summary>
-        /// Creates a private namespace based on DNS, which will be visible only inside a specified
+        /// Creates a private namespace based on DNS, which is visible only inside a specified
         /// Amazon VPC. The namespace defines your service naming scheme. For example, if you
         /// name your namespace <code>example.com</code> and name your service <code>backend</code>,
-        /// the resulting DNS name for the service will be <code>backend.example.com</code>. For
-        /// the current quota on the number of namespaces that you can create using the same AWS
-        /// account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
-        /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
+        /// the resulting DNS name for the service is <code>backend.example.com</code>. Service
+        /// instances that are registered using a private DNS namespace can be discovered using
+        /// either a <code>DiscoverInstances</code> request or using DNS. For the current quota
+        /// on the number of namespaces that you can create using the same account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
+        /// Map quotas</a> in the <i>Cloud Map Developer Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreatePrivateDnsNamespace service method.</param>
         /// 
@@ -185,13 +188,14 @@ namespace Amazon.ServiceDiscovery
 
 
         /// <summary>
-        /// Creates a public namespace based on DNS, which will be visible on the internet. The
-        /// namespace defines your service naming scheme. For example, if you name your namespace
-        /// <code>example.com</code> and name your service <code>backend</code>, the resulting
-        /// DNS name for the service will be <code>backend.example.com</code>. For the current
-        /// quota on the number of namespaces that you can create using the same AWS account,
-        /// see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
-        /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
+        /// Creates a public namespace based on DNS, which is visible on the internet. The namespace
+        /// defines your service naming scheme. For example, if you name your namespace <code>example.com</code>
+        /// and name your service <code>backend</code>, the resulting DNS name for the service
+        /// is <code>backend.example.com</code>. You can discover instances that were registered
+        /// with a public DNS namespace by using either a <code>DiscoverInstances</code> request
+        /// or using DNS. For the current quota on the number of namespaces that you can create
+        /// using the same account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
+        /// Map quotas</a> in the <i>Cloud Map Developer Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreatePublicDnsNamespace service method.</param>
         /// 
@@ -249,12 +253,12 @@ namespace Amazon.ServiceDiscovery
 
 
         /// <summary>
-        /// Creates a service, which defines the configuration for the following entities:
+        /// Creates a service. This action defines the configuration for the following entities:
         /// 
         ///  <ul> <li> 
         /// <para>
         /// For public and private DNS namespaces, one of the following combinations of DNS records
-        /// in Amazon Route 53:
+        /// in Amazon Route 53:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -283,14 +287,14 @@ namespace Amazon.ServiceDiscovery
         ///  </li> </ul> 
         /// <para>
         /// After you create the service, you can submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a>
-        /// request, and AWS Cloud Map uses the values in the configuration to create the specified
+        /// request, and Cloud Map uses the values in the configuration to create the specified
         /// entities.
         /// </para>
         ///  
         /// <para>
         /// For the current quota on the number of instances that you can register using the same
-        /// namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
-        /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
+        /// namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
+        /// Map quotas</a> in the <i>Cloud Map Developer Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateService service method.</param>
@@ -458,8 +462,8 @@ namespace Amazon.ServiceDiscovery
 
 
         /// <summary>
-        /// Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map
-        /// created for the specified instance.
+        /// Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map created
+        /// for the specified instance.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeregisterInstance service method.</param>
         /// 
@@ -535,8 +539,8 @@ namespace Amazon.ServiceDiscovery
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.RequestLimitExceededException">
         /// The operation can't be completed because you've reached the quota for the number of
-        /// requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">AWS
-        /// Cloud Map API request throttling quota</a> in the <i>AWS Cloud Map Developer Guide</i>.
+        /// requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud
+        /// Map API request throttling quota</a> in the <i>Cloud Map Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.ServiceNotFoundException">
         /// No service exists with the specified ID.
@@ -633,7 +637,7 @@ namespace Amazon.ServiceDiscovery
         /// 
         ///  <note> 
         /// <para>
-        /// There is a brief delay between when you register an instance and when the health status
+        /// There's a brief delay between when you register an instance and when the health status
         /// for the instance is available. 
         /// </para>
         ///  </note>
@@ -888,8 +892,7 @@ namespace Amazon.ServiceDiscovery
 
 
         /// <summary>
-        /// Lists summary information about the namespaces that were created by the current AWS
-        /// account.
+        /// Lists summary information about the namespaces that were created by the current account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListNamespaces service method.</param>
         /// 
@@ -1079,8 +1082,8 @@ namespace Amazon.ServiceDiscovery
         /// 
         ///  <ul> <li> 
         /// <para>
-        /// For each DNS record that you define in the service that is specified by <code>ServiceId</code>,
-        /// a record is created or updated in the hosted zone that is associated with the corresponding
+        /// For each DNS record that you define in the service that's specified by <code>ServiceId</code>,
+        /// a record is created or updated in the hosted zone that's associated with the corresponding
         /// namespace.
         /// </para>
         ///  </li> <li> 
@@ -1103,8 +1106,8 @@ namespace Amazon.ServiceDiscovery
         /// </para>
         ///  
         /// <para>
-        /// When AWS Cloud Map receives a DNS query for the specified DNS name, it returns the
-        /// applicable value:
+        /// When Cloud Map receives a DNS query for the specified DNS name, it returns the applicable
+        /// value:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -1122,8 +1125,8 @@ namespace Amazon.ServiceDiscovery
         ///  </li> </ul> 
         /// <para>
         /// For the current quota on the number of instances that you can register using the same
-        /// namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
-        /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
+        /// namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
+        /// Map quotas</a> in the <i>Cloud Map Developer Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RegisterInstance service method.</param>
@@ -1278,6 +1281,61 @@ namespace Amazon.ServiceDiscovery
 
         #endregion
         
+        #region  UpdateHttpNamespace
+
+
+        /// <summary>
+        /// Updates an HTTP namespace.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateHttpNamespace service method.</param>
+        /// 
+        /// <returns>The response from the UpdateHttpNamespace service method, as returned by ServiceDiscovery.</returns>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.DuplicateRequestException">
+        /// The operation is already in progress.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.InvalidInputException">
+        /// One or more specified values aren't valid. For example, a required value might be
+        /// missing, a numeric value might be outside the allowed range, or a string value might
+        /// exceed length constraints.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.NamespaceNotFoundException">
+        /// No namespace exists with the specified ID.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.ResourceInUseException">
+        /// The specified resource can't be deleted because it contains other resources. For example,
+        /// you can't delete a service that contains any instances.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/UpdateHttpNamespace">REST API Reference for UpdateHttpNamespace Operation</seealso>
+        UpdateHttpNamespaceResponse UpdateHttpNamespace(UpdateHttpNamespaceRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateHttpNamespace operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateHttpNamespace operation on AmazonServiceDiscoveryClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateHttpNamespace
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/UpdateHttpNamespace">REST API Reference for UpdateHttpNamespace Operation</seealso>
+        IAsyncResult BeginUpdateHttpNamespace(UpdateHttpNamespaceRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateHttpNamespace operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateHttpNamespace.</param>
+        /// 
+        /// <returns>Returns a  UpdateHttpNamespaceResult from ServiceDiscovery.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/UpdateHttpNamespace">REST API Reference for UpdateHttpNamespace Operation</seealso>
+        UpdateHttpNamespaceResponse EndUpdateHttpNamespace(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  UpdateInstanceCustomHealthStatus
 
 
@@ -1289,7 +1347,7 @@ namespace Amazon.ServiceDiscovery
         /// <para>
         /// You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only
         /// for custom health checks, which you define using <code>HealthCheckCustomConfig</code>
-        /// when you create a service. You can't use it to change the status for Route 53 health
+        /// when you create a service. You can't use it to change the status for Route 53 health
         /// checks, which you define using <code>HealthCheckConfig</code>.
         /// </para>
         ///  
@@ -1301,8 +1359,8 @@ namespace Amazon.ServiceDiscovery
         /// 
         /// <returns>The response from the UpdateInstanceCustomHealthStatus service method, as returned by ServiceDiscovery.</returns>
         /// <exception cref="Amazon.ServiceDiscovery.Model.CustomHealthNotFoundException">
-        /// The health check for the instance that is specified by <code>ServiceId</code> and
-        /// <code>InstanceId</code> is not a custom health check.
+        /// The health check for the instance that's specified by <code>ServiceId</code> and <code>InstanceId</code>
+        /// isn't a custom health check.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.InstanceNotFoundException">
         /// No instance exists with the specified ID, or the instance was recently registered,
@@ -1347,6 +1405,116 @@ namespace Amazon.ServiceDiscovery
 
         #endregion
         
+        #region  UpdatePrivateDnsNamespace
+
+
+        /// <summary>
+        /// Updates a private DNS namespace.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdatePrivateDnsNamespace service method.</param>
+        /// 
+        /// <returns>The response from the UpdatePrivateDnsNamespace service method, as returned by ServiceDiscovery.</returns>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.DuplicateRequestException">
+        /// The operation is already in progress.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.InvalidInputException">
+        /// One or more specified values aren't valid. For example, a required value might be
+        /// missing, a numeric value might be outside the allowed range, or a string value might
+        /// exceed length constraints.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.NamespaceNotFoundException">
+        /// No namespace exists with the specified ID.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.ResourceInUseException">
+        /// The specified resource can't be deleted because it contains other resources. For example,
+        /// you can't delete a service that contains any instances.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/UpdatePrivateDnsNamespace">REST API Reference for UpdatePrivateDnsNamespace Operation</seealso>
+        UpdatePrivateDnsNamespaceResponse UpdatePrivateDnsNamespace(UpdatePrivateDnsNamespaceRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdatePrivateDnsNamespace operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdatePrivateDnsNamespace operation on AmazonServiceDiscoveryClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdatePrivateDnsNamespace
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/UpdatePrivateDnsNamespace">REST API Reference for UpdatePrivateDnsNamespace Operation</seealso>
+        IAsyncResult BeginUpdatePrivateDnsNamespace(UpdatePrivateDnsNamespaceRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdatePrivateDnsNamespace operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdatePrivateDnsNamespace.</param>
+        /// 
+        /// <returns>Returns a  UpdatePrivateDnsNamespaceResult from ServiceDiscovery.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/UpdatePrivateDnsNamespace">REST API Reference for UpdatePrivateDnsNamespace Operation</seealso>
+        UpdatePrivateDnsNamespaceResponse EndUpdatePrivateDnsNamespace(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  UpdatePublicDnsNamespace
+
+
+        /// <summary>
+        /// Updates a public DNS namespace.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdatePublicDnsNamespace service method.</param>
+        /// 
+        /// <returns>The response from the UpdatePublicDnsNamespace service method, as returned by ServiceDiscovery.</returns>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.DuplicateRequestException">
+        /// The operation is already in progress.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.InvalidInputException">
+        /// One or more specified values aren't valid. For example, a required value might be
+        /// missing, a numeric value might be outside the allowed range, or a string value might
+        /// exceed length constraints.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.NamespaceNotFoundException">
+        /// No namespace exists with the specified ID.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.ResourceInUseException">
+        /// The specified resource can't be deleted because it contains other resources. For example,
+        /// you can't delete a service that contains any instances.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/UpdatePublicDnsNamespace">REST API Reference for UpdatePublicDnsNamespace Operation</seealso>
+        UpdatePublicDnsNamespaceResponse UpdatePublicDnsNamespace(UpdatePublicDnsNamespaceRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdatePublicDnsNamespace operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdatePublicDnsNamespace operation on AmazonServiceDiscoveryClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdatePublicDnsNamespace
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/UpdatePublicDnsNamespace">REST API Reference for UpdatePublicDnsNamespace Operation</seealso>
+        IAsyncResult BeginUpdatePublicDnsNamespace(UpdatePublicDnsNamespaceRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdatePublicDnsNamespace operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdatePublicDnsNamespace.</param>
+        /// 
+        /// <returns>Returns a  UpdatePublicDnsNamespaceResult from ServiceDiscovery.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/UpdatePublicDnsNamespace">REST API Reference for UpdatePublicDnsNamespace Operation</seealso>
+        UpdatePublicDnsNamespaceResponse EndUpdatePublicDnsNamespace(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  UpdateService
 
 
@@ -1378,13 +1546,12 @@ namespace Amazon.ServiceDiscovery
         ///  </li> <li> 
         /// <para>
         /// If you omit an existing <code>HealthCheckCustomConfig</code> configuration from an
-        /// <code>UpdateService</code> request, the configuration is not deleted from the service.
+        /// <code>UpdateService</code> request, the configuration isn't deleted from the service.
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// When you update settings for a service, AWS Cloud Map also updates the corresponding
-        /// settings in all the records and health checks that were created by using the specified
-        /// service.
+        /// When you update settings for a service, Cloud Map also updates the corresponding settings
+        /// in all the records and health checks that were created by using the specified service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateService service method.</param>

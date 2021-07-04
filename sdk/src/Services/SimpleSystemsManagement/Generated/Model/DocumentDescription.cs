@@ -39,6 +39,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         private DateTime? _createdDate;
         private string _defaultVersion;
         private string _description;
+        private string _displayName;
         private DocumentFormat _documentFormat;
         private DocumentType _documentType;
         private string _documentVersion;
@@ -168,6 +169,26 @@ namespace Amazon.SimpleSystemsManagement.Model
         internal bool IsSetDescription()
         {
             return this._description != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property DisplayName. 
+        /// <para>
+        /// The friendly name of the Systems Manager document. This value can differ for each
+        /// version of the document. If you want to update this value, see <a>UpdateDocument</a>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Max=1024)]
+        public string DisplayName
+        {
+            get { return this._displayName; }
+            set { this._displayName = value; }
+        }
+
+        // Check to see if DisplayName property is set
+        internal bool IsSetDisplayName()
+        {
+            return this._displayName != null;
         }
 
         /// <summary>
@@ -534,7 +555,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Gets and sets the property TargetType. 
         /// <para>
         /// The target type which defines the kinds of resources the document can run on. For
-        /// example, /AWS::EC2::Instance. For a list of valid resource types, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS
+        /// example, /AWS::EC2::Instance. For a list of valid resource types, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS
         /// resource and property types reference</a> in the <i>AWS CloudFormation User Guide</i>.
         /// 
         /// </para>

@@ -114,6 +114,12 @@ namespace Amazon.Snowball.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.KmsKeyARN);
                 }
 
+                if(publicRequest.IsSetLongTermPricingId())
+                {
+                    context.Writer.WritePropertyName("LongTermPricingId");
+                    context.Writer.Write(publicRequest.LongTermPricingId);
+                }
+
                 if(publicRequest.IsSetNotification())
                 {
                     context.Writer.WritePropertyName("Notification");
@@ -123,6 +129,23 @@ namespace Amazon.Snowball.Model.Internal.MarshallTransformations
                     marshaller.Marshall(publicRequest.Notification, context);
 
                     context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetOnDeviceServiceConfiguration())
+                {
+                    context.Writer.WritePropertyName("OnDeviceServiceConfiguration");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = OnDeviceServiceConfigurationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.OnDeviceServiceConfiguration, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetRemoteManagement())
+                {
+                    context.Writer.WritePropertyName("RemoteManagement");
+                    context.Writer.Write(publicRequest.RemoteManagement);
                 }
 
                 if(publicRequest.IsSetResources())

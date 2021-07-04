@@ -279,15 +279,140 @@ namespace Amazon.Snowball
         /// center. Your AWS account must have the right trust policies and permissions in place
         /// to create a job for a Snow device. If you're creating a job for a node in a cluster,
         /// you only need to provide the <code>clusterId</code> value; the other job attributes
-        /// are inherited from the cluster.
+        /// are inherited from the cluster. 
+        /// 
+        ///  <note> 
+        /// <para>
+        /// Only the Snowball; Edge device type is supported when ordering clustered jobs.
+        /// </para>
+        ///  
+        /// <para>
+        /// The device capacity is optional.
+        /// </para>
+        ///  
+        /// <para>
+        /// Availability of device types differ by AWS Region. For more information about Region
+        /// availability, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&amp;loc=4">AWS
+        /// Regional Services</a>.
+        /// </para>
+        ///  </note>  <p class="title"> <b>AWS Snow Family device types and their capacities.</b>
+        /// 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Snow Family device type: <b>SNC1_SSD</b> 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Capacity: T14
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Description: Snowcone 
+        /// </para>
+        ///  </li> </ul>  </li> <li> 
+        /// <para>
+        /// Snow Family device type: <b>SNC1_HDD</b> 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Capacity: T8
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Description: Snowcone 
+        /// </para>
+        ///  </li> </ul>  </li> <li> 
+        /// <para>
+        /// Device type: <b>EDGE_S</b> 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Capacity: T98
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Description: Snowball Edge Storage Optimized for data transfer only 
+        /// </para>
+        ///  </li> </ul>  </li> <li> 
+        /// <para>
+        /// Device type: <b>EDGE_CG</b> 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Capacity: T42
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Description: Snowball Edge Compute Optimized with GPU
+        /// </para>
+        ///  </li> </ul>  </li> <li> 
+        /// <para>
+        /// Device type: <b>EDGE_C</b> 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Capacity: T42
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Description: Snowball Edge Compute Optimized without GPU
+        /// </para>
+        ///  </li> </ul>  </li> <li> 
+        /// <para>
+        /// Device type: <b>EDGE</b> 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Capacity: T100
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Description: Snowball Edge Storage Optimized with EC2 Compute
+        /// </para>
+        ///  </li> </ul>  </li> <li> 
+        /// <para>
+        /// Device type: <b>STANDARD</b> 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Capacity: T50
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Description: Original Snowball device
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// This device is only available in the Ningxia, Beijing, and Singapore AWS Regions.
+        /// 
+        /// </para>
+        ///  </note> </li> </ul>  </li> <li> 
+        /// <para>
+        /// Device type: <b>STANDARD</b> 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Capacity: T80
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Description: Original Snowball device
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// This device is only available in the Ningxia, Beijing, and Singapore AWS Regions.
+        /// 
+        /// </para>
+        ///  </note> </li> </ul>  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateJob service method.</param>
         /// 
         /// <returns>The response from the CreateJob service method, as returned by Snowball.</returns>
         /// <exception cref="Amazon.Snowball.Model.ClusterLimitExceededException">
-        /// Job creation failed. Currently, clusters support five nodes. If you have less than
+        /// Job creation failed. Currently, clusters support five nodes. If you have fewer than
         /// five nodes for your cluster and you have more nodes to create for this cluster, try
-        /// again and create jobs until your cluster has exactly five notes.
+        /// again and create jobs until your cluster has exactly five nodes.
         /// </exception>
         /// <exception cref="Amazon.Snowball.Model.Ec2RequestFailedException">
         /// Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
@@ -334,6 +459,52 @@ namespace Amazon.Snowball
         /// <returns>Returns a  CreateJobResult from Snowball.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateJob">REST API Reference for CreateJob Operation</seealso>
         CreateJobResponse EndCreateJob(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  CreateLongTermPricing
+
+
+        /// <summary>
+        /// Creates a job with the long-term usage option for a device. The long-term usage is
+        /// a 1-year or 3-year long-term pricing type for the device. You are billed upfront,
+        /// and AWS provides discounts for long-term pricing.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateLongTermPricing service method.</param>
+        /// 
+        /// <returns>The response from the CreateLongTermPricing service method, as returned by Snowball.</returns>
+        /// <exception cref="Amazon.Snowball.Model.InvalidResourceException">
+        /// The specified resource can't be found. Check the information you provided in your
+        /// last request, and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateLongTermPricing">REST API Reference for CreateLongTermPricing Operation</seealso>
+        CreateLongTermPricingResponse CreateLongTermPricing(CreateLongTermPricingRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateLongTermPricing operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateLongTermPricing operation on AmazonSnowballClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateLongTermPricing
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateLongTermPricing">REST API Reference for CreateLongTermPricing Operation</seealso>
+        IAsyncResult BeginCreateLongTermPricing(CreateLongTermPricingRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CreateLongTermPricing operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCreateLongTermPricing.</param>
+        /// 
+        /// <returns>Returns a  CreateLongTermPricingResult from Snowball.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateLongTermPricing">REST API Reference for CreateLongTermPricing Operation</seealso>
+        CreateLongTermPricingResponse EndCreateLongTermPricing(IAsyncResult asyncResult);
 
         #endregion
         
@@ -664,7 +835,7 @@ namespace Amazon.Snowball
         ///  
         /// <para>
         /// The credentials of a given job, including its manifest file and unlock code, expire
-        /// 90 days after the job is created.
+        /// 360 days after the job is created.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetJobManifest service method.</param>
@@ -714,7 +885,7 @@ namespace Amazon.Snowball
 
         /// <summary>
         /// Returns the <code>UnlockCode</code> code value for the specified job. A particular
-        /// <code>UnlockCode</code> value can be accessed for up to 90 days after the associated
+        /// <code>UnlockCode</code> value can be accessed for up to 360 days after the associated
         /// job has been created.
         /// 
         ///  
@@ -1070,6 +1241,55 @@ namespace Amazon.Snowball
 
         #endregion
         
+        #region  ListLongTermPricing
+
+
+        /// <summary>
+        /// Lists all long-term pricing types.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListLongTermPricing service method.</param>
+        /// 
+        /// <returns>The response from the ListLongTermPricing service method, as returned by Snowball.</returns>
+        /// <exception cref="Amazon.Snowball.Model.InvalidNextTokenException">
+        /// The <code>NextToken</code> string was altered unexpectedly, and the operation has
+        /// stopped. Run the operation without changing the <code>NextToken</code> string, and
+        /// try again.
+        /// </exception>
+        /// <exception cref="Amazon.Snowball.Model.InvalidResourceException">
+        /// The specified resource can't be found. Check the information you provided in your
+        /// last request, and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListLongTermPricing">REST API Reference for ListLongTermPricing Operation</seealso>
+        ListLongTermPricingResponse ListLongTermPricing(ListLongTermPricingRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListLongTermPricing operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListLongTermPricing operation on AmazonSnowballClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListLongTermPricing
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListLongTermPricing">REST API Reference for ListLongTermPricing Operation</seealso>
+        IAsyncResult BeginListLongTermPricing(ListLongTermPricingRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListLongTermPricing operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListLongTermPricing.</param>
+        /// 
+        /// <returns>Returns a  ListLongTermPricingResult from Snowball.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListLongTermPricing">REST API Reference for ListLongTermPricing Operation</seealso>
+        ListLongTermPricingResponse EndListLongTermPricing(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  UpdateCluster
 
 
@@ -1147,9 +1367,9 @@ namespace Amazon.Snowball
         /// 
         /// <returns>The response from the UpdateJob service method, as returned by Snowball.</returns>
         /// <exception cref="Amazon.Snowball.Model.ClusterLimitExceededException">
-        /// Job creation failed. Currently, clusters support five nodes. If you have less than
+        /// Job creation failed. Currently, clusters support five nodes. If you have fewer than
         /// five nodes for your cluster and you have more nodes to create for this cluster, try
-        /// again and create jobs until your cluster has exactly five notes.
+        /// again and create jobs until your cluster has exactly five nodes.
         /// </exception>
         /// <exception cref="Amazon.Snowball.Model.Ec2RequestFailedException">
         /// Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
@@ -1207,7 +1427,7 @@ namespace Amazon.Snowball
 
 
         /// <summary>
-        /// Updates the state when a the shipment states changes to a different state.
+        /// Updates the state when a shipment state changes to a different state.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateJobShipmentState service method.</param>
         /// 
@@ -1248,6 +1468,50 @@ namespace Amazon.Snowball
         /// <returns>Returns a  UpdateJobShipmentStateResult from Snowball.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateJobShipmentState">REST API Reference for UpdateJobShipmentState Operation</seealso>
         UpdateJobShipmentStateResponse EndUpdateJobShipmentState(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  UpdateLongTermPricing
+
+
+        /// <summary>
+        /// Updates the long-term pricing type.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateLongTermPricing service method.</param>
+        /// 
+        /// <returns>The response from the UpdateLongTermPricing service method, as returned by Snowball.</returns>
+        /// <exception cref="Amazon.Snowball.Model.InvalidResourceException">
+        /// The specified resource can't be found. Check the information you provided in your
+        /// last request, and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateLongTermPricing">REST API Reference for UpdateLongTermPricing Operation</seealso>
+        UpdateLongTermPricingResponse UpdateLongTermPricing(UpdateLongTermPricingRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateLongTermPricing operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateLongTermPricing operation on AmazonSnowballClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateLongTermPricing
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateLongTermPricing">REST API Reference for UpdateLongTermPricing Operation</seealso>
+        IAsyncResult BeginUpdateLongTermPricing(UpdateLongTermPricingRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateLongTermPricing operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateLongTermPricing.</param>
+        /// 
+        /// <returns>Returns a  UpdateLongTermPricingResult from Snowball.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateLongTermPricing">REST API Reference for UpdateLongTermPricing Operation</seealso>
+        UpdateLongTermPricingResponse EndUpdateLongTermPricing(IAsyncResult asyncResult);
 
         #endregion
         

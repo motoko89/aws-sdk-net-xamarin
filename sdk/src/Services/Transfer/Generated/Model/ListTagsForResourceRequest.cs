@@ -30,7 +30,7 @@ namespace Amazon.Transfer.Model
 {
     /// <summary>
     /// Container for the parameters to the ListTagsForResource operation.
-    /// Lists all of the tags associated with the Amazon Resource Number (ARN) you specify.
+    /// Lists all of the tags associated with the Amazon Resource Name (ARN) that you specify.
     /// The resource can be a user, server, or role.
     /// </summary>
     public partial class ListTagsForResourceRequest : AmazonTransferRequest
@@ -43,7 +43,8 @@ namespace Amazon.Transfer.Model
         /// Gets and sets the property Arn. 
         /// <para>
         /// Requests the tags associated with a particular Amazon Resource Name (ARN). An ARN
-        /// is an identifier for a specific AWS resource, such as a server, user, or role.
+        /// is an identifier for a specific Amazon Web Services resource, such as a server, user,
+        /// or role.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=20, Max=1600)]

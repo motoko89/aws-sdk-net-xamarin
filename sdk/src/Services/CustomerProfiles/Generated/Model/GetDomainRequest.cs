@@ -39,7 +39,7 @@ namespace Amazon.CustomerProfiles.Model
         /// <summary>
         /// Gets and sets the property DomainName. 
         /// <para>
-        /// A unique name for the domain.
+        /// The unique name of the domain.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=64)]

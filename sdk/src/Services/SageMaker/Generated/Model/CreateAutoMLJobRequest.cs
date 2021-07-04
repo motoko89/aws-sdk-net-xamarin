@@ -49,6 +49,7 @@ namespace Amazon.SageMaker.Model
         private AutoMLJobObjective _autoMLJobObjective;
         private bool? _generateCandidateDefinitionsOnly;
         private List<AutoMLChannel> _inputDataConfig = new List<AutoMLChannel>();
+        private ModelDeployConfig _modelDeployConfig;
         private AutoMLOutputDataConfig _outputDataConfig;
         private ProblemType _problemType;
         private string _roleArn;
@@ -57,7 +58,8 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property AutoMLJobConfig. 
         /// <para>
-        /// Contains CompletionCriteria and SecurityConfig settings for the AutoML job.
+        /// Contains <code>CompletionCriteria</code> and <code>SecurityConfig</code> settings
+        /// for the AutoML job.
         /// </para>
         /// </summary>
         public AutoMLJobConfig AutoMLJobConfig
@@ -95,7 +97,7 @@ namespace Amazon.SageMaker.Model
         /// Gets and sets the property AutoMLJobObjective. 
         /// <para>
         /// Defines the objective metric used to measure the predictive quality of an AutoML job.
-        /// You provide a <a>AutoMLJobObjective$MetricName</a> and Autopilot infers whether to
+        /// You provide an <a>AutoMLJobObjective$MetricName</a> and Autopilot infers whether to
         /// minimize or maximize it.
         /// </para>
         /// </summary>
@@ -152,6 +154,25 @@ namespace Amazon.SageMaker.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ModelDeployConfig. 
+        /// <para>
+        /// Specifies how to generate the endpoint name for an automatic one-click Autopilot model
+        /// deployment.
+        /// </para>
+        /// </summary>
+        public ModelDeployConfig ModelDeployConfig
+        {
+            get { return this._modelDeployConfig; }
+            set { this._modelDeployConfig = value; }
+        }
+
+        // Check to see if ModelDeployConfig property is set
+        internal bool IsSetModelDeployConfig()
+        {
+            return this._modelDeployConfig != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property OutputDataConfig. 
         /// <para>
         /// Provides information about encryption and the Amazon S3 output path needed to store
@@ -175,8 +196,8 @@ namespace Amazon.SageMaker.Model
         /// Gets and sets the property ProblemType. 
         /// <para>
         /// Defines the type of supervised learning available for the candidates. Options include:
-        /// BinaryClassification, MulticlassClassification, and Regression. For more information,
-        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
+        /// <code>BinaryClassification</code>, <code>MulticlassClassification</code>, and <code>Regression</code>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
         /// Amazon SageMaker Autopilot problem types and algorithm support</a>.
         /// </para>
         /// </summary>
