@@ -21,6 +21,8 @@
 
     <NoWarn>$(NoWarn);CS1591</NoWarn>       
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Configurations>Debug;Release;Test</Configurations>
+    <Platforms>AnyCPU;iPhoneSimulator</Platforms>
   </PropertyGroup>
     <!-- Async Enumerable Compatibility -->
   <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
@@ -41,11 +43,11 @@
     <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;RELEASE;NETSTANDARD;NETSTANDARD2_0;AWS_ASYNC_ENUMERABLES_API</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|iPhoneSimulator' ">
-    <IntermediateOutputPath>obj\AWSSDK.Core.NetStandard\iPhoneSimulator\Test</IntermediateOutputPath>
+    <IntermediateOutputPath>obj\AWSSDK.Core.NetStandard\iPhoneSimulator\Test\netstandard2.0\netstandard2.0\netstandard2.0</IntermediateOutputPath>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\iPhoneSimulator\Test</OutputPath>
+    <OutputPath>bin\iPhoneSimulator\Test\netstandard2.0\netstandard2.0\netstandard2.0</OutputPath>
     <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;AWS_ASYNC_ENUMERABLES_API;DEBUG;TEST;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
     <DocumentationFile>obj\AWSSDK.Core.NetStandard\Debug\netstandard2.0\AWSSDK.SecurityToken.xml</DocumentationFile>
     <AssemblyName>AWSSDK.Core.NetStandard</AssemblyName>
@@ -55,13 +57,13 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|AnyCPU' ">
     <DebugType></DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Test</OutputPath>
+    <OutputPath>bin\Test\netstandard2.0\netstandard2.0\netstandard2.0</OutputPath>
     <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;AWS_ASYNC_ENUMERABLES_API;DEBUG;TEST;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile></DocumentationFile>
     <AssemblyName>AWSSDK.Core.NetStandard</AssemblyName>
     <NoStdLib>true</NoStdLib>
-    <IntermediateOutputPath>obj\AWSSDK.Core.NetStandard\Test</IntermediateOutputPath>
+    <IntermediateOutputPath>obj\AWSSDK.Core.NetStandard\Test\netstandard2.0\netstandard2.0\netstandard2.0</IntermediateOutputPath>
     <NoWarn></NoWarn>
   </PropertyGroup>
   <Choose>

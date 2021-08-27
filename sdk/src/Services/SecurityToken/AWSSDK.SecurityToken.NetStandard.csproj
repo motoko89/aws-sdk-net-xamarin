@@ -20,6 +20,8 @@
     <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
 
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Configurations>Debug;Release;Test</Configurations>
+    <Platforms>AnyCPU;iPhoneSimulator</Platforms>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
@@ -29,11 +31,11 @@
     <DefineConstants>TRACE;AWS_ASYNC_API;RELEASE;NETSTANDARD;NETSTANDARD2_0;NETSTANDARD20</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|iPhoneSimulator' ">
-    <IntermediateOutputPath>obj\AWSSDK.SecurityToken.NetStandard\iPhoneSimulator\Test</IntermediateOutputPath>
+    <IntermediateOutputPath>obj\AWSSDK.SecurityToken.NetStandard\iPhoneSimulator\Test\netstandard2.0\netstandard2.0\netstandard2.0</IntermediateOutputPath>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\iPhoneSimulator\Test</OutputPath>
+    <OutputPath>bin\iPhoneSimulator\Test\netstandard2.0\netstandard2.0\netstandard2.0</OutputPath>
     <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
     <DocumentationFile>obj\AWSSDK.SecurityToken.NetStandard\Debug\netstandard2.0\AWSSDK.SecurityToken.xml</DocumentationFile>
     <AssemblyName>AWSSDK.SecurityToken.NetStandard</AssemblyName>
@@ -60,7 +62,7 @@
     <Optimize>false</Optimize>
     <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;DEBUG;NETSTANDARD;NETSTANDARD2_0;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
     <DocumentationFile>obj\AWSSDK.SecurityToken.NetStandard\Debug\netstandard2.0\AWSSDK.SecurityToken.xml</DocumentationFile>
-    <IntermediateOutputPath>obj\AWSSDK.SecurityToken.NetStandard\Debug\netstandard2.0</IntermediateOutputPath>
+    <IntermediateOutputPath>obj\AWSSDK.SecurityToken.NetStandard\Debug\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0</IntermediateOutputPath>
   </PropertyGroup>
   <Choose>
     <When Condition=" '$(AWSKeyFile)' == '' ">
