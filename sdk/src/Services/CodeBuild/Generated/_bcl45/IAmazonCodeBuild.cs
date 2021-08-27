@@ -31,6 +31,8 @@ namespace Amazon.CodeBuild
     /// <summary>
     /// Interface for accessing CodeBuild
     ///
+    /// CodeBuild 
+    /// <para>
     /// CodeBuild is a fully managed build service in the cloud. CodeBuild compiles your source
     /// code, runs unit tests, and produces artifacts that are ready to deploy. CodeBuild
     /// eliminates the need to provision, manage, and scale your own build servers. It provides
@@ -39,7 +41,8 @@ namespace Amazon.CodeBuild
     /// environments in CodeBuild to use your own build tools. CodeBuild scales automatically
     /// to meet peak build requests. You pay only for the build time you consume. For more
     /// information about CodeBuild, see the <i> <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html">CodeBuild
-    /// User Guide</a>.</i>
+    /// User Guide</a>.</i> 
+    /// </para>
     /// </summary>
     public partial interface IAmazonCodeBuild : IAmazonService, IDisposable
     {
@@ -1705,6 +1708,126 @@ namespace Amazon.CodeBuild
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/UpdateProject">REST API Reference for UpdateProject Operation</seealso>
         Task<UpdateProjectResponse> UpdateProjectAsync(UpdateProjectRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  UpdateProjectVisibility
+
+
+        /// <summary>
+        /// Changes the public visibility for a project. The project's build results, logs, and
+        /// artifacts are available to the general public. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/public-builds.html">Public
+        /// build projects</a> in the <i>CodeBuild User Guide</i>.
+        /// 
+        ///  <important> 
+        /// <para>
+        /// The following should be kept in mind when making your projects public:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// All of a project's build results, logs, and artifacts, including builds that were
+        /// run when the project was private, are available to the general public.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// All build logs and artifacts are available to the public. Environment variables, source
+        /// code, and other sensitive information may have been output to the build logs and artifacts.
+        /// You must be careful about what information is output to the build logs. Some best
+        /// practice are:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Do not store sensitive values, especially Amazon Web Services access key IDs and secret
+        /// access keys, in environment variables. We recommend that you use an Amazon EC2 Systems
+        /// Manager Parameter Store or Secrets Manager to store sensitive values.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Follow <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/webhooks.html#webhook-best-practices">Best
+        /// practices for using webhooks</a> in the <i>CodeBuild User Guide</i> to limit which
+        /// entities can trigger a build, and do not store the buildspec in the project itself,
+        /// to ensure that your webhooks are as secure as possible.
+        /// </para>
+        ///  </li> </ul> </li> <li> 
+        /// <para>
+        /// A malicious user can use public builds to distribute malicious artifacts. We recommend
+        /// that you review all pull requests to verify that the pull request is a legitimate
+        /// change. We also recommend that you validate any artifacts with their checksums to
+        /// make sure that the correct artifacts are being downloaded.
+        /// </para>
+        ///  </li> </ul> </important>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateProjectVisibility service method.</param>
+        /// 
+        /// <returns>The response from the UpdateProjectVisibility service method, as returned by CodeBuild.</returns>
+        /// <exception cref="Amazon.CodeBuild.Model.InvalidInputException">
+        /// The input value that was provided is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CodeBuild.Model.ResourceNotFoundException">
+        /// The specified Amazon Web Services resource cannot be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/UpdateProjectVisibility">REST API Reference for UpdateProjectVisibility Operation</seealso>
+        UpdateProjectVisibilityResponse UpdateProjectVisibility(UpdateProjectVisibilityRequest request);
+
+
+
+        /// <summary>
+        /// Changes the public visibility for a project. The project's build results, logs, and
+        /// artifacts are available to the general public. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/public-builds.html">Public
+        /// build projects</a> in the <i>CodeBuild User Guide</i>.
+        /// 
+        ///  <important> 
+        /// <para>
+        /// The following should be kept in mind when making your projects public:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// All of a project's build results, logs, and artifacts, including builds that were
+        /// run when the project was private, are available to the general public.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// All build logs and artifacts are available to the public. Environment variables, source
+        /// code, and other sensitive information may have been output to the build logs and artifacts.
+        /// You must be careful about what information is output to the build logs. Some best
+        /// practice are:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Do not store sensitive values, especially Amazon Web Services access key IDs and secret
+        /// access keys, in environment variables. We recommend that you use an Amazon EC2 Systems
+        /// Manager Parameter Store or Secrets Manager to store sensitive values.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Follow <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/webhooks.html#webhook-best-practices">Best
+        /// practices for using webhooks</a> in the <i>CodeBuild User Guide</i> to limit which
+        /// entities can trigger a build, and do not store the buildspec in the project itself,
+        /// to ensure that your webhooks are as secure as possible.
+        /// </para>
+        ///  </li> </ul> </li> <li> 
+        /// <para>
+        /// A malicious user can use public builds to distribute malicious artifacts. We recommend
+        /// that you review all pull requests to verify that the pull request is a legitimate
+        /// change. We also recommend that you validate any artifacts with their checksums to
+        /// make sure that the correct artifacts are being downloaded.
+        /// </para>
+        ///  </li> </ul> </important>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateProjectVisibility service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateProjectVisibility service method, as returned by CodeBuild.</returns>
+        /// <exception cref="Amazon.CodeBuild.Model.InvalidInputException">
+        /// The input value that was provided is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CodeBuild.Model.ResourceNotFoundException">
+        /// The specified Amazon Web Services resource cannot be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/UpdateProjectVisibility">REST API Reference for UpdateProjectVisibility Operation</seealso>
+        Task<UpdateProjectVisibilityResponse> UpdateProjectVisibilityAsync(UpdateProjectVisibilityRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         

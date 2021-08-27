@@ -48,7 +48,8 @@ namespace Amazon.DirectoryService.Model
         /// <summary>
         /// Gets and sets the property DirectoryId. 
         /// <para>
-        /// The Directory ID of the AWS directory that is a part of the requested trust relationship.
+        /// The Directory ID of the Amazon Web Services directory that is a part of the requested
+        /// trust relationship.
         /// </para>
         /// </summary>
         public string DirectoryId

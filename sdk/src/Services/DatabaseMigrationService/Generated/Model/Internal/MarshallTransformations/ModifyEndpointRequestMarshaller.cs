@@ -147,6 +147,12 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.EngineName);
                 }
 
+                if(publicRequest.IsSetExactSettings())
+                {
+                    context.Writer.WritePropertyName("ExactSettings");
+                    context.Writer.Write(publicRequest.ExactSettings);
+                }
+
                 if(publicRequest.IsSetExternalTableDefinition())
                 {
                     context.Writer.WritePropertyName("ExternalTableDefinition");
@@ -266,6 +272,17 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
 
                     var marshaller = PostgreSQLSettingsMarshaller.Instance;
                     marshaller.Marshall(publicRequest.PostgreSQLSettings, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetRedisSettings())
+                {
+                    context.Writer.WritePropertyName("RedisSettings");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = RedisSettingsMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.RedisSettings, context);
 
                     context.Writer.WriteObjectEnd();
                 }

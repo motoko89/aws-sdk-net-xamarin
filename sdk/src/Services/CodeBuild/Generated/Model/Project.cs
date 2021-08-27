@@ -47,7 +47,10 @@ namespace Amazon.CodeBuild.Model
         private DateTime? _lastModified;
         private LogsConfig _logsConfig;
         private string _name;
+        private ProjectVisibilityType _projectVisibility;
+        private string _publicProjectAlias;
         private int? _queuedTimeoutInMinutes;
+        private string _resourceAccessRole;
         private List<ProjectArtifacts> _secondaryArtifacts = new List<ProjectArtifacts>();
         private List<ProjectSource> _secondarySources = new List<ProjectSource>();
         private List<ProjectSourceVersion> _secondarySourceVersions = new List<ProjectSourceVersion>();
@@ -339,6 +342,40 @@ namespace Amazon.CodeBuild.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ProjectVisibility.
+        /// </summary>
+        public ProjectVisibilityType ProjectVisibility
+        {
+            get { return this._projectVisibility; }
+            set { this._projectVisibility = value; }
+        }
+
+        // Check to see if ProjectVisibility property is set
+        internal bool IsSetProjectVisibility()
+        {
+            return this._projectVisibility != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PublicProjectAlias. 
+        /// <para>
+        /// Contains the project identifier used with the public build APIs. 
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1)]
+        public string PublicProjectAlias
+        {
+            get { return this._publicProjectAlias; }
+            set { this._publicProjectAlias = value; }
+        }
+
+        // Check to see if PublicProjectAlias property is set
+        internal bool IsSetPublicProjectAlias()
+        {
+            return this._publicProjectAlias != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property QueuedTimeoutInMinutes. 
         /// <para>
         /// The number of minutes a build is allowed to be queued before it times out. 
@@ -355,6 +392,26 @@ namespace Amazon.CodeBuild.Model
         internal bool IsSetQueuedTimeoutInMinutes()
         {
             return this._queuedTimeoutInMinutes.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property ResourceAccessRole. 
+        /// <para>
+        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon
+        /// S3 artifacts for the project's builds.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1)]
+        public string ResourceAccessRole
+        {
+            get { return this._resourceAccessRole; }
+            set { this._resourceAccessRole = value; }
+        }
+
+        // Check to see if ResourceAccessRole property is set
+        internal bool IsSetResourceAccessRole()
+        {
+            return this._resourceAccessRole != null;
         }
 
         /// <summary>
@@ -419,8 +476,8 @@ namespace Amazon.CodeBuild.Model
         /// <summary>
         /// Gets and sets the property ServiceRole. 
         /// <para>
-        /// The ARN of the Identity and Access Management role that enables CodeBuild to interact
-        /// with dependent Amazon Web Services services on behalf of the Amazon Web Services account.
+        /// The ARN of the IAM role that enables CodeBuild to interact with dependent Amazon Web
+        /// Services services on behalf of the Amazon Web Services account.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1)]

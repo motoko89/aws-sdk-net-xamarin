@@ -96,10 +96,10 @@ namespace Amazon.CodeBuild.Model
         ///  If this value is set, it can be either an inline buildspec definition, the path to
         /// an alternate buildspec file relative to the value of the built-in <code>CODEBUILD_SRC_DIR</code>
         /// environment variable, or the path to an S3 bucket. The bucket must be in the same
-        /// Region as the build project. Specify the buildspec file using its ARN (for example,
-        /// <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not
-        /// provided or is set to an empty string, the source code must contain a buildspec file
-        /// in its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec
+        /// Amazon Web Services Region as the build project. Specify the buildspec file using
+        /// its ARN (for example, <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>).
+        /// If this value is not provided or is set to an empty string, the source code must contain
+        /// a buildspec file in its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec
         /// File Name and Storage Location</a>. 
         /// </para>
         /// </summary>

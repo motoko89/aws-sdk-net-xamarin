@@ -5189,6 +5189,64 @@ namespace Amazon.EC2
 
 
     /// <summary>
+    /// Constants used for properties of type InstanceEventWindowState.
+    /// </summary>
+    public class InstanceEventWindowState : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Active for InstanceEventWindowState
+        /// </summary>
+        public static readonly InstanceEventWindowState Active = new InstanceEventWindowState("active");
+        /// <summary>
+        /// Constant Creating for InstanceEventWindowState
+        /// </summary>
+        public static readonly InstanceEventWindowState Creating = new InstanceEventWindowState("creating");
+        /// <summary>
+        /// Constant Deleted for InstanceEventWindowState
+        /// </summary>
+        public static readonly InstanceEventWindowState Deleted = new InstanceEventWindowState("deleted");
+        /// <summary>
+        /// Constant Deleting for InstanceEventWindowState
+        /// </summary>
+        public static readonly InstanceEventWindowState Deleting = new InstanceEventWindowState("deleting");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public InstanceEventWindowState(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static InstanceEventWindowState FindValue(string value)
+        {
+            return FindValue<InstanceEventWindowState>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator InstanceEventWindowState(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type InstanceHealthStatus.
     /// </summary>
     public class InstanceHealthStatus : ConstantClass
@@ -5536,6 +5594,56 @@ namespace Amazon.EC2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator InstanceMetadataOptionsState(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type InstanceMetadataProtocolState.
+    /// </summary>
+    public class InstanceMetadataProtocolState : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Disabled for InstanceMetadataProtocolState
+        /// </summary>
+        public static readonly InstanceMetadataProtocolState Disabled = new InstanceMetadataProtocolState("disabled");
+        /// <summary>
+        /// Constant Enabled for InstanceMetadataProtocolState
+        /// </summary>
+        public static readonly InstanceMetadataProtocolState Enabled = new InstanceMetadataProtocolState("enabled");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public InstanceMetadataProtocolState(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static InstanceMetadataProtocolState FindValue(string value)
+        {
+            return FindValue<InstanceMetadataProtocolState>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator InstanceMetadataProtocolState(string value)
         {
             return FindValue(value);
         }
@@ -6067,6 +6175,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType G4ad16xlarge = new InstanceType("g4ad.16xlarge");
         /// <summary>
+        /// Constant G4ad2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType G4ad2xlarge = new InstanceType("g4ad.2xlarge");
+        /// <summary>
         /// Constant G4ad4xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType G4ad4xlarge = new InstanceType("g4ad.4xlarge");
@@ -6074,6 +6186,10 @@ namespace Amazon.EC2
         /// Constant G4ad8xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType G4ad8xlarge = new InstanceType("g4ad.8xlarge");
+        /// <summary>
+        /// Constant G4adXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType G4adXlarge = new InstanceType("g4ad.xlarge");
         /// <summary>
         /// Constant G4dn12xlarge for InstanceType
         /// </summary>
@@ -6594,6 +6710,42 @@ namespace Amazon.EC2
         /// Constant M6gXlarge for InstanceType
         /// </summary>
         public static readonly InstanceType M6gXlarge = new InstanceType("m6g.xlarge");
+        /// <summary>
+        /// Constant M6i12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6i12xlarge = new InstanceType("m6i.12xlarge");
+        /// <summary>
+        /// Constant M6i16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6i16xlarge = new InstanceType("m6i.16xlarge");
+        /// <summary>
+        /// Constant M6i24xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6i24xlarge = new InstanceType("m6i.24xlarge");
+        /// <summary>
+        /// Constant M6i2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6i2xlarge = new InstanceType("m6i.2xlarge");
+        /// <summary>
+        /// Constant M6i32xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6i32xlarge = new InstanceType("m6i.32xlarge");
+        /// <summary>
+        /// Constant M6i4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6i4xlarge = new InstanceType("m6i.4xlarge");
+        /// <summary>
+        /// Constant M6i8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6i8xlarge = new InstanceType("m6i.8xlarge");
+        /// <summary>
+        /// Constant M6iLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6iLarge = new InstanceType("m6i.large");
+        /// <summary>
+        /// Constant M6iXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6iXlarge = new InstanceType("m6i.xlarge");
         /// <summary>
         /// Constant Mac1Metal for InstanceType
         /// </summary>
@@ -7468,6 +7620,56 @@ namespace Amazon.EC2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator Ipv6SupportValue(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type KeyType.
+    /// </summary>
+    public class KeyType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Ed25519 for KeyType
+        /// </summary>
+        public static readonly KeyType Ed25519 = new KeyType("ed25519");
+        /// <summary>
+        /// Constant Rsa for KeyType
+        /// </summary>
+        public static readonly KeyType Rsa = new KeyType("rsa");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public KeyType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static KeyType FindValue(string value)
+        {
+            return FindValue<KeyType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator KeyType(string value)
         {
             return FindValue(value);
         }
@@ -10139,6 +10341,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly ResourceType Instance = new ResourceType("instance");
         /// <summary>
+        /// Constant InstanceEventWindow for ResourceType
+        /// </summary>
+        public static readonly ResourceType InstanceEventWindow = new ResourceType("instance-event-window");
+        /// <summary>
         /// Constant InternetGateway for ResourceType
         /// </summary>
         public static readonly ResourceType InternetGateway = new ResourceType("internet-gateway");
@@ -10190,6 +10396,10 @@ namespace Amazon.EC2
         /// Constant SecurityGroup for ResourceType
         /// </summary>
         public static readonly ResourceType SecurityGroup = new ResourceType("security-group");
+        /// <summary>
+        /// Constant SecurityGroupRule for ResourceType
+        /// </summary>
+        public static readonly ResourceType SecurityGroupRule = new ResourceType("security-group-rule");
         /// <summary>
         /// Constant Snapshot for ResourceType
         /// </summary>
@@ -11558,6 +11768,56 @@ namespace Amazon.EC2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator SubnetCidrBlockStateCode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type SubnetCidrReservationType.
+    /// </summary>
+    public class SubnetCidrReservationType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Explicit for SubnetCidrReservationType
+        /// </summary>
+        public static readonly SubnetCidrReservationType Explicit = new SubnetCidrReservationType("explicit");
+        /// <summary>
+        /// Constant Prefix for SubnetCidrReservationType
+        /// </summary>
+        public static readonly SubnetCidrReservationType Prefix = new SubnetCidrReservationType("prefix");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public SubnetCidrReservationType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static SubnetCidrReservationType FindValue(string value)
+        {
+            return FindValue<SubnetCidrReservationType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator SubnetCidrReservationType(string value)
         {
             return FindValue(value);
         }
@@ -14158,6 +14418,76 @@ namespace Amazon.EC2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator VpnStaticRouteSource(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type WeekDay.
+    /// </summary>
+    public class WeekDay : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Friday for WeekDay
+        /// </summary>
+        public static readonly WeekDay Friday = new WeekDay("friday");
+        /// <summary>
+        /// Constant Monday for WeekDay
+        /// </summary>
+        public static readonly WeekDay Monday = new WeekDay("monday");
+        /// <summary>
+        /// Constant Saturday for WeekDay
+        /// </summary>
+        public static readonly WeekDay Saturday = new WeekDay("saturday");
+        /// <summary>
+        /// Constant Sunday for WeekDay
+        /// </summary>
+        public static readonly WeekDay Sunday = new WeekDay("sunday");
+        /// <summary>
+        /// Constant Thursday for WeekDay
+        /// </summary>
+        public static readonly WeekDay Thursday = new WeekDay("thursday");
+        /// <summary>
+        /// Constant Tuesday for WeekDay
+        /// </summary>
+        public static readonly WeekDay Tuesday = new WeekDay("tuesday");
+        /// <summary>
+        /// Constant Wednesday for WeekDay
+        /// </summary>
+        public static readonly WeekDay Wednesday = new WeekDay("wednesday");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public WeekDay(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static WeekDay FindValue(string value)
+        {
+            return FindValue<WeekDay>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator WeekDay(string value)
         {
             return FindValue(value);
         }

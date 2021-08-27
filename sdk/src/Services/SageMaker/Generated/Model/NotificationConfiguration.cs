@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.SageMaker.Model
 {
     /// <summary>
-    /// Configures SNS notifications of available or expiring work items for work teams.
+    /// Configures Amazon SNS notifications of available or expiring work items for work teams.
     /// </summary>
     public partial class NotificationConfiguration
     {
@@ -38,7 +38,7 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property NotificationTopicArn. 
         /// <para>
-        /// The ARN for the SNS topic to which notifications should be published.
+        /// The ARN for the Amazon SNS topic to which notifications should be published.
         /// </para>
         /// </summary>
         public string NotificationTopicArn

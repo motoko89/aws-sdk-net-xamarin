@@ -394,6 +394,48 @@ namespace Amazon.Redshift
 
         #endregion
         
+        #region  AssociateDataShareConsumer
+
+        internal virtual AssociateDataShareConsumerResponse AssociateDataShareConsumer(AssociateDataShareConsumerRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateDataShareConsumerRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateDataShareConsumerResponseUnmarshaller.Instance;
+
+            return Invoke<AssociateDataShareConsumerResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// From a datashare consumer account, associates a datashare with the account (AssociateEntireAccount)
+        /// or the specified namespace (ConsumerArn). If you make this association, the consumer
+        /// can consume the datashare.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssociateDataShareConsumer service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AssociateDataShareConsumer service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.InvalidDataShareException">
+        /// There is an error with the datashare.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidNamespaceException">
+        /// The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/AssociateDataShareConsumer">REST API Reference for AssociateDataShareConsumer Operation</seealso>
+        public virtual Task<AssociateDataShareConsumerResponse> AssociateDataShareConsumerAsync(AssociateDataShareConsumerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateDataShareConsumerRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateDataShareConsumerResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AssociateDataShareConsumerResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  AuthorizeClusterSecurityGroupIngress
 
         internal virtual AuthorizeClusterSecurityGroupIngressResponse AuthorizeClusterSecurityGroupIngress(AuthorizeClusterSecurityGroupIngressRequest request)
@@ -418,7 +460,7 @@ namespace Amazon.Redshift
         /// <para>
         /// If you authorize access to an Amazon EC2 security group, specify <i>EC2SecurityGroupName</i>
         /// and <i>EC2SecurityGroupOwnerId</i>. The Amazon EC2 security group and Amazon Redshift
-        /// cluster must be in the same AWS Region. 
+        /// cluster must be in the same Amazon Web Services Region. 
         /// </para>
         ///  
         /// <para>
@@ -461,6 +503,45 @@ namespace Amazon.Redshift
             options.ResponseUnmarshaller = AuthorizeClusterSecurityGroupIngressResponseUnmarshaller.Instance;
 
             return InvokeAsync<AuthorizeClusterSecurityGroupIngressResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  AuthorizeDataShare
+
+        internal virtual AuthorizeDataShareResponse AuthorizeDataShare(AuthorizeDataShareRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AuthorizeDataShareRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AuthorizeDataShareResponseUnmarshaller.Instance;
+
+            return Invoke<AuthorizeDataShareResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// From a data producer account, authorizes the sharing of a datashare with one or more
+        /// consumer accounts. To authorize a datashare for a data consumer, the producer account
+        /// must have the correct access privileges.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AuthorizeDataShare service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AuthorizeDataShare service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.InvalidDataShareException">
+        /// There is an error with the datashare.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/AuthorizeDataShare">REST API Reference for AuthorizeDataShare Operation</seealso>
+        public virtual Task<AuthorizeDataShareResponse> AuthorizeDataShareAsync(AuthorizeDataShareRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AuthorizeDataShareRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AuthorizeDataShareResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AuthorizeDataShareResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -531,7 +612,7 @@ namespace Amazon.Redshift
 
 
         /// <summary>
-        /// Authorizes the specified AWS customer account to restore the specified snapshot.
+        /// Authorizes the specified Amazon Web Services account to restore the specified snapshot.
         /// 
         ///  
         /// <para>
@@ -564,7 +645,7 @@ namespace Amazon.Redshift
         /// accounts are authorized to access the snapshot.
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.LimitExceededException">
-        /// The encryption key has exceeded its grant limit in AWS KMS.
+        /// The encryption key has exceeded its grant limit in Amazon Web Services KMS.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/AuthorizeSnapshotAccess">REST API Reference for AuthorizeSnapshotAccess Operation</seealso>
         public virtual Task<AuthorizeSnapshotAccessResponse> AuthorizeSnapshotAccessAsync(AuthorizeSnapshotAccessRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
@@ -777,6 +858,53 @@ namespace Amazon.Redshift
 
         #endregion
         
+        #region  CreateAuthenticationProfile
+
+        internal virtual CreateAuthenticationProfileResponse CreateAuthenticationProfile(CreateAuthenticationProfileRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateAuthenticationProfileRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateAuthenticationProfileResponseUnmarshaller.Instance;
+
+            return Invoke<CreateAuthenticationProfileResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates an authentication profile with the specified parameters.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateAuthenticationProfile service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateAuthenticationProfile service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.AuthenticationProfileAlreadyExistsException">
+        /// The authentication profile already exists.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.AuthenticationProfileQuotaExceededException">
+        /// The size or number of authentication profiles has exceeded the quota. The maximum
+        /// length of the JSON string and maximum number of authentication profiles is determined
+        /// by a quota for your account.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidAuthenticationProfileRequestException">
+        /// The authentication profile request is not valid. The profile name can't be null or
+        /// empty. The authentication profile API operation must be available in the Amazon Web
+        /// Services Region.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateAuthenticationProfile">REST API Reference for CreateAuthenticationProfile Operation</seealso>
+        public virtual Task<CreateAuthenticationProfileResponse> CreateAuthenticationProfileAsync(CreateAuthenticationProfileRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateAuthenticationProfileRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateAuthenticationProfileResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateAuthenticationProfileResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateCluster
 
         internal virtual CreateClusterResponse CreateCluster(CreateClusterRequest request)
@@ -865,7 +993,7 @@ namespace Amazon.Redshift
         /// The cluster subnet group does not cover all Availability Zones.
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.LimitExceededException">
-        /// The encryption key has exceeded its grant limit in AWS KMS.
+        /// The encryption key has exceeded its grant limit in Amazon Web Services KMS.
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.NumberOfNodesPerClusterLimitExceededException">
         /// The operation would exceed the number of nodes allowed for a cluster.
@@ -1252,9 +1380,10 @@ namespace Amazon.Redshift
         /// and source identifier = my-cluster-1, notifications will be sent for all the cluster
         /// events for my-cluster-1. If you specify a source type but do not specify a source
         /// identifier, you will receive notice of the events for the objects of that type in
-        /// your AWS account. If you do not specify either the SourceType nor the SourceIdentifier,
-        /// you will be notified of events generated from all Amazon Redshift sources belonging
-        /// to your AWS account. You must specify a source type if you specify a source ID.
+        /// your Amazon Web Services account. If you do not specify either the SourceType nor
+        /// the SourceIdentifier, you will be notified of events generated from all Amazon Redshift
+        /// sources belonging to your Amazon Web Services account. You must specify a source type
+        /// if you specify a source ID.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateEventSubscription service method.</param>
@@ -1502,8 +1631,8 @@ namespace Amazon.Redshift
 
         /// <summary>
         /// Creates a snapshot copy grant that permits Amazon Redshift to use a customer master
-        /// key (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied snapshots in
-        /// a destination region.
+        /// key (CMK) from Key Management Service (KMS) to encrypt copied snapshots in a destination
+        /// region.
         /// 
         ///  
         /// <para>
@@ -1526,14 +1655,15 @@ namespace Amazon.Redshift
         /// The tag is invalid.
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.LimitExceededException">
-        /// The encryption key has exceeded its grant limit in AWS KMS.
+        /// The encryption key has exceeded its grant limit in Amazon Web Services KMS.
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.SnapshotCopyGrantAlreadyExistsException">
         /// The snapshot copy grant can't be created because a grant with the same name already
         /// exists.
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.SnapshotCopyGrantQuotaExceededException">
-        /// The AWS account has exceeded the maximum number of snapshot copy grants in this region.
+        /// The Amazon Web Services account has exceeded the maximum number of snapshot copy grants
+        /// in this region.
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.TagLimitExceededException">
         /// You have exceeded the number of tags allowed.
@@ -1693,7 +1823,7 @@ namespace Amazon.Redshift
         /// The usage limit is not valid.
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.LimitExceededException">
-        /// The encryption key has exceeded its grant limit in AWS KMS.
+        /// The encryption key has exceeded its grant limit in Amazon Web Services KMS.
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.TagLimitExceededException">
         /// You have exceeded the number of tags allowed.
@@ -1712,6 +1842,85 @@ namespace Amazon.Redshift
             options.ResponseUnmarshaller = CreateUsageLimitResponseUnmarshaller.Instance;
 
             return InvokeAsync<CreateUsageLimitResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeauthorizeDataShare
+
+        internal virtual DeauthorizeDataShareResponse DeauthorizeDataShare(DeauthorizeDataShareRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeauthorizeDataShareRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeauthorizeDataShareResponseUnmarshaller.Instance;
+
+            return Invoke<DeauthorizeDataShareResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// From the producer account, removes authorization from the specified datashare.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeauthorizeDataShare service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeauthorizeDataShare service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.InvalidDataShareException">
+        /// There is an error with the datashare.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeauthorizeDataShare">REST API Reference for DeauthorizeDataShare Operation</seealso>
+        public virtual Task<DeauthorizeDataShareResponse> DeauthorizeDataShareAsync(DeauthorizeDataShareRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeauthorizeDataShareRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeauthorizeDataShareResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeauthorizeDataShareResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteAuthenticationProfile
+
+        internal virtual DeleteAuthenticationProfileResponse DeleteAuthenticationProfile(DeleteAuthenticationProfileRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteAuthenticationProfileRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteAuthenticationProfileResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteAuthenticationProfileResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes an authentication profile.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteAuthenticationProfile service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteAuthenticationProfile service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.AuthenticationProfileNotFoundException">
+        /// The authentication profile can't be found.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidAuthenticationProfileRequestException">
+        /// The authentication profile request is not valid. The profile name can't be null or
+        /// empty. The authentication profile API operation must be available in the Amazon Web
+        /// Services Region.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteAuthenticationProfile">REST API Reference for DeleteAuthenticationProfile Operation</seealso>
+        public virtual Task<DeleteAuthenticationProfileResponse> DeleteAuthenticationProfileAsync(DeleteAuthenticationProfileRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteAuthenticationProfileRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteAuthenticationProfileResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteAuthenticationProfileResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -2437,6 +2646,48 @@ namespace Amazon.Redshift
 
         #endregion
         
+        #region  DescribeAuthenticationProfiles
+
+        internal virtual DescribeAuthenticationProfilesResponse DescribeAuthenticationProfiles(DescribeAuthenticationProfilesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeAuthenticationProfilesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeAuthenticationProfilesResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeAuthenticationProfilesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Describes an authentication profile.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeAuthenticationProfiles service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeAuthenticationProfiles service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.AuthenticationProfileNotFoundException">
+        /// The authentication profile can't be found.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidAuthenticationProfileRequestException">
+        /// The authentication profile request is not valid. The profile name can't be null or
+        /// empty. The authentication profile API operation must be available in the Amazon Web
+        /// Services Region.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeAuthenticationProfiles">REST API Reference for DescribeAuthenticationProfiles Operation</seealso>
+        public virtual Task<DescribeAuthenticationProfilesResponse> DescribeAuthenticationProfilesAsync(DescribeAuthenticationProfilesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeAuthenticationProfilesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeAuthenticationProfilesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeAuthenticationProfilesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DescribeClusterDbRevisions
 
         internal virtual DescribeClusterDbRevisionsResponse DescribeClusterDbRevisions(DescribeClusterDbRevisionsRequest request)
@@ -2867,8 +3118,8 @@ namespace Amazon.Redshift
         /// <summary>
         /// Returns one or more snapshot objects, which contain metadata about your cluster snapshots.
         /// By default, this operation returns information about all snapshots of all clusters
-        /// that are owned by you AWS customer account. No information is returned for snapshots
-        /// owned by inactive AWS customer accounts.
+        /// that are owned by your Amazon Web Services account. No information is returned for
+        /// snapshots owned by inactive Amazon Web Services accounts.
         /// 
         ///  
         /// <para>
@@ -2910,8 +3161,8 @@ namespace Amazon.Redshift
         /// <summary>
         /// Returns one or more snapshot objects, which contain metadata about your cluster snapshots.
         /// By default, this operation returns information about all snapshots of all clusters
-        /// that are owned by you AWS customer account. No information is returned for snapshots
-        /// owned by inactive AWS customer accounts.
+        /// that are owned by your Amazon Web Services account. No information is returned for
+        /// snapshots owned by inactive Amazon Web Services accounts.
         /// 
         ///  
         /// <para>
@@ -2974,7 +3225,7 @@ namespace Amazon.Redshift
         /// <summary>
         /// Returns one or more cluster subnet group objects, which contain metadata about your
         /// cluster subnet groups. By default, this operation returns information about all cluster
-        /// subnet groups that are defined in you AWS account.
+        /// subnet groups that are defined in your Amazon Web Services account.
         /// 
         ///  
         /// <para>
@@ -3012,7 +3263,7 @@ namespace Amazon.Redshift
         /// <summary>
         /// Returns one or more cluster subnet group objects, which contain metadata about your
         /// cluster subnet groups. By default, this operation returns information about all cluster
-        /// subnet groups that are defined in you AWS account.
+        /// subnet groups that are defined in your Amazon Web Services account.
         /// 
         ///  
         /// <para>
@@ -3147,6 +3398,120 @@ namespace Amazon.Redshift
             options.ResponseUnmarshaller = DescribeClusterVersionsResponseUnmarshaller.Instance;
 
             return InvokeAsync<DescribeClusterVersionsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeDataShares
+
+        internal virtual DescribeDataSharesResponse DescribeDataShares(DescribeDataSharesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeDataSharesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeDataSharesResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeDataSharesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Shows the status of any inbound or outbound datashares available in the specified
+        /// account.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeDataShares service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeDataShares service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.InvalidDataShareException">
+        /// There is an error with the datashare.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeDataShares">REST API Reference for DescribeDataShares Operation</seealso>
+        public virtual Task<DescribeDataSharesResponse> DescribeDataSharesAsync(DescribeDataSharesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeDataSharesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeDataSharesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeDataSharesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeDataSharesForConsumer
+
+        internal virtual DescribeDataSharesForConsumerResponse DescribeDataSharesForConsumer(DescribeDataSharesForConsumerRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeDataSharesForConsumerRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeDataSharesForConsumerResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeDataSharesForConsumerResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Returns a list of datashares where the account identifier being called is a consumer
+        /// account identifier.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeDataSharesForConsumer service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeDataSharesForConsumer service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.InvalidNamespaceException">
+        /// The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeDataSharesForConsumer">REST API Reference for DescribeDataSharesForConsumer Operation</seealso>
+        public virtual Task<DescribeDataSharesForConsumerResponse> DescribeDataSharesForConsumerAsync(DescribeDataSharesForConsumerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeDataSharesForConsumerRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeDataSharesForConsumerResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeDataSharesForConsumerResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeDataSharesForProducer
+
+        internal virtual DescribeDataSharesForProducerResponse DescribeDataSharesForProducer(DescribeDataSharesForProducerRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeDataSharesForProducerRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeDataSharesForProducerResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeDataSharesForProducerResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Returns a list of datashares when the account identifier being called is a producer
+        /// account identifier.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeDataSharesForProducer service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeDataSharesForProducer service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.InvalidNamespaceException">
+        /// The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeDataSharesForProducer">REST API Reference for DescribeDataSharesForProducer Operation</seealso>
+        public virtual Task<DescribeDataSharesForProducerResponse> DescribeDataSharesForProducerAsync(DescribeDataSharesForProducerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeDataSharesForProducerRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeDataSharesForProducerResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeDataSharesForProducerResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -3508,7 +3873,7 @@ namespace Amazon.Redshift
         /// <summary>
         /// Returns information about the specified HSM client certificate. If no certificate
         /// ID is specified, returns information about all the HSM certificates owned by your
-        /// AWS customer account.
+        /// Amazon Web Services account.
         /// 
         ///  
         /// <para>
@@ -3546,7 +3911,7 @@ namespace Amazon.Redshift
         /// <summary>
         /// Returns information about the specified HSM client certificate. If no certificate
         /// ID is specified, returns information about all the HSM certificates owned by your
-        /// AWS customer account.
+        /// Amazon Web Services account.
         /// 
         ///  
         /// <para>
@@ -3605,7 +3970,7 @@ namespace Amazon.Redshift
         /// <summary>
         /// Returns information about the specified Amazon Redshift HSM configuration. If no configuration
         /// ID is specified, returns information about all the HSM configurations owned by your
-        /// AWS customer account.
+        /// Amazon Web Services account.
         /// 
         ///  
         /// <para>
@@ -3643,7 +4008,7 @@ namespace Amazon.Redshift
         /// <summary>
         /// Returns information about the specified Amazon Redshift HSM configuration. If no configuration
         /// ID is specified, returns information about all the HSM configurations owned by your
-        /// AWS customer account.
+        /// Amazon Web Services account.
         /// 
         ///  
         /// <para>
@@ -3789,11 +4154,11 @@ namespace Amazon.Redshift
         /// <summary>
         /// Returns a list of orderable cluster options. Before you create a new cluster you can
         /// use this operation to find what options are available, such as the EC2 Availability
-        /// Zones (AZ) in the specific AWS Region that you can specify, and the node types you
-        /// can request. The node types differ by available storage, memory, CPU and price. With
-        /// the cost involved you might want to obtain a list of cluster options in the specific
-        /// region and specify values when creating a cluster. For more information about managing
-        /// clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
+        /// Zones (AZ) in the specific Amazon Web Services Region that you can specify, and the
+        /// node types you can request. The node types differ by available storage, memory, CPU
+        /// and price. With the cost involved you might want to obtain a list of cluster options
+        /// in the specific region and specify values when creating a cluster. For more information
+        /// about managing clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
         /// Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
         /// </summary>
         /// <param name="cancellationToken">
@@ -3812,11 +4177,11 @@ namespace Amazon.Redshift
         /// <summary>
         /// Returns a list of orderable cluster options. Before you create a new cluster you can
         /// use this operation to find what options are available, such as the EC2 Availability
-        /// Zones (AZ) in the specific AWS Region that you can specify, and the node types you
-        /// can request. The node types differ by available storage, memory, CPU and price. With
-        /// the cost involved you might want to obtain a list of cluster options in the specific
-        /// region and specify values when creating a cluster. For more information about managing
-        /// clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
+        /// Zones (AZ) in the specific Amazon Web Services Region that you can specify, and the
+        /// node types you can request. The node types differ by available storage, memory, CPU
+        /// and price. With the cost involved you might want to obtain a list of cluster options
+        /// in the specific region and specify values when creating a cluster. For more information
+        /// about managing clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
         /// Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeOrderableClusterOptions service method.</param>
@@ -4142,8 +4507,8 @@ namespace Amazon.Redshift
 
 
         /// <summary>
-        /// Returns a list of snapshot copy grants owned by the AWS account in the destination
-        /// region.
+        /// Returns a list of snapshot copy grants owned by the Amazon Web Services account in
+        /// the destination region.
         /// 
         ///  
         /// <para>
@@ -4488,8 +4853,8 @@ namespace Amazon.Redshift
         ///  
         /// <para>
         /// If your cluster and its snapshots are encrypted using a customer master key (CMK)
-        /// from AWS KMS, use <a>DeleteSnapshotCopyGrant</a> to delete the grant that grants Amazon
-        /// Redshift permission to the CMK in the destination region. 
+        /// from Key Management Service, use <a>DeleteSnapshotCopyGrant</a> to delete the grant
+        /// that grants Amazon Redshift permission to the CMK in the destination region. 
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisableSnapshotCopy service method.</param>
@@ -4518,6 +4883,46 @@ namespace Amazon.Redshift
             options.ResponseUnmarshaller = DisableSnapshotCopyResponseUnmarshaller.Instance;
 
             return InvokeAsync<DisableSnapshotCopyResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DisassociateDataShareConsumer
+
+        internal virtual DisassociateDataShareConsumerResponse DisassociateDataShareConsumer(DisassociateDataShareConsumerRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateDataShareConsumerRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateDataShareConsumerResponseUnmarshaller.Instance;
+
+            return Invoke<DisassociateDataShareConsumerResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// From a consumer account, remove association for the specified datashare.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateDataShareConsumer service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DisassociateDataShareConsumer service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.InvalidDataShareException">
+        /// There is an error with the datashare.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidNamespaceException">
+        /// The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DisassociateDataShareConsumer">REST API Reference for DisassociateDataShareConsumer Operation</seealso>
+        public virtual Task<DisassociateDataShareConsumerResponse> DisassociateDataShareConsumerAsync(DisassociateDataShareConsumerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateDataShareConsumerRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateDataShareConsumerResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DisassociateDataShareConsumerResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -4627,7 +5032,7 @@ namespace Amazon.Redshift
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.LimitExceededException">
-        /// The encryption key has exceeded its grant limit in AWS KMS.
+        /// The encryption key has exceeded its grant limit in Amazon Web Services KMS.
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.SnapshotCopyAlreadyEnabledException">
         /// The cluster already has cross-region snapshot copy enabled.
@@ -4680,7 +5085,7 @@ namespace Amazon.Redshift
         /// 
         ///  
         /// <para>
-        /// The AWS Identity and Access Management (IAM)user or role that executes GetClusterCredentials
+        /// The Identity and Access Management (IAM) user or role that runs GetClusterCredentials
         /// must have an IAM policy attached that allows access to all necessary actions and resources.
         /// For more information about permissions, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html#redshift-policy-resources.getclustercredentials-resources">Resource
         /// Policies for GetClusterCredentials</a> in the Amazon Redshift Cluster Management Guide.
@@ -4823,6 +5228,53 @@ namespace Amazon.Redshift
 
         #endregion
         
+        #region  ModifyAuthenticationProfile
+
+        internal virtual ModifyAuthenticationProfileResponse ModifyAuthenticationProfile(ModifyAuthenticationProfileRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyAuthenticationProfileRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyAuthenticationProfileResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyAuthenticationProfileResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Modifies an authentication profile.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyAuthenticationProfile service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyAuthenticationProfile service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.AuthenticationProfileNotFoundException">
+        /// The authentication profile can't be found.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.AuthenticationProfileQuotaExceededException">
+        /// The size or number of authentication profiles has exceeded the quota. The maximum
+        /// length of the JSON string and maximum number of authentication profiles is determined
+        /// by a quota for your account.
+        /// </exception>
+        /// <exception cref="Amazon.Redshift.Model.InvalidAuthenticationProfileRequestException">
+        /// The authentication profile request is not valid. The profile name can't be null or
+        /// empty. The authentication profile API operation must be available in the Amazon Web
+        /// Services Region.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyAuthenticationProfile">REST API Reference for ModifyAuthenticationProfile Operation</seealso>
+        public virtual Task<ModifyAuthenticationProfileResponse> ModifyAuthenticationProfileAsync(ModifyAuthenticationProfileRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyAuthenticationProfileRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyAuthenticationProfileResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyAuthenticationProfileResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ModifyCluster
 
         internal virtual ModifyClusterResponse ModifyCluster(ModifyClusterRequest request)
@@ -4847,7 +5299,7 @@ namespace Amazon.Redshift
         /// </para>
         ///  
         /// <para>
-        /// You can add another security or parameter group, or change the master user password.
+        /// You can add another security or parameter group, or change the admin user password.
         /// Resetting a cluster password or modifying the security groups associated with a cluster
         /// do not need a reboot. However, modifying a parameter group requires a reboot for parameters
         /// to take effect. For more information about managing clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
@@ -4906,7 +5358,7 @@ namespace Amazon.Redshift
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.LimitExceededException">
-        /// The encryption key has exceeded its grant limit in AWS KMS.
+        /// The encryption key has exceeded its grant limit in Amazon Web Services KMS.
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.NumberOfNodesPerClusterLimitExceededException">
         /// The operation would exceed the number of nodes allowed for a cluster.
@@ -4996,8 +5448,8 @@ namespace Amazon.Redshift
 
 
         /// <summary>
-        /// Modifies the list of AWS Identity and Access Management (IAM) roles that can be used
-        /// by the cluster to access other AWS services.
+        /// Modifies the list of Identity and Access Management (IAM) roles that can be used by
+        /// the cluster to access other Amazon Web Services services.
         /// 
         ///  
         /// <para>
@@ -5082,7 +5534,8 @@ namespace Amazon.Redshift
 
 
         /// <summary>
-        /// Modifies the parameters of a parameter group.
+        /// Modifies the parameters of a parameter group. For the parameters parameter, it can't
+        /// contain ASCII characters.
         /// 
         ///  
         /// <para>
@@ -5451,13 +5904,13 @@ namespace Amazon.Redshift
 
 
         /// <summary>
-        /// Modifies the number of days to retain snapshots in the destination AWS Region after
-        /// they are copied from the source AWS Region. By default, this operation only changes
-        /// the retention period of copied automated snapshots. The retention periods for both
-        /// new and existing copied automated snapshots are updated with the new retention period.
-        /// You can set the manual option to change only the retention periods of copied manual
-        /// snapshots. If you set this option, only newly copied manual snapshots have the new
-        /// retention period.
+        /// Modifies the number of days to retain snapshots in the destination Amazon Web Services
+        /// Region after they are copied from the source Amazon Web Services Region. By default,
+        /// this operation only changes the retention period of copied automated snapshots. The
+        /// retention periods for both new and existing copied automated snapshots are updated
+        /// with the new retention period. You can set the manual option to change only the retention
+        /// periods of copied manual snapshots. If you set this option, only newly copied manual
+        /// snapshots have the new retention period.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifySnapshotCopyRetentionPeriod service method.</param>
         /// <param name="cancellationToken">
@@ -5727,6 +6180,43 @@ namespace Amazon.Redshift
 
         #endregion
         
+        #region  RejectDataShare
+
+        internal virtual RejectDataShareResponse RejectDataShare(RejectDataShareRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RejectDataShareRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RejectDataShareResponseUnmarshaller.Instance;
+
+            return Invoke<RejectDataShareResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// From the consumer account, rejects the specified datashare.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RejectDataShare service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the RejectDataShare service method, as returned by Redshift.</returns>
+        /// <exception cref="Amazon.Redshift.Model.InvalidDataShareException">
+        /// There is an error with the datashare.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/RejectDataShare">REST API Reference for RejectDataShare Operation</seealso>
+        public virtual Task<RejectDataShareResponse> RejectDataShareAsync(RejectDataShareRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RejectDataShareRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RejectDataShareResponseUnmarshaller.Instance;
+
+            return InvokeAsync<RejectDataShareResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ResetClusterParameterGroup
 
         internal virtual ResetClusterParameterGroupResponse ResetClusterParameterGroup(ResetClusterParameterGroupRequest request)
@@ -5857,7 +6347,7 @@ namespace Amazon.Redshift
         /// The specified cluster is not in the <code>available</code> state.
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.LimitExceededException">
-        /// The encryption key has exceeded its grant limit in AWS KMS.
+        /// The encryption key has exceeded its grant limit in Amazon Web Services KMS.
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.NumberOfNodesPerClusterLimitExceededException">
         /// The operation would exceed the number of nodes allowed for a cluster.
@@ -5990,7 +6480,7 @@ namespace Amazon.Redshift
         /// The cluster subnet group does not cover all Availability Zones.
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.LimitExceededException">
-        /// The encryption key has exceeded its grant limit in AWS KMS.
+        /// The encryption key has exceeded its grant limit in Amazon Web Services KMS.
         /// </exception>
         /// <exception cref="Amazon.Redshift.Model.NumberOfNodesPerClusterLimitExceededException">
         /// The operation would exceed the number of nodes allowed for a cluster.
@@ -6254,7 +6744,7 @@ namespace Amazon.Redshift
 
 
         /// <summary>
-        /// Removes the ability of the specified AWS customer account to restore the specified
+        /// Removes the ability of the specified Amazon Web Services account to restore the specified
         /// snapshot. If the account is currently restoring the snapshot, the restore will run
         /// to completion.
         /// 

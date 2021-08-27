@@ -34,6 +34,7 @@ namespace Amazon.EC2.Model
     public partial class ImportImageTask
     {
         private string _architecture;
+        private BootModeValues _bootMode;
         private string _description;
         private bool? _encrypted;
         private string _hypervisor;
@@ -48,6 +49,7 @@ namespace Amazon.EC2.Model
         private string _status;
         private string _statusMessage;
         private List<Tag> _tags = new List<Tag>();
+        private string _usageOperation;
 
         /// <summary>
         /// Gets and sets the property Architecture. 
@@ -69,6 +71,24 @@ namespace Amazon.EC2.Model
         internal bool IsSetArchitecture()
         {
             return this._architecture != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property BootMode. 
+        /// <para>
+        /// The boot mode of the virtual machine.
+        /// </para>
+        /// </summary>
+        public BootModeValues BootMode
+        {
+            get { return this._bootMode; }
+            set { this._bootMode = value; }
+        }
+
+        // Check to see if BootMode property is set
+        internal bool IsSetBootMode()
+        {
+            return this._bootMode != null;
         }
 
         /// <summary>
@@ -168,8 +188,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property KmsKeyId. 
         /// <para>
-        /// The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK)
-        /// that was used to create the encrypted image.
+        /// The identifier for the KMS key that was used to create the encrypted image.
         /// </para>
         /// </summary>
         public string KmsKeyId
@@ -326,6 +345,24 @@ namespace Amazon.EC2.Model
         internal bool IsSetTags()
         {
             return this._tags != null && this._tags.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property UsageOperation. 
+        /// <para>
+        /// The usage operation value.
+        /// </para>
+        /// </summary>
+        public string UsageOperation
+        {
+            get { return this._usageOperation; }
+            set { this._usageOperation = value; }
+        }
+
+        // Check to see if UsageOperation property is set
+        internal bool IsSetUsageOperation()
+        {
+            return this._usageOperation != null;
         }
 
     }

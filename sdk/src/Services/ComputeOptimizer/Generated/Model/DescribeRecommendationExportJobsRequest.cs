@@ -34,8 +34,8 @@ namespace Amazon.ComputeOptimizer.Model
     /// 
     ///  
     /// <para>
-    /// Use the <code>ExportAutoScalingGroupRecommendations</code> or <code>ExportEC2InstanceRecommendations</code>
-    /// actions to request an export of your recommendations. Then use the <code>DescribeRecommendationExportJobs</code>
+    /// Use the <a>ExportAutoScalingGroupRecommendations</a> or <a>ExportEC2InstanceRecommendations</a>
+    /// actions to request an export of your recommendations. Then use the <a>DescribeRecommendationExportJobs</a>
     /// action to view your export jobs.
     /// </para>
     /// </summary>
@@ -49,7 +49,7 @@ namespace Amazon.ComputeOptimizer.Model
         /// <summary>
         /// Gets and sets the property Filters. 
         /// <para>
-        /// An array of objects that describe a filter to return a more specific list of export
+        /// An array of objects to specify a filter that returns a more specific list of export
         /// jobs.
         /// </para>
         /// </summary>
@@ -72,8 +72,8 @@ namespace Amazon.ComputeOptimizer.Model
         /// </para>
         ///  
         /// <para>
-        /// An export job ID is returned when you create an export using the <code>ExportAutoScalingGroupRecommendations</code>
-        /// or <code>ExportEC2InstanceRecommendations</code> actions.
+        /// An export job ID is returned when you create an export using the <a>ExportAutoScalingGroupRecommendations</a>
+        /// or <a>ExportEC2InstanceRecommendations</a> actions.
         /// </para>
         ///  
         /// <para>
@@ -99,7 +99,7 @@ namespace Amazon.ComputeOptimizer.Model
         /// </para>
         ///  
         /// <para>
-        /// To retrieve the remaining results, make another request with the returned <code>NextToken</code>
+        /// To retrieve the remaining results, make another request with the returned <code>nextToken</code>
         /// value.
         /// </para>
         /// </summary>

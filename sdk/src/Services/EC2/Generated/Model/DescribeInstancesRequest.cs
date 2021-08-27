@@ -381,7 +381,7 @@ namespace Amazon.EC2.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>owner-id</code> - The account ID of the instance owner.
+        ///  <code>owner-id</code> - The Amazon Web Services account ID of the instance owner.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -427,7 +427,8 @@ namespace Amazon.EC2.Model
         ///  </li> <li> 
         /// <para>
         ///  <code>requester-id</code> - The ID of the entity that launched the instance on your
-        /// behalf (for example, Management Console, Auto Scaling, and so on).
+        /// behalf (for example, Amazon Web Services Management Console, Auto Scaling, and so
+        /// on).
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -473,7 +474,7 @@ namespace Amazon.EC2.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        ///  <code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
         /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name

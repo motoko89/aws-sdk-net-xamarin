@@ -35,6 +35,7 @@ namespace Amazon.Imagebuilder.Model
     /// </summary>
     public partial class CreateImageRecipeRequest : AmazonImagebuilderRequest
     {
+        private AdditionalInstanceConfiguration _additionalInstanceConfiguration;
         private List<InstanceBlockDeviceMapping> _blockDeviceMappings = new List<InstanceBlockDeviceMapping>();
         private string _clientToken;
         private List<ComponentConfiguration> _components = new List<ComponentConfiguration>();
@@ -44,6 +45,24 @@ namespace Amazon.Imagebuilder.Model
         private string _semanticVersion;
         private Dictionary<string, string> _tags = new Dictionary<string, string>();
         private string _workingDirectory;
+
+        /// <summary>
+        /// Gets and sets the property AdditionalInstanceConfiguration. 
+        /// <para>
+        /// Specify additional settings and launch scripts for your build instances.
+        /// </para>
+        /// </summary>
+        public AdditionalInstanceConfiguration AdditionalInstanceConfiguration
+        {
+            get { return this._additionalInstanceConfiguration; }
+            set { this._additionalInstanceConfiguration = value; }
+        }
+
+        // Check to see if AdditionalInstanceConfiguration property is set
+        internal bool IsSetAdditionalInstanceConfiguration()
+        {
+            return this._additionalInstanceConfiguration != null;
+        }
 
         /// <summary>
         /// Gets and sets the property BlockDeviceMappings. 
@@ -165,8 +184,27 @@ namespace Amazon.Imagebuilder.Model
         /// <summary>
         /// Gets and sets the property SemanticVersion. 
         /// <para>
-        /// The semantic version of the image recipe.
+        /// The semantic version of the image recipe. This version follows the semantic version
+        /// syntax.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
+        /// You can assign values for the first three, and can filter on all of them.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Assignment:</b> For the first three nodes you can assign any positive integer
+        /// value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node.
+        /// Image Builder automatically assigns the build number, and that is not open for updates.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements
+        /// for the nodes that you can assign. For example, you might choose a software version
+        /// pattern, such as 1.0.0, or a date, such as 2021.01.01.
+        /// </para>
+        ///  </note>
         /// </summary>
         [AWSProperty(Required=true)]
         public string SemanticVersion
@@ -203,7 +241,7 @@ namespace Amazon.Imagebuilder.Model
         /// <summary>
         /// Gets and sets the property WorkingDirectory. 
         /// <para>
-        /// The working directory to be used during build and test workflows.
+        /// The working directory used during build and test workflows.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=1024)]

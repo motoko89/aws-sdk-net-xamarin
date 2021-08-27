@@ -515,6 +515,14 @@ namespace Amazon.APIGateway
         /// </summary>
         public static readonly DomainNameStatus PENDING = new DomainNameStatus("PENDING");
         /// <summary>
+        /// Constant PENDING_CERTIFICATE_REIMPORT for DomainNameStatus
+        /// </summary>
+        public static readonly DomainNameStatus PENDING_CERTIFICATE_REIMPORT = new DomainNameStatus("PENDING_CERTIFICATE_REIMPORT");
+        /// <summary>
+        /// Constant PENDING_OWNERSHIP_VERIFICATION for DomainNameStatus
+        /// </summary>
+        public static readonly DomainNameStatus PENDING_OWNERSHIP_VERIFICATION = new DomainNameStatus("PENDING_OWNERSHIP_VERIFICATION");
+        /// <summary>
         /// Constant UPDATING for DomainNameStatus
         /// </summary>
         public static readonly DomainNameStatus UPDATING = new DomainNameStatus("UPDATING");
@@ -694,6 +702,10 @@ namespace Amazon.APIGateway
         /// Constant UNSUPPORTED_MEDIA_TYPE for GatewayResponseType
         /// </summary>
         public static readonly GatewayResponseType UNSUPPORTED_MEDIA_TYPE = new GatewayResponseType("UNSUPPORTED_MEDIA_TYPE");
+        /// <summary>
+        /// Constant WAF_FILTERED for GatewayResponseType
+        /// </summary>
+        public static readonly GatewayResponseType WAF_FILTERED = new GatewayResponseType("WAF_FILTERED");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant

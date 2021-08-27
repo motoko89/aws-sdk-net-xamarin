@@ -186,9 +186,25 @@ namespace Amazon.Imagebuilder.Model
         /// Gets and sets the property SemanticVersion. 
         /// <para>
         /// The semantic version of the component. This version follows the semantic version syntax.
-        /// For example, major.minor.patch. This could be versioned like software (2.0.1) or like
-        /// a date (2019.12.01).
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
+        /// You can assign values for the first three, and can filter on all of them.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Assignment:</b> For the first three nodes you can assign any positive integer
+        /// value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node.
+        /// Image Builder automatically assigns the build number, and that is not open for updates.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements
+        /// for the nodes that you can assign. For example, you might choose a software version
+        /// pattern, such as 1.0.0, or a date, such as 2021.01.01.
+        /// </para>
+        ///  </note>
         /// </summary>
         [AWSProperty(Required=true)]
         public string SemanticVersion
@@ -246,10 +262,10 @@ namespace Amazon.Imagebuilder.Model
         /// <summary>
         /// Gets and sets the property Uri. 
         /// <para>
-        /// The uri of the component. Must be an S3 URL and the requester must have permission
-        /// to access the S3 bucket. If you use S3, you can specify component content up to your
-        /// service quota. Either <code>data</code> or <code>uri</code> can be used to specify
-        /// the data within the component.
+        /// The uri of the component. Must be an Amazon S3 URL and the requester must have permission
+        /// to access the Amazon S3 bucket. If you use Amazon S3, you can specify component content
+        /// up to your service quota. Either <code>data</code> or <code>uri</code> can be used
+        /// to specify the data within the component.
         /// </para>
         /// </summary>
         public string Uri

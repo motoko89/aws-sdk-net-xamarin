@@ -151,6 +151,11 @@ namespace Amazon.EC2.Model
         IDescribeInstanceCreditSpecificationsPaginator DescribeInstanceCreditSpecifications(DescribeInstanceCreditSpecificationsRequest request);
 
         /// <summary>
+        /// Paginator for DescribeInstanceEventWindows operation
+        ///</summary>
+        IDescribeInstanceEventWindowsPaginator DescribeInstanceEventWindows(DescribeInstanceEventWindowsRequest request);
+
+        /// <summary>
         /// Paginator for DescribeInstances operation
         ///</summary>
         IDescribeInstancesPaginator DescribeInstances(DescribeInstancesRequest request);
@@ -306,6 +311,11 @@ namespace Amazon.EC2.Model
         IDescribeScheduledInstancesPaginator DescribeScheduledInstances(DescribeScheduledInstancesRequest request);
 
         /// <summary>
+        /// Paginator for DescribeSecurityGroupRules operation
+        ///</summary>
+        IDescribeSecurityGroupRulesPaginator DescribeSecurityGroupRules(DescribeSecurityGroupRulesRequest request);
+
+        /// <summary>
         /// Paginator for DescribeSecurityGroups operation
         ///</summary>
         IDescribeSecurityGroupsPaginator DescribeSecurityGroups(DescribeSecurityGroupsRequest request);
@@ -404,6 +414,11 @@ namespace Amazon.EC2.Model
         /// Paginator for DescribeTransitGatewayVpcAttachments operation
         ///</summary>
         IDescribeTransitGatewayVpcAttachmentsPaginator DescribeTransitGatewayVpcAttachments(DescribeTransitGatewayVpcAttachmentsRequest request);
+
+        /// <summary>
+        /// Paginator for DescribeTrunkInterfaceAssociations operation
+        ///</summary>
+        IDescribeTrunkInterfaceAssociationsPaginator DescribeTrunkInterfaceAssociations(DescribeTrunkInterfaceAssociationsRequest request);
 
         /// <summary>
         /// Paginator for DescribeVolumes operation

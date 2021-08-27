@@ -38,12 +38,13 @@ namespace Amazon.IoTSiteWise.Model
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#transforms">Transforms</a>
-    /// in the <i>AWS IoT SiteWise User Guide</i>.
+    /// in the <i>IoT SiteWise User Guide</i>.
     /// </para>
     /// </summary>
     public partial class Transform
     {
         private string _expression;
+        private TransformProcessingConfig _processingConfig;
         private List<ExpressionVariable> _variables = new List<ExpressionVariable>();
 
         /// <summary>
@@ -56,7 +57,7 @@ namespace Amazon.IoTSiteWise.Model
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
-        /// in the <i>AWS IoT SiteWise User Guide</i>.
+        /// in the <i>IoT SiteWise User Guide</i>.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=1024)]
@@ -70,6 +71,26 @@ namespace Amazon.IoTSiteWise.Model
         internal bool IsSetExpression()
         {
             return this._expression != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ProcessingConfig. 
+        /// <para>
+        /// The processing configuration for the given transform property. You can configure transforms
+        /// to be kept at the edge or forwarded to the Amazon Web Services Cloud. You can also
+        /// configure transforms to be computed at the edge or in the cloud.
+        /// </para>
+        /// </summary>
+        public TransformProcessingConfig ProcessingConfig
+        {
+            get { return this._processingConfig; }
+            set { this._processingConfig = value; }
+        }
+
+        // Check to see if ProcessingConfig property is set
+        internal bool IsSetProcessingConfig()
+        {
+            return this._processingConfig != null;
         }
 
         /// <summary>

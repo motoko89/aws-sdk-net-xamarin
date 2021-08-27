@@ -60,7 +60,7 @@ namespace Amazon.CodeBuild.Model
         ///  <note> 
         /// <para>
         ///  The <code>credential</code> can use the name of the credentials only if they exist
-        /// in your current Region. 
+        /// in your current Amazon Web Services Region. 
         /// </para>
         ///  </note>
         /// </summary>

@@ -70,6 +70,12 @@ namespace Amazon.GreengrassV2.Model.Internal.MarshallTransformations
                     unmarshalledObject.PosixUser = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("systemResourceLimits", targetDepth))
+                {
+                    var unmarshaller = SystemResourceLimitsUnmarshaller.Instance;
+                    unmarshalledObject.SystemResourceLimits = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

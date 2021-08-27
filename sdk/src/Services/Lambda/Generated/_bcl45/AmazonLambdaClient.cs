@@ -38,16 +38,16 @@ namespace Amazon.Lambda
     /// <summary>
     /// Implementation for accessing Lambda
     ///
-    /// AWS Lambda 
+    /// Lambda 
     /// <para>
     ///  <b>Overview</b> 
     /// </para>
     ///  
     /// <para>
-    /// This is the <i>AWS Lambda API Reference</i>. The AWS Lambda Developer Guide provides
-    /// additional information. For the service overview, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What
-    /// is AWS Lambda</a>, and for information about how the service works, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS
-    /// Lambda: How it Works</a> in the <b>AWS Lambda Developer Guide</b>.
+    /// This is the <i>Lambda API Reference</i>. The Lambda Developer Guide provides additional
+    /// information. For the service overview, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What
+    /// is Lambda</a>, and for information about how the service works, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">Lambda:
+    /// How it Works</a> in the <b>Lambda Developer Guide</b>.
     /// </para>
     /// </summary>
     public partial class AmazonLambdaClient : AmazonServiceClient, IAmazonLambda
@@ -268,10 +268,10 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layer</a>. Use this action to grant layer usage permission to other accounts.
-        /// You can grant permission to a single account, all AWS accounts, or all accounts in
-        /// an organization.
+        /// Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layer</a>. Use this action to grant layer usage permission to other accounts. You
+        /// can grant permission to a single account, all accounts in an organization, or all
+        /// Amazon Web Services accounts. 
         /// 
         ///  
         /// <para>
@@ -301,7 +301,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -318,10 +318,10 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layer</a>. Use this action to grant layer usage permission to other accounts.
-        /// You can grant permission to a single account, all AWS accounts, or all accounts in
-        /// an organization.
+        /// Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layer</a>. Use this action to grant layer usage permission to other accounts. You
+        /// can grant permission to a single account, all accounts in an organization, or all
+        /// Amazon Web Services accounts. 
         /// 
         ///  
         /// <para>
@@ -354,7 +354,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -375,20 +375,20 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Grants an AWS service or another account permission to use a function. You can apply
-        /// the policy at the function level, or specify a qualifier to restrict access to a single
-        /// version or alias. If you use a qualifier, the invoker must use the full Amazon Resource
-        /// Name (ARN) of that version or alias to invoke the function.
+        /// Grants an Amazon Web Services service or another account permission to use a function.
+        /// You can apply the policy at the function level, or specify a qualifier to restrict
+        /// access to a single version or alias. If you use a qualifier, the invoker must use
+        /// the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
         /// 
         ///  
         /// <para>
         /// To grant permission to another account, specify the account ID as the <code>Principal</code>.
-        /// For AWS services, the principal is a domain-style identifier defined by the service,
-        /// like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For AWS services,
-        /// you can also specify the ARN of the associated resource as the <code>SourceArn</code>.
-        /// If you grant permission to a service principal without specifying the source, other
-        /// accounts could potentially configure resources in their account to invoke your Lambda
-        /// function.
+        /// For Amazon Web Services services, the principal is a domain-style identifier defined
+        /// by the service, like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>.
+        /// For Amazon Web Services services, you can also specify the ARN of the associated resource
+        /// as the <code>SourceArn</code>. If you grant permission to a service principal without
+        /// specifying the source, other accounts could potentially configure resources in their
+        /// account to invoke your Lambda function.
         /// </para>
         ///  
         /// <para>
@@ -419,7 +419,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -436,20 +436,20 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Grants an AWS service or another account permission to use a function. You can apply
-        /// the policy at the function level, or specify a qualifier to restrict access to a single
-        /// version or alias. If you use a qualifier, the invoker must use the full Amazon Resource
-        /// Name (ARN) of that version or alias to invoke the function.
+        /// Grants an Amazon Web Services service or another account permission to use a function.
+        /// You can apply the policy at the function level, or specify a qualifier to restrict
+        /// access to a single version or alias. If you use a qualifier, the invoker must use
+        /// the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
         /// 
         ///  
         /// <para>
         /// To grant permission to another account, specify the account ID as the <code>Principal</code>.
-        /// For AWS services, the principal is a domain-style identifier defined by the service,
-        /// like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For AWS services,
-        /// you can also specify the ARN of the associated resource as the <code>SourceArn</code>.
-        /// If you grant permission to a service principal without specifying the source, other
-        /// accounts could potentially configure resources in their account to invoke your Lambda
-        /// function.
+        /// For Amazon Web Services services, the principal is a domain-style identifier defined
+        /// by the service, like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>.
+        /// For Amazon Web Services services, you can also specify the ARN of the associated resource
+        /// as the <code>SourceArn</code>. If you grant permission to a service principal without
+        /// specifying the source, other accounts could potentially configure resources in their
+        /// account to invoke your Lambda function.
         /// </para>
         ///  
         /// <para>
@@ -483,7 +483,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -528,7 +528,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -572,7 +572,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -605,7 +605,7 @@ namespace Amazon.Lambda
         /// One of the parameters in the request is invalid.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/CreateCodeSigningConfig">REST API Reference for CreateCodeSigningConfig Operation</seealso>
         public virtual CreateCodeSigningConfigResponse CreateCodeSigningConfig(CreateCodeSigningConfigRequest request)
@@ -634,7 +634,7 @@ namespace Amazon.Lambda
         /// One of the parameters in the request is invalid.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/CreateCodeSigningConfig">REST API Reference for CreateCodeSigningConfig Operation</seealso>
         public virtual Task<CreateCodeSigningConfigResponse> CreateCodeSigningConfigAsync(CreateCodeSigningConfigRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
@@ -652,42 +652,44 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Creates a mapping between an event source and an AWS Lambda function. Lambda reads
-        /// items from the event source and triggers the function.
+        /// Creates a mapping between an event source and an Lambda function. Lambda reads items
+        /// from the event source and triggers the function.
         /// 
         ///  
         /// <para>
-        /// For details about each event source type, see the following topics.
+        /// For details about each event source type, see the following topics. In particular,
+        /// each of the topics describes the required and optional parameters for the specific
+        /// event source. 
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda
-        /// with Amazon DynamoDB</a> 
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping">
+        /// Configuring a Dynamo DB stream as an event source</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS
-        /// Lambda with Amazon Kinesis</a> 
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping">
+        /// Configuring a Kinesis stream as an event source</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda
-        /// with Amazon SQS</a> 
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource">
+        /// Configuring an SQS queue as an event source</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html">Using AWS Lambda
-        /// with Amazon MQ</a> 
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping">
+        /// Configuring an MQ broker as an event source</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">Using AWS Lambda
-        /// with Amazon MSK</a> 
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html"> Configuring
+        /// MSK as an event source</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">Using AWS
-        /// Lambda with Self-Managed Apache Kafka</a> 
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Configuring
+        /// Self-Managed Apache Kafka as an event source</a> 
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -735,7 +737,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -752,42 +754,44 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Creates a mapping between an event source and an AWS Lambda function. Lambda reads
-        /// items from the event source and triggers the function.
+        /// Creates a mapping between an event source and an Lambda function. Lambda reads items
+        /// from the event source and triggers the function.
         /// 
         ///  
         /// <para>
-        /// For details about each event source type, see the following topics.
+        /// For details about each event source type, see the following topics. In particular,
+        /// each of the topics describes the required and optional parameters for the specific
+        /// event source. 
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda
-        /// with Amazon DynamoDB</a> 
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping">
+        /// Configuring a Dynamo DB stream as an event source</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS
-        /// Lambda with Amazon Kinesis</a> 
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping">
+        /// Configuring a Kinesis stream as an event source</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda
-        /// with Amazon SQS</a> 
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource">
+        /// Configuring an SQS queue as an event source</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html">Using AWS Lambda
-        /// with Amazon MQ</a> 
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping">
+        /// Configuring an MQ broker as an event source</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">Using AWS Lambda
-        /// with Amazon MSK</a> 
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html"> Configuring
+        /// MSK as an event source</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">Using AWS
-        /// Lambda with Self-Managed Apache Kafka</a> 
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Configuring
+        /// Self-Managed Apache Kafka as an event source</a> 
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -838,7 +842,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -862,9 +866,23 @@ namespace Amazon.Lambda
         /// Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment
         /// package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution
         /// role</a>. The deployment package is a .zip file archive or container image that contains
-        /// your function code. The execution role grants the function permission to use AWS services,
-        /// such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.
+        /// your function code. The execution role grants the function permission to use Amazon
+        /// Web Services services, such as Amazon CloudWatch Logs for log streaming and X-Ray
+        /// for request tracing.
         /// 
+        ///  
+        /// <para>
+        /// You set the package type to <code>Image</code> if the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container
+        /// image</a>. For a container image, the code property must include the URI of a container
+        /// image in the Amazon ECR registry. You do not need to specify the handler and runtime
+        /// properties. 
+        /// </para>
+        ///  
+        /// <para>
+        /// You set the package type to <code>Zip</code> if the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip
+        /// file archive</a>. For a .zip file archive, the code property specifies the location
+        /// of the .zip file. You must also specify the handler and runtime properties.
+        /// </para>
         ///  
         /// <para>
         /// When you create a function, Lambda provisions an instance of the function and its
@@ -903,14 +921,14 @@ namespace Amazon.Lambda
         /// </para>
         ///  
         /// <para>
-        /// If another account or an AWS service invokes your function, use <a>AddPermission</a>
+        /// If another account or an Amazon Web Services service invokes your function, use <a>AddPermission</a>
         /// to grant permission by creating a resource-based IAM policy. You can grant permissions
         /// at the function level, on a version, or on an alias.
         /// </para>
         ///  
         /// <para>
         /// To invoke your function directly, use <a>Invoke</a>. To invoke your function in response
-        /// to events in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>),
+        /// to events in other Amazon Web Services services, create an event source mapping (<a>CreateEventSourceMapping</a>),
         /// or configure a function trigger in the other service. For more information, see <a
         /// href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking
         /// Functions</a>.
@@ -944,7 +962,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -964,9 +982,23 @@ namespace Amazon.Lambda
         /// Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment
         /// package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution
         /// role</a>. The deployment package is a .zip file archive or container image that contains
-        /// your function code. The execution role grants the function permission to use AWS services,
-        /// such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.
+        /// your function code. The execution role grants the function permission to use Amazon
+        /// Web Services services, such as Amazon CloudWatch Logs for log streaming and X-Ray
+        /// for request tracing.
         /// 
+        ///  
+        /// <para>
+        /// You set the package type to <code>Image</code> if the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container
+        /// image</a>. For a container image, the code property must include the URI of a container
+        /// image in the Amazon ECR registry. You do not need to specify the handler and runtime
+        /// properties. 
+        /// </para>
+        ///  
+        /// <para>
+        /// You set the package type to <code>Zip</code> if the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip
+        /// file archive</a>. For a .zip file archive, the code property specifies the location
+        /// of the .zip file. You must also specify the handler and runtime properties.
+        /// </para>
         ///  
         /// <para>
         /// When you create a function, Lambda provisions an instance of the function and its
@@ -1005,14 +1037,14 @@ namespace Amazon.Lambda
         /// </para>
         ///  
         /// <para>
-        /// If another account or an AWS service invokes your function, use <a>AddPermission</a>
+        /// If another account or an Amazon Web Services service invokes your function, use <a>AddPermission</a>
         /// to grant permission by creating a resource-based IAM policy. You can grant permissions
         /// at the function level, on a version, or on an alias.
         /// </para>
         ///  
         /// <para>
         /// To invoke your function directly, use <a>Invoke</a>. To invoke your function in response
-        /// to events in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>),
+        /// to events in other Amazon Web Services services, create an event source mapping (<a>CreateEventSourceMapping</a>),
         /// or configure a function trigger in the other service. For more information, see <a
         /// href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking
         /// Functions</a>.
@@ -1049,7 +1081,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1082,7 +1114,7 @@ namespace Amazon.Lambda
         /// The resource already exists, or another operation is in progress.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1114,7 +1146,7 @@ namespace Amazon.Lambda
         /// The resource already exists, or another operation is in progress.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1151,7 +1183,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/DeleteCodeSigningConfig">REST API Reference for DeleteCodeSigningConfig Operation</seealso>
         public virtual DeleteCodeSigningConfigResponse DeleteCodeSigningConfig(DeleteCodeSigningConfigRequest request)
@@ -1184,7 +1216,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/DeleteCodeSigningConfig">REST API Reference for DeleteCodeSigningConfig Operation</seealso>
         public virtual Task<DeleteCodeSigningConfigResponse> DeleteCodeSigningConfigAsync(DeleteCodeSigningConfigRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
@@ -1226,7 +1258,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1270,7 +1302,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1297,8 +1329,8 @@ namespace Amazon.Lambda
         ///  
         /// <para>
         /// To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>.
-        /// For AWS services and resources that invoke your function directly, delete the trigger
-        /// in the service where you originally configured it.
+        /// For Amazon Web Services services and resources that invoke your function directly,
+        /// delete the trigger in the service where you originally configured it.
         /// </para>
         /// </summary>
         /// <param name="functionName">The name of the Lambda function or version. <p class="title"> <b>Name formats</b>  <ul> <li>  <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:1</code> (with version). </li> <li>  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>. </li> <li>  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>. </li> </ul> You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</param>
@@ -1314,7 +1346,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1335,8 +1367,8 @@ namespace Amazon.Lambda
         ///  
         /// <para>
         /// To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>.
-        /// For AWS services and resources that invoke your function directly, delete the trigger
-        /// in the service where you originally configured it.
+        /// For Amazon Web Services services and resources that invoke your function directly,
+        /// delete the trigger in the service where you originally configured it.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteFunction service method.</param>
@@ -1352,7 +1384,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1375,8 +1407,8 @@ namespace Amazon.Lambda
         ///  
         /// <para>
         /// To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>.
-        /// For AWS services and resources that invoke your function directly, delete the trigger
-        /// in the service where you originally configured it.
+        /// For Amazon Web Services services and resources that invoke your function directly,
+        /// delete the trigger in the service where you originally configured it.
         /// </para>
         /// </summary>
         /// <param name="functionName">The name of the Lambda function or version. <p class="title"> <b>Name formats</b>  <ul> <li>  <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:1</code> (with version). </li> <li>  <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>. </li> <li>  <b>Partial ARN</b> - <code>123456789012:function:my-function</code>. </li> </ul> You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</param>
@@ -1395,7 +1427,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1416,8 +1448,8 @@ namespace Amazon.Lambda
         ///  
         /// <para>
         /// To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>.
-        /// For AWS services and resources that invoke your function directly, delete the trigger
-        /// in the service where you originally configured it.
+        /// For Amazon Web Services services and resources that invoke your function directly,
+        /// delete the trigger in the service where you originally configured it.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteFunction service method.</param>
@@ -1436,7 +1468,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1475,7 +1507,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1513,7 +1545,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1549,7 +1581,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1584,7 +1616,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1619,11 +1651,14 @@ namespace Amazon.Lambda
         /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
         /// One of the parameters in the request is invalid.
         /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceConflictException">
+        /// The resource already exists, or another operation is in progress.
+        /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ResourceNotFoundException">
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1657,11 +1692,14 @@ namespace Amazon.Lambda
         /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
         /// One of the parameters in the request is invalid.
         /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceConflictException">
+        /// The resource already exists, or another operation is in progress.
+        /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ResourceNotFoundException">
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1682,16 +1720,16 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layer</a>. Deleted versions can no longer be viewed or added to functions.
-        /// To avoid breaking functions, a copy of the version remains in Lambda until no functions
-        /// refer to it.
+        /// Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid
+        /// breaking functions, a copy of the version remains in Lambda until no functions refer
+        /// to it.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteLayerVersion service method.</param>
         /// 
         /// <returns>The response from the DeleteLayerVersion service method, as returned by Lambda.</returns>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1708,10 +1746,10 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layer</a>. Deleted versions can no longer be viewed or added to functions.
-        /// To avoid breaking functions, a copy of the version remains in Lambda until no functions
-        /// refer to it.
+        /// Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid
+        /// breaking functions, a copy of the version remains in Lambda until no functions refer
+        /// to it.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteLayerVersion service method.</param>
         /// <param name="cancellationToken">
@@ -1720,7 +1758,7 @@ namespace Amazon.Lambda
         /// 
         /// <returns>The response from the DeleteLayerVersion service method, as returned by Lambda.</returns>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1756,7 +1794,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1791,7 +1829,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1813,13 +1851,13 @@ namespace Amazon.Lambda
 
         /// <summary>
         /// Retrieves details about your account's <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a>
-        /// and usage in an AWS Region.
+        /// and usage in an Amazon Web Services Region.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAccountSettings service method.</param>
         /// 
         /// <returns>The response from the GetAccountSettings service method, as returned by Lambda.</returns>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1837,7 +1875,7 @@ namespace Amazon.Lambda
 
         /// <summary>
         /// Retrieves details about your account's <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a>
-        /// and usage in an AWS Region.
+        /// and usage in an Amazon Web Services Region.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAccountSettings service method.</param>
         /// <param name="cancellationToken">
@@ -1846,7 +1884,7 @@ namespace Amazon.Lambda
         /// 
         /// <returns>The response from the GetAccountSettings service method, as returned by Lambda.</returns>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1879,7 +1917,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1911,7 +1949,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -1944,7 +1982,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetCodeSigningConfig">REST API Reference for GetCodeSigningConfig Operation</seealso>
         public virtual GetCodeSigningConfigResponse GetCodeSigningConfig(GetCodeSigningConfigRequest request)
@@ -1973,7 +2011,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetCodeSigningConfig">REST API Reference for GetCodeSigningConfig Operation</seealso>
         public virtual Task<GetCodeSigningConfigResponse> GetCodeSigningConfigAsync(GetCodeSigningConfigRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
@@ -2004,7 +2042,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2037,7 +2075,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2072,7 +2110,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2101,7 +2139,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2135,7 +2173,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2167,7 +2205,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2200,7 +2238,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2232,7 +2270,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2266,7 +2304,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2299,7 +2337,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2339,7 +2377,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2373,7 +2411,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2412,7 +2450,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2449,7 +2487,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2488,7 +2526,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2526,7 +2564,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2547,8 +2585,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.
+        /// Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layer</a>, with a link to download the layer archive that's valid for 10 minutes.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetLayerVersion service method.</param>
         /// 
@@ -2560,7 +2598,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2577,8 +2615,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.
+        /// Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layer</a>, with a link to download the layer archive that's valid for 10 minutes.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetLayerVersion service method.</param>
         /// <param name="cancellationToken">
@@ -2593,7 +2631,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2614,8 +2652,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.
+        /// Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layer</a>, with a link to download the layer archive that's valid for 10 minutes.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetLayerVersionByArn service method.</param>
         /// 
@@ -2627,7 +2665,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2644,8 +2682,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.
+        /// Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layer</a>, with a link to download the layer archive that's valid for 10 minutes.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetLayerVersionByArn service method.</param>
         /// <param name="cancellationToken">
@@ -2660,7 +2698,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2681,8 +2719,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.
+        /// Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layer</a>. For more information, see <a>AddLayerVersionPermission</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetLayerVersionPolicy service method.</param>
         /// 
@@ -2694,7 +2732,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2711,8 +2749,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.
+        /// Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layer</a>. For more information, see <a>AddLayerVersionPermission</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetLayerVersionPolicy service method.</param>
         /// <param name="cancellationToken">
@@ -2727,7 +2765,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2761,7 +2799,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2794,7 +2832,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2830,7 +2868,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2865,7 +2903,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -2946,11 +2984,11 @@ namespace Amazon.Lambda
         /// Need additional permissions to configure VPC settings.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.EC2ThrottledException">
-        /// AWS Lambda was throttled by Amazon EC2 during Lambda function initialization using
-        /// the execution role provided for the Lambda function.
+        /// Lambda was throttled by Amazon EC2 during Lambda function initialization using the
+        /// execution role provided for the Lambda function.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.EC2UnexpectedException">
-        /// AWS Lambda received an unexpected EC2 client exception while setting up for the Lambda
+        /// Lambda received an unexpected EC2 client exception while setting up for the Lambda
         /// function.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.EFSIOException">
@@ -2968,9 +3006,9 @@ namespace Amazon.Lambda
         /// but the mount operation timed out.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ENILimitReachedException">
-        /// AWS Lambda was not able to create an elastic network interface in the VPC, specified
-        /// as part of Lambda function configuration, because the limit for network interfaces
-        /// has been reached.
+        /// Lambda was not able to create an elastic network interface in the VPC, specified as
+        /// part of Lambda function configuration, because the limit for network interfaces has
+        /// been reached.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
         /// One of the parameters in the request is invalid.
@@ -2988,7 +3026,7 @@ namespace Amazon.Lambda
         /// The Subnet ID provided in the Lambda function VPC configuration is invalid.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.InvalidZipFileException">
-        /// AWS Lambda could not unzip the deployment package.
+        /// Lambda could not unzip the deployment package.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.KMSAccessDeniedException">
         /// Lambda was unable to decrypt the environment variables because KMS access was denied.
@@ -3021,11 +3059,11 @@ namespace Amazon.Lambda
         /// VPC connection to reestablish and try again.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.SubnetIPAddressLimitReachedException">
-        /// AWS Lambda was not able to set up VPC access for the Lambda function because one or
-        /// more configured subnets has no available IP addresses.
+        /// Lambda was not able to set up VPC access for the Lambda function because one or more
+        /// configured subnets has no available IP addresses.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3108,11 +3146,11 @@ namespace Amazon.Lambda
         /// Need additional permissions to configure VPC settings.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.EC2ThrottledException">
-        /// AWS Lambda was throttled by Amazon EC2 during Lambda function initialization using
-        /// the execution role provided for the Lambda function.
+        /// Lambda was throttled by Amazon EC2 during Lambda function initialization using the
+        /// execution role provided for the Lambda function.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.EC2UnexpectedException">
-        /// AWS Lambda received an unexpected EC2 client exception while setting up for the Lambda
+        /// Lambda received an unexpected EC2 client exception while setting up for the Lambda
         /// function.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.EFSIOException">
@@ -3130,9 +3168,9 @@ namespace Amazon.Lambda
         /// but the mount operation timed out.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ENILimitReachedException">
-        /// AWS Lambda was not able to create an elastic network interface in the VPC, specified
-        /// as part of Lambda function configuration, because the limit for network interfaces
-        /// has been reached.
+        /// Lambda was not able to create an elastic network interface in the VPC, specified as
+        /// part of Lambda function configuration, because the limit for network interfaces has
+        /// been reached.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
         /// One of the parameters in the request is invalid.
@@ -3150,7 +3188,7 @@ namespace Amazon.Lambda
         /// The Subnet ID provided in the Lambda function VPC configuration is invalid.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.InvalidZipFileException">
-        /// AWS Lambda could not unzip the deployment package.
+        /// Lambda could not unzip the deployment package.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.KMSAccessDeniedException">
         /// Lambda was unable to decrypt the environment variables because KMS access was denied.
@@ -3183,11 +3221,11 @@ namespace Amazon.Lambda
         /// VPC connection to reestablish and try again.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.SubnetIPAddressLimitReachedException">
-        /// AWS Lambda was not able to set up VPC access for the Lambda function because one or
-        /// more configured subnets has no available IP addresses.
+        /// Lambda was not able to set up VPC access for the Lambda function because one or more
+        /// configured subnets has no available IP addresses.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3236,7 +3274,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/InvokeAsync">REST API Reference for InvokeAsync Operation</seealso>
         [Obsolete("For .NET 3.5/4.5, API InvokeAsyncResponse InvokeAsync(InvokeAsyncRequest) is deprecated, use InvokeResponse Invoke(InvokeRequest), or Task<InvokeResponse> InvokeAsync(InvokeRequest, CancellationToken) instead. For .NET Core, Task<InvokeAsyncResponse> InvokeAsyncAsync(InvokeAsyncRequest, CancellationToken) is deprecated, use Task<InvokeResponse> InvokeAsync(InvokeRequest, CancellationToken) instead.")]
@@ -3279,7 +3317,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/InvokeAsync">REST API Reference for InvokeAsync Operation</seealso>
         [Obsolete("For .NET 3.5/4.5, API InvokeAsyncResponse InvokeAsync(InvokeAsyncRequest) is deprecated, use InvokeResponse Invoke(InvokeRequest), or Task<InvokeResponse> InvokeAsync(InvokeRequest, CancellationToken) instead. For .NET Core, Task<InvokeAsyncResponse> InvokeAsyncAsync(InvokeAsyncRequest, CancellationToken) is deprecated, use Task<InvokeResponse> InvokeAsync(InvokeRequest, CancellationToken) instead.")]
@@ -3311,7 +3349,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3344,7 +3382,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3377,7 +3415,7 @@ namespace Amazon.Lambda
         /// One of the parameters in the request is invalid.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListCodeSigningConfigs">REST API Reference for ListCodeSigningConfigs Operation</seealso>
         public virtual ListCodeSigningConfigsResponse ListCodeSigningConfigs(ListCodeSigningConfigsRequest request)
@@ -3406,7 +3444,7 @@ namespace Amazon.Lambda
         /// One of the parameters in the request is invalid.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListCodeSigningConfigs">REST API Reference for ListCodeSigningConfigs Operation</seealso>
         public virtual Task<ListCodeSigningConfigsResponse> ListCodeSigningConfigsAsync(ListCodeSigningConfigsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
@@ -3437,7 +3475,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3470,7 +3508,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3508,7 +3546,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3545,7 +3583,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3589,7 +3627,7 @@ namespace Amazon.Lambda
         /// One of the parameters in the request is invalid.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3627,7 +3665,7 @@ namespace Amazon.Lambda
         /// One of the parameters in the request is invalid.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3670,7 +3708,7 @@ namespace Amazon.Lambda
         /// One of the parameters in the request is invalid.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3711,7 +3749,7 @@ namespace Amazon.Lambda
         /// One of the parameters in the request is invalid.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3746,7 +3784,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListFunctionsByCodeSigningConfig">REST API Reference for ListFunctionsByCodeSigningConfig Operation</seealso>
         public virtual ListFunctionsByCodeSigningConfigResponse ListFunctionsByCodeSigningConfig(ListFunctionsByCodeSigningConfigRequest request)
@@ -3777,7 +3815,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListFunctionsByCodeSigningConfig">REST API Reference for ListFunctionsByCodeSigningConfig Operation</seealso>
         public virtual Task<ListFunctionsByCodeSigningConfigResponse> ListFunctionsByCodeSigningConfigAsync(ListFunctionsByCodeSigningConfigRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
@@ -3795,9 +3833,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layers</a> and shows information about the latest version of each. Specify
-        /// a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
+        /// Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layers</a> and shows information about the latest version of each. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
         /// identifier</a> to list only layers that indicate that they're compatible with that
         /// runtime.
         /// </summary>
@@ -3808,7 +3845,7 @@ namespace Amazon.Lambda
         /// One of the parameters in the request is invalid.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3825,9 +3862,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layers</a> and shows information about the latest version of each. Specify
-        /// a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
+        /// Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layers</a> and shows information about the latest version of each. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
         /// identifier</a> to list only layers that indicate that they're compatible with that
         /// runtime.
         /// </summary>
@@ -3841,7 +3877,7 @@ namespace Amazon.Lambda
         /// One of the parameters in the request is invalid.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3862,8 +3898,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
+        /// Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
         /// identifier</a> to list only versions that indicate that they're compatible with that
         /// runtime.
         /// </summary>
@@ -3877,7 +3913,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3894,8 +3930,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
+        /// Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
         /// identifier</a> to list only versions that indicate that they're compatible with that
         /// runtime.
         /// </summary>
@@ -3912,7 +3948,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3945,7 +3981,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -3977,7 +4013,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4011,7 +4047,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4044,7 +4080,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4079,7 +4115,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4113,7 +4149,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4134,8 +4170,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code>
+        /// Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code>
         /// with the same layer name, a new version is created.
         /// 
         ///  
@@ -4157,7 +4193,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4174,8 +4210,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code>
+        /// Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code>
         /// with the same layer name, a new version is created.
         /// 
         ///  
@@ -4200,7 +4236,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4227,7 +4263,7 @@ namespace Amazon.Lambda
         /// 
         ///  
         /// <para>
-        /// AWS Lambda doesn't publish a version if the function's configuration and code haven't
+        /// Lambda doesn't publish a version if the function's configuration and code haven't
         /// changed since the last version. Use <a>UpdateFunctionCode</a> or <a>UpdateFunctionConfiguration</a>
         /// to update the function before publishing a version.
         /// </para>
@@ -4258,7 +4294,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4281,7 +4317,7 @@ namespace Amazon.Lambda
         /// 
         ///  
         /// <para>
-        /// AWS Lambda doesn't publish a version if the function's configuration and code haven't
+        /// Lambda doesn't publish a version if the function's configuration and code haven't
         /// changed since the last version. Use <a>UpdateFunctionCode</a> or <a>UpdateFunctionConfiguration</a>
         /// to update the function before publishing a version.
         /// </para>
@@ -4315,7 +4351,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4356,7 +4392,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4396,7 +4432,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4450,7 +4486,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4503,7 +4539,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4552,11 +4588,14 @@ namespace Amazon.Lambda
         /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
         /// One of the parameters in the request is invalid.
         /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceConflictException">
+        /// The resource already exists, or another operation is in progress.
+        /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ResourceNotFoundException">
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4604,11 +4643,14 @@ namespace Amazon.Lambda
         /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
         /// One of the parameters in the request is invalid.
         /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceConflictException">
+        /// The resource already exists, or another operation is in progress.
+        /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ResourceNotFoundException">
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4644,7 +4686,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4679,7 +4721,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4700,8 +4742,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.
+        /// Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layer</a>. For more information, see <a>AddLayerVersionPermission</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RemoveLayerVersionPermission service method.</param>
         /// 
@@ -4718,7 +4760,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4735,8 +4777,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
-        /// Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.
+        /// Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        /// layer</a>. For more information, see <a>AddLayerVersionPermission</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RemoveLayerVersionPermission service method.</param>
         /// <param name="cancellationToken">
@@ -4756,7 +4798,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4777,8 +4819,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Revokes function-use permission from an AWS service or another account. You can get
-        /// the ID of the statement from the output of <a>GetPolicy</a>.
+        /// Revokes function-use permission from an Amazon Web Services service or another account.
+        /// You can get the ID of the statement from the output of <a>GetPolicy</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RemovePermission service method.</param>
         /// 
@@ -4795,7 +4837,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4812,8 +4854,8 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Revokes function-use permission from an AWS service or another account. You can get
-        /// the ID of the statement from the output of <a>GetPolicy</a>.
+        /// Revokes function-use permission from an Amazon Web Services service or another account.
+        /// You can get the ID of the statement from the output of <a>GetPolicy</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RemovePermission service method.</param>
         /// <param name="cancellationToken">
@@ -4833,7 +4875,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4870,7 +4912,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4906,7 +4948,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4943,7 +4985,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -4979,7 +5021,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -5020,7 +5062,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -5060,7 +5102,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -5094,7 +5136,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/UpdateCodeSigningConfig">REST API Reference for UpdateCodeSigningConfig Operation</seealso>
         public virtual UpdateCodeSigningConfigResponse UpdateCodeSigningConfig(UpdateCodeSigningConfigRequest request)
@@ -5124,7 +5166,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/UpdateCodeSigningConfig">REST API Reference for UpdateCodeSigningConfig Operation</seealso>
         public virtual Task<UpdateCodeSigningConfigResponse> UpdateCodeSigningConfigAsync(UpdateCodeSigningConfigRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
@@ -5142,7 +5184,7 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Updates an event source mapping. You can change the function that AWS Lambda invokes,
+        /// Updates an event source mapping. You can change the function that Lambda invokes,
         /// or pause invocation and resume later from the same location.
         /// 
         ///  
@@ -5196,7 +5238,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -5213,7 +5255,7 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Updates an event source mapping. You can change the function that AWS Lambda invokes,
+        /// Updates an event source mapping. You can change the function that Lambda invokes,
         /// or pause invocation and resume later from the same location.
         /// 
         ///  
@@ -5270,7 +5312,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -5341,7 +5383,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -5411,7 +5453,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -5454,7 +5496,7 @@ namespace Amazon.Lambda
         ///  
         /// <para>
         /// To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke
-        /// permissions to an account or AWS service, use <a>AddPermission</a>.
+        /// permissions to an account or Amazon Web Services service, use <a>AddPermission</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateFunctionConfiguration service method.</param>
@@ -5486,7 +5528,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -5525,7 +5567,7 @@ namespace Amazon.Lambda
         ///  
         /// <para>
         /// To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke
-        /// permissions to an account or AWS service, use <a>AddPermission</a>.
+        /// permissions to an account or Amazon Web Services service, use <a>AddPermission</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateFunctionConfiguration service method.</param>
@@ -5560,7 +5602,7 @@ namespace Amazon.Lambda
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -5595,11 +5637,14 @@ namespace Amazon.Lambda
         /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
         /// One of the parameters in the request is invalid.
         /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceConflictException">
+        /// The resource already exists, or another operation is in progress.
+        /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ResourceNotFoundException">
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.
@@ -5633,11 +5678,14 @@ namespace Amazon.Lambda
         /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
         /// One of the parameters in the request is invalid.
         /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceConflictException">
+        /// The resource already exists, or another operation is in progress.
+        /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ResourceNotFoundException">
         /// The resource specified in the request does not exist.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ServiceException">
-        /// The AWS Lambda service encountered an internal error.
+        /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
         /// The request throughput limit was exceeded.

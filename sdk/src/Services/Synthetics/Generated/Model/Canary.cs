@@ -47,6 +47,7 @@ namespace Amazon.Synthetics.Model
         private int? _successRetentionPeriodInDays;
         private Dictionary<string, string> _tags = new Dictionary<string, string>();
         private CanaryTimeline _timeline;
+        private VisualReferenceOutput _visualReference;
         private VpcConfigOutput _vpcConfig;
 
         /// <summary>
@@ -309,6 +310,26 @@ namespace Amazon.Synthetics.Model
         internal bool IsSetTimeline()
         {
             return this._timeline != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property VisualReference. 
+        /// <para>
+        /// If this canary performs visual monitoring by comparing screenshots, this structure
+        /// contains the ID of the canary run to use as the baseline for screenshots, and the
+        /// coordinates of any parts of the screen to ignore during the visual monitoring comparison.
+        /// </para>
+        /// </summary>
+        public VisualReferenceOutput VisualReference
+        {
+            get { return this._visualReference; }
+            set { this._visualReference = value; }
+        }
+
+        // Check to see if VisualReference property is set
+        internal bool IsSetVisualReference()
+        {
+            return this._visualReference != null;
         }
 
         /// <summary>

@@ -362,8 +362,8 @@ namespace Amazon.CodeBuild.Model
         /// <summary>
         /// Gets and sets the property ServiceRole. 
         /// <para>
-        /// The ARN of the Identity and Access Management role that enables CodeBuild to interact
-        /// with dependent Amazon Web Services services on behalf of the Amazon Web Services account.
+        /// The ARN of the IAM role that enables CodeBuild to interact with dependent Amazon Web
+        /// Services services on behalf of the Amazon Web Services account.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1)]

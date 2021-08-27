@@ -40,6 +40,22 @@
     <pattern>^[a-zA-Z0-9\-_]+$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Redshift.Model.AssociateDataShareConsumerRequest.ConsumerArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.AssociateDataShareConsumerRequest.DataShareArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.AssociateDataShareConsumerResponse.DataShareArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.AssociateDataShareConsumerResponse.ProducerArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Redshift.Model.AuthorizeClusterSecurityGroupIngressRequest.CIDRIP</property>
     <max>2147483647</max>
   </property-value-rule>
@@ -53,6 +69,22 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Redshift.Model.AuthorizeClusterSecurityGroupIngressRequest.EC2SecurityGroupOwnerId</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.AuthorizeDataShareRequest.ConsumerIdentifier</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.AuthorizeDataShareRequest.DataShareArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.AuthorizeDataShareResponse.DataShareArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.AuthorizeDataShareResponse.ProducerArn</property>
     <max>2147483647</max>
   </property-value-rule>
   <property-value-rule>
@@ -130,6 +162,24 @@
   <property-value-rule>
     <property>Amazon.Redshift.Model.CopyClusterSnapshotRequest.TargetSnapshotIdentifier</property>
     <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.CreateAuthenticationProfileRequest.AuthenticationProfileContent</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.CreateAuthenticationProfileRequest.AuthenticationProfileName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9\-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.CreateAuthenticationProfileResponse.AuthenticationProfileContent</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.CreateAuthenticationProfileResponse.AuthenticationProfileName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9\-]+$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Redshift.Model.CreateClusterRequest.AdditionalInfo</property>
@@ -396,6 +446,32 @@
     <max>2147483647</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Redshift.Model.DeauthorizeDataShareRequest.ConsumerIdentifier</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DeauthorizeDataShareRequest.DataShareArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DeauthorizeDataShareResponse.DataShareArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DeauthorizeDataShareResponse.ProducerArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DeleteAuthenticationProfileRequest.AuthenticationProfileName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9\-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DeleteAuthenticationProfileResponse.AuthenticationProfileName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9\-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Redshift.Model.DeleteClusterRequest.ClusterIdentifier</property>
     <max>2147483647</max>
   </property-value-rule>
@@ -513,6 +589,11 @@
   <property-value-rule>
     <property>Amazon.Redshift.Model.DeleteUsageLimitRequest.UsageLimitId</property>
     <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DescribeAuthenticationProfilesRequest.AuthenticationProfileName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9\-]+$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Redshift.Model.DescribeClusterDbRevisionsRequest.ClusterIdentifier</property>
@@ -640,6 +721,42 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Redshift.Model.DescribeClusterVersionsResponse.Marker</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DescribeDataSharesRequest.DataShareArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DescribeDataSharesRequest.Marker</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DescribeDataSharesResponse.Marker</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DescribeDataSharesForConsumerRequest.ConsumerArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DescribeDataSharesForConsumerRequest.Marker</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DescribeDataSharesForConsumerResponse.Marker</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DescribeDataSharesForProducerRequest.Marker</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DescribeDataSharesForProducerRequest.ProducerArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DescribeDataSharesForProducerResponse.Marker</property>
     <max>2147483647</max>
   </property-value-rule>
   <property-value-rule>
@@ -976,6 +1093,22 @@
     <max>2147483647</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Redshift.Model.DisassociateDataShareConsumerRequest.ConsumerArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DisassociateDataShareConsumerRequest.DataShareArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DisassociateDataShareConsumerResponse.DataShareArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DisassociateDataShareConsumerResponse.ProducerArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Redshift.Model.EnableLoggingRequest.BucketName</property>
     <max>2147483647</max>
   </property-value-rule>
@@ -1042,6 +1175,24 @@
   <property-value-rule>
     <property>Amazon.Redshift.Model.ModifyAquaConfigurationRequest.ClusterIdentifier</property>
     <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.ModifyAuthenticationProfileRequest.AuthenticationProfileContent</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.ModifyAuthenticationProfileRequest.AuthenticationProfileName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9\-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.ModifyAuthenticationProfileResponse.AuthenticationProfileContent</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.ModifyAuthenticationProfileResponse.AuthenticationProfileName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9\-]+$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Redshift.Model.ModifyClusterRequest.AvailabilityZone</property>
@@ -1265,6 +1416,18 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Redshift.Model.RebootClusterRequest.ClusterIdentifier</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.RejectDataShareRequest.DataShareArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.RejectDataShareResponse.DataShareArn</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.RejectDataShareResponse.ProducerArn</property>
     <max>2147483647</max>
   </property-value-rule>
   <property-value-rule>
@@ -1500,6 +1663,15 @@
     <max>2147483647</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Redshift.Model.AuthenticationProfile.AuthenticationProfileContent</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.AuthenticationProfile.AuthenticationProfileName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9\-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Redshift.Model.AvailabilityZone.Name</property>
     <max>2147483647</max>
   </property-value-rule>
@@ -1701,6 +1873,10 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Redshift.Model.ClusterVersion.Version</property>
+    <max>2147483647</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Redshift.Model.DataShareAssociation.ConsumerIdentifier</property>
     <max>2147483647</max>
   </property-value-rule>
   <property-value-rule>

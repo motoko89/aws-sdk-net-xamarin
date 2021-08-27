@@ -56,6 +56,17 @@ namespace Amazon.IoTAnalytics.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetIotSiteWiseMultiLayerStorage())
+            {
+                context.Writer.WritePropertyName("iotSiteWiseMultiLayerStorage");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = DatastoreIotSiteWiseMultiLayerStorageMarshaller.Instance;
+                marshaller.Marshall(requestObject.IotSiteWiseMultiLayerStorage, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetServiceManagedS3())
             {
                 context.Writer.WritePropertyName("serviceManagedS3");

@@ -29,8 +29,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.SimpleSystemsManagement.Model
 {
     /// <summary>
-    /// An aggregate of step execution statuses displayed in the AWS Console for a multi-Region
-    /// and multi-account Automation execution.
+    /// An aggregate of step execution statuses displayed in the Amazon Web Services Systems
+    /// Manager console for a multi-Region and multi-account Automation execution.
     /// </summary>
     public partial class ProgressCounters
     {
@@ -43,8 +43,8 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property CancelledSteps. 
         /// <para>
-        /// The total number of steps that the system cancelled in all specified AWS Regions and
-        /// accounts for the current Automation execution.
+        /// The total number of steps that the system cancelled in all specified Amazon Web Services
+        /// Regions and Amazon Web Services accounts for the current Automation execution.
         /// </para>
         /// </summary>
         public int CancelledSteps
@@ -62,8 +62,8 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property FailedSteps. 
         /// <para>
-        /// The total number of steps that failed to run in all specified AWS Regions and accounts
-        /// for the current Automation execution.
+        /// The total number of steps that failed to run in all specified Amazon Web Services
+        /// Regions and Amazon Web Services accounts for the current Automation execution.
         /// </para>
         /// </summary>
         public int FailedSteps
@@ -81,8 +81,8 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property SuccessSteps. 
         /// <para>
-        /// The total number of steps that successfully completed in all specified AWS Regions
-        /// and accounts for the current Automation execution.
+        /// The total number of steps that successfully completed in all specified Amazon Web
+        /// Services Regions and Amazon Web Services accounts for the current Automation execution.
         /// </para>
         /// </summary>
         public int SuccessSteps
@@ -100,8 +100,8 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property TimedOutSteps. 
         /// <para>
-        /// The total number of steps that timed out in all specified AWS Regions and accounts
-        /// for the current Automation execution.
+        /// The total number of steps that timed out in all specified Amazon Web Services Regions
+        /// and Amazon Web Services accounts for the current Automation execution.
         /// </para>
         /// </summary>
         public int TimedOutSteps
@@ -119,8 +119,8 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property TotalSteps. 
         /// <para>
-        /// The total number of steps run in all specified AWS Regions and accounts for the current
-        /// Automation execution.
+        /// The total number of steps run in all specified Amazon Web Services Regions and Amazon
+        /// Web Services accounts for the current Automation execution.
         /// </para>
         /// </summary>
         public int TotalSteps

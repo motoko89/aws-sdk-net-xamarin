@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.LocationService.Model
 {
     /// <summary>
-    /// The request was unsuccessful due to a conflict.
+    /// The request was unsuccessful because of a conflict.
     /// </summary>
     #if !NETSTANDARD
     [Serializable]

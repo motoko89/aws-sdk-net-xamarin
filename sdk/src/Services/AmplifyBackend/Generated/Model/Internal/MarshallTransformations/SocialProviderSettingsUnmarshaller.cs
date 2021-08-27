@@ -82,6 +82,12 @@ namespace Amazon.AmplifyBackend.Model.Internal.MarshallTransformations
                     unmarshalledObject.LoginWithAmazon = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("SignInWithApple", targetDepth))
+                {
+                    var unmarshaller = BackendAuthAppleProviderConfigUnmarshaller.Instance;
+                    unmarshalledObject.SignInWithApple = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

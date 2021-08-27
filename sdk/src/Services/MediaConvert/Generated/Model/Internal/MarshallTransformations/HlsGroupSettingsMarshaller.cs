@@ -212,6 +212,12 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.SegmentLength);
             }
 
+            if(requestObject.IsSetSegmentLengthControl())
+            {
+                context.Writer.WritePropertyName("segmentLengthControl");
+                context.Writer.Write(requestObject.SegmentLengthControl);
+            }
+
             if(requestObject.IsSetSegmentsPerSubdirectory())
             {
                 context.Writer.WritePropertyName("segmentsPerSubdirectory");
@@ -222,6 +228,12 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
             {
                 context.Writer.WritePropertyName("streamInfResolution");
                 context.Writer.Write(requestObject.StreamInfResolution);
+            }
+
+            if(requestObject.IsSetTargetDurationCompatibilityMode())
+            {
+                context.Writer.WritePropertyName("targetDurationCompatibilityMode");
+                context.Writer.Write(requestObject.TargetDurationCompatibilityMode);
             }
 
             if(requestObject.IsSetTimedMetadataId3Frame())

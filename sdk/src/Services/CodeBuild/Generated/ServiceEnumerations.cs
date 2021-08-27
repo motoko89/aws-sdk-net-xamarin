@@ -233,6 +233,60 @@ namespace Amazon.CodeBuild
 
 
     /// <summary>
+    /// Constants used for properties of type BucketOwnerAccess.
+    /// </summary>
+    public class BucketOwnerAccess : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant FULL for BucketOwnerAccess
+        /// </summary>
+        public static readonly BucketOwnerAccess FULL = new BucketOwnerAccess("FULL");
+        /// <summary>
+        /// Constant NONE for BucketOwnerAccess
+        /// </summary>
+        public static readonly BucketOwnerAccess NONE = new BucketOwnerAccess("NONE");
+        /// <summary>
+        /// Constant READ_ONLY for BucketOwnerAccess
+        /// </summary>
+        public static readonly BucketOwnerAccess READ_ONLY = new BucketOwnerAccess("READ_ONLY");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public BucketOwnerAccess(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static BucketOwnerAccess FindValue(string value)
+        {
+            return FindValue<BucketOwnerAccess>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator BucketOwnerAccess(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type BuildBatchPhaseType.
     /// </summary>
     public class BuildBatchPhaseType : ConstantClass
@@ -1050,6 +1104,56 @@ namespace Amazon.CodeBuild
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ProjectSortByType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ProjectVisibilityType.
+    /// </summary>
+    public class ProjectVisibilityType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant PRIVATE for ProjectVisibilityType
+        /// </summary>
+        public static readonly ProjectVisibilityType PRIVATE = new ProjectVisibilityType("PRIVATE");
+        /// <summary>
+        /// Constant PUBLIC_READ for ProjectVisibilityType
+        /// </summary>
+        public static readonly ProjectVisibilityType PUBLIC_READ = new ProjectVisibilityType("PUBLIC_READ");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ProjectVisibilityType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ProjectVisibilityType FindValue(string value)
+        {
+            return FindValue<ProjectVisibilityType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ProjectVisibilityType(string value)
         {
             return FindValue(value);
         }

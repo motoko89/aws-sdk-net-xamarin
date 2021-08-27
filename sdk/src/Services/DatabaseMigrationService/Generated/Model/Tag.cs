@@ -29,8 +29,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.DatabaseMigrationService.Model
 {
     /// <summary>
-    /// A user-defined key-value pair that describes metadata added to an AWS DMS resource
-    /// and that is used by operations such as the following:
+    /// A user-defined key-value pair that describes metadata added to an DMS resource and
+    /// that is used by operations such as the following:
     /// 
     ///  <ul> <li> 
     /// <para>
@@ -49,6 +49,7 @@ namespace Amazon.DatabaseMigrationService.Model
     public partial class Tag
     {
         private string _key;
+        private string _resourceArn;
         private string _value;
 
         /// <summary>
@@ -70,6 +71,25 @@ namespace Amazon.DatabaseMigrationService.Model
         internal bool IsSetKey()
         {
             return this._key != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ResourceArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) string that uniquely identifies the resource for which
+        /// the tag is created.
+        /// </para>
+        /// </summary>
+        public string ResourceArn
+        {
+            get { return this._resourceArn; }
+            set { this._resourceArn = value; }
+        }
+
+        // Check to see if ResourceArn property is set
+        internal bool IsSetResourceArn()
+        {
+            return this._resourceArn != null;
         }
 
         /// <summary>

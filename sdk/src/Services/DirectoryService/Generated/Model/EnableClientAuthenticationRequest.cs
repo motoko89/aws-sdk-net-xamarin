@@ -61,7 +61,7 @@ namespace Amazon.DirectoryService.Model
         /// <para>
         /// The type of client authentication to enable. Currently only the value <code>SmartCard</code>
         /// is supported. Smart card authentication in AD Connector requires that you enable Kerberos
-        /// Constrained Delegation for the Service User to the LDAP service in the on-premises
+        /// Constrained Delegation for the Service User to the LDAP service in your self-managed
         /// AD. 
         /// </para>
         /// </summary>

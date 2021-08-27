@@ -30,7 +30,16 @@ namespace Amazon.SimpleSystemsManagement.Model
 {
     /// <summary>
     /// Container for the parameters to the UpdateAssociationStatus operation.
-    /// Updates the status of the Systems Manager document associated with the specified instance.
+    /// Updates the status of the Amazon Web Services Systems Manager document (SSM document)
+    /// associated with the specified instance.
+    /// 
+    ///  
+    /// <para>
+    ///  <code>UpdateAssociationStatus</code> is primarily used by the Amazon Web Services
+    /// Systems Manager Agent (SSM Agent) to report status updates about your associations
+    /// and is only used for associations created with the <code>InstanceId</code> legacy
+    /// parameter.
+    /// </para>
     /// </summary>
     public partial class UpdateAssociationStatusRequest : AmazonSimpleSystemsManagementRequest
     {
@@ -47,8 +56,8 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Instantiates UpdateAssociationStatusRequest with the parameterized properties
         /// </summary>
         /// <param name="associationStatus">The association status.</param>
-        /// <param name="instanceId">The ID of the instance.</param>
-        /// <param name="name">The name of the Systems Manager document.</param>
+        /// <param name="instanceId">The instance ID.</param>
+        /// <param name="name">The name of the SSM document.</param>
         public UpdateAssociationStatusRequest(AssociationStatus associationStatus, string instanceId, string name)
         {
             _associationStatus = associationStatus;
@@ -78,7 +87,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property InstanceId. 
         /// <para>
-        /// The ID of the instance.
+        /// The instance ID.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -97,7 +106,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property Name. 
         /// <para>
-        /// The name of the Systems Manager document.
+        /// The name of the SSM document.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

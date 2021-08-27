@@ -51,6 +51,17 @@ namespace Amazon.GreengrassV2.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.PosixUser);
             }
 
+            if(requestObject.IsSetSystemResourceLimits())
+            {
+                context.Writer.WritePropertyName("systemResourceLimits");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = SystemResourceLimitsMarshaller.Instance;
+                marshaller.Marshall(requestObject.SystemResourceLimits, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
         }
 
         /// <summary>

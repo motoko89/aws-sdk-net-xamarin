@@ -805,6 +805,11 @@
     <max>320000000</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.GetInterpolatedAssetPropertyValuesRequest.IntervalWindowInSeconds</property>
+    <min>1</min>
+    <max>320000000</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.GetInterpolatedAssetPropertyValuesRequest.MaxResults</property>
     <min>1</min>
   </property-value-rule>
@@ -1611,6 +1616,18 @@
     <pattern>[^\u0000-\u001F\u007F]+</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.CustomerManagedS3Storage.RoleArn</property>
+    <min>1</min>
+    <max>1600</max>
+    <pattern>.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.CustomerManagedS3Storage.S3ResourceArn</property>
+    <min>1</min>
+    <max>1600</max>
+    <pattern>.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.DashboardSummary.Description</property>
     <min>1</min>
     <max>2048</max>
@@ -1657,6 +1674,11 @@
     <min>1</min>
     <max>1600</max>
     <pattern>.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.GreengrassV2.CoreDeviceThingName</property>
+    <min>1</min>
+    <max>128</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.GroupIdentity.Id</property>
@@ -1834,8 +1856,12 @@
   <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.TumblingWindow.Interval</property>
     <min>2</min>
-    <max>3</max>
-    <pattern>1w|1d|1h|15m|5m|1m</pattern>
+    <max>23</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.TumblingWindow.Offset</property>
+    <min>2</min>
+    <max>25</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.UserIdentity.Id</property>

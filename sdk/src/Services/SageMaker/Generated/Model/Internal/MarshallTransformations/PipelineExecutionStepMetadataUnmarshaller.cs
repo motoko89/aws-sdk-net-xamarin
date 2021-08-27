@@ -76,6 +76,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     unmarshalledObject.Condition = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("Lambda", targetDepth))
+                {
+                    var unmarshaller = LambdaStepMetadataUnmarshaller.Instance;
+                    unmarshalledObject.Lambda = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Model", targetDepth))
                 {
                     var unmarshaller = ModelStepMetadataUnmarshaller.Instance;
@@ -104,6 +110,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = TransformJobStepMetadataUnmarshaller.Instance;
                     unmarshalledObject.TransformJob = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("TuningJob", targetDepth))
+                {
+                    var unmarshaller = TuningJobStepMetaDataUnmarshaller.Instance;
+                    unmarshalledObject.TuningJob = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

@@ -62,8 +62,8 @@ namespace Amazon.QuickSight.Model
         /// <summary>
         /// Gets and sets the property CapacityRegion. 
         /// <para>
-        /// The AWS Region that you want to use for the free SPICE capacity for the new namespace.
-        /// This is set to the region that you run CreateNamespace in. 
+        /// The Amazon Web Services Region; that you want to use for the free SPICE capacity for
+        /// the new namespace. This is set to the region that you run CreateNamespace in. 
         /// </para>
         /// </summary>
         public string CapacityRegion
@@ -140,7 +140,7 @@ namespace Amazon.QuickSight.Model
         /// <summary>
         /// Gets and sets the property RequestId. 
         /// <para>
-        /// The AWS request ID for this operation.
+        /// The Amazon Web Services request ID for this operation.
         /// </para>
         /// </summary>
         public string RequestId

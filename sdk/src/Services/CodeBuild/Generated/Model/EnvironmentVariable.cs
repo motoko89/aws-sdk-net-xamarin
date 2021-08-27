@@ -102,9 +102,9 @@ namespace Amazon.CodeBuild.Model
         /// We strongly discourage the use of <code>PLAINTEXT</code> environment variables to
         /// store sensitive values, especially Amazon Web Services secret key IDs and secret access
         /// keys. <code>PLAINTEXT</code> environment variables can be displayed in plain text
-        /// using the CodeBuild console and the AWS Command Line Interface (AWS CLI). For sensitive
-        /// values, we recommend you use an environment variable of type <code>PARAMETER_STORE</code>
-        /// or <code>SECRETS_MANAGER</code>. 
+        /// using the CodeBuild console and the CLI. For sensitive values, we recommend you use
+        /// an environment variable of type <code>PARAMETER_STORE</code> or <code>SECRETS_MANAGER</code>.
+        /// 
         /// </para>
         ///  </important>
         /// </summary>

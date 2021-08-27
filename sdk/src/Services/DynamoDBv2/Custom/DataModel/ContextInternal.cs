@@ -124,17 +124,48 @@ namespace Amazon.DynamoDBv2.DataModel
         internal Table GetUnconfiguredTable(string tableName)
         {
             Table table;
-            lock (tablesMapLock)
+            
+            try
             {
-                if (!tablesMap.TryGetValue(tableName, out table))
+                _readerWriterLockSlim.EnterReadLock();
+
+                if (tablesMap.TryGetValue(tableName, out table))
                 {
-                    var emptyConfig = new TableConfig(tableName, conversion: null, consumer: Table.DynamoDBConsumer.DataModel,
-                        storeAsEpoch: null, isEmptyStringValueEnabled: false);
-                    table = Table.LoadTable(Client, emptyConfig);
-                    tablesMap[tableName] = table;
+                    return table;
                 }
             }
-            return table;
+            finally
+            {
+                if(_readerWriterLockSlim.IsReadLockHeld)
+                {
+                    _readerWriterLockSlim.ExitReadLock();
+                }
+            }
+
+            try
+            {
+                _readerWriterLockSlim.EnterWriteLock();
+                
+                // Check to see if another thread go the write lock before this thread and filled the cache.
+                if (tablesMap.TryGetValue(tableName, out table))
+                {
+                    return table;
+                }
+
+                var emptyConfig = new TableConfig(tableName, conversion: null, consumer: Table.DynamoDBConsumer.DataModel,
+                    storeAsEpoch: null, isEmptyStringValueEnabled: false);
+                table = Table.LoadTable(Client, emptyConfig);
+                tablesMap[tableName] = table;
+
+                return table;
+            }
+            finally
+            {
+                if(_readerWriterLockSlim.IsWriteLockHeld)
+                {
+                    _readerWriterLockSlim.ExitWriteLock();
+                }
+            }
         }
 
         internal static string GetTableName(string baseTableName, DynamoDBFlatConfig flatConfig)
@@ -760,9 +791,16 @@ namespace Amazon.DynamoDBv2.DataModel
                 throw new ArgumentNullException("hashKey");
 
             if (storageConfig.HashKeyPropertyNames.Count != 1)
-                throw new InvalidOperationException("Must have one hash key defined for the table " + storageConfig.TableName);
+            {
+                var tableName = GetTableName(storageConfig.TableName, currentConfig);
+                throw new InvalidOperationException("Must have one hash key defined for the table " + tableName);
+            }
+
             if (storageConfig.RangeKeyPropertyNames.Count != 1 && storageConfig.IndexNameToGSIMapping.Count == 0)
-                throw new InvalidOperationException("Must have one range key or a GSI index defined for the table " + storageConfig.TableName);
+            {
+                var tableName = GetTableName(storageConfig.TableName, currentConfig);
+                throw new InvalidOperationException("Must have one range key or a GSI index defined for the table " + tableName);
+            }
 
             QueryFilter filter = new QueryFilter();
 
@@ -900,7 +938,10 @@ namespace Amazon.DynamoDBv2.DataModel
         internal Key MakeKey(object hashKey, object rangeKey, ItemStorageConfig storageConfig, DynamoDBFlatConfig flatConfig)
         {
             if (storageConfig.HashKeyPropertyNames.Count != 1)
-                throw new InvalidOperationException("Must have one hash key defined for the table " + storageConfig.TableName);
+            {
+                var tableName = GetTableName(storageConfig.TableName, flatConfig);
+                throw new InvalidOperationException("Must have one hash key defined for the table " + tableName);
+            }
 
             Key key = new Key();
 
@@ -917,7 +958,10 @@ namespace Amazon.DynamoDBv2.DataModel
             if (storageConfig.RangeKeyPropertyNames.Count > 0)
             {
                 if (storageConfig.RangeKeyPropertyNames.Count != 1)
-                    throw new InvalidOperationException("Must have one range key defined for the table");
+                {
+                    var tableName = GetTableName(storageConfig.TableName, flatConfig);
+                    throw new InvalidOperationException("Must have one range key defined for the table " + tableName);
+                }
 
                 string rangeKeyPropertyName = storageConfig.RangeKeyPropertyNames[0];
                 PropertyStorage rangeKeyProperty = storageConfig.GetPropertyStorage(rangeKeyPropertyName);

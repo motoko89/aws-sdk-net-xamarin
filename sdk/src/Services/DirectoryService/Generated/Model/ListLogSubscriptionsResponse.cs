@@ -39,7 +39,8 @@ namespace Amazon.DirectoryService.Model
         /// <summary>
         /// Gets and sets the property LogSubscriptions. 
         /// <para>
-        /// A list of active <a>LogSubscription</a> objects for calling the AWS account.
+        /// A list of active <a>LogSubscription</a> objects for calling the Amazon Web Services
+        /// account.
         /// </para>
         /// </summary>
         public List<LogSubscription> LogSubscriptions

@@ -30,11 +30,13 @@ namespace Amazon.SimpleSystemsManagement.Model
 {
     /// <summary>
     /// Container for the parameters to the DeleteAssociation operation.
-    /// Disassociates the specified Systems Manager document from the specified instance.
+    /// Disassociates the specified Amazon Web Services Systems Manager document (SSM document)
+    /// from the specified instance. If you created the association by using the <code>Targets</code>
+    /// parameter, then you must delete the association by using the association ID.
     /// 
     ///  
     /// <para>
-    /// When you disassociate a document from an instance, it does not change the configuration
+    /// When you disassociate a document from an instance, it doesn't change the configuration
     /// of the instance. To change the configuration state of an instance after you disassociate
     /// a document, you must create a new document with the desired configuration and associate
     /// it with the instance.
@@ -54,8 +56,8 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Instantiates DeleteAssociationRequest with the parameterized properties
         /// </summary>
-        /// <param name="instanceId">The ID of the instance.</param>
-        /// <param name="name">The name of the Systems Manager document.</param>
+        /// <param name="instanceId">The instance ID. <note>  <code>InstanceId</code> has been deprecated. To specify an instance ID for an association, use the <code>Targets</code> parameter. Requests that include the parameter <code>InstanceID</code> with Systems Manager documents (SSM documents) that use schema version 2.0 or later will fail. In addition, if you use the parameter <code>InstanceId</code>, you can't use the parameters <code>AssociationName</code>, <code>DocumentVersion</code>, <code>MaxErrors</code>, <code>MaxConcurrency</code>, <code>OutputLocation</code>, or <code>ScheduleExpression</code>. To use these parameters, you must use the <code>Targets</code> parameter. </note></param>
+        /// <param name="name">The name of the SSM document.</param>
         public DeleteAssociationRequest(string instanceId, string name)
         {
             _instanceId = instanceId;
@@ -83,8 +85,19 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property InstanceId. 
         /// <para>
-        /// The ID of the instance.
+        /// The instance ID.
         /// </para>
+        ///  <note> 
+        /// <para>
+        ///  <code>InstanceId</code> has been deprecated. To specify an instance ID for an association,
+        /// use the <code>Targets</code> parameter. Requests that include the parameter <code>InstanceID</code>
+        /// with Systems Manager documents (SSM documents) that use schema version 2.0 or later
+        /// will fail. In addition, if you use the parameter <code>InstanceId</code>, you can't
+        /// use the parameters <code>AssociationName</code>, <code>DocumentVersion</code>, <code>MaxErrors</code>,
+        /// <code>MaxConcurrency</code>, <code>OutputLocation</code>, or <code>ScheduleExpression</code>.
+        /// To use these parameters, you must use the <code>Targets</code> parameter.
+        /// </para>
+        ///  </note>
         /// </summary>
         public string InstanceId
         {
@@ -101,7 +114,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property Name. 
         /// <para>
-        /// The name of the Systems Manager document.
+        /// The name of the SSM document.
         /// </para>
         /// </summary>
         public string Name

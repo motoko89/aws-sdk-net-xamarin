@@ -1017,6 +1017,45 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
         [TestMethod]
         [TestCategory("UnitTest")]
         [TestCategory("EC2")]
+        public void DescribeInstanceEventWindowsTest_TwoPages()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeInstanceEventWindowsRequest>();
+
+            var firstResponse = InstantiateClassGenerator.Execute<DescribeInstanceEventWindowsResponse>();
+            var secondResponse = InstantiateClassGenerator.Execute<DescribeInstanceEventWindowsResponse>();
+            secondResponse.NextToken = null;
+
+            _mockClient.SetupSequence(x => x.DescribeInstanceEventWindows(request)).Returns(firstResponse).Returns(secondResponse);
+            var paginator = _mockClient.Object.Paginators.DescribeInstanceEventWindows(request);
+            
+            Assert.AreEqual(2, paginator.Responses.ToList().Count);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("EC2")]
+        [ExpectedException(typeof(System.InvalidOperationException), "Paginator has already been consumed and cannot be reused. Please create a new instance.")]
+        public void DescribeInstanceEventWindowsTest__OnlyUsedOnce()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeInstanceEventWindowsRequest>();
+
+            var response = InstantiateClassGenerator.Execute<DescribeInstanceEventWindowsResponse>();
+            response.NextToken = null;
+
+            _mockClient.Setup(x => x.DescribeInstanceEventWindows(request)).Returns(response);
+            var paginator = _mockClient.Object.Paginators.DescribeInstanceEventWindows(request);
+
+            // Should work the first time
+            paginator.Responses.ToList();
+
+            // Second time should throw an exception
+            paginator.Responses.ToList();
+        }
+
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("EC2")]
         public void DescribeInstancesTest_TwoPages()
         {
             var request = InstantiateClassGenerator.Execute<DescribeInstancesRequest>();
@@ -2226,6 +2265,45 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
         [TestMethod]
         [TestCategory("UnitTest")]
         [TestCategory("EC2")]
+        public void DescribeSecurityGroupRulesTest_TwoPages()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeSecurityGroupRulesRequest>();
+
+            var firstResponse = InstantiateClassGenerator.Execute<DescribeSecurityGroupRulesResponse>();
+            var secondResponse = InstantiateClassGenerator.Execute<DescribeSecurityGroupRulesResponse>();
+            secondResponse.NextToken = null;
+
+            _mockClient.SetupSequence(x => x.DescribeSecurityGroupRules(request)).Returns(firstResponse).Returns(secondResponse);
+            var paginator = _mockClient.Object.Paginators.DescribeSecurityGroupRules(request);
+            
+            Assert.AreEqual(2, paginator.Responses.ToList().Count);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("EC2")]
+        [ExpectedException(typeof(System.InvalidOperationException), "Paginator has already been consumed and cannot be reused. Please create a new instance.")]
+        public void DescribeSecurityGroupRulesTest__OnlyUsedOnce()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeSecurityGroupRulesRequest>();
+
+            var response = InstantiateClassGenerator.Execute<DescribeSecurityGroupRulesResponse>();
+            response.NextToken = null;
+
+            _mockClient.Setup(x => x.DescribeSecurityGroupRules(request)).Returns(response);
+            var paginator = _mockClient.Object.Paginators.DescribeSecurityGroupRules(request);
+
+            // Should work the first time
+            paginator.Responses.ToList();
+
+            // Second time should throw an exception
+            paginator.Responses.ToList();
+        }
+
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("EC2")]
         public void DescribeSecurityGroupsTest_TwoPages()
         {
             var request = InstantiateClassGenerator.Execute<DescribeSecurityGroupsRequest>();
@@ -2994,6 +3072,45 @@ namespace AWSSDK_DotNet35.UnitTests.PaginatorTests
 
             _mockClient.Setup(x => x.DescribeTransitGatewayVpcAttachments(request)).Returns(response);
             var paginator = _mockClient.Object.Paginators.DescribeTransitGatewayVpcAttachments(request);
+
+            // Should work the first time
+            paginator.Responses.ToList();
+
+            // Second time should throw an exception
+            paginator.Responses.ToList();
+        }
+
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("EC2")]
+        public void DescribeTrunkInterfaceAssociationsTest_TwoPages()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeTrunkInterfaceAssociationsRequest>();
+
+            var firstResponse = InstantiateClassGenerator.Execute<DescribeTrunkInterfaceAssociationsResponse>();
+            var secondResponse = InstantiateClassGenerator.Execute<DescribeTrunkInterfaceAssociationsResponse>();
+            secondResponse.NextToken = null;
+
+            _mockClient.SetupSequence(x => x.DescribeTrunkInterfaceAssociations(request)).Returns(firstResponse).Returns(secondResponse);
+            var paginator = _mockClient.Object.Paginators.DescribeTrunkInterfaceAssociations(request);
+            
+            Assert.AreEqual(2, paginator.Responses.ToList().Count);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("EC2")]
+        [ExpectedException(typeof(System.InvalidOperationException), "Paginator has already been consumed and cannot be reused. Please create a new instance.")]
+        public void DescribeTrunkInterfaceAssociationsTest__OnlyUsedOnce()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeTrunkInterfaceAssociationsRequest>();
+
+            var response = InstantiateClassGenerator.Execute<DescribeTrunkInterfaceAssociationsResponse>();
+            response.NextToken = null;
+
+            _mockClient.Setup(x => x.DescribeTrunkInterfaceAssociations(request)).Returns(response);
+            var paginator = _mockClient.Object.Paginators.DescribeTrunkInterfaceAssociations(request);
 
             // Should work the first time
             paginator.Responses.ToList();

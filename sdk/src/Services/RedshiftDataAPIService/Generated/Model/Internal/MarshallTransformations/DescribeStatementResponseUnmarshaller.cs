@@ -147,6 +147,12 @@ namespace Amazon.RedshiftDataAPIService.Model.Internal.MarshallTransformations
                     response.Status = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("SubStatements", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<SubStatementData, SubStatementDataUnmarshaller>(SubStatementDataUnmarshaller.Instance);
+                    response.SubStatements = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("UpdatedAt", targetDepth))
                 {
                     var unmarshaller = DateTimeUnmarshaller.Instance;

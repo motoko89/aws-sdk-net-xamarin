@@ -33,15 +33,36 @@ namespace Amazon.ComputeOptimizer.Model
     /// </summary>
     public partial class GetEnrollmentStatusResponse : AmazonWebServiceResponse
     {
+        private DateTime? _lastUpdatedTimestamp;
         private bool? _memberAccountsEnrolled;
+        private int? _numberOfMemberAccountsOptedIn;
         private Status _status;
         private string _statusReason;
 
         /// <summary>
+        /// Gets and sets the property LastUpdatedTimestamp. 
+        /// <para>
+        /// The Unix epoch timestamp, in seconds, of when the account enrollment status was last
+        /// updated.
+        /// </para>
+        /// </summary>
+        public DateTime LastUpdatedTimestamp
+        {
+            get { return this._lastUpdatedTimestamp.GetValueOrDefault(); }
+            set { this._lastUpdatedTimestamp = value; }
+        }
+
+        // Check to see if LastUpdatedTimestamp property is set
+        internal bool IsSetLastUpdatedTimestamp()
+        {
+            return this._lastUpdatedTimestamp.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property MemberAccountsEnrolled. 
         /// <para>
-        /// Confirms the enrollment status of member accounts within the organization, if the
-        /// account is a management account of an organization.
+        /// Confirms the enrollment status of member accounts of the organization, if the account
+        /// is a management account of an organization.
         /// </para>
         /// </summary>
         public bool MemberAccountsEnrolled
@@ -54,6 +75,25 @@ namespace Amazon.ComputeOptimizer.Model
         internal bool IsSetMemberAccountsEnrolled()
         {
             return this._memberAccountsEnrolled.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property NumberOfMemberAccountsOptedIn. 
+        /// <para>
+        /// The count of organization member accounts that are opted in to the service, if your
+        /// account is an organization management account.
+        /// </para>
+        /// </summary>
+        public int NumberOfMemberAccountsOptedIn
+        {
+            get { return this._numberOfMemberAccountsOptedIn.GetValueOrDefault(); }
+            set { this._numberOfMemberAccountsOptedIn = value; }
+        }
+
+        // Check to see if NumberOfMemberAccountsOptedIn property is set
+        internal bool IsSetNumberOfMemberAccountsOptedIn()
+        {
+            return this._numberOfMemberAccountsOptedIn.HasValue; 
         }
 
         /// <summary>

@@ -45,6 +45,17 @@ namespace Amazon.Rekognition.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(StartTechnicalCueDetectionFilter requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetBlackFrame())
+            {
+                context.Writer.WritePropertyName("BlackFrame");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = BlackFrameMarshaller.Instance;
+                marshaller.Marshall(requestObject.BlackFrame, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetMinSegmentConfidence())
             {
                 context.Writer.WritePropertyName("MinSegmentConfidence");

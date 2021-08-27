@@ -329,6 +329,10 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                     {
                         request.Parameters.Add("MetadataOptions" + "." + "HttpEndpoint", StringUtils.FromString(publicRequest.MetadataOptions.HttpEndpoint));
                     }
+                    if(publicRequest.MetadataOptions.IsSetHttpProtocolIpv6())
+                    {
+                        request.Parameters.Add("MetadataOptions" + "." + "HttpProtocolIpv6", StringUtils.FromString(publicRequest.MetadataOptions.HttpProtocolIpv6));
+                    }
                     if(publicRequest.MetadataOptions.IsSetHttpPutResponseHopLimit())
                     {
                         request.Parameters.Add("MetadataOptions" + "." + "HttpPutResponseHopLimit", StringUtils.FromInt(publicRequest.MetadataOptions.HttpPutResponseHopLimit));
@@ -384,6 +388,22 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         {
                             request.Parameters.Add("NetworkInterface" + "." + publicRequestlistValueIndex + "." + "InterfaceType", StringUtils.FromString(publicRequestlistValue.InterfaceType));
                         }
+                        if(publicRequestlistValue.IsSetIpv4PrefixCount())
+                        {
+                            request.Parameters.Add("NetworkInterface" + "." + publicRequestlistValueIndex + "." + "Ipv4PrefixCount", StringUtils.FromInt(publicRequestlistValue.Ipv4PrefixCount));
+                        }
+                        if(publicRequestlistValue.IsSetIpv4Prefixes())
+                        {
+                            int publicRequestlistValuelistValueIndex = 1;
+                            foreach(var publicRequestlistValuelistValue in publicRequestlistValue.Ipv4Prefixes)
+                            {
+                                if(publicRequestlistValuelistValue.IsSetIpv4Prefix())
+                                {
+                                    request.Parameters.Add("NetworkInterface" + "." + publicRequestlistValueIndex + "." + "Ipv4Prefix" + "." + publicRequestlistValuelistValueIndex + "." + "Ipv4Prefix", StringUtils.FromString(publicRequestlistValuelistValue.Ipv4Prefix));
+                                }
+                                publicRequestlistValuelistValueIndex++;
+                            }
+                        }
                         if(publicRequestlistValue.IsSetIpv6AddressCount())
                         {
                             request.Parameters.Add("NetworkInterface" + "." + publicRequestlistValueIndex + "." + "Ipv6AddressCount", StringUtils.FromInt(publicRequestlistValue.Ipv6AddressCount));
@@ -396,6 +416,22 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                                 if(publicRequestlistValuelistValue.IsSetIpv6Address())
                                 {
                                     request.Parameters.Add("NetworkInterface" + "." + publicRequestlistValueIndex + "." + "Ipv6Addresses" + "." + publicRequestlistValuelistValueIndex + "." + "Ipv6Address", StringUtils.FromString(publicRequestlistValuelistValue.Ipv6Address));
+                                }
+                                publicRequestlistValuelistValueIndex++;
+                            }
+                        }
+                        if(publicRequestlistValue.IsSetIpv6PrefixCount())
+                        {
+                            request.Parameters.Add("NetworkInterface" + "." + publicRequestlistValueIndex + "." + "Ipv6PrefixCount", StringUtils.FromInt(publicRequestlistValue.Ipv6PrefixCount));
+                        }
+                        if(publicRequestlistValue.IsSetIpv6Prefixes())
+                        {
+                            int publicRequestlistValuelistValueIndex = 1;
+                            foreach(var publicRequestlistValuelistValue in publicRequestlistValue.Ipv6Prefixes)
+                            {
+                                if(publicRequestlistValuelistValue.IsSetIpv6Prefix())
+                                {
+                                    request.Parameters.Add("NetworkInterface" + "." + publicRequestlistValueIndex + "." + "Ipv6Prefix" + "." + publicRequestlistValuelistValueIndex + "." + "Ipv6Prefix", StringUtils.FromString(publicRequestlistValuelistValue.Ipv6Prefix));
                                 }
                                 publicRequestlistValuelistValueIndex++;
                             }

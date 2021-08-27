@@ -192,6 +192,14 @@
       <Project>{AD325CC4-2ED2-4440-93AC-BD0DE2D866C7}</Project>
       <Name>AWSSDK.Chime.CodeAnalysis</Name>
     </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/ChimeSDKIdentity/AWSSDK.ChimeSDKIdentity.CodeAnalysis.csproj">
+      <Project>{D3539FAA-7CBB-4BFE-8F32-56097DB9C7C1}</Project>
+      <Name>AWSSDK.ChimeSDKIdentity.CodeAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/ChimeSDKMessaging/AWSSDK.ChimeSDKMessaging.CodeAnalysis.csproj">
+      <Project>{CFF95961-210B-4DDE-915B-31EBEDDF8098}</Project>
+      <Name>AWSSDK.ChimeSDKMessaging.CodeAnalysis</Name>
+    </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/Cloud9/AWSSDK.Cloud9.CodeAnalysis.csproj">
       <Project>{3566CC31-603D-45F7-A615-37C7963B3753}</Project>
       <Name>AWSSDK.Cloud9.CodeAnalysis</Name>
@@ -760,6 +768,10 @@
       <Project>{ABC55026-9712-485F-9999-8833BA451E9D}</Project>
       <Name>AWSSDK.MediaTailor.CodeAnalysis</Name>
     </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/MemoryDB/AWSSDK.MemoryDB.CodeAnalysis.csproj">
+      <Project>{4F0AE39E-C0AC-47C7-A3B6-214CD59BD0FF}</Project>
+      <Name>AWSSDK.MemoryDB.CodeAnalysis</Name>
+    </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/Mgn/AWSSDK.Mgn.CodeAnalysis.csproj">
       <Project>{98619D2E-9751-49BC-97FA-CC2CCEBEF5A6}</Project>
       <Name>AWSSDK.Mgn.CodeAnalysis</Name>
@@ -924,6 +936,18 @@
       <Project>{3F10D8F8-C535-4123-A2C3-28A5F06B8630}</Project>
       <Name>AWSSDK.Route53Domains.CodeAnalysis</Name>
     </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/Route53RecoveryCluster/AWSSDK.Route53RecoveryCluster.CodeAnalysis.csproj">
+      <Project>{1B6D6633-DDFA-4C03-B7C9-36105816E004}</Project>
+      <Name>AWSSDK.Route53RecoveryCluster.CodeAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/Route53RecoveryControlConfig/AWSSDK.Route53RecoveryControlConfig.CodeAnalysis.csproj">
+      <Project>{FF31873D-8183-4051-BEAD-A0F276532CC2}</Project>
+      <Name>AWSSDK.Route53RecoveryControlConfig.CodeAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/Route53RecoveryReadiness/AWSSDK.Route53RecoveryReadiness.CodeAnalysis.csproj">
+      <Project>{30A651C1-099D-4F37-B5A7-9F4B4D3814EB}</Project>
+      <Name>AWSSDK.Route53RecoveryReadiness.CodeAnalysis</Name>
+    </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/Route53Resolver/AWSSDK.Route53Resolver.CodeAnalysis.csproj">
       <Project>{B90CE7E1-24C8-4371-902E-D68B13913A47}</Project>
       <Name>AWSSDK.Route53Resolver.CodeAnalysis</Name>
@@ -1031,6 +1055,10 @@
     <ProjectReference Include="../ServiceAnalysis/Snowball/AWSSDK.Snowball.CodeAnalysis.csproj">
       <Project>{54A63ED2-11F0-4F76-8F5B-B7016E94AF86}</Project>
       <Name>AWSSDK.Snowball.CodeAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/SnowDeviceManagement/AWSSDK.SnowDeviceManagement.CodeAnalysis.csproj">
+      <Project>{94E03276-400A-4F34-B8D7-53749617D2D1}</Project>
+      <Name>AWSSDK.SnowDeviceManagement.CodeAnalysis</Name>
     </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/SQS/AWSSDK.SQS.CodeAnalysis.csproj">
       <Project>{DC3A5D55-1333-440D-9A0F-CE4841E19E9A}</Project>

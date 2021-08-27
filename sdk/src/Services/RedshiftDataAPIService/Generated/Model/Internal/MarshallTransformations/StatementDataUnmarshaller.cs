@@ -76,6 +76,12 @@ namespace Amazon.RedshiftDataAPIService.Model.Internal.MarshallTransformations
                     unmarshalledObject.Id = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("IsBatchStatement", targetDepth))
+                {
+                    var unmarshaller = BoolUnmarshaller.Instance;
+                    unmarshalledObject.IsBatchStatement = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("QueryParameters", targetDepth))
                 {
                     var unmarshaller = new ListUnmarshaller<SqlParameter, SqlParameterUnmarshaller>(SqlParameterUnmarshaller.Instance);
@@ -86,6 +92,12 @@ namespace Amazon.RedshiftDataAPIService.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.QueryString = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("QueryStrings", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<string, StringUnmarshaller>(StringUnmarshaller.Instance);
+                    unmarshalledObject.QueryStrings = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("SecretArn", targetDepth))

@@ -243,6 +243,10 @@ namespace Amazon.EC2.Model
         /// <para>
         /// The number of instances for which to reserve capacity.
         /// </para>
+        ///  
+        /// <para>
+        /// Valid range: 1 - 1000
+        /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
         public int InstanceCount
@@ -378,12 +382,12 @@ namespace Amazon.EC2.Model
         ///  <ul> <li> 
         /// <para>
         ///  <code>default</code> - The Capacity Reservation is created on hardware that is shared
-        /// with other accounts.
+        /// with other Amazon Web Services accounts.
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware
-        /// that is dedicated to a single account.
+        /// that is dedicated to a single Amazon Web Services account.
         /// </para>
         ///  </li> </ul>
         /// </summary>

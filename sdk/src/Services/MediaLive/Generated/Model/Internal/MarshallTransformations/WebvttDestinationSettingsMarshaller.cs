@@ -45,6 +45,12 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(WebvttDestinationSettings requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetStyleControl())
+            {
+                context.Writer.WritePropertyName("styleControl");
+                context.Writer.Write(requestObject.StyleControl);
+            }
+
         }
 
         /// <summary>

@@ -30,10 +30,31 @@ namespace Amazon.IoTSiteWise.Model
 {
     /// <summary>
     /// Contains an asset measurement property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#measurements">Measurements</a>
-    /// in the <i>AWS IoT SiteWise User Guide</i>.
+    /// in the <i>IoT SiteWise User Guide</i>.
     /// </summary>
     public partial class Measurement
     {
+        private MeasurementProcessingConfig _processingConfig;
+
+        /// <summary>
+        /// Gets and sets the property ProcessingConfig. 
+        /// <para>
+        /// The processing configuration for the given measurement property. You can configure
+        /// measurements to be kept at the edge or forwarded to the Amazon Web Services Cloud.
+        /// By default, measurements are forwarded to the cloud.
+        /// </para>
+        /// </summary>
+        public MeasurementProcessingConfig ProcessingConfig
+        {
+            get { return this._processingConfig; }
+            set { this._processingConfig = value; }
+        }
+
+        // Check to see if ProcessingConfig property is set
+        internal bool IsSetProcessingConfig()
+        {
+            return this._processingConfig != null;
+        }
 
     }
 }

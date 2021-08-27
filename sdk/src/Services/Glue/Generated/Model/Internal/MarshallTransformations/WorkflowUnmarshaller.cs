@@ -64,6 +64,12 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("BlueprintDetails", targetDepth))
+                {
+                    var unmarshaller = BlueprintDetailsUnmarshaller.Instance;
+                    unmarshalledObject.BlueprintDetails = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("CreatedOn", targetDepth))
                 {
                     var unmarshaller = DateTimeUnmarshaller.Instance;

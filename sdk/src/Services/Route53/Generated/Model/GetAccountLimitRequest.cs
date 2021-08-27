@@ -41,8 +41,9 @@ namespace Amazon.Route53.Model
     /// </para>
     ///  <note> 
     /// <para>
-    /// You can also view account limits in AWS Trusted Advisor. Sign in to the AWS Management
-    /// Console and open the Trusted Advisor console at <a href="https://console.aws.amazon.com/trustedadvisor">https://console.aws.amazon.com/trustedadvisor/</a>.
+    /// You can also view account limits in Amazon Web Services Trusted Advisor. Sign in to
+    /// the Amazon Web Services Management Console and open the Trusted Advisor console at
+    /// <a href="https://console.aws.amazon.com/trustedadvisor">https://console.aws.amazon.com/trustedadvisor/</a>.
     /// Then choose <b>Service limits</b> in the navigation pane.
     /// </para>
     ///  </note>

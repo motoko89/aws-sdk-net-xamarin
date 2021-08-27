@@ -65,6 +65,9 @@ namespace Amazon.IotData.Model.Internal.MarshallTransformations
             
             if (publicRequest.IsSetQos())
                 request.Parameters.Add("qos", StringUtils.FromInt(publicRequest.Qos));
+            
+            if (publicRequest.IsSetRetain())
+                request.Parameters.Add("retain", StringUtils.FromBool(publicRequest.Retain));
             request.ResourcePath = "/topics/{topic}";
             request.ContentStream =  publicRequest.Payload ?? new MemoryStream();
             request.Headers[Amazon.Util.HeaderKeys.ContentLengthHeader] =  

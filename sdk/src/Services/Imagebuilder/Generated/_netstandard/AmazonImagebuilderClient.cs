@@ -38,10 +38,10 @@ namespace Amazon.Imagebuilder
     /// <summary>
     /// Implementation for accessing Imagebuilder
     ///
-    /// EC2 Image Builder is a fully managed AWS service that makes it easier to automate
-    /// the creation, management, and deployment of customized, secure, and up-to-date "golden"
-    /// server images that are pre-installed and pre-configured with software and settings
-    /// to meet specific IT standards.
+    /// EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier
+    /// to automate the creation, management, and deployment of customized, secure, and up-to-date
+    /// "golden" server images that are pre-installed and pre-configured with software and
+    /// settings to meet specific IT standards.
     /// </summary>
     public partial class AmazonImagebuilderClient : AmazonServiceClient, IAmazonImagebuilder
     {
@@ -1909,6 +1909,22 @@ namespace Amazon.Imagebuilder
 
         /// <summary>
         /// Returns the list of component build versions for the specified semantic version.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
+        /// You can assign values for the first three, and can filter on all of them.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Filtering:</b> When you retrieve or reference a resource with a semantic version,
+        /// you can use wildcards (x) to filter your results. When you use a wildcard in any node,
+        /// all nodes to the right of the first wildcard must also be wildcards. For example,
+        /// specifying "1.2.x", or "1.x.x" works to filter list results, but neither "1.x.2",
+        /// nor "x.2.x" will work. You do not have to specify the build - Image Builder automatically
+        /// uses a wildcard for that, if applicable.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListComponentBuildVersions service method.</param>
         /// <param name="cancellationToken">
@@ -1966,6 +1982,22 @@ namespace Amazon.Imagebuilder
 
         /// <summary>
         /// Returns the list of component build versions for the specified semantic version.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
+        /// You can assign values for the first three, and can filter on all of them.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Filtering:</b> When you retrieve or reference a resource with a semantic version,
+        /// you can use wildcards (x) to filter your results. When you use a wildcard in any node,
+        /// all nodes to the right of the first wildcard must also be wildcards. For example,
+        /// specifying "1.2.x", or "1.x.x" works to filter list results, but neither "1.x.2",
+        /// nor "x.2.x" will work. You do not have to specify the build - Image Builder automatically
+        /// uses a wildcard for that, if applicable.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListComponents service method.</param>
         /// <param name="cancellationToken">
@@ -2194,7 +2226,7 @@ namespace Amazon.Imagebuilder
 
         /// <summary>
         /// List the Packages that are associated with an Image Build Version, as determined by
-        /// AWS Systems Manager Inventory at build time.
+        /// Amazon EC2 Systems Manager Inventory at build time.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListImagePackages service method.</param>
         /// <param name="cancellationToken">

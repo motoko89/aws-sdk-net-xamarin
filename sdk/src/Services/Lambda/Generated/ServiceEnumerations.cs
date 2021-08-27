@@ -705,6 +705,10 @@ namespace Amazon.Lambda
         /// </summary>
         public static readonly Runtime Python38 = new Runtime("python3.8");
         /// <summary>
+        /// Constant Python39 for Runtime
+        /// </summary>
+        public static readonly Runtime Python39 = new Runtime("python3.9");
+        /// <summary>
         /// Constant Ruby25 for Runtime
         /// </summary>
         public static readonly Runtime Ruby25 = new Runtime("ruby2.5");
@@ -766,6 +770,10 @@ namespace Amazon.Lambda
         /// Constant SASL_SCRAM_512_AUTH for SourceAccessType
         /// </summary>
         public static readonly SourceAccessType SASL_SCRAM_512_AUTH = new SourceAccessType("SASL_SCRAM_512_AUTH");
+        /// <summary>
+        /// Constant VIRTUAL_HOST for SourceAccessType
+        /// </summary>
+        public static readonly SourceAccessType VIRTUAL_HOST = new SourceAccessType("VIRTUAL_HOST");
         /// <summary>
         /// Constant VPC_SECURITY_GROUP for SourceAccessType
         /// </summary>

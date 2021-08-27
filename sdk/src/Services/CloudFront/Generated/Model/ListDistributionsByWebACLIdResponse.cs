@@ -30,7 +30,7 @@ namespace Amazon.CloudFront.Model
 {
     /// <summary>
     /// The response to a request to list the distributions that are associated with a specified
-    /// AWS WAF web ACL.
+    /// WAF web ACL.
     /// </summary>
     public partial class ListDistributionsByWebACLIdResponse : AmazonWebServiceResponse
     {

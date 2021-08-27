@@ -78,10 +78,10 @@ namespace Amazon.CodeBuild.Model
         ///  If this value is set, it can be either an inline buildspec definition, the path to
         /// an alternate buildspec file relative to the value of the built-in <code>CODEBUILD_SRC_DIR</code>
         /// environment variable, or the path to an S3 bucket. The bucket must be in the same
-        /// Region as the build project. Specify the buildspec file using its ARN (for example,
-        /// <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not
-        /// provided or is set to an empty string, the source code must contain a buildspec file
-        /// in its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec
+        /// Amazon Web Services Region as the build project. Specify the buildspec file using
+        /// its ARN (for example, <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>).
+        /// If this value is not provided or is set to an empty string, the source code must contain
+        /// a buildspec file in its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec
         /// File Name and Storage Location</a>. 
         /// </para>
         /// </summary>
@@ -206,15 +206,15 @@ namespace Amazon.CodeBuild.Model
         ///  </li> </ul> </li> <li> 
         /// <para>
         /// For source code in a GitHub repository, the HTTPS clone URL to the repository that
-        /// contains the source and the buildspec file. You must connect your account to your
-        /// GitHub account. Use the CodeBuild console to start creating a build project. When
-        /// you use the console to connect (or reconnect) with GitHub, on the GitHub <b>Authorize
-        /// application</b> page, for <b>Organization access</b>, choose <b>Request access</b>
-        /// next to each repository you want to allow CodeBuild to have access to, and then choose
-        /// <b>Authorize application</b>. (After you have connected to your GitHub account, you
-        /// do not need to finish creating the build project. You can leave the CodeBuild console.)
-        /// To instruct CodeBuild to use this connection, in the <code>source</code> object, set
-        /// the <code>auth</code> object's <code>type</code> value to <code>OAUTH</code>.
+        /// contains the source and the buildspec file. You must connect your Amazon Web Services
+        /// account to your GitHub account. Use the CodeBuild console to start creating a build
+        /// project. When you use the console to connect (or reconnect) with GitHub, on the GitHub
+        /// <b>Authorize application</b> page, for <b>Organization access</b>, choose <b>Request
+        /// access</b> next to each repository you want to allow CodeBuild to have access to,
+        /// and then choose <b>Authorize application</b>. (After you have connected to your GitHub
+        /// account, you do not need to finish creating the build project. You can leave the CodeBuild
+        /// console.) To instruct CodeBuild to use this connection, in the <code>source</code>
+        /// object, set the <code>auth</code> object's <code>type</code> value to <code>OAUTH</code>.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -263,12 +263,16 @@ namespace Amazon.CodeBuild.Model
         /// href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source
         /// provider access</a> in the <i>CodeBuild User Guide</i>.
         /// </para>
-        ///  <note> 
+        ///  
         /// <para>
-        ///  The status of a build triggered by a webhook is always reported to your source provider.
+        /// The status of a build triggered by a webhook is always reported to your source provider.
         /// 
         /// </para>
-        ///  </note>
+        ///  
+        /// <para>
+        /// If your project's builds are triggered by a webhook, you must push a new commit to
+        /// the repo for a change to this property to take effect.
+        /// </para>
         /// </summary>
         public bool ReportBuildStatus
         {

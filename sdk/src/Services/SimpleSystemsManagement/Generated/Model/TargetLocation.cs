@@ -29,7 +29,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.SimpleSystemsManagement.Model
 {
     /// <summary>
-    /// The combination of AWS Regions and accounts targeted by the current Automation execution.
+    /// The combination of Amazon Web Services Regions and Amazon Web Services accounts targeted
+    /// by the current Automation execution.
     /// </summary>
     public partial class TargetLocation
     {
@@ -42,7 +43,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property Accounts. 
         /// <para>
-        /// The AWS accounts targeted by the current Automation execution.
+        /// The Amazon Web Services accounts targeted by the current Automation execution.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=50)]
@@ -81,7 +82,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property Regions. 
         /// <para>
-        /// The AWS Regions targeted by the current Automation execution.
+        /// The Amazon Web Services Regions targeted by the current Automation execution.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=50)]
@@ -100,7 +101,8 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property TargetLocationMaxConcurrency. 
         /// <para>
-        /// The maximum number of AWS accounts and AWS regions allowed to run the Automation concurrently.
+        /// The maximum number of Amazon Web Services Regions and Amazon Web Services accounts
+        /// allowed to run the Automation concurrently.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=7)]

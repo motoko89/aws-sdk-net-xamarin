@@ -50,6 +50,7 @@ namespace Amazon.Route53.Model
         private List<string> _regions = new List<string>();
         private AlarmIdentifier _alarmIdentifier;
         private InsufficientDataHealthStatus _insufficientDataHealthStatus;
+        private string _routingControlArn;
 
         /// <summary>
         /// Gets and sets the property IPAddress. 
@@ -214,6 +215,13 @@ namespace Amazon.Route53.Model
         /// to be healthy and compares that number with the value of <code>HealthThreshold</code>.
         /// 
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <b>RECOVERY_CONTROL</b>: The health check is assocated with a Route53 Application
+        /// Recovery Controller routing control. If the routing control state is <code>ON</code>,
+        /// the health check is considered healthy. If the state is <code>OFF</code>, the health
+        /// check is considered unhealthy. 
+        /// </para>
         ///  </li> </ul> 
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
@@ -304,7 +312,7 @@ namespace Amazon.Route53.Model
         /// </para>
         ///  
         /// <para>
-        ///  <b>If you don't specify a value for <code>IPAddress</code> </b>:
+        ///  <b>If you don't specify a value for</b> <code>IPAddress</code>:
         /// </para>
         ///  
         /// <para>
@@ -448,8 +456,8 @@ namespace Amazon.Route53.Model
         /// Gets and sets the property MeasureLatency. 
         /// <para>
         /// Specify whether you want Amazon Route 53 to measure the latency between health checkers
-        /// in multiple AWS regions and your endpoint, and to display CloudWatch latency graphs
-        /// on the <b>Health Checks</b> page in the Route 53 console.
+        /// in multiple Amazon Web Services regions and your endpoint, and to display CloudWatch
+        /// latency graphs on the <b>Health Checks</b> page in the Route 53 console.
         /// </para>
         ///  <important> 
         /// <para>
@@ -721,6 +729,31 @@ namespace Amazon.Route53.Model
         internal bool IsSetInsufficientDataHealthStatus()
         {
             return this._insufficientDataHealthStatus != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property RoutingControlArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing
+        /// control.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about Route 53 Application Recovery Controller, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route-53-recovery.html">Route
+        /// 53 Application Recovery Controller Developer Guide.</a>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=255)]
+        public string RoutingControlArn
+        {
+            get { return this._routingControlArn; }
+            set { this._routingControlArn = value; }
+        }
+
+        // Check to see if RoutingControlArn property is set
+        internal bool IsSetRoutingControlArn()
+        {
+            return this._routingControlArn != null;
         }
 
     }

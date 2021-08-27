@@ -185,9 +185,11 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property FieldEncoding. Keep the default value, PAFF, to have MediaConvert
-        /// use PAFF encoding for interlaced outputs. Choose Force field (FORCE_FIELD) to disable
-        /// PAFF encoding and create separate interlaced fields.
+        /// Gets and sets the property FieldEncoding. The video encoding method for your MPEG-4
+        /// AVC output. Keep the default value, PAFF, to have MediaConvert use PAFF encoding for
+        /// interlaced outputs. Choose Force field (FORCE_FIELD) to disable PAFF encoding and
+        /// create separate interlaced fields. Choose MBAFF to disable PAFF and have MediaConvert
+        /// use MBAFF encoding for interlaced outputs.
         /// </summary>
         public H264FieldEncoding FieldEncoding
         {
@@ -486,8 +488,10 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property NumberBFramesBetweenReferenceFrames. Number of B-frames
-        /// between reference frames.
+        /// Gets and sets the property NumberBFramesBetweenReferenceFrames. Specify the number
+        /// of B-frames that MediaConvert puts between reference frames in this output. Valid
+        /// values are whole numbers from 0 through 7. When you don't specify a value, MediaConvert
+        /// defaults to 2.
         /// </summary>
         [AWSProperty(Min=0, Max=7)]
         public int NumberBFramesBetweenReferenceFrames
@@ -601,9 +605,8 @@ namespace Amazon.MediaConvert.Model
 
         /// <summary>
         /// Gets and sets the property QvbrSettings. Settings for quality-defined variable bitrate
-        /// encoding with the H.264 codec. Required when you set Rate control mode to QVBR. Not
-        /// valid when you set Rate control mode to a value other than QVBR, or when you don't
-        /// define Rate control mode.
+        /// encoding with the H.265 codec. Use these settings only when you set QVBR for Rate
+        /// control mode (RateControlMode).
         /// </summary>
         public H264QvbrSettings QvbrSettings
         {

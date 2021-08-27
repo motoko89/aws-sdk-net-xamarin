@@ -104,6 +104,15 @@ namespace Amazon.ECS.Model
         /// is specified, the <code>defaultCapacityProviderStrategy</code> for the cluster is
         /// used.
         /// </para>
+        ///  
+        /// <para>
+        /// When you use cluster auto scaling, you must specify <code>capacityProviderStrategy</code>
+        /// and not <code>launchType</code>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// A capacity provider strategy may contain a maximum of 6 capacity providers.
+        /// </para>
         /// </summary>
         public List<CapacityProviderStrategyItem> CapacityProviderStrategy
         {
@@ -200,7 +209,7 @@ namespace Amazon.ECS.Model
         /// Gets and sets the property Group. 
         /// <para>
         /// The name of the task group to associate with the task. The default value is the family
-        /// name of the task definition (for example, family:my-family-name).
+        /// name of the task definition (for example, <code>family:my-family-name</code>).
         /// </para>
         /// </summary>
         public string Group
@@ -224,13 +233,13 @@ namespace Amazon.ECS.Model
         /// </para>
         ///  
         /// <para>
-        /// The <code>FARGATE</code> launch type runs your tasks on AWS Fargate On-Demand infrastructure.
+        /// The <code>FARGATE</code> launch type runs your tasks on Fargate On-Demand infrastructure.
         /// </para>
         ///  <note> 
         /// <para>
         /// Fargate Spot infrastructure is available for use but a capacity provider strategy
-        /// must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">AWS
-        /// Fargate capacity providers</a> in the <i>Amazon ECS User Guide for AWS Fargate</i>.
+        /// must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">Fargate
+        /// capacity providers</a> in the <i>Amazon ECS User Guide for Fargate</i>.
         /// </para>
         ///  </note> 
         /// <para>
@@ -246,6 +255,11 @@ namespace Amazon.ECS.Model
         /// <para>
         /// A task can use either a launch type or a capacity provider strategy. If a <code>launchType</code>
         /// is specified, the <code>capacityProviderStrategy</code> parameter must be omitted.
+        /// </para>
+        ///  
+        /// <para>
+        /// When you use cluster auto scaling, you must specify <code>capacityProviderStrategy</code>
+        /// and not <code>launchType</code>. 
         /// </para>
         /// </summary>
         public LaunchType LaunchType
@@ -267,7 +281,7 @@ namespace Amazon.ECS.Model
         /// that use the <code>awsvpc</code> network mode to receive their own elastic network
         /// interface, and it is not supported for other network modes. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
-        /// Networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+        /// networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
         /// </para>
         /// </summary>
         public NetworkConfiguration NetworkConfiguration
@@ -292,12 +306,11 @@ namespace Amazon.ECS.Model
         /// variables (that are specified in the task definition or Docker image) on a container
         /// or add new environment variables to it with an <code>environment</code> override.
         /// </para>
-        ///  <note> 
+        ///  
         /// <para>
         /// A total of 8192 characters are allowed for overrides. This limit includes the JSON
         /// formatting characters of the override structure.
         /// </para>
-        ///  </note>
         /// </summary>
         public TaskOverride Overrides
         {
@@ -334,7 +347,7 @@ namespace Amazon.ECS.Model
         /// <summary>
         /// Gets and sets the property PlacementStrategy. 
         /// <para>
-        /// The placement strategy objects to use for the task. You can specify a maximum of five
+        /// The placement strategy objects to use for the task. You can specify a maximum of 5
         /// strategy rules per task.
         /// </para>
         /// </summary>
@@ -353,11 +366,10 @@ namespace Amazon.ECS.Model
         /// <summary>
         /// Gets and sets the property PlatformVersion. 
         /// <para>
-        /// The platform version the task should run. A platform version is only specified for
-        /// tasks using the Fargate launch type. If one is not specified, the <code>LATEST</code>
-        /// platform version is used by default. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
-        /// Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service Developer
-        /// Guide</i>.
+        /// The platform version the task should use. A platform version is only specified for
+        /// tasks hosted on Fargate. If one is not specified, the <code>LATEST</code> platform
+        /// version is used by default. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate
+        /// platform versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
         /// </para>
         /// </summary>
         public string PlatformVersion
@@ -402,7 +414,8 @@ namespace Amazon.ECS.Model
         /// <summary>
         /// Gets and sets the property ReferenceId. 
         /// <para>
-        /// The reference ID to use for the task.
+        /// The reference ID to use for the task. The reference ID can have a maximum length of
+        /// 1024 characters.
         /// </para>
         /// </summary>
         public string ReferenceId
@@ -486,9 +499,9 @@ namespace Amazon.ECS.Model
         ///  </li> <li> 
         /// <para>
         /// Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for either keys or values as it is reserved for AWS use. You cannot
-        /// edit or delete tag keys or values with this prefix. Tags with this prefix do not count
-        /// against your tags per resource limit.
+        /// of such as a prefix for either keys or values as it is reserved for Amazon Web Services
+        /// use. You cannot edit or delete tag keys or values with this prefix. Tags with this
+        /// prefix do not count against your tags per resource limit.
         /// </para>
         ///  </li> </ul>
         /// </summary>

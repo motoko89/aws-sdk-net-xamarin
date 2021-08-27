@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.EC2.Model
 {
     /// <summary>
-    /// Describes a security group and AWS account ID pair.
+    /// Describes a security group and Amazon Web Services account ID pair.
     /// </summary>
     public partial class UserIdGroupPair
     {
@@ -128,7 +128,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property UserId. 
         /// <para>
-        /// The ID of an AWS account.
+        /// The ID of an Amazon Web Services account.
         /// </para>
         ///  
         /// <para>
@@ -139,7 +139,7 @@ namespace Amazon.EC2.Model
         ///  
         /// <para>
         /// [EC2-Classic] Required when adding or removing rules that reference a security group
-        /// in another AWS account.
+        /// in another Amazon Web Services account.
         /// </para>
         /// </summary>
         public string UserId

@@ -54,6 +54,14 @@ namespace Amazon.EKS
         /// Constant InternalFailure for AddonIssueCode
         /// </summary>
         public static readonly AddonIssueCode InternalFailure = new AddonIssueCode("InternalFailure");
+        /// <summary>
+        /// Constant K8sResourceNotFound for AddonIssueCode
+        /// </summary>
+        public static readonly AddonIssueCode K8sResourceNotFound = new AddonIssueCode("K8sResourceNotFound");
+        /// <summary>
+        /// Constant UnsupportedAddonModification for AddonIssueCode
+        /// </summary>
+        public static readonly AddonIssueCode UnsupportedAddonModification = new AddonIssueCode("UnsupportedAddonModification");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -423,6 +431,10 @@ namespace Amazon.EKS
         /// </summary>
         public static readonly ErrorCode IpNotAvailable = new ErrorCode("IpNotAvailable");
         /// <summary>
+        /// Constant K8sResourceNotFound for ErrorCode
+        /// </summary>
+        public static readonly ErrorCode K8sResourceNotFound = new ErrorCode("K8sResourceNotFound");
+        /// <summary>
         /// Constant NodeCreationFailure for ErrorCode
         /// </summary>
         public static readonly ErrorCode NodeCreationFailure = new ErrorCode("NodeCreationFailure");
@@ -446,6 +458,10 @@ namespace Amazon.EKS
         /// Constant Unknown for ErrorCode
         /// </summary>
         public static readonly ErrorCode Unknown = new ErrorCode("Unknown");
+        /// <summary>
+        /// Constant UnsupportedAddonModification for ErrorCode
+        /// </summary>
+        public static readonly ErrorCode UnsupportedAddonModification = new ErrorCode("UnsupportedAddonModification");
         /// <summary>
         /// Constant VpcIdNotFound for ErrorCode
         /// </summary>

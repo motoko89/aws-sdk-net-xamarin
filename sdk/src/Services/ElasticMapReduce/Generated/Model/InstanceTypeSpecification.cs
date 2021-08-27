@@ -43,6 +43,7 @@ namespace Amazon.ElasticMapReduce.Model
         private string _bidPrice;
         private double? _bidPriceAsPercentageOfOnDemandPrice;
         private List<Configuration> _configurations = new List<Configuration>();
+        private string _customAmiId;
         private List<EbsBlockDevice> _ebsBlockDevices = new List<EbsBlockDevice>();
         private bool? _ebsOptimized;
         private string _instanceType;
@@ -108,9 +109,28 @@ namespace Amazon.ElasticMapReduce.Model
         }
 
         /// <summary>
+        /// Gets and sets the property CustomAmiId. 
+        /// <para>
+        /// The custom AMI ID to use for the instance type.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=256)]
+        public string CustomAmiId
+        {
+            get { return this._customAmiId; }
+            set { this._customAmiId = value; }
+        }
+
+        // Check to see if CustomAmiId property is set
+        internal bool IsSetCustomAmiId()
+        {
+            return this._customAmiId != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property EbsBlockDevices. 
         /// <para>
-        /// The configuration of Amazon Elastic Block Storage (Amazon EBS) attached to each instance
+        /// The configuration of Amazon Elastic Block Store (Amazon EBS) attached to each instance
         /// as defined by <code>InstanceType</code>.
         /// </para>
         /// </summary>

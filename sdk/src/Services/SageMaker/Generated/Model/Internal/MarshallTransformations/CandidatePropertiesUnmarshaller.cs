@@ -70,6 +70,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     unmarshalledObject.CandidateArtifactLocations = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("CandidateMetrics", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<MetricDatum, MetricDatumUnmarshaller>(MetricDatumUnmarshaller.Instance);
+                    unmarshalledObject.CandidateMetrics = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

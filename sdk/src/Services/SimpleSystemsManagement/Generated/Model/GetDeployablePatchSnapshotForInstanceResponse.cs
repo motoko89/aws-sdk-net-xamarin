@@ -41,7 +41,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property InstanceId. 
         /// <para>
-        /// The ID of the instance.
+        /// The instance ID.
         /// </para>
         /// </summary>
         public string InstanceId
@@ -78,7 +78,8 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property SnapshotDownloadUrl. 
         /// <para>
-        /// A pre-signed Amazon S3 URL that can be used to download the patch snapshot.
+        /// A pre-signed Amazon Simple Storage Service (Amazon S3) URL that can be used to download
+        /// the patch snapshot.
         /// </para>
         /// </summary>
         public string SnapshotDownloadUrl

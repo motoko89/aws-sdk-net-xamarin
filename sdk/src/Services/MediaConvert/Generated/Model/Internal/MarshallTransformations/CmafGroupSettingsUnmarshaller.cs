@@ -166,10 +166,22 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
                     unmarshalledObject.SegmentLength = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("segmentLengthControl", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.SegmentLengthControl = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("streamInfResolution", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.StreamInfResolution = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("targetDurationCompatibilityMode", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.TargetDurationCompatibilityMode = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("writeDashManifest", targetDepth))

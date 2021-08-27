@@ -34,6 +34,7 @@ namespace Amazon.Imagebuilder.Model
     public partial class ComponentConfiguration
     {
         private string _componentArn;
+        private List<ComponentParameter> _parameters = new List<ComponentParameter>();
 
         /// <summary>
         /// Gets and sets the property ComponentArn. 
@@ -52,6 +53,26 @@ namespace Amazon.Imagebuilder.Model
         internal bool IsSetComponentArn()
         {
             return this._componentArn != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Parameters. 
+        /// <para>
+        /// A group of parameter settings that are used to configure the component for a specific
+        /// recipe.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1)]
+        public List<ComponentParameter> Parameters
+        {
+            get { return this._parameters; }
+            set { this._parameters = value; }
+        }
+
+        // Check to see if Parameters property is set
+        internal bool IsSetParameters()
+        {
+            return this._parameters != null && this._parameters.Count > 0; 
         }
 
     }

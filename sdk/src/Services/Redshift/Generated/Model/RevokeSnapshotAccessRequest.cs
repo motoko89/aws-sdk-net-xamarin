@@ -30,7 +30,7 @@ namespace Amazon.Redshift.Model
 {
     /// <summary>
     /// Container for the parameters to the RevokeSnapshotAccess operation.
-    /// Removes the ability of the specified AWS customer account to restore the specified
+    /// Removes the ability of the specified Amazon Web Services account to restore the specified
     /// snapshot. If the account is currently restoring the snapshot, the restore will run
     /// to completion.
     /// 
@@ -49,7 +49,7 @@ namespace Amazon.Redshift.Model
         /// <summary>
         /// Gets and sets the property AccountWithRestoreAccess. 
         /// <para>
-        /// The identifier of the AWS customer account that can no longer restore the specified
+        /// The identifier of the Amazon Web Services account that can no longer restore the specified
         /// snapshot.
         /// </para>
         /// </summary>

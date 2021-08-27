@@ -74,6 +74,7 @@ namespace Amazon.ElasticMapReduce.Model
         private string _amiVersion;
         private List<Application> _applications = new List<Application>();
         private string _autoScalingRole;
+        private AutoTerminationPolicy _autoTerminationPolicy;
         private List<BootstrapActionConfig> _bootstrapActions = new List<BootstrapActionConfig>();
         private List<Configuration> _configurations = new List<Configuration>();
         private string _customAmiId;
@@ -193,6 +194,21 @@ namespace Amazon.ElasticMapReduce.Model
         internal bool IsSetAutoScalingRole()
         {
             return this._autoScalingRole != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property AutoTerminationPolicy.
+        /// </summary>
+        public AutoTerminationPolicy AutoTerminationPolicy
+        {
+            get { return this._autoTerminationPolicy; }
+            set { this._autoTerminationPolicy = value; }
+        }
+
+        // Check to see if AutoTerminationPolicy property is set
+        internal bool IsSetAutoTerminationPolicy()
+        {
+            return this._autoTerminationPolicy != null;
         }
 
         /// <summary>
@@ -346,9 +362,9 @@ namespace Amazon.ElasticMapReduce.Model
         /// <summary>
         /// Gets and sets the property LogEncryptionKmsKeyId. 
         /// <para>
-        /// The AWS KMS customer master key (CMK) used for encrypting log files. If a value is
-        /// not provided, the logs remain encrypted by AES-256. This attribute is only available
-        /// with Amazon EMR version 5.30.0 and later, excluding Amazon EMR 6.0.0.
+        /// The KMS key used for encrypting log files. If a value is not provided, the logs remain
+        /// encrypted by AES-256. This attribute is only available with Amazon EMR version 5.30.0
+        /// and later, excluding Amazon EMR 6.0.0.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=10280)]
@@ -597,8 +613,8 @@ namespace Amazon.ElasticMapReduce.Model
         /// <summary>
         /// Gets and sets the property ServiceRole. 
         /// <para>
-        /// The IAM role that will be assumed by the Amazon EMR service to access AWS resources
-        /// on your behalf.
+        /// The IAM role that will be assumed by the Amazon EMR service to access Amazon Web Services
+        /// resources on your behalf.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=10280)]
@@ -705,10 +721,19 @@ namespace Amazon.ElasticMapReduce.Model
         /// <summary>
         /// Gets and sets the property VisibleToAllUsers. 
         /// <para>
-        /// A value of <code>true</code> indicates that all IAM users in the AWS account can perform
-        /// cluster actions if they have the proper IAM policy permissions. This is the default.
-        /// A value of <code>false</code> indicates that only the IAM user who created the cluster
-        /// can perform actions.
+        /// Set this value to <code>true</code> so that IAM principals in the Amazon Web Services
+        /// account associated with the cluster can perform EMR actions on the cluster that their
+        /// IAM policies allow. This value defaults to <code>true</code> for clusters created
+        /// using the EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a>
+        /// command.
+        /// </para>
+        ///  
+        /// <para>
+        /// When set to <code>false</code>, only the IAM principal that created the cluster and
+        /// the Amazon Web Services account root user can perform EMR actions for the cluster,
+        /// regardless of the IAM permissions policies attached to other IAM principals. For more
+        /// information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding
+        /// the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.
         /// </para>
         /// </summary>
         public bool VisibleToAllUsers

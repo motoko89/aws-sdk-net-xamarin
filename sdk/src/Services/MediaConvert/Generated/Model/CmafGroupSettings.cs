@@ -52,7 +52,9 @@ namespace Amazon.MediaConvert.Model
         private CmafPtsOffsetHandlingForBFrames _ptsOffsetHandlingForBFrames;
         private CmafSegmentControl _segmentControl;
         private int? _segmentLength;
+        private CmafSegmentLengthControl _segmentLengthControl;
         private CmafStreamInfResolution _streamInfResolution;
+        private CmafTargetDurationCompatibilityMode _targetDurationCompatibilityMode;
         private CmafWriteDASHManifest _writeDashManifest;
         private CmafWriteHLSManifest _writeHlsManifest;
         private CmafWriteSegmentTimelineInRepresentation _writeSegmentTimelineInRepresentation;
@@ -179,12 +181,10 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property FragmentLength. Length of fragments to generate (in seconds).
-        /// Fragment length must be compatible with GOP size and Framerate. Note that fragments
-        /// will end on the next keyframe after this number of seconds, so actual fragment length
-        /// may be longer. When Emit Single File is checked, the fragmentation is internal to
-        /// a single output file and it does not cause the creation of many output files as in
-        /// other output types.
+        /// Gets and sets the property FragmentLength. Specify the length, in whole seconds, of
+        /// the mp4 fragments. When you don't specify a value, MediaConvert defaults to 2. Related
+        /// setting: Use Fragment length control (FragmentLengthControl) to specify whether the
+        /// encoder enforces this value strictly.
         /// </summary>
         [AWSProperty(Min=1, Max=2147483647)]
         public int FragmentLength
@@ -358,14 +358,12 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
-        /// Gets and sets the property SegmentLength. Use this setting to specify the length,
-        /// in seconds, of each individual CMAF segment. This value applies to the whole package;
-        /// that is, to every output in the output group. Note that segments end on the first
-        /// keyframe after this number of seconds, so the actual segment length might be slightly
-        /// longer. If you set Segment control (CmafSegmentControl) to single file, the service
-        /// puts the content of each output in a single file that has metadata that marks these
-        /// segments. If you set it to segmented files, the service creates multiple files for
-        /// each output, each with the content of one segment.
+        /// Gets and sets the property SegmentLength. Specify the length, in whole seconds, of
+        /// each segment. When you don't specify a value, MediaConvert defaults to 10. Related
+        /// settings: Use Segment length control (SegmentLengthControl) to specify whether the
+        /// encoder enforces this value strictly. Use Segment control (CmafSegmentControl) to
+        /// specify whether MediaConvert creates separate segment files or one content file that
+        /// has metadata to mark the segment boundaries.
         /// </summary>
         [AWSProperty(Min=1, Max=2147483647)]
         public int SegmentLength
@@ -378,6 +376,25 @@ namespace Amazon.MediaConvert.Model
         internal bool IsSetSegmentLength()
         {
             return this._segmentLength.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property SegmentLengthControl. Specify how you want MediaConvert
+        /// to determine the segment length. Choose Exact (EXACT) to have the encoder use the
+        /// exact length that you specify with the setting Segment length (SegmentLength). This
+        /// might result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have the
+        /// encoder round up the segment lengths to match the next GOP boundary.
+        /// </summary>
+        public CmafSegmentLengthControl SegmentLengthControl
+        {
+            get { return this._segmentLengthControl; }
+            set { this._segmentLengthControl = value; }
+        }
+
+        // Check to see if SegmentLengthControl property is set
+        internal bool IsSetSegmentLengthControl()
+        {
+            return this._segmentLengthControl != null;
         }
 
         /// <summary>
@@ -394,6 +411,29 @@ namespace Amazon.MediaConvert.Model
         internal bool IsSetStreamInfResolution()
         {
             return this._streamInfResolution != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property TargetDurationCompatibilityMode. When set to LEGACY, the
+        /// segment target duration is always rounded up to the nearest integer value above its
+        /// current value in seconds. When set to SPEC\\_COMPLIANT, the segment target duration
+        /// is rounded up to the nearest integer value if fraction seconds are greater than or
+        /// equal to 0.5 (>= 0.5) and rounded down if less than 0.5 (< 0.5). You may need to use
+        /// LEGACY if your client needs to ensure that the target duration is always longer than
+        /// the actual duration of the segment. Some older players may experience interrupted
+        /// playback when the actual duration of a track in a segment is longer than the target
+        /// duration.
+        /// </summary>
+        public CmafTargetDurationCompatibilityMode TargetDurationCompatibilityMode
+        {
+            get { return this._targetDurationCompatibilityMode; }
+            set { this._targetDurationCompatibilityMode = value; }
+        }
+
+        // Check to see if TargetDurationCompatibilityMode property is set
+        internal bool IsSetTargetDurationCompatibilityMode()
+        {
+            return this._targetDurationCompatibilityMode != null;
         }
 
         /// <summary>

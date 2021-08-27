@@ -76,6 +76,12 @@ namespace Amazon.Rekognition.Model.Internal.MarshallTransformations
                     unmarshalledObject.Id = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("KnownGender", targetDepth))
+                {
+                    var unmarshaller = KnownGenderUnmarshaller.Instance;
+                    unmarshalledObject.KnownGender = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("MatchConfidence", targetDepth))
                 {
                     var unmarshaller = FloatUnmarshaller.Instance;

@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.CostExplorer.Model
 {
     /// <summary>
-    /// The anomaly's dollar value.
+    /// The dollar value of the anomaly.
     /// </summary>
     public partial class Impact
     {
@@ -39,7 +39,7 @@ namespace Amazon.CostExplorer.Model
         /// <summary>
         /// Gets and sets the property MaxImpact. 
         /// <para>
-        ///  The maximum dollar value observed for an anomaly. 
+        /// The maximum dollar value that's observed for an anomaly. 
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -58,7 +58,7 @@ namespace Amazon.CostExplorer.Model
         /// <summary>
         /// Gets and sets the property TotalImpact. 
         /// <para>
-        ///  The cumulative dollar value observed for an anomaly. 
+        /// The cumulative dollar value that's observed for an anomaly. 
         /// </para>
         /// </summary>
         public double TotalImpact

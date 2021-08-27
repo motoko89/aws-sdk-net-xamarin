@@ -1581,19 +1581,22 @@ namespace Amazon.Rekognition
         /// </para>
         ///  
         /// <para>
-        /// During training model calculates a threshold value that determines if a prediction
-        /// for a label is true. By default, <code>DetectCustomLabels</code> doesn't return labels
-        /// whose confidence value is below the model's calculated threshold value. To filter
-        /// labels that are returned, specify a value for <code>MinConfidence</code> that is higher
-        /// than the model's calculated threshold. You can get the model's calculated threshold
-        /// from the model's training results shown in the Amazon Rekognition Custom Labels console.
-        /// To get all labels, regardless of confidence, specify a <code>MinConfidence</code>
-        /// value of 0. 
+        /// To filter labels that are returned, specify a value for <code>MinConfidence</code>.
+        /// <code>DetectCustomLabelsLabels</code> only returns labels with a confidence that's
+        /// higher than the specified value. The value of <code>MinConfidence</code> maps to the
+        /// assumed threshold values created during training. For more information, see <i>Assumed
+        /// threshold</i> in the Amazon Rekognition Custom Labels Developer Guide. Amazon Rekognition
+        /// Custom Labels metrics expresses an assumed threshold as a floating point value between
+        /// 0-1. The range of <code>MinConfidence</code> normalizes the threshold value to a percentage
+        /// value (0-100). Confidence responses from <code>DetectCustomLabels</code> are also
+        /// returned as a percentage. You can use <code>MinConfidence</code> to change the precision
+        /// and recall or your model. For more information, see <i>Analyzing an image</i> in the
+        /// Amazon Rekognition Custom Labels Developer Guide. 
         /// </para>
         ///  
         /// <para>
-        /// You can also add the <code>MaxResults</code> parameter to limit the number of labels
-        /// returned. 
+        /// If you don't specify a value for <code>MinConfidence</code>, <code>DetectCustomLabels</code>
+        /// returns labels based on the assumed threshold of each label.
         /// </para>
         ///  
         /// <para>
@@ -1603,6 +1606,11 @@ namespace Amazon.Rekognition
         /// <para>
         /// This operation requires permissions to perform the <code>rekognition:DetectCustomLabels</code>
         /// action. 
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <i>Analyzing an image</i> in the Amazon Rekognition Custom
+        /// Labels Developer Guide. 
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DetectCustomLabels service method.</param>
@@ -1681,19 +1689,22 @@ namespace Amazon.Rekognition
         /// </para>
         ///  
         /// <para>
-        /// During training model calculates a threshold value that determines if a prediction
-        /// for a label is true. By default, <code>DetectCustomLabels</code> doesn't return labels
-        /// whose confidence value is below the model's calculated threshold value. To filter
-        /// labels that are returned, specify a value for <code>MinConfidence</code> that is higher
-        /// than the model's calculated threshold. You can get the model's calculated threshold
-        /// from the model's training results shown in the Amazon Rekognition Custom Labels console.
-        /// To get all labels, regardless of confidence, specify a <code>MinConfidence</code>
-        /// value of 0. 
+        /// To filter labels that are returned, specify a value for <code>MinConfidence</code>.
+        /// <code>DetectCustomLabelsLabels</code> only returns labels with a confidence that's
+        /// higher than the specified value. The value of <code>MinConfidence</code> maps to the
+        /// assumed threshold values created during training. For more information, see <i>Assumed
+        /// threshold</i> in the Amazon Rekognition Custom Labels Developer Guide. Amazon Rekognition
+        /// Custom Labels metrics expresses an assumed threshold as a floating point value between
+        /// 0-1. The range of <code>MinConfidence</code> normalizes the threshold value to a percentage
+        /// value (0-100). Confidence responses from <code>DetectCustomLabels</code> are also
+        /// returned as a percentage. You can use <code>MinConfidence</code> to change the precision
+        /// and recall or your model. For more information, see <i>Analyzing an image</i> in the
+        /// Amazon Rekognition Custom Labels Developer Guide. 
         /// </para>
         ///  
         /// <para>
-        /// You can also add the <code>MaxResults</code> parameter to limit the number of labels
-        /// returned. 
+        /// If you don't specify a value for <code>MinConfidence</code>, <code>DetectCustomLabels</code>
+        /// returns labels based on the assumed threshold of each label.
         /// </para>
         ///  
         /// <para>
@@ -1703,6 +1714,11 @@ namespace Amazon.Rekognition
         /// <para>
         /// This operation requires permissions to perform the <code>rekognition:DetectCustomLabels</code>
         /// action. 
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <i>Analyzing an image</i> in the Amazon Rekognition Custom
+        /// Labels Developer Guide. 
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DetectCustomLabels service method.</param>
@@ -2547,7 +2563,7 @@ namespace Amazon.Rekognition
         ///  
         /// <para>
         /// A word is one or more ISO basic latin script characters that are not separated by
-        /// spaces. <code>DetectText</code> can detect up to 50 words in an image.
+        /// spaces. <code>DetectText</code> can detect up to 100 words in an image.
         /// </para>
         ///  
         /// <para>
@@ -2629,7 +2645,7 @@ namespace Amazon.Rekognition
         ///  
         /// <para>
         /// A word is one or more ISO basic latin script characters that are not separated by
-        /// spaces. <code>DetectText</code> can detect up to 50 words in an image.
+        /// spaces. <code>DetectText</code> can detect up to 100 words in an image.
         /// </para>
         ///  
         /// <para>
@@ -2698,9 +2714,9 @@ namespace Amazon.Rekognition
 
 
         /// <summary>
-        /// Gets the name and additional information about a celebrity based on his or her Amazon
-        /// Rekognition ID. The additional information is returned as an array of URLs. If there
-        /// is no additional information about the celebrity, this list is empty.
+        /// Gets the name and additional information about a celebrity based on their Amazon Rekognition
+        /// ID. The additional information is returned as an array of URLs. If there is no additional
+        /// information about the celebrity, this list is empty.
         /// 
         ///  
         /// <para>
@@ -2742,9 +2758,9 @@ namespace Amazon.Rekognition
 
 
         /// <summary>
-        /// Gets the name and additional information about a celebrity based on his or her Amazon
-        /// Rekognition ID. The additional information is returned as an array of URLs. If there
-        /// is no additional information about the celebrity, this list is empty.
+        /// Gets the name and additional information about a celebrity based on their Amazon Rekognition
+        /// ID. The additional information is returned as an array of URLs. If there is no additional
+        /// information about the celebrity, this list is empty.
         /// 
         ///  
         /// <para>
@@ -2986,17 +3002,20 @@ namespace Amazon.Rekognition
 
 
         /// <summary>
-        /// Gets the unsafe content analysis results for a Amazon Rekognition Video analysis started
-        /// by <a>StartContentModeration</a>.
+        /// Gets the inappropriate, unwanted, or offensive content analysis results for a Amazon
+        /// Rekognition Video analysis started by <a>StartContentModeration</a>. For a list of
+        /// moderation labels in Amazon Rekognition, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api">Using
+        /// the image and video moderation APIs</a>.
         /// 
         ///  
         /// <para>
-        /// Unsafe content analysis of a video is an asynchronous operation. You start analysis
-        /// by calling <a>StartContentModeration</a> which returns a job identifier (<code>JobId</code>).
-        /// When analysis finishes, Amazon Rekognition Video publishes a completion status to
-        /// the Amazon Simple Notification Service topic registered in the initial call to <code>StartContentModeration</code>.
-        /// To get the results of the unsafe content analysis, first check that the status value
-        /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetContentModeration</code>
+        /// Amazon Rekognition Video inappropriate or offensive content detection in a stored
+        /// video is an asynchronous operation. You start analysis by calling <a>StartContentModeration</a>
+        /// which returns a job identifier (<code>JobId</code>). When analysis finishes, Amazon
+        /// Rekognition Video publishes a completion status to the Amazon Simple Notification
+        /// Service topic registered in the initial call to <code>StartContentModeration</code>.
+        /// To get the results of the content analysis, first check that the status value published
+        /// to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetContentModeration</code>
         /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>.
         /// 
         /// </para>
@@ -3007,9 +3026,9 @@ namespace Amazon.Rekognition
         /// </para>
         ///  
         /// <para>
-        ///  <code>GetContentModeration</code> returns detected unsafe content labels, and the
-        /// time they are detected, in an array, <code>ModerationLabels</code>, of <a>ContentModerationDetection</a>
-        /// objects. 
+        ///  <code>GetContentModeration</code> returns detected inappropriate, unwanted, or offensive
+        /// content moderation labels, and the time they are detected, in an array, <code>ModerationLabels</code>,
+        /// of <a>ContentModerationDetection</a> objects. 
         /// </para>
         ///  
         /// <para>
@@ -3029,8 +3048,7 @@ namespace Amazon.Rekognition
         /// </para>
         ///  
         /// <para>
-        /// For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer
-        /// Guide.
+        /// For more information, see Content moderation in the Amazon Rekognition Developer Guide.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetContentModeration service method.</param>
@@ -3065,17 +3083,20 @@ namespace Amazon.Rekognition
 
 
         /// <summary>
-        /// Gets the unsafe content analysis results for a Amazon Rekognition Video analysis started
-        /// by <a>StartContentModeration</a>.
+        /// Gets the inappropriate, unwanted, or offensive content analysis results for a Amazon
+        /// Rekognition Video analysis started by <a>StartContentModeration</a>. For a list of
+        /// moderation labels in Amazon Rekognition, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api">Using
+        /// the image and video moderation APIs</a>.
         /// 
         ///  
         /// <para>
-        /// Unsafe content analysis of a video is an asynchronous operation. You start analysis
-        /// by calling <a>StartContentModeration</a> which returns a job identifier (<code>JobId</code>).
-        /// When analysis finishes, Amazon Rekognition Video publishes a completion status to
-        /// the Amazon Simple Notification Service topic registered in the initial call to <code>StartContentModeration</code>.
-        /// To get the results of the unsafe content analysis, first check that the status value
-        /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetContentModeration</code>
+        /// Amazon Rekognition Video inappropriate or offensive content detection in a stored
+        /// video is an asynchronous operation. You start analysis by calling <a>StartContentModeration</a>
+        /// which returns a job identifier (<code>JobId</code>). When analysis finishes, Amazon
+        /// Rekognition Video publishes a completion status to the Amazon Simple Notification
+        /// Service topic registered in the initial call to <code>StartContentModeration</code>.
+        /// To get the results of the content analysis, first check that the status value published
+        /// to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetContentModeration</code>
         /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>.
         /// 
         /// </para>
@@ -3086,9 +3107,9 @@ namespace Amazon.Rekognition
         /// </para>
         ///  
         /// <para>
-        ///  <code>GetContentModeration</code> returns detected unsafe content labels, and the
-        /// time they are detected, in an array, <code>ModerationLabels</code>, of <a>ContentModerationDetection</a>
-        /// objects. 
+        ///  <code>GetContentModeration</code> returns detected inappropriate, unwanted, or offensive
+        /// content moderation labels, and the time they are detected, in an array, <code>ModerationLabels</code>,
+        /// of <a>ContentModerationDetection</a> objects. 
         /// </para>
         ///  
         /// <para>
@@ -3108,8 +3129,7 @@ namespace Amazon.Rekognition
         /// </para>
         ///  
         /// <para>
-        /// For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer
-        /// Guide.
+        /// For more information, see Content moderation in the Amazon Rekognition Developer Guide.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetContentModeration service method.</param>
@@ -5404,28 +5424,29 @@ namespace Amazon.Rekognition
 
 
         /// <summary>
-        /// Starts asynchronous detection of unsafe content in a stored video.
+        /// Starts asynchronous detection of inappropriate, unwanted, or offensive content in
+        /// a stored video. For a list of moderation labels in Amazon Rekognition, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api">Using
+        /// the image and video moderation APIs</a>.
         /// 
         ///  
         /// <para>
         /// Amazon Rekognition Video can moderate content in a video stored in an Amazon S3 bucket.
         /// Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartContentModeration</code>
         /// returns a job identifier (<code>JobId</code>) which you use to get the results of
-        /// the analysis. When unsafe content analysis is finished, Amazon Rekognition Video publishes
+        /// the analysis. When content analysis is finished, Amazon Rekognition Video publishes
         /// a completion status to the Amazon Simple Notification Service topic that you specify
         /// in <code>NotificationChannel</code>.
         /// </para>
         ///  
         /// <para>
-        /// To get the results of the unsafe content analysis, first check that the status value
-        /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetContentModeration</a>
+        /// To get the results of the content analysis, first check that the status value published
+        /// to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetContentModeration</a>
         /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>.
         /// 
         /// </para>
         ///  
         /// <para>
-        /// For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer
-        /// Guide.
+        /// For more information, see Content moderation in the Amazon Rekognition Developer Guide.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartContentModeration service method.</param>
@@ -5473,28 +5494,29 @@ namespace Amazon.Rekognition
 
 
         /// <summary>
-        /// Starts asynchronous detection of unsafe content in a stored video.
+        /// Starts asynchronous detection of inappropriate, unwanted, or offensive content in
+        /// a stored video. For a list of moderation labels in Amazon Rekognition, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api">Using
+        /// the image and video moderation APIs</a>.
         /// 
         ///  
         /// <para>
         /// Amazon Rekognition Video can moderate content in a video stored in an Amazon S3 bucket.
         /// Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartContentModeration</code>
         /// returns a job identifier (<code>JobId</code>) which you use to get the results of
-        /// the analysis. When unsafe content analysis is finished, Amazon Rekognition Video publishes
+        /// the analysis. When content analysis is finished, Amazon Rekognition Video publishes
         /// a completion status to the Amazon Simple Notification Service topic that you specify
         /// in <code>NotificationChannel</code>.
         /// </para>
         ///  
         /// <para>
-        /// To get the results of the unsafe content analysis, first check that the status value
-        /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetContentModeration</a>
+        /// To get the results of the content analysis, first check that the status value published
+        /// to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetContentModeration</a>
         /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>.
         /// 
         /// </para>
         ///  
         /// <para>
-        /// For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer
-        /// Guide.
+        /// For more information, see Content moderation in the Amazon Rekognition Developer Guide.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartContentModeration service method.</param>

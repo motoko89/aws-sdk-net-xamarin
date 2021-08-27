@@ -77,7 +77,7 @@ namespace Amazon.Proton
     ///  
     /// <para>
     /// To learn more about AWS Proton administration, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/Welcome.html">AWS
-    /// Proton Administration Guide</a>.
+    /// Proton Administrator Guide</a>.
     /// </para>
     ///  
     /// <para>
@@ -167,23 +167,125 @@ namespace Amazon.Proton
     /// <para>
     /// CreateEnvironmentAccountConnection
     /// </para>
-    ///  </li> </ul> <pre><code> &lt;p&gt; &lt;b&gt;Idempotent delete APIs&lt;/b&gt; &lt;/p&gt;
-    /// &lt;p&gt;Given a request action that has succeeded:&lt;/p&gt; &lt;p&gt;When you retry
-    /// the request with an API from this group and the resource was deleted, its metadata
-    /// is returned in the response.&lt;/p&gt; &lt;p&gt;If you retry and the resource doesn't
-    /// exist, the response is empty.&lt;/p&gt; &lt;p&gt;In both cases, the retry succeeds.&lt;/p&gt;
-    /// &lt;p&gt;Idempotent delete APIs:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;DeleteEnvironmentTemplate&lt;/p&gt;
-    /// &lt;/li&gt; &lt;li&gt; &lt;p&gt;DeleteEnvironmentTemplateVersion&lt;/p&gt; &lt;/li&gt;
-    /// &lt;li&gt; &lt;p&gt;DeleteServiceTemplate&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;DeleteServiceTemplateVersion&lt;/p&gt;
-    /// &lt;/li&gt; &lt;li&gt; &lt;p&gt;DeleteEnvironmentAccountConnection&lt;/p&gt; &lt;/li&gt;
-    /// &lt;/ul&gt; &lt;p&gt; &lt;b&gt;Asynchronous idempotent delete APIs&lt;/b&gt; &lt;/p&gt;
-    /// &lt;p&gt;Given a request action that has succeeded:&lt;/p&gt; &lt;p&gt;If you retry
-    /// the request with an API from this group, if the original request delete operation
-    /// status is &lt;code&gt;DELETE_IN_PROGRESS&lt;/code&gt;, the retry returns the resource
-    /// detail data in the response without performing any further actions.&lt;/p&gt; &lt;p&gt;If
-    /// the original request delete operation is complete, a retry returns an empty response.&lt;/p&gt;
-    /// &lt;p&gt;Asynchronous idempotent delete APIs:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;DeleteEnvironment&lt;/p&gt;
-    /// &lt;/li&gt; &lt;li&gt; &lt;p&gt;DeleteService&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; </code></pre>
+    ///  </li> </ul> 
+    /// <para>
+    ///  <b>Idempotent create APIs</b> 
+    /// </para>
+    ///  
+    /// <para>
+    /// Given a request action that has succeeded:
+    /// </para>
+    ///  
+    /// <para>
+    /// If you retry the request with an API from this group, and the original resource <i>hasn't</i>
+    /// been modified, the retry succeeds without performing any further actions other than
+    /// returning the original resource detail data in the response.
+    /// </para>
+    ///  
+    /// <para>
+    /// If the original resource has been modified, the retry throws a <code>ConflictException</code>.
+    /// </para>
+    ///  
+    /// <para>
+    /// If you retry with different input parameters, the retry throws a <code>ValidationException</code>
+    /// with an <code>IdempotentParameterMismatch</code> error.
+    /// </para>
+    ///  
+    /// <para>
+    /// Idempotent create APIs:
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// CreateEnvironmentTemplate
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// CreateServiceTemplate
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// CreateEnvironment
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// CreateService
+    /// </para>
+    ///  </li> </ul> 
+    /// <para>
+    ///  <b>Idempotent delete APIs</b> 
+    /// </para>
+    ///  
+    /// <para>
+    /// Given a request action that has succeeded:
+    /// </para>
+    ///  
+    /// <para>
+    /// When you retry the request with an API from this group and the resource was deleted,
+    /// its metadata is returned in the response.
+    /// </para>
+    ///  
+    /// <para>
+    /// If you retry and the resource doesn't exist, the response is empty.
+    /// </para>
+    ///  
+    /// <para>
+    /// In both cases, the retry succeeds.
+    /// </para>
+    ///  
+    /// <para>
+    /// Idempotent delete APIs:
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// DeleteEnvironmentTemplate
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// DeleteEnvironmentTemplateVersion
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// DeleteServiceTemplate
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// DeleteServiceTemplateVersion
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// DeleteEnvironmentAccountConnection
+    /// </para>
+    ///  </li> </ul> 
+    /// <para>
+    ///  <b>Asynchronous idempotent delete APIs</b> 
+    /// </para>
+    ///  
+    /// <para>
+    /// Given a request action that has succeeded:
+    /// </para>
+    ///  
+    /// <para>
+    /// If you retry the request with an API from this group, if the original request delete
+    /// operation status is <code>DELETE_IN_PROGRESS</code>, the retry returns the resource
+    /// detail data in the response without performing any further actions.
+    /// </para>
+    ///  
+    /// <para>
+    /// If the original request delete operation is complete, a retry returns an empty response.
+    /// </para>
+    ///  
+    /// <para>
+    /// Asynchronous idempotent delete APIs:
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// DeleteEnvironment
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// DeleteService
+    /// </para>
+    ///  </li> </ul>
     /// </summary>
     public partial class AmazonProtonClient : AmazonServiceClient, IAmazonProton
     {
@@ -424,8 +526,8 @@ namespace Amazon.Proton
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment
-        /// account connections</a> in the <i>AWS Proton Administration guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
+        /// account connections</a> in the <i>AWS Proton Administrator guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AcceptEnvironmentAccountConnection service method.</param>
@@ -480,7 +582,7 @@ namespace Amazon.Proton
         /// <summary>
         /// Attempts to cancel an environment deployment on an <a>UpdateEnvironment</a> action,
         /// if the deployment is <code>IN_PROGRESS</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-update.html">Update
-        /// an environment</a> in the <i>AWS Proton Administration guide</i>.
+        /// an environment</a> in the <i>AWS Proton Administrator guide</i>.
         /// 
         ///  
         /// <para>
@@ -555,7 +657,7 @@ namespace Amazon.Proton
         /// Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a>
         /// action, if the deployment is <code>IN_PROGRESS</code>. For more information, see <i>Update
         /// a service instance</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-instance-update.html">AWS
-        /// Proton Administration guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-instance-update.html">AWS
+        /// Proton Administrator guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-instance-update.html">AWS
         /// Proton User guide</a>.
         /// 
         ///  
@@ -631,7 +733,7 @@ namespace Amazon.Proton
         /// Attempts to cancel a service pipeline deployment on an <a>UpdateServicePipeline</a>
         /// action, if the deployment is <code>IN_PROGRESS</code>. For more information, see <i>Update
         /// a service pipeline</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-pipeline-update.html">AWS
-        /// Proton Administration guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-pipeline-update.html">AWS
+        /// Proton Administrator guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-pipeline-update.html">AWS
         /// Proton User guide</a>.
         /// 
         ///  
@@ -707,7 +809,7 @@ namespace Amazon.Proton
         /// Deploy a new environment. An AWS Proton environment is created from an environment
         /// template that defines infrastructure and resources that can be shared across services.
         /// For more information, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a>
-        /// in the <i>AWS Proton Administration Guide.</i>
+        /// in the <i>AWS Proton Administrator Guide.</i>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateEnvironment service method.</param>
         /// <param name="cancellationToken">
@@ -729,7 +831,7 @@ namespace Amazon.Proton
         /// </exception>
         /// <exception cref="Amazon.Proton.Model.ServiceQuotaExceededException">
         /// A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-limits.html">AWS
-        /// Proton Quotas</a> in the <i>AWS Proton Administration Guide</i>.
+        /// Proton Quotas</a> in the <i>AWS Proton Administrator Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.Proton.Model.ThrottlingException">
         /// The request was denied due to request throttling.
@@ -764,15 +866,15 @@ namespace Amazon.Proton
 
         /// <summary>
         /// Create an environment account connection in an environment account so that environment
-        /// infrastructure resources can be provisioned in the environment account from the management
+        /// infrastructure resources can be provisioned in the environment account from a management
         /// account.
         /// 
         ///  
         /// <para>
         /// An environment account connection is a secure bi-directional connection between a
         /// <i>management account</i> and an <i>environment account</i> that maintains authorization
-        /// and permissions. For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment
-        /// account connections</a> in the <i>AWS Proton Administration guide</i>.
+        /// and permissions. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
+        /// account connections</a> in the <i>AWS Proton Administrator guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateEnvironmentAccountConnection service method.</param>
@@ -792,7 +894,7 @@ namespace Amazon.Proton
         /// </exception>
         /// <exception cref="Amazon.Proton.Model.ServiceQuotaExceededException">
         /// A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-limits.html">AWS
-        /// Proton Quotas</a> in the <i>AWS Proton Administration Guide</i>.
+        /// Proton Quotas</a> in the <i>AWS Proton Administrator Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.Proton.Model.ThrottlingException">
         /// The request was denied due to request throttling.
@@ -826,8 +928,8 @@ namespace Amazon.Proton
 
 
         /// <summary>
-        /// Create an environment template for AWS Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-templates.html">Environment
-        /// Templates</a> in the <i>AWS Proton Administration Guide</i>.
+        /// Create an environment template for AWS Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment
+        /// Templates</a> in the <i>AWS Proton Administrator Guide</i>.
         /// 
         ///  
         /// <para>
@@ -845,8 +947,8 @@ namespace Amazon.Proton
         /// <i>doesn't</i> manage your existing provisioned infrastructure. To create an environment
         /// template for customer provisioned and managed infrastructure, include the <code>provisioning</code>
         /// parameter and set the value to <code>CUSTOMER_MANAGED</code>. For more information,
-        /// see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/env-template-v1.html">Register
-        /// and publish an environment template</a> in the <i>AWS Proton Administration Guide</i>.
+        /// see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/template-create.html">Register
+        /// and publish an environment template</a> in the <i>AWS Proton Administrator Guide</i>.
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -867,7 +969,7 @@ namespace Amazon.Proton
         /// </exception>
         /// <exception cref="Amazon.Proton.Model.ServiceQuotaExceededException">
         /// A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-limits.html">AWS
-        /// Proton Quotas</a> in the <i>AWS Proton Administration Guide</i>.
+        /// Proton Quotas</a> in the <i>AWS Proton Administrator Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.Proton.Model.ThrottlingException">
         /// The request was denied due to request throttling.
@@ -926,7 +1028,7 @@ namespace Amazon.Proton
         /// </exception>
         /// <exception cref="Amazon.Proton.Model.ServiceQuotaExceededException">
         /// A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-limits.html">AWS
-        /// Proton Quotas</a> in the <i>AWS Proton Administration Guide</i>.
+        /// Proton Quotas</a> in the <i>AWS Proton Administrator Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.Proton.Model.ThrottlingException">
         /// The request was denied due to request throttling.
@@ -963,7 +1065,7 @@ namespace Amazon.Proton
         /// Create an AWS Proton service. An AWS Proton service is an instantiation of a service
         /// template and often includes several service instances and pipeline. For more information,
         /// see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-services.html">Services</a>
-        /// in the <i>AWS Proton Administration Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-service.html">Services</a>
+        /// in the <i>AWS Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-service.html">Services</a>
         /// in the <i>AWS Proton User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateService service method.</param>
@@ -986,7 +1088,7 @@ namespace Amazon.Proton
         /// </exception>
         /// <exception cref="Amazon.Proton.Model.ServiceQuotaExceededException">
         /// A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-limits.html">AWS
-        /// Proton Quotas</a> in the <i>AWS Proton Administration Guide</i>.
+        /// Proton Quotas</a> in the <i>AWS Proton Administrator Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.Proton.Model.ThrottlingException">
         /// The request was denied due to request throttling.
@@ -1026,7 +1128,7 @@ namespace Amazon.Proton
         /// includes a service pipeline definition, they provide a link to their source code repository.
         /// AWS Proton then deploys and manages the infrastructure defined by the selected service
         /// template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/managing-svc-templates.html">Service
-        /// Templates</a> in the <i>AWS Proton Administration Guide</i>.
+        /// Templates</a> in the <i>AWS Proton Administrator Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateServiceTemplate service method.</param>
         /// <param name="cancellationToken">
@@ -1045,7 +1147,7 @@ namespace Amazon.Proton
         /// </exception>
         /// <exception cref="Amazon.Proton.Model.ServiceQuotaExceededException">
         /// A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-limits.html">AWS
-        /// Proton Quotas</a> in the <i>AWS Proton Administration Guide</i>.
+        /// Proton Quotas</a> in the <i>AWS Proton Administrator Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.Proton.Model.ThrottlingException">
         /// The request was denied due to request throttling.
@@ -1103,7 +1205,7 @@ namespace Amazon.Proton
         /// </exception>
         /// <exception cref="Amazon.Proton.Model.ServiceQuotaExceededException">
         /// A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-limits.html">AWS
-        /// Proton Quotas</a> in the <i>AWS Proton Administration Guide</i>.
+        /// Proton Quotas</a> in the <i>AWS Proton Administrator Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.Proton.Model.ThrottlingException">
         /// The request was denied due to request throttling.
@@ -1201,8 +1303,8 @@ namespace Amazon.Proton
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment
-        /// account connections</a> in the <i>AWS Proton Administration guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
+        /// account connections</a> in the <i>AWS Proton Administrator guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteEnvironmentAccountConnection service method.</param>
@@ -1643,8 +1745,8 @@ namespace Amazon.Proton
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment
-        /// account connections</a> in the <i>AWS Proton Administration guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
+        /// account connections</a> in the <i>AWS Proton Administrator guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetEnvironmentAccountConnection service method.</param>
@@ -1993,8 +2095,8 @@ namespace Amazon.Proton
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment
-        /// account connections</a> in the <i>AWS Proton Administration guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
+        /// account connections</a> in the <i>AWS Proton Administrator guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListEnvironmentAccountConnections service method.</param>
@@ -2377,7 +2479,7 @@ namespace Amazon.Proton
         /// <summary>
         /// List tags for a resource. For more information, see <i>AWS Proton resources and tagging</i>
         /// in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS
-        /// Proton Administration Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
+        /// Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
         /// Proton User Guide</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource service method.</param>
@@ -2442,8 +2544,8 @@ namespace Amazon.Proton
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment
-        /// account connections</a> in the <i>AWS Proton Administration guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
+        /// account connections</a> in the <i>AWS Proton Administrator guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RejectEnvironmentAccountConnection service method.</param>
@@ -2498,7 +2600,7 @@ namespace Amazon.Proton
         /// <summary>
         /// Tag a resource. For more information, see <i>AWS Proton resources and tagging</i>
         /// in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS
-        /// Proton Administration Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
+        /// Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
         /// Proton User Guide</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
@@ -2553,7 +2655,7 @@ namespace Amazon.Proton
         /// <summary>
         /// Remove a tag from a resource. For more information, see <i>AWS Proton resources and
         /// tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS
-        /// Proton Administration Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
+        /// Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS
         /// Proton User Guide</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UntagResource service method.</param>
@@ -2667,7 +2769,7 @@ namespace Amazon.Proton
         /// <para>
         /// You can only update to a new environment account connection if it was created in the
         /// same environment account that the current environment account connection was created
-        /// in and associated with the current environment.
+        /// in and is associated with the current environment.
         /// </para>
         ///  
         /// <para>
@@ -2782,8 +2884,8 @@ namespace Amazon.Proton
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="proton/latest/adminguide/ag-env-account-connections.html">Environment
-        /// account connections</a> in the <i>AWS Proton Administration guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
+        /// account connections</a> in the <i>AWS Proton Administrator guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateEnvironmentAccountConnection service method.</param>
@@ -2976,7 +3078,7 @@ namespace Amazon.Proton
         /// </exception>
         /// <exception cref="Amazon.Proton.Model.ServiceQuotaExceededException">
         /// A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-limits.html">AWS
-        /// Proton Quotas</a> in the <i>AWS Proton Administration Guide</i>.
+        /// Proton Quotas</a> in the <i>AWS Proton Administrator Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.Proton.Model.ThrottlingException">
         /// The request was denied due to request throttling.

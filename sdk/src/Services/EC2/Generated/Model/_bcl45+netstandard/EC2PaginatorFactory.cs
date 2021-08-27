@@ -236,6 +236,14 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Paginator for DescribeInstanceEventWindows operation
+        ///</summary>
+        public IDescribeInstanceEventWindowsPaginator DescribeInstanceEventWindows(DescribeInstanceEventWindowsRequest request) 
+        {
+            return new DescribeInstanceEventWindowsPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for DescribeInstances operation
         ///</summary>
         public IDescribeInstancesPaginator DescribeInstances(DescribeInstancesRequest request) 
@@ -484,6 +492,14 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Paginator for DescribeSecurityGroupRules operation
+        ///</summary>
+        public IDescribeSecurityGroupRulesPaginator DescribeSecurityGroupRules(DescribeSecurityGroupRulesRequest request) 
+        {
+            return new DescribeSecurityGroupRulesPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for DescribeSecurityGroups operation
         ///</summary>
         public IDescribeSecurityGroupsPaginator DescribeSecurityGroups(DescribeSecurityGroupsRequest request) 
@@ -641,6 +657,14 @@ namespace Amazon.EC2.Model
         public IDescribeTransitGatewayVpcAttachmentsPaginator DescribeTransitGatewayVpcAttachments(DescribeTransitGatewayVpcAttachmentsRequest request) 
         {
             return new DescribeTransitGatewayVpcAttachmentsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for DescribeTrunkInterfaceAssociations operation
+        ///</summary>
+        public IDescribeTrunkInterfaceAssociationsPaginator DescribeTrunkInterfaceAssociations(DescribeTrunkInterfaceAssociationsRequest request) 
+        {
+            return new DescribeTrunkInterfaceAssociationsPaginator(this.client, request);
         }
 
         /// <summary>

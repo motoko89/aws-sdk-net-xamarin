@@ -49,6 +49,7 @@ namespace Amazon.RedshiftDataAPIService.Model
         private long? _resultSize;
         private string _secretArn;
         private StatusString _status;
+        private List<SubStatementData> _subStatements = new List<SubStatementData>();
         private DateTime? _updatedAt;
 
         /// <summary>
@@ -279,7 +280,8 @@ namespace Amazon.RedshiftDataAPIService.Model
         /// <para>
         /// Either the number of rows returned from the SQL statement or the number of rows affected.
         /// If result size is greater than zero, the result rows can be the number of rows affected
-        /// by SQL statements such as INSERT, UPDATE, DELETE, COPY, and others. 
+        /// by SQL statements such as INSERT, UPDATE, DELETE, COPY, and others. A <code>-1</code>
+        /// indicates the value is null.
         /// </para>
         /// </summary>
         public long ResultRows
@@ -297,7 +299,8 @@ namespace Amazon.RedshiftDataAPIService.Model
         /// <summary>
         /// Gets and sets the property ResultSize. 
         /// <para>
-        /// The size in bytes of the returned results. 
+        /// The size in bytes of the returned results. A <code>-1</code> indicates the value is
+        /// null.
         /// </para>
         /// </summary>
         public long ResultSize
@@ -378,6 +381,24 @@ namespace Amazon.RedshiftDataAPIService.Model
         internal bool IsSetStatus()
         {
             return this._status != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property SubStatements. 
+        /// <para>
+        /// The SQL statements from a multiple statement run.
+        /// </para>
+        /// </summary>
+        public List<SubStatementData> SubStatements
+        {
+            get { return this._subStatements; }
+            set { this._subStatements = value; }
+        }
+
+        // Check to see if SubStatements property is set
+        internal bool IsSetSubStatements()
+        {
+            return this._subStatements != null && this._subStatements.Count > 0; 
         }
 
         /// <summary>

@@ -30,8 +30,9 @@ namespace Amazon.ElasticMapReduce.Model
 {
     /// <summary>
     /// Container for the parameters to the ListStudios operation.
-    /// Returns a list of all Amazon EMR Studios associated with the AWS account. The list
-    /// includes details such as ID, Studio Access URL, and creation time for each Studio.
+    /// Returns a list of all Amazon EMR Studios associated with the Amazon Web Services account.
+    /// The list includes details such as ID, Studio Access URL, and creation time for each
+    /// Studio.
     /// </summary>
     public partial class ListStudiosRequest : AmazonElasticMapReduceRequest
     {

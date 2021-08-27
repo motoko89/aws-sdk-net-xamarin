@@ -41,6 +41,7 @@ namespace Amazon.DatabaseMigrationService.Model
         private bool? _includeTableAlterOperations;
         private bool? _includeTransactionDetails;
         private MessageFormatValue _messageFormat;
+        private bool? _noHexPrefix;
         private bool? _partitionIncludeSchemaTable;
         private string _serviceAccessRoleArn;
         private string _streamArn;
@@ -163,6 +164,28 @@ namespace Amazon.DatabaseMigrationService.Model
         }
 
         /// <summary>
+        /// Gets and sets the property NoHexPrefix. 
+        /// <para>
+        /// Set this optional parameter to <code>true</code> to avoid adding a '0x' prefix to
+        /// raw data in hexadecimal format. For example, by default, DMS adds a '0x' prefix to
+        /// the LOB column type in hexadecimal format moving from an Oracle source to an Amazon
+        /// Kinesis target. Use the <code>NoHexPrefix</code> endpoint setting to enable migration
+        /// of RAW data type columns without adding the '0x' prefix.
+        /// </para>
+        /// </summary>
+        public bool NoHexPrefix
+        {
+            get { return this._noHexPrefix.GetValueOrDefault(); }
+            set { this._noHexPrefix = value; }
+        }
+
+        // Check to see if NoHexPrefix property is set
+        internal bool IsSetNoHexPrefix()
+        {
+            return this._noHexPrefix.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property PartitionIncludeSchemaTable. 
         /// <para>
         /// Prefixes schema and table names to partition values, when the partition type is <code>primary-key-type</code>.
@@ -187,8 +210,8 @@ namespace Amazon.DatabaseMigrationService.Model
         /// <summary>
         /// Gets and sets the property ServiceAccessRoleArn. 
         /// <para>
-        /// The Amazon Resource Name (ARN) for the AWS Identity and Access Management (IAM) role
-        /// that AWS DMS uses to write to the Kinesis data stream.
+        /// The Amazon Resource Name (ARN) for the IAM role that DMS uses to write to the Kinesis
+        /// data stream. The role must allow the <code>iam:PassRole</code> action.
         /// </para>
         /// </summary>
         public string ServiceAccessRoleArn

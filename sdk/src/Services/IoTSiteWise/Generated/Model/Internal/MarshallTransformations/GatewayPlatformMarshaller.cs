@@ -56,6 +56,17 @@ namespace Amazon.IoTSiteWise.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetGreengrassV2())
+            {
+                context.Writer.WritePropertyName("greengrassV2");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = GreengrassV2Marshaller.Instance;
+                marshaller.Marshall(requestObject.GreengrassV2, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
         }
 
         /// <summary>

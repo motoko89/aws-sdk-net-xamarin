@@ -29,11 +29,13 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Glue.Model
 {
     /// <summary>
-    /// A workflow represents a flow in which Glue components should be run to complete a
-    /// logical task.
+    /// A workflow is a collection of multiple dependent Glue jobs and crawlers that are run
+    /// to complete a complex ETL task. A workflow manages the execution and monitoring of
+    /// all its jobs and crawlers.
     /// </summary>
     public partial class Workflow
     {
+        private BlueprintDetails _blueprintDetails;
         private DateTime? _createdOn;
         private Dictionary<string, string> _defaultRunProperties = new Dictionary<string, string>();
         private string _description;
@@ -42,6 +44,25 @@ namespace Amazon.Glue.Model
         private WorkflowRun _lastRun;
         private int? _maxConcurrentRuns;
         private string _name;
+
+        /// <summary>
+        /// Gets and sets the property BlueprintDetails. 
+        /// <para>
+        /// This structure indicates the details of the blueprint that this particular workflow
+        /// is created from.
+        /// </para>
+        /// </summary>
+        public BlueprintDetails BlueprintDetails
+        {
+            get { return this._blueprintDetails; }
+            set { this._blueprintDetails = value; }
+        }
+
+        // Check to see if BlueprintDetails property is set
+        internal bool IsSetBlueprintDetails()
+        {
+            return this._blueprintDetails != null;
+        }
 
         /// <summary>
         /// Gets and sets the property CreatedOn. 
@@ -64,7 +85,9 @@ namespace Amazon.Glue.Model
         /// <summary>
         /// Gets and sets the property DefaultRunProperties. 
         /// <para>
-        /// A collection of properties to be used as part of each execution of the workflow.
+        /// A collection of properties to be used as part of each execution of the workflow. The
+        /// run properties are made available to each job in the workflow. A job can modify the
+        /// properties for the next jobs in the flow.
         /// </para>
         /// </summary>
         public Dictionary<string, string> DefaultRunProperties
@@ -176,7 +199,7 @@ namespace Amazon.Glue.Model
         /// <summary>
         /// Gets and sets the property Name. 
         /// <para>
-        /// The name of the workflow representing the flow.
+        /// The name of the workflow.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=255)]

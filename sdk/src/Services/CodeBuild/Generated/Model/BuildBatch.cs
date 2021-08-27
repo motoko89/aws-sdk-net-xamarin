@@ -380,7 +380,7 @@ namespace Amazon.CodeBuild.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// If an Identity and Access Management user started the build, the user's name.
+        /// If an IAM user started the build, the user's name.
         /// </para>
         ///  </li> <li> 
         /// <para>

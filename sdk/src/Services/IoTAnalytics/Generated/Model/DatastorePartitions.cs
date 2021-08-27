@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.IoTAnalytics.Model
 {
     /// <summary>
-    /// Contains information about partitions in a data store.
+    /// Contains information about the partition dimensions in a data store.
     /// </summary>
     public partial class DatastorePartitions
     {
@@ -38,7 +38,7 @@ namespace Amazon.IoTAnalytics.Model
         /// <summary>
         /// Gets and sets the property Partitions. 
         /// <para>
-        ///  A list of partitions in a data store. 
+        ///  A list of partition dimensions in a data store. 
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=25)]

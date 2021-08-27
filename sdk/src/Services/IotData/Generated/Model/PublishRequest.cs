@@ -30,24 +30,40 @@ namespace Amazon.IotData.Model
 {
     /// <summary>
     /// Container for the parameters to the Publish operation.
-    /// Publishes state information.
+    /// Publishes an MQTT message.
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP
-    /// Protocol</a> in the AWS IoT Developer Guide.
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">Publish</a>
+    /// action.
+    /// </para>
+    ///  
+    /// <para>
+    /// For more information about MQTT messages, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html">MQTT
+    /// Protocol</a> in the IoT Developer Guide.
+    /// </para>
+    ///  
+    /// <para>
+    /// For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">IoT
+    /// Core pricing - Messaging</a>.
     /// </para>
     /// </summary>
     public partial class PublishRequest : AmazonIotDataRequest
     {
         private MemoryStream _payload;
         private int? _qos;
+        private bool? _retain;
         private string _topic;
 
         /// <summary>
         /// Gets and sets the property Payload. 
         /// <para>
-        /// The state information, in JSON format.
+        /// The message body. MQTT accepts text, binary, and empty (null) message payloads.
+        /// </para>
+        ///  
+        /// <para>
+        /// Publishing an empty (null) payload with <b>retain</b> = <code>true</code> deletes
+        /// the retained message identified by <b>topic</b> from IoT Core.
         /// </para>
         /// </summary>
         public MemoryStream Payload
@@ -79,6 +95,38 @@ namespace Amazon.IotData.Model
         internal bool IsSetQos()
         {
             return this._qos.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property Retain. 
+        /// <para>
+        /// A Boolean value that determines whether to set the RETAIN flag when the message is
+        /// published.
+        /// </para>
+        ///  
+        /// <para>
+        /// Setting the RETAIN flag causes the message to be retained and sent to new subscribers
+        /// to the topic.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid values: <code>true</code> | <code>false</code> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Default value: <code>false</code> 
+        /// </para>
+        /// </summary>
+        public bool Retain
+        {
+            get { return this._retain.GetValueOrDefault(); }
+            set { this._retain = value; }
+        }
+
+        // Check to see if Retain property is set
+        internal bool IsSetRetain()
+        {
+            return this._retain.HasValue; 
         }
 
         /// <summary>

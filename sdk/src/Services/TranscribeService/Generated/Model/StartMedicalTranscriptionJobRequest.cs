@@ -45,6 +45,7 @@ namespace Amazon.TranscribeService.Model
         private string _outputKey;
         private MedicalTranscriptionSetting _settings;
         private Specialty _specialty;
+        private List<Tag> _tags = new List<Tag>();
         private Type _type;
 
         /// <summary>
@@ -153,8 +154,8 @@ namespace Amazon.TranscribeService.Model
         /// <para>
         /// The name of the medical transcription job. You can't use the strings "<code>.</code>"
         /// or "<code>..</code>" by themselves as the job name. The name must also be unique within
-        /// an AWS account. If you try to create a medical transcription job with the same name
-        /// as a previous medical transcription job, you get a <code>ConflictException</code>
+        /// an Amazon Web Services account. If you try to create a medical transcription job with
+        /// the same name as a previous medical transcription job, you get a <code>ConflictException</code>
         /// error.
         /// </para>
         /// </summary>
@@ -188,10 +189,10 @@ namespace Amazon.TranscribeService.Model
         /// </para>
         ///  
         /// <para>
-        /// You can specify an AWS Key Management Service (KMS) key to encrypt the output of your
-        /// transcription using the <code>OutputEncryptionKMSKeyId</code> parameter. If you don't
-        /// specify a KMS key, Amazon Transcribe Medical uses the default Amazon S3 key for server-side
-        /// encryption of transcripts that are placed in your S3 bucket.
+        /// You can specify an Amazon Web Services Key Management Service (KMS) key to encrypt
+        /// the output of your transcription using the <code>OutputEncryptionKMSKeyId</code> parameter.
+        /// If you don't specify a KMS key, Amazon Transcribe Medical uses the default Amazon
+        /// S3 key for server-side encryption of transcripts that are placed in your S3 bucket.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Max=64)]
@@ -210,8 +211,8 @@ namespace Amazon.TranscribeService.Model
         /// <summary>
         /// Gets and sets the property OutputEncryptionKMSKeyId. 
         /// <para>
-        /// The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key used to
-        /// encrypt the output of the transcription job. The user calling the <a>StartMedicalTranscriptionJob</a>
+        /// The Amazon Resource Name (ARN) of the Amazon Web Services Key Management Service (KMS)
+        /// key used to encrypt the output of the transcription job. The user calling the <a>StartMedicalTranscriptionJob</a>
         /// operation must have permission to use the specified KMS key.
         /// </para>
         ///  
@@ -342,11 +343,30 @@ namespace Amazon.TranscribeService.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// Add tags to an Amazon Transcribe medical transcription job.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=200)]
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property Type. 
         /// <para>
         /// The type of speech in the input audio. <code>CONVERSATION</code> refers to conversations
         /// between two or more speakers, e.g., a conversations between doctors and patients.
-        /// <code>DICTATION</code> refers to single-speaker dictated speech, e.g., for clinical
+        /// <code>DICTATION</code> refers to single-speaker dictated speech, such as clinical
         /// notes.
         /// </para>
         /// </summary>

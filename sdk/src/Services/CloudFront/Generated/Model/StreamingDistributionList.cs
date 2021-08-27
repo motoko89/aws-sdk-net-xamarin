@@ -71,7 +71,7 @@ namespace Amazon.CloudFront.Model
         /// Gets and sets the property Items. 
         /// <para>
         /// A complex type that contains one <code>StreamingDistributionSummary</code> element
-        /// for each distribution that was created by the current AWS account.
+        /// for each distribution that was created by the current account.
         /// </para>
         /// </summary>
         public List<StreamingDistributionSummary> Items
@@ -147,8 +147,7 @@ namespace Amazon.CloudFront.Model
         /// <summary>
         /// Gets and sets the property Quantity. 
         /// <para>
-        /// The number of streaming distributions that were created by the current AWS account.
-        /// 
+        /// The number of streaming distributions that were created by the current account. 
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

@@ -30,8 +30,14 @@ namespace Amazon.SimpleSystemsManagement.Model
 {
     /// <summary>
     /// Container for the parameters to the GetParameter operation.
-    /// Get information about a parameter by using the parameter name. Don't confuse this
-    /// API action with the <a>GetParameters</a> API action.
+    /// Get information about a single parameter by specifying the parameter name.
+    /// 
+    ///  <note> 
+    /// <para>
+    /// To get information about more than one parameter at a time, use the <a>GetParameters</a>
+    /// operation.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class GetParameterRequest : AmazonSimpleSystemsManagementRequest
     {
@@ -42,6 +48,11 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Gets and sets the property Name. 
         /// <para>
         /// The name of the parameter you want to query.
+        /// </para>
+        ///  
+        /// <para>
+        /// To query by parameter label, use <code>"Name": "name:label"</code>. To query by parameter
+        /// version, use <code>"Name": "name:version"</code>.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=2048)]
@@ -60,8 +71,8 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property WithDecryption. 
         /// <para>
-        /// Return decrypted values for secure string parameters. This flag is ignored for String
-        /// and StringList parameter types.
+        /// Return decrypted values for secure string parameters. This flag is ignored for <code>String</code>
+        /// and <code>StringList</code> parameter types.
         /// </para>
         /// </summary>
         public bool WithDecryption

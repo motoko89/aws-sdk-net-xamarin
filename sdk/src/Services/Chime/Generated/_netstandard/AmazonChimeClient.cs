@@ -1734,6 +1734,61 @@ namespace Amazon.Chime
 
         #endregion
         
+        #region  CreateMediaCapturePipeline
+
+        internal virtual CreateMediaCapturePipelineResponse CreateMediaCapturePipeline(CreateMediaCapturePipelineRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateMediaCapturePipelineRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateMediaCapturePipelineResponseUnmarshaller.Instance;
+
+            return Invoke<CreateMediaCapturePipelineResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates a media capture pipeline.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateMediaCapturePipeline service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateMediaCapturePipeline service method, as returned by Chime.</returns>
+        /// <exception cref="Amazon.Chime.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ResourceLimitExceededException">
+        /// The request exceeds the resource limit.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateMediaCapturePipeline">REST API Reference for CreateMediaCapturePipeline Operation</seealso>
+        public virtual Task<CreateMediaCapturePipelineResponse> CreateMediaCapturePipelineAsync(CreateMediaCapturePipelineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateMediaCapturePipelineRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateMediaCapturePipelineResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateMediaCapturePipelineResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateMeeting
 
         internal virtual CreateMeetingResponse CreateMeeting(CreateMeetingRequest request)
@@ -3231,6 +3286,61 @@ namespace Amazon.Chime
 
         #endregion
         
+        #region  DeleteMediaCapturePipeline
+
+        internal virtual DeleteMediaCapturePipelineResponse DeleteMediaCapturePipeline(DeleteMediaCapturePipelineRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteMediaCapturePipelineRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteMediaCapturePipelineResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteMediaCapturePipelineResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes the media capture pipeline.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteMediaCapturePipeline service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteMediaCapturePipeline service method, as returned by Chime.</returns>
+        /// <exception cref="Amazon.Chime.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.NotFoundException">
+        /// One or more of the resources in the request does not exist in the system.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteMediaCapturePipeline">REST API Reference for DeleteMediaCapturePipeline Operation</seealso>
+        public virtual Task<DeleteMediaCapturePipelineResponse> DeleteMediaCapturePipelineAsync(DeleteMediaCapturePipelineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteMediaCapturePipelineRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteMediaCapturePipelineResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteMediaCapturePipelineResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteMeeting
 
         internal virtual DeleteMeetingResponse DeleteMeeting(DeleteMeetingRequest request)
@@ -4219,7 +4329,7 @@ namespace Amazon.Chime
 
 
         /// <summary>
-        /// Returns the full details of an <code>AppInstanceUser</code> .
+        /// Returns the full details of an <code>AppInstanceUser</code>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAppInstanceUser service method.</param>
         /// <param name="cancellationToken">
@@ -5346,6 +5456,61 @@ namespace Amazon.Chime
             options.ResponseUnmarshaller = GetGlobalSettingsResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetGlobalSettingsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetMediaCapturePipeline
+
+        internal virtual GetMediaCapturePipelineResponse GetMediaCapturePipeline(GetMediaCapturePipelineRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetMediaCapturePipelineRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetMediaCapturePipelineResponseUnmarshaller.Instance;
+
+            return Invoke<GetMediaCapturePipelineResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Gets an existing media capture pipeline.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetMediaCapturePipeline service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetMediaCapturePipeline service method, as returned by Chime.</returns>
+        /// <exception cref="Amazon.Chime.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.NotFoundException">
+        /// One or more of the resources in the request does not exist in the system.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetMediaCapturePipeline">REST API Reference for GetMediaCapturePipeline Operation</seealso>
+        public virtual Task<GetMediaCapturePipelineResponse> GetMediaCapturePipelineAsync(GetMediaCapturePipelineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetMediaCapturePipelineRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetMediaCapturePipelineResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetMediaCapturePipelineResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -7448,6 +7613,58 @@ namespace Amazon.Chime
 
         #endregion
         
+        #region  ListMediaCapturePipelines
+
+        internal virtual ListMediaCapturePipelinesResponse ListMediaCapturePipelines(ListMediaCapturePipelinesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListMediaCapturePipelinesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListMediaCapturePipelinesResponseUnmarshaller.Instance;
+
+            return Invoke<ListMediaCapturePipelinesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Returns a list of media capture pipelines.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListMediaCapturePipelines service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListMediaCapturePipelines service method, as returned by Chime.</returns>
+        /// <exception cref="Amazon.Chime.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListMediaCapturePipelines">REST API Reference for ListMediaCapturePipelines Operation</seealso>
+        public virtual Task<ListMediaCapturePipelinesResponse> ListMediaCapturePipelinesAsync(ListMediaCapturePipelinesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListMediaCapturePipelinesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListMediaCapturePipelinesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListMediaCapturePipelinesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListMeetings
 
         internal virtual ListMeetingsResponse ListMeetings(ListMeetingsRequest request)
@@ -9485,6 +9702,125 @@ namespace Amazon.Chime
             options.ResponseUnmarshaller = SendChannelMessageResponseUnmarshaller.Instance;
 
             return InvokeAsync<SendChannelMessageResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  StartMeetingTranscription
+
+        internal virtual StartMeetingTranscriptionResponse StartMeetingTranscription(StartMeetingTranscriptionRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartMeetingTranscriptionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartMeetingTranscriptionResponseUnmarshaller.Instance;
+
+            return Invoke<StartMeetingTranscriptionResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Start transcription for the specified <code>meetingId</code>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartMeetingTranscription service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartMeetingTranscription service method, as returned by Chime.</returns>
+        /// <exception cref="Amazon.Chime.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.NotFoundException">
+        /// One or more of the resources in the request does not exist in the system.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ResourceLimitExceededException">
+        /// The request exceeds the resource limit.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.UnprocessableEntityException">
+        /// The request was well-formed but was unable to be followed due to semantic errors.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/StartMeetingTranscription">REST API Reference for StartMeetingTranscription Operation</seealso>
+        public virtual Task<StartMeetingTranscriptionResponse> StartMeetingTranscriptionAsync(StartMeetingTranscriptionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartMeetingTranscriptionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartMeetingTranscriptionResponseUnmarshaller.Instance;
+
+            return InvokeAsync<StartMeetingTranscriptionResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  StopMeetingTranscription
+
+        internal virtual StopMeetingTranscriptionResponse StopMeetingTranscription(StopMeetingTranscriptionRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StopMeetingTranscriptionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StopMeetingTranscriptionResponseUnmarshaller.Instance;
+
+            return Invoke<StopMeetingTranscriptionResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Stops transcription for the specified <code>meetingId</code>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StopMeetingTranscription service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StopMeetingTranscription service method, as returned by Chime.</returns>
+        /// <exception cref="Amazon.Chime.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.NotFoundException">
+        /// One or more of the resources in the request does not exist in the system.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <exception cref="Amazon.Chime.Model.UnprocessableEntityException">
+        /// The request was well-formed but was unable to be followed due to semantic errors.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/StopMeetingTranscription">REST API Reference for StopMeetingTranscription Operation</seealso>
+        public virtual Task<StopMeetingTranscriptionResponse> StopMeetingTranscriptionAsync(StopMeetingTranscriptionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StopMeetingTranscriptionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StopMeetingTranscriptionResponseUnmarshaller.Instance;
+
+            return InvokeAsync<StopMeetingTranscriptionResponse>(request, options, cancellationToken);
         }
 
         #endregion

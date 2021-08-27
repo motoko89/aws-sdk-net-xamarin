@@ -51,6 +51,22 @@ namespace Amazon.Imagebuilder.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.ComponentArn);
             }
 
+            if(requestObject.IsSetParameters())
+            {
+                context.Writer.WritePropertyName("parameters");
+                context.Writer.WriteArrayStart();
+                foreach(var requestObjectParametersListValue in requestObject.Parameters)
+                {
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = ComponentParameterMarshaller.Instance;
+                    marshaller.Marshall(requestObjectParametersListValue, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+                context.Writer.WriteArrayEnd();
+            }
+
         }
 
         /// <summary>

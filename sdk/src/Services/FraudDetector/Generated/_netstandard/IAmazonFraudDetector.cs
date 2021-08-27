@@ -131,7 +131,12 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -161,6 +166,14 @@ namespace Amazon.FraudDetector
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -192,7 +205,9 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
         /// An exception indicating a throttling error.
@@ -226,6 +241,9 @@ namespace Amazon.FraudDetector
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
         /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
+        /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
         /// </exception>
@@ -256,7 +274,12 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -352,7 +375,12 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -474,7 +502,9 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
         /// An exception indicating a throttling error.
@@ -539,6 +569,9 @@ namespace Amazon.FraudDetector
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -638,6 +671,9 @@ namespace Amazon.FraudDetector
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -761,6 +797,9 @@ namespace Amazon.FraudDetector
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
         /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
+        /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
         /// </exception>
@@ -823,6 +862,9 @@ namespace Amazon.FraudDetector
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
         /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
+        /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
         /// </exception>
@@ -884,6 +926,9 @@ namespace Amazon.FraudDetector
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -1109,7 +1154,9 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
         /// An exception indicating a throttling error.
@@ -1145,7 +1192,12 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -1181,7 +1233,12 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -1218,7 +1275,9 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
         /// An exception indicating a throttling error.
@@ -1253,7 +1312,9 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
         /// An exception indicating a throttling error.
@@ -1293,7 +1354,12 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -1348,7 +1414,13 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ResourceUnavailableException">
+        /// An exception indicating that the attached customer-owned (external) model threw an
+        /// exception when Amazon Fraud Detector invoked the model.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
         /// An exception indicating a throttling error.
@@ -1388,7 +1460,12 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -1425,7 +1502,9 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
         /// An exception indicating a throttling error.
@@ -1461,7 +1540,12 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/frauddetector-2019-11-15/GetKMSEncryptionKey">REST API Reference for GetKMSEncryptionKey Operation</seealso>
         Task<GetKMSEncryptionKeyResponse> GetKMSEncryptionKeyAsync(GetKMSEncryptionKeyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -1494,7 +1578,12 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -1509,10 +1598,10 @@ namespace Amazon.FraudDetector
 
 
         /// <summary>
-        /// Gets one or more models. Gets all models for the AWS account if no model type and
-        /// no model id provided. Gets all models for the AWS account and model type, if the model
-        /// type is specified but model id is not provided. Gets a specific model if (model type,
-        /// model id) tuple is specified. 
+        /// Gets one or more models. Gets all models for the Amazon Web Services account if no
+        /// model type and no model id provided. Gets all models for the Amazon Web Services account
+        /// and model type, if the model type is specified but model id is not provided. Gets
+        /// a specific model if (model type, model id) tuple is specified. 
         /// 
         ///  
         /// <para>
@@ -1538,7 +1627,12 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -1570,7 +1664,12 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -1606,7 +1705,9 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
         /// An exception indicating a throttling error.
@@ -1652,7 +1753,9 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
         /// An exception indicating a throttling error.
@@ -1691,7 +1794,9 @@ namespace Amazon.FraudDetector
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
         /// An exception indicating a throttling error.
@@ -1725,7 +1830,12 @@ namespace Amazon.FraudDetector
         /// specifies a role that is not in your account.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -1752,6 +1862,28 @@ namespace Amazon.FraudDetector
         /// An exception indicating Amazon Fraud Detector does not have the needed permissions.
         /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
         /// specifies a role that is not in your account.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ConflictException">
+        /// An exception indicating there was a conflict during a delete operation. The following
+        /// delete operations can cause a conflict exception:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code>
+        /// or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code>
+        /// or <code>DetectorVersions</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code>
+        /// status is <code>ACTIVE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in
+        /// use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.
+        /// </para>
+        ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
@@ -1788,8 +1920,33 @@ namespace Amazon.FraudDetector
         /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
         /// specifies a role that is not in your account.
         /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ConflictException">
+        /// An exception indicating there was a conflict during a delete operation. The following
+        /// delete operations can cause a conflict exception:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code>
+        /// or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code>
+        /// or <code>DetectorVersions</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code>
+        /// status is <code>ACTIVE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in
+        /// use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -1822,8 +1979,33 @@ namespace Amazon.FraudDetector
         /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
         /// specifies a role that is not in your account.
         /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ConflictException">
+        /// An exception indicating there was a conflict during a delete operation. The following
+        /// delete operations can cause a conflict exception:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code>
+        /// or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code>
+        /// or <code>DetectorVersions</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code>
+        /// status is <code>ACTIVE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in
+        /// use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -1852,6 +2034,28 @@ namespace Amazon.FraudDetector
         /// An exception indicating Amazon Fraud Detector does not have the needed permissions.
         /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
         /// specifies a role that is not in your account.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ConflictException">
+        /// An exception indicating there was a conflict during a delete operation. The following
+        /// delete operations can cause a conflict exception:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code>
+        /// or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code>
+        /// or <code>DetectorVersions</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code>
+        /// status is <code>ACTIVE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in
+        /// use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.
+        /// </para>
+        ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
@@ -1886,11 +2090,38 @@ namespace Amazon.FraudDetector
         /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
         /// specifies a role that is not in your account.
         /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ConflictException">
+        /// An exception indicating there was a conflict during a delete operation. The following
+        /// delete operations can cause a conflict exception:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code>
+        /// or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code>
+        /// or <code>DetectorVersions</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code>
+        /// status is <code>ACTIVE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in
+        /// use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -1920,8 +2151,33 @@ namespace Amazon.FraudDetector
         /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
         /// specifies a role that is not in your account.
         /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ConflictException">
+        /// An exception indicating there was a conflict during a delete operation. The following
+        /// delete operations can cause a conflict exception:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code>
+        /// or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code>
+        /// or <code>DetectorVersions</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code>
+        /// status is <code>ACTIVE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in
+        /// use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -1948,6 +2204,28 @@ namespace Amazon.FraudDetector
         /// An exception indicating Amazon Fraud Detector does not have the needed permissions.
         /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
         /// specifies a role that is not in your account.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ConflictException">
+        /// An exception indicating there was a conflict during a delete operation. The following
+        /// delete operations can cause a conflict exception:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code>
+        /// or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code>
+        /// or <code>DetectorVersions</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code>
+        /// status is <code>ACTIVE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in
+        /// use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.
+        /// </para>
+        ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
@@ -1982,7 +2260,12 @@ namespace Amazon.FraudDetector
         /// specifies a role that is not in your account.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -2011,7 +2294,12 @@ namespace Amazon.FraudDetector
         /// specifies a role that is not in your account.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -2041,11 +2329,35 @@ namespace Amazon.FraudDetector
         /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
         /// specifies a role that is not in your account.
         /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ConflictException">
+        /// An exception indicating there was a conflict during a delete operation. The following
+        /// delete operations can cause a conflict exception:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code>
+        /// or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code>
+        /// or <code>DetectorVersions</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code>
+        /// status is <code>ACTIVE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in
+        /// use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
         /// An exception indicating a throttling error.
@@ -2076,6 +2388,28 @@ namespace Amazon.FraudDetector
         /// An exception indicating Amazon Fraud Detector does not have the needed permissions.
         /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
         /// specifies a role that is not in your account.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ConflictException">
+        /// An exception indicating there was a conflict during a delete operation. The following
+        /// delete operations can cause a conflict exception:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code>
+        /// or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code>
+        /// or <code>DetectorVersions</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code>
+        /// status is <code>ACTIVE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in
+        /// use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.
+        /// </para>
+        ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
@@ -2111,11 +2445,35 @@ namespace Amazon.FraudDetector
         /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
         /// specifies a role that is not in your account.
         /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ConflictException">
+        /// An exception indicating there was a conflict during a delete operation. The following
+        /// delete operations can cause a conflict exception:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code>
+        /// or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code>
+        /// or <code>DetectorVersions</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code>
+        /// status is <code>ACTIVE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in
+        /// use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
         /// An exception indicating a throttling error.
@@ -2146,11 +2504,38 @@ namespace Amazon.FraudDetector
         /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
         /// specifies a role that is not in your account.
         /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ConflictException">
+        /// An exception indicating there was a conflict during a delete operation. The following
+        /// delete operations can cause a conflict exception:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code>
+        /// or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code>
+        /// or <code>DetectorVersions</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code>
+        /// status is <code>ACTIVE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in
+        /// use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -2182,11 +2567,38 @@ namespace Amazon.FraudDetector
         /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
         /// specifies a role that is not in your account.
         /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ConflictException">
+        /// An exception indicating there was a conflict during a delete operation. The following
+        /// delete operations can cause a conflict exception:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code>
+        /// or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code>
+        /// or <code>DetectorVersions</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code>
+        /// status is <code>ACTIVE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in
+        /// use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -2228,11 +2640,38 @@ namespace Amazon.FraudDetector
         /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
         /// specifies a role that is not in your account.
         /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ConflictException">
+        /// An exception indicating there was a conflict during a delete operation. The following
+        /// delete operations can cause a conflict exception:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code>
+        /// or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code>
+        /// or <code>DetectorVersions</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code>
+        /// status is <code>ACTIVE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in
+        /// use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
+        /// An exception indicating a throttling error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ValidationException">
         /// An exception indicating a specified value is not allowed.
@@ -2260,11 +2699,35 @@ namespace Amazon.FraudDetector
         /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
         /// specifies a role that is not in your account.
         /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ConflictException">
+        /// An exception indicating there was a conflict during a delete operation. The following
+        /// delete operations can cause a conflict exception:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code>
+        /// or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code>
+        /// or <code>DetectorVersions</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code>
+        /// status is <code>ACTIVE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in
+        /// use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
         /// An exception indicating a throttling error.
@@ -2296,11 +2759,35 @@ namespace Amazon.FraudDetector
         /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
         /// specifies a role that is not in your account.
         /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ConflictException">
+        /// An exception indicating there was a conflict during a delete operation. The following
+        /// delete operations can cause a conflict exception:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code>
+        /// or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code>
+        /// or <code>DetectorVersions</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code>
+        /// status is <code>ACTIVE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in
+        /// use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
         /// An exception indicating a throttling error.
@@ -2331,11 +2818,35 @@ namespace Amazon.FraudDetector
         /// This can occur if you submit a request, such as <code>PutExternalModel</code>, that
         /// specifies a role that is not in your account.
         /// </exception>
+        /// <exception cref="Amazon.FraudDetector.Model.ConflictException">
+        /// An exception indicating there was a conflict during a delete operation. The following
+        /// delete operations can cause a conflict exception:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code>
+        /// or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code>
+        /// or <code>DetectorVersions</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code>
+        /// status is <code>ACTIVE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in
+        /// use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.InternalServerException">
         /// An exception indicating an internal server error.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ResourceNotFoundException">
-        /// An exception indicating the specified resource was not found.
+        /// An exception indicating the specified resource was not found. This can occur if you
+        /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+        /// name or version does not exist.
         /// </exception>
         /// <exception cref="Amazon.FraudDetector.Model.ThrottlingException">
         /// An exception indicating a throttling error.

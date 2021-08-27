@@ -511,6 +511,56 @@ namespace Amazon.Rekognition
 
 
     /// <summary>
+    /// Constants used for properties of type KnownGenderType.
+    /// </summary>
+    public class KnownGenderType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Female for KnownGenderType
+        /// </summary>
+        public static readonly KnownGenderType Female = new KnownGenderType("Female");
+        /// <summary>
+        /// Constant Male for KnownGenderType
+        /// </summary>
+        public static readonly KnownGenderType Male = new KnownGenderType("Male");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public KnownGenderType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static KnownGenderType FindValue(string value)
+        {
+            return FindValue<KnownGenderType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator KnownGenderType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type LabelDetectionSortBy.
     /// </summary>
     public class LabelDetectionSortBy : ConstantClass
@@ -1275,9 +1325,25 @@ namespace Amazon.Rekognition
         /// </summary>
         public static readonly TechnicalCueType ColorBars = new TechnicalCueType("ColorBars");
         /// <summary>
+        /// Constant Content for TechnicalCueType
+        /// </summary>
+        public static readonly TechnicalCueType Content = new TechnicalCueType("Content");
+        /// <summary>
         /// Constant EndCredits for TechnicalCueType
         /// </summary>
         public static readonly TechnicalCueType EndCredits = new TechnicalCueType("EndCredits");
+        /// <summary>
+        /// Constant OpeningCredits for TechnicalCueType
+        /// </summary>
+        public static readonly TechnicalCueType OpeningCredits = new TechnicalCueType("OpeningCredits");
+        /// <summary>
+        /// Constant Slate for TechnicalCueType
+        /// </summary>
+        public static readonly TechnicalCueType Slate = new TechnicalCueType("Slate");
+        /// <summary>
+        /// Constant StudioLogo for TechnicalCueType
+        /// </summary>
+        public static readonly TechnicalCueType StudioLogo = new TechnicalCueType("StudioLogo");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -1358,6 +1424,56 @@ namespace Amazon.Rekognition
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator TextTypes(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type VideoColorRange.
+    /// </summary>
+    public class VideoColorRange : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant FULL for VideoColorRange
+        /// </summary>
+        public static readonly VideoColorRange FULL = new VideoColorRange("FULL");
+        /// <summary>
+        /// Constant LIMITED for VideoColorRange
+        /// </summary>
+        public static readonly VideoColorRange LIMITED = new VideoColorRange("LIMITED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public VideoColorRange(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static VideoColorRange FindValue(string value)
+        {
+            return FindValue<VideoColorRange>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator VideoColorRange(string value)
         {
             return FindValue(value);
         }

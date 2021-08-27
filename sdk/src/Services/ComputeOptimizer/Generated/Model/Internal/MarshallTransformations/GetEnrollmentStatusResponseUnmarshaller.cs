@@ -51,10 +51,22 @@ namespace Amazon.ComputeOptimizer.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("lastUpdatedTimestamp", targetDepth))
+                {
+                    var unmarshaller = DateTimeUnmarshaller.Instance;
+                    response.LastUpdatedTimestamp = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("memberAccountsEnrolled", targetDepth))
                 {
                     var unmarshaller = BoolUnmarshaller.Instance;
                     response.MemberAccountsEnrolled = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("numberOfMemberAccountsOptedIn", targetDepth))
+                {
+                    var unmarshaller = IntUnmarshaller.Instance;
+                    response.NumberOfMemberAccountsOptedIn = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("status", targetDepth))

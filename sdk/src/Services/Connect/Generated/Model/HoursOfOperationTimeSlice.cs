@@ -42,7 +42,7 @@ namespace Amazon.Connect.Model
         /// The hours.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=0, Max=23)]
+        [AWSProperty(Required=true, Min=0, Max=23)]
         public int Hours
         {
             get { return this._hours.GetValueOrDefault(); }
@@ -61,7 +61,7 @@ namespace Amazon.Connect.Model
         /// The minutes.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=0, Max=59)]
+        [AWSProperty(Required=true, Min=0, Max=59)]
         public int Minutes
         {
             get { return this._minutes.GetValueOrDefault(); }

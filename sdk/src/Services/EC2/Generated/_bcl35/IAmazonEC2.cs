@@ -406,10 +406,10 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Allocates an Elastic IP address to your account. After you allocate the Elastic IP
-        /// address you can associate it with an instance or network interface. After you release
-        /// an Elastic IP address, it is released to the IP address pool and can be allocated
-        /// to a different account.
+        /// Allocates an Elastic IP address to your Amazon Web Services account. After you allocate
+        /// the Elastic IP address you can associate it with an instance or network interface.
+        /// After you release an Elastic IP address, it is released to the IP address pool and
+        /// can be allocated to a different Amazon Web Services account.
         /// 
         ///  
         /// <para>
@@ -423,8 +423,9 @@ namespace Amazon.EC2
         /// <para>
         /// [EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You
         /// cannot recover an Elastic IP address that you released after it is allocated to another
-        /// account. You cannot recover an Elastic IP address for EC2-Classic. To attempt to recover
-        /// an Elastic IP address that you released, specify it in this operation.
+        /// Amazon Web Services account. You cannot recover an Elastic IP address for EC2-Classic.
+        /// To attempt to recover an Elastic IP address that you released, specify it in this
+        /// operation.
         /// </para>
         ///  
         /// <para>
@@ -450,10 +451,10 @@ namespace Amazon.EC2
         AllocateAddressResponse AllocateAddress();
 
         /// <summary>
-        /// Allocates an Elastic IP address to your account. After you allocate the Elastic IP
-        /// address you can associate it with an instance or network interface. After you release
-        /// an Elastic IP address, it is released to the IP address pool and can be allocated
-        /// to a different account.
+        /// Allocates an Elastic IP address to your Amazon Web Services account. After you allocate
+        /// the Elastic IP address you can associate it with an instance or network interface.
+        /// After you release an Elastic IP address, it is released to the IP address pool and
+        /// can be allocated to a different Amazon Web Services account.
         /// 
         ///  
         /// <para>
@@ -467,8 +468,9 @@ namespace Amazon.EC2
         /// <para>
         /// [EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You
         /// cannot recover an Elastic IP address that you released after it is allocated to another
-        /// account. You cannot recover an Elastic IP address for EC2-Classic. To attempt to recover
-        /// an Elastic IP address that you released, specify it in this operation.
+        /// Amazon Web Services account. You cannot recover an Elastic IP address for EC2-Classic.
+        /// To attempt to recover an Elastic IP address that you released, specify it in this
+        /// operation.
         /// </para>
         ///  
         /// <para>
@@ -621,6 +623,15 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// You must specify either the IPv6 addresses or the IPv6 address count in the request.
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// You can optionally use Prefix Delegation on the network interface. You must specify
+        /// either the IPV6 Prefix Delegation prefixes, or the IPv6 Prefix Delegation count. For
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
+        /// Assigning prefixes to Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute
+        /// Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssignIpv6Addresses service method.</param>
@@ -687,6 +698,14 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// You must specify either the IP addresses or the IP address count in the request.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can optionally use Prefix Delegation on the network interface. You must specify
+        /// either the IPv4 Prefix Delegation prefixes, or the IPv4 Prefix Delegation count. For
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
+        /// Assigning prefixes to Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute
+        /// Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssignPrivateIpAddresses service method.</param>
@@ -875,7 +894,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
-        /// Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateDhcpOptions service method.</param>
@@ -916,27 +935,27 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate
-        /// Manager (ACM) certificate. This enables the certificate to be used by the ACM for
-        /// Nitro Enclaves application inside an enclave. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html">AWS
-        /// Certificate Manager for Nitro Enclaves</a> in the <i>AWS Nitro Enclaves User Guide</i>.
+        /// Associates an Identity and Access Management (IAM) role with an Certificate Manager
+        /// (ACM) certificate. This enables the certificate to be used by the ACM for Nitro Enclaves
+        /// application inside an enclave. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html">Certificate
+        /// Manager for Nitro Enclaves</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.
         /// 
         ///  
         /// <para>
         /// When the IAM role is associated with the ACM certificate, the certificate, certificate
         /// chain, and encrypted private key are placed in an Amazon S3 bucket that only the associated
-        /// IAM role can access. The private key of the certificate is encrypted with an AWS-managed
-        /// KMS customer master (CMK) that has an attached attestation-based CMK policy.
+        /// IAM role can access. The private key of the certificate is encrypted with an Amazon
+        /// Web Services managed key that has an attached attestation-based key policy.
         /// </para>
         ///  
         /// <para>
         /// To enable the IAM role to access the Amazon S3 object, you must grant it permission
         /// to call <code>s3:GetObject</code> on the Amazon S3 bucket returned by the command.
-        /// To enable the IAM role to access the AWS KMS CMK, you must grant it permission to
-        /// call <code>kms:Decrypt</code> on the AWS KMS CMK returned by the command. For more
-        /// information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy">
+        /// To enable the IAM role to access the KMS key, you must grant it permission to call
+        /// <code>kms:Decrypt</code> on the KMS key returned by the command. For more information,
+        /// see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy">
         /// Grant the role permission to access the certificate and encryption key</a> in the
-        /// <i>AWS Nitro Enclaves User Guide</i>.
+        /// <i>Amazon Web Services Nitro Enclaves User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateEnclaveCertificateIamRole service method.</param>
@@ -1014,6 +1033,53 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  AssociateInstanceEventWindow
+
+
+        /// <summary>
+        /// Associates one or more targets with an event window. Only one type of target (instance
+        /// IDs, Dedicated Host IDs, or tags) can be specified with an event window.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define
+        /// event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssociateInstanceEventWindow service method.</param>
+        /// 
+        /// <returns>The response from the AssociateInstanceEventWindow service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateInstanceEventWindow">REST API Reference for AssociateInstanceEventWindow Operation</seealso>
+        AssociateInstanceEventWindowResponse AssociateInstanceEventWindow(AssociateInstanceEventWindowRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the AssociateInstanceEventWindow operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the AssociateInstanceEventWindow operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAssociateInstanceEventWindow
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateInstanceEventWindow">REST API Reference for AssociateInstanceEventWindow Operation</seealso>
+        IAsyncResult BeginAssociateInstanceEventWindow(AssociateInstanceEventWindowRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  AssociateInstanceEventWindow operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginAssociateInstanceEventWindow.</param>
+        /// 
+        /// <returns>Returns a  AssociateInstanceEventWindowResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateInstanceEventWindow">REST API Reference for AssociateInstanceEventWindow Operation</seealso>
+        AssociateInstanceEventWindowResponse EndAssociateInstanceEventWindow(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  AssociateRouteTable
 
 
@@ -1027,7 +1093,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-        /// Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateRouteTable service method.</param>
@@ -1198,19 +1264,21 @@ namespace Amazon.EC2
 
 
         /// <summary>
+        /// <note> 
+        /// <para>
+        /// This API action is currently in <b>limited preview only</b>. If you are interested
+        /// in using this feature, contact your account manager.
+        /// </para>
+        ///  </note> 
+        /// <para>
         /// Associates a branch network interface with a trunk network interface.
-        /// 
+        /// </para>
         ///  
         /// <para>
         /// Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a>
         /// command and set <code>--interface-type</code> to <code>trunk</code>. You must also
         /// create a network interface for each branch network interface that you want to associate
         /// with the trunk network interface.
-        /// </para>
-        ///  
-        /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/eni-trunking.html">
-        /// Network interface trunking</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateTrunkInterface service method.</param>
@@ -1265,7 +1333,7 @@ namespace Amazon.EC2
         /// <para>
         /// For more information about associating CIDR blocks with your VPC and applicable restrictions,
         /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing">VPC
-        /// and Subnet Sizing</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// and subnet sizing</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateVpcCidrBlock service method.</param>
@@ -1456,12 +1524,12 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// After you attach an EBS volume, you must make it available. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Making
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Make
         /// an EBS volume available for use</a>.
         /// </para>
         ///  
         /// <para>
-        /// If a volume has an AWS Marketplace product code:
+        /// If a volume has an Amazon Web Services Marketplace product code:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -1469,7 +1537,7 @@ namespace Amazon.EC2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// AWS Marketplace product codes are copied from the volume to the instance.
+        /// Amazon Web Services Marketplace product codes are copied from the volume to the instance.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1483,8 +1551,9 @@ namespace Amazon.EC2
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attaching
-        /// Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attach
+        /// an Amazon EBS volume to an instance</a> in the <i>Amazon Elastic Compute Cloud User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AttachVolume service method.</param>
@@ -1614,13 +1683,14 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// [VPC only] Adds the specified egress rules to a security group for use with a VPC.
+        /// [VPC only] Adds the specified outbound (egress) rules to a security group for use
+        /// with a VPC.
         /// 
         ///  
         /// <para>
         /// An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR
-        /// address ranges, or to the instances associated with the specified destination security
-        /// groups.
+        /// address ranges, or to the instances that are associated with the specified destination
+        /// security groups.
         /// </para>
         ///  
         /// <para>
@@ -1636,8 +1706,8 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
-        /// VPC Limits</a>.
+        /// For information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
+        /// VPC quotas</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AuthorizeSecurityGroupEgress service method.</param>
@@ -1678,12 +1748,12 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Adds the specified ingress rules to a security group.
+        /// Adds the specified inbound (ingress) rules to a security group.
         /// 
         ///  
         /// <para>
         /// An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6
-        /// CIDR address ranges, or from the instances associated with the specified destination
+        /// CIDR address range, or from the instances that are associated with the specified destination
         /// security groups.
         /// </para>
         ///  
@@ -1699,8 +1769,8 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
-        /// VPC Limits</a>.
+        /// For more information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
+        /// VPC quotas</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AuthorizeSecurityGroupIngress service method.</param>
@@ -2322,9 +2392,9 @@ namespace Amazon.EC2
         /// When copying snapshots to a Region, copies of encrypted EBS snapshots remain encrypted.
         /// Copies of unencrypted snapshots remain unencrypted, unless you enable encryption for
         /// the snapshot copy operation. By default, encrypted snapshot copies use the default
-        /// AWS Key Management Service (AWS KMS) customer master key (CMK); however, you can specify
-        /// a different CMK. To copy an encrypted snapshot that has been shared from another account,
-        /// you must have permissions for the CMK used to encrypt the snapshot.
+        /// Key Management Service (KMS) KMS key; however, you can specify a different KMS key.
+        /// To copy an encrypted snapshot that has been shared from another account, you must
+        /// have permissions for the KMS key used to encrypt the snapshot.
         /// </para>
         ///  
         /// <para>
@@ -2341,7 +2411,7 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copy
         /// an Amazon EBS snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
@@ -2452,7 +2522,7 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Creates a carrier gateway. For more information about carrier gateways, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway">Carrier
-        /// gateways</a> in the <i>AWS Wavelength Developer Guide</i>.
+        /// gateways</a> in the <i>Amazon Web Services Wavelength Developer Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateCarrierGateway service method.</param>
         /// 
@@ -2664,7 +2734,7 @@ namespace Amazon.EC2
         /// Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the specified
         /// Availability Zone in your default VPC. You can have only one default subnet per Availability
         /// Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet">Creating
-        /// a Default Subnet</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// a default subnet</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateDefaultSubnet service method.</param>
         /// 
@@ -2707,7 +2777,7 @@ namespace Amazon.EC2
         /// Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet
         /// in each Availability Zone. For more information about the components of a default
         /// VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html">Default
-        /// VPC and Default Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// VPC and default subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// You cannot specify the components of the default VPC yourself.
         /// 
         ///  
@@ -2812,7 +2882,7 @@ namespace Amazon.EC2
         /// if your VPC has an internet gateway, make sure to set the <code>domain-name-servers</code>
         /// option either to <code>AmazonProvidedDNS</code> or to a domain name server of your
         /// choice. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
-        /// Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateDhcpOptions service method.</param>
@@ -2955,7 +3025,7 @@ namespace Amazon.EC2
         /// Flow log data for a monitored network interface is recorded as flow log records, which
         /// are log events consisting of fields that describe the traffic flow. For more information,
         /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow
-        /// Log Records</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// log records</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -3110,6 +3180,86 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  CreateInstanceEventWindow
+
+
+        /// <summary>
+        /// Creates an event window in which scheduled events for the associated Amazon EC2 instances
+        /// can run.
+        /// 
+        ///  
+        /// <para>
+        /// You can define either a set of time ranges or a cron expression when creating the
+        /// event window, but not both. All event window times are in UTC.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can create up to 200 event windows per Amazon Web Services Region.
+        /// </para>
+        ///  
+        /// <para>
+        /// When you create the event window, targets (instance IDs, Dedicated Host IDs, or tags)
+        /// are not yet associated with it. To ensure that the event window can be used, you must
+        /// associate one or more targets with it by using the <a>AssociateInstanceEventWindow</a>
+        /// API.
+        /// </para>
+        ///  <important> 
+        /// <para>
+        /// Event windows are applicable only for scheduled events that stop, reboot, or terminate
+        /// instances.
+        /// </para>
+        ///  
+        /// <para>
+        /// Event windows are <i>not</i> applicable for:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Expedited scheduled events and network maintenance events. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Unscheduled maintenance such as AutoRecovery and unplanned reboots.
+        /// </para>
+        ///  </li> </ul> </important> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define
+        /// event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateInstanceEventWindow service method.</param>
+        /// 
+        /// <returns>The response from the CreateInstanceEventWindow service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateInstanceEventWindow">REST API Reference for CreateInstanceEventWindow Operation</seealso>
+        CreateInstanceEventWindowResponse CreateInstanceEventWindow(CreateInstanceEventWindowRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateInstanceEventWindow operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateInstanceEventWindow operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateInstanceEventWindow
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateInstanceEventWindow">REST API Reference for CreateInstanceEventWindow Operation</seealso>
+        IAsyncResult BeginCreateInstanceEventWindow(CreateInstanceEventWindowRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CreateInstanceEventWindow operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCreateInstanceEventWindow.</param>
+        /// 
+        /// <returns>Returns a  CreateInstanceEventWindowResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateInstanceEventWindow">REST API Reference for CreateInstanceEventWindow Operation</seealso>
+        CreateInstanceEventWindowResponse EndCreateInstanceEventWindow(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  CreateInstanceExportTask
 
 
@@ -3223,25 +3373,25 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores the public
-        /// key and displays the private key for you to save to a file. The private key is returned
-        /// as an unencrypted PEM encoded PKCS#1 private key. If a key with the specified name
-        /// already exists, Amazon EC2 returns an error.
+        /// Creates an ED25519 or 2048-bit RSA key pair with the specified name. Amazon EC2 stores
+        /// the public key and displays the private key for you to save to a file. The private
+        /// key is returned as an unencrypted PEM encoded PKCS#1 private key. If a key with the
+        /// specified name already exists, Amazon EC2 returns an error.
         /// 
         ///  
         /// <para>
-        /// You can have up to five thousand key pairs per Region.
+        /// The key pair returned to you is available only in the Amazon Web Services Region in
+        /// which you create it. If you prefer, you can create your own key pair using a third-party
+        /// tool and upload it to any Region using <a>ImportKeyPair</a>.
         /// </para>
         ///  
         /// <para>
-        /// The key pair returned to you is available only in the Region in which you create it.
-        /// If you prefer, you can create your own key pair using a third-party tool and upload
-        /// it to any Region using <a>ImportKeyPair</a>.
+        /// You can have up to 5,000 key pairs per Amazon Web Services Region.
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key
-        /// Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
+        /// EC2 key pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateKeyPair service method.</param>
@@ -3525,7 +3675,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT
-        /// Gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateNatGateway service method.</param>
@@ -3774,7 +3924,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// You can grant permission to a single account only, and only one account at a time.
+        /// You can grant permission to a single Amazon Web Services account only, and only one
+        /// account at a time.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateNetworkInterfacePermission service method.</param>
@@ -3876,8 +4027,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/">Replace a root volume</a>
-        /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace
+        /// a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateReplaceRootVolumeTask service method.</param>
@@ -4074,7 +4225,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-        /// Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateRoute service method.</param>
@@ -4121,7 +4272,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-        /// Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateRouteTable service method.</param>
@@ -4168,9 +4319,9 @@ namespace Amazon.EC2
         /// <para>
         /// A security group acts as a virtual firewall for your instance to control inbound and
         /// outbound traffic. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon
-        /// EC2 Security Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and
+        /// EC2 security groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and
         /// <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
-        /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// groups for your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -4249,15 +4400,15 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// When a snapshot is created, any AWS Marketplace product codes that are associated
-        /// with the source volume are propagated to the snapshot.
+        /// When a snapshot is created, any Amazon Web Services Marketplace product codes that
+        /// are associated with the source volume are propagated to the snapshot.
         /// </para>
         ///  
         /// <para>
         /// You can take a snapshot of an attached volume that is in use. However, snapshots only
-        /// capture data that has been written to your EBS volume at the time the snapshot command
-        /// is issued; this might exclude any data that has been cached by any applications or
-        /// the operating system. If you can pause any file systems on the volume long enough
+        /// capture data that has been written to your Amazon EBS volume at the time the snapshot
+        /// command is issued; this might exclude any data that has been cached by any applications
+        /// or the operating system. If you can pause any file systems on the volume long enough
         /// to take a snapshot, your snapshot should be complete. However, if you cannot pause
         /// all file writes to the volume, you should unmount the volume from within the instance,
         /// issue the snapshot command, and then remount the volume to ensure a consistent and
@@ -4266,8 +4417,8 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// To create a snapshot for EBS volumes that serve as root devices, you should stop the
-        /// instance before taking the snapshot.
+        /// To create a snapshot for Amazon EBS volumes that serve as root devices, you should
+        /// stop the instance before taking the snapshot.
         /// </para>
         ///  
         /// <para>
@@ -4277,7 +4428,7 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// You can tag your snapshots during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
+        /// You can tag your snapshots during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag
         /// your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
@@ -4378,7 +4529,8 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.
-        /// You can create one data feed per account. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
+        /// You can create one data feed per Amazon Web Services account. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
         /// Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSpotDatafeedSubscription service method.</param>
@@ -4488,8 +4640,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <important> 
         /// <para>
-        /// AWS reserves both the first four and the last IPv4 address in each subnet's CIDR block.
-        /// They're not available for use.
+        /// Amazon Web Services reserves both the first four and the last IPv4 address in each
+        /// subnet's CIDR block. They're not available for use.
         /// </para>
         ///  </important> 
         /// <para>
@@ -4505,7 +4657,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information about subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your
-        /// VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// VPC and subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSubnet service method.</param>
@@ -4539,6 +4691,48 @@ namespace Amazon.EC2
         /// <returns>Returns a  CreateSubnetResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSubnet">REST API Reference for CreateSubnet Operation</seealso>
         CreateSubnetResponse EndCreateSubnet(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  CreateSubnetCidrReservation
+
+
+        /// <summary>
+        /// Creates a subnet CIDR reservation. For information about subnet CIDR reservations,
+        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html">Subnet
+        /// CIDR reservations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateSubnetCidrReservation service method.</param>
+        /// 
+        /// <returns>The response from the CreateSubnetCidrReservation service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSubnetCidrReservation">REST API Reference for CreateSubnetCidrReservation Operation</seealso>
+        CreateSubnetCidrReservationResponse CreateSubnetCidrReservation(CreateSubnetCidrReservationRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateSubnetCidrReservation operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateSubnetCidrReservation operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateSubnetCidrReservation
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSubnetCidrReservation">REST API Reference for CreateSubnetCidrReservation Operation</seealso>
+        IAsyncResult BeginCreateSubnetCidrReservation(CreateSubnetCidrReservationRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CreateSubnetCidrReservation operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCreateSubnetCidrReservation.</param>
+        /// 
+        /// <returns>Returns a  CreateSubnetCidrReservationResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSubnetCidrReservation">REST API Reference for CreateSubnetCidrReservation Operation</seealso>
+        CreateSubnetCidrReservationResponse EndCreateSubnetCidrReservation(IAsyncResult asyncResult);
 
         #endregion
         
@@ -4887,8 +5081,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// A Connect attachment uses an existing VPC or AWS Direct Connect attachment as the
-        /// underlying transport mechanism. 
+        /// A Connect attachment uses an existing VPC or Amazon Web Services Direct Connect attachment
+        /// as the underlying transport mechanism.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateTransitGatewayConnect service method.</param>
@@ -5031,7 +5225,7 @@ namespace Amazon.EC2
         /// Requests a transit gateway peering attachment between the specified transit gateway
         /// (requester) and a peer transit gateway (accepter). The transit gateways must be in
         /// different Regions. The peer transit gateway can be in your account or a different
-        /// AWS account. 
+        /// Amazon Web Services account.
         /// 
         ///  
         /// <para>
@@ -5255,8 +5449,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// You can create a new empty volume or restore a volume from an EBS snapshot. Any AWS
-        /// Marketplace product codes from the snapshot are propagated to the volume.
+        /// You can create a new empty volume or restore a volume from an EBS snapshot. Any Amazon
+        /// Web Services Marketplace product codes from the snapshot are propagated to the volume.
         /// </para>
         ///  
         /// <para>
@@ -5267,12 +5461,12 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
+        /// You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag
         /// your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Create
         /// an Amazon EBS volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
@@ -5317,7 +5511,7 @@ namespace Amazon.EC2
         /// Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create
         /// uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536
         /// IPv4 addresses). For more information about how large to make your VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your
-        /// VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// VPC and subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// 
         ///  
         /// <para>
@@ -5330,7 +5524,7 @@ namespace Amazon.EC2
         /// By default, each instance you launch in the VPC has the default DHCP options, which
         /// include only a default DNS server that we provide (AmazonProvidedDNS). For more information,
         /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
-        /// Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -5566,8 +5760,8 @@ namespace Amazon.EC2
         /// <summary>
         /// Requests a VPC peering connection between two VPCs: a requester VPC that you own and
         /// an accepter VPC with which to create the connection. The accepter VPC can belong to
-        /// another AWS account and can be in a different Region to the requester VPC. The requester
-        /// VPC and accepter VPC cannot have overlapping CIDR blocks.
+        /// another Amazon Web Services account and can be in a different Region to the requester
+        /// VPC. The requester VPC and accepter VPC cannot have overlapping CIDR blocks.
         /// 
         ///  <note> 
         /// <para>
@@ -6193,6 +6387,52 @@ namespace Amazon.EC2
         /// <returns>Returns a  DeleteFpgaImageResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteFpgaImage">REST API Reference for DeleteFpgaImage Operation</seealso>
         DeleteFpgaImageResponse EndDeleteFpgaImage(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  DeleteInstanceEventWindow
+
+
+        /// <summary>
+        /// Deletes the specified event window.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define
+        /// event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteInstanceEventWindow service method.</param>
+        /// 
+        /// <returns>The response from the DeleteInstanceEventWindow service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteInstanceEventWindow">REST API Reference for DeleteInstanceEventWindow Operation</seealso>
+        DeleteInstanceEventWindowResponse DeleteInstanceEventWindow(DeleteInstanceEventWindowRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteInstanceEventWindow operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteInstanceEventWindow operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteInstanceEventWindow
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteInstanceEventWindow">REST API Reference for DeleteInstanceEventWindow Operation</seealso>
+        IAsyncResult BeginDeleteInstanceEventWindow(DeleteInstanceEventWindowRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteInstanceEventWindow operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteInstanceEventWindow.</param>
+        /// 
+        /// <returns>Returns a  DeleteInstanceEventWindowResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteInstanceEventWindow">REST API Reference for DeleteInstanceEventWindow Operation</seealso>
+        DeleteInstanceEventWindowResponse EndDeleteInstanceEventWindow(IAsyncResult asyncResult);
 
         #endregion
         
@@ -6998,7 +7238,7 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html">Deleting
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html">Delete
         /// an Amazon EBS snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
@@ -7122,6 +7362,46 @@ namespace Amazon.EC2
         /// <returns>Returns a  DeleteSubnetResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSubnet">REST API Reference for DeleteSubnet Operation</seealso>
         DeleteSubnetResponse EndDeleteSubnet(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  DeleteSubnetCidrReservation
+
+
+        /// <summary>
+        /// Deletes a subnet CIDR reservation.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteSubnetCidrReservation service method.</param>
+        /// 
+        /// <returns>The response from the DeleteSubnetCidrReservation service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSubnetCidrReservation">REST API Reference for DeleteSubnetCidrReservation Operation</seealso>
+        DeleteSubnetCidrReservationResponse DeleteSubnetCidrReservation(DeleteSubnetCidrReservationRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteSubnetCidrReservation operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteSubnetCidrReservation operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteSubnetCidrReservation
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSubnetCidrReservation">REST API Reference for DeleteSubnetCidrReservation Operation</seealso>
+        IAsyncResult BeginDeleteSubnetCidrReservation(DeleteSubnetCidrReservationRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteSubnetCidrReservation operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteSubnetCidrReservation.</param>
+        /// 
+        /// <returns>Returns a  DeleteSubnetCidrReservationResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSubnetCidrReservation">REST API Reference for DeleteSubnetCidrReservation Operation</seealso>
+        DeleteSubnetCidrReservationResponse EndDeleteSubnetCidrReservation(IAsyncResult asyncResult);
 
         #endregion
         
@@ -7718,7 +7998,7 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html">Deleting
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html">Delete
         /// an Amazon EBS volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
@@ -8249,8 +8529,13 @@ namespace Amazon.EC2
 
 
         /// <summary>
+        /// c
+        /// 
+        ///  
+        /// <para>
         /// Deregisters tag keys to prevent tags that have the specified tag keys from being included
         /// in scheduled event notifications for resources in the Region.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeregisterInstanceEventNotificationAttributes service method.</param>
         /// 
@@ -8832,7 +9117,7 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Describes one or more of your Capacity Reservations. The results describe only the
-        /// Capacity Reservations in the Region that you're currently using.
+        /// Capacity Reservations in the Amazon Web Services Region that you're currently using.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeCapacityReservations service method.</param>
         /// 
@@ -9325,7 +9610,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
-        /// Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// 
@@ -9339,7 +9624,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
-        /// Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeDhcpOptions service method.</param>
@@ -10520,6 +10805,61 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DescribeInstanceEventWindows
+
+
+        /// <summary>
+        /// Describes the specified event windows or all event windows.
+        /// 
+        ///  
+        /// <para>
+        /// If you specify event window IDs, the output includes information for only the specified
+        /// event windows. If you specify filters, the output includes information for only those
+        /// event windows that meet the filter criteria. If you do not specify event windows IDs
+        /// or filters, the output includes information for all event windows, which can affect
+        /// performance. We recommend that you use pagination to ensure that the operation returns
+        /// quickly and successfully. 
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define
+        /// event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceEventWindows service method.</param>
+        /// 
+        /// <returns>The response from the DescribeInstanceEventWindows service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceEventWindows">REST API Reference for DescribeInstanceEventWindows Operation</seealso>
+        DescribeInstanceEventWindowsResponse DescribeInstanceEventWindows(DescribeInstanceEventWindowsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeInstanceEventWindows operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceEventWindows operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeInstanceEventWindows
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceEventWindows">REST API Reference for DescribeInstanceEventWindows Operation</seealso>
+        IAsyncResult BeginDescribeInstanceEventWindows(DescribeInstanceEventWindowsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeInstanceEventWindows operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeInstanceEventWindows.</param>
+        /// 
+        /// <returns>Returns a  DescribeInstanceEventWindowsResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceEventWindows">REST API Reference for DescribeInstanceEventWindows Operation</seealso>
+        DescribeInstanceEventWindowsResponse EndDescribeInstanceEventWindows(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  DescribeInstances
 
 
@@ -10905,8 +11245,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key
-        /// Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
+        /// EC2 key pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// 
@@ -10919,8 +11259,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key
-        /// Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
+        /// EC2 key pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeKeyPairs service method.</param>
@@ -11952,7 +12292,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes a root volume replacement task. For more information, see <a href="https://docs.aws.amazon.com/">Replace
+        /// Describes a root volume replacement task. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace
         /// a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeReplaceRootVolumeTasks service method.</param>
@@ -12310,7 +12650,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-        /// Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// 
@@ -12330,7 +12670,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-        /// Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeRouteTables service method.</param>
@@ -12501,6 +12841,46 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DescribeSecurityGroupRules
+
+
+        /// <summary>
+        /// Describes one or more of your security group rules.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeSecurityGroupRules service method.</param>
+        /// 
+        /// <returns>The response from the DescribeSecurityGroupRules service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSecurityGroupRules">REST API Reference for DescribeSecurityGroupRules Operation</seealso>
+        DescribeSecurityGroupRulesResponse DescribeSecurityGroupRules(DescribeSecurityGroupRulesRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeSecurityGroupRules operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeSecurityGroupRules operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeSecurityGroupRules
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSecurityGroupRules">REST API Reference for DescribeSecurityGroupRules Operation</seealso>
+        IAsyncResult BeginDescribeSecurityGroupRules(DescribeSecurityGroupRulesRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeSecurityGroupRules operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeSecurityGroupRules.</param>
+        /// 
+        /// <returns>Returns a  DescribeSecurityGroupRulesResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSecurityGroupRules">REST API Reference for DescribeSecurityGroupRules Operation</seealso>
+        DescribeSecurityGroupRulesResponse EndDescribeSecurityGroupRules(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  DescribeSecurityGroups
 
 
@@ -12511,9 +12891,9 @@ namespace Amazon.EC2
         /// <para>
         /// A security group is for use with instances either in the EC2-Classic platform or in
         /// a specific VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon
-        /// EC2 Security Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and
+        /// EC2 security groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and
         /// <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
-        /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// groups for your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// 
@@ -12528,9 +12908,9 @@ namespace Amazon.EC2
         /// <para>
         /// A security group is for use with instances either in the EC2-Classic platform or in
         /// a specific VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon
-        /// EC2 Security Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and
+        /// EC2 security groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and
         /// <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
-        /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// groups for your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeSecurityGroups service method.</param>
@@ -12624,8 +13004,8 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// The snapshots available to you include public snapshots, private snapshots that you
-        /// own, and private snapshots owned by other AWS accounts for which you have explicit
-        /// create volume permissions.
+        /// own, and private snapshots owned by other Amazon Web Services accounts for which you
+        /// have explicit create volume permissions.
         /// </para>
         ///  
         /// <para>
@@ -12634,24 +13014,24 @@ namespace Amazon.EC2
         ///  <ul> <li> 
         /// <para>
         ///  <i>public</i>: The owner of the snapshot granted create volume permissions for the
-        /// snapshot to the <code>all</code> group. All AWS accounts have create volume permissions
-        /// for these snapshots.
+        /// snapshot to the <code>all</code> group. All Amazon Web Services accounts have create
+        /// volume permissions for these snapshots.
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <i>explicit</i>: The owner of the snapshot granted create volume permissions to a
-        /// specific AWS account.
+        /// specific Amazon Web Services account.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <i>implicit</i>: An AWS account has implicit create volume permissions for all snapshots
-        /// it owns.
+        ///  <i>implicit</i>: An Amazon Web Services account has implicit create volume permissions
+        /// for all snapshots it owns.
         /// </para>
         ///  </li> </ul> 
         /// <para>
         /// The list of snapshots returned can be filtered by specifying snapshot IDs, snapshot
-        /// owners, or AWS accounts with create volume permissions. If no options are specified,
-        /// Amazon EC2 returns all snapshots for which you have create volume permissions.
+        /// owners, or Amazon Web Services accounts with create volume permissions. If no options
+        /// are specified, Amazon EC2 returns all snapshots for which you have create volume permissions.
         /// </para>
         ///  
         /// <para>
@@ -12664,15 +13044,16 @@ namespace Amazon.EC2
         /// <para>
         /// If you specify one or more snapshot owners using the <code>OwnerIds</code> option,
         /// only snapshots from the specified owners and for which you have access are returned.
-        /// The results can include the AWS account IDs of the specified owners, <code>amazon</code>
-        /// for snapshots owned by Amazon, or <code>self</code> for snapshots that you own.
+        /// The results can include the Amazon Web Services account IDs of the specified owners,
+        /// <code>amazon</code> for snapshots owned by Amazon, or <code>self</code> for snapshots
+        /// that you own.
         /// </para>
         ///  
         /// <para>
         /// If you specify a list of restorable users, only snapshots with create snapshot permissions
-        /// for those users are returned. You can specify AWS account IDs (if you own the snapshots),
-        /// <code>self</code> for snapshots for which you own or have explicit permissions, or
-        /// <code>all</code> for public snapshots.
+        /// for those users are returned. You can specify Amazon Web Services account IDs (if
+        /// you own the snapshots), <code>self</code> for snapshots for which you own or have
+        /// explicit permissions, or <code>all</code> for public snapshots.
         /// </para>
         ///  
         /// <para>
@@ -12705,8 +13086,8 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// The snapshots available to you include public snapshots, private snapshots that you
-        /// own, and private snapshots owned by other AWS accounts for which you have explicit
-        /// create volume permissions.
+        /// own, and private snapshots owned by other Amazon Web Services accounts for which you
+        /// have explicit create volume permissions.
         /// </para>
         ///  
         /// <para>
@@ -12715,24 +13096,24 @@ namespace Amazon.EC2
         ///  <ul> <li> 
         /// <para>
         ///  <i>public</i>: The owner of the snapshot granted create volume permissions for the
-        /// snapshot to the <code>all</code> group. All AWS accounts have create volume permissions
-        /// for these snapshots.
+        /// snapshot to the <code>all</code> group. All Amazon Web Services accounts have create
+        /// volume permissions for these snapshots.
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <i>explicit</i>: The owner of the snapshot granted create volume permissions to a
-        /// specific AWS account.
+        /// specific Amazon Web Services account.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <i>implicit</i>: An AWS account has implicit create volume permissions for all snapshots
-        /// it owns.
+        ///  <i>implicit</i>: An Amazon Web Services account has implicit create volume permissions
+        /// for all snapshots it owns.
         /// </para>
         ///  </li> </ul> 
         /// <para>
         /// The list of snapshots returned can be filtered by specifying snapshot IDs, snapshot
-        /// owners, or AWS accounts with create volume permissions. If no options are specified,
-        /// Amazon EC2 returns all snapshots for which you have create volume permissions.
+        /// owners, or Amazon Web Services accounts with create volume permissions. If no options
+        /// are specified, Amazon EC2 returns all snapshots for which you have create volume permissions.
         /// </para>
         ///  
         /// <para>
@@ -12745,15 +13126,16 @@ namespace Amazon.EC2
         /// <para>
         /// If you specify one or more snapshot owners using the <code>OwnerIds</code> option,
         /// only snapshots from the specified owners and for which you have access are returned.
-        /// The results can include the AWS account IDs of the specified owners, <code>amazon</code>
-        /// for snapshots owned by Amazon, or <code>self</code> for snapshots that you own.
+        /// The results can include the Amazon Web Services account IDs of the specified owners,
+        /// <code>amazon</code> for snapshots owned by Amazon, or <code>self</code> for snapshots
+        /// that you own.
         /// </para>
         ///  
         /// <para>
         /// If you specify a list of restorable users, only snapshots with create snapshot permissions
-        /// for those users are returned. You can specify AWS account IDs (if you own the snapshots),
-        /// <code>self</code> for snapshots for which you own or have explicit permissions, or
-        /// <code>all</code> for public snapshots.
+        /// for those users are returned. You can specify Amazon Web Services account IDs (if
+        /// you own the snapshots), <code>self</code> for snapshots for which you own or have
+        /// explicit permissions, or <code>all</code> for public snapshots.
         /// </para>
         ///  
         /// <para>
@@ -13266,7 +13648,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your
-        /// VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// VPC and subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// 
@@ -13280,7 +13662,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your
-        /// VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// VPC and subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeSubnets service method.</param>
@@ -13827,7 +14209,15 @@ namespace Amazon.EC2
 
 
         /// <summary>
+        /// <note> 
+        /// <para>
+        /// This API action is currently in <b>limited preview only</b>. If you are interested
+        /// in using this feature, contact your account manager.
+        /// </para>
+        ///  </note> 
+        /// <para>
         /// Describes one or more network interface trunk associations.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeTrunkInterfaceAssociations service method.</param>
         /// 
@@ -14004,8 +14394,9 @@ namespace Amazon.EC2
         /// <para>
         /// You can also use CloudWatch Events to check the status of a modification to an EBS
         /// volume. For information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon
-        /// CloudWatch Events User Guide</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring
-        /// volume modifications</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// CloudWatch Events User Guide</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html">Monitor
+        /// the progress of volume modifications</a> in the <i>Amazon Elastic Compute Cloud User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVolumesModifications service method.</param>
@@ -14066,7 +14457,7 @@ namespace Amazon.EC2
         /// If all checks pass, the overall status of the volume is <code>ok</code>. If the check
         /// fails, the overall status is <code>impaired</code>. If the status is <code>insufficient-data</code>,
         /// then the checks might still be taking place on your volume at the time. We recommend
-        /// that you retry the request. For more information about volume status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitoring
+        /// that you retry the request. For more information about volume status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitor
         /// the status of your volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
@@ -14118,7 +14509,7 @@ namespace Amazon.EC2
         /// If all checks pass, the overall status of the volume is <code>ok</code>. If the check
         /// fails, the overall status is <code>impaired</code>. If the status is <code>insufficient-data</code>,
         /// then the checks might still be taking place on your volume at the time. We recommend
-        /// that you retry the request. For more information about volume status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitoring
+        /// that you retry the request. For more information about volume status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitor
         /// the status of your volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
@@ -14910,12 +15301,12 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// When a volume with an AWS Marketplace product code is detached from an instance, the
-        /// product code is no longer associated with the instance.
+        /// When a volume with an Amazon Web Services Marketplace product code is detached from
+        /// an instance, the product code is no longer associated with the instance.
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Detaching
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Detach
         /// an Amazon EBS volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
@@ -15475,12 +15866,11 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Disassociates an IAM role from an AWS Certificate Manager (ACM) certificate. Disassociating
+        /// Disassociates an IAM role from an Certificate Manager (ACM) certificate. Disassociating
         /// an IAM role from an ACM certificate removes the Amazon S3 object that contains the
         /// certificate, certificate chain, and encrypted private key from the Amazon S3 bucket.
-        /// It also revokes the IAM role's permission to use the AWS Key Management Service (KMS)
-        /// customer master key (CMK) used to encrypt the private key. This effectively revokes
-        /// the role's permission to use the certificate.
+        /// It also revokes the IAM role's permission to use the KMS key used to encrypt the private
+        /// key. This effectively revokes the role's permission to use the certificate.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociateEnclaveCertificateIamRole service method.</param>
         /// 
@@ -15561,6 +15951,52 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DisassociateInstanceEventWindow
+
+
+        /// <summary>
+        /// Disassociates one or more targets from an event window.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define
+        /// event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateInstanceEventWindow service method.</param>
+        /// 
+        /// <returns>The response from the DisassociateInstanceEventWindow service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateInstanceEventWindow">REST API Reference for DisassociateInstanceEventWindow Operation</seealso>
+        DisassociateInstanceEventWindowResponse DisassociateInstanceEventWindow(DisassociateInstanceEventWindowRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DisassociateInstanceEventWindow operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateInstanceEventWindow operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDisassociateInstanceEventWindow
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateInstanceEventWindow">REST API Reference for DisassociateInstanceEventWindow Operation</seealso>
+        IAsyncResult BeginDisassociateInstanceEventWindow(DisassociateInstanceEventWindowRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DisassociateInstanceEventWindow operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDisassociateInstanceEventWindow.</param>
+        /// 
+        /// <returns>Returns a  DisassociateInstanceEventWindowResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateInstanceEventWindow">REST API Reference for DisassociateInstanceEventWindow Operation</seealso>
+        DisassociateInstanceEventWindowResponse EndDisassociateInstanceEventWindow(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  DisassociateRouteTable
 
 
@@ -15572,7 +16008,7 @@ namespace Amazon.EC2
         /// After you perform this action, the subnet no longer uses the routes in the route table.
         /// Instead, it uses the routes in the VPC's main route table. For more information about
         /// route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-        /// Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociateRouteTable service method.</param>
@@ -15735,7 +16171,15 @@ namespace Amazon.EC2
 
 
         /// <summary>
+        /// <note> 
+        /// <para>
+        /// This API action is currently in <b>limited preview only</b>. If you are interested
+        /// in using this feature, contact your account manager.
+        /// </para>
+        ///  </note> 
+        /// <para>
         /// Removes an association between a branch network interface with a trunk network interface.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociateTrunkInterface service method.</param>
         /// 
@@ -15829,13 +16273,13 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// After you enable encryption by default, the EBS volumes that you create are always
-        /// encrypted, either using the default CMK or the CMK that you specified when you created
-        /// each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+        /// encrypted, either using the default KMS key or the KMS key that you specified when
+        /// you created each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
         /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
-        /// You can specify the default CMK for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
+        /// You can specify the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
         /// or <a>ResetEbsDefaultKmsKeyId</a>.
         /// </para>
         ///  
@@ -16423,11 +16867,10 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Returns the IAM roles that are associated with the specified AWS Certificate Manager
-        /// (ACM) certificate. It also returns the name of the Amazon S3 bucket and the Amazon
-        /// S3 object key where the certificate, certificate chain, and encrypted private key
-        /// bundle are stored, and the ARN of the AWS Key Management Service (KMS) customer master
-        /// key (CMK) that's used to encrypt the private key.
+        /// Returns the IAM roles that are associated with the specified ACM (ACM) certificate.
+        /// It also returns the name of the Amazon S3 bucket and the Amazon S3 object key where
+        /// the certificate, certificate chain, and encrypted private key bundle are stored, and
+        /// the ARN of the KMS key that's used to encrypt the private key.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAssociatedEnclaveCertificateIamRoles service method.</param>
         /// 
@@ -16509,9 +16952,9 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Gets usage information about a Capacity Reservation. If the Capacity Reservation is
-        /// shared, it shows usage information for the Capacity Reservation owner and each account
-        /// that is currently using the shared capacity. If the Capacity Reservation is not shared,
-        /// it shows only the Capacity Reservation owner's usage.
+        /// shared, it shows usage information for the Capacity Reservation owner and each Amazon
+        /// Web Services account that is currently using the shared capacity. If the Capacity
+        /// Reservation is not shared, it shows only the Capacity Reservation owner's usage.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetCapacityReservationUsage service method.</param>
         /// 
@@ -16745,9 +17188,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the default customer master key (CMK) for EBS encryption by default for
-        /// your account in this Region. You can change the default CMK for encryption by default
-        /// using <a>ModifyEbsDefaultKmsKeyId</a> or <a>ResetEbsDefaultKmsKeyId</a>.
+        /// Describes the default KMS key for EBS encryption by default for your account in this
+        /// Region. You can change the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
+        /// or <a>ResetEbsDefaultKmsKeyId</a>.
         /// 
         ///  
         /// <para>
@@ -17268,6 +17711,46 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  GetSubnetCidrReservations
+
+
+        /// <summary>
+        /// Gets information about the subnet CIDR reservations.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetSubnetCidrReservations service method.</param>
+        /// 
+        /// <returns>The response from the GetSubnetCidrReservations service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetSubnetCidrReservations">REST API Reference for GetSubnetCidrReservations Operation</seealso>
+        GetSubnetCidrReservationsResponse GetSubnetCidrReservations(GetSubnetCidrReservationsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetSubnetCidrReservations operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetSubnetCidrReservations operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetSubnetCidrReservations
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetSubnetCidrReservations">REST API Reference for GetSubnetCidrReservations Operation</seealso>
+        IAsyncResult BeginGetSubnetCidrReservations(GetSubnetCidrReservationsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetSubnetCidrReservations operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetSubnetCidrReservations.</param>
+        /// 
+        /// <returns>Returns a  GetSubnetCidrReservationsResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetSubnetCidrReservations">REST API Reference for GetSubnetCidrReservations Operation</seealso>
+        GetSubnetCidrReservationsResponse EndGetSubnetCidrReservations(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  GetTransitGatewayAttachmentPropagations
 
 
@@ -17577,8 +18060,8 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// This API action is not supported by the AWS Command Line Interface (AWS CLI). For
-        /// information about using the Amazon EC2 CLI, which is deprecated, see <a href="https://awsdocs.s3.amazonaws.com/EC2/ec2-clt.pdf#UsingVirtualMachinesinAmazonEC2">Importing
+        /// This API action is not supported by the Command Line Interface (CLI). For information
+        /// about using the Amazon EC2 CLI, which is deprecated, see <a href="https://awsdocs.s3.amazonaws.com/EC2/ec2-clt.pdf#UsingVirtualMachinesinAmazonEC2">Importing
         /// a VM to Amazon EC2</a> in the <i>Amazon EC2 CLI Reference</i> PDF file.
         /// </para>
         ///  
@@ -17625,16 +18108,16 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Imports the public key from an RSA key pair that you created with a third-party tool.
-        /// Compare this with <a>CreateKeyPair</a>, in which AWS creates the key pair and gives
-        /// the keys to you (AWS keeps a copy of the public key). With ImportKeyPair, you create
-        /// the key pair and give AWS just the public key. The private key is never transferred
-        /// between you and AWS.
+        /// Imports the public key from an RSA or ED25519 key pair that you created with a third-party
+        /// tool. Compare this with <a>CreateKeyPair</a>, in which Amazon Web Services creates
+        /// the key pair and gives the keys to you (Amazon Web Services keeps a copy of the public
+        /// key). With ImportKeyPair, you create the key pair and give Amazon Web Services just
+        /// the public key. The private key is never transferred between you and Amazon Web Services.
         /// 
         ///  
         /// <para>
-        /// For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key
-        /// Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
+        /// EC2 key pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ImportKeyPair service method.</param>
@@ -17730,8 +18213,8 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// This API action is not supported by the AWS Command Line Interface (AWS CLI). For
-        /// information about using the Amazon EC2 CLI, which is deprecated, see <a href="https://awsdocs.s3.amazonaws.com/EC2/ec2-clt.pdf#importing-your-volumes-into-amazon-ebs">Importing
+        /// This API action is not supported by the Command Line Interface (CLI). For information
+        /// about using the Amazon EC2 CLI, which is deprecated, see <a href="https://awsdocs.s3.amazonaws.com/EC2/ec2-clt.pdf#importing-your-volumes-into-amazon-ebs">Importing
         /// Disks to Amazon EBS</a> in the <i>Amazon EC2 CLI Reference</i> PDF file.
         /// </para>
         ///  
@@ -17952,17 +18435,17 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Modifies the default credit option for CPU usage of burstable performance instances.
-        /// The default credit option is set at the account level per Region, and is specified
-        /// per instance family. All new burstable performance instances in the account launch
-        /// using the default credit option.
+        /// The default credit option is set at the account level per Amazon Web Services Region,
+        /// and is specified per instance family. All new burstable performance instances in the
+        /// account launch using the default credit option.
         /// 
         ///  
         /// <para>
         ///  <code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which
-        /// works at an Region level and modifies the credit option for each Availability Zone.
-        /// All zones in a Region are updated within five minutes. But if instances are launched
-        /// during this operation, they might not get the new credit option until the zone is
-        /// updated. To verify whether the update has occurred, you can call <code>GetDefaultCreditSpecification</code>
+        /// works at an Amazon Web Services Region level and modifies the credit option for each
+        /// Availability Zone. All zones in a Region are updated within five minutes. But if instances
+        /// are launched during this operation, they might not get the new credit option until
+        /// the zone is updated. To verify whether the update has occurred, you can call <code>GetDefaultCreditSpecification</code>
         /// and check <code>DefaultCreditSpecification</code> for updates.
         /// </para>
         ///  
@@ -18009,19 +18492,20 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Changes the default customer master key (CMK) for EBS encryption by default for your
-        /// account in this Region.
+        /// Changes the default KMS key for EBS encryption by default for your account in this
+        /// Region.
         /// 
         ///  
         /// <para>
-        /// AWS creates a unique AWS managed CMK in each Region for use with encryption by default.
-        /// If you change the default CMK to a symmetric customer managed CMK, it is used instead
-        /// of the AWS managed CMK. To reset the default CMK to the AWS managed CMK for EBS, use
-        /// <a>ResetEbsDefaultKmsKeyId</a>. Amazon EBS does not support asymmetric CMKs.
+        /// Amazon Web Services creates a unique Amazon Web Services managed KMS key in each Region
+        /// for use with encryption by default. If you change the default KMS key to a symmetric
+        /// customer managed KMS key, it is used instead of the Amazon Web Services managed KMS
+        /// key. To reset the default KMS key to the Amazon Web Services managed KMS key for EBS,
+        /// use <a>ResetEbsDefaultKmsKeyId</a>. Amazon EBS does not support asymmetric KMS keys.
         /// </para>
         ///  
         /// <para>
-        /// If you delete or disable the customer managed CMK that you specified for use with
+        /// If you delete or disable the customer managed KMS key that you specified for use with
         /// encryption by default, your instances will fail to launch.
         /// </para>
         ///  
@@ -18618,6 +19102,67 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  ModifyInstanceEventWindow
+
+
+        /// <summary>
+        /// Modifies the specified event window.
+        /// 
+        ///  
+        /// <para>
+        /// You can define either a set of time ranges or a cron expression when modifying the
+        /// event window, but not both.
+        /// </para>
+        ///  
+        /// <para>
+        /// To modify the targets associated with the event window, use the <a>AssociateInstanceEventWindow</a>
+        /// and <a>DisassociateInstanceEventWindow</a> API.
+        /// </para>
+        ///  
+        /// <para>
+        /// If Amazon Web Services has already scheduled an event, modifying an event window won't
+        /// change the time of the scheduled event.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define
+        /// event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyInstanceEventWindow service method.</param>
+        /// 
+        /// <returns>The response from the ModifyInstanceEventWindow service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstanceEventWindow">REST API Reference for ModifyInstanceEventWindow Operation</seealso>
+        ModifyInstanceEventWindowResponse ModifyInstanceEventWindow(ModifyInstanceEventWindowRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyInstanceEventWindow operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyInstanceEventWindow operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyInstanceEventWindow
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstanceEventWindow">REST API Reference for ModifyInstanceEventWindow Operation</seealso>
+        IAsyncResult BeginModifyInstanceEventWindow(ModifyInstanceEventWindowRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ModifyInstanceEventWindow operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginModifyInstanceEventWindow.</param>
+        /// 
+        /// <returns>Returns a  ModifyInstanceEventWindowResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstanceEventWindow">REST API Reference for ModifyInstanceEventWindow Operation</seealso>
+        ModifyInstanceEventWindowResponse EndModifyInstanceEventWindow(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  ModifyInstanceMetadataOptions
 
 
@@ -18921,25 +19466,66 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  ModifySecurityGroupRules
+
+
+        /// <summary>
+        /// Modifies the rules of a security group.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifySecurityGroupRules service method.</param>
+        /// 
+        /// <returns>The response from the ModifySecurityGroupRules service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifySecurityGroupRules">REST API Reference for ModifySecurityGroupRules Operation</seealso>
+        ModifySecurityGroupRulesResponse ModifySecurityGroupRules(ModifySecurityGroupRulesRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifySecurityGroupRules operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifySecurityGroupRules operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifySecurityGroupRules
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifySecurityGroupRules">REST API Reference for ModifySecurityGroupRules Operation</seealso>
+        IAsyncResult BeginModifySecurityGroupRules(ModifySecurityGroupRulesRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ModifySecurityGroupRules operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginModifySecurityGroupRules.</param>
+        /// 
+        /// <returns>Returns a  ModifySecurityGroupRulesResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifySecurityGroupRules">REST API Reference for ModifySecurityGroupRules Operation</seealso>
+        ModifySecurityGroupRulesResponse EndModifySecurityGroupRules(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  ModifySnapshotAttribute
 
 
         /// <summary>
         /// Adds or removes permission settings for the specified snapshot. You may add or remove
-        /// specified AWS account IDs from a snapshot's list of create volume permissions, but
-        /// you cannot do both in a single operation. If you need to both add and remove account
-        /// IDs for a snapshot, you must use multiple operations. You can make up to 500 modifications
-        /// to a snapshot in a single operation.
+        /// specified Amazon Web Services account IDs from a snapshot's list of create volume
+        /// permissions, but you cannot do both in a single operation. If you need to both add
+        /// and remove account IDs for a snapshot, you must use multiple operations. You can make
+        /// up to 500 modifications to a snapshot in a single operation.
         /// 
         ///  
         /// <para>
-        /// Encrypted snapshots and snapshots with AWS Marketplace product codes cannot be made
-        /// public. Snapshots encrypted with your default CMK cannot be shared with other accounts.
+        /// Encrypted snapshots and snapshots with Amazon Web Services Marketplace product codes
+        /// cannot be made public. Snapshots encrypted with your default KMS key cannot be shared
+        /// with other accounts.
         /// </para>
         ///  
         /// <para>
-        /// For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Sharing
-        /// snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Share
+        /// a snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifySnapshotAttribute service method.</param>
@@ -19367,20 +19953,18 @@ namespace Amazon.EC2
         /// You can modify several parameters of an existing EBS volume, including volume size,
         /// volume type, and IOPS capacity. If your EBS volume is attached to a current-generation
         /// EC2 instance type, you might be able to apply these changes without stopping the instance
-        /// or detaching the volume from it. For more information about modifying an EBS volume
-        /// running Linux, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying
-        /// the size, IOPS, or type of an EBS volume on Linux</a>. For more information about
-        /// modifying an EBS volume running Windows, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying
-        /// the size, IOPS, or type of an EBS volume on Windows</a>.
+        /// or detaching the volume from it. For more information about modifying EBS volumes,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html">Amazon
+        /// EBS Elastic Volumes</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html">Amazon
+        /// EBS Elastic Volumes</a> (Windows instances).
         /// 
         ///  
         /// <para>
-        ///  When you complete a resize operation on your volume, you need to extend the volume's
-        /// file-system size to take advantage of the new storage capacity. For information about
-        /// extending a Linux file system, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux">Extending
-        /// a Linux file system</a>. For information about extending a Windows file system, see
-        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows">Extending
-        /// a Windows file system</a>. 
+        /// When you complete a resize operation on your volume, you need to extend the volume's
+        /// file-system size to take advantage of the new storage capacity. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux">Extend
+        /// a Linux file system</a> or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows">Extend
+        /// a Windows file system</a>.
         /// </para>
         ///  
         /// <para>
@@ -19388,22 +19972,18 @@ namespace Amazon.EC2
         /// For information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon
         /// CloudWatch Events User Guide</a>. You can also track the status of a modification
         /// using <a>DescribeVolumesModifications</a>. For information about tracking status changes
-        /// using either method, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring
-        /// volume modifications</a>. 
+        /// using either method, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html">Monitor
+        /// the progress of volume modifications</a>.
         /// </para>
         ///  
         /// <para>
         /// With previous-generation instance types, resizing an EBS volume might require detaching
-        /// and reattaching the volume or stopping and restarting the instance. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html">Amazon
-        /// EBS Elastic Volumes</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html">Amazon
-        /// EBS Elastic Volumes</a> (Windows).
+        /// and reattaching the volume or stopping and restarting the instance.
         /// </para>
         ///  
         /// <para>
-        /// If you reach the maximum volume modification rate per volume limit, you will need
-        /// to wait at least six hours before applying further modifications to the affected EBS
-        /// volume.
+        /// If you reach the maximum volume modification rate per volume limit, you must wait
+        /// at least six hours before applying further modifications to the affected EBS volume.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVolume service method.</param>
@@ -19741,15 +20321,16 @@ namespace Amazon.EC2
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// If the peered VPCs are in the same AWS account, you can enable DNS resolution for
-        /// queries from the local VPC. This ensures that queries from the local VPC resolve to
-        /// private IP addresses in the peer VPC. This option is not available if the peered VPCs
-        /// are in different AWS accounts or different Regions. For peered VPCs in different AWS
-        /// accounts, each AWS account owner must initiate a separate request to modify the peering
-        /// connection options. For inter-region peering connections, you must use the Region
-        /// for the requester VPC to modify the requester VPC peering options and the Region for
-        /// the accepter VPC to modify the accepter VPC peering options. To verify which VPCs
-        /// are the accepter and the requester for a VPC peering connection, use the <a>DescribeVpcPeeringConnections</a>
+        /// If the peered VPCs are in the same Amazon Web Services account, you can enable DNS
+        /// resolution for queries from the local VPC. This ensures that queries from the local
+        /// VPC resolve to private IP addresses in the peer VPC. This option is not available
+        /// if the peered VPCs are in different different Amazon Web Services accounts or different
+        /// Regions. For peered VPCs in different Amazon Web Services accounts, each Amazon Web
+        /// Services account owner must initiate a separate request to modify the peering connection
+        /// options. For inter-region peering connections, you must use the Region for the requester
+        /// VPC to modify the requester VPC peering options and the Region for the accepter VPC
+        /// to modify the accepter VPC peering options. To verify which VPCs are the accepter
+        /// and the requester for a VPC peering connection, use the <a>DescribeVpcPeeringConnections</a>
         /// command.
         /// </para>
         /// </summary>
@@ -20931,7 +21512,7 @@ namespace Amazon.EC2
         /// to update your DNS records and any servers or devices that communicate with the address.
         /// If you attempt to release an Elastic IP address that you already released, you'll
         /// get an <code>AuthFailure</code> error if the address is already allocated to another
-        /// account.
+        /// Amazon Web Services account.
         /// </para>
         ///  
         /// <para>
@@ -21176,7 +21757,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-        /// Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ReplaceRoute service method.</param>
@@ -21221,7 +21802,7 @@ namespace Amazon.EC2
         /// private gateway in a VPC. After the operation completes, the subnet or gateway uses
         /// the routes in the new route table. For more information about route tables, see <a
         /// href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-        /// Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// 
         ///  
         /// <para>
@@ -21520,14 +22101,14 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Resets the default customer master key (CMK) for EBS encryption for your account in
-        /// this Region to the AWS managed CMK for EBS.
+        /// Resets the default KMS key for EBS encryption for your account in this Region to the
+        /// Amazon Web Services managed KMS key for EBS.
         /// 
         ///  
         /// <para>
-        /// After resetting the default CMK to the AWS managed CMK, you can continue to encrypt
-        /// by a customer managed CMK by specifying it when you create the volume. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+        /// After resetting the default KMS key to the Amazon Web Services managed KMS key, you
+        /// can continue to encrypt by a customer managed KMS key by specifying it when you create
+        /// the volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
         /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
@@ -21751,8 +22332,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Sharing
-        /// snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Share
+        /// a snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ResetSnapshotAttribute service method.</param>
@@ -21917,29 +22498,29 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// [VPC only] Removes the specified egress rules from a security group for EC2-VPC. This
-        /// action does not apply to security groups for use in EC2-Classic. To remove a rule,
-        /// the values that you specify (for example, ports) must match the existing rule's values
-        /// exactly.
+        /// [VPC only] Removes the specified outbound (egress) rules from a security group for
+        /// EC2-VPC. This action does not apply to security groups for use in EC2-Classic.
         /// 
-        ///  <note> 
+        ///  
         /// <para>
-        /// [Default VPC] If the values you specify do not match the existing rule's values, no
-        /// error is returned, and the output describes the security group rules that were not
-        /// revoked. 
+        /// You can specify rules using either rule IDs or security group rule properties. If
+        /// you use rule properties, the values that you specify (for example, ports) must match
+        /// the existing rule's values exactly. Each rule has a protocol, from and to ports, and
+        /// destination (CIDR range, security group, or prefix list). For the TCP and UDP protocols,
+        /// you must also specify the destination port or range of ports. For the ICMP protocol,
+        /// you must also specify the ICMP type and code. If the security group rule has a description,
+        /// you do not need to specify the description to revoke the rule.
         /// </para>
         ///  
         /// <para>
-        /// AWS recommends that you use <a>DescribeSecurityGroups</a> to verify that the rule
-        /// has been removed.
+        /// [Default VPC] If the values you specify do not match the existing rule's values, no
+        /// error is returned, and the output describes the security group rules that were not
+        /// revoked.
         /// </para>
-        ///  </note> 
+        ///  
         /// <para>
-        /// Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security
-        /// group. For the TCP and UDP protocols, you must also specify the destination port or
-        /// range of ports. For the ICMP protocol, you must also specify the ICMP type and code.
-        /// If the security group rule has a description, you do not have to specify the description
-        /// to revoke the rule.
+        /// Amazon Web Services recommends that you describe the security group to verify that
+        /// the rules were removed.
         /// </para>
         ///  
         /// <para>
@@ -21985,27 +22566,28 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Removes the specified ingress rules from a security group. To remove a rule, the values
-        /// that you specify (for example, ports) must match the existing rule's values exactly.
+        /// Removes the specified inbound (ingress) rules from a security group.
         /// 
-        ///  <note> 
+        ///  
         /// <para>
-        /// [EC2-Classic , default VPC] If the values you specify do not match the existing rule's
-        /// values, no error is returned, and the output describes the security group rules that
-        /// were not revoked. 
+        /// You can specify rules using either rule IDs or security group rule properties. If
+        /// you use rule properties, the values that you specify (for example, ports) must match
+        /// the existing rule's values exactly. Each rule has a protocol, from and to ports, and
+        /// source (CIDR range, security group, or prefix list). For the TCP and UDP protocols,
+        /// you must also specify the destination port or range of ports. For the ICMP protocol,
+        /// you must also specify the ICMP type and code. If the security group rule has a description,
+        /// you do not need to specify the description to revoke the rule.
         /// </para>
         ///  
         /// <para>
-        /// AWS recommends that you use <a>DescribeSecurityGroups</a> to verify that the rule
-        /// has been removed.
+        /// [EC2-Classic, default VPC] If the values you specify do not match the existing rule's
+        /// values, no error is returned, and the output describes the security group rules that
+        /// were not revoked.
         /// </para>
-        ///  </note> 
+        ///  
         /// <para>
-        /// Each rule consists of the protocol and the CIDR range or source security group. For
-        /// the TCP and UDP protocols, you must also specify the destination port or range of
-        /// ports. For the ICMP protocol, you must also specify the ICMP type and code. If the
-        /// security group rule has a description, you do not have to specify the description
-        /// to revoke the rule.
+        /// Amazon Web Services recommends that you describe the security group to verify that
+        /// the rules were removed.
         /// </para>
         ///  
         /// <para>
@@ -22820,7 +23402,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Unassigns one or more IPv6 addresses from a network interface.
+        /// Unassigns one or more IPv6 addresses IPv4 Prefix Delegation prefixes from a network
+        /// interface.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UnassignIpv6Addresses service method.</param>
         /// 
@@ -22860,7 +23443,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Unassigns one or more secondary private IP addresses from a network interface.
+        /// Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes
+        /// from a network interface.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UnassignPrivateIpAddresses service method.</param>
         /// 
@@ -22944,14 +23528,8 @@ namespace Amazon.EC2
         /// <summary>
         /// [VPC only] Updates the description of an egress (outbound) security group rule. You
         /// can replace an existing description, or add a description to a rule that did not have
-        /// one previously.
-        /// 
-        ///  
-        /// <para>
-        /// You specify the description as part of the IP permissions structure. You can remove
-        /// a description for a security group rule by omitting the description parameter in the
-        /// request.
-        /// </para>
+        /// one previously. You can remove a description for a security group rule by omitting
+        /// the description parameter in the request.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateSecurityGroupRuleDescriptionsEgress service method.</param>
         /// 
@@ -22993,13 +23571,8 @@ namespace Amazon.EC2
         /// <summary>
         /// Updates the description of an ingress (inbound) security group rule. You can replace
         /// an existing description, or add a description to a rule that did not have one previously.
-        /// 
-        ///  
-        /// <para>
-        /// You specify the description as part of the IP permissions structure. You can remove
-        /// a description for a security group rule by omitting the description parameter in the
-        /// request.
-        /// </para>
+        /// You can remove a description for a security group rule by omitting the description
+        /// parameter in the request.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateSecurityGroupRuleDescriptionsIngress service method.</param>
         /// 

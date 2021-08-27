@@ -62,8 +62,9 @@ namespace Amazon.TranscribeService.Model
         /// <summary>
         /// Gets and sets the property MaxResults. 
         /// <para>
-        /// The maximum number of jobs to return in the response. If there are fewer results in
-        /// the list, this response contains only the actual results.
+        /// The maximum number of jobs to return in each page of results. If there are fewer results
+        /// than the value you specify, only the actual results are returned. If you do not specify
+        /// a value, the default of 5 is used.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=100)]
@@ -82,7 +83,7 @@ namespace Amazon.TranscribeService.Model
         /// <summary>
         /// Gets and sets the property NextToken. 
         /// <para>
-        /// If the result of the previous request to <code>ListTranscriptionJobs</code> was truncated,
+        /// If the result of the previous request to <code>ListTranscriptionJobs</code> is truncated,
         /// include the <code>NextToken</code> to fetch the next set of jobs.
         /// </para>
         /// </summary>
@@ -105,7 +106,6 @@ namespace Amazon.TranscribeService.Model
         /// When specified, returns only transcription jobs with the specified status. Jobs are
         /// ordered by creation date, with the newest jobs returned first. If you don’t specify
         /// a status, Amazon Transcribe returns all transcription jobs ordered by creation date.
-        /// 
         /// </para>
         /// </summary>
         public TranscriptionJobStatus Status

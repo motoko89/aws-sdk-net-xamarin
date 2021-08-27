@@ -29,7 +29,9 @@ using Amazon.Runtime.Internal;
 namespace Amazon.FraudDetector.Model
 {
     /// <summary>
-    /// An exception indicating the specified resource was not found.
+    /// An exception indicating the specified resource was not found. This can occur if you
+    /// submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector
+    /// name or version does not exist.
     /// </summary>
     #if !NETSTANDARD
     [Serializable]

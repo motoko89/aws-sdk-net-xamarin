@@ -38,7 +38,7 @@ namespace Amazon.Appflow.Model
         /// <summary>
         /// Gets and sets the property SupportedRegions. 
         /// <para>
-        ///  Specifies the supported AWS Regions when using Snowflake. 
+        ///  Specifies the supported Amazon Web Services Regions when using Snowflake. 
         /// </para>
         /// </summary>
         public List<string> SupportedRegions

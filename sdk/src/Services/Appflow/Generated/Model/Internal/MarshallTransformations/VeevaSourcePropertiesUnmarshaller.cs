@@ -64,6 +64,30 @@ namespace Amazon.Appflow.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("documentType", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.DocumentType = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("includeAllVersions", targetDepth))
+                {
+                    var unmarshaller = BoolUnmarshaller.Instance;
+                    unmarshalledObject.IncludeAllVersions = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("includeRenditions", targetDepth))
+                {
+                    var unmarshaller = BoolUnmarshaller.Instance;
+                    unmarshalledObject.IncludeRenditions = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("includeSourceFiles", targetDepth))
+                {
+                    var unmarshaller = BoolUnmarshaller.Instance;
+                    unmarshalledObject.IncludeSourceFiles = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("object", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

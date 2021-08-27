@@ -45,6 +45,30 @@ namespace Amazon.Appflow.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(VeevaSourceProperties requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetDocumentType())
+            {
+                context.Writer.WritePropertyName("documentType");
+                context.Writer.Write(requestObject.DocumentType);
+            }
+
+            if(requestObject.IsSetIncludeAllVersions())
+            {
+                context.Writer.WritePropertyName("includeAllVersions");
+                context.Writer.Write(requestObject.IncludeAllVersions);
+            }
+
+            if(requestObject.IsSetIncludeRenditions())
+            {
+                context.Writer.WritePropertyName("includeRenditions");
+                context.Writer.Write(requestObject.IncludeRenditions);
+            }
+
+            if(requestObject.IsSetIncludeSourceFiles())
+            {
+                context.Writer.WritePropertyName("includeSourceFiles");
+                context.Writer.Write(requestObject.IncludeSourceFiles);
+            }
+
             if(requestObject.IsSetObject())
             {
                 context.Writer.WritePropertyName("object");

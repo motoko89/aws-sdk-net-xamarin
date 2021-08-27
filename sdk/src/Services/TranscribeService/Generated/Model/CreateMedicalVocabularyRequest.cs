@@ -30,12 +30,13 @@ namespace Amazon.TranscribeService.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateMedicalVocabulary operation.
-    /// Creates a new custom vocabulary that you can use to change how Amazon Transcribe Medical
+    /// Creates a new custom vocabulary that you can use to modify how Amazon Transcribe Medical
     /// transcribes your audio file.
     /// </summary>
     public partial class CreateMedicalVocabularyRequest : AmazonTranscribeServiceRequest
     {
         private LanguageCode _languageCode;
+        private List<Tag> _tags = new List<Tag>();
         private string _vocabularyFileUri;
         private string _vocabularyName;
 
@@ -62,11 +63,32 @@ namespace Amazon.TranscribeService.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// Adds one or more tags, each in the form of a key:value pair, to a new medical vocabulary
+        /// at the time you create this new vocabulary.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=200)]
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property VocabularyFileUri. 
         /// <para>
         /// The location in Amazon S3 of the text file you use to define your custom vocabulary.
-        /// The URI must be in the same AWS Region as the resource that you're calling. Enter
-        /// information about your <code>VocabularyFileUri</code> in the following format:
+        /// The URI must be in the same Amazon Web Services Region as the resource that you're
+        /// calling. Enter information about your <code>VocabularyFileUri</code> in the following
+        /// format:
         /// </para>
         ///  
         /// <para>
@@ -83,12 +105,12 @@ namespace Amazon.TranscribeService.Model
         /// </para>
         ///  
         /// <para>
-        /// For more information about Amazon S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// For more information about Amazon S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
         /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.
         /// </para>
         ///  
         /// <para>
-        /// For more information about custom vocabularies, see <a href="http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary-med">Medical
+        /// For more information about custom vocabularies, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary-med">Medical
         /// Custom Vocabularies</a>.
         /// </para>
         /// </summary>
@@ -109,8 +131,8 @@ namespace Amazon.TranscribeService.Model
         /// Gets and sets the property VocabularyName. 
         /// <para>
         /// The name of the custom vocabulary. This case-sensitive name must be unique within
-        /// an AWS account. If you try to create a vocabulary with the same name as a previous
-        /// vocabulary, you get a <code>ConflictException</code> error.
+        /// an Amazon Web Services account. If you try to create a vocabulary with the same name
+        /// as a previous vocabulary, you get a <code>ConflictException</code> error.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=200)]

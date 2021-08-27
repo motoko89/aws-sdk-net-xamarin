@@ -33,14 +33,19 @@ namespace Amazon.DatabaseMigrationService.Model
     /// </summary>
     public partial class S3Settings
     {
+        private bool? _addColumnName;
         private string _bucketFolder;
         private string _bucketName;
+        private CannedAclForObjectsValue _cannedAclForObjects;
         private bool? _cdcInsertsAndUpdates;
         private bool? _cdcInsertsOnly;
+        private int? _cdcMaxBatchInterval;
+        private int? _cdcMinFileSize;
         private string _cdcPath;
         private CompressionTypeValue _compressionType;
         private string _csvDelimiter;
         private string _csvNoSupValue;
+        private string _csvNullValue;
         private string _csvRowDelimiter;
         private DataFormatValue _dataFormat;
         private int? _dataPageSize;
@@ -52,15 +57,42 @@ namespace Amazon.DatabaseMigrationService.Model
         private EncodingTypeValue _encodingType;
         private EncryptionModeValue _encryptionMode;
         private string _externalTableDefinition;
+        private int? _ignoreHeaderRows;
         private bool? _includeOpForFullLoad;
+        private int? _maxFileSize;
         private bool? _parquetTimestampInMillisecond;
         private ParquetVersionValue _parquetVersion;
         private bool? _preserveTransactions;
+        private bool? _rfc4180;
         private int? _rowGroupLength;
         private string _serverSideEncryptionKmsKeyId;
         private string _serviceAccessRoleArn;
         private string _timestampColumnName;
         private bool? _useCsvNoSupValue;
+
+        /// <summary>
+        /// Gets and sets the property AddColumnName. 
+        /// <para>
+        /// An optional parameter that, when set to <code>true</code> or <code>y</code>, you can
+        /// use to add column name information to the .csv output file.
+        /// </para>
+        ///  
+        /// <para>
+        /// The default value is <code>false</code>. Valid values are <code>true</code>, <code>false</code>,
+        /// <code>y</code>, and <code>n</code>.
+        /// </para>
+        /// </summary>
+        public bool AddColumnName
+        {
+            get { return this._addColumnName.GetValueOrDefault(); }
+            set { this._addColumnName = value; }
+        }
+
+        // Check to see if AddColumnName property is set
+        internal bool IsSetAddColumnName()
+        {
+            return this._addColumnName.HasValue; 
+        }
 
         /// <summary>
         /// Gets and sets the property BucketFolder. 
@@ -102,6 +134,32 @@ namespace Amazon.DatabaseMigrationService.Model
         }
 
         /// <summary>
+        /// Gets and sets the property CannedAclForObjects. 
+        /// <para>
+        /// A value that enables DMS to specify a predefined (canned) access control list for
+        /// objects created in an Amazon S3 bucket as .csv or .parquet files. For more information
+        /// about Amazon S3 canned ACLs, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+        /// ACL</a> in the <i>Amazon S3 Developer Guide.</i> 
+        /// </para>
+        ///  
+        /// <para>
+        /// The default value is NONE. Valid values include NONE, PRIVATE, PUBLIC_READ, PUBLIC_READ_WRITE,
+        /// AUTHENTICATED_READ, AWS_EXEC_READ, BUCKET_OWNER_READ, and BUCKET_OWNER_FULL_CONTROL.
+        /// </para>
+        /// </summary>
+        public CannedAclForObjectsValue CannedAclForObjects
+        {
+            get { return this._cannedAclForObjects; }
+            set { this._cannedAclForObjects = value; }
+        }
+
+        // Check to see if CannedAclForObjects property is set
+        internal bool IsSetCannedAclForObjects()
+        {
+            return this._cannedAclForObjects != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property CdcInsertsAndUpdates. 
         /// <para>
         /// A value that enables a change data capture (CDC) load to write INSERT and UPDATE operations
@@ -119,12 +177,12 @@ namespace Amazon.DatabaseMigrationService.Model
         /// But if <code>IncludeOpForFullLoad</code> is set to <code>false</code>, CDC records
         /// are written without an indication of INSERT or UPDATE operations at the source. For
         /// more information about how these settings work together, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
-        /// Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration Service
+        /// Source DB Operations in Migrated S3 Data</a> in the <i>Database Migration Service
         /// User Guide.</i>.
         /// </para>
         ///  <note> 
         /// <para>
-        /// AWS DMS supports the use of the <code>CdcInsertsAndUpdates</code> parameter in versions
+        /// DMS supports the use of the <code>CdcInsertsAndUpdates</code> parameter in versions
         /// 3.3.1 and later.
         /// </para>
         ///  
@@ -167,12 +225,12 @@ namespace Amazon.DatabaseMigrationService.Model
         /// <code>IncludeOpForFullLoad</code> is set to <code>false</code>, every CDC record is
         /// written without a first field to indicate the INSERT operation at the source. For
         /// more information about how these settings work together, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
-        /// Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration Service
+        /// Source DB Operations in Migrated S3 Data</a> in the <i>Database Migration Service
         /// User Guide.</i>.
         /// </para>
         ///  <note> 
         /// <para>
-        /// AWS DMS supports the interaction described preceding between the <code>CdcInsertsOnly</code>
+        /// DMS supports the interaction described preceding between the <code>CdcInsertsOnly</code>
         /// and <code>IncludeOpForFullLoad</code> parameters in versions 3.1.4 and later. 
         /// </para>
         ///  
@@ -197,16 +255,73 @@ namespace Amazon.DatabaseMigrationService.Model
         }
 
         /// <summary>
+        /// Gets and sets the property CdcMaxBatchInterval. 
+        /// <para>
+        /// Maximum length of the interval, defined in seconds, after which to output a file to
+        /// Amazon S3.
+        /// </para>
+        ///  
+        /// <para>
+        /// When <code>CdcMaxBatchInterval</code> and <code>CdcMinFileSize</code> are both specified,
+        /// the file write is triggered by whichever parameter condition is met first within an
+        /// DMS CloudFormation template.
+        /// </para>
+        ///  
+        /// <para>
+        /// The default value is 60 seconds.
+        /// </para>
+        /// </summary>
+        public int CdcMaxBatchInterval
+        {
+            get { return this._cdcMaxBatchInterval.GetValueOrDefault(); }
+            set { this._cdcMaxBatchInterval = value; }
+        }
+
+        // Check to see if CdcMaxBatchInterval property is set
+        internal bool IsSetCdcMaxBatchInterval()
+        {
+            return this._cdcMaxBatchInterval.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property CdcMinFileSize. 
+        /// <para>
+        /// Minimum file size, defined in megabytes, to reach for a file output to Amazon S3.
+        /// </para>
+        ///  
+        /// <para>
+        /// When <code>CdcMinFileSize</code> and <code>CdcMaxBatchInterval</code> are both specified,
+        /// the file write is triggered by whichever parameter condition is met first within an
+        /// DMS CloudFormation template.
+        /// </para>
+        ///  
+        /// <para>
+        /// The default value is 32 MB.
+        /// </para>
+        /// </summary>
+        public int CdcMinFileSize
+        {
+            get { return this._cdcMinFileSize.GetValueOrDefault(); }
+            set { this._cdcMinFileSize = value; }
+        }
+
+        // Check to see if CdcMinFileSize property is set
+        internal bool IsSetCdcMinFileSize()
+        {
+            return this._cdcMinFileSize.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property CdcPath. 
         /// <para>
         /// Specifies the folder path of CDC files. For an S3 source, this setting is required
         /// if a task captures change data; otherwise, it's optional. If <code>CdcPath</code>
-        /// is set, AWS DMS reads CDC files from this path and replicates the data changes to
-        /// the target endpoint. For an S3 target if you set <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-PreserveTransactions">
-        /// <code>PreserveTransactions</code> </a> to <code>true</code>, AWS DMS verifies that
-        /// you have set this parameter to a folder path on your S3 target where AWS DMS can save
-        /// the transaction order for the CDC load. AWS DMS creates this CDC folder path in either
-        /// your S3 target working directory or the S3 target location specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketFolder">
+        /// is set, DMS reads CDC files from this path and replicates the data changes to the
+        /// target endpoint. For an S3 target if you set <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-PreserveTransactions">
+        /// <code>PreserveTransactions</code> </a> to <code>true</code>, DMS verifies that you
+        /// have set this parameter to a folder path on your S3 target where DMS can save the
+        /// transaction order for the CDC load. DMS creates this CDC folder path in either your
+        /// S3 target working directory or the S3 target location specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketFolder">
         /// <code>BucketFolder</code> </a> and <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketName">
         /// <code>BucketName</code> </a>.
         /// </para>
@@ -214,13 +329,13 @@ namespace Amazon.DatabaseMigrationService.Model
         /// <para>
         /// For example, if you specify <code>CdcPath</code> as <code>MyChangedData</code>, and
         /// you specify <code>BucketName</code> as <code>MyTargetBucket</code> but do not specify
-        /// <code>BucketFolder</code>, AWS DMS creates the CDC folder path following: <code>MyTargetBucket/MyChangedData</code>.
+        /// <code>BucketFolder</code>, DMS creates the CDC folder path following: <code>MyTargetBucket/MyChangedData</code>.
         /// </para>
         ///  
         /// <para>
         /// If you specify the same <code>CdcPath</code>, and you specify <code>BucketName</code>
         /// as <code>MyTargetBucket</code> and <code>BucketFolder</code> as <code>MyTargetData</code>,
-        /// AWS DMS creates the CDC folder path following: <code>MyTargetBucket/MyTargetData/MyChangedData</code>.
+        /// DMS creates the CDC folder path following: <code>MyTargetBucket/MyTargetData/MyChangedData</code>.
         /// </para>
         ///  
         /// <para>
@@ -229,7 +344,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// This setting is supported in AWS DMS versions 3.4.2 and later.
+        /// This setting is supported in DMS versions 3.4.2 and later.
         /// </para>
         ///  </note>
         /// </summary>
@@ -291,13 +406,13 @@ namespace Amazon.DatabaseMigrationService.Model
         /// This setting only applies if your Amazon S3 output files during a change data capture
         /// (CDC) load are written in .csv format. If <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-UseCsvNoSupValue">
         /// <code>UseCsvNoSupValue</code> </a> is set to true, specify a string value that you
-        /// want AWS DMS to use for all columns not included in the supplemental log. If you do
-        /// not specify a string value, AWS DMS uses the null value for these columns regardless
-        /// of the <code>UseCsvNoSupValue</code> setting.
+        /// want DMS to use for all columns not included in the supplemental log. If you do not
+        /// specify a string value, DMS uses the null value for these columns regardless of the
+        /// <code>UseCsvNoSupValue</code> setting.
         /// </para>
         ///  <note> 
         /// <para>
-        /// This setting is supported in AWS DMS versions 3.4.1 and later.
+        /// This setting is supported in DMS versions 3.4.1 and later.
         /// </para>
         ///  </note>
         /// </summary>
@@ -311,6 +426,33 @@ namespace Amazon.DatabaseMigrationService.Model
         internal bool IsSetCsvNoSupValue()
         {
             return this._csvNoSupValue != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property CsvNullValue. 
+        /// <para>
+        /// An optional parameter that specifies how DMS treats null values. While handling the
+        /// null value, you can use this parameter to pass a user-defined string as null when
+        /// writing to the target. For example, when target columns are not nullable, you can
+        /// use this option to differentiate between the empty string value and the null value.
+        /// So, if you set this parameter value to the empty string ("" or ''), DMS treats the
+        /// empty string as the null value instead of <code>NULL</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// The default value is <code>NULL</code>. Valid values include any valid string.
+        /// </para>
+        /// </summary>
+        public string CsvNullValue
+        {
+            get { return this._csvNullValue; }
+            set { this._csvNullValue = value; }
+        }
+
+        // Check to see if CsvNullValue property is set
+        internal bool IsSetCsvNullValue()
+        {
+            return this._csvNullValue != null;
         }
 
         /// <summary>
@@ -406,7 +548,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// <para>
         /// When set to <code>true</code>, this parameter partitions S3 bucket folders based on
         /// transaction commit dates. The default value is <code>false</code>. For more information
-        /// about date-based folder partitoning, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning">Using
+        /// about date-based folder partitioning, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning">Using
         /// date-based folder partitioning</a>.
         /// </para>
         /// </summary>
@@ -534,7 +676,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// </para>
         ///  </note> 
         /// <para>
-        /// To use <code>SSE_S3</code>, you need an AWS Identity and Access Management (IAM) role
+        /// To use <code>SSE_S3</code>, you need an Identity and Access Management (IAM) role
         /// with permission to allow <code>"arn:aws:s3:::dms-*"</code> to use the following actions:
         /// </para>
         ///  <ul> <li> 
@@ -614,6 +756,29 @@ namespace Amazon.DatabaseMigrationService.Model
         }
 
         /// <summary>
+        /// Gets and sets the property IgnoreHeaderRows. 
+        /// <para>
+        /// When this value is set to 1, DMS ignores the first row header in a .csv file. A value
+        /// of 1 turns on the feature; a value of 0 turns off the feature.
+        /// </para>
+        ///  
+        /// <para>
+        /// The default is 0.
+        /// </para>
+        /// </summary>
+        public int IgnoreHeaderRows
+        {
+            get { return this._ignoreHeaderRows.GetValueOrDefault(); }
+            set { this._ignoreHeaderRows = value; }
+        }
+
+        // Check to see if IgnoreHeaderRows property is set
+        internal bool IsSetIgnoreHeaderRows()
+        {
+            return this._ignoreHeaderRows.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property IncludeOpForFullLoad. 
         /// <para>
         /// A value that enables a full load to write INSERT operations to the comma-separated
@@ -621,8 +786,8 @@ namespace Amazon.DatabaseMigrationService.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// AWS DMS supports the <code>IncludeOpForFullLoad</code> parameter in versions 3.1.4
-        /// and later.
+        /// DMS supports the <code>IncludeOpForFullLoad</code> parameter in versions 3.1.4 and
+        /// later.
         /// </para>
         ///  </note> 
         /// <para>
@@ -638,7 +803,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// This setting works together with the <code>CdcInsertsOnly</code> and the <code>CdcInsertsAndUpdates</code>
         /// parameters for output to .csv files only. For more information about how these settings
         /// work together, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
-        /// Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration Service
+        /// Source DB Operations in Migrated S3 Data</a> in the <i>Database Migration Service
         /// User Guide.</i>.
         /// </para>
         ///  </note>
@@ -656,6 +821,29 @@ namespace Amazon.DatabaseMigrationService.Model
         }
 
         /// <summary>
+        /// Gets and sets the property MaxFileSize. 
+        /// <para>
+        /// A value that specifies the maximum size (in KB) of any .csv file to be created while
+        /// migrating to an S3 target during full load.
+        /// </para>
+        ///  
+        /// <para>
+        /// The default value is 1,048,576 KB (1 GB). Valid values include 1 to 1,048,576.
+        /// </para>
+        /// </summary>
+        public int MaxFileSize
+        {
+            get { return this._maxFileSize.GetValueOrDefault(); }
+            set { this._maxFileSize = value; }
+        }
+
+        // Check to see if MaxFileSize property is set
+        internal bool IsSetMaxFileSize()
+        {
+            return this._maxFileSize.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property ParquetTimestampInMillisecond. 
         /// <para>
         /// A value that specifies the precision of any <code>TIMESTAMP</code> column values that
@@ -663,25 +851,25 @@ namespace Amazon.DatabaseMigrationService.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// AWS DMS supports the <code>ParquetTimestampInMillisecond</code> parameter in versions
+        /// DMS supports the <code>ParquetTimestampInMillisecond</code> parameter in versions
         /// 3.1.4 and later.
         /// </para>
         ///  </note> 
         /// <para>
         /// When <code>ParquetTimestampInMillisecond</code> is set to <code>true</code> or <code>y</code>,
-        /// AWS DMS writes all <code>TIMESTAMP</code> columns in a .parquet formatted file with
-        /// millisecond precision. Otherwise, DMS writes them with microsecond precision.
+        /// DMS writes all <code>TIMESTAMP</code> columns in a .parquet formatted file with millisecond
+        /// precision. Otherwise, DMS writes them with microsecond precision.
         /// </para>
         ///  
         /// <para>
-        /// Currently, Amazon Athena and AWS Glue can handle only millisecond precision for <code>TIMESTAMP</code>
+        /// Currently, Amazon Athena and Glue can handle only millisecond precision for <code>TIMESTAMP</code>
         /// values. Set this parameter to <code>true</code> for S3 endpoint object files that
         /// are .parquet formatted only if you plan to query or process the data with Athena or
-        /// AWS Glue.
+        /// Glue.
         /// </para>
         ///  <note> 
         /// <para>
-        /// AWS DMS writes any <code>TIMESTAMP</code> column values written to an S3 file in .csv
+        /// DMS writes any <code>TIMESTAMP</code> column values written to an S3 file in .csv
         /// format with microsecond precision.
         /// </para>
         ///  
@@ -726,14 +914,14 @@ namespace Amazon.DatabaseMigrationService.Model
         /// <summary>
         /// Gets and sets the property PreserveTransactions. 
         /// <para>
-        /// If set to <code>true</code>, AWS DMS saves the transaction order for a change data
-        /// capture (CDC) load on the Amazon S3 target specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CdcPath">
+        /// If set to <code>true</code>, DMS saves the transaction order for a change data capture
+        /// (CDC) load on the Amazon S3 target specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CdcPath">
         /// <code>CdcPath</code> </a>. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.EndpointSettings.CdcPath">Capturing
         /// data changes (CDC) including transaction order on the S3 target</a>.
         /// </para>
         ///  <note> 
         /// <para>
-        /// This setting is supported in AWS DMS versions 3.4.2 and later.
+        /// This setting is supported in DMS versions 3.4.2 and later.
         /// </para>
         ///  </note>
         /// </summary>
@@ -747,6 +935,43 @@ namespace Amazon.DatabaseMigrationService.Model
         internal bool IsSetPreserveTransactions()
         {
             return this._preserveTransactions.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property Rfc4180. 
+        /// <para>
+        /// For an S3 source, when this value is set to <code>true</code> or <code>y</code>, each
+        /// leading double quotation mark has to be followed by an ending double quotation mark.
+        /// This formatting complies with RFC 4180. When this value is set to <code>false</code>
+        /// or <code>n</code>, string literals are copied to the target as is. In this case, a
+        /// delimiter (row or column) signals the end of the field. Thus, you can't use a delimiter
+        /// as part of the string, because it signals the end of the value.
+        /// </para>
+        ///  
+        /// <para>
+        /// For an S3 target, an optional parameter used to set behavior to comply with RFC 4180
+        /// for data migrated to Amazon S3 using .csv file format only. When this value is set
+        /// to <code>true</code> or <code>y</code> using Amazon S3 as a target, if the data has
+        /// quotation marks or newline characters in it, DMS encloses the entire column with an
+        /// additional pair of double quotation marks ("). Every quotation mark within the data
+        /// is repeated twice.
+        /// </para>
+        ///  
+        /// <para>
+        /// The default value is <code>true</code>. Valid values include <code>true</code>, <code>false</code>,
+        /// <code>y</code>, and <code>n</code>.
+        /// </para>
+        /// </summary>
+        public bool Rfc4180
+        {
+            get { return this._rfc4180.GetValueOrDefault(); }
+            set { this._rfc4180 = value; }
+        }
+
+        // Check to see if Rfc4180 property is set
+        internal bool IsSetRfc4180()
+        {
+            return this._rfc4180.HasValue; 
         }
 
         /// <summary>
@@ -778,8 +1003,8 @@ namespace Amazon.DatabaseMigrationService.Model
         /// Gets and sets the property ServerSideEncryptionKmsKeyId. 
         /// <para>
         /// If you are using <code>SSE_KMS</code> for the <code>EncryptionMode</code>, provide
-        /// the AWS KMS key ID. The key that you use needs an attached policy that enables AWS
-        /// Identity and Access Management (IAM) user permissions and allows use of the key.
+        /// the KMS key ID. The key that you use needs an attached policy that enables Identity
+        /// and Access Management (IAM) user permissions and allows use of the key.
         /// </para>
         ///  
         /// <para>
@@ -803,8 +1028,9 @@ namespace Amazon.DatabaseMigrationService.Model
         /// <summary>
         /// Gets and sets the property ServiceAccessRoleArn. 
         /// <para>
-        ///  The Amazon Resource Name (ARN) used by the service access IAM role. It is a required
-        /// parameter that enables DMS to write and read objects from an S3 bucket.
+        ///  The Amazon Resource Name (ARN) used by the service to access the IAM role. The role
+        /// must allow the <code>iam:PassRole</code> action. It is a required parameter that enables
+        /// DMS to write and read objects from an S3 bucket.
         /// </para>
         /// </summary>
         public string ServiceAccessRoleArn
@@ -822,13 +1048,13 @@ namespace Amazon.DatabaseMigrationService.Model
         /// <summary>
         /// Gets and sets the property TimestampColumnName. 
         /// <para>
-        /// A value that when nonblank causes AWS DMS to add a column with timestamp information
-        /// to the endpoint data for an Amazon S3 target.
+        /// A value that when nonblank causes DMS to add a column with timestamp information to
+        /// the endpoint data for an Amazon S3 target.
         /// </para>
         ///  <note> 
         /// <para>
-        /// AWS DMS supports the <code>TimestampColumnName</code> parameter in versions 3.1.4
-        /// and later.
+        /// DMS supports the <code>TimestampColumnName</code> parameter in versions 3.1.4 and
+        /// later.
         /// </para>
         ///  </note> 
         /// <para>
@@ -875,13 +1101,13 @@ namespace Amazon.DatabaseMigrationService.Model
         /// <para>
         /// This setting applies if the S3 output files during a change data capture (CDC) load
         /// are written in .csv format. If set to <code>true</code> for columns not included in
-        /// the supplemental log, AWS DMS uses the value specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CsvNoSupValue">
-        /// <code>CsvNoSupValue</code> </a>. If not set or set to <code>false</code>, AWS DMS
-        /// uses the null value for these columns.
+        /// the supplemental log, DMS uses the value specified by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CsvNoSupValue">
+        /// <code>CsvNoSupValue</code> </a>. If not set or set to <code>false</code>, DMS uses
+        /// the null value for these columns.
         /// </para>
         ///  <note> 
         /// <para>
-        /// This setting is supported in AWS DMS versions 3.4.1 and later.
+        /// This setting is supported in DMS versions 3.4.1 and later.
         /// </para>
         ///  </note>
         /// </summary>

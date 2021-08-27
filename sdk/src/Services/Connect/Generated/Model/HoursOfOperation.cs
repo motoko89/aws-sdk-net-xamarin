@@ -47,6 +47,7 @@ namespace Amazon.Connect.Model
         /// Configuration information for the hours of operation.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=0, Max=100)]
         public List<HoursOfOperationConfig> Config
         {
             get { return this._config; }
@@ -65,7 +66,7 @@ namespace Amazon.Connect.Model
         /// The description for the hours of operation.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=0, Max=250)]
+        [AWSProperty(Min=1, Max=250)]
         public string Description
         {
             get { return this._description; }

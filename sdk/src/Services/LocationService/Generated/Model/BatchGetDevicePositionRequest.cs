@@ -30,7 +30,7 @@ namespace Amazon.LocationService.Model
 {
     /// <summary>
     /// Container for the parameters to the BatchGetDevicePosition operation.
-    /// A batch request to retrieve all device positions.
+    /// Lists the latest device positions for requested devices.
     /// </summary>
     public partial class BatchGetDevicePositionRequest : AmazonLocationServiceRequest
     {

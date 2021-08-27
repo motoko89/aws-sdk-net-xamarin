@@ -112,6 +112,12 @@ namespace Amazon.Appflow.Model.Internal.MarshallTransformations
                     unmarshalledObject.LastUpdatedAt = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("privateConnectionProvisioningState", targetDepth))
+                {
+                    var unmarshaller = PrivateConnectionProvisioningStateUnmarshaller.Instance;
+                    unmarshalledObject.PrivateConnectionProvisioningState = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

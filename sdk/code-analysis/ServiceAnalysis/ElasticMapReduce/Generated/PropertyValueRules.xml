@@ -151,6 +151,11 @@
     <max>256</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.ElasticMapReduce.Model.DescribeReleaseLabelRequest.MaxResults</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.ElasticMapReduce.Model.DescribeSecurityConfigurationRequest.Name</property>
     <min>0</min>
     <max>10280</max>
@@ -184,6 +189,11 @@
     <property>Amazon.ElasticMapReduce.Model.ListNotebookExecutionsRequest.EditorId</property>
     <min>0</min>
     <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ElasticMapReduce.Model.ListReleaseLabelsRequest.MaxResults</property>
+    <min>1</min>
+    <max>100</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ElasticMapReduce.Model.ListStudioSessionMappingsRequest.StudioId</property>
@@ -457,12 +467,22 @@
     <min>0</min>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.ElasticMapReduce.Model.InstanceGroup.CustomAmiId</property>
+    <min>0</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.ElasticMapReduce.Model.InstanceGroup.InstanceType</property>
     <min>1</min>
     <max>256</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ElasticMapReduce.Model.InstanceGroupConfig.BidPrice</property>
+    <min>0</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ElasticMapReduce.Model.InstanceGroupConfig.CustomAmiId</property>
     <min>0</min>
     <max>256</max>
   </property-value-rule>
@@ -478,6 +498,11 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ElasticMapReduce.Model.InstanceGroupDetail.BidPrice</property>
+    <min>0</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ElasticMapReduce.Model.InstanceGroupDetail.CustomAmiId</property>
     <min>0</min>
     <max>256</max>
   </property-value-rule>
@@ -516,6 +541,11 @@
     <min>0</min>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.ElasticMapReduce.Model.InstanceTypeConfig.CustomAmiId</property>
+    <min>0</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.ElasticMapReduce.Model.InstanceTypeConfig.InstanceType</property>
     <min>1</min>
     <max>256</max>
@@ -532,6 +562,11 @@
   <property-value-rule>
     <property>Amazon.ElasticMapReduce.Model.InstanceTypeSpecification.BidPriceAsPercentageOfOnDemandPrice</property>
     <min>0</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.ElasticMapReduce.Model.InstanceTypeSpecification.CustomAmiId</property>
+    <min>0</min>
+    <max>256</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ElasticMapReduce.Model.InstanceTypeSpecification.InstanceType</property>
