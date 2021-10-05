@@ -196,7 +196,7 @@ namespace Amazon.Imagebuilder.Model
         /// <para>
         ///  <b>Assignment:</b> For the first three nodes you can assign any positive integer
         /// value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node.
-        /// Image Builder automatically assigns the build number, and that is not open for updates.
+        /// Image Builder automatically assigns the build number to the fourth node.
         /// </para>
         ///  
         /// <para>
@@ -223,7 +223,7 @@ namespace Amazon.Imagebuilder.Model
         /// Gets and sets the property SupportedOsVersions. 
         /// <para>
         ///  The operating system (OS) version supported by the component. If the OS information
-        /// is available, a prefix match is performed against the parent image OS version during
+        /// is available, a prefix match is performed against the base image OS version during
         /// image recipe creation.
         /// </para>
         /// </summary>

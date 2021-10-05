@@ -67,10 +67,22 @@ namespace Amazon.Comprehend.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetDesiredDataAccessRoleArn())
+                {
+                    context.Writer.WritePropertyName("DesiredDataAccessRoleArn");
+                    context.Writer.Write(publicRequest.DesiredDataAccessRoleArn);
+                }
+
                 if(publicRequest.IsSetDesiredInferenceUnits())
                 {
                     context.Writer.WritePropertyName("DesiredInferenceUnits");
                     context.Writer.Write(publicRequest.DesiredInferenceUnits);
+                }
+
+                if(publicRequest.IsSetDesiredModelArn())
+                {
+                    context.Writer.WritePropertyName("DesiredModelArn");
+                    context.Writer.Write(publicRequest.DesiredModelArn);
                 }
 
                 if(publicRequest.IsSetEndpointArn())

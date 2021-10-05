@@ -70,6 +70,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     unmarshalledObject.InstanceType = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("LifecycleConfigArn", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.LifecycleConfigArn = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("SageMakerImageArn", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

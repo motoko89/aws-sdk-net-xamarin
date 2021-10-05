@@ -31,6 +31,12 @@ namespace Amazon.IoT.Model
     /// <summary>
     /// Container for the parameters to the ListActiveViolations operation.
     /// Lists the active violations for a given Device Defender security profile.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListActiveViolations</a>
+    /// action.
+    /// </para>
     /// </summary>
     public partial class ListActiveViolationsRequest : AmazonIoTRequest
     {
@@ -40,6 +46,7 @@ namespace Amazon.IoT.Model
         private string _nextToken;
         private string _securityProfileName;
         private string _thingName;
+        private VerificationState _verificationState;
 
         /// <summary>
         /// Gets and sets the property BehaviorCriteriaType. 
@@ -150,6 +157,24 @@ namespace Amazon.IoT.Model
         internal bool IsSetThingName()
         {
             return this._thingName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property VerificationState. 
+        /// <para>
+        /// The verification state of the violation (detect alarm).
+        /// </para>
+        /// </summary>
+        public VerificationState VerificationState
+        {
+            get { return this._verificationState; }
+            set { this._verificationState = value; }
+        }
+
+        // Check to see if VerificationState property is set
+        internal bool IsSetVerificationState()
+        {
+            return this._verificationState != null;
         }
 
     }

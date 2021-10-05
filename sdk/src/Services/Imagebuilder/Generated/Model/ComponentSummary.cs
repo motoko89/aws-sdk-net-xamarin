@@ -40,6 +40,7 @@ namespace Amazon.Imagebuilder.Model
         private string _name;
         private string _owner;
         private Platform _platform;
+        private ComponentState _state;
         private List<string> _supportedOsVersions = new List<string>();
         private Dictionary<string, string> _tags = new Dictionary<string, string>();
         private ComponentType _type;
@@ -175,10 +176,28 @@ namespace Amazon.Imagebuilder.Model
         }
 
         /// <summary>
+        /// Gets and sets the property State. 
+        /// <para>
+        /// Describes the current status of the component.
+        /// </para>
+        /// </summary>
+        public ComponentState State
+        {
+            get { return this._state; }
+            set { this._state = value; }
+        }
+
+        // Check to see if State property is set
+        internal bool IsSetState()
+        {
+            return this._state != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property SupportedOsVersions. 
         /// <para>
         /// The operating system (OS) version supported by the component. If the OS information
-        /// is available, a prefix match is performed against the parent image OS version during
+        /// is available, a prefix match is performed against the base image OS version during
         /// image recipe creation.
         /// </para>
         /// </summary>

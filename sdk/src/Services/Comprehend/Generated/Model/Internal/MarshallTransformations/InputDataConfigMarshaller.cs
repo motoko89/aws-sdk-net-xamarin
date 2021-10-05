@@ -45,6 +45,17 @@ namespace Amazon.Comprehend.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(InputDataConfig requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetDocumentReaderConfig())
+            {
+                context.Writer.WritePropertyName("DocumentReaderConfig");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = DocumentReaderConfigMarshaller.Instance;
+                marshaller.Marshall(requestObject.DocumentReaderConfig, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetInputFormat())
             {
                 context.Writer.WritePropertyName("InputFormat");

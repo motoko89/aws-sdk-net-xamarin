@@ -30,10 +30,14 @@ namespace Amazon.AppRegistry.Model
 {
     /// <summary>
     /// Container for the parameters to the SyncResource operation.
-    /// Syncs the resource with what is currently recorded in App registry. Specifically,
-    /// the resource’s App registry system tags are synced with its associated application.
-    /// The resource is removed if it is not associated with the application. The caller must
-    /// have permissions to read and update the resource.
+    /// Syncs the resource with current AppRegistry records.
+    /// 
+    ///  
+    /// <para>
+    /// Specifically, the resource’s AppRegistry system tags sync with its associated application.
+    /// We remove the resource's AppRegistry system tags if it does not associate with the
+    /// application. The caller must have permissions to read and update the resource.
+    /// </para>
     /// </summary>
     public partial class SyncResourceRequest : AmazonAppRegistryRequest
     {
@@ -44,7 +48,7 @@ namespace Amazon.AppRegistry.Model
         /// Gets and sets the property Resource. 
         /// <para>
         /// An entity you can work with and specify with a name or ID. Examples include an Amazon
-        /// EC2 instance, an AWS CloudFormation stack, or an Amazon S3 bucket.
+        /// EC2 instance, an Amazon Web Services CloudFormation stack, or an Amazon S3 bucket.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=256)]

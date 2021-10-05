@@ -46,9 +46,9 @@ namespace Amazon.LicenseManager.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>licenseCountingType</code> - The dimension on which licenses are counted. Possible
-        /// values are <code>vCPU</code> | <code>Instance</code> | <code>Core</code> | <code>Socket</code>.
-        /// Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.
+        ///  <code>licenseCountingType</code> - The dimension for which licenses are counted.
+        /// Possible values are <code>vCPU</code> | <code>Instance</code> | <code>Core</code>
+        /// | <code>Socket</code>. Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.
         /// </para>
         ///  </li> <li> 
         /// <para>

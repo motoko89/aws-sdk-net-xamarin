@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.EKS.Model
 {
     /// <summary>
-    /// An object that represents an identity configuration.
+    /// The full description of your identity configuration.
     /// </summary>
     public partial class IdentityProviderConfigResponse
     {

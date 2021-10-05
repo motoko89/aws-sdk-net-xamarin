@@ -81,6 +81,12 @@ namespace Amazon.AppRegistry.Model.Internal.MarshallTransformations
                     response.Id = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("integrations", targetDepth))
+                {
+                    var unmarshaller = IntegrationsUnmarshaller.Instance;
+                    response.Integrations = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("lastUpdateTime", targetDepth))
                 {
                     var unmarshaller = DateTimeUnmarshaller.Instance;

@@ -29,8 +29,9 @@ using Amazon.Runtime.Internal;
 namespace Amazon.DataExchange.Model
 {
     /// <summary>
-    /// Encryption configuration of the export job. Includes the encryption type as well as
-    /// the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption type.
+    /// Encryption configuration of the export job. Includes the encryption type in addition
+    /// to the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption.
+    /// type.
     /// </summary>
     public partial class ExportServerSideEncryption
     {
@@ -40,9 +41,8 @@ namespace Amazon.DataExchange.Model
         /// <summary>
         /// Gets and sets the property KmsKeyArn. 
         /// <para>
-        /// The Amazon Resource Name (ARN) of the the AWS KMS key you want to use to encrypt the
-        /// Amazon S3 objects. This parameter is required if you choose aws:kms as an encryption
-        /// type.
+        /// The Amazon Resource Name (ARN) of the AWS KMS key you want to use to encrypt the Amazon
+        /// S3 objects. This parameter is required if you choose aws:kms as an encryption type.
         /// </para>
         /// </summary>
         public string KmsKeyArn

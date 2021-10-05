@@ -56,6 +56,10 @@ The AWS SDK for .NET uses a 4 part versioning scheme following the pattern of `w
 
 The SDK assemblies are strongly named which requires consumers of the SDK to recompile every time the `AssemblyVersion` attribute is incremented. To avoid forced recompilations the `AssemblyVersion` only contains the `w.x` portion of the version. The full `w.x.y.z` version number is set in the `AssemblyFileVersion` attribute which is not part of the strong name.
 
+### Internal Namespace
+
+Classes and interfaces with `Internal` in the namespace name are logically internal to the SDK but are often marked with a `public` access modifier, generally to allow the service-specific packages to use shared functionality in the Core package. Classes and interfaces in these namespaces are subject to modification or removal outside of versioning scheme described above. If you find yourself relying on `Internal` functionality directly, consider [opening a Feature Request](https://github.com/aws/aws-sdk-net/issues/new/choose) for your use case if one does not already exist.
+
 ## Portable Class Library
 
 This release of the AWS SDK for .NET adds support for Portable Class Library projects, which allow you to target multiple platforms including Windows Store, Windows Phone, and Xamarin on iOS and Android. More information on this can be found [here](http://docs.aws.amazon.com/mobile/sdkforxamarin/developerguide/index.html).
@@ -87,6 +91,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 
 * [AWSSDK.AccessAnalyzer](https://www.nuget.org/packages/AWSSDK.AccessAnalyzer/)
 	* Introducing AWS IAM Access Analyzer, an IAM feature that makes it easy for AWS customers to ensure that their resource-based policies provide only the intended access to resources outside their AWS accounts.
+* [AWSSDK.Account](https://www.nuget.org/packages/AWSSDK.Account/)
+	* This release of the Account Management API enables customers to manage the alternate contacts for their AWS accounts. For more information, see https://docs.aws.amazon.com/accounts/latest/reference/accounts-welcome.html
 * [AWSSDK.ACMPCA](https://www.nuget.org/packages/AWSSDK.ACMPCA/)
 	* AWS Certificate Manager (ACM) Private Certificate Authority (CA) is a managed private CA service that helps you easily and securely manage the lifecycle of your private certificates. ACM Private CA provides you a highly-available private CA service without the upfront investment and ongoing maintenance costs of operating your own private CA. ACM Private CA extends ACM's certificate management capabilities to private certificates, enabling you to manage public and private certificates centrally.
 * [AWSSDK.AlexaForBusiness](https://www.nuget.org/packages/AWSSDK.AlexaForBusiness/)
@@ -161,6 +167,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* The Amazon Chime SDK Messaging APIs allow software developers to send and receive messages in custom messaging applications.
 * [AWSSDK.Cloud9](https://www.nuget.org/packages/AWSSDK.Cloud9/)
 	* Adds support for creating and managing AWS Cloud9 development environments. AWS Cloud9 is a cloud-based integrated development environment (IDE) that you use to write, run, and debug code.
+* [AWSSDK.CloudControlApi](https://www.nuget.org/packages/AWSSDK.CloudControlApi/)
+	* Initial release of the SDK for AWS Cloud Control API
 * [AWSSDK.CloudDirectory](https://www.nuget.org/packages/AWSSDK.CloudDirectory/)
 	* Cloud Directory (CD) is a multi-tenant, hierarchical data store for use by other AWS services to store directory data for AWS resources, including both metadata about resources and policy data governing resources.
 * [AWSSDK.CloudFormation](https://www.nuget.org/packages/AWSSDK.CloudFormation/)
@@ -223,6 +231,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* Contact Lens for Amazon Connect analyzes conversations, both real-time and post-call. The ListRealtimeContactAnalysisSegments API returns a list of analysis segments for a real-time analysis session.
 * [AWSSDK.ConnectParticipant](https://www.nuget.org/packages/AWSSDK.ConnectParticipant/)
 	* This release adds 5 new APIs: CreateParticipantConnection, DisconnectParticipant, GetTranscript, SendEvent, and SendMessage. For Amazon Connect chat, you can use them to programmatically perform participant actions on the configured Amazon Connect instance. Learn more here: https://docs.aws.amazon.com/connect-participant/latest/APIReference/Welcome.html
+* [AWSSDK.ConnectWisdomService](https://www.nuget.org/packages/AWSSDK.ConnectWisdomService/)
+	* Released Amazon Connect Wisdom, a feature of Amazon Connect, which provides real-time recommendations and search functionality in general availability (GA).  For more information, see https://docs.aws.amazon.com/wisdom/latest/APIReference/Welcome.html.
 * [AWSSDK.CostAndUsageReport](https://www.nuget.org/packages/AWSSDK.CostAndUsageReport/)
 	* The AWS Cost and Usage Report Service API allows you to enable and disable the Cost and Usage report, as well as modify the report name, the data granularity, and the delivery preferences.
 * [AWSSDK.CostExplorer](https://www.nuget.org/packages/AWSSDK.CostExplorer/)
@@ -371,6 +381,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* Introducing Amazon Interactive Video Service - a managed live streaming solution that is quick and easy to set up, and ideal for creating interactive video experiences.
 * [AWSSDK.Kafka](https://www.nuget.org/packages/AWSSDK.Kafka/)
 	* Amazon Managed Streaming for Kafka (Amazon MSK). Amazon MSK is a service that you can use to easily build, monitor, and manage Apache Kafka clusters in the cloud.
+* [AWSSDK.KafkaConnect](https://www.nuget.org/packages/AWSSDK.KafkaConnect/)
+	* This is the initial SDK release for Amazon Managed Streaming for Apache Kafka Connect (MSK Connect).
 * [AWSSDK.Kendra](https://www.nuget.org/packages/AWSSDK.Kendra/)
 	* It is a preview launch of Amazon Kendra. Amazon Kendra is a managed, highly accurate and easy to use enterprise search service that is powered by machine learning.
 * [AWSSDK.KeyManagementService](https://www.nuget.org/packages/AWSSDK.KeyManagementService/)
@@ -469,6 +481,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* This is the initial SDK release for AWS Network Manager.
 * [AWSSDK.NimbleStudio](https://www.nuget.org/packages/AWSSDK.NimbleStudio/)
 	* Amazon Nimble Studio is a virtual studio service that empowers visual effects, animation, and interactive content teams to create content securely within a scalable, private cloud service.
+* [AWSSDK.OpenSearchService](https://www.nuget.org/packages/AWSSDK.OpenSearchService/)
+	* Updated Configuration APIs for Amazon OpenSearch Service (successor to Amazon Elasticsearch Service)
 * [AWSSDK.OpsWorks](https://www.nuget.org/packages/AWSSDK.OpsWorks/)
 	* AWS OpsWorks is an application management service that makes it easy to deploy and operate applications of all shapes and sizes. You can define the application's architecture and the specification of each component including package installation, software configuration and resources such as storage.
 * [AWSSDK.OpsWorksCM](https://www.nuget.org/packages/AWSSDK.OpsWorksCM/)
@@ -619,6 +633,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* AWS Transfer for SFTP is a fully managed service that enables transfer of secure data over the internet into and out of Amazon S3. SFTP is deeply embedded in data exchange workflows across different industries such as financial services, healthcare, advertising, and retail, among others.
 * [AWSSDK.Translate](https://www.nuget.org/packages/AWSSDK.Translate/)
 	* Public preview release of Amazon Translate and the Amazon Translate Developer Guide. For more information, see the Amazon Translate Developer Guide.
+* [AWSSDK.VoiceID](https://www.nuget.org/packages/AWSSDK.VoiceID/)
+	* Released the Amazon Voice ID SDK, for usage with the Amazon Connect Voice ID feature released for Amazon Connect.
 * [AWSSDK.WAF](https://www.nuget.org/packages/AWSSDK.WAF/)
 	* AWS WAF (Web Application Firewall) protects web applications from attack by allowing customers to block bad actors and provides filters against common web exploits like SQL injection.
 * [AWSSDK.WAFRegional](https://www.nuget.org/packages/AWSSDK.WAFRegional/)

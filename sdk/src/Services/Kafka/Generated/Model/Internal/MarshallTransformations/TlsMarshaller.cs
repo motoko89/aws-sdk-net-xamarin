@@ -56,6 +56,12 @@ namespace Amazon.Kafka.Model.Internal.MarshallTransformations
                 context.Writer.WriteArrayEnd();
             }
 
+            if(requestObject.IsSetEnabled())
+            {
+                context.Writer.WritePropertyName("enabled");
+                context.Writer.Write(requestObject.Enabled);
+            }
+
         }
 
         /// <summary>

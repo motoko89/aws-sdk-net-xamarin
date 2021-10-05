@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.AppRegistry.Model
 {
     /// <summary>
-    /// Information about the resource.
+    /// The information about the resource.
     /// </summary>
     public partial class ResourceInfo
     {

@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ECR.Model
 {
     /// <summary>
-    /// An array of objects representing the details of a replication destination.
+    /// An array of objects representing the destination for a replication rule.
     /// </summary>
     public partial class ReplicationDestination
     {
@@ -39,7 +39,7 @@ namespace Amazon.ECR.Model
         /// <summary>
         /// Gets and sets the property Region. 
         /// <para>
-        /// A Region to replicate to.
+        /// The Region to replicate to.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=2, Max=25)]
@@ -58,7 +58,9 @@ namespace Amazon.ECR.Model
         /// <summary>
         /// Gets and sets the property RegistryId. 
         /// <para>
-        /// The account ID of the destination registry to replicate to.
+        /// The Amazon Web Services account ID of the Amazon ECR private registry to replicate
+        /// to. When configuring cross-Region replication within your own registry, specify your
+        /// own account ID.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

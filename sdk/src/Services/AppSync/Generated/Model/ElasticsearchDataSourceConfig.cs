@@ -29,7 +29,14 @@ using Amazon.Runtime.Internal;
 namespace Amazon.AppSync.Model
 {
     /// <summary>
-    /// Describes an Elasticsearch data source configuration.
+    /// Describes an OpenSearch data source configuration.
+    /// 
+    ///  
+    /// <para>
+    /// As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch Service. This
+    /// configuration is deprecated. For new data sources, use <a>OpenSearchServiceDataSourceConfig</a>
+    /// to specify an OpenSearch data source.
+    /// </para>
     /// </summary>
     public partial class ElasticsearchDataSourceConfig
     {

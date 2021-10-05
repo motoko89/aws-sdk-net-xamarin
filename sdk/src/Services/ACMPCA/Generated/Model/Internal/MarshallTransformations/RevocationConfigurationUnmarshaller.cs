@@ -70,6 +70,12 @@ namespace Amazon.ACMPCA.Model.Internal.MarshallTransformations
                     unmarshalledObject.CrlConfiguration = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("OcspConfiguration", targetDepth))
+                {
+                    var unmarshaller = OcspConfigurationUnmarshaller.Instance;
+                    unmarshalledObject.OcspConfiguration = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

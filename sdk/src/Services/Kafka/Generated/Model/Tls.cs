@@ -34,6 +34,7 @@ namespace Amazon.Kafka.Model
     public partial class Tls
     {
         private List<string> _certificateAuthorityArnList = new List<string>();
+        private bool? _enabled;
 
         /// <summary>
         /// Gets and sets the property CertificateAuthorityArnList.             
@@ -51,6 +52,24 @@ namespace Amazon.Kafka.Model
         internal bool IsSetCertificateAuthorityArnList()
         {
             return this._certificateAuthorityArnList != null && this._certificateAuthorityArnList.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property Enabled.             
+        /// <para>
+        /// Specifies whether you want to enable or disable TLS authentication.
+        /// </para>
+        /// </summary>
+        public bool Enabled
+        {
+            get { return this._enabled.GetValueOrDefault(); }
+            set { this._enabled = value; }
+        }
+
+        // Check to see if Enabled property is set
+        internal bool IsSetEnabled()
+        {
+            return this._enabled.HasValue; 
         }
 
     }

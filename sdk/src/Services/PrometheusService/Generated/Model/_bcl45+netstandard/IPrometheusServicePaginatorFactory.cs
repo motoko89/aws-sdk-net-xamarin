@@ -26,6 +26,11 @@ namespace Amazon.PrometheusService.Model
     {
 
         /// <summary>
+        /// Paginator for ListRuleGroupsNamespaces operation
+        ///</summary>
+        IListRuleGroupsNamespacesPaginator ListRuleGroupsNamespaces(ListRuleGroupsNamespacesRequest request);
+
+        /// <summary>
         /// Paginator for ListWorkspaces operation
         ///</summary>
         IListWorkspacesPaginator ListWorkspaces(ListWorkspacesRequest request);

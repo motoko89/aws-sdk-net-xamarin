@@ -95,6 +95,20 @@ namespace Amazon.TranscribeService.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
+                if(publicRequest.IsSetKMSEncryptionContext())
+                {
+                    context.Writer.WritePropertyName("KMSEncryptionContext");
+                    context.Writer.WriteObjectStart();
+                    foreach (var publicRequestKMSEncryptionContextKvp in publicRequest.KMSEncryptionContext)
+                    {
+                        context.Writer.WritePropertyName(publicRequestKMSEncryptionContextKvp.Key);
+                        var publicRequestKMSEncryptionContextValue = publicRequestKMSEncryptionContextKvp.Value;
+
+                            context.Writer.Write(publicRequestKMSEncryptionContextValue);
+                    }
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetLanguageCode())
                 {
                     context.Writer.WritePropertyName("LanguageCode");
@@ -171,6 +185,17 @@ namespace Amazon.TranscribeService.Model.Internal.MarshallTransformations
 
                     var marshaller = SettingsMarshaller.Instance;
                     marshaller.Marshall(publicRequest.Settings, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetSubtitles())
+                {
+                    context.Writer.WritePropertyName("Subtitles");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = SubtitlesMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.Subtitles, context);
 
                     context.Writer.WriteObjectEnd();
                 }

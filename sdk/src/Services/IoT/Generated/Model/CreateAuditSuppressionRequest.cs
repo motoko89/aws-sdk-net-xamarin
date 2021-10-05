@@ -30,7 +30,13 @@ namespace Amazon.IoT.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateAuditSuppression operation.
-    /// Creates a Device Defender audit suppression.
+    /// Creates a Device Defender audit suppression. 
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateAuditSuppression</a>
+    /// action.
+    /// </para>
     /// </summary>
     public partial class CreateAuditSuppressionRequest : AmazonIoTRequest
     {
@@ -60,7 +66,10 @@ namespace Amazon.IoT.Model
         /// <summary>
         /// Gets and sets the property ClientRequestToken. 
         /// <para>
-        ///  The epoch timestamp in seconds at which this suppression expires. 
+        ///  Each audit supression must have a unique client request token. If you try to create
+        /// a new audit suppression with the same token as one that already exists, an exception
+        /// occurs. If you omit this value, Amazon Web Services SDKs will automatically generate
+        /// a unique client request. 
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=64)]

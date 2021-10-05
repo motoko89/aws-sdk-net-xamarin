@@ -45,7 +45,7 @@ namespace Amazon.Macie2.Model
         /// data such as private keys or Amazon Web Services secret keys; FINANCIAL_INFORMATION,
         /// for financial data such as credit card numbers; or, PERSONAL_INFORMATION, for personal
         /// health information, such as health insurance identification numbers, or personally
-        /// identifiable information, such as driver's license identification numbers.
+        /// identifiable information, such as passport numbers.
         /// </para>
         /// </summary>
         public SensitiveDataItemCategory Category

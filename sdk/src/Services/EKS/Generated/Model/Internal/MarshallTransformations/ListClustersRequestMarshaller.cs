@@ -59,6 +59,9 @@ namespace Amazon.EKS.Model.Internal.MarshallTransformations
             request.HttpMethod = "GET";
 
             
+            if (publicRequest.IsSetInclude())
+                request.ParameterCollection.Add("include", publicRequest.Include);
+            
             if (publicRequest.IsSetMaxResults())
                 request.Parameters.Add("maxResults", StringUtils.FromInt(publicRequest.MaxResults));
             

@@ -95,6 +95,12 @@ namespace Amazon.ECR.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.ImageTagMutability);
                 }
 
+                if(publicRequest.IsSetRegistryId())
+                {
+                    context.Writer.WritePropertyName("registryId");
+                    context.Writer.Write(publicRequest.RegistryId);
+                }
+
                 if(publicRequest.IsSetRepositoryName())
                 {
                     context.Writer.WritePropertyName("repositoryName");

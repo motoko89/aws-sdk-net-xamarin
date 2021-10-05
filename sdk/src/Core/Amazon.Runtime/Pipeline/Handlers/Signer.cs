@@ -125,8 +125,7 @@ namespace Amazon.Runtime.Internal
                             throw new InvalidDataException("Cannot determine protocol");
                     }
                 }
-                requestContext.Signer.Sign(requestContext.Request, requestContext.ClientConfig, requestContext.Metrics,
-                    immutableCredentials.AccessKey, immutableCredentials.SecretKey);
+                requestContext.Signer.Sign(requestContext.Request, requestContext.ClientConfig, requestContext.Metrics, immutableCredentials);
             }
         }
     }

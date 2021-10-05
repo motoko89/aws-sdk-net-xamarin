@@ -64,16 +64,40 @@ namespace Amazon.Comprehend.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("AnnotationDataS3Uri", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.AnnotationDataS3Uri = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("AttributeNames", targetDepth))
                 {
                     var unmarshaller = new ListUnmarshaller<string, StringUnmarshaller>(StringUnmarshaller.Instance);
                     unmarshalledObject.AttributeNames = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("DocumentType", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.DocumentType = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("S3Uri", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.S3Uri = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("SourceDocumentsS3Uri", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.SourceDocumentsS3Uri = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("Split", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.Split = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

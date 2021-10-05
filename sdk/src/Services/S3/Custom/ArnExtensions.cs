@@ -1,5 +1,6 @@
 using Amazon.Runtime;
 using System;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -88,6 +89,28 @@ namespace Amazon.S3
         }
 
         /// <summary>
+        /// Determines whether an ARN is for a multi-region access point 
+        /// </summary>
+        /// <param name="arn">An AWS ARN to parse</param>
+        /// <returns>True if the ARN is for a multi-region access point</returns>
+        public static bool IsMRAPArn(this Arn arn)
+        {
+            if (string.IsNullOrEmpty(arn.Resource))
+            {
+                return false;
+            }
+            
+            // The resource of MRAP ARNs must begin with a resource-type of `accesspoint`
+            if (!(arn.Resource.StartsWith(ResourceTypeAccessPoint + ":", StringComparison.Ordinal) || 
+                  arn.Resource.StartsWith(ResourceTypeAccessPoint + "/", StringComparison.Ordinal)))
+            {
+                return false;
+            }
+
+            return string.IsNullOrEmpty(arn.Region);
+        }
+
+        /// <summary>
         /// Parse an Arn to extract information on S3 outpost access point
         /// and if it is not found or properly formatted, throw an exception
         /// </summary>
@@ -123,6 +146,15 @@ namespace Amazon.S3
                 AccessPointName = parts[3],
                 Key = parts.Length > 4 ? parts[4] : null
             };
-        }   
+        }
+
+        /// <summary>
+        /// Check if the ARN has a valid Account ID
+        /// </summary>
+        /// <param name="arn">The ARN which is being validated</param>
+        public static bool HasValidAccountId(this Arn arn)
+        {
+            return string.IsNullOrEmpty(arn.AccountId) || (arn.AccountId.Length == 12 && arn.AccountId.ToCharArray().All(x => char.IsDigit(x)));
+        }
     }
 }

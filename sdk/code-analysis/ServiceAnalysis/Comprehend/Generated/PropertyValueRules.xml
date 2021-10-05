@@ -33,15 +33,22 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.CreateDocumentClassifierRequest.ModelKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.CreateDocumentClassifierRequest.VersionName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9](-*[a-zA-Z0-9])*$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.CreateDocumentClassifierRequest.VolumeKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.CreateDocumentClassifierResponse.DocumentClassifierArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.CreateEndpointRequest.ClientRequestToken</property>
@@ -67,7 +74,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.CreateEndpointRequest.ModelArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier|entity-recognizer)/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier|entity-recognizer)/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.CreateEndpointResponse.EndpointArn</property>
@@ -89,6 +96,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.CreateEntityRecognizerRequest.ModelKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.CreateEntityRecognizerRequest.RecognizerName</property>
@@ -96,18 +104,24 @@
     <pattern>^[a-zA-Z0-9](-*[a-zA-Z0-9])*$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Comprehend.Model.CreateEntityRecognizerRequest.VersionName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9](-*[a-zA-Z0-9])*$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Comprehend.Model.CreateEntityRecognizerRequest.VolumeKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.CreateEntityRecognizerResponse.EntityRecognizerArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DeleteDocumentClassifierRequest.DocumentClassifierArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DeleteEndpointRequest.EndpointArn</property>
@@ -117,7 +131,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DeleteEntityRecognizerRequest.EntityRecognizerArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DescribeDocumentClassificationJobRequest.JobId</property>
@@ -128,7 +142,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DescribeDocumentClassifierRequest.DocumentClassifierArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DescribeDominantLanguageDetectionJobRequest.JobId</property>
@@ -150,7 +164,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DescribeEntityRecognizerRequest.EntityRecognizerArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DescribeEventsDetectionJobRequest.JobId</property>
@@ -238,6 +252,19 @@
     <min>1</min>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Comprehend.Model.ListDocumentClassifierSummariesRequest.MaxResults</property>
+    <min>1</min>
+    <max>500</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.ListDocumentClassifierSummariesRequest.NextToken</property>
+    <min>1</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.ListDocumentClassifierSummariesResponse.NextToken</property>
+    <min>1</min>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Comprehend.Model.ListDominantLanguageDetectionJobsRequest.MaxResults</property>
     <min>1</min>
     <max>500</max>
@@ -287,6 +314,19 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.ListEntityRecognizersResponse.NextToken</property>
+    <min>1</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.ListEntityRecognizerSummariesRequest.MaxResults</property>
+    <min>1</min>
+    <max>500</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.ListEntityRecognizerSummariesRequest.NextToken</property>
+    <min>1</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.ListEntityRecognizerSummariesResponse.NextToken</property>
     <min>1</min>
   </property-value-rule>
   <property-value-rule>
@@ -344,12 +384,12 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.ListTagsForResourceRequest.ResourceArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.ListTagsForResourceResponse.ResourceArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.ListTopicsDetectionJobsRequest.MaxResults</property>
@@ -379,7 +419,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartDocumentClassificationJobRequest.DocumentClassifierArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartDocumentClassificationJobRequest.JobName</property>
@@ -390,11 +430,12 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartDocumentClassificationJobRequest.VolumeKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartDocumentClassificationJobResponse.JobArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartDocumentClassificationJobResponse.JobId</property>
@@ -423,11 +464,12 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartDominantLanguageDetectionJobRequest.VolumeKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartDominantLanguageDetectionJobResponse.JobArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartDominantLanguageDetectionJobResponse.JobId</property>
@@ -450,7 +492,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartEntitiesDetectionJobRequest.EntityRecognizerArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartEntitiesDetectionJobRequest.JobName</property>
@@ -461,11 +503,12 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartEntitiesDetectionJobRequest.VolumeKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartEntitiesDetectionJobResponse.JobArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartEntitiesDetectionJobResponse.JobId</property>
@@ -494,7 +537,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartEventsDetectionJobResponse.JobArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartEventsDetectionJobResponse.JobId</property>
@@ -523,11 +566,12 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartKeyPhrasesDetectionJobRequest.VolumeKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartKeyPhrasesDetectionJobResponse.JobArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartKeyPhrasesDetectionJobResponse.JobId</property>
@@ -556,7 +600,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartPiiEntitiesDetectionJobResponse.JobArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartPiiEntitiesDetectionJobResponse.JobId</property>
@@ -585,11 +629,12 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartSentimentDetectionJobRequest.VolumeKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartSentimentDetectionJobResponse.JobArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartSentimentDetectionJobResponse.JobId</property>
@@ -623,11 +668,12 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartTopicsDetectionJobRequest.VolumeKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartTopicsDetectionJobResponse.JobArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StartTopicsDetectionJobResponse.JobId</property>
@@ -710,26 +756,37 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StopTrainingDocumentClassifierRequest.DocumentClassifierArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.StopTrainingEntityRecognizerRequest.EntityRecognizerArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.TagResourceRequest.ResourceArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.UntagResourceRequest.ResourceArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.UpdateEndpointRequest.DesiredDataAccessRoleArn</property>
+    <min>20</min>
+    <max>2048</max>
+    <pattern>arn:aws(-[^:]+)?:iam::[0-9]{12}:role/.+</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.UpdateEndpointRequest.DesiredInferenceUnits</property>
     <min>1</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.UpdateEndpointRequest.DesiredModelArn</property>
+    <max>256</max>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier|entity-recognizer)/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.UpdateEndpointRequest.EndpointArn</property>
@@ -737,7 +794,17 @@
     <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier-endpoint|entity-recognizer-endpoint)/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Comprehend.Model.AugmentedManifestsListItem.AnnotationDataS3Uri</property>
+    <max>1024</max>
+    <pattern>s3://[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9](/.*)?</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Comprehend.Model.AugmentedManifestsListItem.S3Uri</property>
+    <max>1024</max>
+    <pattern>s3://[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9](/.*)?</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.AugmentedManifestsListItem.SourceDocumentsS3Uri</property>
     <max>1024</max>
     <pattern>s3://[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9](/.*)?</pattern>
   </property-value-rule>
@@ -768,12 +835,12 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DocumentClassificationJobProperties.DocumentClassifierArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DocumentClassificationJobProperties.JobArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DocumentClassificationJobProperties.JobId</property>
@@ -790,6 +857,12 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DocumentClassificationJobProperties.VolumeKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.DocumentClassifierFilter.DocumentClassifierName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9](-*[a-zA-Z0-9])*$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DocumentClassifierInputDataConfig.LabelDelimiter</property>
@@ -803,8 +876,14 @@
     <pattern>s3://[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9](/.*)?</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Comprehend.Model.DocumentClassifierInputDataConfig.TestS3Uri</property>
+    <max>1024</max>
+    <pattern>s3://[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9](/.*)?</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Comprehend.Model.DocumentClassifierOutputDataConfig.KmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DocumentClassifierOutputDataConfig.S3Uri</property>
@@ -820,15 +899,32 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DocumentClassifierProperties.DocumentClassifierArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DocumentClassifierProperties.ModelKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.DocumentClassifierProperties.VersionName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9](-*[a-zA-Z0-9])*$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DocumentClassifierProperties.VolumeKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.DocumentClassifierSummary.DocumentClassifierName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9](-*[a-zA-Z0-9])*$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.DocumentClassifierSummary.LatestVersionName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9](-*[a-zA-Z0-9])*$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DocumentLabel.Name</property>
@@ -853,7 +949,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DominantLanguageDetectionJobProperties.JobArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DominantLanguageDetectionJobProperties.JobId</property>
@@ -870,11 +966,12 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.DominantLanguageDetectionJobProperties.VolumeKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.EndpointFilter.ModelArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier|entity-recognizer)/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier|entity-recognizer)/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.EndpointProperties.CurrentInferenceUnits</property>
@@ -887,8 +984,19 @@
     <pattern>arn:aws(-[^:]+)?:iam::[0-9]{12}:role/.+</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Comprehend.Model.EndpointProperties.DesiredDataAccessRoleArn</property>
+    <min>20</min>
+    <max>2048</max>
+    <pattern>arn:aws(-[^:]+)?:iam::[0-9]{12}:role/.+</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Comprehend.Model.EndpointProperties.DesiredInferenceUnits</property>
     <min>1</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.EndpointProperties.DesiredModelArn</property>
+    <max>256</max>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier|entity-recognizer)/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.EndpointProperties.EndpointArn</property>
@@ -898,7 +1006,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.EndpointProperties.ModelArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier|entity-recognizer)/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier|entity-recognizer)/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.EntitiesDetectionJobFilter.JobName</property>
@@ -915,12 +1023,12 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.EntitiesDetectionJobProperties.EntityRecognizerArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.EntitiesDetectionJobProperties.JobArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.EntitiesDetectionJobProperties.JobId</property>
@@ -937,6 +1045,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.EntitiesDetectionJobProperties.VolumeKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.Entity.Text</property>
@@ -948,7 +1057,17 @@
     <pattern>s3://[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9](/.*)?</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Comprehend.Model.EntityRecognizerAnnotations.TestS3Uri</property>
+    <max>1024</max>
+    <pattern>s3://[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9](/.*)?</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Comprehend.Model.EntityRecognizerDocuments.S3Uri</property>
+    <max>1024</max>
+    <pattern>s3://[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9](/.*)?</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.EntityRecognizerDocuments.TestS3Uri</property>
     <max>1024</max>
     <pattern>s3://[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9](/.*)?</pattern>
   </property-value-rule>
@@ -956,6 +1075,11 @@
     <property>Amazon.Comprehend.Model.EntityRecognizerEntityList.S3Uri</property>
     <max>1024</max>
     <pattern>s3://[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9](/.*)?</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.EntityRecognizerFilter.RecognizerName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9](-*[a-zA-Z0-9])*$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.EntityRecognizerProperties.DataAccessRoleArn</property>
@@ -966,15 +1090,32 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.EntityRecognizerProperties.EntityRecognizerArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.EntityRecognizerProperties.ModelKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.EntityRecognizerProperties.VersionName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9](-*[a-zA-Z0-9])*$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.EntityRecognizerProperties.VolumeKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.EntityRecognizerSummary.LatestVersionName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9](-*[a-zA-Z0-9])*$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Comprehend.Model.EntityRecognizerSummary.RecognizerName</property>
+    <max>63</max>
+    <pattern>^[a-zA-Z0-9](-*[a-zA-Z0-9])*$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.EntityTypesListItem.Type</property>
@@ -996,7 +1137,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.EventsDetectionJobProperties.JobArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.EventsDetectionJobProperties.JobId</property>
@@ -1034,7 +1175,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.KeyPhrasesDetectionJobProperties.JobArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.KeyPhrasesDetectionJobProperties.JobId</property>
@@ -1051,10 +1192,12 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.KeyPhrasesDetectionJobProperties.VolumeKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.OutputDataConfig.KmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.OutputDataConfig.S3Uri</property>
@@ -1076,7 +1219,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.PiiEntitiesDetectionJobProperties.JobArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.PiiEntitiesDetectionJobProperties.JobId</property>
@@ -1093,6 +1236,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.PiiOutputDataConfig.KmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.PiiOutputDataConfig.S3Uri</property>
@@ -1120,7 +1264,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.SentimentDetectionJobProperties.JobArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.SentimentDetectionJobProperties.JobId</property>
@@ -1137,6 +1281,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.SentimentDetectionJobProperties.VolumeKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.SyntaxToken.Text</property>
@@ -1167,7 +1312,7 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.TopicsDetectionJobProperties.JobArn</property>
     <max>256</max>
-    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*</pattern>
+    <pattern>arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Comprehend.Model.TopicsDetectionJobProperties.JobId</property>
@@ -1184,5 +1329,6 @@
   <property-value-rule>
     <property>Amazon.Comprehend.Model.TopicsDetectionJobProperties.VolumeKmsKeyId</property>
     <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
 </property-value-rules>

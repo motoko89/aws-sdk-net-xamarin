@@ -76,6 +76,12 @@ namespace Amazon.Kafka.Model.Internal.MarshallTransformations
                     unmarshalledObject.Tls = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("unauthenticated", targetDepth))
+                {
+                    var unmarshaller = UnauthenticatedUnmarshaller.Instance;
+                    unmarshalledObject.Unauthenticated = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

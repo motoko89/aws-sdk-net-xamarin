@@ -2260,8 +2260,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AttachVpnGateway service method.</param>
@@ -2284,8 +2285,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AttachVpnGateway service method.</param>
@@ -2312,7 +2314,8 @@ namespace Amazon.EC2
         /// <summary>
         /// Adds an ingress authorization rule to a Client VPN endpoint. Ingress authorization
         /// rules act as firewall rules that grant access to networks. You must configure ingress
-        /// authorization rules to enable clients to access resources in AWS or on-premises networks.
+        /// authorization rules to enable clients to access resources in Amazon Web Services or
+        /// on-premises networks.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AuthorizeClientVpnIngress service method.</param>
         /// 
@@ -2331,7 +2334,8 @@ namespace Amazon.EC2
         /// <summary>
         /// Adds an ingress authorization rule to a Client VPN endpoint. Ingress authorization
         /// rules act as firewall rules that grant access to networks. You must configure ingress
-        /// authorization rules to enable clients to access resources in AWS or on-premises networks.
+        /// authorization rules to enable clients to access resources in Amazon Web Services or
+        /// on-premises networks.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AuthorizeClientVpnIngress service method.</param>
         /// <param name="cancellationToken">
@@ -3101,8 +3105,8 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from
-        /// a Region to an AWS Outpost. You can't copy an AMI from an Outpost to a Region, from
-        /// one Outpost to another, or within the same Outpost. To copy an AMI to another partition,
+        /// a Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one
+        /// Outpost to another, or within the same Outpost. To copy an AMI to another partition,
         /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.
         /// 
         ///  
@@ -3147,8 +3151,8 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from
-        /// a Region to an AWS Outpost. You can't copy an AMI from an Outpost to a Region, from
-        /// one Outpost to another, or within the same Outpost. To copy an AMI to another partition,
+        /// a Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one
+        /// Outpost to another, or within the same Outpost. To copy an AMI to another partition,
         /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.
         /// 
         ///  
@@ -3540,11 +3544,12 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Provides information to AWS about your VPN customer gateway device. The customer gateway
-        /// is the appliance at your end of the VPN connection. (The device on the AWS side of
-        /// the VPN connection is the virtual private gateway.) You must provide the internet-routable
-        /// IP address of the customer gateway's external interface. The IP address must be static
-        /// and can be behind a device performing network address translation (NAT).
+        /// Provides information to Amazon Web Services about your VPN customer gateway device.
+        /// The customer gateway is the appliance at your end of the VPN connection. (The device
+        /// on the Amazon Web Services side of the VPN connection is the virtual private gateway.)
+        /// You must provide the internet-routable IP address of the customer gateway's external
+        /// interface. The IP address must be static and can be behind a device performing network
+        /// address translation (NAT).
         /// 
         ///  
         /// <para>
@@ -3576,8 +3581,9 @@ namespace Amazon.EC2
         /// </para>
         ///  </li> </ul> </note> 
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         ///  <important> 
         /// <para>
@@ -3602,11 +3608,12 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Provides information to AWS about your VPN customer gateway device. The customer gateway
-        /// is the appliance at your end of the VPN connection. (The device on the AWS side of
-        /// the VPN connection is the virtual private gateway.) You must provide the internet-routable
-        /// IP address of the customer gateway's external interface. The IP address must be static
-        /// and can be behind a device performing network address translation (NAT).
+        /// Provides information to Amazon Web Services about your VPN customer gateway device.
+        /// The customer gateway is the appliance at your end of the VPN connection. (The device
+        /// on the Amazon Web Services side of the VPN connection is the virtual private gateway.)
+        /// You must provide the internet-routable IP address of the customer gateway's external
+        /// interface. The IP address must be static and can be behind a device performing network
+        /// address translation (NAT).
         /// 
         ///  
         /// <para>
@@ -3638,8 +3645,9 @@ namespace Amazon.EC2
         /// </para>
         ///  </li> </ul> </note> 
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         ///  <important> 
         /// <para>
@@ -4201,9 +4209,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// If you customized your instance with instance store volumes or EBS volumes in addition
-        /// to the root device volume, the new AMI contains block device mapping information for
-        /// those volumes. When you launch an instance from this new AMI, the instance automatically
+        /// If you customized your instance with instance store volumes or Amazon EBS volumes
+        /// in addition to the root device volume, the new AMI contains block device mapping information
+        /// for those volumes. When you launch an instance from this new AMI, the instance automatically
         /// launches with those additional volumes.
         /// </para>
         ///  
@@ -4232,9 +4240,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// If you customized your instance with instance store volumes or EBS volumes in addition
-        /// to the root device volume, the new AMI contains block device mapping information for
-        /// those volumes. When you launch an instance from this new AMI, the instance automatically
+        /// If you customized your instance with instance store volumes or Amazon EBS volumes
+        /// in addition to the root device volume, the new AMI contains block device mapping information
+        /// for those volumes. When you launch an instance from this new AMI, the instance automatically
         /// launches with those additional volumes.
         /// </para>
         ///  
@@ -4815,12 +4823,6 @@ namespace Amazon.EC2
         /// <summary>
         /// Creates a managed prefix list. You can specify one or more entries for the prefix
         /// list. Each entry consists of a CIDR block and an optional description.
-        /// 
-        ///  
-        /// <para>
-        /// You must specify the maximum number of entries for the prefix list. The maximum number
-        /// of entries cannot be changed later.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateManagedPrefixList service method.</param>
         /// 
@@ -4839,12 +4841,6 @@ namespace Amazon.EC2
         /// <summary>
         /// Creates a managed prefix list. You can specify one or more entries for the prefix
         /// list. Each entry consists of a CIDR block and an optional description.
-        /// 
-        ///  
-        /// <para>
-        /// You must specify the maximum number of entries for the prefix list. The maximum number
-        /// of entries cannot be changed later.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateManagedPrefixList service method.</param>
         /// <param name="cancellationToken">
@@ -5485,20 +5481,21 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Starts a task that restores an AMI from an S3 object that was previously created by
-        /// using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.
+        /// Starts a task that restores an AMI from an Amazon S3 object that was previously created
+        /// by using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.
         /// 
         ///  
         /// <para>
         /// To use this API, you must have the required permissions. For more information, see
         /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions
-        /// for storing and restoring AMIs using S3</a> in the <i>Amazon Elastic Compute Cloud
-        /// User Guide</i>.
+        /// for storing and restoring AMIs using Amazon S3</a> in the <i>Amazon Elastic Compute
+        /// Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store
-        /// and restore an AMI using S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// and restore an AMI using Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateRestoreImageTask service method.</param>
@@ -5516,20 +5513,21 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Starts a task that restores an AMI from an S3 object that was previously created by
-        /// using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.
+        /// Starts a task that restores an AMI from an Amazon S3 object that was previously created
+        /// by using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.
         /// 
         ///  
         /// <para>
         /// To use this API, you must have the required permissions. For more information, see
         /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions
-        /// for storing and restoring AMIs using S3</a> in the <i>Amazon Elastic Compute Cloud
-        /// User Guide</i>.
+        /// for storing and restoring AMIs using Amazon S3</a> in the <i>Amazon Elastic Compute
+        /// Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store
-        /// and restore an AMI using S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// and restore an AMI using Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateRestoreImageTask service method.</param>
@@ -6074,19 +6072,20 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Stores an AMI as a single object in an S3 bucket.
+        /// Stores an AMI as a single object in an Amazon S3 bucket.
         /// 
         ///  
         /// <para>
         /// To use this API, you must have the required permissions. For more information, see
         /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions
-        /// for storing and restoring AMIs using S3</a> in the <i>Amazon Elastic Compute Cloud
-        /// User Guide</i>.
+        /// for storing and restoring AMIs using Amazon S3</a> in the <i>Amazon Elastic Compute
+        /// Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store
-        /// and restore an AMI using S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// and restore an AMI using Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateStoreImageTask service method.</param>
@@ -6104,19 +6103,20 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Stores an AMI as a single object in an S3 bucket.
+        /// Stores an AMI as a single object in an Amazon S3 bucket.
         /// 
         ///  
         /// <para>
         /// To use this API, you must have the required permissions. For more information, see
         /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions
-        /// for storing and restoring AMIs using S3</a> in the <i>Amazon Elastic Compute Cloud
-        /// User Guide</i>.
+        /// for storing and restoring AMIs using Amazon S3</a> in the <i>Amazon Elastic Compute
+        /// Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store
-        /// and restore an AMI using S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// and restore an AMI using Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateStoreImageTask service method.</param>
@@ -7700,8 +7700,9 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpnConnection service method.</param>
@@ -7746,8 +7747,9 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpnConnection service method.</param>
@@ -7778,8 +7780,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpnConnectionRoute service method.</param>
@@ -7803,8 +7806,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpnConnectionRoute service method.</param>
@@ -7835,8 +7839,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpnGateway service method.</param>
@@ -7860,8 +7865,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpnGateway service method.</param>
@@ -10453,9 +10459,9 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For certificate-based authentication, delete all AWS Certificate Manager (ACM) private
-        /// certificates used for the AWS-side tunnel endpoints for the VPN connection before
-        /// deleting the VPN connection.
+        /// For certificate-based authentication, delete all Certificate Manager (ACM) private
+        /// certificates used for the Amazon Web Services-side tunnel endpoints for the VPN connection
+        /// before deleting the VPN connection.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVpnConnection service method.</param>
@@ -10487,9 +10493,9 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For certificate-based authentication, delete all AWS Certificate Manager (ACM) private
-        /// certificates used for the AWS-side tunnel endpoints for the VPN connection before
-        /// deleting the VPN connection.
+        /// For certificate-based authentication, delete all Certificate Manager (ACM) private
+        /// certificates used for the Amazon Web Services-side tunnel endpoints for the VPN connection
+        /// before deleting the VPN connection.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVpnConnection service method.</param>
@@ -12030,8 +12036,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// 
@@ -12048,8 +12055,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeCustomerGateways service method.</param>
@@ -12071,8 +12079,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -12091,8 +12100,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeCustomerGateways service method.</param>
@@ -13178,7 +13188,8 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// The images available to you include public images, private images that you own, and
-        /// private images owned by other AWS accounts for which you have explicit launch permissions.
+        /// private images owned by other Amazon Web Services accounts for which you have explicit
+        /// launch permissions.
         /// </para>
         ///  
         /// <para>
@@ -13204,7 +13215,8 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// The images available to you include public images, private images that you own, and
-        /// private images owned by other AWS accounts for which you have explicit launch permissions.
+        /// private images owned by other Amazon Web Services accounts for which you have explicit
+        /// launch permissions.
         /// </para>
         ///  
         /// <para>
@@ -13235,7 +13247,8 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// The images available to you include public images, private images that you own, and
-        /// private images owned by other AWS accounts for which you have explicit launch permissions.
+        /// private images owned by other Amazon Web Services accounts for which you have explicit
+        /// launch permissions.
         /// </para>
         ///  
         /// <para>
@@ -13263,7 +13276,8 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// The images available to you include public images, private images that you own, and
-        /// private images owned by other AWS accounts for which you have explicit launch permissions.
+        /// private images owned by other Amazon Web Services accounts for which you have explicit
+        /// launch permissions.
         /// </para>
         ///  
         /// <para>
@@ -17365,13 +17379,14 @@ namespace Amazon.EC2
         /// <para>
         /// To use this API, you must have the required permissions. For more information, see
         /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions
-        /// for storing and restoring AMIs using S3</a> in the <i>Amazon Elastic Compute Cloud
-        /// User Guide</i>.
+        /// for storing and restoring AMIs using Amazon S3</a> in the <i>Amazon Elastic Compute
+        /// Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store
-        /// and restore an AMI using S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// and restore an AMI using Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeStoreImageTasks service method.</param>
@@ -17408,13 +17423,14 @@ namespace Amazon.EC2
         /// <para>
         /// To use this API, you must have the required permissions. For more information, see
         /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions
-        /// for storing and restoring AMIs using S3</a> in the <i>Amazon Elastic Compute Cloud
-        /// User Guide</i>.
+        /// for storing and restoring AMIs using Amazon S3</a> in the <i>Amazon Elastic Compute
+        /// Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store
-        /// and restore an AMI using S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// and restore an AMI using Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeStoreImageTasks service method.</param>
@@ -19180,8 +19196,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// 
@@ -19198,8 +19215,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVpnConnections service method.</param>
@@ -19221,8 +19239,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -19241,8 +19260,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVpnConnections service method.</param>
@@ -19271,8 +19291,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// 
@@ -19289,8 +19310,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVpnGateways service method.</param>
@@ -19312,8 +19334,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -19332,8 +19355,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
-        /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
+        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVpnGateways service method.</param>
@@ -22555,6 +22579,96 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  GetVpnConnectionDeviceSampleConfiguration
+
+
+        /// <summary>
+        /// Download an AWS-provided sample configuration file to be used with the customer gateway
+        /// device specified for your Site-to-Site VPN connection.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetVpnConnectionDeviceSampleConfiguration service method.</param>
+        /// 
+        /// <returns>The response from the GetVpnConnectionDeviceSampleConfiguration service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetVpnConnectionDeviceSampleConfiguration">REST API Reference for GetVpnConnectionDeviceSampleConfiguration Operation</seealso>
+        public virtual GetVpnConnectionDeviceSampleConfigurationResponse GetVpnConnectionDeviceSampleConfiguration(GetVpnConnectionDeviceSampleConfigurationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetVpnConnectionDeviceSampleConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetVpnConnectionDeviceSampleConfigurationResponseUnmarshaller.Instance;
+
+            return Invoke<GetVpnConnectionDeviceSampleConfigurationResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Download an AWS-provided sample configuration file to be used with the customer gateway
+        /// device specified for your Site-to-Site VPN connection.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetVpnConnectionDeviceSampleConfiguration service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetVpnConnectionDeviceSampleConfiguration service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetVpnConnectionDeviceSampleConfiguration">REST API Reference for GetVpnConnectionDeviceSampleConfiguration Operation</seealso>
+        public virtual Task<GetVpnConnectionDeviceSampleConfigurationResponse> GetVpnConnectionDeviceSampleConfigurationAsync(GetVpnConnectionDeviceSampleConfigurationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetVpnConnectionDeviceSampleConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetVpnConnectionDeviceSampleConfigurationResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<GetVpnConnectionDeviceSampleConfigurationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetVpnConnectionDeviceTypes
+
+
+        /// <summary>
+        /// Obtain a list of customer gateway devices for which sample configuration files can
+        /// be provided. The request has no additional parameters. You can also see the list of
+        /// device types with sample configuration files available under <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html">Your
+        /// customer gateway device</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetVpnConnectionDeviceTypes service method.</param>
+        /// 
+        /// <returns>The response from the GetVpnConnectionDeviceTypes service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetVpnConnectionDeviceTypes">REST API Reference for GetVpnConnectionDeviceTypes Operation</seealso>
+        public virtual GetVpnConnectionDeviceTypesResponse GetVpnConnectionDeviceTypes(GetVpnConnectionDeviceTypesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetVpnConnectionDeviceTypesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetVpnConnectionDeviceTypesResponseUnmarshaller.Instance;
+
+            return Invoke<GetVpnConnectionDeviceTypesResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Obtain a list of customer gateway devices for which sample configuration files can
+        /// be provided. The request has no additional parameters. You can also see the list of
+        /// device types with sample configuration files available under <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html">Your
+        /// customer gateway device</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetVpnConnectionDeviceTypes service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetVpnConnectionDeviceTypes service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetVpnConnectionDeviceTypes">REST API Reference for GetVpnConnectionDeviceTypes Operation</seealso>
+        public virtual Task<GetVpnConnectionDeviceTypesResponse> GetVpnConnectionDeviceTypesAsync(GetVpnConnectionDeviceTypesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetVpnConnectionDeviceTypesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetVpnConnectionDeviceTypesResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<GetVpnConnectionDeviceTypesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ImportClientVpnClientCertificateRevocationList
 
 
@@ -23718,13 +23832,11 @@ namespace Amazon.EC2
         /// <summary>
         /// Modifies the specified attribute of the specified AMI. You can specify only one attribute
         /// at a time. You can use the <code>Attribute</code> parameter to specify the attribute
-        /// or one of the following parameters: <code>Description</code>, <code>LaunchPermission</code>,
-        /// or <code>ProductCode</code>.
+        /// or one of the following parameters: <code>Description</code> or <code>LaunchPermission</code>.
         /// 
         ///  
         /// <para>
-        /// AWS Marketplace product codes cannot be modified. Images with an AWS Marketplace product
-        /// code cannot be made public.
+        /// Images with an Amazon Web Services Marketplace product code cannot be made public.
         /// </para>
         ///  
         /// <para>
@@ -23749,13 +23861,11 @@ namespace Amazon.EC2
         /// <summary>
         /// Modifies the specified attribute of the specified AMI. You can specify only one attribute
         /// at a time. You can use the <code>Attribute</code> parameter to specify the attribute
-        /// or one of the following parameters: <code>Description</code>, <code>LaunchPermission</code>,
-        /// or <code>ProductCode</code>.
+        /// or one of the following parameters: <code>Description</code> or <code>LaunchPermission</code>.
         /// 
         ///  
         /// <para>
-        /// AWS Marketplace product codes cannot be modified. Images with an AWS Marketplace product
-        /// code cannot be made public.
+        /// Images with an Amazon Web Services Marketplace product code cannot be made public.
         /// </para>
         ///  
         /// <para>
@@ -24151,8 +24261,7 @@ namespace Amazon.EC2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Change the instance tenancy of an instance from <code>host</code> to <code>dedicated</code>,
-        /// or from <code>dedicated</code> to <code>host</code>.
+        /// Change the instance tenancy of an instance.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -24201,8 +24310,7 @@ namespace Amazon.EC2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Change the instance tenancy of an instance from <code>host</code> to <code>dedicated</code>,
-        /// or from <code>dedicated</code> to <code>host</code>.
+        /// Change the instance tenancy of an instance.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -25625,8 +25733,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the customer gateway or the target gateway of an AWS Site-to-Site VPN connection.
-        /// To modify the target gateway, the following migration options are available:
+        /// Modifies the customer gateway or the target gateway of an Amazon Web Services Site-to-Site
+        /// VPN connection. To modify the target gateway, the following migration options are
+        /// available:
         /// 
         ///  <ul> <li> 
         /// <para>
@@ -25668,15 +25777,14 @@ namespace Amazon.EC2
         /// <para>
         /// After you migrate to the new gateway, you might need to modify your VPC route table.
         /// Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes described in <a
-        /// href="https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing">VPN
-        /// Gateway Target Modification Required VPC Route Table Updates</a> in the <i>AWS Site-to-Site
-        /// VPN User Guide</i>.
+        /// href="https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing">Update
+        /// VPC route tables</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.
         /// </para>
         ///  
         /// <para>
-        ///  When the new gateway is a transit gateway, modify the transit gateway route table
-        /// to allow traffic between the VPC and the AWS Site-to-Site VPN connection. Use <a>CreateTransitGatewayRoute</a>
-        /// to add the routes.
+        /// When the new gateway is a transit gateway, modify the transit gateway route table
+        /// to allow traffic between the VPC and the Amazon Web Services Site-to-Site VPN connection.
+        /// Use <a>CreateTransitGatewayRoute</a> to add the routes.
         /// </para>
         ///  
         /// <para>
@@ -25685,9 +25793,10 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// After you perform this operation, the AWS VPN endpoint's IP addresses on the AWS side
-        /// and the tunnel options remain intact. Your AWS Site-to-Site VPN connection will be
-        /// temporarily unavailable for a brief period while we provision the new endpoints.
+        /// After you perform this operation, the VPN endpoint's IP addresses on the Amazon Web
+        /// Services side and the tunnel options remain intact. Your Amazon Web Services Site-to-Site
+        /// VPN connection will be temporarily unavailable for a brief period while we provision
+        /// the new endpoints.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVpnConnection service method.</param>
@@ -25705,8 +25814,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the customer gateway or the target gateway of an AWS Site-to-Site VPN connection.
-        /// To modify the target gateway, the following migration options are available:
+        /// Modifies the customer gateway or the target gateway of an Amazon Web Services Site-to-Site
+        /// VPN connection. To modify the target gateway, the following migration options are
+        /// available:
         /// 
         ///  <ul> <li> 
         /// <para>
@@ -25748,15 +25858,14 @@ namespace Amazon.EC2
         /// <para>
         /// After you migrate to the new gateway, you might need to modify your VPC route table.
         /// Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes described in <a
-        /// href="https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing">VPN
-        /// Gateway Target Modification Required VPC Route Table Updates</a> in the <i>AWS Site-to-Site
-        /// VPN User Guide</i>.
+        /// href="https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing">Update
+        /// VPC route tables</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.
         /// </para>
         ///  
         /// <para>
-        ///  When the new gateway is a transit gateway, modify the transit gateway route table
-        /// to allow traffic between the VPC and the AWS Site-to-Site VPN connection. Use <a>CreateTransitGatewayRoute</a>
-        /// to add the routes.
+        /// When the new gateway is a transit gateway, modify the transit gateway route table
+        /// to allow traffic between the VPC and the Amazon Web Services Site-to-Site VPN connection.
+        /// Use <a>CreateTransitGatewayRoute</a> to add the routes.
         /// </para>
         ///  
         /// <para>
@@ -25765,9 +25874,10 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// After you perform this operation, the AWS VPN endpoint's IP addresses on the AWS side
-        /// and the tunnel options remain intact. Your AWS Site-to-Site VPN connection will be
-        /// temporarily unavailable for a brief period while we provision the new endpoints.
+        /// After you perform this operation, the VPN endpoint's IP addresses on the Amazon Web
+        /// Services side and the tunnel options remain intact. Your Amazon Web Services Site-to-Site
+        /// VPN connection will be temporarily unavailable for a brief period while we provision
+        /// the new endpoints.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVpnConnection service method.</param>
@@ -25796,9 +25906,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// When you modify the VPN connection options, the VPN endpoint IP addresses on the AWS
-        /// side do not change, and the tunnel options do not change. Your VPN connection will
-        /// be temporarily unavailable for a brief period while the VPN connection is updated.
+        /// When you modify the VPN connection options, the VPN endpoint IP addresses on the Amazon
+        /// Web Services side do not change, and the tunnel options do not change. Your VPN connection
+        /// will be temporarily unavailable for a brief period while the VPN connection is updated.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVpnConnectionOptions service method.</param>
@@ -25820,9 +25930,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// When you modify the VPN connection options, the VPN endpoint IP addresses on the AWS
-        /// side do not change, and the tunnel options do not change. Your VPN connection will
-        /// be temporarily unavailable for a brief period while the VPN connection is updated.
+        /// When you modify the VPN connection options, the VPN endpoint IP addresses on the Amazon
+        /// Web Services side do not change, and the tunnel options do not change. Your VPN connection
+        /// will be temporarily unavailable for a brief period while the VPN connection is updated.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVpnConnectionOptions service method.</param>
@@ -25888,11 +25998,11 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the options for a VPN tunnel in an AWS Site-to-Site VPN connection. You can
-        /// modify multiple options for a tunnel in a single request, but you can only modify
-        /// one tunnel at a time. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html">Site-to-Site
-        /// VPN Tunnel Options for Your Site-to-Site VPN Connection</a> in the <i>AWS Site-to-Site
-        /// VPN User Guide</i>.
+        /// Modifies the options for a VPN tunnel in an Amazon Web Services Site-to-Site VPN connection.
+        /// You can modify multiple options for a tunnel in a single request, but you can only
+        /// modify one tunnel at a time. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html">Site-to-Site
+        /// VPN tunnel options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services
+        /// Site-to-Site VPN User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVpnTunnelOptions service method.</param>
         /// 
@@ -25909,11 +26019,11 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the options for a VPN tunnel in an AWS Site-to-Site VPN connection. You can
-        /// modify multiple options for a tunnel in a single request, but you can only modify
-        /// one tunnel at a time. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html">Site-to-Site
-        /// VPN Tunnel Options for Your Site-to-Site VPN Connection</a> in the <i>AWS Site-to-Site
-        /// VPN User Guide</i>.
+        /// Modifies the options for a VPN tunnel in an Amazon Web Services Site-to-Site VPN connection.
+        /// You can modify multiple options for a tunnel in a single request, but you can only
+        /// modify one tunnel at a time. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html">Site-to-Site
+        /// VPN tunnel options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services
+        /// Site-to-Site VPN User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVpnTunnelOptions service method.</param>
         /// <param name="cancellationToken">
@@ -26420,22 +26530,24 @@ namespace Amazon.EC2
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create
         /// a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use
-        /// encryption with EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud
+        /// User Guide</i>.
         /// </para>
         ///  
         /// <para>
-        ///  <b>AWS Marketplace product codes</b> 
+        ///  <b>Amazon Web Services Marketplace product codes</b> 
         /// </para>
         ///  
         /// <para>
-        /// If any snapshots have AWS Marketplace product codes, they are copied to the new AMI.
+        /// If any snapshots have Amazon Web Services Marketplace product codes, they are copied
+        /// to the new AMI.
         /// </para>
         ///  
         /// <para>
         /// Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and
-        /// SUSE Linux Enterprise Server (SLES), use the EC2 billing product code associated with
-        /// an AMI to verify the subscription status for package updates. To create a new AMI
-        /// for operating systems that require a billing product code, instead of registering
+        /// SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated
+        /// with an AMI to verify the subscription status for package updates. To create a new
+        /// AMI for operating systems that require a billing product code, instead of registering
         /// the AMI, do the following to preserve the billing product code association:
         /// </para>
         ///  <ol> <li> 
@@ -26457,8 +26569,8 @@ namespace Amazon.EC2
         /// the matching billing product code. If you purchase a Reserved Instance without the
         /// matching billing product code, the Reserved Instance will not be applied to the On-Demand
         /// Instance. For information about how to obtain the platform details and billing information
-        /// of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Obtaining
-        /// billing information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding
+        /// AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RegisterImage service method.</param>
@@ -26508,22 +26620,24 @@ namespace Amazon.EC2
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create
         /// a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use
-        /// encryption with EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud
+        /// User Guide</i>.
         /// </para>
         ///  
         /// <para>
-        ///  <b>AWS Marketplace product codes</b> 
+        ///  <b>Amazon Web Services Marketplace product codes</b> 
         /// </para>
         ///  
         /// <para>
-        /// If any snapshots have AWS Marketplace product codes, they are copied to the new AMI.
+        /// If any snapshots have Amazon Web Services Marketplace product codes, they are copied
+        /// to the new AMI.
         /// </para>
         ///  
         /// <para>
         /// Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and
-        /// SUSE Linux Enterprise Server (SLES), use the EC2 billing product code associated with
-        /// an AMI to verify the subscription status for package updates. To create a new AMI
-        /// for operating systems that require a billing product code, instead of registering
+        /// SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated
+        /// with an AMI to verify the subscription status for package updates. To create a new
+        /// AMI for operating systems that require a billing product code, instead of registering
         /// the AMI, do the following to preserve the billing product code association:
         /// </para>
         ///  <ol> <li> 
@@ -26545,8 +26659,8 @@ namespace Amazon.EC2
         /// the matching billing product code. If you purchase a Reserved Instance without the
         /// matching billing product code, the Reserved Instance will not be applied to the On-Demand
         /// Instance. For information about how to obtain the platform details and billing information
-        /// of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Obtaining
-        /// billing information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding
+        /// AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RegisterImage service method.</param>
@@ -27830,12 +27944,6 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Resets an attribute of an AMI to its default value.
-        /// 
-        ///  <note> 
-        /// <para>
-        /// The productCodes attribute can't be reset.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ResetImageAttribute service method.</param>
         /// 
@@ -27853,12 +27961,6 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Resets an attribute of an AMI to its default value.
-        /// 
-        ///  <note> 
-        /// <para>
-        /// The productCodes attribute can't be reset.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ResetImageAttribute service method.</param>
         /// <param name="cancellationToken">
@@ -28864,6 +28966,14 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
+        /// If you attempt to start a T3 instance with <code>host</code> tenancy and the <code>unlimted</code>
+        /// CPU credit option, the request fails. The <code>unlimited</code> CPU credit option
+        /// is not supported on Dedicated Hosts. Before you start the instance, either change
+        /// its CPU credit option to <code>standard</code>, or change its tenancy to <code>default</code>
+        /// or <code>dedicated</code>.
+        /// </para>
+        ///  
+        /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stopping
         /// instances</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
@@ -28904,6 +29014,14 @@ namespace Amazon.EC2
         /// <para>
         /// Performing this operation on an instance that uses an instance store as its root device
         /// returns an error.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you attempt to start a T3 instance with <code>host</code> tenancy and the <code>unlimted</code>
+        /// CPU credit option, the request fails. The <code>unlimited</code> CPU credit option
+        /// is not supported on Dedicated Hosts. Before you start the instance, either change
+        /// its CPU credit option to <code>standard</code>, or change its tenancy to <code>default</code>
+        /// or <code>dedicated</code>.
         /// </para>
         ///  
         /// <para>

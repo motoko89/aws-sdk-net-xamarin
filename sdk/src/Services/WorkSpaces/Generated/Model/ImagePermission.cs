@@ -29,8 +29,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.WorkSpaces.Model
 {
     /// <summary>
-    /// Describes the AWS accounts that have been granted permission to use a shared image.
-    /// For more information about sharing images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html">
+    /// Describes the Amazon Web Services accounts that have been granted permission to use
+    /// a shared image. For more information about sharing images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html">
     /// Share or Unshare a Custom WorkSpaces Image</a>.
     /// </summary>
     public partial class ImagePermission
@@ -40,7 +40,7 @@ namespace Amazon.WorkSpaces.Model
         /// <summary>
         /// Gets and sets the property SharedAccountId. 
         /// <para>
-        /// The identifier of the AWS account that an image has been shared with.
+        /// The identifier of the Amazon Web Services account that an image has been shared with.
         /// </para>
         /// </summary>
         public string SharedAccountId

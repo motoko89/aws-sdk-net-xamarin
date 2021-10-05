@@ -38,6 +38,12 @@ namespace Amazon.ECR
     /// private repositories with resource-based permissions using IAM so that specific users
     /// or Amazon EC2 instances can access repositories and images.
     /// </para>
+    ///  
+    /// <para>
+    /// Amazon ECR has service endpoints in each supported Region. For more information, see
+    /// <a href="https://docs.aws.amazon.com/general/latest/gr/ecr.html">Amazon ECR endpoints</a>
+    /// in the <i>Amazon Web Services General Reference</i>.
+    /// </para>
     /// </summary>
     public partial interface IAmazonECR : IAmazonService, IDisposable
     {
@@ -323,7 +329,7 @@ namespace Amazon.ECR
 
         /// <summary>
         /// Creates a repository. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html">Amazon
-        /// ECR Repositories</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
+        /// ECR repositories</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateRepository service method.</param>
         /// 
@@ -341,7 +347,7 @@ namespace Amazon.ECR
         /// <exception cref="Amazon.ECR.Model.LimitExceededException">
         /// The operation did not succeed because it would have exceeded a service limit for your
         /// account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon
-        /// ECR Service Quotas</a> in the Amazon Elastic Container Registry User Guide.
+        /// ECR service quotas</a> in the Amazon Elastic Container Registry User Guide.
         /// </exception>
         /// <exception cref="Amazon.ECR.Model.RepositoryAlreadyExistsException">
         /// The specified repository already exists in the specified registry.
@@ -454,6 +460,9 @@ namespace Amazon.ECR
         /// </exception>
         /// <exception cref="Amazon.ECR.Model.ServerException">
         /// These errors are usually caused by a server-side issue.
+        /// </exception>
+        /// <exception cref="Amazon.ECR.Model.ValidationException">
+        /// There was an exception validating this request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ecr-2015-09-21/DeleteRegistryPolicy">REST API Reference for DeleteRegistryPolicy Operation</seealso>
         DeleteRegistryPolicyResponse DeleteRegistryPolicy(DeleteRegistryPolicyRequest request);
@@ -595,6 +604,62 @@ namespace Amazon.ECR
         /// <returns>Returns a  DeleteRepositoryPolicyResult from ECR.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ecr-2015-09-21/DeleteRepositoryPolicy">REST API Reference for DeleteRepositoryPolicy Operation</seealso>
         DeleteRepositoryPolicyResponse EndDeleteRepositoryPolicy(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  DescribeImageReplicationStatus
+
+
+        /// <summary>
+        /// Returns the replication status for a specified image.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeImageReplicationStatus service method.</param>
+        /// 
+        /// <returns>The response from the DescribeImageReplicationStatus service method, as returned by ECR.</returns>
+        /// <exception cref="Amazon.ECR.Model.ImageNotFoundException">
+        /// The image requested does not exist in the specified repository.
+        /// </exception>
+        /// <exception cref="Amazon.ECR.Model.InvalidParameterException">
+        /// The specified parameter is invalid. Review the available parameters for the API request.
+        /// </exception>
+        /// <exception cref="Amazon.ECR.Model.RepositoryNotFoundException">
+        /// The specified repository could not be found. Check the spelling of the specified repository
+        /// and ensure that you are performing operations on the correct registry.
+        /// </exception>
+        /// <exception cref="Amazon.ECR.Model.ServerException">
+        /// These errors are usually caused by a server-side issue.
+        /// </exception>
+        /// <exception cref="Amazon.ECR.Model.ValidationException">
+        /// There was an exception validating this request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ecr-2015-09-21/DescribeImageReplicationStatus">REST API Reference for DescribeImageReplicationStatus Operation</seealso>
+        DescribeImageReplicationStatusResponse DescribeImageReplicationStatus(DescribeImageReplicationStatusRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeImageReplicationStatus operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeImageReplicationStatus operation on AmazonECRClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeImageReplicationStatus
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ecr-2015-09-21/DescribeImageReplicationStatus">REST API Reference for DescribeImageReplicationStatus Operation</seealso>
+        IAsyncResult BeginDescribeImageReplicationStatus(DescribeImageReplicationStatusRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeImageReplicationStatus operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeImageReplicationStatus.</param>
+        /// 
+        /// <returns>Returns a  DescribeImageReplicationStatusResult from ECR.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ecr-2015-09-21/DescribeImageReplicationStatus">REST API Reference for DescribeImageReplicationStatus Operation</seealso>
+        DescribeImageReplicationStatusResponse EndDescribeImageReplicationStatus(IAsyncResult asyncResult);
 
         #endregion
         
@@ -829,9 +894,9 @@ namespace Amazon.ECR
         /// <para>
         /// The <code>authorizationToken</code> returned is a base64 encoded string that can be
         /// decoded and used in a <code>docker login</code> command to authenticate to a registry.
-        /// The AWS CLI offers an <code>get-login-password</code> command that simplifies the
-        /// login process. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth">Registry
-        /// Authentication</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
+        /// The CLI offers an <code>get-login-password</code> command that simplifies the login
+        /// process. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth">Registry
+        /// authentication</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAuthorizationToken service method.</param>
@@ -1069,6 +1134,9 @@ namespace Amazon.ECR
         /// </exception>
         /// <exception cref="Amazon.ECR.Model.ServerException">
         /// These errors are usually caused by a server-side issue.
+        /// </exception>
+        /// <exception cref="Amazon.ECR.Model.ValidationException">
+        /// There was an exception validating this request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ecr-2015-09-21/GetRegistryPolicy">REST API Reference for GetRegistryPolicy Operation</seealso>
         GetRegistryPolicyResponse GetRegistryPolicy(GetRegistryPolicyRequest request);
@@ -1380,7 +1448,7 @@ namespace Amazon.ECR
         /// <exception cref="Amazon.ECR.Model.LimitExceededException">
         /// The operation did not succeed because it would have exceeded a service limit for your
         /// account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon
-        /// ECR Service Quotas</a> in the Amazon Elastic Container Registry User Guide.
+        /// ECR service quotas</a> in the Amazon Elastic Container Registry User Guide.
         /// </exception>
         /// <exception cref="Amazon.ECR.Model.ReferencedImagesNotFoundException">
         /// The manifest list is referencing an image that does not exist.
@@ -1479,7 +1547,7 @@ namespace Amazon.ECR
         /// <summary>
         /// Updates the image tag mutability settings for the specified repository. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html">Image
-        /// Tag Mutability</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
+        /// tag mutability</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutImageTagMutability service method.</param>
         /// 
@@ -1531,7 +1599,7 @@ namespace Amazon.ECR
         /// <summary>
         /// Creates or updates the lifecycle policy for the specified repository. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html">Lifecycle
-        /// Policy Template</a>.
+        /// policy template</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutLifecyclePolicy service method.</param>
         /// 
@@ -1585,8 +1653,9 @@ namespace Amazon.ECR
         /// 
         ///  
         /// <para>
-        /// A registry policy is used to specify permissions for another AWS account and is used
-        /// when configuring cross-account replication. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html">Registry
+        /// A registry policy is used to specify permissions for another Amazon Web Services account
+        /// and is used when configuring cross-account replication. For more information, see
+        /// <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html">Registry
         /// permissions</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
         /// </para>
         /// </summary>
@@ -1598,6 +1667,9 @@ namespace Amazon.ECR
         /// </exception>
         /// <exception cref="Amazon.ECR.Model.ServerException">
         /// These errors are usually caused by a server-side issue.
+        /// </exception>
+        /// <exception cref="Amazon.ECR.Model.ValidationException">
+        /// There was an exception validating this request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ecr-2015-09-21/PutRegistryPolicy">REST API Reference for PutRegistryPolicy Operation</seealso>
         PutRegistryPolicyResponse PutRegistryPolicy(PutRegistryPolicyRequest request);
@@ -1639,7 +1711,7 @@ namespace Amazon.ECR
         /// action. The first time the PutReplicationConfiguration API is called, a service-linked
         /// IAM role is created in your account for the replication process. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html">Using
-        /// Service-Linked Roles for Amazon ECR</a> in the <i>Amazon Elastic Container Registry
+        /// service-linked roles for Amazon ECR</a> in the <i>Amazon Elastic Container Registry
         /// User Guide</i>.
         /// 
         ///  <note> 
@@ -1699,7 +1771,7 @@ namespace Amazon.ECR
         /// <summary>
         /// Applies a repository policy to the specified repository to control access permissions.
         /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html">Amazon
-        /// ECR Repository Policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
+        /// ECR Repository policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SetRepositoryPolicy service method.</param>
         /// 
@@ -1749,10 +1821,10 @@ namespace Amazon.ECR
 
 
         /// <summary>
-        /// Starts an image vulnerability scan. An image scan can only be started once per day
-        /// on an individual image. This limit includes if an image was scanned on initial push.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html">Image
-        /// Scanning</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
+        /// Starts an image vulnerability scan. An image scan can only be started once per 24
+        /// hours on an individual image. This limit includes if an image was scanned on initial
+        /// push. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html">Image
+        /// scanning</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartImageScan service method.</param>
         /// 
@@ -1766,7 +1838,7 @@ namespace Amazon.ECR
         /// <exception cref="Amazon.ECR.Model.LimitExceededException">
         /// The operation did not succeed because it would have exceeded a service limit for your
         /// account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon
-        /// ECR Service Quotas</a> in the Amazon Elastic Container Registry User Guide.
+        /// ECR service quotas</a> in the Amazon Elastic Container Registry User Guide.
         /// </exception>
         /// <exception cref="Amazon.ECR.Model.RepositoryNotFoundException">
         /// The specified repository could not be found. Check the spelling of the specified repository
@@ -2019,7 +2091,7 @@ namespace Amazon.ECR
         /// <exception cref="Amazon.ECR.Model.LimitExceededException">
         /// The operation did not succeed because it would have exceeded a service limit for your
         /// account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon
-        /// ECR Service Quotas</a> in the Amazon Elastic Container Registry User Guide.
+        /// ECR service quotas</a> in the Amazon Elastic Container Registry User Guide.
         /// </exception>
         /// <exception cref="Amazon.ECR.Model.RepositoryNotFoundException">
         /// The specified repository could not be found. Check the spelling of the specified repository

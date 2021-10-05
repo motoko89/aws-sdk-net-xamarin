@@ -30,8 +30,8 @@ namespace Amazon.Macie2.Model
 {
     /// <summary>
     /// Container for the parameters to the ListInvitations operation.
-    /// Retrieves information about all the Amazon Macie membership invitations that were
-    /// received by an account.
+    /// Retrieves information about the Amazon Macie membership invitations that were received
+    /// by an account.
     /// </summary>
     public partial class ListInvitationsRequest : AmazonMacie2Request
     {

@@ -94,6 +94,18 @@ namespace Amazon.CodeGuruReviewer.Model.Internal.MarshallTransformations
                     unmarshalledObject.RecommendationId = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("RuleMetadata", targetDepth))
+                {
+                    var unmarshaller = RuleMetadataUnmarshaller.Instance;
+                    unmarshalledObject.RuleMetadata = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("Severity", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.Severity = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("StartLine", targetDepth))
                 {
                     var unmarshaller = IntUnmarshaller.Instance;

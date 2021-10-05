@@ -39,7 +39,7 @@ namespace Amazon.EC2.Model
         /// Gets and sets the property ClientRootCertificateChainArn. 
         /// <para>
         /// The ARN of the client certificate. The certificate must be signed by a certificate
-        /// authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).
+        /// authority (CA) and it must be provisioned in Certificate Manager (ACM).
         /// </para>
         /// </summary>
         public string ClientRootCertificateChainArn

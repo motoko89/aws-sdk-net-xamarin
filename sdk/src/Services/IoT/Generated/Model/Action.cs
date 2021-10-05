@@ -47,6 +47,7 @@ namespace Amazon.IoT.Model
         private KafkaAction _kafka;
         private KinesisAction _kinesis;
         private LambdaAction _lambda;
+        private OpenSearchAction _openSearch;
         private RepublishAction _republish;
         private S3Action _s3;
         private SalesforceAction _salesforce;
@@ -149,8 +150,15 @@ namespace Amazon.IoT.Model
         /// <summary>
         /// Gets and sets the property Elasticsearch. 
         /// <para>
-        /// Write data to an Amazon Elasticsearch Service domain.
+        /// Write data to an Amazon OpenSearch Service domain.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// The <code>Elasticsearch</code> action can only be used by existing rule actions. To
+        /// create a new rule action or to update an existing rule action, use the <code>OpenSearch</code>
+        /// rule action instead. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_OpenSearchAction.html">OpenSearchAction</a>.
+        /// </para>
+        ///  </note>
         /// </summary>
         public ElasticsearchAction Elasticsearch
         {
@@ -203,7 +211,7 @@ namespace Amazon.IoT.Model
         /// <summary>
         /// Gets and sets the property IotAnalytics. 
         /// <para>
-        /// Sends message data to an AWS IoT Analytics channel.
+        /// Sends message data to an IoT Analytics channel.
         /// </para>
         /// </summary>
         public IotAnalyticsAction IotAnalytics
@@ -221,7 +229,7 @@ namespace Amazon.IoT.Model
         /// <summary>
         /// Gets and sets the property IotEvents. 
         /// <para>
-        /// Sends an input to an AWS IoT Events detector.
+        /// Sends an input to an IoT Events detector.
         /// </para>
         /// </summary>
         public IotEventsAction IotEvents
@@ -239,8 +247,7 @@ namespace Amazon.IoT.Model
         /// <summary>
         /// Gets and sets the property IotSiteWise. 
         /// <para>
-        /// Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset
-        /// properties.
+        /// Sends data from the MQTT message that triggered the rule to IoT SiteWise asset properties.
         /// </para>
         /// </summary>
         public IotSiteWiseAction IotSiteWise
@@ -308,6 +315,24 @@ namespace Amazon.IoT.Model
         internal bool IsSetLambda()
         {
             return this._lambda != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property OpenSearch. 
+        /// <para>
+        /// Write data to an Amazon OpenSearch Service domain.
+        /// </para>
+        /// </summary>
+        public OpenSearchAction OpenSearch
+        {
+            get { return this._openSearch; }
+            set { this._openSearch = value; }
+        }
+
+        // Check to see if OpenSearch property is set
+        internal bool IsSetOpenSearch()
+        {
+            return this._openSearch != null;
         }
 
         /// <summary>

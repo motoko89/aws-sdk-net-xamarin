@@ -45,6 +45,12 @@ namespace Amazon.NetworkFirewall.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(StatefulRuleGroupReference requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetPriority())
+            {
+                context.Writer.WritePropertyName("Priority");
+                context.Writer.Write(requestObject.Priority);
+            }
+
             if(requestObject.IsSetResourceArn())
             {
                 context.Writer.WritePropertyName("ResourceArn");

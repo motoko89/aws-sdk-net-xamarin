@@ -56,6 +56,17 @@ namespace Amazon.ACMPCA.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetOcspConfiguration())
+            {
+                context.Writer.WritePropertyName("OcspConfiguration");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = OcspConfigurationMarshaller.Instance;
+                marshaller.Marshall(requestObject.OcspConfiguration, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
         }
 
         /// <summary>

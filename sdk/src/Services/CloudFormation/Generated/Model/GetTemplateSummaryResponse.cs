@@ -47,9 +47,10 @@ namespace Amazon.CloudFormation.Model
         /// Gets and sets the property Capabilities. 
         /// <para>
         /// The capabilities found within the template. If your template contains IAM resources,
-        /// you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter
-        /// when you use the <a>CreateStack</a> or <a>UpdateStack</a> actions with your template;
-        /// otherwise, those actions return an InsufficientCapabilities error.
+        /// you must specify the <code>CAPABILITY_IAM</code> or <code>CAPABILITY_NAMED_IAM</code>
+        /// value for this parameter when you use the <a>CreateStack</a> or <a>UpdateStack</a>
+        /// actions with your template; otherwise, those actions return an <code>InsufficientCapabilities</code>
+        /// error.
         /// </para>
         ///  
         /// <para>
@@ -167,7 +168,7 @@ namespace Amazon.CloudFormation.Model
         /// A list of resource identifier summaries that describe the target resources of an import
         /// operation and the properties you can provide during the import to identify the target
         /// resources. For example, <code>BucketName</code> is a possible identifier property
-        /// for an <code>AWS::S3::Bucket</code> resource. 
+        /// for an <code>AWS::S3::Bucket</code> resource.
         /// </para>
         /// </summary>
         public List<ResourceIdentifierSummary> ResourceIdentifierSummaries

@@ -43,6 +43,7 @@ namespace Amazon.WAFV2.Model
         private NotStatement _notStatement;
         private OrStatement _orStatement;
         private RateBasedStatement _rateBasedStatement;
+        private RegexMatchStatement _regexMatchStatement;
         private RegexPatternSetReferenceStatement _regexPatternSetReferenceStatement;
         private RuleGroupReferenceStatement _ruleGroupReferenceStatement;
         private SizeConstraintStatement _sizeConstraintStatement;
@@ -234,7 +235,17 @@ namespace Amazon.WAFV2.Model
         /// A rate-based rule tracks the rate of requests for each originating IP address, and
         /// triggers the rule action when the rate exceeds a limit that you specify on the number
         /// of requests in any 5-minute time span. You can use this to put a temporary block on
-        /// requests from an IP address that is sending excessive requests.
+        /// requests from an IP address that is sending excessive requests. 
+        /// </para>
+        ///  
+        /// <para>
+        /// WAF tracks and manages web requests separately for each instance of a rate-based rule
+        /// that you use. For example, if you provide the same rate-based rule settings in two
+        /// web ACLs, each of the two rule statements represents a separate instance of the rate-based
+        /// rule and gets its own tracking and management by WAF. If you define a rate-based rule
+        /// inside a rule group, and then use that rule group in multiple places, each use creates
+        /// a separate instance of the rate-based rule that gets its own tracking and management
+        /// by WAF. 
         /// </para>
         ///  
         /// <para>
@@ -267,9 +278,9 @@ namespace Amazon.WAFV2.Model
         /// </para>
         ///  
         /// <para>
-        /// You cannot nest a <code>RateBasedStatement</code>, for example for use inside a <code>NotStatement</code>
-        /// or <code>OrStatement</code>. It can only be referenced as a top-level statement within
-        /// a rule.
+        /// You cannot nest a <code>RateBasedStatement</code> inside another statement, for example
+        /// inside a <code>NotStatement</code> or <code>OrStatement</code>. You can define a <code>RateBasedStatement</code>
+        /// inside a web ACL and inside a rule group. 
         /// </para>
         /// </summary>
         public RateBasedStatement RateBasedStatement
@@ -282,6 +293,25 @@ namespace Amazon.WAFV2.Model
         internal bool IsSetRateBasedStatement()
         {
             return this._rateBasedStatement != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property RegexMatchStatement. 
+        /// <para>
+        /// A rule statement used to search web request components for a match against a single
+        /// regular expression. 
+        /// </para>
+        /// </summary>
+        public RegexMatchStatement RegexMatchStatement
+        {
+            get { return this._regexMatchStatement; }
+            set { this._regexMatchStatement = value; }
+        }
+
+        // Check to see if RegexMatchStatement property is set
+        internal bool IsSetRegexMatchStatement()
+        {
+            return this._regexMatchStatement != null;
         }
 
         /// <summary>
@@ -323,8 +353,8 @@ namespace Amazon.WAFV2.Model
         ///  
         /// <para>
         /// You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside
-        /// a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced
-        /// as a top-level statement within a rule.
+        /// a <code>NotStatement</code> or <code>OrStatement</code>. You can only use a rule group
+        /// reference statement at the top level inside a web ACL. 
         /// </para>
         /// </summary>
         public RuleGroupReferenceStatement RuleGroupReferenceStatement

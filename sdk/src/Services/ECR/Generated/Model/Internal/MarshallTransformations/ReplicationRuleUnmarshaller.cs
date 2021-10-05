@@ -70,6 +70,12 @@ namespace Amazon.ECR.Model.Internal.MarshallTransformations
                     unmarshalledObject.Destinations = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("repositoryFilters", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<RepositoryFilter, RepositoryFilterUnmarshaller>(RepositoryFilterUnmarshaller.Instance);
+                    unmarshalledObject.RepositoryFilters = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;
