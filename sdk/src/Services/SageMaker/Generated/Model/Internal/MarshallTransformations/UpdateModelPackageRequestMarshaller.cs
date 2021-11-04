@@ -73,6 +73,31 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.ApprovalDescription);
                 }
 
+                if(publicRequest.IsSetCustomerMetadataProperties())
+                {
+                    context.Writer.WritePropertyName("CustomerMetadataProperties");
+                    context.Writer.WriteObjectStart();
+                    foreach (var publicRequestCustomerMetadataPropertiesKvp in publicRequest.CustomerMetadataProperties)
+                    {
+                        context.Writer.WritePropertyName(publicRequestCustomerMetadataPropertiesKvp.Key);
+                        var publicRequestCustomerMetadataPropertiesValue = publicRequestCustomerMetadataPropertiesKvp.Value;
+
+                            context.Writer.Write(publicRequestCustomerMetadataPropertiesValue);
+                    }
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetCustomerMetadataPropertiesToRemove())
+                {
+                    context.Writer.WritePropertyName("CustomerMetadataPropertiesToRemove");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestCustomerMetadataPropertiesToRemoveListValue in publicRequest.CustomerMetadataPropertiesToRemove)
+                    {
+                            context.Writer.Write(publicRequestCustomerMetadataPropertiesToRemoveListValue);
+                    }
+                    context.Writer.WriteArrayEnd();
+                }
+
                 if(publicRequest.IsSetModelApprovalStatus())
                 {
                     context.Writer.WritePropertyName("ModelApprovalStatus");

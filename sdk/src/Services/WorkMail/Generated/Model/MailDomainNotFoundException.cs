@@ -29,8 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.WorkMail.Model
 {
     /// <summary>
-    /// For an email or alias to be created in Amazon WorkMail, the included domain must be
-    /// defined in the organization.
+    /// The domain specified is not found in your organization.
     /// </summary>
     #if !NETSTANDARD
     [Serializable]

@@ -30,9 +30,9 @@ namespace Amazon.StorageGateway.Model
 {
     /// <summary>
     /// Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway. It
-    /// is a string made of information such as your account, gateway name, and Region. This
-    /// ARN is used to reference the gateway in other API operations as well as resource-based
-    /// authorization.
+    /// is a string made of information such as your account, gateway name, and Amazon Web
+    /// Services Region. This ARN is used to reference the gateway in other API operations
+    /// as well as resource-based authorization.
     /// 
     ///  <note> 
     /// <para>

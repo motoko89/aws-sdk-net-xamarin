@@ -29,14 +29,17 @@ using Amazon.Runtime.Internal;
 namespace Amazon.DataExchange.Model
 {
     /// <summary>
-    /// 
+    /// Information about the published revision.
     /// </summary>
     public partial class RevisionPublished
     {
         private string _dataSetId;
 
         /// <summary>
-        /// Gets and sets the property DataSetId.
+        /// Gets and sets the property DataSetId. 
+        /// <para>
+        /// The data set ID of the published revision.
+        /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
         public string DataSetId

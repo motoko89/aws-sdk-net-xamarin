@@ -54,6 +54,12 @@ namespace Amazon.AutoScaling.Model.Internal.MarshallTransformations
             {
                 if (context.IsStartElement || context.IsAttribute)
                 {
+                    if (context.TestExpression("InstanceRequirements", targetDepth))
+                    {
+                        var unmarshaller = InstanceRequirementsUnmarshaller.Instance;
+                        unmarshalledObject.InstanceRequirements = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("InstanceType", targetDepth))
                     {
                         var unmarshaller = StringUnmarshaller.Instance;

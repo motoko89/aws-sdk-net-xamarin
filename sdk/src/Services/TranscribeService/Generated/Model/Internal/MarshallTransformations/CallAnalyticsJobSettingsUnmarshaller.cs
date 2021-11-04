@@ -70,6 +70,12 @@ namespace Amazon.TranscribeService.Model.Internal.MarshallTransformations
                     unmarshalledObject.ContentRedaction = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("LanguageIdSettings", targetDepth))
+                {
+                    var unmarshaller = new DictionaryUnmarshaller<string, LanguageIdSettings, StringUnmarshaller, LanguageIdSettingsUnmarshaller>(StringUnmarshaller.Instance, LanguageIdSettingsUnmarshaller.Instance);
+                    unmarshalledObject.LanguageIdSettings = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("LanguageModelName", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

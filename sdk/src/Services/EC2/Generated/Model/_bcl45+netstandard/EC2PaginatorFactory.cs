@@ -52,6 +52,14 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Paginator for DescribeCapacityReservationFleets operation
+        ///</summary>
+        public IDescribeCapacityReservationFleetsPaginator DescribeCapacityReservationFleets(DescribeCapacityReservationFleetsRequest request) 
+        {
+            return new DescribeCapacityReservationFleetsPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for DescribeCapacityReservations operation
         ///</summary>
         public IDescribeCapacityReservationsPaginator DescribeCapacityReservations(DescribeCapacityReservationsRequest request) 
@@ -772,6 +780,14 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Paginator for GetInstanceTypesFromInstanceRequirements operation
+        ///</summary>
+        public IGetInstanceTypesFromInstanceRequirementsPaginator GetInstanceTypesFromInstanceRequirements(GetInstanceTypesFromInstanceRequirementsRequest request) 
+        {
+            return new GetInstanceTypesFromInstanceRequirementsPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for GetManagedPrefixListAssociations operation
         ///</summary>
         public IGetManagedPrefixListAssociationsPaginator GetManagedPrefixListAssociations(GetManagedPrefixListAssociationsRequest request) 
@@ -785,6 +801,14 @@ namespace Amazon.EC2.Model
         public IGetManagedPrefixListEntriesPaginator GetManagedPrefixListEntries(GetManagedPrefixListEntriesRequest request) 
         {
             return new GetManagedPrefixListEntriesPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for GetSpotPlacementScores operation
+        ///</summary>
+        public IGetSpotPlacementScoresPaginator GetSpotPlacementScores(GetSpotPlacementScoresRequest request) 
+        {
+            return new GetSpotPlacementScoresPaginator(this.client, request);
         }
 
         /// <summary>

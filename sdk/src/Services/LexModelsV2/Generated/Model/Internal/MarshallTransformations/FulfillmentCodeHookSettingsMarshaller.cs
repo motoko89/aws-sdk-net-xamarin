@@ -51,6 +51,28 @@ namespace Amazon.LexModelsV2.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.Enabled);
             }
 
+            if(requestObject.IsSetFulfillmentUpdatesSpecification())
+            {
+                context.Writer.WritePropertyName("fulfillmentUpdatesSpecification");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = FulfillmentUpdatesSpecificationMarshaller.Instance;
+                marshaller.Marshall(requestObject.FulfillmentUpdatesSpecification, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetPostFulfillmentStatusSpecification())
+            {
+                context.Writer.WritePropertyName("postFulfillmentStatusSpecification");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = PostFulfillmentStatusSpecificationMarshaller.Instance;
+                marshaller.Marshall(requestObject.PostFulfillmentStatusSpecification, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
         }
 
         /// <summary>

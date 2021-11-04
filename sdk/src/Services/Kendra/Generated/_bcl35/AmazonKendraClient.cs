@@ -41,6 +41,24 @@ namespace Amazon.Kendra
     {
         private static IServiceMetadata serviceMetadata = new AmazonKendraMetadata();
 
+#if BCL45 || AWS_ASYNC_ENUMERABLES_API
+        private IKendraPaginatorFactory _paginators;
+
+        /// <summary>
+        /// Paginators for the service
+        /// </summary>
+        public IKendraPaginatorFactory Paginators 
+        {
+            get 
+            {
+                if (this._paginators == null) 
+                {
+                    this._paginators = new KendraPaginatorFactory(this);
+                }
+                return this._paginators;
+            }
+        }
+#endif
         #region Constructors
 
         /// <summary>
@@ -577,13 +595,12 @@ namespace Amazon.Kendra
         #region  CreateDataSource
 
         /// <summary>
-        /// Creates a data source that you use to with an Amazon Kendra index. 
+        /// Creates a data source that you want to use with an Amazon Kendra index. 
         /// 
         ///  
         /// <para>
         /// You specify a name, data source connector type and description for your data source.
-        /// You also specify configuration information such as document metadata (author, source
-        /// URI, and so on) and user context information.
+        /// You also specify configuration information for the data source connector.
         /// </para>
         ///  
         /// <para>
@@ -2588,12 +2605,17 @@ namespace Amazon.Kendra
         #region  PutPrincipalMapping
 
         /// <summary>
-        /// Maps users to their groups. You can also map sub groups to groups. For example, the
-        /// group "Company Intellectual Property Teams" includes sub groups "Research" and "Engineering".
-        /// These sub groups include their own list of users or people who work in these teams.
-        /// Only users who work in research and engineering, and therefore belong in the intellectual
-        /// property group, can see top-secret company documents in their search results. 
+        /// Maps users to their groups so that you only need to provide the user ID when you issue
+        /// the query.
         /// 
+        ///  
+        /// <para>
+        /// You can also map sub groups to groups. For example, the group "Company Intellectual
+        /// Property Teams" includes sub groups "Research" and "Engineering". These sub groups
+        /// include their own list of users or people who work in these teams. Only users who
+        /// work in research and engineering, and therefore belong in the intellectual property
+        /// group, can see top-secret company documents in their search results.
+        /// </para>
         ///  
         /// <para>
         /// You map users to their groups when you want to filter search results for different

@@ -325,6 +325,15 @@
       "input":{"shape":"CancelCapacityReservationRequest"},
       "output":{"shape":"CancelCapacityReservationResult"}
     },
+    "CancelCapacityReservationFleets":{
+      "name":"CancelCapacityReservationFleets",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"CancelCapacityReservationFleetsRequest"},
+      "output":{"shape":"CancelCapacityReservationFleetsResult"}
+    },
     "CancelConversionTask":{
       "name":"CancelConversionTask",
       "http":{
@@ -421,6 +430,15 @@
       },
       "input":{"shape":"CreateCapacityReservationRequest"},
       "output":{"shape":"CreateCapacityReservationResult"}
+    },
+    "CreateCapacityReservationFleet":{
+      "name":"CreateCapacityReservationFleet",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"CreateCapacityReservationFleetRequest"},
+      "output":{"shape":"CreateCapacityReservationFleetResult"}
     },
     "CreateCarrierGateway":{
       "name":"CreateCarrierGateway",
@@ -1576,6 +1594,15 @@
       },
       "input":{"shape":"DescribeByoipCidrsRequest"},
       "output":{"shape":"DescribeByoipCidrsResult"}
+    },
+    "DescribeCapacityReservationFleets":{
+      "name":"DescribeCapacityReservationFleets",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DescribeCapacityReservationFleetsRequest"},
+      "output":{"shape":"DescribeCapacityReservationFleetsResult"}
     },
     "DescribeCapacityReservations":{
       "name":"DescribeCapacityReservations",
@@ -3072,6 +3099,15 @@
       "input":{"shape":"GetHostReservationPurchasePreviewRequest"},
       "output":{"shape":"GetHostReservationPurchasePreviewResult"}
     },
+    "GetInstanceTypesFromInstanceRequirements":{
+      "name":"GetInstanceTypesFromInstanceRequirements",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetInstanceTypesFromInstanceRequirementsRequest"},
+      "output":{"shape":"GetInstanceTypesFromInstanceRequirementsResult"}
+    },
     "GetLaunchTemplateData":{
       "name":"GetLaunchTemplateData",
       "http":{
@@ -3125,6 +3161,15 @@
       },
       "input":{"shape":"GetSerialConsoleAccessStatusRequest"},
       "output":{"shape":"GetSerialConsoleAccessStatusResult"}
+    },
+    "GetSpotPlacementScores":{
+      "name":"GetSpotPlacementScores",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetSpotPlacementScoresRequest"},
+      "output":{"shape":"GetSpotPlacementScoresResult"}
     },
     "GetSubnetCidrReservations":{
       "name":"GetSubnetCidrReservations",
@@ -3278,6 +3323,15 @@
       },
       "input":{"shape":"ModifyCapacityReservationRequest"},
       "output":{"shape":"ModifyCapacityReservationResult"}
+    },
+    "ModifyCapacityReservationFleet":{
+      "name":"ModifyCapacityReservationFleet",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ModifyCapacityReservationFleetRequest"},
+      "output":{"shape":"ModifyCapacityReservationFleetResult"}
     },
     "ModifyClientVpnEndpoint":{
       "name":"ModifyClientVpnEndpoint",
@@ -4161,6 +4215,96 @@
     }
   },
   "shapes":{
+    "AcceleratorCount":{
+      "type":"structure",
+      "members":{
+        "Min":{
+          "shape":"Integer",
+          "locationName":"min"
+        },
+        "Max":{
+          "shape":"Integer",
+          "locationName":"max"
+        }
+      }
+    },
+    "AcceleratorCountRequest":{
+      "type":"structure",
+      "members":{
+        "Min":{"shape":"Integer"},
+        "Max":{"shape":"Integer"}
+      }
+    },
+    "AcceleratorManufacturer":{
+      "type":"string",
+      "enum":[
+        "nvidia",
+        "amd",
+        "amazon-web-services",
+        "xilinx"
+      ]
+    },
+    "AcceleratorManufacturerSet":{
+      "type":"list",
+      "member":{
+        "shape":"AcceleratorManufacturer",
+        "locationName":"item"
+      }
+    },
+    "AcceleratorName":{
+      "type":"string",
+      "enum":[
+        "a100",
+        "v100",
+        "k80",
+        "t4",
+        "m60",
+        "radeon-pro-v520",
+        "vu9p"
+      ]
+    },
+    "AcceleratorNameSet":{
+      "type":"list",
+      "member":{
+        "shape":"AcceleratorName",
+        "locationName":"item"
+      }
+    },
+    "AcceleratorTotalMemoryMiB":{
+      "type":"structure",
+      "members":{
+        "Min":{
+          "shape":"Integer",
+          "locationName":"min"
+        },
+        "Max":{
+          "shape":"Integer",
+          "locationName":"max"
+        }
+      }
+    },
+    "AcceleratorTotalMemoryMiBRequest":{
+      "type":"structure",
+      "members":{
+        "Min":{"shape":"Integer"},
+        "Max":{"shape":"Integer"}
+      }
+    },
+    "AcceleratorType":{
+      "type":"string",
+      "enum":[
+        "gpu",
+        "fpga",
+        "inference"
+      ]
+    },
+    "AcceleratorTypeSet":{
+      "type":"list",
+      "member":{
+        "shape":"AcceleratorType",
+        "locationName":"item"
+      }
+    },
     "AcceptReservedInstancesExchangeQuoteRequest":{
       "type":"structure",
       "required":["ReservedInstanceIds"],
@@ -4922,7 +5066,8 @@
       "enum":[
         "i386",
         "x86_64",
-        "arm64"
+        "arm64",
+        "x86_64_mac"
       ]
     },
     "ArchitectureTypeList":{
@@ -4931,6 +5076,15 @@
         "shape":"ArchitectureType",
         "locationName":"item"
       }
+    },
+    "ArchitectureTypeSet":{
+      "type":"list",
+      "member":{
+        "shape":"ArchitectureType",
+        "locationName":"item"
+      },
+      "max":3,
+      "min":0
     },
     "ArchitectureValues":{
       "type":"string",
@@ -5922,8 +6076,36 @@
         "locationName":"item"
       }
     },
+    "BareMetal":{
+      "type":"string",
+      "enum":[
+        "included",
+        "required",
+        "excluded"
+      ]
+    },
     "BareMetalFlag":{"type":"boolean"},
     "BaselineBandwidthInMbps":{"type":"integer"},
+    "BaselineEbsBandwidthMbps":{
+      "type":"structure",
+      "members":{
+        "Min":{
+          "shape":"Integer",
+          "locationName":"min"
+        },
+        "Max":{
+          "shape":"Integer",
+          "locationName":"max"
+        }
+      }
+    },
+    "BaselineEbsBandwidthMbpsRequest":{
+      "type":"structure",
+      "members":{
+        "Min":{"shape":"Integer"},
+        "Max":{"shape":"Integer"}
+      }
+    },
     "BaselineIops":{"type":"integer"},
     "BaselineThroughputInMBps":{"type":"double"},
     "BatchState":{
@@ -6120,6 +6302,14 @@
         "failed"
       ]
     },
+    "BurstablePerformance":{
+      "type":"string",
+      "enum":[
+        "included",
+        "required",
+        "excluded"
+      ]
+    },
     "BurstablePerformanceFlag":{"type":"boolean"},
     "ByoipCidr":{
       "type":"structure",
@@ -6188,6 +6378,45 @@
         "BundleTask":{
           "shape":"BundleTask",
           "locationName":"bundleInstanceTask"
+        }
+      }
+    },
+    "CancelCapacityReservationFleetError":{
+      "type":"structure",
+      "members":{
+        "Code":{
+          "shape":"CancelCapacityReservationFleetErrorCode",
+          "locationName":"code"
+        },
+        "Message":{
+          "shape":"CancelCapacityReservationFleetErrorMessage",
+          "locationName":"message"
+        }
+      }
+    },
+    "CancelCapacityReservationFleetErrorCode":{"type":"string"},
+    "CancelCapacityReservationFleetErrorMessage":{"type":"string"},
+    "CancelCapacityReservationFleetsRequest":{
+      "type":"structure",
+      "required":["CapacityReservationFleetIds"],
+      "members":{
+        "DryRun":{"shape":"Boolean"},
+        "CapacityReservationFleetIds":{
+          "shape":"CapacityReservationFleetIdSet",
+          "locationName":"CapacityReservationFleetId"
+        }
+      }
+    },
+    "CancelCapacityReservationFleetsResult":{
+      "type":"structure",
+      "members":{
+        "SuccessfulFleetCancellations":{
+          "shape":"CapacityReservationFleetCancellationStateSet",
+          "locationName":"successfulFleetCancellationSet"
+        },
+        "FailedFleetCancellations":{
+          "shape":"FailedCapacityReservationFleetCancellationResultSet",
+          "locationName":"failedFleetCancellationSet"
         }
       }
     },
@@ -6506,8 +6735,118 @@
         "OutpostArn":{
           "shape":"OutpostArn",
           "locationName":"outpostArn"
+        },
+        "CapacityReservationFleetId":{
+          "shape":"String",
+          "locationName":"capacityReservationFleetId"
         }
       }
+    },
+    "CapacityReservationFleet":{
+      "type":"structure",
+      "members":{
+        "CapacityReservationFleetId":{
+          "shape":"CapacityReservationFleetId",
+          "locationName":"capacityReservationFleetId"
+        },
+        "CapacityReservationFleetArn":{
+          "shape":"String",
+          "locationName":"capacityReservationFleetArn"
+        },
+        "State":{
+          "shape":"CapacityReservationFleetState",
+          "locationName":"state"
+        },
+        "TotalTargetCapacity":{
+          "shape":"Integer",
+          "locationName":"totalTargetCapacity"
+        },
+        "TotalFulfilledCapacity":{
+          "shape":"Double",
+          "locationName":"totalFulfilledCapacity"
+        },
+        "Tenancy":{
+          "shape":"FleetCapacityReservationTenancy",
+          "locationName":"tenancy"
+        },
+        "EndDate":{
+          "shape":"MillisecondDateTime",
+          "locationName":"endDate"
+        },
+        "CreateTime":{
+          "shape":"MillisecondDateTime",
+          "locationName":"createTime"
+        },
+        "InstanceMatchCriteria":{
+          "shape":"FleetInstanceMatchCriteria",
+          "locationName":"instanceMatchCriteria"
+        },
+        "AllocationStrategy":{
+          "shape":"String",
+          "locationName":"allocationStrategy"
+        },
+        "InstanceTypeSpecifications":{
+          "shape":"FleetCapacityReservationSet",
+          "locationName":"instanceTypeSpecificationSet"
+        },
+        "Tags":{
+          "shape":"TagList",
+          "locationName":"tagSet"
+        }
+      }
+    },
+    "CapacityReservationFleetCancellationState":{
+      "type":"structure",
+      "members":{
+        "CurrentFleetState":{
+          "shape":"CapacityReservationFleetState",
+          "locationName":"currentFleetState"
+        },
+        "PreviousFleetState":{
+          "shape":"CapacityReservationFleetState",
+          "locationName":"previousFleetState"
+        },
+        "CapacityReservationFleetId":{
+          "shape":"CapacityReservationFleetId",
+          "locationName":"capacityReservationFleetId"
+        }
+      }
+    },
+    "CapacityReservationFleetCancellationStateSet":{
+      "type":"list",
+      "member":{
+        "shape":"CapacityReservationFleetCancellationState",
+        "locationName":"item"
+      }
+    },
+    "CapacityReservationFleetId":{"type":"string"},
+    "CapacityReservationFleetIdSet":{
+      "type":"list",
+      "member":{
+        "shape":"CapacityReservationFleetId",
+        "locationName":"item"
+      }
+    },
+    "CapacityReservationFleetSet":{
+      "type":"list",
+      "member":{
+        "shape":"CapacityReservationFleet",
+        "locationName":"item"
+      }
+    },
+    "CapacityReservationFleetState":{
+      "type":"string",
+      "enum":[
+        "submitted",
+        "modifying",
+        "active",
+        "partially_fulfilled",
+        "expiring",
+        "expired",
+        "cancelling",
+        "cancelled",
+        "failed"
+      ]
     },
     "CapacityReservationGroup":{
       "type":"structure",
@@ -7592,6 +7931,21 @@
         "locationName":"item"
       }
     },
+    "CpuManufacturer":{
+      "type":"string",
+      "enum":[
+        "intel",
+        "amd",
+        "amazon-web-services"
+      ]
+    },
+    "CpuManufacturerSet":{
+      "type":"list",
+      "member":{
+        "shape":"CpuManufacturer",
+        "locationName":"item"
+      }
+    },
     "CpuOptions":{
       "type":"structure",
       "members":{
@@ -7610,6 +7964,82 @@
       "members":{
         "CoreCount":{"shape":"Integer"},
         "ThreadsPerCore":{"shape":"Integer"}
+      }
+    },
+    "CreateCapacityReservationFleetRequest":{
+      "type":"structure",
+      "required":[
+        "InstanceTypeSpecifications",
+        "TotalTargetCapacity"
+      ],
+      "members":{
+        "AllocationStrategy":{"shape":"String"},
+        "ClientToken":{
+          "shape":"String",
+          "idempotencyToken":true
+        },
+        "InstanceTypeSpecifications":{
+          "shape":"ReservationFleetInstanceSpecificationList",
+          "locationName":"InstanceTypeSpecification"
+        },
+        "Tenancy":{"shape":"FleetCapacityReservationTenancy"},
+        "TotalTargetCapacity":{"shape":"Integer"},
+        "EndDate":{"shape":"MillisecondDateTime"},
+        "InstanceMatchCriteria":{"shape":"FleetInstanceMatchCriteria"},
+        "TagSpecifications":{
+          "shape":"TagSpecificationList",
+          "locationName":"TagSpecification"
+        },
+        "DryRun":{"shape":"Boolean"}
+      }
+    },
+    "CreateCapacityReservationFleetResult":{
+      "type":"structure",
+      "members":{
+        "CapacityReservationFleetId":{
+          "shape":"CapacityReservationFleetId",
+          "locationName":"capacityReservationFleetId"
+        },
+        "State":{
+          "shape":"CapacityReservationFleetState",
+          "locationName":"state"
+        },
+        "TotalTargetCapacity":{
+          "shape":"Integer",
+          "locationName":"totalTargetCapacity"
+        },
+        "TotalFulfilledCapacity":{
+          "shape":"Double",
+          "locationName":"totalFulfilledCapacity"
+        },
+        "InstanceMatchCriteria":{
+          "shape":"FleetInstanceMatchCriteria",
+          "locationName":"instanceMatchCriteria"
+        },
+        "AllocationStrategy":{
+          "shape":"String",
+          "locationName":"allocationStrategy"
+        },
+        "CreateTime":{
+          "shape":"MillisecondDateTime",
+          "locationName":"createTime"
+        },
+        "EndDate":{
+          "shape":"MillisecondDateTime",
+          "locationName":"endDate"
+        },
+        "Tenancy":{
+          "shape":"FleetCapacityReservationTenancy",
+          "locationName":"tenancy"
+        },
+        "FleetCapacityReservations":{
+          "shape":"FleetCapacityReservationSet",
+          "locationName":"fleetCapacityReservationSet"
+        },
+        "Tags":{
+          "shape":"TagList",
+          "locationName":"tagSet"
+        }
       }
     },
     "CreateCapacityReservationRequest":{
@@ -8002,7 +8432,8 @@
           "shape":"TagSpecificationList",
           "locationName":"TagSpecification"
         },
-        "MaxAggregationInterval":{"shape":"Integer"}
+        "MaxAggregationInterval":{"shape":"Integer"},
+        "DestinationOptions":{"shape":"DestinationOptionsRequest"}
       }
     },
     "CreateFlowLogsResult":{
@@ -8266,8 +8697,8 @@
       "members":{
         "DestinationCidrBlock":{"shape":"String"},
         "LocalGatewayRouteTableId":{"shape":"LocalGatewayRoutetableId"},
-        "DryRun":{"shape":"Boolean"},
-        "LocalGatewayVirtualInterfaceGroupId":{"shape":"LocalGatewayVirtualInterfaceGroupId"}
+        "LocalGatewayVirtualInterfaceGroupId":{"shape":"LocalGatewayVirtualInterfaceGroupId"},
+        "DryRun":{"shape":"Boolean"}
       }
     },
     "CreateLocalGatewayRouteResult":{
@@ -8947,8 +9378,8 @@
     "CreateSubnetRequest":{
       "type":"structure",
       "required":[
-        "VpcId",
-        "CidrBlock"
+        "CidrBlock",
+        "VpcId"
       ],
       "members":{
         "TagSpecifications":{
@@ -8957,14 +9388,14 @@
         },
         "AvailabilityZone":{"shape":"String"},
         "AvailabilityZoneId":{"shape":"String"},
+        "CidrBlock":{"shape":"String"},
         "Ipv6CidrBlock":{"shape":"String"},
         "OutpostArn":{"shape":"String"},
         "VpcId":{"shape":"VpcId"},
         "DryRun":{
           "shape":"Boolean",
           "locationName":"dryRun"
-        },
-        "CidrBlock":{"shape":"String"}
+        }
       }
     },
     "CreateSubnetResult":{
@@ -11158,6 +11589,40 @@
         "ByoipCidrs":{
           "shape":"ByoipCidrSet",
           "locationName":"byoipCidrSet"
+        },
+        "NextToken":{
+          "shape":"String",
+          "locationName":"nextToken"
+        }
+      }
+    },
+    "DescribeCapacityReservationFleetsMaxResults":{
+      "type":"integer",
+      "max":100,
+      "min":1
+    },
+    "DescribeCapacityReservationFleetsRequest":{
+      "type":"structure",
+      "members":{
+        "CapacityReservationFleetIds":{
+          "shape":"CapacityReservationFleetIdSet",
+          "locationName":"CapacityReservationFleetId"
+        },
+        "NextToken":{"shape":"String"},
+        "MaxResults":{"shape":"DescribeCapacityReservationFleetsMaxResults"},
+        "Filters":{
+          "shape":"FilterList",
+          "locationName":"Filter"
+        },
+        "DryRun":{"shape":"Boolean"}
+      }
+    },
+    "DescribeCapacityReservationFleetsResult":{
+      "type":"structure",
+      "members":{
+        "CapacityReservationFleets":{
+          "shape":"CapacityReservationFleetSet",
+          "locationName":"capacityReservationFleetSet"
         },
         "NextToken":{
           "shape":"String",
@@ -14976,6 +15441,38 @@
         }
       }
     },
+    "DestinationFileFormat":{
+      "type":"string",
+      "enum":[
+        "plain-text",
+        "parquet"
+      ]
+    },
+    "DestinationOptionsRequest":{
+      "type":"structure",
+      "members":{
+        "FileFormat":{"shape":"DestinationFileFormat"},
+        "HiveCompatiblePartitions":{"shape":"Boolean"},
+        "PerHourPartition":{"shape":"Boolean"}
+      }
+    },
+    "DestinationOptionsResponse":{
+      "type":"structure",
+      "members":{
+        "FileFormat":{
+          "shape":"DestinationFileFormat",
+          "locationName":"fileFormat"
+        },
+        "HiveCompatiblePartitions":{
+          "shape":"Boolean",
+          "locationName":"hiveCompatiblePartitions"
+        },
+        "PerHourPartition":{
+          "shape":"Boolean",
+          "locationName":"perHourPartition"
+        }
+      }
+    },
     "DetachClassicLinkVpcRequest":{
       "type":"structure",
       "required":[
@@ -15794,6 +16291,11 @@
       ]
     },
     "Double":{"type":"double"},
+    "DoubleWithConstraints":{
+      "type":"double",
+      "max":99.999,
+      "min":0.001
+    },
     "EbsBlockDevice":{
       "type":"structure",
       "members":{
@@ -16534,6 +17036,21 @@
         "default"
       ]
     },
+    "ExcludedInstanceType":{
+      "type":"string",
+      "max":30,
+      "min":1,
+      "pattern":"[a-zA-Z0-9\\.\\*]+"
+    },
+    "ExcludedInstanceTypeSet":{
+      "type":"list",
+      "member":{
+        "shape":"ExcludedInstanceType",
+        "locationName":"item"
+      },
+      "max":400,
+      "min":0
+    },
     "ExecutableByStringList":{
       "type":"list",
       "member":{
@@ -17046,6 +17563,26 @@
       }
     },
     "ExportVmTaskId":{"type":"string"},
+    "FailedCapacityReservationFleetCancellationResult":{
+      "type":"structure",
+      "members":{
+        "CapacityReservationFleetId":{
+          "shape":"CapacityReservationFleetId",
+          "locationName":"capacityReservationFleetId"
+        },
+        "CancelCapacityReservationFleetError":{
+          "shape":"CancelCapacityReservationFleetError",
+          "locationName":"cancelCapacityReservationFleetError"
+        }
+      }
+    },
+    "FailedCapacityReservationFleetCancellationResultSet":{
+      "type":"list",
+      "member":{
+        "shape":"FailedCapacityReservationFleetCancellationResult",
+        "locationName":"item"
+      }
+    },
     "FailedQueuedPurchaseDeletion":{
       "type":"structure",
       "members":{
@@ -17121,6 +17658,66 @@
         "pending_termination",
         "fulfilled"
       ]
+    },
+    "FleetCapacityReservation":{
+      "type":"structure",
+      "members":{
+        "CapacityReservationId":{
+          "shape":"CapacityReservationId",
+          "locationName":"capacityReservationId"
+        },
+        "AvailabilityZoneId":{
+          "shape":"String",
+          "locationName":"availabilityZoneId"
+        },
+        "InstanceType":{
+          "shape":"InstanceType",
+          "locationName":"instanceType"
+        },
+        "InstancePlatform":{
+          "shape":"CapacityReservationInstancePlatform",
+          "locationName":"instancePlatform"
+        },
+        "AvailabilityZone":{
+          "shape":"String",
+          "locationName":"availabilityZone"
+        },
+        "TotalInstanceCount":{
+          "shape":"Integer",
+          "locationName":"totalInstanceCount"
+        },
+        "FulfilledCapacity":{
+          "shape":"Double",
+          "locationName":"fulfilledCapacity"
+        },
+        "EbsOptimized":{
+          "shape":"Boolean",
+          "locationName":"ebsOptimized"
+        },
+        "CreateDate":{
+          "shape":"MillisecondDateTime",
+          "locationName":"createDate"
+        },
+        "Weight":{
+          "shape":"DoubleWithConstraints",
+          "locationName":"weight"
+        },
+        "Priority":{
+          "shape":"IntegerWithConstraints",
+          "locationName":"priority"
+        }
+      }
+    },
+    "FleetCapacityReservationSet":{
+      "type":"list",
+      "member":{
+        "shape":"FleetCapacityReservation",
+        "locationName":"item"
+      }
+    },
+    "FleetCapacityReservationTenancy":{
+      "type":"string",
+      "enum":["default"]
     },
     "FleetCapacityReservationUsageStrategy":{
       "type":"string",
@@ -17235,6 +17832,10 @@
       "type":"list",
       "member":{"shape":"FleetId"}
     },
+    "FleetInstanceMatchCriteria":{
+      "type":"string",
+      "enum":["open"]
+    },
     "FleetLaunchTemplateConfig":{
       "type":"structure",
       "members":{
@@ -17301,6 +17902,10 @@
         "Placement":{
           "shape":"PlacementResponse",
           "locationName":"placement"
+        },
+        "InstanceRequirements":{
+          "shape":"InstanceRequirements",
+          "locationName":"instanceRequirements"
         }
       }
     },
@@ -17327,7 +17932,8 @@
         "AvailabilityZone":{"shape":"String"},
         "WeightedCapacity":{"shape":"Double"},
         "Priority":{"shape":"Double"},
-        "Placement":{"shape":"Placement"}
+        "Placement":{"shape":"Placement"},
+        "InstanceRequirements":{"shape":"InstanceRequirementsRequest"}
       }
     },
     "FleetLaunchTemplateSpecification":{
@@ -17364,7 +17970,10 @@
     },
     "FleetReplacementStrategy":{
       "type":"string",
-      "enum":["launch"]
+      "enum":[
+        "launch",
+        "launch-before-terminate"
+      ]
     },
     "FleetSet":{
       "type":"list",
@@ -17379,13 +17988,18 @@
         "ReplacementStrategy":{
           "shape":"FleetReplacementStrategy",
           "locationName":"replacementStrategy"
+        },
+        "TerminationDelay":{
+          "shape":"Integer",
+          "locationName":"terminationDelay"
         }
       }
     },
     "FleetSpotCapacityRebalanceRequest":{
       "type":"structure",
       "members":{
-        "ReplacementStrategy":{"shape":"FleetReplacementStrategy"}
+        "ReplacementStrategy":{"shape":"FleetReplacementStrategy"},
+        "TerminationDelay":{"shape":"Integer"}
       }
     },
     "FleetSpotMaintenanceStrategies":{
@@ -17482,6 +18096,10 @@
         "MaxAggregationInterval":{
           "shape":"Integer",
           "locationName":"maxAggregationInterval"
+        },
+        "DestinationOptions":{
+          "shape":"DestinationOptionsResponse",
+          "locationName":"destinationOptions"
         }
       }
     },
@@ -18017,6 +18635,41 @@
         }
       }
     },
+    "GetInstanceTypesFromInstanceRequirementsRequest":{
+      "type":"structure",
+      "required":[
+        "ArchitectureTypes",
+        "VirtualizationTypes",
+        "InstanceRequirements"
+      ],
+      "members":{
+        "DryRun":{"shape":"Boolean"},
+        "ArchitectureTypes":{
+          "shape":"ArchitectureTypeSet",
+          "locationName":"ArchitectureType"
+        },
+        "VirtualizationTypes":{
+          "shape":"VirtualizationTypeSet",
+          "locationName":"VirtualizationType"
+        },
+        "InstanceRequirements":{"shape":"InstanceRequirementsRequest"},
+        "MaxResults":{"shape":"Integer"},
+        "NextToken":{"shape":"String"}
+      }
+    },
+    "GetInstanceTypesFromInstanceRequirementsResult":{
+      "type":"structure",
+      "members":{
+        "InstanceTypes":{
+          "shape":"InstanceTypeInfoFromInstanceRequirementsSet",
+          "locationName":"instanceTypeSet"
+        },
+        "NextToken":{
+          "shape":"String",
+          "locationName":"nextToken"
+        }
+      }
+    },
     "GetLaunchTemplateDataRequest":{
       "type":"structure",
       "required":["InstanceId"],
@@ -18182,6 +18835,40 @@
         "SerialConsoleAccessEnabled":{
           "shape":"Boolean",
           "locationName":"serialConsoleAccessEnabled"
+        }
+      }
+    },
+    "GetSpotPlacementScoresRequest":{
+      "type":"structure",
+      "required":["TargetCapacity"],
+      "members":{
+        "InstanceTypes":{
+          "shape":"InstanceTypes",
+          "locationName":"InstanceType"
+        },
+        "TargetCapacity":{"shape":"SpotPlacementScoresTargetCapacity"},
+        "TargetCapacityUnitType":{"shape":"TargetCapacityUnitType"},
+        "SingleAvailabilityZone":{"shape":"Boolean"},
+        "RegionNames":{
+          "shape":"RegionNames",
+          "locationName":"RegionName"
+        },
+        "InstanceRequirementsWithMetadata":{"shape":"InstanceRequirementsWithMetadataRequest"},
+        "DryRun":{"shape":"Boolean"},
+        "MaxResults":{"shape":"SpotPlacementScoresMaxResults"},
+        "NextToken":{"shape":"String"}
+      }
+    },
+    "GetSpotPlacementScoresResult":{
+      "type":"structure",
+      "members":{
+        "SpotPlacementScores":{
+          "shape":"SpotPlacementScores",
+          "locationName":"spotPlacementScoreSet"
+        },
+        "NextToken":{
+          "shape":"String",
+          "locationName":"nextToken"
         }
       }
     },
@@ -20430,6 +21117,20 @@
         }
       }
     },
+    "InstanceGeneration":{
+      "type":"string",
+      "enum":[
+        "current",
+        "previous"
+      ]
+    },
+    "InstanceGenerationSet":{
+      "type":"list",
+      "member":{
+        "shape":"InstanceGeneration",
+        "locationName":"item"
+      }
+    },
     "InstanceHealthStatus":{
       "type":"string",
       "enum":[
@@ -20812,7 +21513,7 @@
           "queryName":"Ipv6Addresses"
         },
         "NetworkInterfaceId":{
-          "shape":"String",
+          "shape":"NetworkInterfaceId",
           "locationName":"networkInterfaceId"
         },
         "PrivateIpAddress":{
@@ -20880,6 +21581,160 @@
       "member":{
         "shape":"InstancePrivateIpAddress",
         "locationName":"item"
+      }
+    },
+    "InstanceRequirements":{
+      "type":"structure",
+      "members":{
+        "VCpuCount":{
+          "shape":"VCpuCountRange",
+          "locationName":"vCpuCount"
+        },
+        "MemoryMiB":{
+          "shape":"MemoryMiB",
+          "locationName":"memoryMiB"
+        },
+        "CpuManufacturers":{
+          "shape":"CpuManufacturerSet",
+          "locationName":"cpuManufacturerSet"
+        },
+        "MemoryGiBPerVCpu":{
+          "shape":"MemoryGiBPerVCpu",
+          "locationName":"memoryGiBPerVCpu"
+        },
+        "ExcludedInstanceTypes":{
+          "shape":"ExcludedInstanceTypeSet",
+          "locationName":"excludedInstanceTypeSet"
+        },
+        "InstanceGenerations":{
+          "shape":"InstanceGenerationSet",
+          "locationName":"instanceGenerationSet"
+        },
+        "SpotMaxPricePercentageOverLowestPrice":{
+          "shape":"Integer",
+          "locationName":"spotMaxPricePercentageOverLowestPrice"
+        },
+        "OnDemandMaxPricePercentageOverLowestPrice":{
+          "shape":"Integer",
+          "locationName":"onDemandMaxPricePercentageOverLowestPrice"
+        },
+        "BareMetal":{
+          "shape":"BareMetal",
+          "locationName":"bareMetal"
+        },
+        "BurstablePerformance":{
+          "shape":"BurstablePerformance",
+          "locationName":"burstablePerformance"
+        },
+        "RequireHibernateSupport":{
+          "shape":"Boolean",
+          "locationName":"requireHibernateSupport"
+        },
+        "NetworkInterfaceCount":{
+          "shape":"NetworkInterfaceCount",
+          "locationName":"networkInterfaceCount"
+        },
+        "LocalStorage":{
+          "shape":"LocalStorage",
+          "locationName":"localStorage"
+        },
+        "LocalStorageTypes":{
+          "shape":"LocalStorageTypeSet",
+          "locationName":"localStorageTypeSet"
+        },
+        "TotalLocalStorageGB":{
+          "shape":"TotalLocalStorageGB",
+          "locationName":"totalLocalStorageGB"
+        },
+        "BaselineEbsBandwidthMbps":{
+          "shape":"BaselineEbsBandwidthMbps",
+          "locationName":"baselineEbsBandwidthMbps"
+        },
+        "AcceleratorTypes":{
+          "shape":"AcceleratorTypeSet",
+          "locationName":"acceleratorTypeSet"
+        },
+        "AcceleratorCount":{
+          "shape":"AcceleratorCount",
+          "locationName":"acceleratorCount"
+        },
+        "AcceleratorManufacturers":{
+          "shape":"AcceleratorManufacturerSet",
+          "locationName":"acceleratorManufacturerSet"
+        },
+        "AcceleratorNames":{
+          "shape":"AcceleratorNameSet",
+          "locationName":"acceleratorNameSet"
+        },
+        "AcceleratorTotalMemoryMiB":{
+          "shape":"AcceleratorTotalMemoryMiB",
+          "locationName":"acceleratorTotalMemoryMiB"
+        }
+      }
+    },
+    "InstanceRequirementsRequest":{
+      "type":"structure",
+      "required":[
+        "VCpuCount",
+        "MemoryMiB"
+      ],
+      "members":{
+        "VCpuCount":{"shape":"VCpuCountRangeRequest"},
+        "MemoryMiB":{"shape":"MemoryMiBRequest"},
+        "CpuManufacturers":{
+          "shape":"CpuManufacturerSet",
+          "locationName":"CpuManufacturer"
+        },
+        "MemoryGiBPerVCpu":{"shape":"MemoryGiBPerVCpuRequest"},
+        "ExcludedInstanceTypes":{
+          "shape":"ExcludedInstanceTypeSet",
+          "locationName":"ExcludedInstanceType"
+        },
+        "InstanceGenerations":{
+          "shape":"InstanceGenerationSet",
+          "locationName":"InstanceGeneration"
+        },
+        "SpotMaxPricePercentageOverLowestPrice":{"shape":"Integer"},
+        "OnDemandMaxPricePercentageOverLowestPrice":{"shape":"Integer"},
+        "BareMetal":{"shape":"BareMetal"},
+        "BurstablePerformance":{"shape":"BurstablePerformance"},
+        "RequireHibernateSupport":{"shape":"Boolean"},
+        "NetworkInterfaceCount":{"shape":"NetworkInterfaceCountRequest"},
+        "LocalStorage":{"shape":"LocalStorage"},
+        "LocalStorageTypes":{
+          "shape":"LocalStorageTypeSet",
+          "locationName":"LocalStorageType"
+        },
+        "TotalLocalStorageGB":{"shape":"TotalLocalStorageGBRequest"},
+        "BaselineEbsBandwidthMbps":{"shape":"BaselineEbsBandwidthMbpsRequest"},
+        "AcceleratorTypes":{
+          "shape":"AcceleratorTypeSet",
+          "locationName":"AcceleratorType"
+        },
+        "AcceleratorCount":{"shape":"AcceleratorCountRequest"},
+        "AcceleratorManufacturers":{
+          "shape":"AcceleratorManufacturerSet",
+          "locationName":"AcceleratorManufacturer"
+        },
+        "AcceleratorNames":{
+          "shape":"AcceleratorNameSet",
+          "locationName":"AcceleratorName"
+        },
+        "AcceleratorTotalMemoryMiB":{"shape":"AcceleratorTotalMemoryMiBRequest"}
+      }
+    },
+    "InstanceRequirementsWithMetadataRequest":{
+      "type":"structure",
+      "members":{
+        "ArchitectureTypes":{
+          "shape":"ArchitectureTypeSet",
+          "locationName":"ArchitectureType"
+        },
+        "VirtualizationTypes":{
+          "shape":"VirtualizationTypeSet",
+          "locationName":"VirtualizationType"
+        },
+        "InstanceRequirements":{"shape":"InstanceRequirementsRequest"}
       }
     },
     "InstanceSpecification":{
@@ -21050,6 +21905,13 @@
         }
       }
     },
+    "InstanceStorageEncryptionSupport":{
+      "type":"string",
+      "enum":[
+        "unsupported",
+        "required"
+      ]
+    },
     "InstanceStorageFlag":{"type":"boolean"},
     "InstanceStorageInfo":{
       "type":"structure",
@@ -21065,6 +21927,10 @@
         "NvmeSupport":{
           "shape":"EphemeralNvmeSupport",
           "locationName":"nvmeSupport"
+        },
+        "EncryptionSupport":{
+          "shape":"InstanceStorageEncryptionSupport",
+          "locationName":"encryptionSupport"
         }
       }
     },
@@ -21361,6 +22227,7 @@
         "d3en.6xlarge",
         "d3en.8xlarge",
         "d3en.12xlarge",
+        "dl1.24xlarge",
         "f1.2xlarge",
         "f1.4xlarge",
         "f1.16xlarge",
@@ -21621,6 +22488,22 @@
         }
       }
     },
+    "InstanceTypeInfoFromInstanceRequirements":{
+      "type":"structure",
+      "members":{
+        "InstanceType":{
+          "shape":"String",
+          "locationName":"instanceType"
+        }
+      }
+    },
+    "InstanceTypeInfoFromInstanceRequirementsSet":{
+      "type":"list",
+      "member":{
+        "shape":"InstanceTypeInfoFromInstanceRequirements",
+        "locationName":"item"
+      }
+    },
     "InstanceTypeInfoList":{
       "type":"list",
       "member":{
@@ -21656,6 +22539,12 @@
         "locationName":"item"
       }
     },
+    "InstanceTypes":{
+      "type":"list",
+      "member":{"shape":"String"},
+      "max":1000,
+      "min":0
+    },
     "InstanceUsage":{
       "type":"structure",
       "members":{
@@ -21677,6 +22566,10 @@
       }
     },
     "Integer":{"type":"integer"},
+    "IntegerWithConstraints":{
+      "type":"integer",
+      "min":0
+    },
     "IntegrateServices":{
       "type":"structure",
       "members":{
@@ -22152,6 +23045,14 @@
         "UserId":{
           "shape":"String",
           "locationName":"userId"
+        },
+        "OrganizationArn":{
+          "shape":"String",
+          "locationName":"organizationArn"
+        },
+        "OrganizationalUnitArn":{
+          "shape":"String",
+          "locationName":"organizationalUnitArn"
         }
       }
     },
@@ -22813,7 +23714,7 @@
           "locationName":"spotPrice"
         },
         "SubnetId":{
-          "shape":"String",
+          "shape":"SubnetId",
           "locationName":"subnetId"
         },
         "AvailabilityZone":{
@@ -22827,6 +23728,10 @@
         "Priority":{
           "shape":"Double",
           "locationName":"priority"
+        },
+        "InstanceRequirements":{
+          "shape":"InstanceRequirements",
+          "locationName":"instanceRequirements"
         }
       }
     },
@@ -23484,6 +24389,28 @@
         "locationName":"item"
       }
     },
+    "LocalStorage":{
+      "type":"string",
+      "enum":[
+        "included",
+        "required",
+        "excluded"
+      ]
+    },
+    "LocalStorageType":{
+      "type":"string",
+      "enum":[
+        "hdd",
+        "ssd"
+      ]
+    },
+    "LocalStorageTypeSet":{
+      "type":"list",
+      "member":{
+        "shape":"LocalStorageType",
+        "locationName":"item"
+      }
+    },
     "Location":{"type":"string"},
     "LocationType":{
       "type":"string",
@@ -23573,6 +24500,26 @@
         "igmp"
       ]
     },
+    "MemoryGiBPerVCpu":{
+      "type":"structure",
+      "members":{
+        "Min":{
+          "shape":"Double",
+          "locationName":"min"
+        },
+        "Max":{
+          "shape":"Double",
+          "locationName":"max"
+        }
+      }
+    },
+    "MemoryGiBPerVCpuRequest":{
+      "type":"structure",
+      "members":{
+        "Min":{"shape":"Double"},
+        "Max":{"shape":"Double"}
+      }
+    },
     "MemoryInfo":{
       "type":"structure",
       "members":{
@@ -23580,6 +24527,27 @@
           "shape":"MemorySize",
           "locationName":"sizeInMiB"
         }
+      }
+    },
+    "MemoryMiB":{
+      "type":"structure",
+      "members":{
+        "Min":{
+          "shape":"Integer",
+          "locationName":"min"
+        },
+        "Max":{
+          "shape":"Integer",
+          "locationName":"max"
+        }
+      }
+    },
+    "MemoryMiBRequest":{
+      "type":"structure",
+      "required":["Min"],
+      "members":{
+        "Min":{"shape":"Integer"},
+        "Max":{"shape":"Integer"}
       }
     },
     "MemorySize":{"type":"long"},
@@ -23630,6 +24598,26 @@
         "not-opted-in"
       ]
     },
+    "ModifyCapacityReservationFleetRequest":{
+      "type":"structure",
+      "required":["CapacityReservationFleetId"],
+      "members":{
+        "CapacityReservationFleetId":{"shape":"CapacityReservationFleetId"},
+        "TotalTargetCapacity":{"shape":"Integer"},
+        "EndDate":{"shape":"MillisecondDateTime"},
+        "DryRun":{"shape":"Boolean"},
+        "RemoveEndDate":{"shape":"Boolean"}
+      }
+    },
+    "ModifyCapacityReservationFleetResult":{
+      "type":"structure",
+      "members":{
+        "Return":{
+          "shape":"Boolean",
+          "locationName":"return"
+        }
+      }
+    },
     "ModifyCapacityReservationRequest":{
       "type":"structure",
       "required":["CapacityReservationId"],
@@ -23639,7 +24627,8 @@
         "EndDate":{"shape":"DateTime"},
         "EndDateType":{"shape":"EndDateType"},
         "Accept":{"shape":"Boolean"},
-        "DryRun":{"shape":"Boolean"}
+        "DryRun":{"shape":"Boolean"},
+        "AdditionalInfo":{"shape":"String"}
       }
     },
     "ModifyCapacityReservationResult":{
@@ -23865,6 +24854,14 @@
         "DryRun":{
           "shape":"Boolean",
           "locationName":"dryRun"
+        },
+        "OrganizationArns":{
+          "shape":"OrganizationArnStringList",
+          "locationName":"OrganizationArn"
+        },
+        "OrganizationalUnitArns":{
+          "shape":"OrganizationalUnitArnStringList",
+          "locationName":"OrganizationalUnitArn"
         }
       }
     },
@@ -25426,6 +26423,10 @@
         "VpcId":{
           "shape":"String",
           "locationName":"vpcId"
+        },
+        "DenyAllIgwTraffic":{
+          "shape":"Boolean",
+          "locationName":"denyAllIgwTraffic"
         }
       }
     },
@@ -25521,6 +26522,26 @@
         "sourceDestCheck",
         "attachment"
       ]
+    },
+    "NetworkInterfaceCount":{
+      "type":"structure",
+      "members":{
+        "Min":{
+          "shape":"Integer",
+          "locationName":"min"
+        },
+        "Max":{
+          "shape":"Integer",
+          "locationName":"max"
+        }
+      }
+    },
+    "NetworkInterfaceCountRequest":{
+      "type":"structure",
+      "members":{
+        "Min":{"shape":"Integer"},
+        "Max":{"shape":"Integer"}
+      }
     },
     "NetworkInterfaceCreationType":{
       "type":"string",
@@ -25779,6 +26800,20 @@
         "add",
         "remove"
       ]
+    },
+    "OrganizationArnStringList":{
+      "type":"list",
+      "member":{
+        "shape":"String",
+        "locationName":"OrganizationArn"
+      }
+    },
+    "OrganizationalUnitArnStringList":{
+      "type":"list",
+      "member":{
+        "shape":"String",
+        "locationName":"OrganizationalUnitArn"
+      }
     },
     "OutpostArn":{
       "type":"string",
@@ -27093,6 +28128,12 @@
         "locationName":"RegionName"
       }
     },
+    "RegionNames":{
+      "type":"list",
+      "member":{"shape":"String"},
+      "max":10,
+      "min":0
+    },
     "RegisterImageRequest":{
       "type":"structure",
       "required":["Name"],
@@ -27635,7 +28676,10 @@
     },
     "ReplacementStrategy":{
       "type":"string",
-      "enum":["launch"]
+      "enum":[
+        "launch",
+        "launch-before-terminate"
+      ]
     },
     "ReportInstanceReasonCodes":{
       "type":"string",
@@ -27770,7 +28814,8 @@
         },
         "HibernationOptions":{"shape":"LaunchTemplateHibernationOptionsRequest"},
         "MetadataOptions":{"shape":"LaunchTemplateInstanceMetadataOptionsRequest"},
-        "EnclaveOptions":{"shape":"LaunchTemplateEnclaveOptionsRequest"}
+        "EnclaveOptions":{"shape":"LaunchTemplateEnclaveOptionsRequest"},
+        "InstanceRequirements":{"shape":"InstanceRequirementsRequest"}
       }
     },
     "RequestSpotFleetRequest":{
@@ -27963,6 +29008,22 @@
           "locationName":"reservationId"
         }
       }
+    },
+    "ReservationFleetInstanceSpecification":{
+      "type":"structure",
+      "members":{
+        "InstanceType":{"shape":"InstanceType"},
+        "InstancePlatform":{"shape":"CapacityReservationInstancePlatform"},
+        "Weight":{"shape":"DoubleWithConstraints"},
+        "AvailabilityZone":{"shape":"String"},
+        "AvailabilityZoneId":{"shape":"String"},
+        "EbsOptimized":{"shape":"Boolean"},
+        "Priority":{"shape":"IntegerWithConstraints"}
+      }
+    },
+    "ReservationFleetInstanceSpecificationList":{
+      "type":"list",
+      "member":{"shape":"ReservationFleetInstanceSpecification"}
     },
     "ReservationId":{"type":"string"},
     "ReservationList":{
@@ -28745,6 +29806,10 @@
         "EnclaveOptions":{
           "shape":"LaunchTemplateEnclaveOptions",
           "locationName":"enclaveOptions"
+        },
+        "InstanceRequirements":{
+          "shape":"InstanceRequirements",
+          "locationName":"instanceRequirements"
         }
       }
     },
@@ -29628,19 +30693,16 @@
     },
     "SearchLocalGatewayRoutesRequest":{
       "type":"structure",
-      "required":[
-        "LocalGatewayRouteTableId",
-        "Filters"
-      ],
+      "required":["LocalGatewayRouteTableId"],
       "members":{
         "LocalGatewayRouteTableId":{"shape":"LocalGatewayRoutetableId"},
-        "MaxResults":{"shape":"MaxResults"},
-        "NextToken":{"shape":"String"},
-        "DryRun":{"shape":"Boolean"},
         "Filters":{
           "shape":"FilterList",
           "locationName":"Filter"
-        }
+        },
+        "MaxResults":{"shape":"MaxResults"},
+        "NextToken":{"shape":"String"},
+        "DryRun":{"shape":"Boolean"}
       }
     },
     "SearchLocalGatewayRoutesResult":{
@@ -30403,6 +31465,10 @@
         "ReplacementStrategy":{
           "shape":"ReplacementStrategy",
           "locationName":"replacementStrategy"
+        },
+        "TerminationDelay":{
+          "shape":"Integer",
+          "locationName":"terminationDelay"
         }
       }
     },
@@ -30505,6 +31571,10 @@
         "TagSpecifications":{
           "shape":"SpotFleetTagSpecificationList",
           "locationName":"tagSpecificationSet"
+        },
+        "InstanceRequirements":{
+          "shape":"InstanceRequirements",
+          "locationName":"instanceRequirements"
         }
       }
     },
@@ -30648,6 +31718,10 @@
         "Context":{
           "shape":"String",
           "locationName":"context"
+        },
+        "TargetCapacityUnitType":{
+          "shape":"TargetCapacityUnitType",
+          "locationName":"targetCapacityUnitType"
         },
         "TagSpecifications":{
           "shape":"TagSpecificationList",
@@ -30926,6 +32000,40 @@
           "locationName":"tenancy"
         }
       }
+    },
+    "SpotPlacementScore":{
+      "type":"structure",
+      "members":{
+        "Region":{
+          "shape":"String",
+          "locationName":"region"
+        },
+        "AvailabilityZoneId":{
+          "shape":"String",
+          "locationName":"availabilityZoneId"
+        },
+        "Score":{
+          "shape":"Integer",
+          "locationName":"score"
+        }
+      }
+    },
+    "SpotPlacementScores":{
+      "type":"list",
+      "member":{
+        "shape":"SpotPlacementScore",
+        "locationName":"item"
+      }
+    },
+    "SpotPlacementScoresMaxResults":{
+      "type":"integer",
+      "max":1000,
+      "min":10
+    },
+    "SpotPlacementScoresTargetCapacity":{
+      "type":"integer",
+      "max":2000000000,
+      "min":1
     },
     "SpotPrice":{
       "type":"structure",
@@ -31591,6 +32699,10 @@
         "DefaultTargetCapacityType":{
           "shape":"DefaultTargetCapacityType",
           "locationName":"defaultTargetCapacityType"
+        },
+        "TargetCapacityUnitType":{
+          "shape":"TargetCapacityUnitType",
+          "locationName":"targetCapacityUnitType"
         }
       }
     },
@@ -31601,8 +32713,17 @@
         "TotalTargetCapacity":{"shape":"Integer"},
         "OnDemandTargetCapacity":{"shape":"Integer"},
         "SpotTargetCapacity":{"shape":"Integer"},
-        "DefaultTargetCapacityType":{"shape":"DefaultTargetCapacityType"}
+        "DefaultTargetCapacityType":{"shape":"DefaultTargetCapacityType"},
+        "TargetCapacityUnitType":{"shape":"TargetCapacityUnitType"}
       }
+    },
+    "TargetCapacityUnitType":{
+      "type":"string",
+      "enum":[
+        "vcpu",
+        "memory-mib",
+        "units"
+      ]
     },
     "TargetConfiguration":{
       "type":"structure",
@@ -31810,6 +32931,26 @@
       "member":{
         "shape":"ThreadsPerCore",
         "locationName":"item"
+      }
+    },
+    "TotalLocalStorageGB":{
+      "type":"structure",
+      "members":{
+        "Min":{
+          "shape":"Double",
+          "locationName":"min"
+        },
+        "Max":{
+          "shape":"Double",
+          "locationName":"max"
+        }
+      }
+    },
+    "TotalLocalStorageGBRequest":{
+      "type":"structure",
+      "members":{
+        "Min":{"shape":"Double"},
+        "Max":{"shape":"Double"}
       }
     },
     "TrafficDirection":{
@@ -33705,6 +34846,27 @@
       }
     },
     "VCpuCount":{"type":"integer"},
+    "VCpuCountRange":{
+      "type":"structure",
+      "members":{
+        "Min":{
+          "shape":"Integer",
+          "locationName":"min"
+        },
+        "Max":{
+          "shape":"Integer",
+          "locationName":"max"
+        }
+      }
+    },
+    "VCpuCountRangeRequest":{
+      "type":"structure",
+      "required":["Min"],
+      "members":{
+        "Min":{"shape":"Integer"},
+        "Max":{"shape":"Integer"}
+      }
+    },
     "VCpuInfo":{
       "type":"structure",
       "members":{
@@ -33820,6 +34982,15 @@
         "shape":"VirtualizationType",
         "locationName":"item"
       }
+    },
+    "VirtualizationTypeSet":{
+      "type":"list",
+      "member":{
+        "shape":"VirtualizationType",
+        "locationName":"item"
+      },
+      "max":2,
+      "min":0
     },
     "Volume":{
       "type":"structure",
@@ -34783,6 +35954,18 @@
         "TransitGatewayId":{
           "shape":"String",
           "locationName":"transitGatewayId"
+        },
+        "CoreNetworkArn":{
+          "shape":"String",
+          "locationName":"coreNetworkArn"
+        },
+        "CoreNetworkAttachmentArn":{
+          "shape":"String",
+          "locationName":"coreNetworkAttachmentArn"
+        },
+        "GatewayAssociationState":{
+          "shape":"String",
+          "locationName":"gatewayAssociationState"
         },
         "Options":{
           "shape":"VpnConnectionOptions",

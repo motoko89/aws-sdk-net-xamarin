@@ -84,10 +84,18 @@ namespace Amazon.ECS.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// This parameter is only supported for tasks hosted on Fargate using platform version
-        /// <code>1.4.0</code> or later.
+        /// This parameter is only supported for tasks hosted on Fargate using the following platform
+        /// versions:
         /// </para>
-        ///  </note>
+        ///  <ul> <li> 
+        /// <para>
+        /// Linux platform version <code>1.4.0</code> or later.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Windows platform version <code>1.0.0</code> or later.
+        /// </para>
+        ///  </li> </ul> </note>
         /// </summary>
         public EphemeralStorage EphemeralStorage
         {
@@ -105,6 +113,9 @@ namespace Amazon.ECS.Model
         /// Gets and sets the property ExecutionRoleArn. 
         /// <para>
         /// The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon
+        /// ECS task execution IAM role</a> in the <i>Amazon Elastic Container Service Developer
+        /// Guide</i>.
         /// </para>
         /// </summary>
         public string ExecutionRoleArn
@@ -160,7 +171,8 @@ namespace Amazon.ECS.Model
         /// <para>
         /// The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume.
         /// All containers in this task are granted the permissions that are specified in this
-        /// role.
+        /// role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
+        /// Role for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
         /// </para>
         /// </summary>
         public string TaskRoleArn

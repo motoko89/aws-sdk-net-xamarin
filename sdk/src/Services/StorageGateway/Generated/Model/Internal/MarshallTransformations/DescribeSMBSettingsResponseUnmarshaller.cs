@@ -81,6 +81,12 @@ namespace Amazon.StorageGateway.Model.Internal.MarshallTransformations
                     response.SMBGuestPasswordSet = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("SMBLocalGroups", targetDepth))
+                {
+                    var unmarshaller = SMBLocalGroupsUnmarshaller.Instance;
+                    response.SMBLocalGroups = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("SMBSecurityStrategy", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

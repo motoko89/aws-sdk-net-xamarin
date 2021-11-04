@@ -41,6 +41,24 @@ namespace Amazon.TranscribeService
     {
         private static IServiceMetadata serviceMetadata = new AmazonTranscribeServiceMetadata();
 
+#if BCL45 || AWS_ASYNC_ENUMERABLES_API
+        private ITranscribeServicePaginatorFactory _paginators;
+
+        /// <summary>
+        /// Paginators for the service
+        /// </summary>
+        public ITranscribeServicePaginatorFactory Paginators 
+        {
+            get 
+            {
+                if (this._paginators == null) 
+                {
+                    this._paginators = new TranscribeServicePaginatorFactory(this);
+                }
+                return this._paginators;
+            }
+        }
+#endif
         #region Constructors
 
         /// <summary>
@@ -2554,7 +2572,7 @@ namespace Amazon.TranscribeService
         #region  TagResource
 
         /// <summary>
-        /// Tags a Amazon Transcribe resource with the given list of tags.
+        /// Tags an Amazon Transcribe resource with the given list of tags.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
         /// 

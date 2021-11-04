@@ -78,6 +78,12 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         unmarshalledObject.CapacityReservationArn = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("capacityReservationFleetId", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.CapacityReservationFleetId = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("capacityReservationId", targetDepth))
                     {
                         var unmarshaller = StringUnmarshaller.Instance;

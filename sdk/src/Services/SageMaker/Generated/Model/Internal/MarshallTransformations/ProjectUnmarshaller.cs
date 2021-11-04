@@ -76,6 +76,18 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     unmarshalledObject.CreationTime = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("LastModifiedBy", targetDepth))
+                {
+                    var unmarshaller = UserContextUnmarshaller.Instance;
+                    unmarshalledObject.LastModifiedBy = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("LastModifiedTime", targetDepth))
+                {
+                    var unmarshaller = DateTimeUnmarshaller.Instance;
+                    unmarshalledObject.LastModifiedTime = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("ProjectArn", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

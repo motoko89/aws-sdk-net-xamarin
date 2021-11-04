@@ -2041,6 +2041,10 @@ namespace Amazon.Kendra
         /// </summary>
         public static readonly ScoreConfidence MEDIUM = new ScoreConfidence("MEDIUM");
         /// <summary>
+        /// Constant NOT_AVAILABLE for ScoreConfidence
+        /// </summary>
+        public static readonly ScoreConfidence NOT_AVAILABLE = new ScoreConfidence("NOT_AVAILABLE");
+        /// <summary>
         /// Constant VERY_HIGH for ScoreConfidence
         /// </summary>
         public static readonly ScoreConfidence VERY_HIGH = new ScoreConfidence("VERY_HIGH");
@@ -2394,6 +2398,56 @@ namespace Amazon.Kendra
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator UserContextPolicy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type UserGroupResolutionMode.
+    /// </summary>
+    public class UserGroupResolutionMode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AWS_SSO for UserGroupResolutionMode
+        /// </summary>
+        public static readonly UserGroupResolutionMode AWS_SSO = new UserGroupResolutionMode("AWS_SSO");
+        /// <summary>
+        /// Constant NONE for UserGroupResolutionMode
+        /// </summary>
+        public static readonly UserGroupResolutionMode NONE = new UserGroupResolutionMode("NONE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public UserGroupResolutionMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static UserGroupResolutionMode FindValue(string value)
+        {
+            return FindValue<UserGroupResolutionMode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator UserGroupResolutionMode(string value)
         {
             return FindValue(value);
         }

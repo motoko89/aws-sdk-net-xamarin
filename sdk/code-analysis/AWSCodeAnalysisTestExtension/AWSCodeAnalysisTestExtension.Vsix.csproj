@@ -200,6 +200,10 @@
       <Project>{D3539FAA-7CBB-4BFE-8F32-56097DB9C7C1}</Project>
       <Name>AWSSDK.ChimeSDKIdentity.CodeAnalysis</Name>
     </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/ChimeSDKMeetings/AWSSDK.ChimeSDKMeetings.CodeAnalysis.csproj">
+      <Project>{9D076F08-72A4-4586-816C-B47F4F0D7E66}</Project>
+      <Name>AWSSDK.ChimeSDKMeetings.CodeAnalysis</Name>
+    </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/ChimeSDKMessaging/AWSSDK.ChimeSDKMessaging.CodeAnalysis.csproj">
       <Project>{CFF95961-210B-4DDE-915B-31EBEDDF8098}</Project>
       <Name>AWSSDK.ChimeSDKMessaging.CodeAnalysis</Name>
@@ -744,6 +748,10 @@
       <Project>{26BEB3CC-1EB9-472C-91F4-F99B549826D9}</Project>
       <Name>AWSSDK.ManagedBlockchain.CodeAnalysis</Name>
     </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/ManagedGrafana/AWSSDK.ManagedGrafana.CodeAnalysis.csproj">
+      <Project>{36BCB01F-3F7A-4350-ABA1-74C5D919C04B}</Project>
+      <Name>AWSSDK.ManagedGrafana.CodeAnalysis</Name>
+    </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/MarketplaceCatalog/AWSSDK.MarketplaceCatalog.CodeAnalysis.csproj">
       <Project>{D694E48F-C80E-4A41-9C1C-B122507B867A}</Project>
       <Name>AWSSDK.MarketplaceCatalog.CodeAnalysis</Name>
@@ -855,6 +863,10 @@
     <ProjectReference Include="../ServiceAnalysis/Outposts/AWSSDK.Outposts.CodeAnalysis.csproj">
       <Project>{1F501A21-5AB1-453C-BC7D-67B56F5EB3F1}</Project>
       <Name>AWSSDK.Outposts.CodeAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="../ServiceAnalysis/Panorama/AWSSDK.Panorama.CodeAnalysis.csproj">
+      <Project>{0D5E637F-5FB5-45BC-B838-1AC29CC66C60}</Project>
+      <Name>AWSSDK.Panorama.CodeAnalysis</Name>
     </ProjectReference>
     <ProjectReference Include="../ServiceAnalysis/Personalize/AWSSDK.Personalize.CodeAnalysis.csproj">
       <Project>{01150DA6-D796-44CC-BB2B-35CC888338B8}</Project>

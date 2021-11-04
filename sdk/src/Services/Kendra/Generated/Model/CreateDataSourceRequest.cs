@@ -30,13 +30,12 @@ namespace Amazon.Kendra.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateDataSource operation.
-    /// Creates a data source that you use to with an Amazon Kendra index. 
+    /// Creates a data source that you want to use with an Amazon Kendra index. 
     /// 
     ///  
     /// <para>
     /// You specify a name, data source connector type and description for your data source.
-    /// You also specify configuration information such as document metadata (author, source
-    /// URI, and so on) and user context information.
+    /// You also specify configuration information for the data source connector.
     /// </para>
     ///  
     /// <para>
@@ -50,6 +49,7 @@ namespace Amazon.Kendra.Model
         private DataSourceConfiguration _configuration;
         private string _description;
         private string _indexId;
+        private string _languageCode;
         private string _name;
         private string _roleArn;
         private string _schedule;
@@ -141,6 +141,28 @@ namespace Amazon.Kendra.Model
         internal bool IsSetIndexId()
         {
             return this._indexId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property LanguageCode. 
+        /// <para>
+        /// The code for a language. This allows you to support a language for all documents when
+        /// creating the data source. English is supported by default. For more information on
+        /// supported languages, including their codes, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
+        /// documents in languages other than English</a>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=2, Max=10)]
+        public string LanguageCode
+        {
+            get { return this._languageCode; }
+            set { this._languageCode = value; }
+        }
+
+        // Check to see if LanguageCode property is set
+        internal bool IsSetLanguageCode()
+        {
+            return this._languageCode != null;
         }
 
         /// <summary>

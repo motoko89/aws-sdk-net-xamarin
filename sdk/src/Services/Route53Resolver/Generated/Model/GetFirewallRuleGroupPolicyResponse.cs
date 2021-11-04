@@ -43,7 +43,7 @@ namespace Amazon.Route53Resolver.Model
         /// Access Manager (RAM). 
         /// </para>
         /// </summary>
-        [AWSProperty(Max=5000)]
+        [AWSProperty(Max=30000)]
         public string FirewallRuleGroupPolicy
         {
             get { return this._firewallRuleGroupPolicy; }

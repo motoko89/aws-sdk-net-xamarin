@@ -58,7 +58,7 @@ namespace Amazon.LexModelsV2.Model
         /// <summary>
         /// Gets and sets the property MaxRetries. 
         /// <para>
-        /// The maximum number of times the bot tries to elicit a resonse from the user using
+        /// The maximum number of times the bot tries to elicit a response from the user using
         /// this prompt.
         /// </para>
         /// </summary>

@@ -30,8 +30,8 @@ namespace Amazon.ChimeSDKMessaging.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateChannelMembership operation.
-    /// Adds a user to a channel. The <code>InvitedBy</code> response field is derived from
-    /// the request header. A channel member can:
+    /// Adds a user to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code>
+    /// is derived from the request header. A channel member can:
     /// 
     ///  <ul> <li> 
     /// <para>
@@ -121,7 +121,7 @@ namespace Amazon.ChimeSDKMessaging.Model
         /// <summary>
         /// Gets and sets the property MemberArn. 
         /// <para>
-        /// The ARN of the member you want to add to the channel.
+        /// The <code>AppInstanceUserArn</code> of the member you want to add to the channel.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=5, Max=1600)]

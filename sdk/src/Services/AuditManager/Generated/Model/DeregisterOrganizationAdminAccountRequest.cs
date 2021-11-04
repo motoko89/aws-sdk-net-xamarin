@@ -30,16 +30,16 @@ namespace Amazon.AuditManager.Model
 {
     /// <summary>
     /// Container for the parameters to the DeregisterOrganizationAdminAccount operation.
-    /// Removes the specified member account as a delegated administrator for Audit Manager.
-    /// 
+    /// Removes the specified member Amazon Web Services account as a delegated administrator
+    /// for Audit Manager. 
     /// 
     ///  <important> 
     /// <para>
-    /// When you remove a delegated administrator from your Audit Manager settings, or when
-    /// you deregister a delegated administrator from Organizations, you continue to have
-    /// access to the evidence that you previously collected under that account. However,
-    /// Audit Manager will stop collecting and attaching evidence to that delegated administrator
-    /// account moving forward.
+    /// When you remove a delegated administrator from your Audit Manager settings, you continue
+    /// to have access to the evidence that you previously collected under that account. This
+    /// is also the case when you deregister a delegated administrator from Audit Manager.
+    /// However, Audit Manager will stop collecting and attaching evidence to that delegated
+    /// administrator account moving forward.
     /// </para>
     ///  </important>
     /// </summary>
@@ -50,7 +50,7 @@ namespace Amazon.AuditManager.Model
         /// <summary>
         /// Gets and sets the property AdminAccountId. 
         /// <para>
-        ///  The identifier for the specified administrator account. 
+        ///  The identifier for the administrator account. 
         /// </para>
         /// </summary>
         [AWSProperty(Min=12, Max=12)]

@@ -31,6 +31,13 @@ namespace Amazon.WorkMail.Model
     /// <summary>
     /// Container for the parameters to the DeleteMobileDeviceAccessRule operation.
     /// Deletes a mobile device access rule for the specified Amazon WorkMail organization.
+    /// 
+    ///  <note> 
+    /// <para>
+    /// Deleting already deleted and non-existing rules does not produce an error. In those
+    /// cases, the service sends back an HTTP 200 response with an empty HTTP body.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class DeleteMobileDeviceAccessRuleRequest : AmazonWorkMailRequest
     {

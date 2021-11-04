@@ -25,6 +25,60 @@ namespace Amazon.ChimeSDKMessaging
 {
 
     /// <summary>
+    /// Constants used for properties of type AllowNotifications.
+    /// </summary>
+    public class AllowNotifications : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ALL for AllowNotifications
+        /// </summary>
+        public static readonly AllowNotifications ALL = new AllowNotifications("ALL");
+        /// <summary>
+        /// Constant FILTERED for AllowNotifications
+        /// </summary>
+        public static readonly AllowNotifications FILTERED = new AllowNotifications("FILTERED");
+        /// <summary>
+        /// Constant NONE for AllowNotifications
+        /// </summary>
+        public static readonly AllowNotifications NONE = new AllowNotifications("NONE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public AllowNotifications(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static AllowNotifications FindValue(string value)
+        {
+            return FindValue<AllowNotifications>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator AllowNotifications(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ChannelMembershipType.
     /// </summary>
     public class ChannelMembershipType : ConstantClass
@@ -118,6 +172,64 @@ namespace Amazon.ChimeSDKMessaging
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ChannelMessagePersistenceType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ChannelMessageStatus.
+    /// </summary>
+    public class ChannelMessageStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DENIED for ChannelMessageStatus
+        /// </summary>
+        public static readonly ChannelMessageStatus DENIED = new ChannelMessageStatus("DENIED");
+        /// <summary>
+        /// Constant FAILED for ChannelMessageStatus
+        /// </summary>
+        public static readonly ChannelMessageStatus FAILED = new ChannelMessageStatus("FAILED");
+        /// <summary>
+        /// Constant PENDING for ChannelMessageStatus
+        /// </summary>
+        public static readonly ChannelMessageStatus PENDING = new ChannelMessageStatus("PENDING");
+        /// <summary>
+        /// Constant SENT for ChannelMessageStatus
+        /// </summary>
+        public static readonly ChannelMessageStatus SENT = new ChannelMessageStatus("SENT");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ChannelMessageStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ChannelMessageStatus FindValue(string value)
+        {
+            return FindValue<ChannelMessageStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ChannelMessageStatus(string value)
         {
             return FindValue(value);
         }
@@ -370,6 +482,152 @@ namespace Amazon.ChimeSDKMessaging
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ErrorCode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type FallbackAction.
+    /// </summary>
+    public class FallbackAction : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ABORT for FallbackAction
+        /// </summary>
+        public static readonly FallbackAction ABORT = new FallbackAction("ABORT");
+        /// <summary>
+        /// Constant CONTINUE for FallbackAction
+        /// </summary>
+        public static readonly FallbackAction CONTINUE = new FallbackAction("CONTINUE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public FallbackAction(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static FallbackAction FindValue(string value)
+        {
+            return FindValue<FallbackAction>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator FallbackAction(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type InvocationType.
+    /// </summary>
+    public class InvocationType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ASYNC for InvocationType
+        /// </summary>
+        public static readonly InvocationType ASYNC = new InvocationType("ASYNC");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public InvocationType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static InvocationType FindValue(string value)
+        {
+            return FindValue<InvocationType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator InvocationType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type PushNotificationType.
+    /// </summary>
+    public class PushNotificationType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DEFAULT for PushNotificationType
+        /// </summary>
+        public static readonly PushNotificationType DEFAULT = new PushNotificationType("DEFAULT");
+        /// <summary>
+        /// Constant VOIP for PushNotificationType
+        /// </summary>
+        public static readonly PushNotificationType VOIP = new PushNotificationType("VOIP");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public PushNotificationType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static PushNotificationType FindValue(string value)
+        {
+            return FindValue<PushNotificationType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator PushNotificationType(string value)
         {
             return FindValue(value);
         }

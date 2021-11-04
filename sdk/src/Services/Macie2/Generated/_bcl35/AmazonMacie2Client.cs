@@ -47,6 +47,24 @@ namespace Amazon.Macie2
     {
         private static IServiceMetadata serviceMetadata = new AmazonMacie2Metadata();
 
+#if BCL45 || AWS_ASYNC_ENUMERABLES_API
+        private IMacie2PaginatorFactory _paginators;
+
+        /// <summary>
+        /// Paginators for the service
+        /// </summary>
+        public IMacie2PaginatorFactory Paginators 
+        {
+            get 
+            {
+                if (this._paginators == null) 
+                {
+                    this._paginators = new Macie2PaginatorFactory(this);
+                }
+                return this._paginators;
+            }
+        }
+#endif
         #region Constructors
 
         /// <summary>
@@ -4612,7 +4630,7 @@ namespace Amazon.Macie2
         #region  UpdateMemberSession
 
         /// <summary>
-        /// Enables an Amazon Macie administrator to suspend or re-enable a member account.
+        /// Enables an Amazon Macie administrator to suspend or re-enable Macie for a member account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateMemberSession service method.</param>
         /// 

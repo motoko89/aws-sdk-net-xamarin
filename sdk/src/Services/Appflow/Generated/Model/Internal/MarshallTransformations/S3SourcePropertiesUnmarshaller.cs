@@ -76,6 +76,12 @@ namespace Amazon.Appflow.Model.Internal.MarshallTransformations
                     unmarshalledObject.BucketPrefix = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("s3InputFormatConfig", targetDepth))
+                {
+                    var unmarshaller = S3InputFormatConfigUnmarshaller.Instance;
+                    unmarshalledObject.S3InputFormatConfig = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

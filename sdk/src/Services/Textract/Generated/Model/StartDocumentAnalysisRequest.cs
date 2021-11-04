@@ -36,7 +36,7 @@ namespace Amazon.Textract.Model
     ///  
     /// <para>
     ///  <code>StartDocumentAnalysis</code> can analyze text in documents that are in JPEG,
-    /// PNG, and PDF format. The documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a>
+    /// PNG, TIFF, and PDF format. The documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a>
     /// to specify the bucket name and file name of the document. 
     /// </para>
     ///  

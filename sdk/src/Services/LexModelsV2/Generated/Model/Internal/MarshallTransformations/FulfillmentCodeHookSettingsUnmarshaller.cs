@@ -70,6 +70,18 @@ namespace Amazon.LexModelsV2.Model.Internal.MarshallTransformations
                     unmarshalledObject.Enabled = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("fulfillmentUpdatesSpecification", targetDepth))
+                {
+                    var unmarshaller = FulfillmentUpdatesSpecificationUnmarshaller.Instance;
+                    unmarshalledObject.FulfillmentUpdatesSpecification = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("postFulfillmentStatusSpecification", targetDepth))
+                {
+                    var unmarshaller = PostFulfillmentStatusSpecificationUnmarshaller.Instance;
+                    unmarshalledObject.PostFulfillmentStatusSpecification = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

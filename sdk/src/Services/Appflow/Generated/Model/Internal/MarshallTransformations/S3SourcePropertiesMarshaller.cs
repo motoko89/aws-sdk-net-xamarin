@@ -57,6 +57,17 @@ namespace Amazon.Appflow.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.BucketPrefix);
             }
 
+            if(requestObject.IsSetS3InputFormatConfig())
+            {
+                context.Writer.WritePropertyName("s3InputFormatConfig");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = S3InputFormatConfigMarshaller.Instance;
+                marshaller.Marshall(requestObject.S3InputFormatConfig, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
         }
 
         /// <summary>

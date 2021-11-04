@@ -76,6 +76,12 @@ namespace Amazon.DataExchange.Model.Internal.MarshallTransformations
                     unmarshalledObject.Encryption = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("EventActionArn", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.EventActionArn = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("RevisionDestinations", targetDepth))
                 {
                     var unmarshaller = new ListUnmarshaller<RevisionDestinationEntry, RevisionDestinationEntryUnmarshaller>(RevisionDestinationEntryUnmarshaller.Instance);

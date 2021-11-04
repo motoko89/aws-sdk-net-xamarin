@@ -38,11 +38,13 @@ namespace Amazon.ChimeSDKMessaging.Model
         private DateTime? _createdTimestamp;
         private DateTime? _lastEditedTimestamp;
         private DateTime? _lastUpdatedTimestamp;
+        private Dictionary<string, MessageAttributeValue> _messageAttributes = new Dictionary<string, MessageAttributeValue>();
         private string _messageId;
         private string _metadata;
         private ChannelMessagePersistenceType _persistence;
         private bool? _redacted;
         private Identity _sender;
+        private ChannelMessageStatusStructure _status;
         private ChannelMessageType _type;
 
         /// <summary>
@@ -138,6 +140,25 @@ namespace Amazon.ChimeSDKMessaging.Model
         }
 
         /// <summary>
+        /// Gets and sets the property MessageAttributes. 
+        /// <para>
+        /// The attributes for the message, used for message filtering along with a <code>FilterRule</code>
+        /// defined in the <code>PushNotificationPreferences</code>.
+        /// </para>
+        /// </summary>
+        public Dictionary<string, MessageAttributeValue> MessageAttributes
+        {
+            get { return this._messageAttributes; }
+            set { this._messageAttributes = value; }
+        }
+
+        // Check to see if MessageAttributes property is set
+        internal bool IsSetMessageAttributes()
+        {
+            return this._messageAttributes != null && this._messageAttributes.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property MessageId. 
         /// <para>
         /// The ID of a message.
@@ -227,6 +248,24 @@ namespace Amazon.ChimeSDKMessaging.Model
         internal bool IsSetSender()
         {
             return this._sender != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Status. 
+        /// <para>
+        /// The status of the channel message.
+        /// </para>
+        /// </summary>
+        public ChannelMessageStatusStructure Status
+        {
+            get { return this._status; }
+            set { this._status = value; }
+        }
+
+        // Check to see if Status property is set
+        internal bool IsSetStatus()
+        {
+            return this._status != null;
         }
 
         /// <summary>

@@ -81,6 +81,30 @@ namespace Amazon.Backup.Model.Internal.MarshallTransformations
                     response.EncryptionKeyArn = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("LockDate", targetDepth))
+                {
+                    var unmarshaller = DateTimeUnmarshaller.Instance;
+                    response.LockDate = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("Locked", targetDepth))
+                {
+                    var unmarshaller = BoolUnmarshaller.Instance;
+                    response.Locked = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("MaxRetentionDays", targetDepth))
+                {
+                    var unmarshaller = LongUnmarshaller.Instance;
+                    response.MaxRetentionDays = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("MinRetentionDays", targetDepth))
+                {
+                    var unmarshaller = LongUnmarshaller.Instance;
+                    response.MinRetentionDays = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("NumberOfRecoveryPoints", targetDepth))
                 {
                     var unmarshaller = LongUnmarshaller.Instance;

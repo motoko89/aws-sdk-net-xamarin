@@ -262,6 +262,75 @@ namespace Amazon.ChimeSDKMessaging
         #endregion
 
 
+        #region  AssociateChannelFlow
+
+        internal virtual AssociateChannelFlowResponse AssociateChannelFlow(AssociateChannelFlowRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateChannelFlowRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateChannelFlowResponseUnmarshaller.Instance;
+
+            return Invoke<AssociateChannelFlowResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Associates a channel flow with a channel. Once associated, all messages to that channel
+        /// go through channel flow processors. To stop processing, use the <code>DisassociateChannelFlow</code>
+        /// API.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// Only administrators or channel moderators can associate a channel flow. The <code>x-amz-chime-bearer</code>
+        /// request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that
+        /// makes the API call as the value in the header.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssociateChannelFlow service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AssociateChannelFlow service method, as returned by ChimeSDKMessaging.</returns>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ConflictException">
+        /// The request could not be processed because of conflict in the current state of the
+        /// resource.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.NotFoundException">
+        /// One or more of the resources in the request does not exist in the system.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-sdk-messaging-2021-05-15/AssociateChannelFlow">REST API Reference for AssociateChannelFlow Operation</seealso>
+        public virtual Task<AssociateChannelFlowResponse> AssociateChannelFlowAsync(AssociateChannelFlowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateChannelFlowRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateChannelFlowResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AssociateChannelFlowResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  BatchCreateChannelMembership
 
         internal virtual BatchCreateChannelMembershipResponse BatchCreateChannelMembership(BatchCreateChannelMembershipRequest request)
@@ -310,6 +379,81 @@ namespace Amazon.ChimeSDKMessaging
             options.ResponseUnmarshaller = BatchCreateChannelMembershipResponseUnmarshaller.Instance;
 
             return InvokeAsync<BatchCreateChannelMembershipResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ChannelFlowCallback
+
+        internal virtual ChannelFlowCallbackResponse ChannelFlowCallback(ChannelFlowCallbackRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ChannelFlowCallbackRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ChannelFlowCallbackResponseUnmarshaller.Instance;
+
+            return Invoke<ChannelFlowCallbackResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Calls back Chime SDK Messaging with a processing response message. This should be
+        /// invoked from the processor Lambda. This is a developer API.
+        /// 
+        ///  
+        /// <para>
+        /// You can return one of the following processing responses:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Update message content or metadata
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Deny a message
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Make no changes to the message
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ChannelFlowCallback service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ChannelFlowCallback service method, as returned by ChimeSDKMessaging.</returns>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ConflictException">
+        /// The request could not be processed because of conflict in the current state of the
+        /// resource.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-sdk-messaging-2021-05-15/ChannelFlowCallback">REST API Reference for ChannelFlowCallback Operation</seealso>
+        public virtual Task<ChannelFlowCallbackResponse> ChannelFlowCallbackAsync(ChannelFlowCallbackRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ChannelFlowCallbackRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ChannelFlowCallbackResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ChannelFlowCallbackResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -458,6 +602,92 @@ namespace Amazon.ChimeSDKMessaging
 
         #endregion
         
+        #region  CreateChannelFlow
+
+        internal virtual CreateChannelFlowResponse CreateChannelFlow(CreateChannelFlowRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateChannelFlowRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateChannelFlowResponseUnmarshaller.Instance;
+
+            return Invoke<CreateChannelFlowResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates a channel flow, a container for processors. Processors are AWS Lambda functions
+        /// that perform actions on chat messages, such as stripping out profanity. You can associate
+        /// channel flows with channels, and the processors in the channel flow then take action
+        /// on all messages sent to that channel. This is a developer API.
+        /// 
+        ///  
+        /// <para>
+        /// Channel flows process the following items:
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// New and updated messages
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Persistent and non-persistent messages
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The Standard message type
+        /// </para>
+        ///  </li> </ol> <note> 
+        /// <para>
+        /// Channel flows don't process Control or System messages. For more information about
+        /// the message types provided by Chime SDK Messaging, refer to <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message
+        /// types</a> in the <i>Amazon Chime developer guide</i>.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateChannelFlow service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateChannelFlow service method, as returned by ChimeSDKMessaging.</returns>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ConflictException">
+        /// The request could not be processed because of conflict in the current state of the
+        /// resource.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ResourceLimitExceededException">
+        /// The request exceeds the resource limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-sdk-messaging-2021-05-15/CreateChannelFlow">REST API Reference for CreateChannelFlow Operation</seealso>
+        public virtual Task<CreateChannelFlowResponse> CreateChannelFlowAsync(CreateChannelFlowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateChannelFlowRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateChannelFlowResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateChannelFlowResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateChannelMembership
 
         internal virtual CreateChannelMembershipResponse CreateChannelMembership(CreateChannelMembershipRequest request)
@@ -472,8 +702,8 @@ namespace Amazon.ChimeSDKMessaging
 
 
         /// <summary>
-        /// Adds a user to a channel. The <code>InvitedBy</code> response field is derived from
-        /// the request header. A channel member can:
+        /// Adds a user to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code>
+        /// is derived from the request header. A channel member can:
         /// 
         ///  <ul> <li> 
         /// <para>
@@ -759,6 +989,71 @@ namespace Amazon.ChimeSDKMessaging
             options.ResponseUnmarshaller = DeleteChannelBanResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteChannelBanResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteChannelFlow
+
+        internal virtual DeleteChannelFlowResponse DeleteChannelFlow(DeleteChannelFlowRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteChannelFlowRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteChannelFlowResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteChannelFlowResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes a channel flow, an irreversible process. This is a developer API.
+        /// 
+        ///  <note> 
+        /// <para>
+        ///  This API works only when the channel flow is not associated with any channel. To
+        /// get a list of all channels that a channel flow is associated with, use the <code>ListChannelsAssociatedWithChannelFlow</code>
+        /// API. Use the <code>DisassociateChannelFlow</code> API to disassociate a channel flow
+        /// from all channels. 
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteChannelFlow service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteChannelFlow service method, as returned by ChimeSDKMessaging.</returns>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ConflictException">
+        /// The request could not be processed because of conflict in the current state of the
+        /// resource.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-sdk-messaging-2021-05-15/DeleteChannelFlow">REST API Reference for DeleteChannelFlow Operation</seealso>
+        public virtual Task<DeleteChannelFlowResponse> DeleteChannelFlowAsync(DeleteChannelFlowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteChannelFlowRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteChannelFlowResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteChannelFlowResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1066,6 +1361,59 @@ namespace Amazon.ChimeSDKMessaging
 
         #endregion
         
+        #region  DescribeChannelFlow
+
+        internal virtual DescribeChannelFlowResponse DescribeChannelFlow(DescribeChannelFlowRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeChannelFlowRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeChannelFlowResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeChannelFlowResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Returns the full details of a channel flow in an Amazon Chime <code>AppInstance</code>.
+        /// This is a developer API.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeChannelFlow service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeChannelFlow service method, as returned by ChimeSDKMessaging.</returns>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-sdk-messaging-2021-05-15/DescribeChannelFlow">REST API Reference for DescribeChannelFlow Operation</seealso>
+        public virtual Task<DescribeChannelFlowResponse> DescribeChannelFlowAsync(DescribeChannelFlowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeChannelFlowRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeChannelFlowResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeChannelFlowResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DescribeChannelMembership
 
         internal virtual DescribeChannelMembershipResponse DescribeChannelMembership(DescribeChannelMembershipRequest request)
@@ -1308,6 +1656,131 @@ namespace Amazon.ChimeSDKMessaging
 
         #endregion
         
+        #region  DisassociateChannelFlow
+
+        internal virtual DisassociateChannelFlowResponse DisassociateChannelFlow(DisassociateChannelFlowRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateChannelFlowRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateChannelFlowResponseUnmarshaller.Instance;
+
+            return Invoke<DisassociateChannelFlowResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Disassociates a channel flow from all its channels. Once disassociated, all messages
+        /// to that channel stop going through the channel flow processor.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// Only administrators or channel moderators can disassociate a channel flow. The <code>x-amz-chime-bearer</code>
+        /// request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that
+        /// makes the API call as the value in the header.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateChannelFlow service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DisassociateChannelFlow service method, as returned by ChimeSDKMessaging.</returns>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ConflictException">
+        /// The request could not be processed because of conflict in the current state of the
+        /// resource.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.NotFoundException">
+        /// One or more of the resources in the request does not exist in the system.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-sdk-messaging-2021-05-15/DisassociateChannelFlow">REST API Reference for DisassociateChannelFlow Operation</seealso>
+        public virtual Task<DisassociateChannelFlowResponse> DisassociateChannelFlowAsync(DisassociateChannelFlowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateChannelFlowRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateChannelFlowResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DisassociateChannelFlowResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetChannelMembershipPreferences
+
+        internal virtual GetChannelMembershipPreferencesResponse GetChannelMembershipPreferences(GetChannelMembershipPreferencesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetChannelMembershipPreferencesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetChannelMembershipPreferencesResponseUnmarshaller.Instance;
+
+            return Invoke<GetChannelMembershipPreferencesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Gets the membership preferences of an <code>AppInstanceUser</code> for the specified
+        /// channel. The <code>AppInstanceUser</code> must be a member of the channel. Only the
+        /// <code>AppInstanceUser</code> who owns the membership can retrieve preferences. Users
+        /// in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences
+        /// for other users. Banned users can't retrieve membership preferences for the channel
+        /// from which they are banned.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetChannelMembershipPreferences service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetChannelMembershipPreferences service method, as returned by ChimeSDKMessaging.</returns>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-sdk-messaging-2021-05-15/GetChannelMembershipPreferences">REST API Reference for GetChannelMembershipPreferences Operation</seealso>
+        public virtual Task<GetChannelMembershipPreferencesResponse> GetChannelMembershipPreferencesAsync(GetChannelMembershipPreferencesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetChannelMembershipPreferencesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetChannelMembershipPreferencesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetChannelMembershipPreferencesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  GetChannelMessage
 
         internal virtual GetChannelMessageResponse GetChannelMessage(GetChannelMessageRequest request)
@@ -1366,6 +1839,97 @@ namespace Amazon.ChimeSDKMessaging
             options.ResponseUnmarshaller = GetChannelMessageResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetChannelMessageResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetChannelMessageStatus
+
+        internal virtual GetChannelMessageStatusResponse GetChannelMessageStatus(GetChannelMessageStatusRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetChannelMessageStatusRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetChannelMessageStatusResponseUnmarshaller.Instance;
+
+            return Invoke<GetChannelMessageStatusResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Gets message status for a specified <code>messageId</code>. Use this API to determine
+        /// the intermediate status of messages going through channel flow processing. The API
+        /// provides an alternative to retrieving message status if the event was not received
+        /// because a client wasn't connected to a websocket. 
+        /// 
+        ///  
+        /// <para>
+        /// Messages can have any one of these statuses.
+        /// </para>
+        ///  <dl> <dt>SENT</dt> <dd> 
+        /// <para>
+        /// Message processed successfully
+        /// </para>
+        ///  </dd> <dt>PENDING</dt> <dd> 
+        /// <para>
+        /// Ongoing processing
+        /// </para>
+        ///  </dd> <dt>FAILED</dt> <dd> 
+        /// <para>
+        /// Processing failed
+        /// </para>
+        ///  </dd> <dt>DENIED</dt> <dd> 
+        /// <para>
+        /// Messasge denied by the processor
+        /// </para>
+        ///  </dd> </dl> <note> <ul> <li> 
+        /// <para>
+        /// This API does not return statuses for denied messages, because we don't store them
+        /// once the processor denies them. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Only the message sender can invoke this API.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
+        /// of the user that makes the API call as the value in the header
+        /// </para>
+        ///  </li> </ul> </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetChannelMessageStatus service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetChannelMessageStatus service method, as returned by ChimeSDKMessaging.</returns>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-sdk-messaging-2021-05-15/GetChannelMessageStatus">REST API Reference for GetChannelMessageStatus Operation</seealso>
+        public virtual Task<GetChannelMessageStatusResponse> GetChannelMessageStatusAsync(GetChannelMessageStatusRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetChannelMessageStatusRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetChannelMessageStatusResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetChannelMessageStatusResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1478,6 +2042,59 @@ namespace Amazon.ChimeSDKMessaging
 
         #endregion
         
+        #region  ListChannelFlows
+
+        internal virtual ListChannelFlowsResponse ListChannelFlows(ListChannelFlowsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListChannelFlowsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListChannelFlowsResponseUnmarshaller.Instance;
+
+            return Invoke<ListChannelFlowsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Returns a paginated lists of all the channel flows created under a single Chime. This
+        /// is a developer API.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListChannelFlows service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListChannelFlows service method, as returned by ChimeSDKMessaging.</returns>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-sdk-messaging-2021-05-15/ListChannelFlows">REST API Reference for ListChannelFlows Operation</seealso>
+        public virtual Task<ListChannelFlowsResponse> ListChannelFlowsAsync(ListChannelFlowsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListChannelFlowsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListChannelFlowsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListChannelFlowsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListChannelMemberships
 
         internal virtual ListChannelMembershipsResponse ListChannelMemberships(ListChannelMembershipsRequest request)
@@ -1499,7 +2116,12 @@ namespace Amazon.ChimeSDKMessaging
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> 
+        /// <para>
+        /// If you want to list the channels to which a specific app instance user belongs, see
+        /// the <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a>
+        /// API.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListChannelMemberships service method.</param>
         /// <param name="cancellationToken">
@@ -1794,6 +2416,60 @@ namespace Amazon.ChimeSDKMessaging
 
         #endregion
         
+        #region  ListChannelsAssociatedWithChannelFlow
+
+        internal virtual ListChannelsAssociatedWithChannelFlowResponse ListChannelsAssociatedWithChannelFlow(ListChannelsAssociatedWithChannelFlowRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListChannelsAssociatedWithChannelFlowRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListChannelsAssociatedWithChannelFlowResponseUnmarshaller.Instance;
+
+            return Invoke<ListChannelsAssociatedWithChannelFlowResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Lists all channels associated with a specified channel flow. You can associate a channel
+        /// flow with multiple channels, but you can only associate a channel with one channel
+        /// flow. This is a developer API.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListChannelsAssociatedWithChannelFlow service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListChannelsAssociatedWithChannelFlow service method, as returned by ChimeSDKMessaging.</returns>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-sdk-messaging-2021-05-15/ListChannelsAssociatedWithChannelFlow">REST API Reference for ListChannelsAssociatedWithChannelFlow Operation</seealso>
+        public virtual Task<ListChannelsAssociatedWithChannelFlowResponse> ListChannelsAssociatedWithChannelFlowAsync(ListChannelsAssociatedWithChannelFlowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListChannelsAssociatedWithChannelFlowRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListChannelsAssociatedWithChannelFlowResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListChannelsAssociatedWithChannelFlowResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListChannelsModeratedByAppInstanceUser
 
         internal virtual ListChannelsModeratedByAppInstanceUserResponse ListChannelsModeratedByAppInstanceUser(ListChannelsModeratedByAppInstanceUserRequest request)
@@ -1849,6 +2525,119 @@ namespace Amazon.ChimeSDKMessaging
             options.ResponseUnmarshaller = ListChannelsModeratedByAppInstanceUserResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListChannelsModeratedByAppInstanceUserResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListTagsForResource
+
+        internal virtual ListTagsForResourceResponse ListTagsForResource(ListTagsForResourceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTagsForResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTagsForResourceResponseUnmarshaller.Instance;
+
+            return Invoke<ListTagsForResourceResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Lists the tags applied to an Amazon Chime SDK messaging resource.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListTagsForResource service method, as returned by ChimeSDKMessaging.</returns>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-sdk-messaging-2021-05-15/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
+        public virtual Task<ListTagsForResourceResponse> ListTagsForResourceAsync(ListTagsForResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTagsForResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTagsForResourceResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListTagsForResourceResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  PutChannelMembershipPreferences
+
+        internal virtual PutChannelMembershipPreferencesResponse PutChannelMembershipPreferences(PutChannelMembershipPreferencesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutChannelMembershipPreferencesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutChannelMembershipPreferencesResponseUnmarshaller.Instance;
+
+            return Invoke<PutChannelMembershipPreferencesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Sets the membership preferences of an <code>AppInstanceUser</code> for the specified
+        /// channel. The <code>AppInstanceUser</code> must be a member of the channel. Only the
+        /// <code>AppInstanceUser</code> who owns the membership can set preferences. Users in
+        /// the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences
+        /// for other users. Banned users can't set membership preferences for the channel from
+        /// which they are banned.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the PutChannelMembershipPreferences service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the PutChannelMembershipPreferences service method, as returned by ChimeSDKMessaging.</returns>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ConflictException">
+        /// The request could not be processed because of conflict in the current state of the
+        /// resource.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-sdk-messaging-2021-05-15/PutChannelMembershipPreferences">REST API Reference for PutChannelMembershipPreferences Operation</seealso>
+        public virtual Task<PutChannelMembershipPreferencesResponse> PutChannelMembershipPreferencesAsync(PutChannelMembershipPreferencesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutChannelMembershipPreferencesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutChannelMembershipPreferencesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<PutChannelMembershipPreferencesResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1981,6 +2770,113 @@ namespace Amazon.ChimeSDKMessaging
 
         #endregion
         
+        #region  TagResource
+
+        internal virtual TagResourceResponse TagResource(TagResourceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = TagResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = TagResourceResponseUnmarshaller.Instance;
+
+            return Invoke<TagResourceResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Applies the specified tags to the specified Amazon Chime SDK messaging resource.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the TagResource service method, as returned by ChimeSDKMessaging.</returns>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ResourceLimitExceededException">
+        /// The request exceeds the resource limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-sdk-messaging-2021-05-15/TagResource">REST API Reference for TagResource Operation</seealso>
+        public virtual Task<TagResourceResponse> TagResourceAsync(TagResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = TagResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = TagResourceResponseUnmarshaller.Instance;
+
+            return InvokeAsync<TagResourceResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UntagResource
+
+        internal virtual UntagResourceResponse UntagResource(UntagResourceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UntagResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UntagResourceResponseUnmarshaller.Instance;
+
+            return Invoke<UntagResourceResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Removes the specified tags from the specified Amazon Chime SDK messaging resource.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UntagResource service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UntagResource service method, as returned by ChimeSDKMessaging.</returns>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-sdk-messaging-2021-05-15/UntagResource">REST API Reference for UntagResource Operation</seealso>
+        public virtual Task<UntagResourceResponse> UntagResourceAsync(UntagResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UntagResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UntagResourceResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UntagResourceResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  UpdateChannel
 
         internal virtual UpdateChannelResponse UpdateChannel(UpdateChannelRequest request)
@@ -2044,6 +2940,62 @@ namespace Amazon.ChimeSDKMessaging
             options.ResponseUnmarshaller = UpdateChannelResponseUnmarshaller.Instance;
 
             return InvokeAsync<UpdateChannelResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateChannelFlow
+
+        internal virtual UpdateChannelFlowResponse UpdateChannelFlow(UpdateChannelFlowRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateChannelFlowRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateChannelFlowResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateChannelFlowResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Updates channel flow attributes. This is a developer API.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateChannelFlow service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateChannelFlow service method, as returned by ChimeSDKMessaging.</returns>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.BadRequestException">
+        /// The input parameters don't match the service's restrictions.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ConflictException">
+        /// The request could not be processed because of conflict in the current state of the
+        /// resource.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ForbiddenException">
+        /// The client is permanently forbidden from making the request.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceFailureException">
+        /// The service encountered an unexpected error.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ServiceUnavailableException">
+        /// The service is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.ThrottledClientException">
+        /// The client exceeded its request rate limit.
+        /// </exception>
+        /// <exception cref="Amazon.ChimeSDKMessaging.Model.UnauthorizedClientException">
+        /// The client is not currently authorized to make the request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-sdk-messaging-2021-05-15/UpdateChannelFlow">REST API Reference for UpdateChannelFlow Operation</seealso>
+        public virtual Task<UpdateChannelFlowResponse> UpdateChannelFlowAsync(UpdateChannelFlowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateChannelFlowRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateChannelFlowResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateChannelFlowResponse>(request, options, cancellationToken);
         }
 
         #endregion
