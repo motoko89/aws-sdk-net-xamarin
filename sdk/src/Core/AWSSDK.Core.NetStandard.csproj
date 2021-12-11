@@ -36,18 +36,18 @@
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;AWS_ASYNC_ENUMERABLES_API;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;AWS_ASYNC_ENUMERABLES_API;DEBUG;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType></DebugType>
-    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;RELEASE;NETSTANDARD;NETSTANDARD2_0;AWS_ASYNC_ENUMERABLES_API</DefineConstants>
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;AWS_ASYNC_ENUMERABLES_API;RELEASE;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|iPhoneSimulator' ">
-    <IntermediateOutputPath>obj\AWSSDK.Core.NetStandard\iPhoneSimulator\Test\netstandard2.0\netstandard2.0\netstandard2.0</IntermediateOutputPath>
+    <IntermediateOutputPath>obj\AWSSDK.Core.NetStandard\iPhoneSimulator\Test\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0</IntermediateOutputPath>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\iPhoneSimulator\Test\netstandard2.0\netstandard2.0\netstandard2.0</OutputPath>
+    <OutputPath>bin\iPhoneSimulator\Test\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0</OutputPath>
     <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;AWS_ASYNC_ENUMERABLES_API;DEBUG;TEST;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
     <DocumentationFile>obj\AWSSDK.Core.NetStandard\Debug\netstandard2.0\AWSSDK.SecurityToken.xml</DocumentationFile>
     <AssemblyName>AWSSDK.Core.NetStandard</AssemblyName>
@@ -57,14 +57,21 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|AnyCPU' ">
     <DebugType></DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Test\netstandard2.0\netstandard2.0\netstandard2.0</OutputPath>
+    <OutputPath>bin\Test\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0</OutputPath>
     <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;AWS_ASYNC_ENUMERABLES_API;DEBUG;TEST;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile></DocumentationFile>
     <AssemblyName>AWSSDK.Core.NetStandard</AssemblyName>
     <NoStdLib>true</NoStdLib>
-    <IntermediateOutputPath>obj\AWSSDK.Core.NetStandard\Test\netstandard2.0\netstandard2.0\netstandard2.0</IntermediateOutputPath>
+    <IntermediateOutputPath>obj\AWSSDK.Core.NetStandard\Test\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0</IntermediateOutputPath>
     <NoWarn></NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;AWS_ASYNC_ENUMERABLES_API;DEBUG;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType></DebugType>
+    <DefineConstants>TRACE;AWS_ASYNC_API;NETSTANDARD20;AWS_ASYNC_ENUMERABLES_API;RELEASE;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
   </PropertyGroup>
   <Choose>
     <When Condition=" '$(AWSKeyFile)' == '' ">
