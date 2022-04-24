@@ -34,7 +34,7 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// ModelPackageContainerDefinition Marshaller
-    /// </summary>       
+    /// </summary>
     public class ModelPackageContainerDefinitionMarshaller : IRequestMarshaller<ModelPackageContainerDefinition, JsonMarshallerContext> 
     {
         /// <summary>
@@ -65,6 +65,18 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetFramework())
+            {
+                context.Writer.WritePropertyName("Framework");
+                context.Writer.Write(requestObject.Framework);
+            }
+
+            if(requestObject.IsSetFrameworkVersion())
+            {
+                context.Writer.WritePropertyName("FrameworkVersion");
+                context.Writer.Write(requestObject.FrameworkVersion);
+            }
+
             if(requestObject.IsSetImage())
             {
                 context.Writer.WritePropertyName("Image");
@@ -83,6 +95,23 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.ModelDataUrl);
             }
 
+            if(requestObject.IsSetModelInput())
+            {
+                context.Writer.WritePropertyName("ModelInput");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = ModelInputMarshaller.Instance;
+                marshaller.Marshall(requestObject.ModelInput, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetNearestModelName())
+            {
+                context.Writer.WritePropertyName("NearestModelName");
+                context.Writer.Write(requestObject.NearestModelName);
+            }
+
             if(requestObject.IsSetProductId())
             {
                 context.Writer.WritePropertyName("ProductId");
@@ -93,7 +122,7 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static ModelPackageContainerDefinitionMarshaller Instance = new ModelPackageContainerDefinitionMarshaller();
 
     }

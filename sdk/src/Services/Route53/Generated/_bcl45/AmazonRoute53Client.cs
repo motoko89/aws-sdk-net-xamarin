@@ -365,6 +365,33 @@ namespace Amazon.Route53
         /// request. Then the account that created the VPC must submit an <code>AssociateVPCWithHostedZone</code>
         /// request.
         /// </para>
+        ///  </note> <note> 
+        /// <para>
+        /// When granting access, the hosted zone and the Amazon VPC must belong to the same partition.
+        /// A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account
+        /// is scoped to one partition.
+        /// </para>
+        ///  
+        /// <para>
+        /// The following are the supported partitions:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>aws</code> - Amazon Web Services Regions
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws-cn</code> - China Regions
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access
+        /// Management</a> in the <i>Amazon Web Services General Reference</i>.
+        /// </para>
         ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateVPCWithHostedZone service method.</param>
@@ -454,6 +481,33 @@ namespace Amazon.Route53
         /// Web Services account that created the private hosted zone must first submit a <code>CreateVPCAssociationAuthorization</code>
         /// request. Then the account that created the VPC must submit an <code>AssociateVPCWithHostedZone</code>
         /// request.
+        /// </para>
+        ///  </note> <note> 
+        /// <para>
+        /// When granting access, the hosted zone and the Amazon VPC must belong to the same partition.
+        /// A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account
+        /// is scoped to one partition.
+        /// </para>
+        ///  
+        /// <para>
+        /// The following are the supported partitions:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>aws</code> - Amazon Web Services Regions
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws-cn</code> - China Regions
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access
+        /// Management</a> in the <i>Amazon Web Services General Reference</i>.
         /// </para>
         ///  </note>
         /// </summary>
@@ -613,8 +667,7 @@ namespace Amazon.Route53
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>UPSERT</code>: If a resource record set does not already exist, Amazon Web
-        /// Services creates it. If a resource set does exist, Route 53 updates it with the values
+        ///  <code>UPSERT</code>: If a resource set exists Route 53 updates it with the values
         /// in the request. 
         /// </para>
         ///  </li> </ul> 
@@ -772,8 +825,7 @@ namespace Amazon.Route53
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>UPSERT</code>: If a resource record set does not already exist, Amazon Web
-        /// Services creates it. If a resource set does exist, Route 53 updates it with the values
+        ///  <code>UPSERT</code>: If a resource set exists Route 53 updates it with the values
         /// in the request. 
         /// </para>
         ///  </li> </ul> 
@@ -1232,6 +1284,34 @@ namespace Amazon.Route53
         /// The <code>CreateHostedZone</code> request requires the caller to have an <code>ec2:DescribeVpcs</code>
         /// permission.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// When creating private hosted zones, the Amazon VPC must belong to the same partition
+        /// where the hosted zone is created. A partition is a group of Amazon Web Services Regions.
+        /// Each Amazon Web Services account is scoped to one partition.
+        /// </para>
+        ///  
+        /// <para>
+        /// The following are the supported partitions:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>aws</code> - Amazon Web Services Regions
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws-cn</code> - China Regions
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access
+        /// Management</a> in the <i>Amazon Web Services General Reference</i>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateHostedZone service method.</param>
         /// 
@@ -1382,6 +1462,34 @@ namespace Amazon.Route53
         /// The <code>CreateHostedZone</code> request requires the caller to have an <code>ec2:DescribeVpcs</code>
         /// permission.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// When creating private hosted zones, the Amazon VPC must belong to the same partition
+        /// where the hosted zone is created. A partition is a group of Amazon Web Services Regions.
+        /// Each Amazon Web Services account is scoped to one partition.
+        /// </para>
+        ///  
+        /// <para>
+        /// The following are the supported partitions:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>aws</code> - Amazon Web Services Regions
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws-cn</code> - China Regions
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access
+        /// Management</a> in the <i>Amazon Web Services General Reference</i>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateHostedZone service method.</param>
         /// <param name="cancellationToken">
@@ -1512,7 +1620,7 @@ namespace Amazon.Route53
         /// </exception>
         /// <exception cref="Amazon.Route53.Model.KeySigningKeyAlreadyExistsException">
         /// You've already created a key-signing key (KSK) with this name or with the same customer
-        /// managed customer master key (CMK) ARN.
+        /// managed key ARN.
         /// </exception>
         /// <exception cref="Amazon.Route53.Model.NoSuchHostedZoneException">
         /// No hosted zone exists with the ID that you specified.
@@ -1567,7 +1675,7 @@ namespace Amazon.Route53
         /// </exception>
         /// <exception cref="Amazon.Route53.Model.KeySigningKeyAlreadyExistsException">
         /// You've already created a key-signing key (KSK) with this name or with the same customer
-        /// managed customer master key (CMK) ARN.
+        /// managed key ARN.
         /// </exception>
         /// <exception cref="Amazon.Route53.Model.NoSuchHostedZoneException">
         /// No hosted zone exists with the ID that you specified.
@@ -1668,6 +1776,29 @@ namespace Amazon.Route53
         ///  
         /// <para>
         ///  <code>arn:aws:logs:us-east-1:123412341234:log-group:/aws/route53/*</code> 
+        /// </para>
+        ///  
+        /// <para>
+        /// To avoid the confused deputy problem, a security issue where an entity without a permission
+        /// for an action can coerce a more-privileged entity to perform it, you can optionally
+        /// limit the permissions that a service has to a resource in a resource-based policy
+        /// by supplying the following values:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// For <code>aws:SourceArn</code>, supply the hosted zone ARN used in creating the query
+        /// logging configuration. For example, <code>aws:SourceArn: arn:aws:route53:::hostedzone/hosted
+        /// zone ID</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// For <code>aws:SourceAccount</code>, supply the account ID for the account that creates
+        /// the query logging configuration. For example, <code>aws:SourceAccount:111111111111</code>.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html">The
+        /// confused deputy problem</a> in the <i>Amazon Web Services IAM User Guide</i>.
         /// </para>
         ///  <note> 
         /// <para>
@@ -1869,6 +2000,29 @@ namespace Amazon.Route53
         ///  
         /// <para>
         ///  <code>arn:aws:logs:us-east-1:123412341234:log-group:/aws/route53/*</code> 
+        /// </para>
+        ///  
+        /// <para>
+        /// To avoid the confused deputy problem, a security issue where an entity without a permission
+        /// for an action can coerce a more-privileged entity to perform it, you can optionally
+        /// limit the permissions that a service has to a resource in a resource-based policy
+        /// by supplying the following values:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// For <code>aws:SourceArn</code>, supply the hosted zone ARN used in creating the query
+        /// logging configuration. For example, <code>aws:SourceArn: arn:aws:route53:::hostedzone/hosted
+        /// zone ID</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// For <code>aws:SourceAccount</code>, supply the account ID for the account that creates
+        /// the query logging configuration. For example, <code>aws:SourceAccount:111111111111</code>.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html">The
+        /// confused deputy problem</a> in the <i>Amazon Web Services IAM User Guide</i>.
         /// </para>
         ///  <note> 
         /// <para>
@@ -3068,6 +3222,17 @@ namespace Amazon.Route53
         /// Deletes a key-signing key (KSK). Before you can delete a KSK, you must deactivate
         /// it. The KSK must be deactivated before you can delete it regardless of whether the
         /// hosted zone is enabled for DNSSEC signing.
+        /// 
+        ///  
+        /// <para>
+        /// You can use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeactivateKeySigningKey.html">DeactivateKeySigningKey</a>
+        /// to deactivate the key before you delete it.
+        /// </para>
+        ///  
+        /// <para>
+        /// Use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetDNSSEC.html">GetDNSSEC</a>
+        /// to verify that the KSK is in an <code>INACTIVE</code> status.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteKeySigningKey service method.</param>
         /// 
@@ -3107,6 +3272,17 @@ namespace Amazon.Route53
         /// Deletes a key-signing key (KSK). Before you can delete a KSK, you must deactivate
         /// it. The KSK must be deactivated before you can delete it regardless of whether the
         /// hosted zone is enabled for DNSSEC signing.
+        /// 
+        ///  
+        /// <para>
+        /// You can use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeactivateKeySigningKey.html">DeactivateKeySigningKey</a>
+        /// to deactivate the key before you delete it.
+        /// </para>
+        ///  
+        /// <para>
+        /// Use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetDNSSEC.html">GetDNSSEC</a>
+        /// to verify that the KSK is in an <code>INACTIVE</code> status.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteKeySigningKey service method.</param>
         /// <param name="cancellationToken">
@@ -3729,7 +3905,34 @@ namespace Amazon.Route53
         /// if the hosted zone has a value for <code>OwningAccount</code>, you can use <code>DisassociateVPCFromHostedZone</code>.
         /// If the hosted zone has a value for <code>OwningService</code>, you can't use <code>DisassociateVPCFromHostedZone</code>.
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> <note> 
+        /// <para>
+        /// When revoking access, the hosted zone and the Amazon VPC must belong to the same partition.
+        /// A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account
+        /// is scoped to one partition.
+        /// </para>
+        ///  
+        /// <para>
+        /// The following are the supported partitions:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>aws</code> - Amazon Web Services Regions
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws-cn</code> - China Regions
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access
+        /// Management</a> in the <i>Amazon Web Services General Reference</i>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociateVPCFromHostedZone service method.</param>
         /// 
@@ -3793,7 +3996,34 @@ namespace Amazon.Route53
         /// if the hosted zone has a value for <code>OwningAccount</code>, you can use <code>DisassociateVPCFromHostedZone</code>.
         /// If the hosted zone has a value for <code>OwningService</code>, you can't use <code>DisassociateVPCFromHostedZone</code>.
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> <note> 
+        /// <para>
+        /// When revoking access, the hosted zone and the Amazon VPC must belong to the same partition.
+        /// A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account
+        /// is scoped to one partition.
+        /// </para>
+        ///  
+        /// <para>
+        /// The following are the supported partitions:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>aws</code> - Amazon Web Services Regions
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws-cn</code> - China Regions
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access
+        /// Management</a> in the <i>Amazon Web Services General Reference</i>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociateVPCFromHostedZone service method.</param>
         /// <param name="cancellationToken">
@@ -5772,7 +6002,35 @@ namespace Amazon.Route53
         /// Amazon Elastic File System (Amazon EFS), the value of <code>Owner</code> is <code>efs.amazonaws.com</code>.
         /// 
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> <note> 
+        /// <para>
+        /// When listing private hosted zones, the hosted zone and the Amazon VPC must belong
+        /// to the same partition where the hosted zones were created. A partition is a group
+        /// of Amazon Web Services Regions. Each Amazon Web Services account is scoped to one
+        /// partition.
+        /// </para>
+        ///  
+        /// <para>
+        /// The following are the supported partitions:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>aws</code> - Amazon Web Services Regions
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws-cn</code> - China Regions
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access
+        /// Management</a> in the <i>Amazon Web Services General Reference</i>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListHostedZonesByVPC service method.</param>
         /// 
@@ -5813,7 +6071,35 @@ namespace Amazon.Route53
         /// Amazon Elastic File System (Amazon EFS), the value of <code>Owner</code> is <code>efs.amazonaws.com</code>.
         /// 
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> <note> 
+        /// <para>
+        /// When listing private hosted zones, the hosted zone and the Amazon VPC must belong
+        /// to the same partition where the hosted zones were created. A partition is a group
+        /// of Amazon Web Services Regions. Each Amazon Web Services account is scoped to one
+        /// partition.
+        /// </para>
+        ///  
+        /// <para>
+        /// The following are the supported partitions:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>aws</code> - Amazon Web Services Regions
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws-cn</code> - China Regions
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access
+        /// Management</a> in the <i>Amazon Web Services General Reference</i>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListHostedZonesByVPC service method.</param>
         /// <param name="cancellationToken">
@@ -7039,6 +7325,13 @@ namespace Amazon.Route53
         /// <exception cref="Amazon.Route53.Model.NoSuchHostedZoneException">
         /// No hosted zone exists with the ID that you specified.
         /// </exception>
+        /// <exception cref="Amazon.Route53.Model.PriorRequestNotCompleteException">
+        /// If Amazon Route 53 can't process a request before the next request arrives, it will
+        /// reject subsequent requests for the same hosted zone and return an <code>HTTP 400 error</code>
+        /// (<code>Bad request</code>). If Route 53 returns this error repeatedly for the same
+        /// request, we recommend that you wait, in intervals of increasing duration, before you
+        /// try the request again.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53-2013-04-01/UpdateHostedZoneComment">REST API Reference for UpdateHostedZoneComment Operation</seealso>
         public virtual UpdateHostedZoneCommentResponse UpdateHostedZoneComment(UpdateHostedZoneCommentRequest request)
         {
@@ -7064,6 +7357,13 @@ namespace Amazon.Route53
         /// </exception>
         /// <exception cref="Amazon.Route53.Model.NoSuchHostedZoneException">
         /// No hosted zone exists with the ID that you specified.
+        /// </exception>
+        /// <exception cref="Amazon.Route53.Model.PriorRequestNotCompleteException">
+        /// If Amazon Route 53 can't process a request before the next request arrives, it will
+        /// reject subsequent requests for the same hosted zone and return an <code>HTTP 400 error</code>
+        /// (<code>Bad request</code>). If Route 53 returns this error repeatedly for the same
+        /// request, we recommend that you wait, in intervals of increasing duration, before you
+        /// try the request again.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53-2013-04-01/UpdateHostedZoneComment">REST API Reference for UpdateHostedZoneComment Operation</seealso>
         public virtual Task<UpdateHostedZoneCommentResponse> UpdateHostedZoneCommentAsync(UpdateHostedZoneCommentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))

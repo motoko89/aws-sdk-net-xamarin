@@ -32,7 +32,7 @@ namespace Amazon.S3
     public partial class AmazonS3Config : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.3.25");
+            InternalSDKUtils.BuildUserAgentString("3.7.8.23");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.S3
         /// Default constructor
         /// </summary>
         public AmazonS3Config()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonS3DefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "s3";
         }

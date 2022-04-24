@@ -30,19 +30,25 @@ namespace Amazon.RDS.Model
 {
     /// <summary>
     /// Container for the parameters to the DescribeDBClusters operation.
-    /// Returns information about provisioned Aurora DB clusters. This API supports pagination.
+    /// Returns information about Amazon Aurora DB clusters and Multi-AZ DB clusters. This
+    /// API supports pagination.
     /// 
     ///  
     /// <para>
-    /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> 
+    /// For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para>
-    ///  <note> 
+    ///  
+    /// <para>
+    /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+    /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
+    /// User Guide</i>.
+    /// </para>
+    ///  
     /// <para>
     /// This operation can also return information for Amazon Neptune DB instances and Amazon
     /// DocumentDB instances.
     /// </para>
-    ///  </note>
     /// </summary>
     public partial class DescribeDBClustersRequest : AmazonRDSRequest
     {
@@ -91,23 +97,23 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>clone-group-id</code> - Accepts clone group identifiers. The results list will
-        /// only include information about the DB clusters associated with these clone groups.
+        ///  <code>clone-group-id</code> - Accepts clone group identifiers. The results list only
+        /// includes information about the DB clusters associated with these clone groups.
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon
-        /// Resource Names (ARNs). The results list will only include information about the DB
-        /// clusters identified by these ARNs.
+        /// Resource Names (ARNs). The results list only includes information about the DB clusters
+        /// identified by these ARNs.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>domain</code> - Accepts Active Directory directory IDs. The results list will
-        /// only include information about the DB clusters associated with these domains.
+        ///  <code>domain</code> - Accepts Active Directory directory IDs. The results list only
+        /// includes information about the DB clusters associated with these domains.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>engine</code> - Accepts engine names. The results list will only include information
+        ///  <code>engine</code> - Accepts engine names. The results list only includes information
         /// about the DB clusters for these engines.
         /// </para>
         ///  </li> </ul>
@@ -148,7 +154,7 @@ namespace Amazon.RDS.Model
         /// <para>
         /// An optional pagination token provided by a previous <code>DescribeDBClusters</code>
         /// request. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by <code>MaxRecords</code>. 
+        /// the marker, up to the value specified by <code>MaxRecords</code>.
         /// </para>
         /// </summary>
         public string Marker
@@ -168,7 +174,7 @@ namespace Amazon.RDS.Model
         /// <para>
         /// The maximum number of records to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so you can retrieve the remaining results. 
+        /// included in the response so you can retrieve the remaining results.
         /// </para>
         ///  
         /// <para>

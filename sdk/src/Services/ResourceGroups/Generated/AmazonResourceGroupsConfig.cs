@@ -32,7 +32,7 @@ namespace Amazon.ResourceGroups
     public partial class AmazonResourceGroupsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.150");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.ResourceGroups
         /// Default constructor
         /// </summary>
         public AmazonResourceGroupsConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonResourceGroupsDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "resource-groups";
         }

@@ -34,7 +34,7 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// CmfcSettings Marshaller
-    /// </summary>       
+    /// </summary>
     public class CmfcSettingsMarshaller : IRequestMarshaller<CmfcSettings, JsonMarshallerContext> 
     {
         /// <summary>
@@ -81,6 +81,12 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.IFrameOnlyManifest);
             }
 
+            if(requestObject.IsSetKlvMetadata())
+            {
+                context.Writer.WritePropertyName("klvMetadata");
+                context.Writer.Write(requestObject.KlvMetadata);
+            }
+
             if(requestObject.IsSetScte35Esam())
             {
                 context.Writer.WritePropertyName("scte35Esam");
@@ -93,11 +99,17 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.Scte35Source);
             }
 
+            if(requestObject.IsSetTimedMetadata())
+            {
+                context.Writer.WritePropertyName("timedMetadata");
+                context.Writer.Write(requestObject.TimedMetadata);
+            }
+
         }
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static CmfcSettingsMarshaller Instance = new CmfcSettingsMarshaller();
 
     }

@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit
     public partial class AmazonCodeCommitConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.150");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.CodeCommit
         /// Default constructor
         /// </summary>
         public AmazonCodeCommitConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCodeCommitDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "codecommit";
         }

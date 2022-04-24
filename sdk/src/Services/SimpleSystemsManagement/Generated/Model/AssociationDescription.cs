@@ -53,6 +53,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         private AssociationOverview _overview;
         private Dictionary<string, List<string>> _parameters = new Dictionary<string, List<string>>();
         private string _scheduleExpression;
+        private int? _scheduleOffset;
         private AssociationStatus _status;
         private AssociationSyncCompliance _syncCompliance;
         private List<TargetLocation> _targetLocations = new List<TargetLocation>();
@@ -136,9 +137,9 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property AutomationTargetParameterName. 
         /// <para>
-        /// Specify the target for the association. This target is required for associations that
-        /// use an Automation runbook and target resources by using rate controls. Automation
-        /// is a capability of Amazon Web Services Systems Manager.
+        /// Choose the parameter that will define how your automation will branch out. This target
+        /// is required for associations that use an Automation runbook and target resources by
+        /// using rate controls. Automation is a capability of Amazon Web Services Systems Manager.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=50)]
@@ -232,7 +233,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property InstanceId. 
         /// <para>
-        /// The instance ID.
+        /// The managed node ID.
         /// </para>
         /// </summary>
         public string InstanceId
@@ -311,9 +312,9 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// </para>
         ///  
         /// <para>
-        /// If a new instance starts and attempts to run an association while Systems Manager
+        /// If a new managed node starts and attempts to run an association while Systems Manager
         /// is running <code>MaxConcurrency</code> associations, the association is allowed to
-        /// run. During the next association interval, the new instance will process its association
+        /// run. During the next association interval, the new managed node will process its association
         /// within the limit specified for <code>MaxConcurrency</code>.
         /// </para>
         /// </summary>
@@ -338,7 +339,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// of errors, for example 10, or a percentage of the target set, for example 10%. If
         /// you specify 3, for example, the system stops sending requests when the fourth error
         /// is received. If you specify 0, then the system stops sending requests after the first
-        /// error is returned. If you run an association on 50 instances and set <code>MaxError</code>
+        /// error is returned. If you run an association on 50 managed nodes and set <code>MaxError</code>
         /// to 10%, then the system stops sending the request when the sixth error is received.
         /// </para>
         ///  
@@ -454,6 +455,25 @@ namespace Amazon.SimpleSystemsManagement.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ScheduleOffset. 
+        /// <para>
+        /// Number of days to wait after the scheduled day to run an association.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=6)]
+        public int ScheduleOffset
+        {
+            get { return this._scheduleOffset.GetValueOrDefault(); }
+            set { this._scheduleOffset = value; }
+        }
+
+        // Check to see if ScheduleOffset property is set
+        internal bool IsSetScheduleOffset()
+        {
+            return this._scheduleOffset.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property Status. 
         /// <para>
         /// The association status.
@@ -527,7 +547,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property Targets. 
         /// <para>
-        /// The instances targeted by the request. 
+        /// The managed nodes targeted by the request. 
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=5)]

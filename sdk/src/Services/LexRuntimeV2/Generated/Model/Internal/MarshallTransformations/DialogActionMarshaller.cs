@@ -34,7 +34,7 @@ namespace Amazon.LexRuntimeV2.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// DialogAction Marshaller
-    /// </summary>       
+    /// </summary>
     public class DialogActionMarshaller : IRequestMarshaller<DialogAction, JsonMarshallerContext> 
     {
         /// <summary>
@@ -45,6 +45,12 @@ namespace Amazon.LexRuntimeV2.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(DialogAction requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetSlotElicitationStyle())
+            {
+                context.Writer.WritePropertyName("slotElicitationStyle");
+                context.Writer.Write(requestObject.SlotElicitationStyle);
+            }
+
             if(requestObject.IsSetSlotToElicit())
             {
                 context.Writer.WritePropertyName("slotToElicit");
@@ -61,7 +67,7 @@ namespace Amazon.LexRuntimeV2.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static DialogActionMarshaller Instance = new DialogActionMarshaller();
 
     }

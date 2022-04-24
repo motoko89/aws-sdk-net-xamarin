@@ -34,7 +34,7 @@ namespace Amazon.WAFV2.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// ManagedRuleGroupStatement Marshaller
-    /// </summary>       
+    /// </summary>
     public class ManagedRuleGroupStatementMarshaller : IRequestMarshaller<ManagedRuleGroupStatement, JsonMarshallerContext> 
     {
         /// <summary>
@@ -55,6 +55,22 @@ namespace Amazon.WAFV2.Model.Internal.MarshallTransformations
 
                     var marshaller = ExcludedRuleMarshaller.Instance;
                     marshaller.Marshall(requestObjectExcludedRulesListValue, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+                context.Writer.WriteArrayEnd();
+            }
+
+            if(requestObject.IsSetManagedRuleGroupConfigs())
+            {
+                context.Writer.WritePropertyName("ManagedRuleGroupConfigs");
+                context.Writer.WriteArrayStart();
+                foreach(var requestObjectManagedRuleGroupConfigsListValue in requestObject.ManagedRuleGroupConfigs)
+                {
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = ManagedRuleGroupConfigMarshaller.Instance;
+                    marshaller.Marshall(requestObjectManagedRuleGroupConfigsListValue, context);
 
                     context.Writer.WriteObjectEnd();
                 }
@@ -94,7 +110,7 @@ namespace Amazon.WAFV2.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static ManagedRuleGroupStatementMarshaller Instance = new ManagedRuleGroupStatementMarshaller();
 
     }

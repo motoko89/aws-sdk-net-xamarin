@@ -100,6 +100,12 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
                     unmarshalledObject.IFrameOnlyManifest = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("klvMetadata", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.KlvMetadata = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("scte35Esam", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -110,6 +116,12 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.Scte35Source = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("timedMetadata", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.TimedMetadata = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

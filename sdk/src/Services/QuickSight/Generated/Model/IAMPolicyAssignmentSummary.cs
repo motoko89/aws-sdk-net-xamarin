@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.QuickSight.Model
 {
     /// <summary>
-    /// IAMpolicy assignment summary.
+    /// IAM policy assignment summary.
     /// </summary>
     public partial class IAMPolicyAssignmentSummary
     {

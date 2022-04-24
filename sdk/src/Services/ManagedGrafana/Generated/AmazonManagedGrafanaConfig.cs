@@ -32,7 +32,7 @@ namespace Amazon.ManagedGrafana
     public partial class AmazonManagedGrafanaConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.14");
+            InternalSDKUtils.BuildUserAgentString("3.7.1.8");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.ManagedGrafana
         /// Default constructor
         /// </summary>
         public AmazonManagedGrafanaConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonManagedGrafanaDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "grafana";
         }

@@ -31,14 +31,14 @@ namespace Amazon.RDS.Model
     /// <summary>
     /// Container for the parameters to the DescribeEvents operation.
     /// Returns events related to DB instances, DB clusters, DB parameter groups, DB security
-    /// groups, DB snapshots, and DB cluster snapshots for the past 14 days. Events specific
-    /// to a particular DB instances, DB clusters, DB parameter groups, DB security groups,
-    /// DB snapshots, and DB cluster snapshots group can be obtained by providing the name
-    /// as a parameter.
+    /// groups, DB snapshots, DB cluster snapshots, and RDS Proxies for the past 14 days.
+    /// Events specific to a particular DB instance, DB cluster, DB parameter group, DB security
+    /// group, DB snapshot, DB cluster snapshot group, or RDS Proxy can be obtained by providing
+    /// the name as a parameter.
     /// 
     ///  <note> 
     /// <para>
-    /// By default, the past hour of events are returned.
+    /// By default, RDS returns events that were generated in the past hour.
     /// </para>
     ///  </note>
     /// </summary>
@@ -84,8 +84,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property EndTimeUtc. 
         /// <para>
-        ///  The end of the time interval for which to retrieve events, specified in ISO 8601
-        /// format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
+        /// The end of the time interval for which to retrieve events, specified in ISO 8601 format.
+        /// For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
         /// Wikipedia page.</a> 
         /// </para>
         ///  
@@ -144,9 +144,9 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property Marker. 
         /// <para>
-        ///  An optional pagination token provided by a previous DescribeEvents request. If this
+        /// An optional pagination token provided by a previous DescribeEvents request. If this
         /// parameter is specified, the response includes only records beyond the marker, up to
-        /// the value specified by <code>MaxRecords</code>. 
+        /// the value specified by <code>MaxRecords</code>.
         /// </para>
         /// </summary>
         public string Marker
@@ -164,9 +164,9 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property MaxRecords. 
         /// <para>
-        ///  The maximum number of records to include in the response. If more records exist than
+        /// The maximum number of records to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that you can retrieve the remaining results. 
+        /// included in the response so that you can retrieve the remaining results.
         /// </para>
         ///  
         /// <para>
@@ -236,6 +236,10 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// If the source type is an RDS Proxy, a <code>DBProxyName</code> value must be supplied.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// Can't end with a hyphen or contain two consecutive hyphens.
         /// </para>
         ///  </li> </ul>
@@ -274,8 +278,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property StartTimeUtc. 
         /// <para>
-        ///  The beginning of the time interval to retrieve events for, specified in ISO 8601
-        /// format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
+        /// The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
+        /// For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
         /// Wikipedia page.</a> 
         /// </para>
         ///  
@@ -311,8 +315,8 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        ///  The end of the time interval for which to retrieve events, specified in ISO 8601
-        /// format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
+        /// The end of the time interval for which to retrieve events, specified in ISO 8601 format.
+        /// For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
         /// Wikipedia page.</a> 
         /// </para>
         ///  
@@ -346,8 +350,8 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        ///  The beginning of the time interval to retrieve events for, specified in ISO 8601
-        /// format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
+        /// The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
+        /// For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
         /// Wikipedia page.</a> 
         /// </para>
         ///  

@@ -29,14 +29,14 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Kendra.Model
 {
     /// <summary>
-    /// Provides the configuration information of the sitemap URLs to crawl.
+    /// Provides the configuration information for the sitemap URLs to crawl.
     /// 
     ///  
     /// <para>
     ///  <i>When selecting websites to index, you must adhere to the <a href="https://aws.amazon.com/aup/">Amazon
     /// Acceptable Use Policy</a> and all other Amazon terms. Remember that you must only
-    /// use the Amazon Kendra web crawler to index your own webpages, or webpages that you
-    /// have authorization to index.</i> 
+    /// use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have
+    /// authorization to index.</i> 
     /// </para>
     /// </summary>
     public partial class SiteMapsConfiguration

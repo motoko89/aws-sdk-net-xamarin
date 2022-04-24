@@ -29,19 +29,43 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Proton.Model
 {
     /// <summary>
-    /// The AWS Proton pipeline service role data.
+    /// The Proton pipeline service role and repository data shared across the Amazon Web
+    /// Services account.
     /// </summary>
     public partial class AccountSettings
     {
+        private RepositoryBranch _pipelineProvisioningRepository;
         private string _pipelineServiceRoleArn;
+
+        /// <summary>
+        /// Gets and sets the property PipelineProvisioningRepository. 
+        /// <para>
+        /// The repository configured in the Amazon Web Services account for pipeline provisioning.
+        /// Required it if you have environments configured for self-managed provisioning with
+        /// services that include pipelines.
+        /// </para>
+        /// </summary>
+        public RepositoryBranch PipelineProvisioningRepository
+        {
+            get { return this._pipelineProvisioningRepository; }
+            set { this._pipelineProvisioningRepository = value; }
+        }
+
+        // Check to see if PipelineProvisioningRepository property is set
+        internal bool IsSetPipelineProvisioningRepository()
+        {
+            return this._pipelineProvisioningRepository != null;
+        }
 
         /// <summary>
         /// Gets and sets the property PipelineServiceRoleArn. 
         /// <para>
-        /// The Amazon Resource Name (ARN) of the AWS Proton pipeline service role.
+        /// The Amazon Resource Name (ARN) of the service role you want to use for provisioning
+        /// pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by
+        /// customer-owned automation for self-managed provisioning.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=200)]
+        [AWSProperty(Min=0, Max=2048)]
         public string PipelineServiceRoleArn
         {
             get { return this._pipelineServiceRoleArn; }

@@ -34,7 +34,7 @@ namespace Amazon.QuickSight.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// AccountCustomization Marshaller
-    /// </summary>       
+    /// </summary>
     public class AccountCustomizationMarshaller : IRequestMarshaller<AccountCustomization, JsonMarshallerContext> 
     {
         /// <summary>
@@ -45,6 +45,12 @@ namespace Amazon.QuickSight.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(AccountCustomization requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetDefaultEmailCustomizationTemplate())
+            {
+                context.Writer.WritePropertyName("DefaultEmailCustomizationTemplate");
+                context.Writer.Write(requestObject.DefaultEmailCustomizationTemplate);
+            }
+
             if(requestObject.IsSetDefaultTheme())
             {
                 context.Writer.WritePropertyName("DefaultTheme");
@@ -55,7 +61,7 @@ namespace Amazon.QuickSight.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static AccountCustomizationMarshaller Instance = new AccountCustomizationMarshaller();
 
     }

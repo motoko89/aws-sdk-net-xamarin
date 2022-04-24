@@ -47,10 +47,10 @@ namespace Amazon.ACMPCA.Model
     ///  
     /// <para>
     /// Your private CA uses the value in the <b>ExpirationInDays</b> parameter to calculate
-    /// the <b>nextUpdate</b> field in the CRL. The CRL is refreshed at 1/2 the age of next
-    /// update or when a certificate is revoked. When a certificate is revoked, it is recorded
-    /// in the next CRL that is generated and in the next audit report. Only time valid certificates
-    /// are listed in the CRL. Expired certificates are not included.
+    /// the <b>nextUpdate</b> field in the CRL. The CRL is refreshed prior to a certificate's
+    /// expiration date or when a certificate is revoked. When a certificate is revoked, it
+    /// appears in the CRL until the certificate expires, and then in one additional CRL after
+    /// expiration, and it always appears in the audit report.
     /// </para>
     ///  
     /// <para>
@@ -137,8 +137,8 @@ namespace Amazon.ACMPCA.Model
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html">Planning
-    /// a certificate revocation list (CRL)</a> in the <i>AWS Certificate Manager Private
-    /// Certificate Authority (PCA) User Guide</i> 
+    /// a certificate revocation list (CRL)</a> in the <i>Certificate Manager Private Certificate
+    /// Authority (PCA) User Guide</i> 
     /// </para>
     /// </summary>
     public partial class CrlConfiguration

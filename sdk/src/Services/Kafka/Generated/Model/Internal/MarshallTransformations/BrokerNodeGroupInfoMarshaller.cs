@@ -34,7 +34,7 @@ namespace Amazon.Kafka.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// BrokerNodeGroupInfo Marshaller
-    /// </summary>       
+    /// </summary>
     public class BrokerNodeGroupInfoMarshaller : IRequestMarshaller<BrokerNodeGroupInfo, JsonMarshallerContext> 
     {
         /// <summary>
@@ -60,6 +60,17 @@ namespace Amazon.Kafka.Model.Internal.MarshallTransformations
                         context.Writer.Write(requestObjectClientSubnetsListValue);
                 }
                 context.Writer.WriteArrayEnd();
+            }
+
+            if(requestObject.IsSetConnectivityInfo())
+            {
+                context.Writer.WritePropertyName("connectivityInfo");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = ConnectivityInfoMarshaller.Instance;
+                marshaller.Marshall(requestObject.ConnectivityInfo, context);
+
+                context.Writer.WriteObjectEnd();
             }
 
             if(requestObject.IsSetInstanceType())
@@ -94,7 +105,7 @@ namespace Amazon.Kafka.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static BrokerNodeGroupInfoMarshaller Instance = new BrokerNodeGroupInfoMarshaller();
 
     }

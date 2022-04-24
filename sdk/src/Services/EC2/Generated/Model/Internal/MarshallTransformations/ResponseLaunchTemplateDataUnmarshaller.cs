@@ -172,6 +172,12 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         unmarshalledObject.LicenseSpecifications.Add(item);
                         continue;
                     }
+                    if (context.TestExpression("maintenanceOptions", targetDepth))
+                    {
+                        var unmarshaller = LaunchTemplateInstanceMaintenanceOptionsUnmarshaller.Instance;
+                        unmarshalledObject.MaintenanceOptions = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("metadataOptions", targetDepth))
                     {
                         var unmarshaller = LaunchTemplateInstanceMetadataOptionsUnmarshaller.Instance;
@@ -195,6 +201,12 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                     {
                         var unmarshaller = LaunchTemplatePlacementUnmarshaller.Instance;
                         unmarshalledObject.Placement = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("privateDnsNameOptions", targetDepth))
+                    {
+                        var unmarshaller = LaunchTemplatePrivateDnsNameOptionsUnmarshaller.Instance;
+                        unmarshalledObject.PrivateDnsNameOptions = unmarshaller.Unmarshall(context);
                         continue;
                     }
                     if (context.TestExpression("ramDiskId", targetDepth))

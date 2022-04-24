@@ -30,8 +30,20 @@ namespace Amazon.LocationService.Model
 {
     /// <summary>
     /// Container for the parameters to the CreatePlaceIndex operation.
-    /// Creates a place index resource in your AWS account, which supports functions with
-    /// geospatial data sourced from your chosen data provider.
+    /// Creates a place index resource in your AWS account. Use a place index resource to
+    /// geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code>
+    /// operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code>
+    /// operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code>
+    /// operation.
+    /// 
+    ///  <note> 
+    /// <para>
+    /// If your application is tracking or routing assets you use in your business, such as
+    /// delivery vehicles or employees, you may only use HERE as your geolocation provider.
+    /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
+    /// for more details.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class CreatePlaceIndexRequest : AmazonLocationServiceRequest
     {
@@ -45,7 +57,7 @@ namespace Amazon.LocationService.Model
         /// <summary>
         /// Gets and sets the property DataSource. 
         /// <para>
-        /// Specifies the data provider of geospatial data.
+        /// Specifies the geospatial data provider for the new place index.
         /// </para>
         ///  <note> 
         /// <para>
@@ -70,7 +82,8 @@ namespace Amazon.LocationService.Model
         /// </para>
         ///  <important> 
         /// <para>
-        /// Place index resources using HERE Technologies as a data provider can't <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store
+        /// If you specify HERE Technologies (<code>Here</code>) as the data provider, you may
+        /// not <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store
         /// results</a> for locations in Japan. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS
         /// Service Terms</a> for Amazon Location Service.
         /// </para>
@@ -170,15 +183,10 @@ namespace Amazon.LocationService.Model
         /// <summary>
         /// Gets and sets the property PricingPlan. 
         /// <para>
-        /// Specifies the pricing plan for your place index resource.
-        /// </para>
-        ///  
-        /// <para>
-        /// For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon
-        /// Location Service pricing</a>.
+        /// No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [Obsolete("Deprecated. If included, the only allowed value is RequestBasedUsage.")]
         public PricingPlan PricingPlan
         {
             get { return this._pricingPlan; }
@@ -194,8 +202,8 @@ namespace Amazon.LocationService.Model
         /// <summary>
         /// Gets and sets the property Tags. 
         /// <para>
-        /// Applies one or more tags to the place index resource. A tag is a key-value pair helps
-        /// manage, identify, search, and filter your resources by labelling them.
+        /// Applies one or more tags to the place index resource. A tag is a key-value pair that
+        /// helps you manage, identify, search, and filter your resources.
         /// </para>
         ///  
         /// <para>
@@ -207,24 +215,28 @@ namespace Amazon.LocationService.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Maximum 50 tags per resource
+        /// Maximum 50 tags per resource.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Each resource tag must be unique with a maximum of one value.
+        /// Each tag key must be unique and must have exactly one associated value.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Maximum key length: 128 Unicode characters in UTF-8
+        /// Maximum key length: 128 Unicode characters in UTF-8.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Maximum value length: 256 Unicode characters in UTF-8
+        /// Maximum value length: 256 Unicode characters in UTF-8.
         /// </para>
         ///  </li> <li> 
         /// <para>
         /// Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
-        /// = . _ : / @. 
+        /// = . _ : / @
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Cannot use "aws:" as a prefix for a key.
         /// </para>
         ///  </li> </ul>
         /// </summary>

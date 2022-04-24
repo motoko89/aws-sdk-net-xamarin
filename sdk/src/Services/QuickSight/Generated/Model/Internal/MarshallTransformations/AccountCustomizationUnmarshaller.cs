@@ -64,6 +64,12 @@ namespace Amazon.QuickSight.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("DefaultEmailCustomizationTemplate", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.DefaultEmailCustomizationTemplate = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("DefaultTheme", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

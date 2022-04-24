@@ -1226,7 +1226,7 @@ namespace Amazon.LexModelsV2
 
 
         /// <summary>
-        /// Deletes a specific version of a bot. To delete all version of a bot, use the <a>DeleteBot</a>
+        /// Deletes a specific version of a bot. To delete all version of a bot, use the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DeleteBot.html">DeleteBot</a>
         /// operation.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteBotVersion service method.</param>
@@ -1265,6 +1265,62 @@ namespace Amazon.LexModelsV2
             options.ResponseUnmarshaller = DeleteBotVersionResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteBotVersionResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteCustomVocabulary
+
+        internal virtual DeleteCustomVocabularyResponse DeleteCustomVocabulary(DeleteCustomVocabularyRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteCustomVocabularyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteCustomVocabularyResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteCustomVocabularyResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Removes a custom vocabulary from the specified locale in the specified bot.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteCustomVocabulary service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteCustomVocabulary service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// The action that you tried to perform couldn't be completed because the resource is
+        /// in a conflicting state. For example, deleting a bot that is in the CREATING state.
+        /// Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DeleteCustomVocabulary">REST API Reference for DeleteCustomVocabulary Operation</seealso>
+        public virtual Task<DeleteCustomVocabularyResponse> DeleteCustomVocabularyAsync(DeleteCustomVocabularyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteCustomVocabularyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteCustomVocabularyResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteCustomVocabularyResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1670,8 +1726,9 @@ namespace Amazon.LexModelsV2
         ///  
         /// <para>
         /// Amazon Lex stores the utterances that users send to your bot. Utterances are stored
-        /// for 15 days for use with the operation, and then stored indefinitely for use in improving
-        /// the ability of your bot to respond to user input..
+        /// for 15 days for use with the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a>
+        /// operation, and then stored indefinitely for use in improving the ability of your bot
+        /// to respond to user input..
         /// </para>
         ///  
         /// <para>
@@ -1863,6 +1920,57 @@ namespace Amazon.LexModelsV2
 
         #endregion
         
+        #region  DescribeBotRecommendation
+
+        internal virtual DescribeBotRecommendationResponse DescribeBotRecommendation(DescribeBotRecommendationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeBotRecommendationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeBotRecommendationResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeBotRecommendationResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Provides metadata information about a bot recommendation. This information will enable
+        /// you to get a description on the request inputs, to download associated transcripts
+        /// after processing is complete, and to download intents and slot-types generated by
+        /// the bot recommendation.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeBotRecommendation service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeBotRecommendation service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeBotRecommendation">REST API Reference for DescribeBotRecommendation Operation</seealso>
+        public virtual Task<DescribeBotRecommendationResponse> DescribeBotRecommendationAsync(DescribeBotRecommendationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeBotRecommendationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeBotRecommendationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeBotRecommendationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DescribeBotVersion
 
         internal virtual DescribeBotVersionResponse DescribeBotVersion(DescribeBotVersionRequest request)
@@ -1910,6 +2018,57 @@ namespace Amazon.LexModelsV2
             options.ResponseUnmarshaller = DescribeBotVersionResponseUnmarshaller.Instance;
 
             return InvokeAsync<DescribeBotVersionResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeCustomVocabularyMetadata
+
+        internal virtual DescribeCustomVocabularyMetadataResponse DescribeCustomVocabularyMetadata(DescribeCustomVocabularyMetadataRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeCustomVocabularyMetadataRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeCustomVocabularyMetadataResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeCustomVocabularyMetadataResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Provides metadata information about a custom vocabulary.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeCustomVocabularyMetadata service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeCustomVocabularyMetadata service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeCustomVocabularyMetadata">REST API Reference for DescribeCustomVocabularyMetadata Operation</seealso>
+        public virtual Task<DescribeCustomVocabularyMetadataResponse> DescribeCustomVocabularyMetadataAsync(DescribeCustomVocabularyMetadataRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeCustomVocabularyMetadataRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeCustomVocabularyMetadataResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeCustomVocabularyMetadataResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -2384,6 +2543,54 @@ namespace Amazon.LexModelsV2
 
         #endregion
         
+        #region  ListBotRecommendations
+
+        internal virtual ListBotRecommendationsResponse ListBotRecommendations(ListBotRecommendationsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListBotRecommendationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListBotRecommendationsResponseUnmarshaller.Instance;
+
+            return Invoke<ListBotRecommendationsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Get a list of bot recommendations that meet the specified criteria.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListBotRecommendations service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListBotRecommendations service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListBotRecommendations">REST API Reference for ListBotRecommendations Operation</seealso>
+        public virtual Task<ListBotRecommendationsResponse> ListBotRecommendationsAsync(ListBotRecommendationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListBotRecommendationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListBotRecommendationsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListBotRecommendationsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListBots
 
         internal virtual ListBotsResponse ListBots(ListBotsRequest request)
@@ -2512,7 +2719,7 @@ namespace Amazon.LexModelsV2
         /// <para>
         /// To use a built-in intent as a the base for your own intent, include the built-in intent
         /// signature in the <code>parentIntentSignature</code> parameter when you call the <code>CreateIntent</code>
-        /// operation. For more information, see <a>CreateIntent</a>.
+        /// operation. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateIntent.html">CreateIntent</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListBuiltInIntents service method.</param>
@@ -2607,7 +2814,8 @@ namespace Amazon.LexModelsV2
 
 
         /// <summary>
-        /// Lists the exports for a bot or bot locale. Exports are kept in the list for 7 days.
+        /// Lists the exports for a bot, bot locale, or custom vocabulary. Exports are kept in
+        /// the list for 7 days.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListExports service method.</param>
         /// <param name="cancellationToken">
@@ -2651,7 +2859,8 @@ namespace Amazon.LexModelsV2
 
 
         /// <summary>
-        /// Lists the imports for a bot or bot locale. Imports are kept in the list for 7 days.
+        /// Lists the imports for a bot, bot locale, or custom vocabulary. Imports are kept in
+        /// the list for 7 days.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListImports service method.</param>
         /// <param name="cancellationToken">
@@ -2724,6 +2933,58 @@ namespace Amazon.LexModelsV2
             options.ResponseUnmarshaller = ListIntentsResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListIntentsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListRecommendedIntents
+
+        internal virtual ListRecommendedIntentsResponse ListRecommendedIntents(ListRecommendedIntentsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListRecommendedIntentsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListRecommendedIntentsResponseUnmarshaller.Instance;
+
+            return Invoke<ListRecommendedIntentsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Gets a list of recommended intents provided by the bot recommendation that you can
+        /// use in your bot.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListRecommendedIntents service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListRecommendedIntents service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListRecommendedIntents">REST API Reference for ListRecommendedIntents Operation</seealso>
+        public virtual Task<ListRecommendedIntentsResponse> ListRecommendedIntentsAsync(ListRecommendedIntentsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListRecommendedIntentsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListRecommendedIntentsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListRecommendedIntentsResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -2871,6 +3132,117 @@ namespace Amazon.LexModelsV2
 
         #endregion
         
+        #region  SearchAssociatedTranscripts
+
+        internal virtual SearchAssociatedTranscriptsResponse SearchAssociatedTranscripts(SearchAssociatedTranscriptsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = SearchAssociatedTranscriptsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = SearchAssociatedTranscriptsResponseUnmarshaller.Instance;
+
+            return Invoke<SearchAssociatedTranscriptsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Search for associated transcripts that meet the specified criteria.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the SearchAssociatedTranscripts service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the SearchAssociatedTranscripts service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/SearchAssociatedTranscripts">REST API Reference for SearchAssociatedTranscripts Operation</seealso>
+        public virtual Task<SearchAssociatedTranscriptsResponse> SearchAssociatedTranscriptsAsync(SearchAssociatedTranscriptsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = SearchAssociatedTranscriptsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = SearchAssociatedTranscriptsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<SearchAssociatedTranscriptsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  StartBotRecommendation
+
+        internal virtual StartBotRecommendationResponse StartBotRecommendation(StartBotRecommendationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartBotRecommendationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartBotRecommendationResponseUnmarshaller.Instance;
+
+            return Invoke<StartBotRecommendationResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Use this to provide your transcript data, and to start the bot recommendation process.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartBotRecommendation service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartBotRecommendation service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// The action that you tried to perform couldn't be completed because the resource is
+        /// in a conflicting state. For example, deleting a bot that is in the CREATING state.
+        /// Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/StartBotRecommendation">REST API Reference for StartBotRecommendation Operation</seealso>
+        public virtual Task<StartBotRecommendationResponse> StartBotRecommendationAsync(StartBotRecommendationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartBotRecommendationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartBotRecommendationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<StartBotRecommendationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  StartImport
 
         internal virtual StartImportResponse StartImport(StartImportRequest request)
@@ -2885,8 +3257,8 @@ namespace Amazon.LexModelsV2
 
 
         /// <summary>
-        /// Starts importing a bot or bot locale from a zip archive that you uploaded to an S3
-        /// bucket.
+        /// Starts importing a bot, bot locale, or custom vocabulary from a zip archive that you
+        /// uploaded to an S3 bucket.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartImport service method.</param>
         /// <param name="cancellationToken">
@@ -3193,6 +3565,66 @@ namespace Amazon.LexModelsV2
 
         #endregion
         
+        #region  UpdateBotRecommendation
+
+        internal virtual UpdateBotRecommendationResponse UpdateBotRecommendation(UpdateBotRecommendationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateBotRecommendationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateBotRecommendationResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateBotRecommendationResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Updates an existing bot recommendation request.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateBotRecommendation service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateBotRecommendation service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// The action that you tried to perform couldn't be completed because the resource is
+        /// in a conflicting state. For example, deleting a bot that is in the CREATING state.
+        /// Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/UpdateBotRecommendation">REST API Reference for UpdateBotRecommendation Operation</seealso>
+        public virtual Task<UpdateBotRecommendationResponse> UpdateBotRecommendationAsync(UpdateBotRecommendationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateBotRecommendationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateBotRecommendationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateBotRecommendationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  UpdateExport
 
         internal virtual UpdateExportResponse UpdateExport(UpdateExportRequest request)
@@ -3213,7 +3645,8 @@ namespace Amazon.LexModelsV2
         /// <para>
         /// The password is not required. If you don't supply a password, Amazon Lex generates
         /// a zip file that is not protected by a password. This is the archive that is available
-        /// at the pre-signed S3 URL provided by the operation.
+        /// at the pre-signed S3 URL provided by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html">DescribeExport</a>
+        /// operation.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateExport service method.</param>

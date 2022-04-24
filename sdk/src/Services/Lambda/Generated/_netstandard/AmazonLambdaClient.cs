@@ -44,10 +44,97 @@ namespace Amazon.Lambda
     /// </para>
     ///  
     /// <para>
-    /// This is the <i>Lambda API Reference</i>. The Lambda Developer Guide provides additional
-    /// information. For the service overview, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What
-    /// is Lambda</a>, and for information about how the service works, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">Lambda:
-    /// How it Works</a> in the <b>Lambda Developer Guide</b>.
+    /// Lambda is a compute service that lets you run code without provisioning or managing
+    /// servers. Lambda runs your code on a high-availability compute infrastructure and performs
+    /// all of the administration of the compute resources, including server and operating
+    /// system maintenance, capacity provisioning and automatic scaling, code monitoring and
+    /// logging. With Lambda, you can run code for virtually any type of application or backend
+    /// service. For more information about the Lambda service, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What
+    /// is Lambda</a> in the <b>Lambda Developer Guide</b>.
+    /// </para>
+    ///  
+    /// <para>
+    /// The <i>Lambda API Reference</i> provides information about each of the API methods,
+    /// including details about the parameters in each API request and response. 
+    /// </para>
+    ///   
+    /// <para>
+    /// You can use Software Development Kits (SDKs), Integrated Development Environment (IDE)
+    /// Toolkits, and command line tools to access the API. For installation instructions,
+    /// see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>. 
+    /// </para>
+    ///  
+    /// <para>
+    /// For a list of Region-specific endpoints that Lambda supports, see <a href="https://docs.aws.amazon.com/general/latest/gr/lambda-service.html/">Lambda
+    /// endpoints and quotas </a> in the <i>Amazon Web Services General Reference.</i>. 
+    /// </para>
+    ///  
+    /// <para>
+    /// When making the API calls, you will need to authenticate your request by providing
+    /// a signature. Lambda supports signature version 4. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
+    /// Version 4 signing process</a> in the <i>Amazon Web Services General Reference.</i>.
+    /// 
+    /// </para>
+    ///  
+    /// <para>
+    ///  <b>CA certificates</b> 
+    /// </para>
+    ///  
+    /// <para>
+    /// Because Amazon Web Services SDKs use the CA certificates from your computer, changes
+    /// to the certificates on the Amazon Web Services servers can cause connection failures
+    /// when you attempt to use an SDK. You can prevent these failures by keeping your computer's
+    /// CA certificates and operating system up-to-date. If you encounter this issue in a
+    /// corporate environment and do not manage your own computer, you might need to ask an
+    /// administrator to assist with the update process. The following list shows minimum
+    /// operating system and Java versions:
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// Microsoft Windows versions that have updates from January 2005 or later installed
+    /// contain at least one of the required CAs in their trust list. 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Mac OS X 10.4 with Java for Mac OS X 10.4 Release 5 (February 2007), Mac OS X 10.5
+    /// (October 2007), and later versions contain at least one of the required CAs in their
+    /// trust list. 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Red Hat Enterprise Linux 5 (March 2007), 6, and 7 and CentOS 5, 6, and 7 all contain
+    /// at least one of the required CAs in their default trusted CA list. 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Java 1.4.2_12 (May 2006), 5 Update 2 (March 2005), and all later versions, including
+    /// Java 6 (December 2006), 7, and 8, contain at least one of the required CAs in their
+    /// default trusted CA list. 
+    /// </para>
+    ///  </li> </ul> 
+    /// <para>
+    /// When accessing the Lambda management console or Lambda API endpoints, whether through
+    /// browsers or programmatically, you will need to ensure your client machines support
+    /// any of the following CAs: 
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// Amazon Root CA 1
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Starfield Services Root Certificate Authority - G2
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Starfield Class 2 Certification Authority
+    /// </para>
+    ///  </li> </ul> 
+    /// <para>
+    /// Root certificates from the first two authorities are available from <a href="https://www.amazontrust.com/repository/">Amazon
+    /// trust services</a>, but keeping your computer up-to-date is the more straightforward
+    /// solution. To learn more about ACM-provided certificates, see <a href="http://aws.amazon.com/certificate-manager/faqs/#certificates">Amazon
+    /// Web Services Certificate Manager FAQs.</a> 
     /// </para>
     /// </summary>
     public partial class AmazonLambdaClient : AmazonServiceClient, IAmazonLambda
@@ -349,21 +436,22 @@ namespace Amazon.Lambda
 
 
         /// <summary>
-        /// Grants an Amazon Web Services service or another account permission to use a function.
-        /// You can apply the policy at the function level, or specify a qualifier to restrict
-        /// access to a single version or alias. If you use a qualifier, the invoker must use
-        /// the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
-        /// Note: Lambda does not support adding policies to version $LATEST.
+        /// Grants an Amazon Web Services service, account, or organization permission to use
+        /// a function. You can apply the policy at the function level, or specify a qualifier
+        /// to restrict access to a single version or alias. If you use a qualifier, the invoker
+        /// must use the full Amazon Resource Name (ARN) of that version or alias to invoke the
+        /// function. Note: Lambda does not support adding policies to version $LATEST.
         /// 
         ///  
         /// <para>
         /// To grant permission to another account, specify the account ID as the <code>Principal</code>.
-        /// For Amazon Web Services services, the principal is a domain-style identifier defined
-        /// by the service, like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>.
-        /// For Amazon Web Services services, you can also specify the ARN of the associated resource
-        /// as the <code>SourceArn</code>. If you grant permission to a service principal without
-        /// specifying the source, other accounts could potentially configure resources in their
-        /// account to invoke your Lambda function.
+        /// To grant permission to an organization defined in Organizations, specify the organization
+        /// ID as the <code>PrincipalOrgID</code>. For Amazon Web Services services, the principal
+        /// is a domain-style identifier defined by the service, like <code>s3.amazonaws.com</code>
+        /// or <code>sns.amazonaws.com</code>. For Amazon Web Services services, you can also
+        /// specify the ARN of the associated resource as the <code>SourceArn</code>. If you grant
+        /// permission to a service principal without specifying the source, other accounts could
+        /// potentially configure resources in their account to invoke your Lambda function.
         /// </para>
         ///  
         /// <para>
@@ -534,37 +622,38 @@ namespace Amazon.Lambda
         /// 
         ///  
         /// <para>
-        /// For details about each event source type, see the following topics. 
+        /// For details about how to configure different event sources, see the following topics.
+        /// 
         /// </para>
         ///  <ul> <li> 
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping">
-        /// Configuring a Dynamo DB stream as an event source</a> 
+        /// Amazon DynamoDB Streams</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping">
-        /// Configuring a Kinesis stream as an event source</a> 
+        /// Amazon Kinesis</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource">
-        /// Configuring an Amazon SQS queue as an event source</a> 
+        /// Amazon SQS</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping">
-        /// Configuring an MQ broker as an event source</a> 
+        /// Amazon MQ and RabbitMQ</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html"> Configuring
-        /// MSK as an event source</a> 
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html"> Amazon MSK</a>
+        /// 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Configuring
-        /// Self-Managed Apache Kafka as an event source</a> 
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Apache Kafka</a>
+        /// 
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -596,6 +685,41 @@ namespace Amazon.Lambda
         ///  </li> <li> 
         /// <para>
         ///  <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For information about which configuration parameters apply to each event source, see
+        /// the following topics.
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params">
+        /// Amazon DynamoDB Streams</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params">
+        /// Amazon Kinesis</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params">
+        /// Amazon SQS</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params">
+        /// Amazon MQ and RabbitMQ</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms">
+        /// Amazon MSK</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms">
+        /// Apache Kafka</a> 
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -764,6 +888,56 @@ namespace Amazon.Lambda
             options.ResponseUnmarshaller = CreateFunctionResponseUnmarshaller.Instance;
 
             return InvokeAsync<CreateFunctionResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateFunctionUrlConfig
+
+        internal virtual CreateFunctionUrlConfigResponse CreateFunctionUrlConfig(CreateFunctionUrlConfigRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateFunctionUrlConfigRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateFunctionUrlConfigResponseUnmarshaller.Instance;
+
+            return Invoke<CreateFunctionUrlConfigResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates a Lambda function URL with the specified configuration parameters. A function
+        /// URL is a dedicated HTTP(S) endpoint that you can use to invoke your function.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateFunctionUrlConfig service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateFunctionUrlConfig service method, as returned by Lambda.</returns>
+        /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
+        /// One of the parameters in the request is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceConflictException">
+        /// The resource already exists, or another operation is in progress.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceNotFoundException">
+        /// The resource specified in the request does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ServiceException">
+        /// The Lambda service encountered an internal error.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
+        /// The request throughput limit was exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/CreateFunctionUrlConfig">REST API Reference for CreateFunctionUrlConfig Operation</seealso>
+        public virtual Task<CreateFunctionUrlConfigResponse> CreateFunctionUrlConfigAsync(CreateFunctionUrlConfigRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateFunctionUrlConfigRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateFunctionUrlConfigResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateFunctionUrlConfigResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1169,6 +1343,53 @@ namespace Amazon.Lambda
             options.ResponseUnmarshaller = DeleteFunctionEventInvokeConfigResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteFunctionEventInvokeConfigResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteFunctionUrlConfig
+
+        internal virtual DeleteFunctionUrlConfigResponse DeleteFunctionUrlConfig(DeleteFunctionUrlConfigRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteFunctionUrlConfigRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteFunctionUrlConfigResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteFunctionUrlConfigResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes a Lambda function URL. When you delete a function URL, you can't recover it.
+        /// Creating a new function URL results in a different URL address.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteFunctionUrlConfig service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteFunctionUrlConfig service method, as returned by Lambda.</returns>
+        /// <exception cref="Amazon.Lambda.Model.ResourceConflictException">
+        /// The resource already exists, or another operation is in progress.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceNotFoundException">
+        /// The resource specified in the request does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ServiceException">
+        /// The Lambda service encountered an internal error.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
+        /// The request throughput limit was exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/DeleteFunctionUrlConfig">REST API Reference for DeleteFunctionUrlConfig Operation</seealso>
+        public virtual Task<DeleteFunctionUrlConfigResponse> DeleteFunctionUrlConfigAsync(DeleteFunctionUrlConfigRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteFunctionUrlConfigRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteFunctionUrlConfigResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteFunctionUrlConfigResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1753,6 +1974,52 @@ namespace Amazon.Lambda
             options.ResponseUnmarshaller = GetFunctionEventInvokeConfigResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetFunctionEventInvokeConfigResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetFunctionUrlConfig
+
+        internal virtual GetFunctionUrlConfigResponse GetFunctionUrlConfig(GetFunctionUrlConfigRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetFunctionUrlConfigRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetFunctionUrlConfigResponseUnmarshaller.Instance;
+
+            return Invoke<GetFunctionUrlConfigResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Returns details about a Lambda function URL.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetFunctionUrlConfig service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetFunctionUrlConfig service method, as returned by Lambda.</returns>
+        /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
+        /// One of the parameters in the request is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceNotFoundException">
+        /// The resource specified in the request does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ServiceException">
+        /// The Lambda service encountered an internal error.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
+        /// The request throughput limit was exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetFunctionUrlConfig">REST API Reference for GetFunctionUrlConfig Operation</seealso>
+        public virtual Task<GetFunctionUrlConfigResponse> GetFunctionUrlConfigAsync(GetFunctionUrlConfigRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetFunctionUrlConfigRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetFunctionUrlConfigResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetFunctionUrlConfigResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -2555,6 +2822,52 @@ namespace Amazon.Lambda
             options.ResponseUnmarshaller = ListFunctionsByCodeSigningConfigResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListFunctionsByCodeSigningConfigResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListFunctionUrlConfigs
+
+        internal virtual ListFunctionUrlConfigsResponse ListFunctionUrlConfigs(ListFunctionUrlConfigsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListFunctionUrlConfigsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListFunctionUrlConfigsResponseUnmarshaller.Instance;
+
+            return Invoke<ListFunctionUrlConfigsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Returns a list of Lambda function URLs for the specified function.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListFunctionUrlConfigs service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListFunctionUrlConfigs service method, as returned by Lambda.</returns>
+        /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
+        /// One of the parameters in the request is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceNotFoundException">
+        /// The resource specified in the request does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ServiceException">
+        /// The Lambda service encountered an internal error.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
+        /// The request throughput limit was exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/ListFunctionUrlConfigs">REST API Reference for ListFunctionUrlConfigs Operation</seealso>
+        public virtual Task<ListFunctionUrlConfigsResponse> ListFunctionUrlConfigsAsync(ListFunctionUrlConfigsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListFunctionUrlConfigsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListFunctionUrlConfigsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListFunctionUrlConfigsResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -3486,6 +3799,41 @@ namespace Amazon.Lambda
         /// 
         ///  
         /// <para>
+        /// For details about how to configure different event sources, see the following topics.
+        /// 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping">
+        /// Amazon DynamoDB Streams</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping">
+        /// Amazon Kinesis</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource">
+        /// Amazon SQS</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping">
+        /// Amazon MQ and RabbitMQ</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html"> Amazon MSK</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Apache Kafka</a>
+        /// 
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
         /// The following error handling options are only available for stream sources (DynamoDB
         /// and Kinesis):
         /// </para>
@@ -3514,6 +3862,41 @@ namespace Amazon.Lambda
         ///  </li> <li> 
         /// <para>
         ///  <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For information about which configuration parameters apply to each event source, see
+        /// the following topics.
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params">
+        /// Amazon DynamoDB Streams</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params">
+        /// Amazon Kinesis</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params">
+        /// Amazon SQS</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params">
+        /// Amazon MQ and RabbitMQ</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms">
+        /// Amazon MSK</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms">
+        /// Apache Kafka</a> 
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -3573,6 +3956,25 @@ namespace Amazon.Lambda
         /// code package must be signed by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html">Configuring
         /// code signing</a>.
         /// 
+        ///  
+        /// <para>
+        /// If the function's package type is <code>Image</code>, you must specify the code package
+        /// in <code>ImageUri</code> as the URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container
+        /// image</a> in the Amazon ECR registry. 
+        /// </para>
+        ///  
+        /// <para>
+        /// If the function's package type is <code>Zip</code>, you must specify the deployment
+        /// package as a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip
+        /// file archive</a>. Enter the Amazon S3 bucket and key of the code .zip file location.
+        /// You can also provide the function code inline using the <code>ZipFile</code> field.
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// The code in the deployment package must be compatible with the target instruction
+        /// set architecture of the function (<code>x86-64</code> or <code>arm64</code>). 
+        /// </para>
         ///  
         /// <para>
         /// The function's code is locked when you publish a version. You can't modify the code
@@ -3778,6 +4180,55 @@ namespace Amazon.Lambda
             options.ResponseUnmarshaller = UpdateFunctionEventInvokeConfigResponseUnmarshaller.Instance;
 
             return InvokeAsync<UpdateFunctionEventInvokeConfigResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateFunctionUrlConfig
+
+        internal virtual UpdateFunctionUrlConfigResponse UpdateFunctionUrlConfig(UpdateFunctionUrlConfigRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateFunctionUrlConfigRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateFunctionUrlConfigResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateFunctionUrlConfigResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Updates the configuration for a Lambda function URL.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateFunctionUrlConfig service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateFunctionUrlConfig service method, as returned by Lambda.</returns>
+        /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
+        /// One of the parameters in the request is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceConflictException">
+        /// The resource already exists, or another operation is in progress.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceNotFoundException">
+        /// The resource specified in the request does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ServiceException">
+        /// The Lambda service encountered an internal error.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
+        /// The request throughput limit was exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/UpdateFunctionUrlConfig">REST API Reference for UpdateFunctionUrlConfig Operation</seealso>
+        public virtual Task<UpdateFunctionUrlConfigResponse> UpdateFunctionUrlConfigAsync(UpdateFunctionUrlConfigRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateFunctionUrlConfigRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateFunctionUrlConfigResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateFunctionUrlConfigResponse>(request, options, cancellationToken);
         }
 
         #endregion

@@ -33,11 +33,102 @@ namespace Amazon.ChimeSDKMeetings.Model
     /// </summary>
     public partial class EngineTranscribeSettings
     {
+        private TranscribeContentIdentificationType _contentIdentificationType;
+        private TranscribeContentRedactionType _contentRedactionType;
+        private bool? _enablePartialResultsStabilization;
+        private bool? _identifyLanguage;
         private TranscribeLanguageCode _languageCode;
+        private string _languageModelName;
+        private string _languageOptions;
+        private TranscribePartialResultsStability _partialResultsStability;
+        private string _piiEntityTypes;
+        private TranscribeLanguageCode _preferredLanguage;
         private TranscribeRegion _region;
         private TranscribeVocabularyFilterMethod _vocabularyFilterMethod;
         private string _vocabularyFilterName;
         private string _vocabularyName;
+
+        /// <summary>
+        /// Gets and sets the property ContentIdentificationType. 
+        /// <para>
+        /// Set this field to <code>PII</code> to identify personally identifiable information
+        /// in the transcription output.
+        /// </para>
+        /// </summary>
+        public TranscribeContentIdentificationType ContentIdentificationType
+        {
+            get { return this._contentIdentificationType; }
+            set { this._contentIdentificationType = value; }
+        }
+
+        // Check to see if ContentIdentificationType property is set
+        internal bool IsSetContentIdentificationType()
+        {
+            return this._contentIdentificationType != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ContentRedactionType. 
+        /// <para>
+        /// Set this field to <code>PII</code> to redact personally identifiable information in
+        /// the transcription output. Content redaction is performed only upon complete transcription
+        /// of the audio segments.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code>
+        /// in the same request. If you set both, your request returns a <code>BadRequestException</code>.
+        /// </para>
+        /// </summary>
+        public TranscribeContentRedactionType ContentRedactionType
+        {
+            get { return this._contentRedactionType; }
+            set { this._contentRedactionType = value; }
+        }
+
+        // Check to see if ContentRedactionType property is set
+        internal bool IsSetContentRedactionType()
+        {
+            return this._contentRedactionType != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property EnablePartialResultsStabilization. 
+        /// <para>
+        /// Generates partial transcription results that are less likely to change as meeting
+        /// attendees speak. It does so by only allowing the last few words from the partial results
+        /// to change.
+        /// </para>
+        /// </summary>
+        public bool EnablePartialResultsStabilization
+        {
+            get { return this._enablePartialResultsStabilization.GetValueOrDefault(); }
+            set { this._enablePartialResultsStabilization = value; }
+        }
+
+        // Check to see if EnablePartialResultsStabilization property is set
+        internal bool IsSetEnablePartialResultsStabilization()
+        {
+            return this._enablePartialResultsStabilization.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property IdentifyLanguage. 
+        /// <para>
+        /// Automatically identifies the language spoken in media files.
+        /// </para>
+        /// </summary>
+        public bool IdentifyLanguage
+        {
+            get { return this._identifyLanguage.GetValueOrDefault(); }
+            set { this._identifyLanguage = value; }
+        }
+
+        // Check to see if IdentifyLanguage property is set
+        internal bool IsSetIdentifyLanguage()
+        {
+            return this._identifyLanguage.HasValue; 
+        }
 
         /// <summary>
         /// Gets and sets the property LanguageCode. 
@@ -45,7 +136,6 @@ namespace Amazon.ChimeSDKMeetings.Model
         /// The language code specified for the Amazon Transcribe engine.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
         public TranscribeLanguageCode LanguageCode
         {
             get { return this._languageCode; }
@@ -56,6 +146,114 @@ namespace Amazon.ChimeSDKMeetings.Model
         internal bool IsSetLanguageCode()
         {
             return this._languageCode != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property LanguageModelName. 
+        /// <para>
+        /// The name of the language model used during transcription.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=200)]
+        public string LanguageModelName
+        {
+            get { return this._languageModelName; }
+            set { this._languageModelName = value; }
+        }
+
+        // Check to see if LanguageModelName property is set
+        internal bool IsSetLanguageModelName()
+        {
+            return this._languageModelName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property LanguageOptions. 
+        /// <para>
+        /// Language codes for the languages that you want to identify. You must provide at least
+        /// 2 codes.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=200)]
+        public string LanguageOptions
+        {
+            get { return this._languageOptions; }
+            set { this._languageOptions = value; }
+        }
+
+        // Check to see if LanguageOptions property is set
+        internal bool IsSetLanguageOptions()
+        {
+            return this._languageOptions != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PartialResultsStability. 
+        /// <para>
+        /// The stabity level of a partial results transcription. Determines how stable you want
+        /// the transcription results to be. A higher level means the transcription results are
+        /// less likely to change.
+        /// </para>
+        /// </summary>
+        public TranscribePartialResultsStability PartialResultsStability
+        {
+            get { return this._partialResultsStability; }
+            set { this._partialResultsStability = value; }
+        }
+
+        // Check to see if PartialResultsStability property is set
+        internal bool IsSetPartialResultsStability()
+        {
+            return this._partialResultsStability != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PiiEntityTypes. 
+        /// <para>
+        /// Lists the PII entity types you want to identify or redact. To specify entity types,
+        /// you must enable <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>PIIEntityTypes</code> must be comma-separated. The available values are: <code>BANK_ACCOUNT_NUMBER</code>,
+        /// <code>BANK_ROUTING, CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>,
+        /// <code>PIN</code>, <code>EMAIL</code>, <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>,
+        /// <code>SSN</code>, and <code>ALL</code>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>PiiEntityTypes</code> is an optional parameter with a default value of <code>ALL</code>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=300)]
+        public string PiiEntityTypes
+        {
+            get { return this._piiEntityTypes; }
+            set { this._piiEntityTypes = value; }
+        }
+
+        // Check to see if PiiEntityTypes property is set
+        internal bool IsSetPiiEntityTypes()
+        {
+            return this._piiEntityTypes != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PreferredLanguage. 
+        /// <para>
+        /// Language code for the preferred language.
+        /// </para>
+        /// </summary>
+        public TranscribeLanguageCode PreferredLanguage
+        {
+            get { return this._preferredLanguage; }
+            set { this._preferredLanguage = value; }
+        }
+
+        // Check to see if PreferredLanguage property is set
+        internal bool IsSetPreferredLanguage()
+        {
+            return this._preferredLanguage != null;
         }
 
         /// <summary>

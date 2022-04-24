@@ -94,6 +94,12 @@ namespace Amazon.Mgn.Model.Internal.MarshallTransformations
                     unmarshalledObject.LagDuration = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("lastSnapshotDateTime", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.LastSnapshotDateTime = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("replicatedDisks", targetDepth))
                 {
                     var unmarshaller = new ListUnmarshaller<DataReplicationInfoReplicatedDisk, DataReplicationInfoReplicatedDiskUnmarshaller>(DataReplicationInfoReplicatedDiskUnmarshaller.Instance);

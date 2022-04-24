@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Snowball.Model
 {
     /// <summary>
-    /// The tax documents required in AWS Regions in India.
+    /// The tax documents required in Amazon Web Services Region in India.
     /// </summary>
     public partial class INDTaxDocuments
     {
@@ -38,9 +38,11 @@ namespace Amazon.Snowball.Model
         /// <summary>
         /// Gets and sets the property GSTIN. 
         /// <para>
-        /// The Goods and Services Tax (GST) documents required in AWS Regions in India.
+        /// The Goods and Services Tax (GST) documents required in Amazon Web Services Region
+        /// in India.
         /// </para>
         /// </summary>
+        [AWSProperty(Min=15, Max=15)]
         public string GSTIN
         {
             get { return this._gstin; }

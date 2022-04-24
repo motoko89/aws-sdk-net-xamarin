@@ -77,7 +77,7 @@ namespace AWSSDK.UnitTests
             {
                 // Real region, partition defaults
                 new object[]{new AmazonIotDataConfig { RegionEndpoint = RegionEndpoint.GetBySystemName("us-east-1") },
-                    "us-east-1", "iotdata", "data.iot.us-east-1.amazonaws.com" },
+                    "us-east-1", "iotdata", "data-ats.iot.us-east-1.amazonaws.com" },
                 // Real region with credentialScope.region
                 new object[]{new AmazonECRConfig { RegionEndpoint = RegionEndpoint.GetBySystemName("us-east-1") },
                     "us-east-1", "ecr", "api.ecr.us-east-1.amazonaws.com" },
@@ -89,7 +89,7 @@ namespace AWSSDK.UnitTests
                     "us-gov-east-1", "ecr", "ecr-fips.us-gov-east-1.amazonaws.com" },
                 // Pseudoregion, no credentialScope.region
                 new object[]{new AmazonIotDataConfig { RegionEndpoint = RegionEndpoint.GetBySystemName("fips-us-east-1") },
-                    "fips-us-east-1", "iotdata", "data.iot-fips.us-east-1.amazonaws.com" },
+                    "us-east-1", "iotdata", "data.iot-fips.us-east-1.amazonaws.com" },
                 // Non-FIPS pseudoregion, no credentialScope
                 new object[]{new AmazonMTurkConfig { RegionEndpoint = RegionEndpoint.GetBySystemName("sandbox") },
                     "sandbox", "mturk-requester", "mturk-requester-sandbox.us-east-1.amazonaws.com" },

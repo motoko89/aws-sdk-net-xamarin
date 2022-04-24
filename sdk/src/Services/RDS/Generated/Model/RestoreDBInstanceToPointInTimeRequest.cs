@@ -54,6 +54,7 @@ namespace Amazon.RDS.Model
     {
         private bool? _autoMinorVersionUpgrade;
         private string _availabilityZone;
+        private string _backupTarget;
         private bool? _copyTagsToSnapshot;
         private string _customIamInstanceProfile;
         private string _dbInstanceClass;
@@ -159,6 +160,35 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property BackupTarget. 
+        /// <para>
+        /// Specifies where automated backups and manual snapshots are stored for the restored
+        /// DB instance.
+        /// </para>
+        ///  
+        /// <para>
+        /// Possible values are <code>outposts</code> (Amazon Web Services Outposts) and <code>region</code>
+        /// (Amazon Web Services Region). The default is <code>region</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
+        /// with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.
+        /// </para>
+        /// </summary>
+        public string BackupTarget
+        {
+            get { return this._backupTarget; }
+            set { this._backupTarget = value; }
+        }
+
+        // Check to see if BackupTarget property is set
+        internal bool IsSetBackupTarget()
+        {
+            return this._backupTarget != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property CopyTagsToSnapshot. 
         /// <para>
         /// A value that indicates whether to copy all tags from the restored DB instance to snapshots
@@ -199,7 +229,7 @@ namespace Amazon.RDS.Model
         ///  </li> </ul> 
         /// <para>
         /// For the list of permissions required for the IAM role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc">
-        /// Configure IAM and your VPC</a> in the <i>Amazon Relational Database Service User Guide</i>.
+        /// Configure IAM and your VPC</a> in the <i>Amazon RDS User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -221,11 +251,11 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property DBInstanceClass. 
         /// <para>
-        /// The compute and memory capacity of the Amazon RDS DB instance, for example, <code>db.m4.large</code>.
+        /// The compute and memory capacity of the Amazon RDS DB instance, for example db.m4.large.
         /// Not all DB instance classes are available in all Amazon Web Services Regions, or for
         /// all database engines. For the full list of DB instance classes, and availability for
         /// your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
-        /// Instance Class</a> in the <i>Amazon RDS User Guide.</i> 
+        /// Instance Class</a> in the <i>Amazon RDS User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -327,7 +357,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// Example: <code>mySubnetgroup</code> 
+        /// Example: <code>mydbsubnetgroup</code> 
         /// </para>
         /// </summary>
         public string DBSubnetGroupName
@@ -347,8 +377,8 @@ namespace Amazon.RDS.Model
         /// <para>
         /// A value that indicates whether the DB instance has deletion protection enabled. The
         /// database can't be deleted when deletion protection is enabled. By default, deletion
-        /// protection is disabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
-        /// Deleting a DB Instance</a>. 
+        /// protection isn't enabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
+        /// Deleting a DB Instance</a>.
         /// </para>
         /// </summary>
         public bool DeletionProtection
@@ -484,7 +514,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property EnableIAMDatabaseAuthentication. 
         /// <para>
         /// A value that indicates whether to enable mapping of Amazon Web Services Identity and
-        /// Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
+        /// Access Management (IAM) accounts to database accounts. By default, mapping isn't enabled.
         /// </para>
         ///  
         /// <para>
@@ -634,7 +664,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        ///  Valid values: <code>license-included</code> | <code>bring-your-own-license</code>
+        /// Valid values: <code>license-included</code> | <code>bring-your-own-license</code>
         /// | <code>general-public-license</code> 
         /// </para>
         /// </summary>
@@ -791,11 +821,12 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// When the DB instance is publicly accessible, its DNS endpoint resolves to the private
-        /// IP address from within the DB instance's VPC, and to the public IP address from outside
-        /// of the DB instance's VPC. Access to the DB instance is ultimately controlled by the
-        /// security group it uses, and that public access is not permitted if the security group
-        /// assigned to the DB instance doesn't permit it.
+        /// When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint
+        /// resolves to the private IP address from within the DB cluster's virtual private cloud
+        /// (VPC). It resolves to the public IP address from outside of the DB cluster's VPC.
+        /// Access to the DB cluster is ultimately controlled by the security group it uses. That
+        /// public access isn't permitted if the security group assigned to the DB cluster doesn't
+        /// permit it.
         /// </para>
         ///  
         /// <para>
@@ -932,16 +963,16 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        ///  Valid values: <code>standard | gp2 | io1</code> 
+        /// Valid values: <code>standard | gp2 | io1</code> 
         /// </para>
         ///  
         /// <para>
-        ///  If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
-        /// parameter. 
+        /// If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
+        /// parameter.
         /// </para>
         ///  
         /// <para>
-        ///  Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
+        /// Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
         /// <code>gp2</code> 
         /// </para>
         /// </summary>
@@ -1078,8 +1109,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property UseLatestRestorableTime. 
         /// <para>
-        ///  A value that indicates whether the DB instance is restored from the latest backup
-        /// time. By default, the DB instance isn't restored from the latest backup time. 
+        /// A value that indicates whether the DB instance is restored from the latest backup
+        /// time. By default, the DB instance isn't restored from the latest backup time.
         /// </para>
         ///  
         /// <para>
@@ -1101,11 +1132,11 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property VpcSecurityGroupIds. 
         /// <para>
-        ///  A list of EC2 VPC security groups to associate with this DB instance. 
+        /// A list of EC2 VPC security groups to associate with this DB instance.
         /// </para>
         ///  
         /// <para>
-        ///  Default: The default EC2 VPC security group for the DB subnet group's VPC. 
+        /// Default: The default EC2 VPC security group for the DB subnet group's VPC.
         /// </para>
         /// </summary>
         public List<string> VpcSecurityGroupIds

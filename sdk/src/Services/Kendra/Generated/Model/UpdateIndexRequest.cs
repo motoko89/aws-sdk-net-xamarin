@@ -47,13 +47,14 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property CapacityUnits. 
         /// <para>
-        /// Sets the number of additional storage and query capacity units that should be used
-        /// by the index. You can change the capacity of the index up to 5 times per day.
+        /// Sets the number of additional document storage and query capacity units that should
+        /// be used by the index. You can change the capacity of the index up to 5 times per day,
+        /// or make 5 API calls.
         /// </para>
         ///  
         /// <para>
         /// If you are using extra storage units, you can't reduce the storage capacity below
-        /// that required to meet the storage needs for your index.
+        /// what is required to meet the storage needs for your index.
         /// </para>
         /// </summary>
         public CapacityUnitsConfiguration CapacityUnits
@@ -90,7 +91,7 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property DocumentMetadataConfigurationUpdates. 
         /// <para>
-        /// The document metadata to update. 
+        /// The document metadata you want to update.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=500)]
@@ -151,7 +152,7 @@ namespace Amazon.Kendra.Model
         /// logs.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=1284)]
+        [AWSProperty(Min=0, Max=1284)]
         public string RoleArn
         {
             get { return this._roleArn; }
@@ -185,8 +186,8 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property UserGroupResolutionConfiguration. 
         /// <para>
-        /// Enables fetching access levels of groups and users from an AWS Single Sign-On identity
-        /// source. To configure this, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>.
+        /// Enables fetching access levels of groups and users from an Amazon Web Services Single
+        /// Sign On identity source. To configure this, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>.
         /// </para>
         /// </summary>
         public UserGroupResolutionConfiguration UserGroupResolutionConfiguration

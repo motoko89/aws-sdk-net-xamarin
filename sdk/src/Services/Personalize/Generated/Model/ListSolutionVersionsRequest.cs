@@ -33,7 +33,7 @@ namespace Amazon.Personalize.Model
     /// Returns a list of solution versions for the given solution. When a solution is not
     /// specified, all the solution versions associated with the account are listed. The response
     /// provides the properties for each solution version, including the Amazon Resource Name
-    /// (ARN). For more information on solutions, see <a>CreateSolution</a>.
+    /// (ARN).
     /// </summary>
     public partial class ListSolutionVersionsRequest : AmazonPersonalizeRequest
     {
@@ -67,7 +67,7 @@ namespace Amazon.Personalize.Model
         /// the next set of solution versions (if they exist).
         /// </para>
         /// </summary>
-        [AWSProperty(Max=1300)]
+        [AWSProperty(Max=1500)]
         public string NextToken
         {
             get { return this._nextToken; }

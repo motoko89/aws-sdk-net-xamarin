@@ -37,7 +37,10 @@ namespace Amazon.ComputeOptimizer.Model
         private string _autoScalingGroupArn;
         private string _autoScalingGroupName;
         private AutoScalingGroupConfiguration _currentConfiguration;
+        private CurrentPerformanceRisk _currentPerformanceRisk;
+        private EffectiveRecommendationPreferences _effectiveRecommendationPreferences;
         private Finding _finding;
+        private List<string> _inferredWorkloadTypes = new List<string>();
         private DateTime? _lastRefreshTimestamp;
         private double? _lookBackPeriodInDays;
         private List<AutoScalingGroupRecommendationOption> _recommendationOptions = new List<AutoScalingGroupRecommendationOption>();
@@ -116,6 +119,45 @@ namespace Amazon.ComputeOptimizer.Model
         }
 
         /// <summary>
+        /// Gets and sets the property CurrentPerformanceRisk. 
+        /// <para>
+        /// The risk of the current Auto Scaling group not meeting the performance needs of its
+        /// workloads. The higher the risk, the more likely the current Auto Scaling group configuration
+        /// has insufficient capacity and cannot meet workload requirements.
+        /// </para>
+        /// </summary>
+        public CurrentPerformanceRisk CurrentPerformanceRisk
+        {
+            get { return this._currentPerformanceRisk; }
+            set { this._currentPerformanceRisk = value; }
+        }
+
+        // Check to see if CurrentPerformanceRisk property is set
+        internal bool IsSetCurrentPerformanceRisk()
+        {
+            return this._currentPerformanceRisk != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property EffectiveRecommendationPreferences. 
+        /// <para>
+        /// An object that describes the effective recommendation preferences for the Auto Scaling
+        /// group.
+        /// </para>
+        /// </summary>
+        public EffectiveRecommendationPreferences EffectiveRecommendationPreferences
+        {
+            get { return this._effectiveRecommendationPreferences; }
+            set { this._effectiveRecommendationPreferences = value; }
+        }
+
+        // Check to see if EffectiveRecommendationPreferences property is set
+        internal bool IsSetEffectiveRecommendationPreferences()
+        {
+            return this._effectiveRecommendationPreferences != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Finding. 
         /// <para>
         /// The finding classification of the Auto Scaling group.
@@ -152,9 +194,63 @@ namespace Amazon.ComputeOptimizer.Model
         }
 
         /// <summary>
+        /// Gets and sets the property InferredWorkloadTypes. 
+        /// <para>
+        /// The applications that might be running on the instances in the Auto Scaling group
+        /// as inferred by Compute Optimizer.
+        /// </para>
+        ///  
+        /// <para>
+        /// Compute Optimizer can infer if one of the following applications might be running
+        /// on the instances:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>AmazonEmr</code> - Infers that Amazon EMR might be running on the instances.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>ApacheCassandra</code> - Infers that Apache Cassandra might be running on the
+        /// instances.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>ApacheHadoop</code> - Infers that Apache Hadoop might be running on the instances.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>Memcached</code> - Infers that Memcached might be running on the instances.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>NGINX</code> - Infers that NGINX might be running on the instances.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>PostgreSql</code> - Infers that PostgreSQL might be running on the instances.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>Redis</code> - Infers that Redis might be running on the instances.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        public List<string> InferredWorkloadTypes
+        {
+            get { return this._inferredWorkloadTypes; }
+            set { this._inferredWorkloadTypes = value; }
+        }
+
+        // Check to see if InferredWorkloadTypes property is set
+        internal bool IsSetInferredWorkloadTypes()
+        {
+            return this._inferredWorkloadTypes != null && this._inferredWorkloadTypes.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property LastRefreshTimestamp. 
         /// <para>
-        /// The timestamp of when the Auto Scaling group recommendation was last refreshed.
+        /// The timestamp of when the Auto Scaling group recommendation was last generated.
         /// </para>
         /// </summary>
         public DateTime LastRefreshTimestamp

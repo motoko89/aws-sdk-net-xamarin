@@ -34,7 +34,7 @@ namespace Amazon.QuickSight.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// DataSourceParameters Marshaller
-    /// </summary>       
+    /// </summary>
     public class DataSourceParametersMarshaller : IRequestMarshaller<DataSourceParameters, JsonMarshallerContext> 
     {
         /// <summary>
@@ -107,6 +107,17 @@ namespace Amazon.QuickSight.Model.Internal.MarshallTransformations
 
                 var marshaller = AwsIotAnalyticsParametersMarshaller.Instance;
                 marshaller.Marshall(requestObject.AwsIotAnalyticsParameters, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetExasolParameters())
+            {
+                context.Writer.WritePropertyName("ExasolParameters");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = ExasolParametersMarshaller.Instance;
+                marshaller.Marshall(requestObject.ExasolParameters, context);
 
                 context.Writer.WriteObjectEnd();
             }
@@ -280,7 +291,7 @@ namespace Amazon.QuickSight.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static DataSourceParametersMarshaller Instance = new DataSourceParametersMarshaller();
 
     }

@@ -70,6 +70,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     unmarshalledObject.CurrentInstanceCount = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("CurrentServerlessConfig", targetDepth))
+                {
+                    var unmarshaller = ProductionVariantServerlessConfigUnmarshaller.Instance;
+                    unmarshalledObject.CurrentServerlessConfig = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("CurrentWeight", targetDepth))
                 {
                     var unmarshaller = FloatUnmarshaller.Instance;
@@ -88,6 +94,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     unmarshalledObject.DesiredInstanceCount = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("DesiredServerlessConfig", targetDepth))
+                {
+                    var unmarshaller = ProductionVariantServerlessConfigUnmarshaller.Instance;
+                    unmarshalledObject.DesiredServerlessConfig = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("DesiredWeight", targetDepth))
                 {
                     var unmarshaller = FloatUnmarshaller.Instance;
@@ -98,6 +110,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.VariantName = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("VariantStatus", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<ProductionVariantStatus, ProductionVariantStatusUnmarshaller>(ProductionVariantStatusUnmarshaller.Instance);
+                    unmarshalledObject.VariantStatus = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

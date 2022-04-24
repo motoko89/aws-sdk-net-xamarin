@@ -38,14 +38,23 @@ namespace Amazon.RDS.Model
     /// </para>
     ///  
     /// <para>
-    ///  A DB cluster parameter group is initially created with the default parameters for
+    /// A DB cluster parameter group is initially created with the default parameters for
     /// the database engine used by instances in the DB cluster. To provide custom values
     /// for any of the parameters, you must modify the group after creating it using <code>ModifyDBClusterParameterGroup</code>.
     /// Once you've created a DB cluster parameter group, you need to associate it with your
-    /// DB cluster using <code>ModifyDBCluster</code>. When you associate a new DB cluster
-    /// parameter group with a running DB cluster, you need to reboot the DB instances in
-    /// the DB cluster without failover for the new DB cluster parameter group and associated
-    /// settings to take effect. 
+    /// DB cluster using <code>ModifyDBCluster</code>.
+    /// </para>
+    ///  
+    /// <para>
+    /// When you associate a new DB cluster parameter group with a running Aurora DB cluster,
+    /// reboot the DB instances in the DB cluster without failover for the new DB cluster
+    /// parameter group and associated settings to take effect.
+    /// </para>
+    ///  
+    /// <para>
+    /// When you associate a new DB cluster parameter group with a running Multi-AZ DB cluster,
+    /// reboot the DB cluster without failover for the new DB cluster parameter group and
+    /// associated settings to take effect.
     /// </para>
     ///  <important> 
     /// <para>
@@ -63,13 +72,14 @@ namespace Amazon.RDS.Model
     ///  </important> 
     /// <para>
     /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> 
+    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para>
-    ///  <note> 
+    ///  
     /// <para>
-    /// This action only applies to Aurora DB clusters.
+    /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+    /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
+    /// User Guide</i>.
     /// </para>
-    ///  </note>
     /// </summary>
     public partial class CreateDBClusterParameterGroupRequest : AmazonRDSRequest
     {
@@ -89,7 +99,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Must match the name of an existing DB cluster parameter group.
+        /// Must not match the name of an existing DB cluster parameter group.
         /// </para>
         ///  </li> </ul> <note> 
         /// <para>
@@ -124,7 +134,8 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// Example: <code>aurora5.6</code>, <code>aurora-mysql5.7</code> 
+        /// Example: <code>aurora5.6</code>, <code>aurora-mysql5.7</code>, <code>aurora-mysql8.0</code>
+        /// 
         /// </para>
         ///  
         /// <para>
@@ -133,6 +144,22 @@ namespace Amazon.RDS.Model
         ///  
         /// <para>
         /// Example: <code>aurora-postgresql9.6</code> 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>RDS for MySQL</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Example: <code>mysql8.0</code> 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>RDS for PostgreSQL</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Example: <code>postgres12</code> 
         /// </para>
         ///  
         /// <para>
@@ -168,11 +195,19 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)
+        ///  <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>aurora-postgresql</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>mysql</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>postgres</code> 
         /// </para>
         ///  </li> </ul>
         /// </summary>

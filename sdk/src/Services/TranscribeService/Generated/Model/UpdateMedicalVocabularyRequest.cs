@@ -45,7 +45,7 @@ namespace Amazon.TranscribeService.Model
         /// Gets and sets the property LanguageCode. 
         /// <para>
         /// The language code of the language used for the entries in the updated vocabulary.
-        /// US English (en-US) is the only valid language code in Amazon Transcribe Medical.
+        /// U.S. English (en-US) is the only valid language code in Amazon Transcribe Medical.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -70,8 +70,8 @@ namespace Amazon.TranscribeService.Model
         /// </para>
         ///  
         /// <para>
-        ///  <code> https://s3.&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;
-        /// </code> 
+        ///  <code>https://s3.aws-region.amazonaws.com/bucket-name/keyprefix/objectkey</code>
+        /// 
         /// </para>
         ///  
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.TranscribeService.Model
         /// </para>
         ///  
         /// <para>
-        ///  <code>https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt</code> 
+        ///  <code>https://s3.us-east-1.amazonaws.com/DOC-EXAMPLE-BUCKET/vocab.txt</code> 
         /// </para>
         ///  
         /// <para>
@@ -89,7 +89,7 @@ namespace Amazon.TranscribeService.Model
         ///  
         /// <para>
         /// For more information about custom vocabularies in Amazon Transcribe Medical, see <a
-        /// href="https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary">Medical
+        /// href="https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-med.html">Medical
         /// Custom Vocabularies</a>.
         /// </para>
         /// </summary>

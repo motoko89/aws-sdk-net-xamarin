@@ -32,7 +32,7 @@ namespace Amazon.IoTAnalytics
     public partial class AmazonIoTAnalyticsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.2.47");
+            InternalSDKUtils.BuildUserAgentString("3.7.2.105");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.IoTAnalytics
         /// Default constructor
         /// </summary>
         public AmazonIoTAnalyticsConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonIoTAnalyticsDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "iotanalytics";
         }

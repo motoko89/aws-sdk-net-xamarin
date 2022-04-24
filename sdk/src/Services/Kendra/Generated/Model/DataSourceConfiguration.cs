@@ -29,25 +29,47 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Kendra.Model
 {
     /// <summary>
-    /// Configuration information for a Amazon Kendra data source.
+    /// Provides the configuration information for an Amazon Kendra data source.
     /// </summary>
     public partial class DataSourceConfiguration
     {
+        private BoxConfiguration _boxConfiguration;
         private ConfluenceConfiguration _confluenceConfiguration;
         private DatabaseConfiguration _databaseConfiguration;
+        private FsxConfiguration _fsxConfiguration;
         private GoogleDriveConfiguration _googleDriveConfiguration;
         private OneDriveConfiguration _oneDriveConfiguration;
+        private QuipConfiguration _quipConfiguration;
         private S3DataSourceConfiguration _s3Configuration;
         private SalesforceConfiguration _salesforceConfiguration;
         private ServiceNowConfiguration _serviceNowConfiguration;
         private SharePointConfiguration _sharePointConfiguration;
+        private SlackConfiguration _slackConfiguration;
         private WebCrawlerConfiguration _webCrawlerConfiguration;
         private WorkDocsConfiguration _workDocsConfiguration;
 
         /// <summary>
+        /// Gets and sets the property BoxConfiguration. 
+        /// <para>
+        /// Provides the configuration information to connect to Box as your data source.
+        /// </para>
+        /// </summary>
+        public BoxConfiguration BoxConfiguration
+        {
+            get { return this._boxConfiguration; }
+            set { this._boxConfiguration = value; }
+        }
+
+        // Check to see if BoxConfiguration property is set
+        internal bool IsSetBoxConfiguration()
+        {
+            return this._boxConfiguration != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property ConfluenceConfiguration. 
         /// <para>
-        /// Provides configuration information for connecting to a Confluence data source.
+        /// Provides the configuration information to connect to Confluence as your data source.
         /// </para>
         /// </summary>
         public ConfluenceConfiguration ConfluenceConfiguration
@@ -65,7 +87,7 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property DatabaseConfiguration. 
         /// <para>
-        /// Provides information necessary to create a data source connector for a database.
+        /// Provides the configuration information to connect to a database as your data source.
         /// </para>
         /// </summary>
         public DatabaseConfiguration DatabaseConfiguration
@@ -81,9 +103,27 @@ namespace Amazon.Kendra.Model
         }
 
         /// <summary>
+        /// Gets and sets the property FsxConfiguration. 
+        /// <para>
+        /// Provides the configuration information to connect to Amazon FSx as your data source.
+        /// </para>
+        /// </summary>
+        public FsxConfiguration FsxConfiguration
+        {
+            get { return this._fsxConfiguration; }
+            set { this._fsxConfiguration = value; }
+        }
+
+        // Check to see if FsxConfiguration property is set
+        internal bool IsSetFsxConfiguration()
+        {
+            return this._fsxConfiguration != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property GoogleDriveConfiguration. 
         /// <para>
-        /// Provides configuration for data sources that connect to Google Drive. 
+        /// Provides the configuration information to connect to Google Drive as your data source.
         /// </para>
         /// </summary>
         public GoogleDriveConfiguration GoogleDriveConfiguration
@@ -101,7 +141,8 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property OneDriveConfiguration. 
         /// <para>
-        /// Provides configuration for data sources that connect to Microsoft OneDrive.
+        /// Provides the configuration information to connect to Microsoft OneDrive as your data
+        /// source.
         /// </para>
         /// </summary>
         public OneDriveConfiguration OneDriveConfiguration
@@ -117,10 +158,28 @@ namespace Amazon.Kendra.Model
         }
 
         /// <summary>
+        /// Gets and sets the property QuipConfiguration. 
+        /// <para>
+        /// Provides the configuration information to connect to Quip as your data source.
+        /// </para>
+        /// </summary>
+        public QuipConfiguration QuipConfiguration
+        {
+            get { return this._quipConfiguration; }
+            set { this._quipConfiguration = value; }
+        }
+
+        // Check to see if QuipConfiguration property is set
+        internal bool IsSetQuipConfiguration()
+        {
+            return this._quipConfiguration != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property S3Configuration. 
         /// <para>
-        /// Provides information to create a data source connector for a document repository in
-        /// an Amazon S3 bucket.
+        /// Provides the configuration information to connect to an Amazon S3 bucket as your data
+        /// source.
         /// </para>
         /// </summary>
         public S3DataSourceConfiguration S3Configuration
@@ -138,7 +197,7 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property SalesforceConfiguration. 
         /// <para>
-        /// Provides configuration information for data sources that connect to a Salesforce site.
+        /// Provides the configuration information to connect to Salesforce as your data source.
         /// </para>
         /// </summary>
         public SalesforceConfiguration SalesforceConfiguration
@@ -156,7 +215,7 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property ServiceNowConfiguration. 
         /// <para>
-        /// Provides configuration for data sources that connect to ServiceNow instances.
+        /// Provides the configuration information to connect to ServiceNow as your data source.
         /// </para>
         /// </summary>
         public ServiceNowConfiguration ServiceNowConfiguration
@@ -174,8 +233,8 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property SharePointConfiguration. 
         /// <para>
-        /// Provides information necessary to create a data source connector for a Microsoft SharePoint
-        /// site.
+        /// Provides the configuration information to connect to Microsoft SharePoint as your
+        /// data source.
         /// </para>
         /// </summary>
         public SharePointConfiguration SharePointConfiguration
@@ -188,6 +247,24 @@ namespace Amazon.Kendra.Model
         internal bool IsSetSharePointConfiguration()
         {
             return this._sharePointConfiguration != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property SlackConfiguration. 
+        /// <para>
+        /// Provides the configuration information to connect to Slack as your data source.
+        /// </para>
+        /// </summary>
+        public SlackConfiguration SlackConfiguration
+        {
+            get { return this._slackConfiguration; }
+            set { this._slackConfiguration = value; }
+        }
+
+        // Check to see if SlackConfiguration property is set
+        internal bool IsSetSlackConfiguration()
+        {
+            return this._slackConfiguration != null;
         }
 
         /// <summary>
@@ -208,7 +285,8 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property WorkDocsConfiguration. 
         /// <para>
-        /// Provides the configuration information to connect to WorkDocs as your data source.
+        /// Provides the configuration information to connect to Amazon WorkDocs as your data
+        /// source.
         /// </para>
         /// </summary>
         public WorkDocsConfiguration WorkDocsConfiguration

@@ -95,7 +95,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name to which the upload was taking place.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name to which the upload was taking place.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Key of the object for which the multipart upload was initiated.</param>
         /// <param name="uploadId">Upload ID that identifies the multipart upload.</param>
         /// 
@@ -210,7 +210,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name to which the upload was taking place.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name to which the upload was taking place.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Key of the object for which the multipart upload was initiated.</param>
         /// <param name="uploadId">Upload ID that identifies the multipart upload.</param>
         /// <param name="cancellationToken">
@@ -315,7 +315,13 @@ namespace Amazon.S3
         /// to retry the failed requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html">Amazon
         /// S3 Error Best Practices</a>.
         /// </para>
-        ///  
+        ///  <important> 
+        /// <para>
+        /// You cannot use <code>Content-Type: application/x-www-form-urlencoded</code> with Complete
+        /// Multipart Upload requests. Also, if you do not provide a <code>Content-Type</code>
+        /// header, <code>CompleteMultipartUpload</code> returns a 200 OK response.
+        /// </para>
+        ///  </important> 
         /// <para>
         /// For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading
         /// Objects Using Multipart Upload</a>.
@@ -451,7 +457,13 @@ namespace Amazon.S3
         /// to retry the failed requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html">Amazon
         /// S3 Error Best Practices</a>.
         /// </para>
-        ///  
+        ///  <important> 
+        /// <para>
+        /// You cannot use <code>Content-Type: application/x-www-form-urlencoded</code> with Complete
+        /// Multipart Upload requests. Also, if you do not provide a <code>Content-Type</code>
+        /// header, <code>CompleteMultipartUpload</code> returns a 200 OK response.
+        /// </para>
+        ///  </important> 
         /// <para>
         /// For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading
         /// Objects Using Multipart Upload</a>.
@@ -572,7 +584,7 @@ namespace Amazon.S3
         /// You can store individual objects of up to 5 TB in Amazon S3. You create a copy of
         /// your object up to 5 GB in size in a single atomic action using this API. However,
         /// to copy an object greater than 5 GB, you must use the multipart upload Upload Part
-        /// - Copy API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
+        /// - Copy (UploadPartCopy) API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
         /// Object Using the REST Multipart Upload API</a>.
         /// </para>
         ///  </note> 
@@ -640,7 +652,7 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        ///  <b> <code>x-amz-copy-source-if</code> Headers</b> 
+        ///  <b>x-amz-copy-source-if Headers</b> 
         /// </para>
         ///  
         /// <para>
@@ -730,6 +742,35 @@ namespace Amazon.S3
         /// the ACL on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
         /// Control List (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing
         /// ACLs Using the REST API</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// If the bucket that you're copying objects to uses the bucket owner enforced setting
+        /// for S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets
+        /// that use this setting only accept PUT requests that don't specify an ACL or PUT requests
+        /// that specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code>
+        /// canned ACL or an equivalent form of this ACL expressed in the XML format.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
+        /// Controlling ownership of objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// If your bucket uses the bucket owner enforced setting for Object Ownership, all objects
+        /// written to the bucket by any account will be owned by the bucket owner.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        ///  <b>Checksums</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// When copying an object, if it has a checksum, that checksum will be copied to the
+        /// new object by default. When you copy the object over, you may optionally specify a
+        /// different checksum algorithm to use with the <code>x-amz-checksum-algorithm</code>
+        /// header.
         /// </para>
         ///  
         /// <para>
@@ -807,7 +848,7 @@ namespace Amazon.S3
         /// You can store individual objects of up to 5 TB in Amazon S3. You create a copy of
         /// your object up to 5 GB in size in a single atomic action using this API. However,
         /// to copy an object greater than 5 GB, you must use the multipart upload Upload Part
-        /// - Copy API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
+        /// - Copy (UploadPartCopy) API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
         /// Object Using the REST Multipart Upload API</a>.
         /// </para>
         ///  </note> 
@@ -875,7 +916,7 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        ///  <b> <code>x-amz-copy-source-if</code> Headers</b> 
+        ///  <b>x-amz-copy-source-if Headers</b> 
         /// </para>
         ///  
         /// <para>
@@ -965,6 +1006,35 @@ namespace Amazon.S3
         /// the ACL on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
         /// Control List (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing
         /// ACLs Using the REST API</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// If the bucket that you're copying objects to uses the bucket owner enforced setting
+        /// for S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets
+        /// that use this setting only accept PUT requests that don't specify an ACL or PUT requests
+        /// that specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code>
+        /// canned ACL or an equivalent form of this ACL expressed in the XML format.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
+        /// Controlling ownership of objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// If your bucket uses the bucket owner enforced setting for Object Ownership, all objects
+        /// written to the bucket by any account will be owned by the bucket owner.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        ///  <b>Checksums</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// When copying an object, if it has a checksum, that checksum will be copied to the
+        /// new object by default. When you copy the object over, you may optionally specify a
+        /// different checksum algorithm to use with the <code>x-amz-checksum-algorithm</code>
+        /// header.
         /// </para>
         ///  
         /// <para>
@@ -1043,7 +1113,7 @@ namespace Amazon.S3
         /// You can store individual objects of up to 5 TB in Amazon S3. You create a copy of
         /// your object up to 5 GB in size in a single atomic action using this API. However,
         /// to copy an object greater than 5 GB, you must use the multipart upload Upload Part
-        /// - Copy API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
+        /// - Copy (UploadPartCopy) API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
         /// Object Using the REST Multipart Upload API</a>.
         /// </para>
         ///  </note> 
@@ -1111,7 +1181,7 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        ///  <b> <code>x-amz-copy-source-if</code> Headers</b> 
+        ///  <b>x-amz-copy-source-if Headers</b> 
         /// </para>
         ///  
         /// <para>
@@ -1201,6 +1271,35 @@ namespace Amazon.S3
         /// the ACL on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
         /// Control List (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing
         /// ACLs Using the REST API</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// If the bucket that you're copying objects to uses the bucket owner enforced setting
+        /// for S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets
+        /// that use this setting only accept PUT requests that don't specify an ACL or PUT requests
+        /// that specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code>
+        /// canned ACL or an equivalent form of this ACL expressed in the XML format.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
+        /// Controlling ownership of objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// If your bucket uses the bucket owner enforced setting for Object Ownership, all objects
+        /// written to the bucket by any account will be owned by the bucket owner.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        ///  <b>Checksums</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// When copying an object, if it has a checksum, that checksum will be copied to the
+        /// new object by default. When you copy the object over, you may optionally specify a
+        /// different checksum algorithm to use with the <code>x-amz-checksum-algorithm</code>
+        /// header.
         /// </para>
         ///  
         /// <para>
@@ -1276,7 +1375,7 @@ namespace Amazon.S3
         /// You can store individual objects of up to 5 TB in Amazon S3. You create a copy of
         /// your object up to 5 GB in size in a single atomic action using this API. However,
         /// to copy an object greater than 5 GB, you must use the multipart upload Upload Part
-        /// - Copy API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
+        /// - Copy (UploadPartCopy) API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
         /// Object Using the REST Multipart Upload API</a>.
         /// </para>
         ///  </note> 
@@ -1344,7 +1443,7 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        ///  <b> <code>x-amz-copy-source-if</code> Headers</b> 
+        ///  <b>x-amz-copy-source-if Headers</b> 
         /// </para>
         ///  
         /// <para>
@@ -1434,6 +1533,35 @@ namespace Amazon.S3
         /// the ACL on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
         /// Control List (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing
         /// ACLs Using the REST API</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// If the bucket that you're copying objects to uses the bucket owner enforced setting
+        /// for S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets
+        /// that use this setting only accept PUT requests that don't specify an ACL or PUT requests
+        /// that specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code>
+        /// canned ACL or an equivalent form of this ACL expressed in the XML format.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
+        /// Controlling ownership of objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// If your bucket uses the bucket owner enforced setting for Object Ownership, all objects
+        /// written to the bucket by any account will be owned by the bucket owner.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        ///  <b>Checksums</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// When copying an object, if it has a checksum, that checksum will be copied to the
+        /// new object by default. When you copy the object over, you may optionally specify a
+        /// different checksum algorithm to use with the <code>x-amz-checksum-algorithm</code>
+        /// header.
         /// </para>
         ///  
         /// <para>
@@ -1514,7 +1642,7 @@ namespace Amazon.S3
         /// You can store individual objects of up to 5 TB in Amazon S3. You create a copy of
         /// your object up to 5 GB in size in a single atomic action using this API. However,
         /// to copy an object greater than 5 GB, you must use the multipart upload Upload Part
-        /// - Copy API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
+        /// - Copy (UploadPartCopy) API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
         /// Object Using the REST Multipart Upload API</a>.
         /// </para>
         ///  </note> 
@@ -1582,7 +1710,7 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        ///  <b> <code>x-amz-copy-source-if</code> Headers</b> 
+        ///  <b>x-amz-copy-source-if Headers</b> 
         /// </para>
         ///  
         /// <para>
@@ -1672,6 +1800,35 @@ namespace Amazon.S3
         /// the ACL on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
         /// Control List (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing
         /// ACLs Using the REST API</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// If the bucket that you're copying objects to uses the bucket owner enforced setting
+        /// for S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets
+        /// that use this setting only accept PUT requests that don't specify an ACL or PUT requests
+        /// that specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code>
+        /// canned ACL or an equivalent form of this ACL expressed in the XML format.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
+        /// Controlling ownership of objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// If your bucket uses the bucket owner enforced setting for Object Ownership, all objects
+        /// written to the bucket by any account will be owned by the bucket owner.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        ///  <b>Checksums</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// When copying an object, if it has a checksum, that checksum will be copied to the
+        /// new object by default. When you copy the object over, you may optionally specify a
+        /// different checksum algorithm to use with the <code>x-amz-checksum-algorithm</code>
+        /// header.
         /// </para>
         ///  
         /// <para>
@@ -1754,7 +1911,7 @@ namespace Amazon.S3
         /// You can store individual objects of up to 5 TB in Amazon S3. You create a copy of
         /// your object up to 5 GB in size in a single atomic action using this API. However,
         /// to copy an object greater than 5 GB, you must use the multipart upload Upload Part
-        /// - Copy API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
+        /// - Copy (UploadPartCopy) API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
         /// Object Using the REST Multipart Upload API</a>.
         /// </para>
         ///  </note> 
@@ -1822,7 +1979,7 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        ///  <b> <code>x-amz-copy-source-if</code> Headers</b> 
+        ///  <b>x-amz-copy-source-if Headers</b> 
         /// </para>
         ///  
         /// <para>
@@ -1912,6 +2069,35 @@ namespace Amazon.S3
         /// the ACL on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
         /// Control List (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing
         /// ACLs Using the REST API</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// If the bucket that you're copying objects to uses the bucket owner enforced setting
+        /// for S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets
+        /// that use this setting only accept PUT requests that don't specify an ACL or PUT requests
+        /// that specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code>
+        /// canned ACL or an equivalent form of this ACL expressed in the XML format.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
+        /// Controlling ownership of objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// If your bucket uses the bucket owner enforced setting for Object Ownership, all objects
+        /// written to the bucket by any account will be owned by the bucket owner.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        ///  <b>Checksums</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// When copying an object, if it has a checksum, that checksum will be copied to the
+        /// new object by default. When you copy the object over, you may optionally specify a
+        /// different checksum algorithm to use with the <code>x-amz-checksum-algorithm</code>
+        /// header.
         /// </para>
         ///  
         /// <para>
@@ -2027,14 +2213,14 @@ namespace Amazon.S3
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// For information about copying objects using a single atomic action vs. the multipart
+        /// For information about copying objects using a single atomic action vs. a multipart
         /// upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html">Operations
         /// on Objects</a> in the <i>Amazon S3 User Guide</i>.
         /// </para>
         ///  </li> <li> 
         /// <para>
         /// For information about using server-side encryption with customer-provided encryption
-        /// keys with the UploadPartCopy operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a>
+        /// keys with the <code>UploadPartCopy</code> operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a>
         /// and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>.
         /// </para>
         ///  </li> </ul> 
@@ -2222,14 +2408,14 @@ namespace Amazon.S3
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// For information about copying objects using a single atomic action vs. the multipart
+        /// For information about copying objects using a single atomic action vs. a multipart
         /// upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html">Operations
         /// on Objects</a> in the <i>Amazon S3 User Guide</i>.
         /// </para>
         ///  </li> <li> 
         /// <para>
         /// For information about using server-side encryption with customer-provided encryption
-        /// keys with the UploadPartCopy operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a>
+        /// keys with the <code>UploadPartCopy</code> operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a>
         /// and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>.
         /// </para>
         ///  </li> </ul> 
@@ -2418,14 +2604,14 @@ namespace Amazon.S3
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// For information about copying objects using a single atomic action vs. the multipart
+        /// For information about copying objects using a single atomic action vs. a multipart
         /// upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html">Operations
         /// on Objects</a> in the <i>Amazon S3 User Guide</i>.
         /// </para>
         ///  </li> <li> 
         /// <para>
         /// For information about using server-side encryption with customer-provided encryption
-        /// keys with the UploadPartCopy operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a>
+        /// keys with the <code>UploadPartCopy</code> operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a>
         /// and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>.
         /// </para>
         ///  </li> </ul> 
@@ -2610,14 +2796,14 @@ namespace Amazon.S3
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// For information about copying objects using a single atomic action vs. the multipart
+        /// For information about copying objects using a single atomic action vs. a multipart
         /// upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html">Operations
         /// on Objects</a> in the <i>Amazon S3 User Guide</i>.
         /// </para>
         ///  </li> <li> 
         /// <para>
         /// For information about using server-side encryption with customer-provided encryption
-        /// keys with the UploadPartCopy operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a>
+        /// keys with the <code>UploadPartCopy</code> operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a>
         /// and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>.
         /// </para>
         ///  </li> </ul> 
@@ -2808,14 +2994,14 @@ namespace Amazon.S3
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// For information about copying objects using a single atomic action vs. the multipart
+        /// For information about copying objects using a single atomic action vs. a multipart
         /// upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html">Operations
         /// on Objects</a> in the <i>Amazon S3 User Guide</i>.
         /// </para>
         ///  </li> <li> 
         /// <para>
         /// For information about using server-side encryption with customer-provided encryption
-        /// keys with the UploadPartCopy operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a>
+        /// keys with the <code>UploadPartCopy</code> operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a>
         /// and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>.
         /// </para>
         ///  </li> </ul> 
@@ -3008,14 +3194,14 @@ namespace Amazon.S3
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// For information about copying objects using a single atomic action vs. the multipart
+        /// For information about copying objects using a single atomic action vs. a multipart
         /// upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html">Operations
         /// on Objects</a> in the <i>Amazon S3 User Guide</i>.
         /// </para>
         ///  </li> <li> 
         /// <para>
         /// For information about using server-side encryption with customer-provided encryption
-        /// keys with the UploadPartCopy operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a>
+        /// keys with the <code>UploadPartCopy</code> operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a>
         /// and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>.
         /// </para>
         ///  </li> </ul> 
@@ -3457,17 +3643,17 @@ namespace Amazon.S3
         /// The S3 Intelligent-Tiering storage class is designed to optimize storage costs by
         /// automatically moving data to the most cost-effective storage access tier, without
         /// performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic
-        /// cost savings in two low latency and high throughput access tiers. For data that can
-        /// be accessed asynchronously, you can choose to activate automatic archiving capabilities
-        /// within the S3 Intelligent-Tiering storage class.
+        /// cost savings in three low latency and high throughput access tiers. To get the lowest
+        /// storage cost on data that can be accessed in minutes to hours, you can choose to activate
+        /// additional archiving capabilities.
         /// </para>
         ///  
         /// <para>
         /// The S3 Intelligent-Tiering storage class is the ideal storage class for data with
         /// unknown, changing, or unpredictable access patterns, independent of object size or
-        /// retention period. If the size of an object is less than 128 KB, it is not eligible
-        /// for auto-tiering. Smaller objects can be stored, but they are always charged at the
-        /// Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
+        /// retention period. If the size of an object is less than 128 KB, it is not monitored
+        /// and not eligible for auto-tiering. Smaller objects can be stored, but they are always
+        /// charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
         /// </para>
         ///  
         /// <para>
@@ -3512,17 +3698,17 @@ namespace Amazon.S3
         /// The S3 Intelligent-Tiering storage class is designed to optimize storage costs by
         /// automatically moving data to the most cost-effective storage access tier, without
         /// performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic
-        /// cost savings in two low latency and high throughput access tiers. For data that can
-        /// be accessed asynchronously, you can choose to activate automatic archiving capabilities
-        /// within the S3 Intelligent-Tiering storage class.
+        /// cost savings in three low latency and high throughput access tiers. To get the lowest
+        /// storage cost on data that can be accessed in minutes to hours, you can choose to activate
+        /// additional archiving capabilities.
         /// </para>
         ///  
         /// <para>
         /// The S3 Intelligent-Tiering storage class is the ideal storage class for data with
         /// unknown, changing, or unpredictable access patterns, independent of object size or
-        /// retention period. If the size of an object is less than 128 KB, it is not eligible
-        /// for auto-tiering. Smaller objects can be stored, but they are always charged at the
-        /// Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
+        /// retention period. If the size of an object is less than 128 KB, it is not monitored
+        /// and not eligible for auto-tiering. Smaller objects can be stored, but they are always
+        /// charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
         /// </para>
         ///  
         /// <para>
@@ -4839,7 +5025,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name of the bucket containing the object.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name of the bucket containing the object.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Key name of the object to delete.</param>
         /// 
         /// <returns>The response from the DeleteObject service method, as returned by S3.</returns>
@@ -4891,7 +5077,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name of the bucket containing the object.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name of the bucket containing the object.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Key name of the object to delete.</param>
         /// <param name="versionId">VersionId used to reference a specific version of the object.</param>
         /// 
@@ -4996,7 +5182,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name of the bucket containing the object.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name of the bucket containing the object.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Key name of the object to delete.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -5051,7 +5237,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name of the bucket containing the object.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name of the bucket containing the object.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Key name of the object to delete.</param>
         /// <param name="versionId">VersionId used to reference a specific version of the object.</param>
         /// <param name="cancellationToken">
@@ -5465,7 +5651,15 @@ namespace Amazon.S3
         /// <code>READ_ACP</code> permission is granted to the anonymous user, you can return
         /// the ACL of the bucket without using an authorization header.
         /// 
-        ///  <p class="title"> <b>Related Resources</b> 
+        ///  <note> 
+        /// <para>
+        /// If your bucket uses the bucket owner enforced setting for S3 Object Ownership, requests
+        /// to read ACLs are still supported and return the <code>bucket-owner-full-control</code>
+        /// ACL with the owner being the account that created the bucket. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
+        /// Controlling object ownership and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  </note> <p class="title"> <b>Related Resources</b> 
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -5487,7 +5681,15 @@ namespace Amazon.S3
         /// <code>READ_ACP</code> permission is granted to the anonymous user, you can return
         /// the ACL of the bucket without using an authorization header.
         /// 
-        ///  <p class="title"> <b>Related Resources</b> 
+        ///  <note> 
+        /// <para>
+        /// If your bucket uses the bucket owner enforced setting for S3 Object Ownership, requests
+        /// to read ACLs are still supported and return the <code>bucket-owner-full-control</code>
+        /// ACL with the owner being the account that created the bucket. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
+        /// Controlling object ownership and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  </note> <p class="title"> <b>Related Resources</b> 
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -5510,7 +5712,15 @@ namespace Amazon.S3
         /// <code>READ_ACP</code> permission is granted to the anonymous user, you can return
         /// the ACL of the bucket without using an authorization header.
         /// 
-        ///  <p class="title"> <b>Related Resources</b> 
+        ///  <note> 
+        /// <para>
+        /// If your bucket uses the bucket owner enforced setting for S3 Object Ownership, requests
+        /// to read ACLs are still supported and return the <code>bucket-owner-full-control</code>
+        /// ACL with the owner being the account that created the bucket. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
+        /// Controlling object ownership and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  </note> <p class="title"> <b>Related Resources</b> 
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -5536,7 +5746,15 @@ namespace Amazon.S3
         /// <code>READ_ACP</code> permission is granted to the anonymous user, you can return
         /// the ACL of the bucket without using an authorization header.
         /// 
-        ///  <p class="title"> <b>Related Resources</b> 
+        ///  <note> 
+        /// <para>
+        /// If your bucket uses the bucket owner enforced setting for S3 Object Ownership, requests
+        /// to read ACLs are still supported and return the <code>bucket-owner-full-control</code>
+        /// ACL with the owner being the account that created the bucket. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
+        /// Controlling object ownership and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  </note> <p class="title"> <b>Related Resources</b> 
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -5950,17 +6168,17 @@ namespace Amazon.S3
         /// The S3 Intelligent-Tiering storage class is designed to optimize storage costs by
         /// automatically moving data to the most cost-effective storage access tier, without
         /// performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic
-        /// cost savings in two low latency and high throughput access tiers. For data that can
-        /// be accessed asynchronously, you can choose to activate automatic archiving capabilities
-        /// within the S3 Intelligent-Tiering storage class.
+        /// cost savings in three low latency and high throughput access tiers. To get the lowest
+        /// storage cost on data that can be accessed in minutes to hours, you can choose to activate
+        /// additional archiving capabilities.
         /// </para>
         ///  
         /// <para>
         /// The S3 Intelligent-Tiering storage class is the ideal storage class for data with
         /// unknown, changing, or unpredictable access patterns, independent of object size or
-        /// retention period. If the size of an object is less than 128 KB, it is not eligible
-        /// for auto-tiering. Smaller objects can be stored, but they are always charged at the
-        /// Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
+        /// retention period. If the size of an object is less than 128 KB, it is not monitored
+        /// and not eligible for auto-tiering. Smaller objects can be stored, but they are always
+        /// charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
         /// </para>
         ///  
         /// <para>
@@ -6005,17 +6223,17 @@ namespace Amazon.S3
         /// The S3 Intelligent-Tiering storage class is designed to optimize storage costs by
         /// automatically moving data to the most cost-effective storage access tier, without
         /// performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic
-        /// cost savings in two low latency and high throughput access tiers. For data that can
-        /// be accessed asynchronously, you can choose to activate automatic archiving capabilities
-        /// within the S3 Intelligent-Tiering storage class.
+        /// cost savings in three low latency and high throughput access tiers. To get the lowest
+        /// storage cost on data that can be accessed in minutes to hours, you can choose to activate
+        /// additional archiving capabilities.
         /// </para>
         ///  
         /// <para>
         /// The S3 Intelligent-Tiering storage class is the ideal storage class for data with
         /// unknown, changing, or unpredictable access patterns, independent of object size or
-        /// retention period. If the size of an object is less than 128 KB, it is not eligible
-        /// for auto-tiering. Smaller objects can be stored, but they are always charged at the
-        /// Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
+        /// retention period. If the size of an object is less than 128 KB, it is not monitored
+        /// and not eligible for auto-tiering. Smaller objects can be stored, but they are always
+        /// charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
         /// </para>
         ///  
         /// <para>
@@ -6714,12 +6932,12 @@ namespace Amazon.S3
         /// <summary>
         /// Retrieves <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation,
         /// you must have the <code>s3:GetBucketOwnershipControls</code> permission. For more
-        /// information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
-        /// Permissions in a Policy</a>. 
+        /// information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html">Specifying
+        /// permissions in a policy</a>. 
         /// 
         ///  
         /// <para>
-        /// For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html">Using
+        /// For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Using
         /// Object Ownership</a>. 
         /// </para>
         ///  
@@ -6747,12 +6965,12 @@ namespace Amazon.S3
         /// <summary>
         /// Retrieves <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation,
         /// you must have the <code>s3:GetBucketOwnershipControls</code> permission. For more
-        /// information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
-        /// Permissions in a Policy</a>. 
+        /// information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html">Specifying
+        /// permissions in a policy</a>. 
         /// 
         ///  
         /// <para>
-        /// For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html">Using
+        /// For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Using
         /// Object Ownership</a>. 
         /// </para>
         ///  
@@ -7200,7 +7418,7 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Error code: <code>NoSuchTagSetError</code> 
+        /// Error code: <code>NoSuchTagSet</code> 
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -7245,7 +7463,7 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Error code: <code>NoSuchTagSetError</code> 
+        /// Error code: <code>NoSuchTagSet</code> 
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -7608,16 +7826,17 @@ namespace Amazon.S3
 
 
         /// <summary>
-        /// Returns the cors configuration information set for the bucket.
+        /// Returns the Cross-Origin Resource Sharing (CORS) configuration information set for
+        /// the bucket.
         /// 
         ///  
         /// <para>
-        ///  To use this operation, you must have permission to perform the s3:GetBucketCORS action.
-        /// By default, the bucket owner has this permission and can grant it to others.
+        ///  To use this operation, you must have permission to perform the <code>s3:GetBucketCORS</code>
+        /// action. By default, the bucket owner has this permission and can grant it to others.
         /// </para>
         ///  
         /// <para>
-        ///  For more information about cors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">
+        ///  For more information about CORS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">
         /// Enabling Cross-Origin Resource Sharing</a>.
         /// </para>
         ///  
@@ -7643,16 +7862,17 @@ namespace Amazon.S3
         GetCORSConfigurationResponse GetCORSConfiguration(string bucketName);
 
         /// <summary>
-        /// Returns the cors configuration information set for the bucket.
+        /// Returns the Cross-Origin Resource Sharing (CORS) configuration information set for
+        /// the bucket.
         /// 
         ///  
         /// <para>
-        ///  To use this operation, you must have permission to perform the s3:GetBucketCORS action.
-        /// By default, the bucket owner has this permission and can grant it to others.
+        ///  To use this operation, you must have permission to perform the <code>s3:GetBucketCORS</code>
+        /// action. By default, the bucket owner has this permission and can grant it to others.
         /// </para>
         ///  
         /// <para>
-        ///  For more information about cors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">
+        ///  For more information about CORS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">
         /// Enabling Cross-Origin Resource Sharing</a>.
         /// </para>
         ///  
@@ -7679,16 +7899,17 @@ namespace Amazon.S3
 
 
         /// <summary>
-        /// Returns the cors configuration information set for the bucket.
+        /// Returns the Cross-Origin Resource Sharing (CORS) configuration information set for
+        /// the bucket.
         /// 
         ///  
         /// <para>
-        ///  To use this operation, you must have permission to perform the s3:GetBucketCORS action.
-        /// By default, the bucket owner has this permission and can grant it to others.
+        ///  To use this operation, you must have permission to perform the <code>s3:GetBucketCORS</code>
+        /// action. By default, the bucket owner has this permission and can grant it to others.
         /// </para>
         ///  
         /// <para>
-        ///  For more information about cors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">
+        ///  For more information about CORS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">
         /// Enabling Cross-Origin Resource Sharing</a>.
         /// </para>
         ///  
@@ -7718,16 +7939,17 @@ namespace Amazon.S3
 
 
         /// <summary>
-        /// Returns the cors configuration information set for the bucket.
+        /// Returns the Cross-Origin Resource Sharing (CORS) configuration information set for
+        /// the bucket.
         /// 
         ///  
         /// <para>
-        ///  To use this operation, you must have permission to perform the s3:GetBucketCORS action.
-        /// By default, the bucket owner has this permission and can grant it to others.
+        ///  To use this operation, you must have permission to perform the <code>s3:GetBucketCORS</code>
+        /// action. By default, the bucket owner has this permission and can grant it to others.
         /// </para>
         ///  
         /// <para>
-        ///  For more information about cors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">
+        ///  For more information about CORS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">
         /// Enabling Cross-Origin Resource Sharing</a>.
         /// </para>
         ///  
@@ -8082,10 +8304,7 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// To distribute large files to many people, you can save bandwidth costs by using BitTorrent.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html">Amazon
-        /// S3 Torrent</a>. For more information about returning the ACL of an object, see <a
-        /// href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.
+        /// For more information about returning the ACL of an object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.
         /// </para>
         ///  
         /// <para>
@@ -8165,8 +8384,9 @@ namespace Amazon.S3
         /// </para>
         ///  <note> <ul> <li> 
         /// <para>
-        /// You need the <code>s3:GetObjectVersion</code> permission to access a specific version
-        /// of an object. 
+        ///  If you supply a <code>versionId</code>, you need the <code>s3:GetObjectVersion</code>
+        /// permission to access a specific version of an object. If you request a specific version,
+        /// you do not need to have the <code>s3:GetObject</code> permission. 
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -8185,8 +8405,8 @@ namespace Amazon.S3
         ///  
         /// <para>
         /// There are times when you want to override certain response header values in a GET
-        /// response. For example, you might override the Content-Disposition response header
-        /// value in your GET request.
+        /// response. For example, you might override the <code>Content-Disposition</code> response
+        /// header value in your GET request.
         /// </para>
         ///  
         /// <para>
@@ -8267,7 +8487,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name containing the object.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using an Object Lambda access point the hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-object-lambda.<i>Region</i>.amazonaws.com. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name containing the object.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using an Object Lambda access point the hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-object-lambda.<i>Region</i>.amazonaws.com. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Key of the object to get.</param>
         /// 
         /// <returns>The response from the GetObject service method, as returned by S3.</returns>
@@ -8299,10 +8519,7 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// To distribute large files to many people, you can save bandwidth costs by using BitTorrent.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html">Amazon
-        /// S3 Torrent</a>. For more information about returning the ACL of an object, see <a
-        /// href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.
+        /// For more information about returning the ACL of an object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.
         /// </para>
         ///  
         /// <para>
@@ -8382,8 +8599,9 @@ namespace Amazon.S3
         /// </para>
         ///  <note> <ul> <li> 
         /// <para>
-        /// You need the <code>s3:GetObjectVersion</code> permission to access a specific version
-        /// of an object. 
+        ///  If you supply a <code>versionId</code>, you need the <code>s3:GetObjectVersion</code>
+        /// permission to access a specific version of an object. If you request a specific version,
+        /// you do not need to have the <code>s3:GetObject</code> permission. 
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -8402,8 +8620,8 @@ namespace Amazon.S3
         ///  
         /// <para>
         /// There are times when you want to override certain response header values in a GET
-        /// response. For example, you might override the Content-Disposition response header
-        /// value in your GET request.
+        /// response. For example, you might override the <code>Content-Disposition</code> response
+        /// header value in your GET request.
         /// </para>
         ///  
         /// <para>
@@ -8484,7 +8702,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name containing the object.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using an Object Lambda access point the hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-object-lambda.<i>Region</i>.amazonaws.com. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name containing the object.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using an Object Lambda access point the hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-object-lambda.<i>Region</i>.amazonaws.com. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Key of the object to get.</param>
         /// <param name="versionId">VersionId used to reference a specific version of the object.</param>
         /// 
@@ -8517,10 +8735,7 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// To distribute large files to many people, you can save bandwidth costs by using BitTorrent.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html">Amazon
-        /// S3 Torrent</a>. For more information about returning the ACL of an object, see <a
-        /// href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.
+        /// For more information about returning the ACL of an object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.
         /// </para>
         ///  
         /// <para>
@@ -8600,8 +8815,9 @@ namespace Amazon.S3
         /// </para>
         ///  <note> <ul> <li> 
         /// <para>
-        /// You need the <code>s3:GetObjectVersion</code> permission to access a specific version
-        /// of an object. 
+        ///  If you supply a <code>versionId</code>, you need the <code>s3:GetObjectVersion</code>
+        /// permission to access a specific version of an object. If you request a specific version,
+        /// you do not need to have the <code>s3:GetObject</code> permission. 
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -8620,8 +8836,8 @@ namespace Amazon.S3
         ///  
         /// <para>
         /// There are times when you want to override certain response header values in a GET
-        /// response. For example, you might override the Content-Disposition response header
-        /// value in your GET request.
+        /// response. For example, you might override the <code>Content-Disposition</code> response
+        /// header value in your GET request.
         /// </para>
         ///  
         /// <para>
@@ -8734,10 +8950,7 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// To distribute large files to many people, you can save bandwidth costs by using BitTorrent.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html">Amazon
-        /// S3 Torrent</a>. For more information about returning the ACL of an object, see <a
-        /// href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.
+        /// For more information about returning the ACL of an object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.
         /// </para>
         ///  
         /// <para>
@@ -8817,8 +9030,9 @@ namespace Amazon.S3
         /// </para>
         ///  <note> <ul> <li> 
         /// <para>
-        /// You need the <code>s3:GetObjectVersion</code> permission to access a specific version
-        /// of an object. 
+        ///  If you supply a <code>versionId</code>, you need the <code>s3:GetObjectVersion</code>
+        /// permission to access a specific version of an object. If you request a specific version,
+        /// you do not need to have the <code>s3:GetObject</code> permission. 
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -8837,8 +9051,8 @@ namespace Amazon.S3
         ///  
         /// <para>
         /// There are times when you want to override certain response header values in a GET
-        /// response. For example, you might override the Content-Disposition response header
-        /// value in your GET request.
+        /// response. For example, you might override the <code>Content-Disposition</code> response
+        /// header value in your GET request.
         /// </para>
         ///  
         /// <para>
@@ -8919,7 +9133,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name containing the object.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using an Object Lambda access point the hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-object-lambda.<i>Region</i>.amazonaws.com. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name containing the object.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using an Object Lambda access point the hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-object-lambda.<i>Region</i>.amazonaws.com. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Key of the object to get.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -8954,10 +9168,7 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// To distribute large files to many people, you can save bandwidth costs by using BitTorrent.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html">Amazon
-        /// S3 Torrent</a>. For more information about returning the ACL of an object, see <a
-        /// href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.
+        /// For more information about returning the ACL of an object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.
         /// </para>
         ///  
         /// <para>
@@ -9037,8 +9248,9 @@ namespace Amazon.S3
         /// </para>
         ///  <note> <ul> <li> 
         /// <para>
-        /// You need the <code>s3:GetObjectVersion</code> permission to access a specific version
-        /// of an object. 
+        ///  If you supply a <code>versionId</code>, you need the <code>s3:GetObjectVersion</code>
+        /// permission to access a specific version of an object. If you request a specific version,
+        /// you do not need to have the <code>s3:GetObject</code> permission. 
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -9057,8 +9269,8 @@ namespace Amazon.S3
         ///  
         /// <para>
         /// There are times when you want to override certain response header values in a GET
-        /// response. For example, you might override the Content-Disposition response header
-        /// value in your GET request.
+        /// response. For example, you might override the <code>Content-Disposition</code> response
+        /// header value in your GET request.
         /// </para>
         ///  
         /// <para>
@@ -9139,7 +9351,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name containing the object.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using an Object Lambda access point the hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-object-lambda.<i>Region</i>.amazonaws.com. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name containing the object.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using an Object Lambda access point the hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-object-lambda.<i>Region</i>.amazonaws.com. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Key of the object to get.</param>
         /// <param name="versionId">VersionId used to reference a specific version of the object.</param>
         /// <param name="cancellationToken">
@@ -9176,10 +9388,7 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// To distribute large files to many people, you can save bandwidth costs by using BitTorrent.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html">Amazon
-        /// S3 Torrent</a>. For more information about returning the ACL of an object, see <a
-        /// href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.
+        /// For more information about returning the ACL of an object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.
         /// </para>
         ///  
         /// <para>
@@ -9259,8 +9468,9 @@ namespace Amazon.S3
         /// </para>
         ///  <note> <ul> <li> 
         /// <para>
-        /// You need the <code>s3:GetObjectVersion</code> permission to access a specific version
-        /// of an object. 
+        ///  If you supply a <code>versionId</code>, you need the <code>s3:GetObjectVersion</code>
+        /// permission to access a specific version of an object. If you request a specific version,
+        /// you do not need to have the <code>s3:GetObject</code> permission. 
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -9279,8 +9489,8 @@ namespace Amazon.S3
         ///  
         /// <para>
         /// There are times when you want to override certain response header values in a GET
-        /// response. For example, you might override the Content-Disposition response header
-        /// value in your GET request.
+        /// response. For example, you might override the <code>Content-Disposition</code> response
+        /// header value in your GET request.
         /// </para>
         ///  
         /// <para>
@@ -9372,17 +9582,365 @@ namespace Amazon.S3
 
         #endregion
         
+        #region  GetObjectAttributes
+
+
+        /// <summary>
+        /// Retrieves all the metadata from an object without returning the object itself. This
+        /// action is useful if you're interested only in an object's metadata. To use <code>GetObjectAttributes</code>,
+        /// you must have READ access to the object.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>GetObjectAttributes</code> combines the functionality of <code>GetObjectAcl</code>,
+        /// <code>GetObjectLegalHold</code>, <code>GetObjectLockConfiguration</code>, <code>GetObjectRetention</code>,
+        /// <code>GetObjectTagging</code>, <code>HeadObject</code>, and <code>ListParts</code>.
+        /// All of the data returned with each of those individual calls can be returned with
+        /// a single call to <code>GetObjectAttributes</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you encrypt an object by using server-side encryption with customer-provided encryption
+        /// keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata
+        /// from the object, you must use the following headers:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>x-amz-server-side-encryption-customer-algorithm</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>x-amz-server-side-encryption-customer-key</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>x-amz-server-side-encryption-customer-key-MD5</code> 
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side
+        /// Encryption (Using Customer-Provided Encryption Keys)</a> in the <i>Amazon S3 User
+        /// Guide</i>.
+        /// </para>
+        ///  <note> <ul> <li> 
+        /// <para>
+        /// Encryption request headers, such as <code>x-amz-server-side-encryption</code>, should
+        /// not be sent for GET requests if your object uses server-side encryption with Amazon
+        /// Web Services KMS keys stored in Amazon Web Services Key Management Service (SSE-KMS)
+        /// or server-side encryption with Amazon S3 managed encryption keys (SSE-S3). If your
+        /// object does use these types of keys, you'll get an HTTP <code>400 Bad Request</code>
+        /// error.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  The last modified property in this case is the creation date of the object.
+        /// </para>
+        ///  </li> </ul> </note> 
+        /// <para>
+        /// Consider the following when using request headers:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code> headers
+        /// are present in the request as follows, then Amazon S3 returns the HTTP status code
+        /// <code>200 OK</code> and the data requested:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>If-Match</code> condition evaluates to <code>true</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>If-Unmodified-Since</code> condition evaluates to <code>false</code>.
+        /// </para>
+        ///  </li> </ul> </li> <li> 
+        /// <para>
+        /// If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code> headers
+        /// are present in the request as follows, then Amazon S3 returns the HTTP status code
+        /// <code>304 Not Modified</code>:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>If-None-Match</code> condition evaluates to <code>false</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>If-Modified-Since</code> condition evaluates to <code>true</code>.
+        /// </para>
+        ///  </li> </ul> </li> </ul> 
+        /// <para>
+        /// For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC
+        /// 7232</a>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Permissions</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// The permissions that you need to use this operation depend on whether the bucket is
+        /// versioned. If the bucket is versioned, you need both the <code>s3:GetObjectVersion</code>
+        /// and <code>s3:GetObjectVersionAttributes</code> permissions for this operation. If
+        /// the bucket is not versioned, you need the <code>s3:GetObject</code> and <code>s3:GetObjectAttributes</code>
+        /// permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
+        /// Permissions in a Policy</a> in the <i>Amazon S3 User Guide</i>. If the object that
+        /// you request does not exist, the error Amazon S3 returns depends on whether you also
+        /// have the <code>s3:ListBucket</code> permission.
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3 returns
+        /// an HTTP status code <code>404 Not Found</code> ("no such key") error.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// If you don't have the <code>s3:ListBucket</code> permission, Amazon S3 returns an
+        /// HTTP status code <code>403 Forbidden</code> ("access denied") error.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// The following actions are related to <code>GetObjectAttributes</code>:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLegalHold.html">GetObjectLegalHold</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLockConfiguration.html">GetObjectLockConfiguration</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectRetention.html">GetObjectRetention</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html">HeadObject</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a>
+        /// 
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetObjectAttributes service method.</param>
+        /// 
+        /// <returns>The response from the GetObjectAttributes service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectAttributes">REST API Reference for GetObjectAttributes Operation</seealso>
+        GetObjectAttributesResponse GetObjectAttributes(GetObjectAttributesRequest request);
+
+
+
+        /// <summary>
+        /// Retrieves all the metadata from an object without returning the object itself. This
+        /// action is useful if you're interested only in an object's metadata. To use <code>GetObjectAttributes</code>,
+        /// you must have READ access to the object.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>GetObjectAttributes</code> combines the functionality of <code>GetObjectAcl</code>,
+        /// <code>GetObjectLegalHold</code>, <code>GetObjectLockConfiguration</code>, <code>GetObjectRetention</code>,
+        /// <code>GetObjectTagging</code>, <code>HeadObject</code>, and <code>ListParts</code>.
+        /// All of the data returned with each of those individual calls can be returned with
+        /// a single call to <code>GetObjectAttributes</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you encrypt an object by using server-side encryption with customer-provided encryption
+        /// keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata
+        /// from the object, you must use the following headers:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>x-amz-server-side-encryption-customer-algorithm</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>x-amz-server-side-encryption-customer-key</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>x-amz-server-side-encryption-customer-key-MD5</code> 
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side
+        /// Encryption (Using Customer-Provided Encryption Keys)</a> in the <i>Amazon S3 User
+        /// Guide</i>.
+        /// </para>
+        ///  <note> <ul> <li> 
+        /// <para>
+        /// Encryption request headers, such as <code>x-amz-server-side-encryption</code>, should
+        /// not be sent for GET requests if your object uses server-side encryption with Amazon
+        /// Web Services KMS keys stored in Amazon Web Services Key Management Service (SSE-KMS)
+        /// or server-side encryption with Amazon S3 managed encryption keys (SSE-S3). If your
+        /// object does use these types of keys, you'll get an HTTP <code>400 Bad Request</code>
+        /// error.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  The last modified property in this case is the creation date of the object.
+        /// </para>
+        ///  </li> </ul> </note> 
+        /// <para>
+        /// Consider the following when using request headers:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code> headers
+        /// are present in the request as follows, then Amazon S3 returns the HTTP status code
+        /// <code>200 OK</code> and the data requested:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>If-Match</code> condition evaluates to <code>true</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>If-Unmodified-Since</code> condition evaluates to <code>false</code>.
+        /// </para>
+        ///  </li> </ul> </li> <li> 
+        /// <para>
+        /// If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code> headers
+        /// are present in the request as follows, then Amazon S3 returns the HTTP status code
+        /// <code>304 Not Modified</code>:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>If-None-Match</code> condition evaluates to <code>false</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>If-Modified-Since</code> condition evaluates to <code>true</code>.
+        /// </para>
+        ///  </li> </ul> </li> </ul> 
+        /// <para>
+        /// For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC
+        /// 7232</a>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Permissions</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// The permissions that you need to use this operation depend on whether the bucket is
+        /// versioned. If the bucket is versioned, you need both the <code>s3:GetObjectVersion</code>
+        /// and <code>s3:GetObjectVersionAttributes</code> permissions for this operation. If
+        /// the bucket is not versioned, you need the <code>s3:GetObject</code> and <code>s3:GetObjectAttributes</code>
+        /// permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
+        /// Permissions in a Policy</a> in the <i>Amazon S3 User Guide</i>. If the object that
+        /// you request does not exist, the error Amazon S3 returns depends on whether you also
+        /// have the <code>s3:ListBucket</code> permission.
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3 returns
+        /// an HTTP status code <code>404 Not Found</code> ("no such key") error.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// If you don't have the <code>s3:ListBucket</code> permission, Amazon S3 returns an
+        /// HTTP status code <code>403 Forbidden</code> ("access denied") error.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// The following actions are related to <code>GetObjectAttributes</code>:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLegalHold.html">GetObjectLegalHold</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLockConfiguration.html">GetObjectLockConfiguration</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectRetention.html">GetObjectRetention</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html">HeadObject</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a>
+        /// 
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetObjectAttributes service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetObjectAttributes service method, as returned by S3.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectAttributes">REST API Reference for GetObjectAttributes Operation</seealso>
+        Task<GetObjectAttributesResponse> GetObjectAttributesAsync(GetObjectAttributesRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  GetObjectLegalHold
 
 
         /// <summary>
-        /// Gets an object's current Legal Hold status. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
+        /// Gets an object's current legal hold status. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
         /// Objects</a>.
         /// 
         ///  
         /// <para>
         /// This action is not supported by Amazon S3 on Outposts.
         /// </para>
+        ///  
+        /// <para>
+        /// The following action is related to <code>GetObjectLegalHold</code>:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+        /// 
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetObjectLegalHold service method.</param>
         /// 
@@ -9393,13 +9951,23 @@ namespace Amazon.S3
 
 
         /// <summary>
-        /// Gets an object's current Legal Hold status. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
+        /// Gets an object's current legal hold status. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
         /// Objects</a>.
         /// 
         ///  
         /// <para>
         /// This action is not supported by Amazon S3 on Outposts.
         /// </para>
+        ///  
+        /// <para>
+        /// The following action is related to <code>GetObjectLegalHold</code>:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+        /// 
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetObjectLegalHold service method.</param>
         /// <param name="cancellationToken">
@@ -9420,6 +9988,17 @@ namespace Amazon.S3
         /// Lock configuration will be applied by default to every new object placed in the specified
         /// bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
         /// Objects</a>.
+        /// 
+        ///  
+        /// <para>
+        /// The following action is related to <code>GetObjectLockConfiguration</code>:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+        /// 
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetObjectLockConfiguration service method.</param>
         /// 
@@ -9434,6 +10013,17 @@ namespace Amazon.S3
         /// Lock configuration will be applied by default to every new object placed in the specified
         /// bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
         /// Objects</a>.
+        /// 
+        ///  
+        /// <para>
+        /// The following action is related to <code>GetObjectLockConfiguration</code>:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+        /// 
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetObjectLockConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -9567,16 +10157,21 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// The following action is related to <code>HeadObject</code>:
+        /// The following actions are related to <code>HeadObject</code>:
         /// </para>
         ///  <ul> <li> 
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
         /// 
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+        /// 
+        /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The name of the bucket containing the object. When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The name of the bucket containing the object. When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">The object key.</param>
         /// 
         /// <returns>The response from the GetObjectMetadata service method, as returned by S3.</returns>
@@ -9701,16 +10296,21 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// The following action is related to <code>HeadObject</code>:
+        /// The following actions are related to <code>HeadObject</code>:
         /// </para>
         ///  <ul> <li> 
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
         /// 
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+        /// 
+        /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The name of the bucket containing the object. When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The name of the bucket containing the object. When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">The object key.</param>
         /// <param name="versionId">VersionId used to reference a specific version of the object.</param>
         /// 
@@ -9836,11 +10436,16 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// The following action is related to <code>HeadObject</code>:
+        /// The following actions are related to <code>HeadObject</code>:
         /// </para>
         ///  <ul> <li> 
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
         /// 
         /// </para>
         ///  </li> </ul>
@@ -9970,16 +10575,21 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// The following action is related to <code>HeadObject</code>:
+        /// The following actions are related to <code>HeadObject</code>:
         /// </para>
         ///  <ul> <li> 
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
         /// 
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+        /// 
+        /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The name of the bucket containing the object. When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The name of the bucket containing the object. When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">The object key.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -10107,16 +10717,21 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// The following action is related to <code>HeadObject</code>:
+        /// The following actions are related to <code>HeadObject</code>:
         /// </para>
         ///  <ul> <li> 
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
         /// 
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+        /// 
+        /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The name of the bucket containing the object. When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The name of the bucket containing the object. When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">The object key.</param>
         /// <param name="versionId">VersionId used to reference a specific version of the object.</param>
         /// <param name="cancellationToken">
@@ -10246,11 +10861,16 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// The following action is related to <code>HeadObject</code>:
+        /// The following actions are related to <code>HeadObject</code>:
         /// </para>
         ///  <ul> <li> 
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
         /// 
         /// </para>
         ///  </li> </ul>
@@ -10277,6 +10897,16 @@ namespace Amazon.S3
         /// <para>
         /// This action is not supported by Amazon S3 on Outposts.
         /// </para>
+        ///  
+        /// <para>
+        /// The following action is related to <code>GetObjectRetention</code>:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+        /// 
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetObjectRetention service method.</param>
         /// 
@@ -10294,6 +10924,16 @@ namespace Amazon.S3
         /// <para>
         /// This action is not supported by Amazon S3 on Outposts.
         /// </para>
+        ///  
+        /// <para>
+        /// The following action is related to <code>GetObjectRetention</code>:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+        /// 
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetObjectRetention service method.</param>
         /// <param name="cancellationToken">
@@ -10333,16 +10973,21 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// The following action is related to <code>GetObjectTagging</code>:
+        /// The following actions are related to <code>GetObjectTagging</code>:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">PutObjectTagging</a>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html">DeleteObjectTagging</a>
         /// 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html">DeleteObjectTagging</a>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">PutObjectTagging</a>
         /// 
         /// </para>
         ///  </li> </ul>
@@ -10379,16 +11024,21 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// The following action is related to <code>GetObjectTagging</code>:
+        /// The following actions are related to <code>GetObjectTagging</code>:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">PutObjectTagging</a>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html">DeleteObjectTagging</a>
         /// 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html">DeleteObjectTagging</a>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">PutObjectTagging</a>
         /// 
         /// </para>
         ///  </li> </ul>
@@ -10794,15 +11444,15 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// x-amz-server-side-encryption
+        ///  <code>x-amz-server-side-encryption</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-aws-kms-key-id
+        ///  <code>x-amz-server-side-encryption-aws-kms-key-id</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-context
+        ///  <code>x-amz-server-side-encryption-context</code> 
         /// </para>
         ///  </li> </ul> <note> 
         /// <para>
@@ -10827,15 +11477,15 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-customer-algorithm
+        ///  <code>x-amz-server-side-encryption-customer-algorithm</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-customer-key
+        ///  <code>x-amz-server-side-encryption-customer-key</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-customer-key-MD5
+        ///  <code>x-amz-server-side-encryption-customer-key-MD5</code> 
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -10872,23 +11522,23 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// x-amz-grant-read
+        ///  <code>x-amz-grant-read</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-grant-write
+        ///  <code>x-amz-grant-write</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-grant-read-acp
+        ///  <code>x-amz-grant-read-acp</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-grant-write-acp
+        ///  <code>x-amz-grant-write-acp</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-grant-full-control
+        ///  <code>x-amz-grant-full-control</code> 
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -10991,7 +11641,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The name of the bucket to which to initiate the upload When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The name of the bucket to which to initiate the upload When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Object key for which the multipart upload is to be initiated.</param>
         /// 
         /// <returns>The response from the InitiateMultipartUpload service method, as returned by S3.</returns>
@@ -11114,15 +11764,15 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// x-amz-server-side-encryption
+        ///  <code>x-amz-server-side-encryption</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-aws-kms-key-id
+        ///  <code>x-amz-server-side-encryption-aws-kms-key-id</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-context
+        ///  <code>x-amz-server-side-encryption-context</code> 
         /// </para>
         ///  </li> </ul> <note> 
         /// <para>
@@ -11147,15 +11797,15 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-customer-algorithm
+        ///  <code>x-amz-server-side-encryption-customer-algorithm</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-customer-key
+        ///  <code>x-amz-server-side-encryption-customer-key</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-customer-key-MD5
+        ///  <code>x-amz-server-side-encryption-customer-key-MD5</code> 
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -11192,23 +11842,23 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// x-amz-grant-read
+        ///  <code>x-amz-grant-read</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-grant-write
+        ///  <code>x-amz-grant-write</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-grant-read-acp
+        ///  <code>x-amz-grant-read-acp</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-grant-write-acp
+        ///  <code>x-amz-grant-write-acp</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-grant-full-control
+        ///  <code>x-amz-grant-full-control</code> 
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -11434,15 +12084,15 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// x-amz-server-side-encryption
+        ///  <code>x-amz-server-side-encryption</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-aws-kms-key-id
+        ///  <code>x-amz-server-side-encryption-aws-kms-key-id</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-context
+        ///  <code>x-amz-server-side-encryption-context</code> 
         /// </para>
         ///  </li> </ul> <note> 
         /// <para>
@@ -11467,15 +12117,15 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-customer-algorithm
+        ///  <code>x-amz-server-side-encryption-customer-algorithm</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-customer-key
+        ///  <code>x-amz-server-side-encryption-customer-key</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-customer-key-MD5
+        ///  <code>x-amz-server-side-encryption-customer-key-MD5</code> 
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -11512,23 +12162,23 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// x-amz-grant-read
+        ///  <code>x-amz-grant-read</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-grant-write
+        ///  <code>x-amz-grant-write</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-grant-read-acp
+        ///  <code>x-amz-grant-read-acp</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-grant-write-acp
+        ///  <code>x-amz-grant-write-acp</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-grant-full-control
+        ///  <code>x-amz-grant-full-control</code> 
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -11631,7 +12281,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The name of the bucket to which to initiate the upload When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The name of the bucket to which to initiate the upload When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Object key for which the multipart upload is to be initiated.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -11758,15 +12408,15 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// x-amz-server-side-encryption
+        ///  <code>x-amz-server-side-encryption</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-aws-kms-key-id
+        ///  <code>x-amz-server-side-encryption-aws-kms-key-id</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-context
+        ///  <code>x-amz-server-side-encryption-context</code> 
         /// </para>
         ///  </li> </ul> <note> 
         /// <para>
@@ -11791,15 +12441,15 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-customer-algorithm
+        ///  <code>x-amz-server-side-encryption-customer-algorithm</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-customer-key
+        ///  <code>x-amz-server-side-encryption-customer-key</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-server-side-encryption-customer-key-MD5
+        ///  <code>x-amz-server-side-encryption-customer-key-MD5</code> 
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -11836,23 +12486,23 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// x-amz-grant-read
+        ///  <code>x-amz-grant-read</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-grant-write
+        ///  <code>x-amz-grant-write</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-grant-read-acp
+        ///  <code>x-amz-grant-read-acp</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-grant-write-acp
+        ///  <code>x-amz-grant-write-acp</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// x-amz-grant-full-control
+        ///  <code>x-amz-grant-full-control</code> 
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -12095,17 +12745,17 @@ namespace Amazon.S3
         /// The S3 Intelligent-Tiering storage class is designed to optimize storage costs by
         /// automatically moving data to the most cost-effective storage access tier, without
         /// performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic
-        /// cost savings in two low latency and high throughput access tiers. For data that can
-        /// be accessed asynchronously, you can choose to activate automatic archiving capabilities
-        /// within the S3 Intelligent-Tiering storage class.
+        /// cost savings in three low latency and high throughput access tiers. To get the lowest
+        /// storage cost on data that can be accessed in minutes to hours, you can choose to activate
+        /// additional archiving capabilities.
         /// </para>
         ///  
         /// <para>
         /// The S3 Intelligent-Tiering storage class is the ideal storage class for data with
         /// unknown, changing, or unpredictable access patterns, independent of object size or
-        /// retention period. If the size of an object is less than 128 KB, it is not eligible
-        /// for auto-tiering. Smaller objects can be stored, but they are always charged at the
-        /// Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
+        /// retention period. If the size of an object is less than 128 KB, it is not monitored
+        /// and not eligible for auto-tiering. Smaller objects can be stored, but they are always
+        /// charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
         /// </para>
         ///  
         /// <para>
@@ -12150,17 +12800,17 @@ namespace Amazon.S3
         /// The S3 Intelligent-Tiering storage class is designed to optimize storage costs by
         /// automatically moving data to the most cost-effective storage access tier, without
         /// performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic
-        /// cost savings in two low latency and high throughput access tiers. For data that can
-        /// be accessed asynchronously, you can choose to activate automatic archiving capabilities
-        /// within the S3 Intelligent-Tiering storage class.
+        /// cost savings in three low latency and high throughput access tiers. To get the lowest
+        /// storage cost on data that can be accessed in minutes to hours, you can choose to activate
+        /// additional archiving capabilities.
         /// </para>
         ///  
         /// <para>
         /// The S3 Intelligent-Tiering storage class is the ideal storage class for data with
         /// unknown, changing, or unpredictable access patterns, independent of object size or
-        /// retention period. If the size of an object is less than 128 KB, it is not eligible
-        /// for auto-tiering. Smaller objects can be stored, but they are always charged at the
-        /// Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
+        /// retention period. If the size of an object is less than 128 KB, it is not monitored
+        /// and not eligible for auto-tiering. Smaller objects can be stored, but they are always
+        /// charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
         /// </para>
         ///  
         /// <para>
@@ -12444,7 +13094,8 @@ namespace Amazon.S3
 
 
         /// <summary>
-        /// Returns a list of all buckets owned by the authenticated sender of the request.
+        /// Returns a list of all buckets owned by the authenticated sender of the request. To
+        /// use this operation, you must have the <code>s3:ListAllMyBuckets</code> permission.
         /// </summary>
         /// 
         /// <returns>The response from the ListBuckets service method, as returned by S3.</returns>
@@ -12453,7 +13104,8 @@ namespace Amazon.S3
 
 
         /// <summary>
-        /// Returns a list of all buckets owned by the authenticated sender of the request.
+        /// Returns a list of all buckets owned by the authenticated sender of the request. To
+        /// use this operation, you must have the <code>s3:ListAllMyBuckets</code> permission.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListBuckets service method.</param>
         /// 
@@ -12463,7 +13115,8 @@ namespace Amazon.S3
 
 
         /// <summary>
-        /// Returns a list of all buckets owned by the authenticated sender of the request.
+        /// Returns a list of all buckets owned by the authenticated sender of the request. To
+        /// use this operation, you must have the <code>s3:ListAllMyBuckets</code> permission.
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -12476,7 +13129,8 @@ namespace Amazon.S3
 
 
         /// <summary>
-        /// Returns a list of all buckets owned by the authenticated sender of the request.
+        /// Returns a list of all buckets owned by the authenticated sender of the request. To
+        /// use this operation, you must have the <code>s3:ListAllMyBuckets</code> permission.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListBuckets service method.</param>
         /// <param name="cancellationToken">
@@ -12555,7 +13209,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The name of the bucket to which the multipart upload was initiated.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The name of the bucket to which the multipart upload was initiated.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// 
         /// <returns>The response from the ListMultipartUploads service method, as returned by S3.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads">REST API Reference for ListMultipartUploads Operation</seealso>
@@ -12624,7 +13278,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The name of the bucket to which the multipart upload was initiated.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The name of the bucket to which the multipart upload was initiated.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="prefix">Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.)</param>
         /// 
         /// <returns>The response from the ListMultipartUploads service method, as returned by S3.</returns>
@@ -12764,7 +13418,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The name of the bucket to which the multipart upload was initiated.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The name of the bucket to which the multipart upload was initiated.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -12836,7 +13490,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The name of the bucket to which the multipart upload was initiated.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The name of the bucket to which the multipart upload was initiated.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="prefix">Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.)</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -12967,7 +13621,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The name of the bucket containing the objects. When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The name of the bucket containing the objects. When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// 
         /// <returns>The response from the ListObjects service method, as returned by S3.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects">REST API Reference for ListObjects Operation</seealso>
@@ -13016,7 +13670,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The name of the bucket containing the objects. When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The name of the bucket containing the objects. When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="prefix">Limits the response to keys that begin with the specified prefix.</param>
         /// 
         /// <returns>The response from the ListObjects service method, as returned by S3.</returns>
@@ -13116,7 +13770,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The name of the bucket containing the objects. When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The name of the bucket containing the objects. When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -13168,7 +13822,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The name of the bucket containing the objects. When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The name of the bucket containing the objects. When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="prefix">Limits the response to keys that begin with the specified prefix.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -13379,6 +14033,11 @@ namespace Amazon.S3
         /// 
         ///  
         /// <para>
+        /// If the upload was created using a checksum algorithm, you will need to have permission
+        /// to the <code>kms:Decrypt</code> action for the request to succeed. 
+        /// </para>
+        ///  
+        /// <para>
         /// For more information on multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading
         /// Objects Using Multipart Upload</a>.
         /// </para>
@@ -13413,12 +14072,17 @@ namespace Amazon.S3
         /// </para>
         ///  </li> <li> 
         /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html">ListMultipartUploads</a>
         /// 
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The name of the bucket to which the parts are being uploaded.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The name of the bucket to which the parts are being uploaded.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Object key for which the multipart upload was initiated.</param>
         /// <param name="uploadId">Upload ID identifying the multipart upload whose parts are being listed.</param>
         /// 
@@ -13441,6 +14105,11 @@ namespace Amazon.S3
         /// 
         ///  
         /// <para>
+        /// If the upload was created using a checksum algorithm, you will need to have permission
+        /// to the <code>kms:Decrypt</code> action for the request to succeed. 
+        /// </para>
+        ///  
+        /// <para>
         /// For more information on multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading
         /// Objects Using Multipart Upload</a>.
         /// </para>
@@ -13471,6 +14140,11 @@ namespace Amazon.S3
         ///  </li> <li> 
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html">AbortMultipartUpload</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
         /// 
         /// </para>
         ///  </li> <li> 
@@ -13502,6 +14176,11 @@ namespace Amazon.S3
         /// 
         ///  
         /// <para>
+        /// If the upload was created using a checksum algorithm, you will need to have permission
+        /// to the <code>kms:Decrypt</code> action for the request to succeed. 
+        /// </para>
+        ///  
+        /// <para>
         /// For more information on multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading
         /// Objects Using Multipart Upload</a>.
         /// </para>
@@ -13536,12 +14215,17 @@ namespace Amazon.S3
         /// </para>
         ///  </li> <li> 
         /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html">ListMultipartUploads</a>
         /// 
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The name of the bucket to which the parts are being uploaded.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The name of the bucket to which the parts are being uploaded.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Object key for which the multipart upload was initiated.</param>
         /// <param name="uploadId">Upload ID identifying the multipart upload whose parts are being listed.</param>
         /// <param name="cancellationToken">
@@ -13568,6 +14252,11 @@ namespace Amazon.S3
         /// 
         ///  
         /// <para>
+        /// If the upload was created using a checksum algorithm, you will need to have permission
+        /// to the <code>kms:Decrypt</code> action for the request to succeed. 
+        /// </para>
+        ///  
+        /// <para>
         /// For more information on multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading
         /// Objects Using Multipart Upload</a>.
         /// </para>
@@ -13598,6 +14287,11 @@ namespace Amazon.S3
         ///  </li> <li> 
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html">AbortMultipartUpload</a>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
         /// 
         /// </para>
         ///  </li> <li> 
@@ -13997,7 +14691,16 @@ namespace Amazon.S3
         /// that updates a bucket ACL using the request body, then you can continue to use that
         /// approach.
         /// </para>
-        ///  
+        ///  <important> 
+        /// <para>
+        /// If your bucket uses the bucket owner enforced setting for S3 Object Ownership, ACLs
+        /// are disabled and no longer affect permissions. You must use policies to grant access
+        /// to your bucket and the objects in it. Requests to set ACLs or update ACLs fail and
+        /// return the <code>AccessControlListNotSupported</code> error code. Requests to read
+        /// ACLs are still supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling
+        /// object ownership</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  </important> 
         /// <para>
         ///  <b>Access Permissions</b> 
         /// </para>
@@ -14243,7 +14946,16 @@ namespace Amazon.S3
         /// that updates a bucket ACL using the request body, then you can continue to use that
         /// approach.
         /// </para>
-        ///  
+        ///  <important> 
+        /// <para>
+        /// If your bucket uses the bucket owner enforced setting for S3 Object Ownership, ACLs
+        /// are disabled and no longer affect permissions. You must use policies to grant access
+        /// to your bucket and the objects in it. Requests to set ACLs or update ACLs fail and
+        /// return the <code>AccessControlListNotSupported</code> error code. Requests to read
+        /// ACLs are still supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling
+        /// object ownership</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  </important> 
         /// <para>
         ///  <b>Access Permissions</b> 
         /// </para>
@@ -14505,9 +15217,25 @@ namespace Amazon.S3
         /// </para>
         ///  </note> 
         /// <para>
-        /// When creating a bucket using this operation, you can optionally specify the accounts
-        /// or groups that should be granted specific permissions on the bucket. There are two
-        /// ways to grant the appropriate permissions using the request headers.
+        ///  <b>Access control lists (ACLs)</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// When creating a bucket using this operation, you can optionally configure the bucket
+        /// ACL to specify the accounts or groups that should be granted specific permissions
+        /// on the bucket.
+        /// </para>
+        ///  <important> 
+        /// <para>
+        /// If your CreateBucket request sets bucket owner enforced for S3 Object Ownership and
+        /// specifies a bucket ACL that provides access to an external Amazon Web Services account,
+        /// your request fails with a <code>400</code> error and returns the <code>InvalidBucketAclWithObjectOwnership</code>
+        /// error code. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling
+        /// object ownership</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  </important> 
+        /// <para>
+        /// There are two ways to grant the appropriate permissions using the request headers.
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -14521,7 +15249,7 @@ namespace Amazon.S3
         /// Specify access permissions explicitly using the <code>x-amz-grant-read</code>, <code>x-amz-grant-write</code>,
         /// <code>x-amz-grant-read-acp</code>, <code>x-amz-grant-write-acp</code>, and <code>x-amz-grant-full-control</code>
         /// headers. These headers map to the set of permissions Amazon S3 supports in an ACL.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html">Access
         /// control list (ACL) overview</a>.
         /// </para>
         ///  
@@ -14605,19 +15333,30 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// If your <code>CreateBucket</code> request specifies ACL permissions and the ACL is
-        /// public-read, public-read-write, authenticated-read, or if you specify access permissions
-        /// explicitly through any other ACL, both <code>s3:CreateBucket</code> and <code>s3:PutBucketAcl</code>
-        /// permissions are needed. If the ACL the <code>CreateBucket</code> request is private,
-        /// only <code>s3:CreateBucket</code> permission is needed. 
+        /// In addition to <code>s3:CreateBucket</code>, the following permissions are required
+        /// when your CreateBucket includes specific headers:
         /// </para>
-        ///  
+        ///  <ul> <li> 
         /// <para>
-        /// If <code>ObjectLockEnabledForBucket</code> is set to true in your <code>CreateBucket</code>
-        /// request, <code>s3:PutBucketObjectLockConfiguration</code> and <code>s3:PutBucketVersioning</code>
-        /// permissions are required.
+        ///  <b>ACLs</b> - If your <code>CreateBucket</code> request specifies ACL permissions
+        /// and the ACL is public-read, public-read-write, authenticated-read, or if you specify
+        /// access permissions explicitly through any other ACL, both <code>s3:CreateBucket</code>
+        /// and <code>s3:PutBucketAcl</code> permissions are needed. If the ACL the <code>CreateBucket</code>
+        /// request is private or doesn't specify any ACLs, only <code>s3:CreateBucket</code>
+        /// permission is needed. 
         /// </para>
-        ///  
+        ///  </li> <li> 
+        /// <para>
+        ///  <b>Object Lock</b> - If <code>ObjectLockEnabledForBucket</code> is set to true in
+        /// your <code>CreateBucket</code> request, <code>s3:PutBucketObjectLockConfiguration</code>
+        /// and <code>s3:PutBucketVersioning</code> permissions are required.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <b>S3 Object Ownership</b> - If your CreateBucket request includes the the <code>x-amz-object-ownership</code>
+        /// header, <code>s3:PutBucketOwnershipControls</code> permission is required.
+        /// </para>
+        ///  </li> </ul> 
         /// <para>
         /// The following operations are related to <code>CreateBucket</code>:
         /// </para>
@@ -14677,9 +15416,25 @@ namespace Amazon.S3
         /// </para>
         ///  </note> 
         /// <para>
-        /// When creating a bucket using this operation, you can optionally specify the accounts
-        /// or groups that should be granted specific permissions on the bucket. There are two
-        /// ways to grant the appropriate permissions using the request headers.
+        ///  <b>Access control lists (ACLs)</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// When creating a bucket using this operation, you can optionally configure the bucket
+        /// ACL to specify the accounts or groups that should be granted specific permissions
+        /// on the bucket.
+        /// </para>
+        ///  <important> 
+        /// <para>
+        /// If your CreateBucket request sets bucket owner enforced for S3 Object Ownership and
+        /// specifies a bucket ACL that provides access to an external Amazon Web Services account,
+        /// your request fails with a <code>400</code> error and returns the <code>InvalidBucketAclWithObjectOwnership</code>
+        /// error code. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling
+        /// object ownership</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  </important> 
+        /// <para>
+        /// There are two ways to grant the appropriate permissions using the request headers.
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -14693,7 +15448,7 @@ namespace Amazon.S3
         /// Specify access permissions explicitly using the <code>x-amz-grant-read</code>, <code>x-amz-grant-write</code>,
         /// <code>x-amz-grant-read-acp</code>, <code>x-amz-grant-write-acp</code>, and <code>x-amz-grant-full-control</code>
         /// headers. These headers map to the set of permissions Amazon S3 supports in an ACL.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html">Access
         /// control list (ACL) overview</a>.
         /// </para>
         ///  
@@ -14777,19 +15532,30 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// If your <code>CreateBucket</code> request specifies ACL permissions and the ACL is
-        /// public-read, public-read-write, authenticated-read, or if you specify access permissions
-        /// explicitly through any other ACL, both <code>s3:CreateBucket</code> and <code>s3:PutBucketAcl</code>
-        /// permissions are needed. If the ACL the <code>CreateBucket</code> request is private,
-        /// only <code>s3:CreateBucket</code> permission is needed. 
+        /// In addition to <code>s3:CreateBucket</code>, the following permissions are required
+        /// when your CreateBucket includes specific headers:
         /// </para>
-        ///  
+        ///  <ul> <li> 
         /// <para>
-        /// If <code>ObjectLockEnabledForBucket</code> is set to true in your <code>CreateBucket</code>
-        /// request, <code>s3:PutBucketObjectLockConfiguration</code> and <code>s3:PutBucketVersioning</code>
-        /// permissions are required.
+        ///  <b>ACLs</b> - If your <code>CreateBucket</code> request specifies ACL permissions
+        /// and the ACL is public-read, public-read-write, authenticated-read, or if you specify
+        /// access permissions explicitly through any other ACL, both <code>s3:CreateBucket</code>
+        /// and <code>s3:PutBucketAcl</code> permissions are needed. If the ACL the <code>CreateBucket</code>
+        /// request is private or doesn't specify any ACLs, only <code>s3:CreateBucket</code>
+        /// permission is needed. 
         /// </para>
-        ///  
+        ///  </li> <li> 
+        /// <para>
+        ///  <b>Object Lock</b> - If <code>ObjectLockEnabledForBucket</code> is set to true in
+        /// your <code>CreateBucket</code> request, <code>s3:PutBucketObjectLockConfiguration</code>
+        /// and <code>s3:PutBucketVersioning</code> permissions are required.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <b>S3 Object Ownership</b> - If your CreateBucket request includes the the <code>x-amz-object-ownership</code>
+        /// header, <code>s3:PutBucketOwnershipControls</code> permission is required.
+        /// </para>
+        ///  </li> </ul> 
         /// <para>
         /// The following operations are related to <code>CreateBucket</code>:
         /// </para>
@@ -14850,9 +15616,25 @@ namespace Amazon.S3
         /// </para>
         ///  </note> 
         /// <para>
-        /// When creating a bucket using this operation, you can optionally specify the accounts
-        /// or groups that should be granted specific permissions on the bucket. There are two
-        /// ways to grant the appropriate permissions using the request headers.
+        ///  <b>Access control lists (ACLs)</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// When creating a bucket using this operation, you can optionally configure the bucket
+        /// ACL to specify the accounts or groups that should be granted specific permissions
+        /// on the bucket.
+        /// </para>
+        ///  <important> 
+        /// <para>
+        /// If your CreateBucket request sets bucket owner enforced for S3 Object Ownership and
+        /// specifies a bucket ACL that provides access to an external Amazon Web Services account,
+        /// your request fails with a <code>400</code> error and returns the <code>InvalidBucketAclWithObjectOwnership</code>
+        /// error code. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling
+        /// object ownership</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  </important> 
+        /// <para>
+        /// There are two ways to grant the appropriate permissions using the request headers.
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -14866,7 +15648,7 @@ namespace Amazon.S3
         /// Specify access permissions explicitly using the <code>x-amz-grant-read</code>, <code>x-amz-grant-write</code>,
         /// <code>x-amz-grant-read-acp</code>, <code>x-amz-grant-write-acp</code>, and <code>x-amz-grant-full-control</code>
         /// headers. These headers map to the set of permissions Amazon S3 supports in an ACL.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html">Access
         /// control list (ACL) overview</a>.
         /// </para>
         ///  
@@ -14950,19 +15732,30 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// If your <code>CreateBucket</code> request specifies ACL permissions and the ACL is
-        /// public-read, public-read-write, authenticated-read, or if you specify access permissions
-        /// explicitly through any other ACL, both <code>s3:CreateBucket</code> and <code>s3:PutBucketAcl</code>
-        /// permissions are needed. If the ACL the <code>CreateBucket</code> request is private,
-        /// only <code>s3:CreateBucket</code> permission is needed. 
+        /// In addition to <code>s3:CreateBucket</code>, the following permissions are required
+        /// when your CreateBucket includes specific headers:
         /// </para>
-        ///  
+        ///  <ul> <li> 
         /// <para>
-        /// If <code>ObjectLockEnabledForBucket</code> is set to true in your <code>CreateBucket</code>
-        /// request, <code>s3:PutBucketObjectLockConfiguration</code> and <code>s3:PutBucketVersioning</code>
-        /// permissions are required.
+        ///  <b>ACLs</b> - If your <code>CreateBucket</code> request specifies ACL permissions
+        /// and the ACL is public-read, public-read-write, authenticated-read, or if you specify
+        /// access permissions explicitly through any other ACL, both <code>s3:CreateBucket</code>
+        /// and <code>s3:PutBucketAcl</code> permissions are needed. If the ACL the <code>CreateBucket</code>
+        /// request is private or doesn't specify any ACLs, only <code>s3:CreateBucket</code>
+        /// permission is needed. 
         /// </para>
-        ///  
+        ///  </li> <li> 
+        /// <para>
+        ///  <b>Object Lock</b> - If <code>ObjectLockEnabledForBucket</code> is set to true in
+        /// your <code>CreateBucket</code> request, <code>s3:PutBucketObjectLockConfiguration</code>
+        /// and <code>s3:PutBucketVersioning</code> permissions are required.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <b>S3 Object Ownership</b> - If your CreateBucket request includes the the <code>x-amz-object-ownership</code>
+        /// header, <code>s3:PutBucketOwnershipControls</code> permission is required.
+        /// </para>
+        ///  </li> </ul> 
         /// <para>
         /// The following operations are related to <code>CreateBucket</code>:
         /// </para>
@@ -15026,9 +15819,25 @@ namespace Amazon.S3
         /// </para>
         ///  </note> 
         /// <para>
-        /// When creating a bucket using this operation, you can optionally specify the accounts
-        /// or groups that should be granted specific permissions on the bucket. There are two
-        /// ways to grant the appropriate permissions using the request headers.
+        ///  <b>Access control lists (ACLs)</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// When creating a bucket using this operation, you can optionally configure the bucket
+        /// ACL to specify the accounts or groups that should be granted specific permissions
+        /// on the bucket.
+        /// </para>
+        ///  <important> 
+        /// <para>
+        /// If your CreateBucket request sets bucket owner enforced for S3 Object Ownership and
+        /// specifies a bucket ACL that provides access to an external Amazon Web Services account,
+        /// your request fails with a <code>400</code> error and returns the <code>InvalidBucketAclWithObjectOwnership</code>
+        /// error code. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling
+        /// object ownership</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  </important> 
+        /// <para>
+        /// There are two ways to grant the appropriate permissions using the request headers.
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -15042,7 +15851,7 @@ namespace Amazon.S3
         /// Specify access permissions explicitly using the <code>x-amz-grant-read</code>, <code>x-amz-grant-write</code>,
         /// <code>x-amz-grant-read-acp</code>, <code>x-amz-grant-write-acp</code>, and <code>x-amz-grant-full-control</code>
         /// headers. These headers map to the set of permissions Amazon S3 supports in an ACL.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html">Access
         /// control list (ACL) overview</a>.
         /// </para>
         ///  
@@ -15126,19 +15935,30 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// If your <code>CreateBucket</code> request specifies ACL permissions and the ACL is
-        /// public-read, public-read-write, authenticated-read, or if you specify access permissions
-        /// explicitly through any other ACL, both <code>s3:CreateBucket</code> and <code>s3:PutBucketAcl</code>
-        /// permissions are needed. If the ACL the <code>CreateBucket</code> request is private,
-        /// only <code>s3:CreateBucket</code> permission is needed. 
+        /// In addition to <code>s3:CreateBucket</code>, the following permissions are required
+        /// when your CreateBucket includes specific headers:
         /// </para>
-        ///  
+        ///  <ul> <li> 
         /// <para>
-        /// If <code>ObjectLockEnabledForBucket</code> is set to true in your <code>CreateBucket</code>
-        /// request, <code>s3:PutBucketObjectLockConfiguration</code> and <code>s3:PutBucketVersioning</code>
-        /// permissions are required.
+        ///  <b>ACLs</b> - If your <code>CreateBucket</code> request specifies ACL permissions
+        /// and the ACL is public-read, public-read-write, authenticated-read, or if you specify
+        /// access permissions explicitly through any other ACL, both <code>s3:CreateBucket</code>
+        /// and <code>s3:PutBucketAcl</code> permissions are needed. If the ACL the <code>CreateBucket</code>
+        /// request is private or doesn't specify any ACLs, only <code>s3:CreateBucket</code>
+        /// permission is needed. 
         /// </para>
-        ///  
+        ///  </li> <li> 
+        /// <para>
+        ///  <b>Object Lock</b> - If <code>ObjectLockEnabledForBucket</code> is set to true in
+        /// your <code>CreateBucket</code> request, <code>s3:PutBucketObjectLockConfiguration</code>
+        /// and <code>s3:PutBucketVersioning</code> permissions are required.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <b>S3 Object Ownership</b> - If your CreateBucket request includes the the <code>x-amz-object-ownership</code>
+        /// header, <code>s3:PutBucketOwnershipControls</code> permission is required.
+        /// </para>
+        ///  </li> </ul> 
         /// <para>
         /// The following operations are related to <code>CreateBucket</code>:
         /// </para>
@@ -15175,7 +15995,7 @@ namespace Amazon.S3
         /// 
         ///  
         /// <para>
-        ///  To use this operation, you must have permission to perform the s3:PutAccelerateConfiguration
+        ///  To use this operation, you must have permission to perform the <code>s3:PutAccelerateConfiguration</code>
         /// action. The bucket owner has this permission by default. The bucket owner can grant
         /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
         /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
@@ -15245,7 +16065,7 @@ namespace Amazon.S3
         /// 
         ///  
         /// <para>
-        ///  To use this operation, you must have permission to perform the s3:PutAccelerateConfiguration
+        ///  To use this operation, you must have permission to perform the <code>s3:PutAccelerateConfiguration</code>
         /// action. The bucket owner has this permission by default. The bucket owner can grant
         /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
         /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
@@ -15524,8 +16344,10 @@ namespace Amazon.S3
         /// <para>
         /// Default encryption for a bucket can use server-side encryption with Amazon S3-managed
         /// keys (SSE-S3) or customer managed keys (SSE-KMS). If you specify default encryption
-        /// using SSE-KMS, you can also configure Amazon S3 Bucket Key. For information about
-        /// default encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon
+        /// using SSE-KMS, you can also configure Amazon S3 Bucket Key. When the default encryption
+        /// is SSE-KMS, if you upload an object to the bucket and do not specify the KMS key to
+        /// use for encryption, Amazon S3 uses the default Amazon Web Services managed KMS key
+        /// for your account. For information about default encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon
         /// S3 default bucket encryption</a> in the <i>Amazon S3 User Guide</i>. For more information
         /// about S3 Bucket Keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon
         /// S3 Bucket Keys</a> in the <i>Amazon S3 User Guide</i>.
@@ -15574,8 +16396,10 @@ namespace Amazon.S3
         /// <para>
         /// Default encryption for a bucket can use server-side encryption with Amazon S3-managed
         /// keys (SSE-S3) or customer managed keys (SSE-KMS). If you specify default encryption
-        /// using SSE-KMS, you can also configure Amazon S3 Bucket Key. For information about
-        /// default encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon
+        /// using SSE-KMS, you can also configure Amazon S3 Bucket Key. When the default encryption
+        /// is SSE-KMS, if you upload an object to the bucket and do not specify the KMS key to
+        /// use for encryption, Amazon S3 uses the default Amazon Web Services managed KMS key
+        /// for your account. For information about default encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon
         /// S3 default bucket encryption</a> in the <i>Amazon S3 User Guide</i>. For more information
         /// about S3 Bucket Keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon
         /// S3 Bucket Keys</a> in the <i>Amazon S3 User Guide</i>.
@@ -15631,17 +16455,17 @@ namespace Amazon.S3
         /// The S3 Intelligent-Tiering storage class is designed to optimize storage costs by
         /// automatically moving data to the most cost-effective storage access tier, without
         /// performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic
-        /// cost savings in two low latency and high throughput access tiers. For data that can
-        /// be accessed asynchronously, you can choose to activate automatic archiving capabilities
-        /// within the S3 Intelligent-Tiering storage class.
+        /// cost savings in three low latency and high throughput access tiers. To get the lowest
+        /// storage cost on data that can be accessed in minutes to hours, you can choose to activate
+        /// additional archiving capabilities.
         /// </para>
         ///  
         /// <para>
         /// The S3 Intelligent-Tiering storage class is the ideal storage class for data with
         /// unknown, changing, or unpredictable access patterns, independent of object size or
-        /// retention period. If the size of an object is less than 128 KB, it is not eligible
-        /// for auto-tiering. Smaller objects can be stored, but they are always charged at the
-        /// Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
+        /// retention period. If the size of an object is less than 128 KB, it is not monitored
+        /// and not eligible for auto-tiering. Smaller objects can be stored, but they are always
+        /// charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
         /// </para>
         ///  
         /// <para>
@@ -15728,17 +16552,17 @@ namespace Amazon.S3
         /// The S3 Intelligent-Tiering storage class is designed to optimize storage costs by
         /// automatically moving data to the most cost-effective storage access tier, without
         /// performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic
-        /// cost savings in two low latency and high throughput access tiers. For data that can
-        /// be accessed asynchronously, you can choose to activate automatic archiving capabilities
-        /// within the S3 Intelligent-Tiering storage class.
+        /// cost savings in three low latency and high throughput access tiers. To get the lowest
+        /// storage cost on data that can be accessed in minutes to hours, you can choose to activate
+        /// additional archiving capabilities.
         /// </para>
         ///  
         /// <para>
         /// The S3 Intelligent-Tiering storage class is the ideal storage class for data with
         /// unknown, changing, or unpredictable access patterns, independent of object size or
-        /// retention period. If the size of an object is less than 128 KB, it is not eligible
-        /// for auto-tiering. Smaller objects can be stored, but they are always charged at the
-        /// Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
+        /// retention period. If the size of an object is less than 128 KB, it is not monitored
+        /// and not eligible for auto-tiering. Smaller objects can be stored, but they are always
+        /// charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
         /// </para>
         ///  
         /// <para>
@@ -16040,7 +16864,15 @@ namespace Amazon.S3
         /// request element to grant access to other people. The <code>Permissions</code> request
         /// element specifies the kind of access the grantee has to the logs.
         /// </para>
-        ///  
+        ///  <important> 
+        /// <para>
+        /// If the target bucket for log delivery uses the bucket owner enforced setting for S3
+        /// Object Ownership, you can't use the <code>Grantee</code> request element to grant
+        /// access to others. Permissions can only be granted using policies. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions
+        /// for server access log delivery</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  </important> 
         /// <para>
         ///  <b>Grantee Values</b> 
         /// </para>
@@ -16097,8 +16929,8 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html">Server
-        /// Access Logging</a>. 
+        /// For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html">Server
+        /// Access Logging</a> in the <i>Amazon S3 User Guide</i>. 
         /// </para>
         ///  
         /// <para>
@@ -16151,7 +16983,15 @@ namespace Amazon.S3
         /// request element to grant access to other people. The <code>Permissions</code> request
         /// element specifies the kind of access the grantee has to the logs.
         /// </para>
-        ///  
+        ///  <important> 
+        /// <para>
+        /// If the target bucket for log delivery uses the bucket owner enforced setting for S3
+        /// Object Ownership, you can't use the <code>Grantee</code> request element to grant
+        /// access to others. Permissions can only be granted using policies. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions
+        /// for server access log delivery</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  </important> 
         /// <para>
         ///  <b>Grantee Values</b> 
         /// </para>
@@ -16208,8 +17048,8 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html">Server
-        /// Access Logging</a>. 
+        /// For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html">Server
+        /// Access Logging</a> in the <i>Amazon S3 User Guide</i>. 
         /// </para>
         ///  
         /// <para>
@@ -16440,6 +17280,12 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
+        /// For more information about the number of event notification configurations that you
+        /// can create per bucket, see <a href="https://docs.aws.amazon.com/general/latest/gr/s3.html#limits_s3">Amazon
+        /// S3 service quotas</a> in <i>Amazon Web Services General Reference</i>.
+        /// </para>
+        ///  
+        /// <para>
         /// By default, only the bucket owner can configure notifications on a bucket. However,
         /// bucket owners can use a bucket policy to grant permission to other users to set this
         /// configuration with <code>s3:PutBucketNotification</code> permission.
@@ -16528,6 +17374,12 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
+        /// For more information about the number of event notification configurations that you
+        /// can create per bucket, see <a href="https://docs.aws.amazon.com/general/latest/gr/s3.html#limits_s3">Amazon
+        /// S3 service quotas</a> in <i>Amazon Web Services General Reference</i>.
+        /// </para>
+        ///  
+        /// <para>
         /// By default, only the bucket owner can configure notifications on a bucket. However,
         /// bucket owners can use a bucket policy to grant permission to other users to set this
         /// configuration with <code>s3:PutBucketNotification</code> permission.
@@ -16579,13 +17431,13 @@ namespace Amazon.S3
         /// <summary>
         /// Creates or modifies <code>OwnershipControls</code> for an Amazon S3 bucket. To use
         /// this operation, you must have the <code>s3:PutBucketOwnershipControls</code> permission.
-        /// For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
-        /// Permissions in a Policy</a>. 
+        /// For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-with-s3-actions.html">Specifying
+        /// permissions in a policy</a>. 
         /// 
         ///  
         /// <para>
-        /// For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html">Using
-        /// Object Ownership</a>. 
+        /// For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/about-object-ownership.html">Using
+        /// object ownership</a>. 
         /// </para>
         ///  
         /// <para>
@@ -16612,13 +17464,13 @@ namespace Amazon.S3
         /// <summary>
         /// Creates or modifies <code>OwnershipControls</code> for an Amazon S3 bucket. To use
         /// this operation, you must have the <code>s3:PutBucketOwnershipControls</code> permission.
-        /// For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
-        /// Permissions in a Policy</a>. 
+        /// For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-with-s3-actions.html">Specifying
+        /// permissions in a policy</a>. 
         /// 
         ///  
         /// <para>
-        /// For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html">Using
-        /// Object Ownership</a>. 
+        /// For information about Amazon S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/about-object-ownership.html">Using
+        /// object ownership</a>. 
         /// </para>
         ///  
         /// <para>
@@ -17669,8 +18521,7 @@ namespace Amazon.S3
 
 
         /// <summary>
-        /// Sets the versioning state of an existing bucket. To set the versioning state, you
-        /// must be the bucket owner.
+        /// Sets the versioning state of an existing bucket.
         /// 
         ///  
         /// <para>
@@ -17694,10 +18545,11 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// If the bucket owner enables MFA Delete in the bucket versioning configuration, the
-        /// bucket owner must include the <code>x-amz-mfa request</code> header and the <code>Status</code>
-        /// and the <code>MfaDelete</code> request elements in a request to set the versioning
-        /// state of the bucket.
+        /// In order to enable MFA Delete, you must be the bucket owner. If you are the bucket
+        /// owner and want to enable MFA Delete in the bucket versioning configuration, you must
+        /// include the <code>x-amz-mfa request</code> header and the <code>Status</code> and
+        /// the <code>MfaDelete</code> request elements in a request to set the versioning state
+        /// of the bucket.
         /// </para>
         ///  <important> 
         /// <para>
@@ -17737,8 +18589,7 @@ namespace Amazon.S3
 
 
         /// <summary>
-        /// Sets the versioning state of an existing bucket. To set the versioning state, you
-        /// must be the bucket owner.
+        /// Sets the versioning state of an existing bucket.
         /// 
         ///  
         /// <para>
@@ -17762,10 +18613,11 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
-        /// If the bucket owner enables MFA Delete in the bucket versioning configuration, the
-        /// bucket owner must include the <code>x-amz-mfa request</code> header and the <code>Status</code>
-        /// and the <code>MfaDelete</code> request elements in a request to set the versioning
-        /// state of the bucket.
+        /// In order to enable MFA Delete, you must be the bucket owner. If you are the bucket
+        /// owner and want to enable MFA Delete in the bucket versioning configuration, you must
+        /// include the <code>x-amz-mfa request</code> header and the <code>Status</code> and
+        /// the <code>MfaDelete</code> request elements in a request to set the versioning state
+        /// of the bucket.
         /// </para>
         ///  <important> 
         /// <para>
@@ -18630,7 +19482,9 @@ namespace Amazon.S3
 
         /// <summary>
         /// Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
-        /// configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing
+        /// configuration. Keep in mind that this will overwrite an existing lifecycle configuration,
+        /// so if you want to retain any configuration details, they must be included in the new
+        /// lifecycle configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing
         /// your storage lifecycle</a>.
         /// 
         ///  <note> 
@@ -18683,7 +19537,7 @@ namespace Amazon.S3
         /// subresources (for example, lifecycle configuration and website configuration). Only
         /// the resource owner (that is, the Amazon Web Services account that created it) can
         /// access the resource. The resource owner can optionally grant access permissions to
-        /// others by writing an access policy. For this operation, a user must get the s3:PutLifecycleConfiguration
+        /// others by writing an access policy. For this operation, a user must get the <code>s3:PutLifecycleConfiguration</code>
         /// permission.
         /// </para>
         ///  
@@ -18694,15 +19548,15 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// s3:DeleteObject
+        ///  <code>s3:DeleteObject</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// s3:DeleteObjectVersion
+        ///  <code>s3:DeleteObjectVersion</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// s3:PutLifecycleConfiguration
+        ///  <code>s3:PutLifecycleConfiguration</code> 
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -18739,7 +19593,9 @@ namespace Amazon.S3
 
         /// <summary>
         /// Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
-        /// configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing
+        /// configuration. Keep in mind that this will overwrite an existing lifecycle configuration,
+        /// so if you want to retain any configuration details, they must be included in the new
+        /// lifecycle configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing
         /// your storage lifecycle</a>.
         /// 
         ///  <note> 
@@ -18792,7 +19648,7 @@ namespace Amazon.S3
         /// subresources (for example, lifecycle configuration and website configuration). Only
         /// the resource owner (that is, the Amazon Web Services account that created it) can
         /// access the resource. The resource owner can optionally grant access permissions to
-        /// others by writing an access policy. For this operation, a user must get the s3:PutLifecycleConfiguration
+        /// others by writing an access policy. For this operation, a user must get the <code>s3:PutLifecycleConfiguration</code>
         /// permission.
         /// </para>
         ///  
@@ -18803,15 +19659,15 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// s3:DeleteObject
+        ///  <code>s3:DeleteObject</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// s3:DeleteObjectVersion
+        ///  <code>s3:DeleteObjectVersion</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// s3:PutLifecycleConfiguration
+        ///  <code>s3:PutLifecycleConfiguration</code> 
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -18848,7 +19704,9 @@ namespace Amazon.S3
 
         /// <summary>
         /// Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
-        /// configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing
+        /// configuration. Keep in mind that this will overwrite an existing lifecycle configuration,
+        /// so if you want to retain any configuration details, they must be included in the new
+        /// lifecycle configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing
         /// your storage lifecycle</a>.
         /// 
         ///  <note> 
@@ -18901,7 +19759,7 @@ namespace Amazon.S3
         /// subresources (for example, lifecycle configuration and website configuration). Only
         /// the resource owner (that is, the Amazon Web Services account that created it) can
         /// access the resource. The resource owner can optionally grant access permissions to
-        /// others by writing an access policy. For this operation, a user must get the s3:PutLifecycleConfiguration
+        /// others by writing an access policy. For this operation, a user must get the <code>s3:PutLifecycleConfiguration</code>
         /// permission.
         /// </para>
         ///  
@@ -18912,15 +19770,15 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// s3:DeleteObject
+        ///  <code>s3:DeleteObject</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// s3:DeleteObjectVersion
+        ///  <code>s3:DeleteObjectVersion</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// s3:PutLifecycleConfiguration
+        ///  <code>s3:PutLifecycleConfiguration</code> 
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -18961,7 +19819,9 @@ namespace Amazon.S3
 
         /// <summary>
         /// Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
-        /// configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing
+        /// configuration. Keep in mind that this will overwrite an existing lifecycle configuration,
+        /// so if you want to retain any configuration details, they must be included in the new
+        /// lifecycle configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing
         /// your storage lifecycle</a>.
         /// 
         ///  <note> 
@@ -19014,7 +19874,7 @@ namespace Amazon.S3
         /// subresources (for example, lifecycle configuration and website configuration). Only
         /// the resource owner (that is, the Amazon Web Services account that created it) can
         /// access the resource. The resource owner can optionally grant access permissions to
-        /// others by writing an access policy. For this operation, a user must get the s3:PutLifecycleConfiguration
+        /// others by writing an access policy. For this operation, a user must get the <code>s3:PutLifecycleConfiguration</code>
         /// permission.
         /// </para>
         ///  
@@ -19025,15 +19885,15 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// s3:DeleteObject
+        ///  <code>s3:DeleteObject</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// s3:DeleteObjectVersion
+        ///  <code>s3:DeleteObjectVersion</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// s3:PutLifecycleConfiguration
+        ///  <code>s3:PutLifecycleConfiguration</code> 
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -19151,6 +20011,26 @@ namespace Amazon.S3
         /// ACLs Using the REST API</a>. 
         /// </para>
         ///  
+        /// <para>
+        /// If the bucket that you're uploading objects to uses the bucket owner enforced setting
+        /// for S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets
+        /// that use this setting only accept PUT requests that don't specify an ACL or PUT requests
+        /// that specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code>
+        /// canned ACL or an equivalent form of this ACL expressed in the XML format. PUT requests
+        /// that contain other ACLs (for example, custom grants to certain Amazon Web Services
+        /// accounts) fail and return a <code>400</code> error with the error code <code>AccessControlListNotSupported</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
+        /// Controlling ownership of objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// If your bucket uses the bucket owner enforced setting for Object Ownership, all objects
+        /// written to the bucket by any account will be owned by the bucket owner.
+        /// </para>
+        ///  </note> 
         /// <para>
         ///  <b>Storage Class Options</b> 
         /// </para>
@@ -19279,6 +20159,26 @@ namespace Amazon.S3
         /// </para>
         ///  
         /// <para>
+        /// If the bucket that you're uploading objects to uses the bucket owner enforced setting
+        /// for S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets
+        /// that use this setting only accept PUT requests that don't specify an ACL or PUT requests
+        /// that specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code>
+        /// canned ACL or an equivalent form of this ACL expressed in the XML format. PUT requests
+        /// that contain other ACLs (for example, custom grants to certain Amazon Web Services
+        /// accounts) fail and return a <code>400</code> error with the error code <code>AccessControlListNotSupported</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
+        /// Controlling ownership of objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// If your bucket uses the bucket owner enforced setting for Object Ownership, all objects
+        /// written to the bucket by any account will be owned by the bucket owner.
+        /// </para>
+        ///  </note> 
+        /// <para>
         ///  <b>Storage Class Options</b> 
         /// </para>
         ///  
@@ -19336,7 +20236,7 @@ namespace Amazon.S3
 
 
         /// <summary>
-        /// Applies a Legal Hold configuration to the specified object. For more information,
+        /// Applies a legal hold configuration to the specified object. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
         /// Objects</a>.
         /// 
@@ -19354,7 +20254,7 @@ namespace Amazon.S3
 
 
         /// <summary>
-        /// Applies a Legal Hold configuration to the specified object. For more information,
+        /// Applies a legal hold configuration to the specified object. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
         /// Objects</a>.
         /// 
@@ -19456,16 +20356,6 @@ namespace Amazon.S3
         /// <para>
         /// This action is not supported by Amazon S3 on Outposts.
         /// </para>
-        ///  
-        /// <para>
-        ///  <b>Permissions</b> 
-        /// </para>
-        ///  
-        /// <para>
-        /// When the Object Lock retention mode is set to compliance, you need <code>s3:PutObjectRetention</code>
-        /// and <code>s3:BypassGovernanceRetention</code> permissions. For other requests to <code>PutObjectRetention</code>,
-        /// only <code>s3:PutObjectRetention</code> permissions are required.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutObjectRetention service method.</param>
         /// 
@@ -19485,16 +20375,6 @@ namespace Amazon.S3
         ///  
         /// <para>
         /// This action is not supported by Amazon S3 on Outposts.
-        /// </para>
-        ///  
-        /// <para>
-        ///  <b>Permissions</b> 
-        /// </para>
-        ///  
-        /// <para>
-        /// When the Object Lock retention mode is set to compliance, you need <code>s3:PutObjectRetention</code>
-        /// and <code>s3:BypassGovernanceRetention</code> permissions. For other requests to <code>PutObjectRetention</code>,
-        /// only <code>s3:PutObjectRetention</code> permissions are required.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutObjectRetention service method.</param>
@@ -19985,30 +20865,30 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <b> <code>Expedited</code> </b> - Expedited retrievals allow you to quickly access
-        /// your data stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive
-        /// tier when occasional urgent requests for a subset of archives are required. For all
-        /// but the largest archived objects (250 MB+), data accessed using Expedited retrievals
-        /// is typically made available within 1–5 minutes. Provisioned capacity ensures that
-        /// retrieval capacity for Expedited retrievals is available when you need it. Expedited
-        /// retrievals and provisioned capacity are not available for objects stored in the S3
-        /// Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
+        ///  <code>Expedited</code> - Expedited retrievals allow you to quickly access your data
+        /// stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive tier when
+        /// occasional urgent requests for a subset of archives are required. For all but the
+        /// largest archived objects (250 MB+), data accessed using Expedited retrievals is typically
+        /// made available within 1–5 minutes. Provisioned capacity ensures that retrieval capacity
+        /// for Expedited retrievals is available when you need it. Expedited retrievals and provisioned
+        /// capacity are not available for objects stored in the S3 Glacier Deep Archive storage
+        /// class or S3 Intelligent-Tiering Deep Archive tier.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Standard</code> </b> - Standard retrievals allow you to access any of your
-        /// archived objects within several hours. This is the default option for retrieval requests
-        /// that do not specify the retrieval option. Standard retrievals typically finish within
-        /// 3–5 hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
+        ///  <code>Standard</code> - Standard retrievals allow you to access any of your archived
+        /// objects within several hours. This is the default option for retrieval requests that
+        /// do not specify the retrieval option. Standard retrievals typically finish within 3–5
+        /// hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
         /// Archive tier. They typically finish within 12 hours for objects stored in the S3 Glacier
         /// Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier. Standard retrievals
         /// are free for objects stored in S3 Intelligent-Tiering.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Bulk</code> </b> - Bulk retrievals are the lowest-cost retrieval option
-        /// in S3 Glacier, enabling you to retrieve large amounts, even petabytes, of data inexpensively.
-        /// Bulk retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
+        ///  <code>Bulk</code> - Bulk retrievals are the lowest-cost retrieval option in S3 Glacier,
+        /// enabling you to retrieve large amounts, even petabytes, of data inexpensively. Bulk
+        /// retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
         /// storage class or S3 Intelligent-Tiering Archive tier. They typically finish within
         /// 48 hours for objects stored in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering
         /// Deep Archive tier. Bulk retrievals are free for objects stored in S3 Intelligent-Tiering.
@@ -20129,7 +21009,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name containing the object to restore.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name containing the object to restore.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Object key for which the action was initiated.</param>
         /// 
         /// <returns>The response from the RestoreObject service method, as returned by S3.</returns>
@@ -20312,30 +21192,30 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <b> <code>Expedited</code> </b> - Expedited retrievals allow you to quickly access
-        /// your data stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive
-        /// tier when occasional urgent requests for a subset of archives are required. For all
-        /// but the largest archived objects (250 MB+), data accessed using Expedited retrievals
-        /// is typically made available within 1–5 minutes. Provisioned capacity ensures that
-        /// retrieval capacity for Expedited retrievals is available when you need it. Expedited
-        /// retrievals and provisioned capacity are not available for objects stored in the S3
-        /// Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
+        ///  <code>Expedited</code> - Expedited retrievals allow you to quickly access your data
+        /// stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive tier when
+        /// occasional urgent requests for a subset of archives are required. For all but the
+        /// largest archived objects (250 MB+), data accessed using Expedited retrievals is typically
+        /// made available within 1–5 minutes. Provisioned capacity ensures that retrieval capacity
+        /// for Expedited retrievals is available when you need it. Expedited retrievals and provisioned
+        /// capacity are not available for objects stored in the S3 Glacier Deep Archive storage
+        /// class or S3 Intelligent-Tiering Deep Archive tier.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Standard</code> </b> - Standard retrievals allow you to access any of your
-        /// archived objects within several hours. This is the default option for retrieval requests
-        /// that do not specify the retrieval option. Standard retrievals typically finish within
-        /// 3–5 hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
+        ///  <code>Standard</code> - Standard retrievals allow you to access any of your archived
+        /// objects within several hours. This is the default option for retrieval requests that
+        /// do not specify the retrieval option. Standard retrievals typically finish within 3–5
+        /// hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
         /// Archive tier. They typically finish within 12 hours for objects stored in the S3 Glacier
         /// Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier. Standard retrievals
         /// are free for objects stored in S3 Intelligent-Tiering.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Bulk</code> </b> - Bulk retrievals are the lowest-cost retrieval option
-        /// in S3 Glacier, enabling you to retrieve large amounts, even petabytes, of data inexpensively.
-        /// Bulk retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
+        ///  <code>Bulk</code> - Bulk retrievals are the lowest-cost retrieval option in S3 Glacier,
+        /// enabling you to retrieve large amounts, even petabytes, of data inexpensively. Bulk
+        /// retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
         /// storage class or S3 Intelligent-Tiering Archive tier. They typically finish within
         /// 48 hours for objects stored in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering
         /// Deep Archive tier. Bulk retrievals are free for objects stored in S3 Intelligent-Tiering.
@@ -20456,7 +21336,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name containing the object to restore.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name containing the object to restore.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Object key for which the action was initiated.</param>
         /// <param name="days">A property of RestoreObjectRequest used to execute the RestoreObject service method.</param>
         /// 
@@ -20640,30 +21520,30 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <b> <code>Expedited</code> </b> - Expedited retrievals allow you to quickly access
-        /// your data stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive
-        /// tier when occasional urgent requests for a subset of archives are required. For all
-        /// but the largest archived objects (250 MB+), data accessed using Expedited retrievals
-        /// is typically made available within 1–5 minutes. Provisioned capacity ensures that
-        /// retrieval capacity for Expedited retrievals is available when you need it. Expedited
-        /// retrievals and provisioned capacity are not available for objects stored in the S3
-        /// Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
+        ///  <code>Expedited</code> - Expedited retrievals allow you to quickly access your data
+        /// stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive tier when
+        /// occasional urgent requests for a subset of archives are required. For all but the
+        /// largest archived objects (250 MB+), data accessed using Expedited retrievals is typically
+        /// made available within 1–5 minutes. Provisioned capacity ensures that retrieval capacity
+        /// for Expedited retrievals is available when you need it. Expedited retrievals and provisioned
+        /// capacity are not available for objects stored in the S3 Glacier Deep Archive storage
+        /// class or S3 Intelligent-Tiering Deep Archive tier.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Standard</code> </b> - Standard retrievals allow you to access any of your
-        /// archived objects within several hours. This is the default option for retrieval requests
-        /// that do not specify the retrieval option. Standard retrievals typically finish within
-        /// 3–5 hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
+        ///  <code>Standard</code> - Standard retrievals allow you to access any of your archived
+        /// objects within several hours. This is the default option for retrieval requests that
+        /// do not specify the retrieval option. Standard retrievals typically finish within 3–5
+        /// hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
         /// Archive tier. They typically finish within 12 hours for objects stored in the S3 Glacier
         /// Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier. Standard retrievals
         /// are free for objects stored in S3 Intelligent-Tiering.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Bulk</code> </b> - Bulk retrievals are the lowest-cost retrieval option
-        /// in S3 Glacier, enabling you to retrieve large amounts, even petabytes, of data inexpensively.
-        /// Bulk retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
+        ///  <code>Bulk</code> - Bulk retrievals are the lowest-cost retrieval option in S3 Glacier,
+        /// enabling you to retrieve large amounts, even petabytes, of data inexpensively. Bulk
+        /// retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
         /// storage class or S3 Intelligent-Tiering Archive tier. They typically finish within
         /// 48 hours for objects stored in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering
         /// Deep Archive tier. Bulk retrievals are free for objects stored in S3 Intelligent-Tiering.
@@ -20784,7 +21664,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name containing the object to restore.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name containing the object to restore.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Object key for which the action was initiated.</param>
         /// <param name="versionId">VersionId used to reference a specific version of the object.</param>
         /// 
@@ -20968,30 +21848,30 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <b> <code>Expedited</code> </b> - Expedited retrievals allow you to quickly access
-        /// your data stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive
-        /// tier when occasional urgent requests for a subset of archives are required. For all
-        /// but the largest archived objects (250 MB+), data accessed using Expedited retrievals
-        /// is typically made available within 1–5 minutes. Provisioned capacity ensures that
-        /// retrieval capacity for Expedited retrievals is available when you need it. Expedited
-        /// retrievals and provisioned capacity are not available for objects stored in the S3
-        /// Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
+        ///  <code>Expedited</code> - Expedited retrievals allow you to quickly access your data
+        /// stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive tier when
+        /// occasional urgent requests for a subset of archives are required. For all but the
+        /// largest archived objects (250 MB+), data accessed using Expedited retrievals is typically
+        /// made available within 1–5 minutes. Provisioned capacity ensures that retrieval capacity
+        /// for Expedited retrievals is available when you need it. Expedited retrievals and provisioned
+        /// capacity are not available for objects stored in the S3 Glacier Deep Archive storage
+        /// class or S3 Intelligent-Tiering Deep Archive tier.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Standard</code> </b> - Standard retrievals allow you to access any of your
-        /// archived objects within several hours. This is the default option for retrieval requests
-        /// that do not specify the retrieval option. Standard retrievals typically finish within
-        /// 3–5 hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
+        ///  <code>Standard</code> - Standard retrievals allow you to access any of your archived
+        /// objects within several hours. This is the default option for retrieval requests that
+        /// do not specify the retrieval option. Standard retrievals typically finish within 3–5
+        /// hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
         /// Archive tier. They typically finish within 12 hours for objects stored in the S3 Glacier
         /// Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier. Standard retrievals
         /// are free for objects stored in S3 Intelligent-Tiering.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Bulk</code> </b> - Bulk retrievals are the lowest-cost retrieval option
-        /// in S3 Glacier, enabling you to retrieve large amounts, even petabytes, of data inexpensively.
-        /// Bulk retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
+        ///  <code>Bulk</code> - Bulk retrievals are the lowest-cost retrieval option in S3 Glacier,
+        /// enabling you to retrieve large amounts, even petabytes, of data inexpensively. Bulk
+        /// retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
         /// storage class or S3 Intelligent-Tiering Archive tier. They typically finish within
         /// 48 hours for objects stored in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering
         /// Deep Archive tier. Bulk retrievals are free for objects stored in S3 Intelligent-Tiering.
@@ -21112,7 +21992,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name containing the object to restore.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name containing the object to restore.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Object key for which the action was initiated.</param>
         /// <param name="versionId">VersionId used to reference a specific version of the object.</param>
         /// <param name="days">A property of RestoreObjectRequest used to execute the RestoreObject service method.</param>
@@ -21297,30 +22177,30 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <b> <code>Expedited</code> </b> - Expedited retrievals allow you to quickly access
-        /// your data stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive
-        /// tier when occasional urgent requests for a subset of archives are required. For all
-        /// but the largest archived objects (250 MB+), data accessed using Expedited retrievals
-        /// is typically made available within 1–5 minutes. Provisioned capacity ensures that
-        /// retrieval capacity for Expedited retrievals is available when you need it. Expedited
-        /// retrievals and provisioned capacity are not available for objects stored in the S3
-        /// Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
+        ///  <code>Expedited</code> - Expedited retrievals allow you to quickly access your data
+        /// stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive tier when
+        /// occasional urgent requests for a subset of archives are required. For all but the
+        /// largest archived objects (250 MB+), data accessed using Expedited retrievals is typically
+        /// made available within 1–5 minutes. Provisioned capacity ensures that retrieval capacity
+        /// for Expedited retrievals is available when you need it. Expedited retrievals and provisioned
+        /// capacity are not available for objects stored in the S3 Glacier Deep Archive storage
+        /// class or S3 Intelligent-Tiering Deep Archive tier.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Standard</code> </b> - Standard retrievals allow you to access any of your
-        /// archived objects within several hours. This is the default option for retrieval requests
-        /// that do not specify the retrieval option. Standard retrievals typically finish within
-        /// 3–5 hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
+        ///  <code>Standard</code> - Standard retrievals allow you to access any of your archived
+        /// objects within several hours. This is the default option for retrieval requests that
+        /// do not specify the retrieval option. Standard retrievals typically finish within 3–5
+        /// hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
         /// Archive tier. They typically finish within 12 hours for objects stored in the S3 Glacier
         /// Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier. Standard retrievals
         /// are free for objects stored in S3 Intelligent-Tiering.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Bulk</code> </b> - Bulk retrievals are the lowest-cost retrieval option
-        /// in S3 Glacier, enabling you to retrieve large amounts, even petabytes, of data inexpensively.
-        /// Bulk retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
+        ///  <code>Bulk</code> - Bulk retrievals are the lowest-cost retrieval option in S3 Glacier,
+        /// enabling you to retrieve large amounts, even petabytes, of data inexpensively. Bulk
+        /// retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
         /// storage class or S3 Intelligent-Tiering Archive tier. They typically finish within
         /// 48 hours for objects stored in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering
         /// Deep Archive tier. Bulk retrievals are free for objects stored in S3 Intelligent-Tiering.
@@ -21624,30 +22504,30 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <b> <code>Expedited</code> </b> - Expedited retrievals allow you to quickly access
-        /// your data stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive
-        /// tier when occasional urgent requests for a subset of archives are required. For all
-        /// but the largest archived objects (250 MB+), data accessed using Expedited retrievals
-        /// is typically made available within 1–5 minutes. Provisioned capacity ensures that
-        /// retrieval capacity for Expedited retrievals is available when you need it. Expedited
-        /// retrievals and provisioned capacity are not available for objects stored in the S3
-        /// Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
+        ///  <code>Expedited</code> - Expedited retrievals allow you to quickly access your data
+        /// stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive tier when
+        /// occasional urgent requests for a subset of archives are required. For all but the
+        /// largest archived objects (250 MB+), data accessed using Expedited retrievals is typically
+        /// made available within 1–5 minutes. Provisioned capacity ensures that retrieval capacity
+        /// for Expedited retrievals is available when you need it. Expedited retrievals and provisioned
+        /// capacity are not available for objects stored in the S3 Glacier Deep Archive storage
+        /// class or S3 Intelligent-Tiering Deep Archive tier.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Standard</code> </b> - Standard retrievals allow you to access any of your
-        /// archived objects within several hours. This is the default option for retrieval requests
-        /// that do not specify the retrieval option. Standard retrievals typically finish within
-        /// 3–5 hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
+        ///  <code>Standard</code> - Standard retrievals allow you to access any of your archived
+        /// objects within several hours. This is the default option for retrieval requests that
+        /// do not specify the retrieval option. Standard retrievals typically finish within 3–5
+        /// hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
         /// Archive tier. They typically finish within 12 hours for objects stored in the S3 Glacier
         /// Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier. Standard retrievals
         /// are free for objects stored in S3 Intelligent-Tiering.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Bulk</code> </b> - Bulk retrievals are the lowest-cost retrieval option
-        /// in S3 Glacier, enabling you to retrieve large amounts, even petabytes, of data inexpensively.
-        /// Bulk retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
+        ///  <code>Bulk</code> - Bulk retrievals are the lowest-cost retrieval option in S3 Glacier,
+        /// enabling you to retrieve large amounts, even petabytes, of data inexpensively. Bulk
+        /// retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
         /// storage class or S3 Intelligent-Tiering Archive tier. They typically finish within
         /// 48 hours for objects stored in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering
         /// Deep Archive tier. Bulk retrievals are free for objects stored in S3 Intelligent-Tiering.
@@ -21768,7 +22648,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name containing the object to restore.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name containing the object to restore.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Object key for which the action was initiated.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -21954,30 +22834,30 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <b> <code>Expedited</code> </b> - Expedited retrievals allow you to quickly access
-        /// your data stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive
-        /// tier when occasional urgent requests for a subset of archives are required. For all
-        /// but the largest archived objects (250 MB+), data accessed using Expedited retrievals
-        /// is typically made available within 1–5 minutes. Provisioned capacity ensures that
-        /// retrieval capacity for Expedited retrievals is available when you need it. Expedited
-        /// retrievals and provisioned capacity are not available for objects stored in the S3
-        /// Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
+        ///  <code>Expedited</code> - Expedited retrievals allow you to quickly access your data
+        /// stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive tier when
+        /// occasional urgent requests for a subset of archives are required. For all but the
+        /// largest archived objects (250 MB+), data accessed using Expedited retrievals is typically
+        /// made available within 1–5 minutes. Provisioned capacity ensures that retrieval capacity
+        /// for Expedited retrievals is available when you need it. Expedited retrievals and provisioned
+        /// capacity are not available for objects stored in the S3 Glacier Deep Archive storage
+        /// class or S3 Intelligent-Tiering Deep Archive tier.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Standard</code> </b> - Standard retrievals allow you to access any of your
-        /// archived objects within several hours. This is the default option for retrieval requests
-        /// that do not specify the retrieval option. Standard retrievals typically finish within
-        /// 3–5 hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
+        ///  <code>Standard</code> - Standard retrievals allow you to access any of your archived
+        /// objects within several hours. This is the default option for retrieval requests that
+        /// do not specify the retrieval option. Standard retrievals typically finish within 3–5
+        /// hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
         /// Archive tier. They typically finish within 12 hours for objects stored in the S3 Glacier
         /// Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier. Standard retrievals
         /// are free for objects stored in S3 Intelligent-Tiering.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Bulk</code> </b> - Bulk retrievals are the lowest-cost retrieval option
-        /// in S3 Glacier, enabling you to retrieve large amounts, even petabytes, of data inexpensively.
-        /// Bulk retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
+        ///  <code>Bulk</code> - Bulk retrievals are the lowest-cost retrieval option in S3 Glacier,
+        /// enabling you to retrieve large amounts, even petabytes, of data inexpensively. Bulk
+        /// retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
         /// storage class or S3 Intelligent-Tiering Archive tier. They typically finish within
         /// 48 hours for objects stored in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering
         /// Deep Archive tier. Bulk retrievals are free for objects stored in S3 Intelligent-Tiering.
@@ -22098,7 +22978,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name containing the object to restore.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name containing the object to restore.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Object key for which the action was initiated.</param>
         /// <param name="days">A property of RestoreObjectRequest used to execute the RestoreObject service method.</param>
         /// <param name="cancellationToken">
@@ -22285,30 +23165,30 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <b> <code>Expedited</code> </b> - Expedited retrievals allow you to quickly access
-        /// your data stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive
-        /// tier when occasional urgent requests for a subset of archives are required. For all
-        /// but the largest archived objects (250 MB+), data accessed using Expedited retrievals
-        /// is typically made available within 1–5 minutes. Provisioned capacity ensures that
-        /// retrieval capacity for Expedited retrievals is available when you need it. Expedited
-        /// retrievals and provisioned capacity are not available for objects stored in the S3
-        /// Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
+        ///  <code>Expedited</code> - Expedited retrievals allow you to quickly access your data
+        /// stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive tier when
+        /// occasional urgent requests for a subset of archives are required. For all but the
+        /// largest archived objects (250 MB+), data accessed using Expedited retrievals is typically
+        /// made available within 1–5 minutes. Provisioned capacity ensures that retrieval capacity
+        /// for Expedited retrievals is available when you need it. Expedited retrievals and provisioned
+        /// capacity are not available for objects stored in the S3 Glacier Deep Archive storage
+        /// class or S3 Intelligent-Tiering Deep Archive tier.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Standard</code> </b> - Standard retrievals allow you to access any of your
-        /// archived objects within several hours. This is the default option for retrieval requests
-        /// that do not specify the retrieval option. Standard retrievals typically finish within
-        /// 3–5 hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
+        ///  <code>Standard</code> - Standard retrievals allow you to access any of your archived
+        /// objects within several hours. This is the default option for retrieval requests that
+        /// do not specify the retrieval option. Standard retrievals typically finish within 3–5
+        /// hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
         /// Archive tier. They typically finish within 12 hours for objects stored in the S3 Glacier
         /// Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier. Standard retrievals
         /// are free for objects stored in S3 Intelligent-Tiering.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Bulk</code> </b> - Bulk retrievals are the lowest-cost retrieval option
-        /// in S3 Glacier, enabling you to retrieve large amounts, even petabytes, of data inexpensively.
-        /// Bulk retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
+        ///  <code>Bulk</code> - Bulk retrievals are the lowest-cost retrieval option in S3 Glacier,
+        /// enabling you to retrieve large amounts, even petabytes, of data inexpensively. Bulk
+        /// retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
         /// storage class or S3 Intelligent-Tiering Archive tier. They typically finish within
         /// 48 hours for objects stored in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering
         /// Deep Archive tier. Bulk retrievals are free for objects stored in S3 Intelligent-Tiering.
@@ -22429,7 +23309,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name containing the object to restore.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name containing the object to restore.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Object key for which the action was initiated.</param>
         /// <param name="versionId">VersionId used to reference a specific version of the object.</param>
         /// <param name="cancellationToken">
@@ -22616,30 +23496,30 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <b> <code>Expedited</code> </b> - Expedited retrievals allow you to quickly access
-        /// your data stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive
-        /// tier when occasional urgent requests for a subset of archives are required. For all
-        /// but the largest archived objects (250 MB+), data accessed using Expedited retrievals
-        /// is typically made available within 1–5 minutes. Provisioned capacity ensures that
-        /// retrieval capacity for Expedited retrievals is available when you need it. Expedited
-        /// retrievals and provisioned capacity are not available for objects stored in the S3
-        /// Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
+        ///  <code>Expedited</code> - Expedited retrievals allow you to quickly access your data
+        /// stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive tier when
+        /// occasional urgent requests for a subset of archives are required. For all but the
+        /// largest archived objects (250 MB+), data accessed using Expedited retrievals is typically
+        /// made available within 1–5 minutes. Provisioned capacity ensures that retrieval capacity
+        /// for Expedited retrievals is available when you need it. Expedited retrievals and provisioned
+        /// capacity are not available for objects stored in the S3 Glacier Deep Archive storage
+        /// class or S3 Intelligent-Tiering Deep Archive tier.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Standard</code> </b> - Standard retrievals allow you to access any of your
-        /// archived objects within several hours. This is the default option for retrieval requests
-        /// that do not specify the retrieval option. Standard retrievals typically finish within
-        /// 3–5 hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
+        ///  <code>Standard</code> - Standard retrievals allow you to access any of your archived
+        /// objects within several hours. This is the default option for retrieval requests that
+        /// do not specify the retrieval option. Standard retrievals typically finish within 3–5
+        /// hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
         /// Archive tier. They typically finish within 12 hours for objects stored in the S3 Glacier
         /// Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier. Standard retrievals
         /// are free for objects stored in S3 Intelligent-Tiering.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Bulk</code> </b> - Bulk retrievals are the lowest-cost retrieval option
-        /// in S3 Glacier, enabling you to retrieve large amounts, even petabytes, of data inexpensively.
-        /// Bulk retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
+        ///  <code>Bulk</code> - Bulk retrievals are the lowest-cost retrieval option in S3 Glacier,
+        /// enabling you to retrieve large amounts, even petabytes, of data inexpensively. Bulk
+        /// retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
         /// storage class or S3 Intelligent-Tiering Archive tier. They typically finish within
         /// 48 hours for objects stored in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering
         /// Deep Archive tier. Bulk retrievals are free for objects stored in S3 Intelligent-Tiering.
@@ -22760,7 +23640,7 @@ namespace Amazon.S3
         /// </para>
         ///  </li> </ul>
         /// </summary>
-        /// <param name="bucketName">The bucket name containing the object to restore.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
+        /// <param name="bucketName">The bucket name containing the object to restore.  When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>. When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</param>
         /// <param name="key">Object key for which the action was initiated.</param>
         /// <param name="versionId">VersionId used to reference a specific version of the object.</param>
         /// <param name="days">A property of RestoreObjectRequest used to execute the RestoreObject service method.</param>
@@ -22949,30 +23829,30 @@ namespace Amazon.S3
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <b> <code>Expedited</code> </b> - Expedited retrievals allow you to quickly access
-        /// your data stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive
-        /// tier when occasional urgent requests for a subset of archives are required. For all
-        /// but the largest archived objects (250 MB+), data accessed using Expedited retrievals
-        /// is typically made available within 1–5 minutes. Provisioned capacity ensures that
-        /// retrieval capacity for Expedited retrievals is available when you need it. Expedited
-        /// retrievals and provisioned capacity are not available for objects stored in the S3
-        /// Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
+        ///  <code>Expedited</code> - Expedited retrievals allow you to quickly access your data
+        /// stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive tier when
+        /// occasional urgent requests for a subset of archives are required. For all but the
+        /// largest archived objects (250 MB+), data accessed using Expedited retrievals is typically
+        /// made available within 1–5 minutes. Provisioned capacity ensures that retrieval capacity
+        /// for Expedited retrievals is available when you need it. Expedited retrievals and provisioned
+        /// capacity are not available for objects stored in the S3 Glacier Deep Archive storage
+        /// class or S3 Intelligent-Tiering Deep Archive tier.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Standard</code> </b> - Standard retrievals allow you to access any of your
-        /// archived objects within several hours. This is the default option for retrieval requests
-        /// that do not specify the retrieval option. Standard retrievals typically finish within
-        /// 3–5 hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
+        ///  <code>Standard</code> - Standard retrievals allow you to access any of your archived
+        /// objects within several hours. This is the default option for retrieval requests that
+        /// do not specify the retrieval option. Standard retrievals typically finish within 3–5
+        /// hours for objects stored in the S3 Glacier storage class or S3 Intelligent-Tiering
         /// Archive tier. They typically finish within 12 hours for objects stored in the S3 Glacier
         /// Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier. Standard retrievals
         /// are free for objects stored in S3 Intelligent-Tiering.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b> <code>Bulk</code> </b> - Bulk retrievals are the lowest-cost retrieval option
-        /// in S3 Glacier, enabling you to retrieve large amounts, even petabytes, of data inexpensively.
-        /// Bulk retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
+        ///  <code>Bulk</code> - Bulk retrievals are the lowest-cost retrieval option in S3 Glacier,
+        /// enabling you to retrieve large amounts, even petabytes, of data inexpensively. Bulk
+        /// retrievals typically finish within 5–12 hours for objects stored in the S3 Glacier
         /// storage class or S3 Intelligent-Tiering Archive tier. They typically finish within
         /// 48 hours for objects stored in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering
         /// Deep Archive tier. Bulk retrievals are free for objects stored in S3 Intelligent-Tiering.
@@ -23122,7 +24002,8 @@ namespace Amazon.S3
         ///  
         /// <para>
         /// For more information about Amazon S3 Select, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html">Selecting
-        /// Content from Objects</a> in the <i>Amazon S3 User Guide</i>.
+        /// Content from Objects</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html">SELECT
+        /// Command</a> in the <i>Amazon S3 User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -23271,7 +24152,8 @@ namespace Amazon.S3
         ///  
         /// <para>
         /// For more information about Amazon S3 Select, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html">Selecting
-        /// Content from Objects</a> in the <i>Amazon S3 User Guide</i>.
+        /// Content from Objects</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html">SELECT
+        /// Command</a> in the <i>Amazon S3 User Guide</i>.
         /// </para>
         ///  
         /// <para>

@@ -32,7 +32,7 @@ namespace Amazon.Transfer
     public partial class AmazonTransferConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.3.34");
+            InternalSDKUtils.BuildUserAgentString("3.7.10.15");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.Transfer
         /// Default constructor
         /// </summary>
         public AmazonTransferConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonTransferDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "transfer";
         }

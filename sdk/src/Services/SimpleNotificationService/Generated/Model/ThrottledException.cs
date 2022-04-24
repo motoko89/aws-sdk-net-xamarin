@@ -30,7 +30,7 @@ namespace Amazon.SimpleNotificationService.Model
 {
     /// <summary>
     /// Indicates that the rate at which requests have been submitted for this action exceeds
-    /// the limit for your account.
+    /// the limit for your Amazon Web Services account.
     /// </summary>
     #if !NETSTANDARD
     [Serializable]

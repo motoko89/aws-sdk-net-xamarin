@@ -70,10 +70,22 @@ namespace Amazon.ComputeOptimizer.Model.Internal.MarshallTransformations
                     unmarshalledObject.AccountId = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("currentPerformanceRiskRatings", targetDepth))
+                {
+                    var unmarshaller = CurrentPerformanceRiskRatingsUnmarshaller.Instance;
+                    unmarshalledObject.CurrentPerformanceRiskRatings = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("recommendationResourceType", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.RecommendationResourceType = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("savingsOpportunity", targetDepth))
+                {
+                    var unmarshaller = SavingsOpportunityUnmarshaller.Instance;
+                    unmarshalledObject.SavingsOpportunity = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("summaries", targetDepth))

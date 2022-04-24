@@ -180,6 +180,14 @@ namespace Amazon.Glue.Model
         }
 
         /// <summary>
+        /// Paginator for GetUnfilteredPartitionsMetadata operation
+        ///</summary>
+        public IGetUnfilteredPartitionsMetadataPaginator GetUnfilteredPartitionsMetadata(GetUnfilteredPartitionsMetadataRequest request) 
+        {
+            return new GetUnfilteredPartitionsMetadataPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for GetUserDefinedFunctions operation
         ///</summary>
         public IGetUserDefinedFunctionsPaginator GetUserDefinedFunctions(GetUserDefinedFunctionsRequest request) 
@@ -209,6 +217,14 @@ namespace Amazon.Glue.Model
         public IListCrawlersPaginator ListCrawlers(ListCrawlersRequest request) 
         {
             return new ListCrawlersPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListCustomEntityTypes operation
+        ///</summary>
+        public IListCustomEntityTypesPaginator ListCustomEntityTypes(ListCustomEntityTypesRequest request) 
+        {
+            return new ListCustomEntityTypesPaginator(this.client, request);
         }
 
         /// <summary>
@@ -257,6 +273,14 @@ namespace Amazon.Glue.Model
         public IListSchemaVersionsPaginator ListSchemaVersions(ListSchemaVersionsRequest request) 
         {
             return new ListSchemaVersionsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListSessions operation
+        ///</summary>
+        public IListSessionsPaginator ListSessions(ListSessionsRequest request) 
+        {
+            return new ListSessionsPaginator(this.client, request);
         }
 
         /// <summary>

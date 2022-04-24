@@ -319,6 +319,13 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         publicRequestlistValueIndex++;
                     }
                 }
+                if(publicRequest.IsSetMaintenanceOptions())
+                {
+                    if(publicRequest.MaintenanceOptions.IsSetAutoRecovery())
+                    {
+                        request.Parameters.Add("MaintenanceOptions" + "." + "AutoRecovery", StringUtils.FromString(publicRequest.MaintenanceOptions.AutoRecovery));
+                    }
+                }
                 if(publicRequest.IsSetMaxCount())
                 {
                     request.Parameters.Add("MaxCount", StringUtils.FromInt(publicRequest.MaxCount));
@@ -340,6 +347,10 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                     if(publicRequest.MetadataOptions.IsSetHttpTokens())
                     {
                         request.Parameters.Add("MetadataOptions" + "." + "HttpTokens", StringUtils.FromString(publicRequest.MetadataOptions.HttpTokens));
+                    }
+                    if(publicRequest.MetadataOptions.IsSetInstanceMetadataTags())
+                    {
+                        request.Parameters.Add("MetadataOptions" + "." + "InstanceMetadataTags", StringUtils.FromString(publicRequest.MetadataOptions.InstanceMetadataTags));
                     }
                 }
                 if(publicRequest.IsSetMinCount())
@@ -508,6 +519,21 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                     if(publicRequest.Placement.IsSetTenancy())
                     {
                         request.Parameters.Add("Placement" + "." + "Tenancy", StringUtils.FromString(publicRequest.Placement.Tenancy));
+                    }
+                }
+                if(publicRequest.IsSetPrivateDnsNameOptions())
+                {
+                    if(publicRequest.PrivateDnsNameOptions.IsSetEnableResourceNameDnsAAAARecord())
+                    {
+                        request.Parameters.Add("PrivateDnsNameOptions" + "." + "EnableResourceNameDnsAAAARecord", StringUtils.FromBool(publicRequest.PrivateDnsNameOptions.EnableResourceNameDnsAAAARecord));
+                    }
+                    if(publicRequest.PrivateDnsNameOptions.IsSetEnableResourceNameDnsARecord())
+                    {
+                        request.Parameters.Add("PrivateDnsNameOptions" + "." + "EnableResourceNameDnsARecord", StringUtils.FromBool(publicRequest.PrivateDnsNameOptions.EnableResourceNameDnsARecord));
+                    }
+                    if(publicRequest.PrivateDnsNameOptions.IsSetHostnameType())
+                    {
+                        request.Parameters.Add("PrivateDnsNameOptions" + "." + "HostnameType", StringUtils.FromString(publicRequest.PrivateDnsNameOptions.HostnameType));
                     }
                 }
                 if(publicRequest.IsSetPrivateIpAddress())

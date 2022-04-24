@@ -39,6 +39,7 @@ namespace Amazon.AppSync.Model
         private string _description;
         private string _functionId;
         private string _functionVersion;
+        private int? _maxBatchSize;
         private string _name;
         private string _requestMappingTemplate;
         private string _responseMappingTemplate;
@@ -122,8 +123,8 @@ namespace Amazon.AppSync.Model
         /// <summary>
         /// Gets and sets the property FunctionVersion. 
         /// <para>
-        /// The <code>version</code> of the request mapping template. Currently the supported
-        /// value is 2018-05-29. 
+        /// The <code>version</code> of the request mapping template. Currently, the supported
+        /// value is 2018-05-29.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -137,6 +138,25 @@ namespace Amazon.AppSync.Model
         internal bool IsSetFunctionVersion()
         {
             return this._functionVersion != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property MaxBatchSize. 
+        /// <para>
+        /// The maximum batching size for a resolver.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=2000)]
+        public int MaxBatchSize
+        {
+            get { return this._maxBatchSize.GetValueOrDefault(); }
+            set { this._maxBatchSize = value; }
+        }
+
+        // Check to see if MaxBatchSize property is set
+        internal bool IsSetMaxBatchSize()
+        {
+            return this._maxBatchSize.HasValue; 
         }
 
         /// <summary>
@@ -181,7 +201,7 @@ namespace Amazon.AppSync.Model
         /// <summary>
         /// Gets and sets the property ResponseMappingTemplate. 
         /// <para>
-        /// The <code>Function</code> request mapping template. 
+        /// The <code>Function</code> request mapping template.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=65536)]

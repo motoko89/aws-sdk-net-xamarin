@@ -30,13 +30,13 @@ namespace Amazon.ACMPCA.Model
 {
     /// <summary>
     /// Container for the parameters to the ListPermissions operation.
-    /// List all permissions on a private CA, if any, granted to the AWS Certificate Manager
-    /// (ACM) service principal (acm.amazonaws.com). 
+    /// List all permissions on a private CA, if any, granted to the Certificate Manager (ACM)
+    /// service principal (acm.amazonaws.com). 
     /// 
     ///  
     /// <para>
     /// These permissions allow ACM to issue and renew ACM certificates that reside in the
-    /// same AWS account as the CA. 
+    /// same Amazon Web Services account as the CA. 
     /// </para>
     ///  
     /// <para>

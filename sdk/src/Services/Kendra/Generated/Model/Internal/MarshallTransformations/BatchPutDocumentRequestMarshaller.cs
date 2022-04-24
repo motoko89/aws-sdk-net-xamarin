@@ -58,7 +58,7 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
             string target = "AWSKendraFrontendService.BatchPutDocument";
             request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/x-amz-json-1.1";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-02-03";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-02-03";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
@@ -67,6 +67,17 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetCustomDocumentEnrichmentConfiguration())
+                {
+                    context.Writer.WritePropertyName("CustomDocumentEnrichmentConfiguration");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = CustomDocumentEnrichmentConfigurationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.CustomDocumentEnrichmentConfiguration, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetDocuments())
                 {
                     context.Writer.WritePropertyName("Documents");
@@ -95,7 +106,6 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.RoleArn);
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

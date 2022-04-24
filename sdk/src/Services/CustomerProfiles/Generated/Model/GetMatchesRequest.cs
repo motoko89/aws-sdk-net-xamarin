@@ -30,14 +30,10 @@ namespace Amazon.CustomerProfiles.Model
 {
     /// <summary>
     /// Container for the parameters to the GetMatches operation.
-    /// This API is in preview release for Amazon Connect and subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Before calling this API, use <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html">CreateDomain</a>
     /// or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html">UpdateDomain</a>
     /// to enable identity resolution: set <code>Matching</code> to true.
-    /// </para>
+    /// 
     ///  
     /// <para>
     /// GetMatches returns potentially matching profiles, based on the results of the latest
@@ -45,8 +41,17 @@ namespace Amazon.CustomerProfiles.Model
     /// </para>
     ///  <important> 
     /// <para>
-    /// Amazon Connect starts a batch process every Saturday at 12AM UTC to identify matching
-    /// profiles. The results are returned up to seven days after the Saturday run.
+    /// The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>,
+    /// Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution
+    /// Job. If you do not specify a date and time for Identity Resolution Job to run, by
+    /// default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains.
+    /// 
+    /// </para>
+    ///  
+    /// <para>
+    /// After the Identity Resolution Job completes, use the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
+    /// API to return and review the results. Or, if you have configured <code>ExportingConfig</code>
+    /// in the <code>MatchingRequest</code>, you can download the results from S3.
     /// </para>
     ///  </important> 
     /// <para>
@@ -83,10 +88,6 @@ namespace Amazon.CustomerProfiles.Model
     ///  </li> <li> 
     /// <para>
     /// FullName
-    /// </para>
-    ///  </li> <li> 
-    /// <para>
-    /// BusinessName
     /// </para>
     ///  </li> </ul> 
     /// <para>

@@ -177,6 +177,12 @@ namespace Amazon.Redshift.Model.Internal.MarshallTransformations
                         unmarshalledObject.DBName = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("DefaultIamRoleArn", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.DefaultIamRoleArn = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("DeferredMaintenanceWindows/DeferredMaintenanceWindow", targetDepth))
                     {
                         var unmarshaller = DeferredMaintenanceWindowUnmarshaller.Instance;
@@ -310,6 +316,12 @@ namespace Amazon.Redshift.Model.Internal.MarshallTransformations
                     {
                         var unmarshaller = BoolUnmarshaller.Instance;
                         unmarshalledObject.PubliclyAccessible = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("ReservedNodeExchangeStatus", targetDepth))
+                    {
+                        var unmarshaller = ReservedNodeExchangeStatusUnmarshaller.Instance;
+                        unmarshalledObject.ReservedNodeExchangeStatus = unmarshaller.Unmarshall(context);
                         continue;
                     }
                     if (context.TestExpression("ResizeInfo", targetDepth))

@@ -118,9 +118,9 @@ namespace Amazon.QuickSight.Model
         /// </para>
         ///  
         /// <para>
-        /// Amazon QuickSight custom permissions are applied through IAMpolicies. Therefore, they
-        /// override the permissions typically granted by assigning Amazon QuickSight users to
-        /// one of the default security cohorts in Amazon QuickSight (admin, author, reader).
+        /// Amazon QuickSight custom permissions are applied through IAM policies. Therefore,
+        /// they override the permissions typically granted by assigning Amazon QuickSight users
+        /// to one of the default security cohorts in Amazon QuickSight (admin, author, reader).
         /// </para>
         ///  
         /// <para>
@@ -181,8 +181,8 @@ namespace Amazon.QuickSight.Model
         ///  </li> <li> 
         /// <para>
         ///  <code>NONE</code>: This clears all the previously saved external login information
-        /// for a user. Use <code> <a>DescribeUser</a> </code> API to check the external login
-        /// information.
+        /// for a user. Use the <code> <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html">DescribeUser</a>
+        /// </code> API operation to check the external login information.
         /// </para>
         ///  </li> </ul>
         /// </summary>

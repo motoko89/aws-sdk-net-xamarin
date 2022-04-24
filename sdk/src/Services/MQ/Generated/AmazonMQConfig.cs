@@ -32,7 +32,7 @@ namespace Amazon.MQ
     public partial class AmazonMQConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.55");
+            InternalSDKUtils.BuildUserAgentString("3.7.1.113");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.MQ
         /// Default constructor
         /// </summary>
         public AmazonMQConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonMQDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "mq";
         }

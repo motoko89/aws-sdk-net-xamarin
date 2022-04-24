@@ -32,7 +32,7 @@ namespace Amazon.IotData
     public partial class AmazonIotDataConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.38");
+            InternalSDKUtils.BuildUserAgentString("3.7.2.9");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.IotData
         /// Default constructor
         /// </summary>
         public AmazonIotDataConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonIotDataDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "iotdata";
         }
@@ -51,7 +52,7 @@ namespace Amazon.IotData
         {
             get
             {
-                return "data.iot";
+                return "data-ats.iot";
             }
         }
 

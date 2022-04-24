@@ -1025,7 +1025,9 @@ namespace Amazon.IoT
         ///  
         /// <para>
         ///  <b>Note:</b> The CSR must include a public key that is either an RSA key with a length
-        /// of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves. 
+        /// of at least 2048 bits or an ECC key from NIST P-256, NIST P-384, or NIST P-512 curves.
+        /// For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms">
+        /// Certificate signing algorithms supported by IoT</a>.
         /// </para>
         ///  
         /// <para>
@@ -1124,7 +1126,9 @@ namespace Amazon.IoT
         ///  
         /// <para>
         ///  <b>Note:</b> The CSR must include a public key that is either an RSA key with a length
-        /// of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves. 
+        /// of at least 2048 bits or an ECC key from NIST P-256, NIST P-384, or NIST P-512 curves.
+        /// For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms">
+        /// Certificate signing algorithms supported by IoT</a>.
         /// </para>
         ///  
         /// <para>
@@ -1225,7 +1229,9 @@ namespace Amazon.IoT
         ///  
         /// <para>
         ///  <b>Note:</b> The CSR must include a public key that is either an RSA key with a length
-        /// of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves. 
+        /// of at least 2048 bits or an ECC key from NIST P-256, NIST P-384, or NIST P-512 curves.
+        /// For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms">
+        /// Certificate signing algorithms supported by IoT</a>.
         /// </para>
         ///  
         /// <para>
@@ -5041,6 +5047,37 @@ namespace Amazon.IoT
 
         #endregion
                 
+        #region  DescribeManagedJobTemplate
+
+
+
+        /// <summary>
+        /// View details of a managed job template.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeManagedJobTemplate service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeManagedJobTemplate service method, as returned by IoT.</returns>
+        /// <exception cref="Amazon.IoT.Model.InternalServerException">
+        /// Internal error from the service that indicates an unexpected error or that the service
+        /// is unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.InvalidRequestException">
+        /// The request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.ResourceNotFoundException">
+        /// The specified resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.ThrottlingException">
+        /// The rate exceeds the limit.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/DescribeManagedJobTemplate">REST API Reference for DescribeManagedJobTemplate Operation</seealso>
+        Task<DescribeManagedJobTemplateResponse> DescribeManagedJobTemplateAsync(DescribeManagedJobTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  DescribeMitigationAction
 
 
@@ -7511,6 +7548,68 @@ namespace Amazon.IoT
 
         #endregion
                 
+        #region  ListManagedJobTemplates
+
+
+
+        /// <summary>
+        /// Returns a list of managed job templates.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListManagedJobTemplates service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListManagedJobTemplates service method, as returned by IoT.</returns>
+        /// <exception cref="Amazon.IoT.Model.InternalServerException">
+        /// Internal error from the service that indicates an unexpected error or that the service
+        /// is unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.InvalidRequestException">
+        /// The request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.ResourceNotFoundException">
+        /// The specified resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.ThrottlingException">
+        /// The rate exceeds the limit.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/ListManagedJobTemplates">REST API Reference for ListManagedJobTemplates Operation</seealso>
+        Task<ListManagedJobTemplatesResponse> ListManagedJobTemplatesAsync(ListManagedJobTemplatesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  ListMetricValues
+
+
+
+        /// <summary>
+        /// Lists the values reported for an IoT Device Defender metric (device-side metric, cloud-side
+        /// metric, or custom metric) by the given thing during the specified time period.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListMetricValues service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListMetricValues service method, as returned by IoT.</returns>
+        /// <exception cref="Amazon.IoT.Model.InternalFailureException">
+        /// An unexpected error has occurred.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.InvalidRequestException">
+        /// The request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.ResourceNotFoundException">
+        /// The specified resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.IoT.Model.ThrottlingException">
+        /// The rate exceeds the limit.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/ListMetricValues">REST API Reference for ListMetricValues Operation</seealso>
+        Task<ListMetricValuesResponse> ListMetricValuesAsync(ListMetricValuesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  ListMitigationActions
 
 
@@ -9108,7 +9207,9 @@ namespace Amazon.IoT
 
 
         /// <summary>
-        /// Register a certificate that does not have a certificate authority (CA).
+        /// Register a certificate that does not have a certificate authority (CA). For supported
+        /// certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms">
+        /// Certificate signing algorithms supported by IoT</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RegisterCertificateWithoutCA service method.</param>
         /// <param name="cancellationToken">
@@ -9312,6 +9413,11 @@ namespace Amazon.IoT
         /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromBillingGroup</a>
         /// action.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// This call is asynchronous. It might take several seconds for the detachment to propagate.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RemoveThingFromBillingGroup service method.</param>
         /// <param name="cancellationToken">

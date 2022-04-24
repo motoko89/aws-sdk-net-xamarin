@@ -34,7 +34,7 @@ namespace Amazon.DirectConnect.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// NewTransitVirtualInterface Marshaller
-    /// </summary>       
+    /// </summary>
     public class NewTransitVirtualInterfaceMarshaller : IRequestMarshaller<NewTransitVirtualInterface, JsonMarshallerContext> 
     {
         /// <summary>
@@ -81,6 +81,12 @@ namespace Amazon.DirectConnect.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.DirectConnectGatewayId);
             }
 
+            if(requestObject.IsSetEnableSiteLink())
+            {
+                context.Writer.WritePropertyName("enableSiteLink");
+                context.Writer.Write(requestObject.EnableSiteLink);
+            }
+
             if(requestObject.IsSetMtu())
             {
                 context.Writer.WritePropertyName("mtu");
@@ -119,7 +125,7 @@ namespace Amazon.DirectConnect.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static NewTransitVirtualInterfaceMarshaller Instance = new NewTransitVirtualInterfaceMarshaller();
 
     }

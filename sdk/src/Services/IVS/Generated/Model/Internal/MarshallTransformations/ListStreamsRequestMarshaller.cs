@@ -56,7 +56,7 @@ namespace Amazon.IVS.Model.Internal.MarshallTransformations
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.IVS");
             request.Headers["Content-Type"] = "application/json";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-07-14";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-07-14";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/ListStreams";
@@ -65,6 +65,17 @@ namespace Amazon.IVS.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetFilterBy())
+                {
+                    context.Writer.WritePropertyName("filterBy");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = StreamFiltersMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.FilterBy, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetMaxResults())
                 {
                     context.Writer.WritePropertyName("maxResults");
@@ -77,7 +88,6 @@ namespace Amazon.IVS.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.NextToken);
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

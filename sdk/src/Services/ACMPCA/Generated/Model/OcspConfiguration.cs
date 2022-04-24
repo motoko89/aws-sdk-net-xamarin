@@ -66,9 +66,9 @@ namespace Amazon.ACMPCA.Model
         /// <summary>
         /// Gets and sets the property OcspCustomCname. 
         /// <para>
-        /// By default, ACM Private CA injects an AWS domain into certificates being validated
-        /// by the Online Certificate Status Protocol (OCSP). A customer can alternatively use
-        /// this object to define a CNAME specifying a customized OCSP domain.
+        /// By default, ACM Private CA injects an Amazon Web Services domain into certificates
+        /// being validated by the Online Certificate Status Protocol (OCSP). A customer can alternatively
+        /// use this object to define a CNAME specifying a customized OCSP domain.
         /// </para>
         ///  
         /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.ACMPCA.Model
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/ocsp-customize.html">Customizing
-        /// Online Certificate Status Protocol (OCSP) </a> in the <i>AWS Certificate Manager Private
+        /// Online Certificate Status Protocol (OCSP) </a> in the <i>Certificate Manager Private
         /// Certificate Authority (PCA) User Guide</i>.
         /// </para>
         /// </summary>

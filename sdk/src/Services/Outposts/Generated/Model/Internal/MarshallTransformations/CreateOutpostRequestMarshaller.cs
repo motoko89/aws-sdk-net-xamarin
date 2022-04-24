@@ -56,7 +56,7 @@ namespace Amazon.Outposts.Model.Internal.MarshallTransformations
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.Outposts");
             request.Headers["Content-Type"] = "application/json";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-12-03";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-12-03";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/outposts";
@@ -95,6 +95,12 @@ namespace Amazon.Outposts.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.SiteId);
                 }
 
+                if(publicRequest.IsSetSupportedHardwareType())
+                {
+                    context.Writer.WritePropertyName("SupportedHardwareType");
+                    context.Writer.Write(publicRequest.SupportedHardwareType);
+                }
+
                 if(publicRequest.IsSetTags())
                 {
                     context.Writer.WritePropertyName("Tags");
@@ -109,7 +115,6 @@ namespace Amazon.Outposts.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

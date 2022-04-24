@@ -56,7 +56,7 @@ namespace Amazon.AppConfig.Model.Internal.MarshallTransformations
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.AppConfig");
             request.Headers["Content-Type"] = "application/json";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-10-09";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-10-09";
             request.HttpMethod = "POST";
 
             if (!publicRequest.IsSetApplicationId())
@@ -106,6 +106,12 @@ namespace Amazon.AppConfig.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
+                if(publicRequest.IsSetType())
+                {
+                    context.Writer.WritePropertyName("Type");
+                    context.Writer.Write(publicRequest.Type);
+                }
+
                 if(publicRequest.IsSetValidators())
                 {
                     context.Writer.WritePropertyName("Validators");
@@ -122,7 +128,6 @@ namespace Amazon.AppConfig.Model.Internal.MarshallTransformations
                     context.Writer.WriteArrayEnd();
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

@@ -58,7 +58,7 @@ namespace Amazon.DynamoDBv2.Model.Internal.MarshallTransformations
             string target = "DynamoDB_20120810.BatchExecuteStatement";
             request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/x-amz-json-1.0";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2012-08-10";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2012-08-10";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
@@ -67,6 +67,12 @@ namespace Amazon.DynamoDBv2.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetReturnConsumedCapacity())
+                {
+                    context.Writer.WritePropertyName("ReturnConsumedCapacity");
+                    context.Writer.Write(publicRequest.ReturnConsumedCapacity);
+                }
+
                 if(publicRequest.IsSetStatements())
                 {
                     context.Writer.WritePropertyName("Statements");
@@ -83,7 +89,6 @@ namespace Amazon.DynamoDBv2.Model.Internal.MarshallTransformations
                     context.Writer.WriteArrayEnd();
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

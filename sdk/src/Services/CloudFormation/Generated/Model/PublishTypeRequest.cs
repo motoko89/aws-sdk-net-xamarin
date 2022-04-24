@@ -80,7 +80,7 @@ namespace Amazon.CloudFormation.Model
         ///  
         /// <para>
         /// Use the following format, and adhere to semantic versioning when assigning a version
-        /// number to your extension: 
+        /// number to your extension:
         /// </para>
         ///  
         /// <para>
@@ -92,13 +92,13 @@ namespace Amazon.CloudFormation.Model
         /// </para>
         ///  
         /// <para>
-        /// If you do not specify a version number, CloudFormation increments the version number
+        /// If you don't specify a version number, CloudFormation increments the version number
         /// by one minor version release.
         /// </para>
         ///  
         /// <para>
-        /// The first time you publish a type, CloudFormation sets the version number to <code>1.0.0</code>,
-        /// regardless of the value you specify.
+        /// You cannot specify a version number the first time you publish a type. CloudFormation
+        /// automatically sets the first version number to be <code>1.0.0</code>.
         /// </para>
         /// </summary>
         [AWSProperty(Min=5)]

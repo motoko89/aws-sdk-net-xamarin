@@ -56,7 +56,7 @@ namespace Amazon.ManagedGrafana.Model.Internal.MarshallTransformations
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.ManagedGrafana");
             request.Headers["Content-Type"] = "application/json";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-08-18";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-08-18";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/workspaces";
@@ -91,7 +91,7 @@ namespace Amazon.ManagedGrafana.Model.Internal.MarshallTransformations
                 else if(!(publicRequest.IsSetClientToken()))
                 {
                     context.Writer.WritePropertyName("clientToken");
-                    context.Writer.Write(Guid.NewGuid().ToString());                                                
+                    context.Writer.Write(Guid.NewGuid().ToString());
                 }
                 if(publicRequest.IsSetOrganizationRoleName())
                 {
@@ -109,6 +109,20 @@ namespace Amazon.ManagedGrafana.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("stackSetName");
                     context.Writer.Write(publicRequest.StackSetName);
+                }
+
+                if(publicRequest.IsSetTags())
+                {
+                    context.Writer.WritePropertyName("tags");
+                    context.Writer.WriteObjectStart();
+                    foreach (var publicRequestTagsKvp in publicRequest.Tags)
+                    {
+                        context.Writer.WritePropertyName(publicRequestTagsKvp.Key);
+                        var publicRequestTagsValue = publicRequestTagsKvp.Value;
+
+                            context.Writer.Write(publicRequestTagsValue);
+                    }
+                    context.Writer.WriteObjectEnd();
                 }
 
                 if(publicRequest.IsSetWorkspaceDataSources())
@@ -162,7 +176,6 @@ namespace Amazon.ManagedGrafana.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.WorkspaceRoleArn);
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

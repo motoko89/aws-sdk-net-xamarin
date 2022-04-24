@@ -129,6 +129,9 @@
         },
         {
           "shape": "AccessDeniedException"
+        },
+        {
+          "shape": "ConflictException"
         }
       ]
     },
@@ -576,6 +579,74 @@
       },
       "errors": []
     },
+    "RevokeRevision": {
+      "name": "RevokeRevision",
+      "http": {
+        "method": "POST",
+        "requestUri": "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/revoke",
+        "responseCode": 200
+      },
+      "input": {
+        "shape": "RevokeRevisionRequest"
+      },
+      "output": {
+        "shape": "RevokeRevisionResponse"
+      },
+      "errors": [
+        {
+          "shape": "ValidationException"
+        },
+        {
+          "shape": "InternalServerException"
+        },
+        {
+          "shape": "AccessDeniedException"
+        },
+        {
+          "shape": "ResourceNotFoundException"
+        },
+        {
+          "shape": "ThrottlingException"
+        },
+        {
+          "shape": "ConflictException"
+        }
+      ]
+    },
+    "SendApiAsset": {
+      "name": "SendApiAsset",
+      "http": {
+        "method": "POST",
+        "requestUri": "/v1",
+        "responseCode": 200
+      },
+      "input": {
+        "shape": "SendApiAssetRequest"
+      },
+      "output": {
+        "shape": "SendApiAssetResponse"
+      },
+      "errors": [
+        {
+          "shape": "ResourceNotFoundException"
+        },
+        {
+          "shape": "ThrottlingException"
+        },
+        {
+          "shape": "ValidationException"
+        },
+        {
+          "shape": "InternalServerException"
+        },
+        {
+          "shape": "AccessDeniedException"
+        }
+      ],
+      "endpoint": {
+        "hostPrefix": "api-fulfill."
+      }
+    },
     "StartJob": {
       "name": "StartJob",
       "http": {
@@ -789,6 +860,41 @@
         }
       }
     },
+    "ApiDescription": {
+      "type": "string"
+    },
+    "ApiGatewayApiAsset": {
+      "type": "structure",
+      "members": {
+        "ApiDescription": {
+          "shape": "ApiDescription"
+        },
+        "ApiEndpoint": {
+          "shape": "__string"
+        },
+        "ApiId": {
+          "shape": "__string"
+        },
+        "ApiKey": {
+          "shape": "__string"
+        },
+        "ApiName": {
+          "shape": "__string"
+        },
+        "ApiSpecificationDownloadUrl": {
+          "shape": "__string"
+        },
+        "ApiSpecificationDownloadUrlExpiresAt": {
+          "shape": "Timestamp"
+        },
+        "ProtocolType": {
+          "shape": "ProtocolType"
+        },
+        "Stage": {
+          "shape": "__string"
+        }
+      }
+    },
     "Arn": {
       "type": "string"
     },
@@ -818,6 +924,9 @@
         },
         "RedshiftDataShareAsset": {
           "shape": "RedshiftDataShareAsset"
+        },
+        "ApiGatewayApiAsset": {
+          "shape": "ApiGatewayApiAsset"
         }
       }
     },
@@ -889,7 +998,8 @@
       "type": "string",
       "enum": [
         "S3_SNAPSHOT",
-        "REDSHIFT_DATA_SHARE"
+        "REDSHIFT_DATA_SHARE",
+        "API_GATEWAY_API"
       ]
     },
     "AutoExportRevisionDestinationEntry": {
@@ -1155,6 +1265,15 @@
           "shape": "MapOf__string"
         },
         "UpdatedAt": {
+          "shape": "Timestamp"
+        },
+        "RevocationComment": {
+          "shape": "__stringMin10Max512"
+        },
+        "Revoked": {
+          "shape": "__boolean"
+        },
+        "RevokedAt": {
           "shape": "Timestamp"
         }
       }
@@ -1712,11 +1831,110 @@
         },
         "UpdatedAt": {
           "shape": "Timestamp"
+        },
+        "RevocationComment": {
+          "shape": "__stringMin10Max512"
+        },
+        "Revoked": {
+          "shape": "__boolean"
+        },
+        "RevokedAt": {
+          "shape": "Timestamp"
         }
       }
     },
     "Id": {
       "type": "string"
+    },
+    "ImportAssetFromApiGatewayApiRequestDetails": {
+      "type": "structure",
+      "members": {
+        "ApiDescription": {
+          "shape": "ApiDescription"
+        },
+        "ApiId": {
+          "shape": "__string"
+        },
+        "ApiKey": {
+          "shape": "__string"
+        },
+        "ApiName": {
+          "shape": "__string"
+        },
+        "ApiSpecificationMd5Hash": {
+          "shape": "__stringMin24Max24PatternAZaZ094AZaZ092AZaZ093"
+        },
+        "DataSetId": {
+          "shape": "Id"
+        },
+        "ProtocolType": {
+          "shape": "ProtocolType"
+        },
+        "RevisionId": {
+          "shape": "Id"
+        },
+        "Stage": {
+          "shape": "__string"
+        }
+      },
+      "required": [
+        "ApiName",
+        "ProtocolType",
+        "ApiSpecificationMd5Hash",
+        "Stage",
+        "DataSetId",
+        "ApiId",
+        "RevisionId"
+      ]
+    },
+    "ImportAssetFromApiGatewayApiResponseDetails": {
+      "type": "structure",
+      "members": {
+        "ApiDescription": {
+          "shape": "ApiDescription"
+        },
+        "ApiId": {
+          "shape": "__string"
+        },
+        "ApiKey": {
+          "shape": "__string"
+        },
+        "ApiName": {
+          "shape": "__string"
+        },
+        "ApiSpecificationMd5Hash": {
+          "shape": "__stringMin24Max24PatternAZaZ094AZaZ092AZaZ093"
+        },
+        "ApiSpecificationUploadUrl": {
+          "shape": "__string"
+        },
+        "ApiSpecificationUploadUrlExpiresAt": {
+          "shape": "Timestamp"
+        },
+        "DataSetId": {
+          "shape": "Id"
+        },
+        "ProtocolType": {
+          "shape": "ProtocolType"
+        },
+        "RevisionId": {
+          "shape": "Id"
+        },
+        "Stage": {
+          "shape": "__string"
+        }
+      },
+      "required": [
+        "ApiSpecificationUploadUrlExpiresAt",
+        "ApiName",
+        "ProtocolType",
+        "ApiSpecificationMd5Hash",
+        "Stage",
+        "DataSetId",
+        "ApiId",
+        "RevisionId",
+        "ApiSpecificationUploadUrl"
+      ]
     },
     "ImportAssetFromSignedUrlJobErrorDetails": {
       "type": "structure",
@@ -1976,7 +2194,10 @@
         "Amazon Redshift datashare assets per import job from Redshift",
         "Concurrent in progress jobs to import assets from Amazon Redshift datashares",
         "Revisions per Amazon Redshift datashare data set",
-        "Amazon Redshift datashare assets per revision"
+        "Amazon Redshift datashare assets per revision",
+        "Concurrent in progress jobs to import assets from an API Gateway API",
+        "Amazon API Gateway API assets per revision",
+        "Revisions per Amazon API Gateway API data set"
       ]
     },
     "ListDataSetRevisionsRequest": {
@@ -2226,6 +2447,12 @@
         "ProductId"
       ]
     },
+    "ProtocolType": {
+      "type": "string",
+      "enum": [
+        "REST"
+      ]
+    },
     "RedshiftDataShareAsset": {
       "type": "structure",
       "members": {
@@ -2268,6 +2495,9 @@
         },
         "ImportAssetsFromRedshiftDataShares": {
           "shape": "ImportAssetsFromRedshiftDataSharesRequestDetails"
+        },
+        "ImportAssetFromApiGatewayApi": {
+          "shape": "ImportAssetFromApiGatewayApiRequestDetails"
         }
       }
     },
@@ -2322,6 +2552,9 @@
         },
         "ImportAssetsFromRedshiftDataShares": {
           "shape": "ImportAssetsFromRedshiftDataSharesResponseDetails"
+        },
+        "ImportAssetFromApiGatewayApi": {
+          "shape": "ImportAssetFromApiGatewayApiResponseDetails"
         }
       }
     },
@@ -2369,6 +2602,15 @@
         },
         "UpdatedAt": {
           "shape": "Timestamp"
+        },
+        "RevocationComment": {
+          "shape": "__stringMin10Max512"
+        },
+        "Revoked": {
+          "shape": "__boolean"
+        },
+        "RevokedAt": {
+          "shape": "Timestamp"
         }
       },
       "required": [
@@ -2390,6 +2632,67 @@
         "DataSetId"
       ]
     },
+    "RevokeRevisionRequest": {
+      "type": "structure",
+      "members": {
+        "DataSetId": {
+          "shape": "__string",
+          "location": "uri",
+          "locationName": "DataSetId"
+        },
+        "RevisionId": {
+          "shape": "__string",
+          "location": "uri",
+          "locationName": "RevisionId"
+        },
+        "RevocationComment": {
+          "shape": "__stringMin10Max512"
+        }
+      },
+      "required": [
+        "RevisionId",
+        "DataSetId",
+        "RevocationComment"
+      ]
+    },
+    "RevokeRevisionResponse": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "shape": "Arn"
+        },
+        "Comment": {
+          "shape": "__stringMin0Max16384"
+        },
+        "CreatedAt": {
+          "shape": "Timestamp"
+        },
+        "DataSetId": {
+          "shape": "Id"
+        },
+        "Finalized": {
+          "shape": "__boolean"
+        },
+        "Id": {
+          "shape": "Id"
+        },
+        "RevocationComment": {
+          "shape": "__stringMin10Max512"
+        },
+        "Revoked": {
+          "shape": "__boolean"
+        },
+        "RevokedAt": {
+          "shape": "Timestamp"
+        },
+        "SourceId": {
+          "shape": "Id"
+        },
+        "UpdatedAt": {
+          "shape": "Timestamp"
+        }
+      }
+    },
     "S3SnapshotAsset": {
       "type": "structure",
       "members": {
@@ -2400,6 +2703,68 @@
       "required": [
         "Size"
       ]
+    },
+    "SendApiAssetRequest": {
+      "type": "structure",
+      "members": {
+        "Body": {
+          "shape": "__string"
+        },
+        "QueryStringParameters": {
+          "shape": "MapOf__string",
+          "location": "querystring"
+        },
+        "AssetId": {
+          "shape": "__string",
+          "location": "header",
+          "locationName": "x-amzn-dataexchange-asset-id"
+        },
+        "DataSetId": {
+          "shape": "__string",
+          "location": "header",
+          "locationName": "x-amzn-dataexchange-data-set-id"
+        },
+        "RequestHeaders": {
+          "shape": "MapOf__string",
+          "location": "headers",
+          "locationName": "x-amzn-dataexchange-header-"
+        },
+        "Method": {
+          "shape": "__string",
+          "location": "header",
+          "locationName": "x-amzn-dataexchange-http-method"
+        },
+        "Path": {
+          "shape": "__string",
+          "location": "header",
+          "locationName": "x-amzn-dataexchange-path"
+        },
+        "RevisionId": {
+          "shape": "__string",
+          "location": "header",
+          "locationName": "x-amzn-dataexchange-revision-id"
+        }
+      },
+      "required": [
+        "DataSetId",
+        "RevisionId",
+        "AssetId"
+      ],
+      "payload": "Body"
+    },
+    "SendApiAssetResponse": {
+      "type": "structure",
+      "members": {
+        "Body": {
+          "shape": "__string"
+        },
+        "ResponseHeaders": {
+          "shape": "MapOf__string",
+          "location": "headers",
+          "locationName": ""
+        }
+      },
+      "payload": "Body"
     },
     "ServerSideEncryptionTypes": {
       "type": "string",
@@ -2502,7 +2867,8 @@
         "EXPORT_ASSETS_TO_S3",
         "EXPORT_ASSET_TO_SIGNED_URL",
         "EXPORT_REVISIONS_TO_S3",
-        "IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES"
+        "IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES",
+        "IMPORT_ASSET_FROM_API_GATEWAY_API"
       ]
     },
     "UntagResourceRequest": {
@@ -2732,6 +3098,15 @@
         },
         "UpdatedAt": {
           "shape": "Timestamp"
+        },
+        "RevocationComment": {
+          "shape": "__stringMin10Max512"
+        },
+        "Revoked": {
+          "shape": "__boolean"
+        },
+        "RevokedAt": {
+          "shape": "Timestamp"
         }
       }
     },
@@ -2826,6 +3201,11 @@
       "min": 24,
       "max": 24,
       "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+    },
+    "__stringMin10Max512": {
+      "type": "string",
+      "min": 10,
+      "max": 512
     }
   }
 }

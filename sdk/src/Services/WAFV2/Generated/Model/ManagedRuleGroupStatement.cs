@@ -43,6 +43,7 @@ namespace Amazon.WAFV2.Model
     public partial class ManagedRuleGroupStatement
     {
         private List<ExcludedRule> _excludedRules = new List<ExcludedRule>();
+        private List<ManagedRuleGroupConfig> _managedRuleGroupConfigs = new List<ManagedRuleGroupConfig>();
         private string _name;
         private Statement _scopeDownStatement;
         private string _vendorName;
@@ -51,11 +52,13 @@ namespace Amazon.WAFV2.Model
         /// <summary>
         /// Gets and sets the property ExcludedRules. 
         /// <para>
-        /// The rules whose actions are set to <code>COUNT</code> by the web ACL, regardless of
-        /// the action that is set on the rule. This effectively excludes the rule from acting
-        /// on web requests. 
+        /// The rules in the referenced rule group whose actions are set to <code>Count</code>.
+        /// When you exclude a rule, WAF evaluates it exactly as it would if the rule action setting
+        /// were <code>Count</code>. This is a useful option for testing the rules in a rule group
+        /// without modifying how they handle your web traffic.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=100)]
         public List<ExcludedRule> ExcludedRules
         {
             get { return this._excludedRules; }
@@ -66,6 +69,40 @@ namespace Amazon.WAFV2.Model
         internal bool IsSetExcludedRules()
         {
             return this._excludedRules != null && this._excludedRules.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property ManagedRuleGroupConfigs. 
+        /// <para>
+        /// Additional information that's used by a managed rule group. Most managed rule groups
+        /// don't require this.
+        /// </para>
+        ///  
+        /// <para>
+        /// Use this for the account takeover prevention managed rule group <code>AWSManagedRulesATPRuleSet</code>,
+        /// to provide information about the sign-in page of your application. 
+        /// </para>
+        ///  
+        /// <para>
+        /// You can provide multiple individual <code>ManagedRuleGroupConfig</code> objects for
+        /// any rule group configuration, for example <code>UsernameField</code> and <code>PasswordField</code>.
+        /// The configuration that you provide depends on the needs of the managed rule group.
+        /// For the ATP managed rule group, you provide the following individual configuration
+        /// objects: <code>LoginPath</code>, <code>PasswordField</code>, <code>PayloadType</code>
+        /// and <code>UsernameField</code>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1)]
+        public List<ManagedRuleGroupConfig> ManagedRuleGroupConfigs
+        {
+            get { return this._managedRuleGroupConfigs; }
+            set { this._managedRuleGroupConfigs = value; }
+        }
+
+        // Check to see if ManagedRuleGroupConfigs property is set
+        internal bool IsSetManagedRuleGroupConfigs()
+        {
+            return this._managedRuleGroupConfigs != null && this._managedRuleGroupConfigs.Count > 0; 
         }
 
         /// <summary>

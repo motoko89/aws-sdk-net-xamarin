@@ -138,6 +138,11 @@ namespace Amazon.CustomerProfiles
         /// to enable <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">identity
         /// resolution</a>: set <code>Matching</code> to true. 
         /// </para>
+        ///  
+        /// <para>
+        /// To prevent cross-service impersonation when you call this API, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html">Cross-service
+        /// confused deputy prevention</a> for sample policies that you should apply. 
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateDomain service method.</param>
         /// 
@@ -185,6 +190,63 @@ namespace Amazon.CustomerProfiles
         /// <returns>Returns a  CreateDomainResult from CustomerProfiles.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/CreateDomain">REST API Reference for CreateDomain Operation</seealso>
         CreateDomainResponse EndCreateDomain(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  CreateIntegrationWorkflow
+
+
+        /// <summary>
+        /// Creates an integration workflow. An integration workflow is an async process which
+        /// ingests historic data and sets up an integration for ongoing updates. The supported
+        /// Amazon AppFlow sources are Salesforce, ServiceNow, and Marketo.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateIntegrationWorkflow service method.</param>
+        /// 
+        /// <returns>The response from the CreateIntegrationWorkflow service method, as returned by CustomerProfiles.</returns>
+        /// <exception cref="Amazon.CustomerProfiles.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.BadRequestException">
+        /// The input you provided is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.InternalServerException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.ResourceNotFoundException">
+        /// The requested resource does not exist, or access was denied.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.ThrottlingException">
+        /// You exceeded the maximum number of requests.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/CreateIntegrationWorkflow">REST API Reference for CreateIntegrationWorkflow Operation</seealso>
+        CreateIntegrationWorkflowResponse CreateIntegrationWorkflow(CreateIntegrationWorkflowRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateIntegrationWorkflow operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateIntegrationWorkflow operation on AmazonCustomerProfilesClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateIntegrationWorkflow
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/CreateIntegrationWorkflow">REST API Reference for CreateIntegrationWorkflow Operation</seealso>
+        IAsyncResult BeginCreateIntegrationWorkflow(CreateIntegrationWorkflowRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CreateIntegrationWorkflow operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCreateIntegrationWorkflow.</param>
+        /// 
+        /// <returns>Returns a  CreateIntegrationWorkflowResult from CustomerProfiles.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/CreateIntegrationWorkflow">REST API Reference for CreateIntegrationWorkflow Operation</seealso>
+        CreateIntegrationWorkflowResponse EndCreateIntegrationWorkflow(IAsyncResult asyncResult);
 
         #endregion
         
@@ -583,6 +645,136 @@ namespace Amazon.CustomerProfiles
 
         #endregion
         
+        #region  DeleteWorkflow
+
+
+        /// <summary>
+        /// Deletes the specified workflow and all its corresponding resources. This is an async
+        /// process.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteWorkflow service method.</param>
+        /// 
+        /// <returns>The response from the DeleteWorkflow service method, as returned by CustomerProfiles.</returns>
+        /// <exception cref="Amazon.CustomerProfiles.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.BadRequestException">
+        /// The input you provided is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.InternalServerException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.ResourceNotFoundException">
+        /// The requested resource does not exist, or access was denied.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.ThrottlingException">
+        /// You exceeded the maximum number of requests.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/DeleteWorkflow">REST API Reference for DeleteWorkflow Operation</seealso>
+        DeleteWorkflowResponse DeleteWorkflow(DeleteWorkflowRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteWorkflow operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteWorkflow operation on AmazonCustomerProfilesClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteWorkflow
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/DeleteWorkflow">REST API Reference for DeleteWorkflow Operation</seealso>
+        IAsyncResult BeginDeleteWorkflow(DeleteWorkflowRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteWorkflow operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteWorkflow.</param>
+        /// 
+        /// <returns>Returns a  DeleteWorkflowResult from CustomerProfiles.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/DeleteWorkflow">REST API Reference for DeleteWorkflow Operation</seealso>
+        DeleteWorkflowResponse EndDeleteWorkflow(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  GetAutoMergingPreview
+
+
+        /// <summary>
+        /// Tests the auto-merging settings of your Identity Resolution Job without merging your
+        /// data. It randomly selects a sample of matching groups from the existing matching results,
+        /// and applies the automerging settings that you provided. You can then view the number
+        /// of profiles in the sample, the number of matches, and the number of profiles identified
+        /// to be merged. This enables you to evaluate the accuracy of the attributes in your
+        /// matching list. 
+        /// 
+        ///  
+        /// <para>
+        /// You can't view which profiles are matched and would be merged.
+        /// </para>
+        ///  <important> 
+        /// <para>
+        /// We strongly recommend you use this API to do a dry run of the automerging process
+        /// before running the Identity Resolution Job. Include <b>at least</b> two matching attributes.
+        /// If your matching list includes too few attributes (such as only <code>FirstName</code>
+        /// or only <code>LastName</code>), there may be a large number of matches. This increases
+        /// the chances of erroneous merges.
+        /// </para>
+        ///  </important>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetAutoMergingPreview service method.</param>
+        /// 
+        /// <returns>The response from the GetAutoMergingPreview service method, as returned by CustomerProfiles.</returns>
+        /// <exception cref="Amazon.CustomerProfiles.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.BadRequestException">
+        /// The input you provided is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.InternalServerException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.ResourceNotFoundException">
+        /// The requested resource does not exist, or access was denied.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.ThrottlingException">
+        /// You exceeded the maximum number of requests.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/GetAutoMergingPreview">REST API Reference for GetAutoMergingPreview Operation</seealso>
+        GetAutoMergingPreviewResponse GetAutoMergingPreview(GetAutoMergingPreviewRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetAutoMergingPreview operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetAutoMergingPreview operation on AmazonCustomerProfilesClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetAutoMergingPreview
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/GetAutoMergingPreview">REST API Reference for GetAutoMergingPreview Operation</seealso>
+        IAsyncResult BeginGetAutoMergingPreview(GetAutoMergingPreviewRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetAutoMergingPreview operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetAutoMergingPreview.</param>
+        /// 
+        /// <returns>Returns a  GetAutoMergingPreviewResult from CustomerProfiles.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/GetAutoMergingPreview">REST API Reference for GetAutoMergingPreview Operation</seealso>
+        GetAutoMergingPreviewResponse EndGetAutoMergingPreview(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  GetDomain
 
 
@@ -635,6 +827,68 @@ namespace Amazon.CustomerProfiles
         /// <returns>Returns a  GetDomainResult from CustomerProfiles.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/GetDomain">REST API Reference for GetDomain Operation</seealso>
         GetDomainResponse EndGetDomain(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  GetIdentityResolutionJob
+
+
+        /// <summary>
+        /// Returns information about an Identity Resolution Job in a specific domain. 
+        /// 
+        ///  
+        /// <para>
+        /// Identity Resolution Jobs are set up using the Amazon Connect admin console. For more
+        /// information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-identity-resolution.html">Use
+        /// Identity Resolution to consolidate similar profiles</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetIdentityResolutionJob service method.</param>
+        /// 
+        /// <returns>The response from the GetIdentityResolutionJob service method, as returned by CustomerProfiles.</returns>
+        /// <exception cref="Amazon.CustomerProfiles.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.BadRequestException">
+        /// The input you provided is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.InternalServerException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.ResourceNotFoundException">
+        /// The requested resource does not exist, or access was denied.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.ThrottlingException">
+        /// You exceeded the maximum number of requests.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/GetIdentityResolutionJob">REST API Reference for GetIdentityResolutionJob Operation</seealso>
+        GetIdentityResolutionJobResponse GetIdentityResolutionJob(GetIdentityResolutionJobRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetIdentityResolutionJob operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetIdentityResolutionJob operation on AmazonCustomerProfilesClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetIdentityResolutionJob
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/GetIdentityResolutionJob">REST API Reference for GetIdentityResolutionJob Operation</seealso>
+        IAsyncResult BeginGetIdentityResolutionJob(GetIdentityResolutionJobRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetIdentityResolutionJob operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetIdentityResolutionJob.</param>
+        /// 
+        /// <returns>Returns a  GetIdentityResolutionJobResult from CustomerProfiles.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/GetIdentityResolutionJob">REST API Reference for GetIdentityResolutionJob Operation</seealso>
+        GetIdentityResolutionJobResponse EndGetIdentityResolutionJob(IAsyncResult asyncResult);
 
         #endregion
         
@@ -697,14 +951,10 @@ namespace Amazon.CustomerProfiles
 
 
         /// <summary>
-        /// This API is in preview release for Amazon Connect and subject to change.
-        /// 
-        ///  
-        /// <para>
         /// Before calling this API, use <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html">CreateDomain</a>
         /// or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html">UpdateDomain</a>
         /// to enable identity resolution: set <code>Matching</code> to true.
-        /// </para>
+        /// 
         ///  
         /// <para>
         /// GetMatches returns potentially matching profiles, based on the results of the latest
@@ -712,8 +962,17 @@ namespace Amazon.CustomerProfiles
         /// </para>
         ///  <important> 
         /// <para>
-        /// Amazon Connect starts a batch process every Saturday at 12AM UTC to identify matching
-        /// profiles. The results are returned up to seven days after the Saturday run.
+        /// The process of matching duplicate profiles. If <code>Matching</code> = <code>true</code>,
+        /// Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution
+        /// Job. If you do not specify a date and time for Identity Resolution Job to run, by
+        /// default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains.
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// After the Identity Resolution Job completes, use the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>
+        /// API to return and review the results. Or, if you have configured <code>ExportingConfig</code>
+        /// in the <code>MatchingRequest</code>, you can download the results from S3.
         /// </para>
         ///  </important> 
         /// <para>
@@ -750,10 +1009,6 @@ namespace Amazon.CustomerProfiles
         ///  </li> <li> 
         /// <para>
         /// FullName
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// BusinessName
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -930,6 +1185,116 @@ namespace Amazon.CustomerProfiles
 
         #endregion
         
+        #region  GetWorkflow
+
+
+        /// <summary>
+        /// Get details of specified workflow.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetWorkflow service method.</param>
+        /// 
+        /// <returns>The response from the GetWorkflow service method, as returned by CustomerProfiles.</returns>
+        /// <exception cref="Amazon.CustomerProfiles.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.BadRequestException">
+        /// The input you provided is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.InternalServerException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.ResourceNotFoundException">
+        /// The requested resource does not exist, or access was denied.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.ThrottlingException">
+        /// You exceeded the maximum number of requests.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/GetWorkflow">REST API Reference for GetWorkflow Operation</seealso>
+        GetWorkflowResponse GetWorkflow(GetWorkflowRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetWorkflow operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetWorkflow operation on AmazonCustomerProfilesClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetWorkflow
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/GetWorkflow">REST API Reference for GetWorkflow Operation</seealso>
+        IAsyncResult BeginGetWorkflow(GetWorkflowRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetWorkflow operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetWorkflow.</param>
+        /// 
+        /// <returns>Returns a  GetWorkflowResult from CustomerProfiles.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/GetWorkflow">REST API Reference for GetWorkflow Operation</seealso>
+        GetWorkflowResponse EndGetWorkflow(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  GetWorkflowSteps
+
+
+        /// <summary>
+        /// Get granular list of steps in workflow.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetWorkflowSteps service method.</param>
+        /// 
+        /// <returns>The response from the GetWorkflowSteps service method, as returned by CustomerProfiles.</returns>
+        /// <exception cref="Amazon.CustomerProfiles.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.BadRequestException">
+        /// The input you provided is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.InternalServerException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.ResourceNotFoundException">
+        /// The requested resource does not exist, or access was denied.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.ThrottlingException">
+        /// You exceeded the maximum number of requests.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/GetWorkflowSteps">REST API Reference for GetWorkflowSteps Operation</seealso>
+        GetWorkflowStepsResponse GetWorkflowSteps(GetWorkflowStepsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetWorkflowSteps operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetWorkflowSteps operation on AmazonCustomerProfilesClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetWorkflowSteps
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/GetWorkflowSteps">REST API Reference for GetWorkflowSteps Operation</seealso>
+        IAsyncResult BeginGetWorkflowSteps(GetWorkflowStepsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetWorkflowSteps operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetWorkflowSteps.</param>
+        /// 
+        /// <returns>Returns a  GetWorkflowStepsResult from CustomerProfiles.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/GetWorkflowSteps">REST API Reference for GetWorkflowSteps Operation</seealso>
+        GetWorkflowStepsResponse EndGetWorkflowSteps(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  ListAccountIntegrations
 
 
@@ -1037,6 +1402,62 @@ namespace Amazon.CustomerProfiles
         /// <returns>Returns a  ListDomainsResult from CustomerProfiles.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/ListDomains">REST API Reference for ListDomains Operation</seealso>
         ListDomainsResponse EndListDomains(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  ListIdentityResolutionJobs
+
+
+        /// <summary>
+        /// Lists all of the Identity Resolution Jobs in your domain. The response sorts the list
+        /// by <code>JobStartTime</code>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListIdentityResolutionJobs service method.</param>
+        /// 
+        /// <returns>The response from the ListIdentityResolutionJobs service method, as returned by CustomerProfiles.</returns>
+        /// <exception cref="Amazon.CustomerProfiles.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.BadRequestException">
+        /// The input you provided is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.InternalServerException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.ResourceNotFoundException">
+        /// The requested resource does not exist, or access was denied.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.ThrottlingException">
+        /// You exceeded the maximum number of requests.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/ListIdentityResolutionJobs">REST API Reference for ListIdentityResolutionJobs Operation</seealso>
+        ListIdentityResolutionJobsResponse ListIdentityResolutionJobs(ListIdentityResolutionJobsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListIdentityResolutionJobs operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListIdentityResolutionJobs operation on AmazonCustomerProfilesClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListIdentityResolutionJobs
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/ListIdentityResolutionJobs">REST API Reference for ListIdentityResolutionJobs Operation</seealso>
+        IAsyncResult BeginListIdentityResolutionJobs(ListIdentityResolutionJobsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListIdentityResolutionJobs operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListIdentityResolutionJobs.</param>
+        /// 
+        /// <returns>Returns a  ListIdentityResolutionJobsResult from CustomerProfiles.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/ListIdentityResolutionJobs">REST API Reference for ListIdentityResolutionJobs Operation</seealso>
+        ListIdentityResolutionJobsResponse EndListIdentityResolutionJobs(IAsyncResult asyncResult);
 
         #endregion
         
@@ -1311,16 +1732,67 @@ namespace Amazon.CustomerProfiles
 
         #endregion
         
+        #region  ListWorkflows
+
+
+        /// <summary>
+        /// Query to list all workflows.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListWorkflows service method.</param>
+        /// 
+        /// <returns>The response from the ListWorkflows service method, as returned by CustomerProfiles.</returns>
+        /// <exception cref="Amazon.CustomerProfiles.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.BadRequestException">
+        /// The input you provided is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.InternalServerException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.ResourceNotFoundException">
+        /// The requested resource does not exist, or access was denied.
+        /// </exception>
+        /// <exception cref="Amazon.CustomerProfiles.Model.ThrottlingException">
+        /// You exceeded the maximum number of requests.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/ListWorkflows">REST API Reference for ListWorkflows Operation</seealso>
+        ListWorkflowsResponse ListWorkflows(ListWorkflowsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListWorkflows operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListWorkflows operation on AmazonCustomerProfilesClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListWorkflows
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/ListWorkflows">REST API Reference for ListWorkflows Operation</seealso>
+        IAsyncResult BeginListWorkflows(ListWorkflowsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListWorkflows operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListWorkflows.</param>
+        /// 
+        /// <returns>Returns a  ListWorkflowsResult from CustomerProfiles.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/customer-profiles-2020-08-15/ListWorkflows">REST API Reference for ListWorkflows Operation</seealso>
+        ListWorkflowsResponse EndListWorkflows(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  MergeProfiles
 
 
         /// <summary>
-        /// This API is in preview release for Amazon Connect and subject to change.
-        /// 
-        ///  
-        /// <para>
         /// Runs an AWS Lambda job that does the following:
-        /// </para>
+        /// 
         ///  <ol> <li> 
         /// <para>
         /// All the profileKeys in the <code>ProfileToBeMerged</code> will be moved to the main
@@ -1796,6 +2268,11 @@ namespace Amazon.CustomerProfiles
         /// Use this API or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html">CreateDomain</a>
         /// to enable <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">identity
         /// resolution</a>: set <code>Matching</code> to true. 
+        /// </para>
+        ///  
+        /// <para>
+        /// To prevent cross-service impersonation when you call this API, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html">Cross-service
+        /// confused deputy prevention</a> for sample policies that you should apply. 
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateDomain service method.</param>

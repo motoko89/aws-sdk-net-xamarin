@@ -34,6 +34,8 @@ namespace Amazon.EC2.Model
     public partial class PathComponent
     {
         private AnalysisAclRule _aclRule;
+        private List<AdditionalDetail> _additionalDetails = new List<AdditionalDetail>();
+        private AnalysisComponent _attachedTo;
         private AnalysisComponent _component;
         private AnalysisComponent _destinationVpc;
         private AnalysisPacketHeader _inboundHeader;
@@ -43,6 +45,8 @@ namespace Amazon.EC2.Model
         private int? _sequenceNumber;
         private AnalysisComponent _sourceVpc;
         private AnalysisComponent _subnet;
+        private AnalysisComponent _transitGateway;
+        private TransitGatewayRouteTableRoute _transitGatewayRouteTableRoute;
         private AnalysisComponent _vpc;
 
         /// <summary>
@@ -61,6 +65,42 @@ namespace Amazon.EC2.Model
         internal bool IsSetAclRule()
         {
             return this._aclRule != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property AdditionalDetails. 
+        /// <para>
+        /// The additional details.
+        /// </para>
+        /// </summary>
+        public List<AdditionalDetail> AdditionalDetails
+        {
+            get { return this._additionalDetails; }
+            set { this._additionalDetails = value; }
+        }
+
+        // Check to see if AdditionalDetails property is set
+        internal bool IsSetAdditionalDetails()
+        {
+            return this._additionalDetails != null && this._additionalDetails.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property AttachedTo. 
+        /// <para>
+        /// The resource to which the path component is attached.
+        /// </para>
+        /// </summary>
+        public AnalysisComponent AttachedTo
+        {
+            get { return this._attachedTo; }
+            set { this._attachedTo = value; }
+        }
+
+        // Check to see if AttachedTo property is set
+        internal bool IsSetAttachedTo()
+        {
+            return this._attachedTo != null;
         }
 
         /// <summary>
@@ -223,6 +263,39 @@ namespace Amazon.EC2.Model
         internal bool IsSetSubnet()
         {
             return this._subnet != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property TransitGateway.
+        /// </summary>
+        public AnalysisComponent TransitGateway
+        {
+            get { return this._transitGateway; }
+            set { this._transitGateway = value; }
+        }
+
+        // Check to see if TransitGateway property is set
+        internal bool IsSetTransitGateway()
+        {
+            return this._transitGateway != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property TransitGatewayRouteTableRoute. 
+        /// <para>
+        /// The route in a transit gateway route table.
+        /// </para>
+        /// </summary>
+        public TransitGatewayRouteTableRoute TransitGatewayRouteTableRoute
+        {
+            get { return this._transitGatewayRouteTableRoute; }
+            set { this._transitGatewayRouteTableRoute = value; }
+        }
+
+        // Check to see if TransitGatewayRouteTableRoute property is set
+        internal bool IsSetTransitGatewayRouteTableRoute()
+        {
+            return this._transitGatewayRouteTableRoute != null;
         }
 
         /// <summary>

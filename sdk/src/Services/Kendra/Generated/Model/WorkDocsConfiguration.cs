@@ -76,8 +76,8 @@ namespace Amazon.Kendra.Model
         /// A list of regular expression patterns to exclude certain files in your Amazon WorkDocs
         /// site repository. Files that match the patterns are excluded from the index. Files
         /// that don’t match the patterns are included in the index. If a file matches both an
-        /// inclusion pattern and an exclusion pattern, the exclusion pattern takes precedence
-        /// and the file isn’t included in the index.
+        /// inclusion and exclusion pattern, the exclusion pattern takes precedence and the file
+        /// isn't included in the index.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=100)]
@@ -97,11 +97,11 @@ namespace Amazon.Kendra.Model
         /// Gets and sets the property FieldMappings. 
         /// <para>
         /// A list of <code>DataSourceToIndexFieldMapping</code> objects that map Amazon WorkDocs
-        /// field names to custom index field names in Amazon Kendra. You must first create the
-        /// custom index fields using the <code>UpdateIndex</code> operation before you map to
-        /// Amazon WorkDocs fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping
-        /// Data Source Fields</a>. The Amazon WorkDocs data source field names need to exist
-        /// in your Amazon WorkDocs custom metadata.
+        /// data source attributes or field names to Amazon Kendra index field names. To create
+        /// custom fields, use the <code>UpdateIndex</code> API before you map to Amazon WorkDocs
+        /// fields. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping
+        /// data source fields</a>. The Amazon WorkDocs data source field names must exist in
+        /// your Amazon WorkDocs custom metadata.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=100)]
@@ -123,8 +123,8 @@ namespace Amazon.Kendra.Model
         /// A list of regular expression patterns to include certain files in your Amazon WorkDocs
         /// site repository. Files that match the patterns are included in the index. Files that
         /// don't match the patterns are excluded from the index. If a file matches both an inclusion
-        /// pattern and an exclusion pattern, the exclusion pattern takes precedence and the file
-        /// isn’t included in the index.
+        /// and exclusion pattern, the exclusion pattern takes precedence and the file isn't included
+        /// in the index.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=100)]
@@ -147,11 +147,11 @@ namespace Amazon.Kendra.Model
         /// </para>
         ///  
         /// <para>
-        /// You can find the organization ID in the <a href="https://console.aws.amazon.com/directoryservicev2/">AWS
-        /// Directory Service</a> by going to <b>Active Directory</b>, then <b>Directories</b>.
-        /// Your Amazon WorkDocs site directory has an ID, which is the organization ID. You can
-        /// also set up a new Amazon WorkDocs directory in the AWS Directory Service console and
-        /// enable a Amazon WorkDocs site for the directory in the Amazon WorkDocs console.
+        /// You can find the organization ID in the <a href="https://console.aws.amazon.com/directoryservicev2/">Directory
+        /// Service</a> by going to <b>Active Directory</b>, then <b>Directories</b>. Your Amazon
+        /// WorkDocs site directory has an ID, which is the organization ID. You can also set
+        /// up a new Amazon WorkDocs directory in the Directory Service console and enable a Amazon
+        /// WorkDocs site for the directory in the Amazon WorkDocs console.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=12, Max=12)]
@@ -170,18 +170,10 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property UseChangeLog. 
         /// <para>
-        ///  <code>TRUE</code> to use the change logs to update documents in your index instead
-        /// of scanning all documents.
-        /// </para>
-        ///  
-        /// <para>
-        /// If you are syncing your Amazon WorkDocs data source with your index for the first
-        /// time, all documents are scanned. After your first sync, you can use the change logs
-        /// to update your documents in your index for future syncs.
-        /// </para>
-        ///  
-        /// <para>
-        /// The default is set to <code>FALSE</code>.
+        ///  <code>TRUE</code> to use the Amazon WorkDocs change log to determine which documents
+        /// require updating in the index. Depending on the change log's size, it may take longer
+        /// for Amazon Kendra to use the change log than to scan all of your documents in Amazon
+        /// WorkDocs.
         /// </para>
         /// </summary>
         public bool UseChangeLog

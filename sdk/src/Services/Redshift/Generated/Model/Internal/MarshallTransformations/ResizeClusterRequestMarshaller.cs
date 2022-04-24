@@ -78,6 +78,14 @@ namespace Amazon.Redshift.Model.Internal.MarshallTransformations
                 {
                     request.Parameters.Add("NumberOfNodes", StringUtils.FromInt(publicRequest.NumberOfNodes));
                 }
+                if(publicRequest.IsSetReservedNodeId())
+                {
+                    request.Parameters.Add("ReservedNodeId", StringUtils.FromString(publicRequest.ReservedNodeId));
+                }
+                if(publicRequest.IsSetTargetReservedNodeOfferingId())
+                {
+                    request.Parameters.Add("TargetReservedNodeOfferingId", StringUtils.FromString(publicRequest.TargetReservedNodeOfferingId));
+                }
             }
             return request;
         }

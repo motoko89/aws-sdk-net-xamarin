@@ -32,7 +32,7 @@ namespace Amazon.CustomerProfiles
     public partial class AmazonCustomerProfilesConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.3.41");
+            InternalSDKUtils.BuildUserAgentString("3.7.6.25");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.CustomerProfiles
         /// Default constructor
         /// </summary>
         public AmazonCustomerProfilesConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCustomerProfilesDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "profile";
         }

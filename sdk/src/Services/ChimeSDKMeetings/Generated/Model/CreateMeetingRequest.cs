@@ -41,8 +41,10 @@ namespace Amazon.ChimeSDKMeetings.Model
         private string _clientRequestToken;
         private string _externalMeetingId;
         private string _mediaRegion;
+        private MeetingFeaturesConfiguration _meetingFeatures;
         private string _meetingHostId;
         private NotificationsConfiguration _notificationsConfiguration;
+        private string _primaryMeetingId;
 
         /// <summary>
         /// Gets and sets the property ClientRequestToken. 
@@ -86,19 +88,23 @@ namespace Amazon.ChimeSDKMeetings.Model
         /// <summary>
         /// Gets and sets the property MediaRegion. 
         /// <para>
-        /// The Region in which to create the meeting. Default: <code>us-east-1</code>.
+        /// The Region in which to create the meeting.
         /// </para>
         ///  
         /// <para>
-        ///  Available values: <code>af-south-1</code> , <code>ap-northeast-1</code> , <code>ap-northeast-2</code>
-        /// , <code>ap-south-1</code> , <code>ap-southeast-1</code> , <code>ap-southeast-2</code>
-        /// , <code>ca-central-1</code> , <code>eu-central-1</code> , <code>eu-north-1</code>
-        /// , <code>eu-south-1</code> , <code>eu-west-1</code> , <code>eu-west-2</code> , <code>eu-west-3</code>
-        /// , <code>sa-east-1</code> , <code>us-east-1</code> , <code>us-east-2</code> , <code>us-west-1</code>
-        /// , <code>us-west-2</code> . 
+        ///  Available values: <code>af-south-1</code>, <code>ap-northeast-1</code>, <code>ap-northeast-2</code>,
+        /// <code>ap-south-1</code>, <code>ap-southeast-1</code>, <code>ap-southeast-2</code>,
+        /// <code>ca-central-1</code>, <code>eu-central-1</code>, <code>eu-north-1</code>, <code>eu-south-1</code>,
+        /// <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>, <code>sa-east-1</code>,
+        /// <code>us-east-1</code>, <code>us-east-2</code>, <code>us-west-1</code>, <code>us-west-2</code>.
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// Available values in AWS GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Max=4096)]
+        [AWSProperty(Required=true, Min=2, Max=64)]
         public string MediaRegion
         {
             get { return this._mediaRegion; }
@@ -109,6 +115,24 @@ namespace Amazon.ChimeSDKMeetings.Model
         internal bool IsSetMediaRegion()
         {
             return this._mediaRegion != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property MeetingFeatures. 
+        /// <para>
+        /// Lists the audio and video features enabled for a meeting, such as echo reduction.
+        /// </para>
+        /// </summary>
+        public MeetingFeaturesConfiguration MeetingFeatures
+        {
+            get { return this._meetingFeatures; }
+            set { this._meetingFeatures = value; }
+        }
+
+        // Check to see if MeetingFeatures property is set
+        internal bool IsSetMeetingFeatures()
+        {
+            return this._meetingFeatures != null;
         }
 
         /// <summary>
@@ -147,6 +171,25 @@ namespace Amazon.ChimeSDKMeetings.Model
         internal bool IsSetNotificationsConfiguration()
         {
             return this._notificationsConfiguration != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PrimaryMeetingId. 
+        /// <para>
+        /// When specified, replicates the media from the primary meeting to the new meeting.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=2, Max=64)]
+        public string PrimaryMeetingId
+        {
+            get { return this._primaryMeetingId; }
+            set { this._primaryMeetingId = value; }
+        }
+
+        // Check to see if PrimaryMeetingId property is set
+        internal bool IsSetPrimaryMeetingId()
+        {
+            return this._primaryMeetingId != null;
         }
 
     }

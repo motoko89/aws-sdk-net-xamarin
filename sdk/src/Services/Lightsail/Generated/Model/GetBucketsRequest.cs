@@ -30,12 +30,14 @@ namespace Amazon.Lightsail.Model
 {
     /// <summary>
     /// Container for the parameters to the GetBuckets operation.
-    /// Returns information about one or more Amazon Lightsail buckets.
+    /// Returns information about one or more Amazon Lightsail buckets. The information returned
+    /// includes the synchronization status of the Amazon Simple Storage Service (Amazon S3)
+    /// account-level block public access feature for your Lightsail buckets.
     /// 
     ///  
     /// <para>
     /// For more information about buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail">Buckets
-    /// in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>..
+    /// in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.
     /// </para>
     /// </summary>
     public partial class GetBucketsRequest : AmazonLightsailRequest
@@ -72,7 +74,8 @@ namespace Amazon.Lightsail.Model
         /// Gets and sets the property IncludeConnectedResources. 
         /// <para>
         /// A Boolean value that indicates whether to include Lightsail instances that were given
-        /// access to the bucket using the <a>SetResourceAccessForBucket</a> action.
+        /// access to the bucket using the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html">SetResourceAccessForBucket</a>
+        /// action.
         /// </para>
         /// </summary>
         public bool IncludeConnectedResources

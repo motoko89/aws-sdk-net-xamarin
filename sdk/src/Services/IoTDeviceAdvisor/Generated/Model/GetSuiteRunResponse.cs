@@ -84,7 +84,7 @@ namespace Amazon.IoTDeviceAdvisor.Model
         /// <summary>
         /// Gets and sets the property StartTime. 
         /// <para>
-        /// Date (in Unix epoch time) when the test suite run was started.
+        /// Date (in Unix epoch time) when the test suite run started.
         /// </para>
         /// </summary>
         public DateTime StartTime
@@ -120,7 +120,7 @@ namespace Amazon.IoTDeviceAdvisor.Model
         /// <summary>
         /// Gets and sets the property SuiteDefinitionId. 
         /// <para>
-        /// Suite definition Id for the test suite run.
+        /// Suite definition ID for the test suite run.
         /// </para>
         /// </summary>
         [AWSProperty(Min=12, Max=36)]
@@ -195,7 +195,7 @@ namespace Amazon.IoTDeviceAdvisor.Model
         /// <summary>
         /// Gets and sets the property SuiteRunId. 
         /// <para>
-        /// Suite run Id for the test suite run.
+        /// Suite run ID for the test suite run.
         /// </para>
         /// </summary>
         [AWSProperty(Min=12, Max=36)]

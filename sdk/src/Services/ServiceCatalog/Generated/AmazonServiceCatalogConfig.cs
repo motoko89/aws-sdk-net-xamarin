@@ -32,7 +32,7 @@ namespace Amazon.ServiceCatalog
     public partial class AmazonServiceCatalogConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.63");
+            InternalSDKUtils.BuildUserAgentString("3.7.2.7");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.ServiceCatalog
         /// Default constructor
         /// </summary>
         public AmazonServiceCatalogConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonServiceCatalogDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "servicecatalog";
         }

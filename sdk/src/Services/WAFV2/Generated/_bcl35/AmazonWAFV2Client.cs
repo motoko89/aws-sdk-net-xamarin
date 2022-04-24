@@ -1935,6 +1935,104 @@ namespace Amazon.WAFV2
 
         #endregion
         
+        #region  GenerateMobileSdkReleaseUrl
+
+        /// <summary>
+        /// Generates a presigned download URL for the specified release of the mobile SDK.
+        /// 
+        ///  
+        /// <para>
+        /// The mobile SDK is not generally available. Customers who have access to the mobile
+        /// SDK can use it to establish and manage Security Token Service (STS) security tokens
+        /// for use in HTTP(S) requests from a mobile device to WAF. For more information, see
+        /// <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
+        /// client application integration</a> in the <i>WAF Developer Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GenerateMobileSdkReleaseUrl service method.</param>
+        /// 
+        /// <returns>The response from the GenerateMobileSdkReleaseUrl service method, as returned by WAFV2.</returns>
+        /// <exception cref="Amazon.WAFV2.Model.WAFInternalErrorException">
+        /// Your request is valid, but WAF couldn’t perform the operation because of a system
+        /// problem. Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFV2.Model.WAFInvalidOperationException">
+        /// The operation isn't valid.
+        /// </exception>
+        /// <exception cref="Amazon.WAFV2.Model.WAFInvalidParameterException">
+        /// The operation failed because WAF didn't recognize a parameter in the request. For
+        /// example: 
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You specified a parameter name or value that isn't valid.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Your nested statement isn't valid. You might have tried to nest a statement that can’t
+        /// be nested. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't
+        /// among the types available at <a>DefaultAction</a>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Your request references an ARN that is malformed, or corresponds to a resource with
+        /// which a web ACL can't be associated.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
+        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GenerateMobileSdkReleaseUrl">REST API Reference for GenerateMobileSdkReleaseUrl Operation</seealso>
+        public virtual GenerateMobileSdkReleaseUrlResponse GenerateMobileSdkReleaseUrl(GenerateMobileSdkReleaseUrlRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GenerateMobileSdkReleaseUrlRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GenerateMobileSdkReleaseUrlResponseUnmarshaller.Instance;
+
+            return Invoke<GenerateMobileSdkReleaseUrlResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GenerateMobileSdkReleaseUrl operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GenerateMobileSdkReleaseUrl operation on AmazonWAFV2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGenerateMobileSdkReleaseUrl
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GenerateMobileSdkReleaseUrl">REST API Reference for GenerateMobileSdkReleaseUrl Operation</seealso>
+        public virtual IAsyncResult BeginGenerateMobileSdkReleaseUrl(GenerateMobileSdkReleaseUrlRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GenerateMobileSdkReleaseUrlRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GenerateMobileSdkReleaseUrlResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GenerateMobileSdkReleaseUrl operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGenerateMobileSdkReleaseUrl.</param>
+        /// 
+        /// <returns>Returns a  GenerateMobileSdkReleaseUrlResult from WAFV2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GenerateMobileSdkReleaseUrl">REST API Reference for GenerateMobileSdkReleaseUrl Operation</seealso>
+        public virtual GenerateMobileSdkReleaseUrlResponse EndGenerateMobileSdkReleaseUrl(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GenerateMobileSdkReleaseUrlResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  GetIPSet
 
         /// <summary>
@@ -2211,6 +2309,105 @@ namespace Amazon.WAFV2
         public virtual GetManagedRuleSetResponse EndGetManagedRuleSet(IAsyncResult asyncResult)
         {
             return EndInvoke<GetManagedRuleSetResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetMobileSdkRelease
+
+        /// <summary>
+        /// Retrieves information for the specified mobile SDK release, including release notes
+        /// and tags.
+        /// 
+        ///  
+        /// <para>
+        /// The mobile SDK is not generally available. Customers who have access to the mobile
+        /// SDK can use it to establish and manage Security Token Service (STS) security tokens
+        /// for use in HTTP(S) requests from a mobile device to WAF. For more information, see
+        /// <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
+        /// client application integration</a> in the <i>WAF Developer Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetMobileSdkRelease service method.</param>
+        /// 
+        /// <returns>The response from the GetMobileSdkRelease service method, as returned by WAFV2.</returns>
+        /// <exception cref="Amazon.WAFV2.Model.WAFInternalErrorException">
+        /// Your request is valid, but WAF couldn’t perform the operation because of a system
+        /// problem. Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFV2.Model.WAFInvalidOperationException">
+        /// The operation isn't valid.
+        /// </exception>
+        /// <exception cref="Amazon.WAFV2.Model.WAFInvalidParameterException">
+        /// The operation failed because WAF didn't recognize a parameter in the request. For
+        /// example: 
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You specified a parameter name or value that isn't valid.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Your nested statement isn't valid. You might have tried to nest a statement that can’t
+        /// be nested. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't
+        /// among the types available at <a>DefaultAction</a>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Your request references an ARN that is malformed, or corresponds to a resource with
+        /// which a web ACL can't be associated.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
+        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetMobileSdkRelease">REST API Reference for GetMobileSdkRelease Operation</seealso>
+        public virtual GetMobileSdkReleaseResponse GetMobileSdkRelease(GetMobileSdkReleaseRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetMobileSdkReleaseRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetMobileSdkReleaseResponseUnmarshaller.Instance;
+
+            return Invoke<GetMobileSdkReleaseResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetMobileSdkRelease operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetMobileSdkRelease operation on AmazonWAFV2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetMobileSdkRelease
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetMobileSdkRelease">REST API Reference for GetMobileSdkRelease Operation</seealso>
+        public virtual IAsyncResult BeginGetMobileSdkRelease(GetMobileSdkReleaseRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetMobileSdkReleaseRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetMobileSdkReleaseResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetMobileSdkRelease operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetMobileSdkRelease.</param>
+        /// 
+        /// <returns>Returns a  GetMobileSdkReleaseResult from WAFV2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetMobileSdkRelease">REST API Reference for GetMobileSdkRelease Operation</seealso>
+        public virtual GetMobileSdkReleaseResponse EndGetMobileSdkRelease(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetMobileSdkReleaseResponse>(asyncResult);
         }
 
         #endregion
@@ -3000,6 +3197,9 @@ namespace Amazon.WAFV2
         /// </para>
         ///  </li> </ul>
         /// </exception>
+        /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
+        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/ListAvailableManagedRuleGroupVersions">REST API Reference for ListAvailableManagedRuleGroupVersions Operation</seealso>
         public virtual ListAvailableManagedRuleGroupVersionsResponse ListAvailableManagedRuleGroupVersions(ListAvailableManagedRuleGroupVersionsRequest request)
         {
@@ -3313,6 +3513,102 @@ namespace Amazon.WAFV2
         public virtual ListManagedRuleSetsResponse EndListManagedRuleSets(IAsyncResult asyncResult)
         {
             return EndInvoke<ListManagedRuleSetsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  ListMobileSdkReleases
+
+        /// <summary>
+        /// Retrieves a list of the available releases for the mobile SDK and the specified device
+        /// platform. 
+        /// 
+        ///  
+        /// <para>
+        /// The mobile SDK is not generally available. Customers who have access to the mobile
+        /// SDK can use it to establish and manage Security Token Service (STS) security tokens
+        /// for use in HTTP(S) requests from a mobile device to WAF. For more information, see
+        /// <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
+        /// client application integration</a> in the <i>WAF Developer Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListMobileSdkReleases service method.</param>
+        /// 
+        /// <returns>The response from the ListMobileSdkReleases service method, as returned by WAFV2.</returns>
+        /// <exception cref="Amazon.WAFV2.Model.WAFInternalErrorException">
+        /// Your request is valid, but WAF couldn’t perform the operation because of a system
+        /// problem. Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFV2.Model.WAFInvalidOperationException">
+        /// The operation isn't valid.
+        /// </exception>
+        /// <exception cref="Amazon.WAFV2.Model.WAFInvalidParameterException">
+        /// The operation failed because WAF didn't recognize a parameter in the request. For
+        /// example: 
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You specified a parameter name or value that isn't valid.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Your nested statement isn't valid. You might have tried to nest a statement that can’t
+        /// be nested. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't
+        /// among the types available at <a>DefaultAction</a>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Your request references an ARN that is malformed, or corresponds to a resource with
+        /// which a web ACL can't be associated.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/ListMobileSdkReleases">REST API Reference for ListMobileSdkReleases Operation</seealso>
+        public virtual ListMobileSdkReleasesResponse ListMobileSdkReleases(ListMobileSdkReleasesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListMobileSdkReleasesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListMobileSdkReleasesResponseUnmarshaller.Instance;
+
+            return Invoke<ListMobileSdkReleasesResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListMobileSdkReleases operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListMobileSdkReleases operation on AmazonWAFV2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListMobileSdkReleases
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/ListMobileSdkReleases">REST API Reference for ListMobileSdkReleases Operation</seealso>
+        public virtual IAsyncResult BeginListMobileSdkReleases(ListMobileSdkReleasesRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListMobileSdkReleasesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListMobileSdkReleasesResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListMobileSdkReleases operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListMobileSdkReleases.</param>
+        /// 
+        /// <returns>Returns a  ListMobileSdkReleasesResult from WAFV2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/ListMobileSdkReleases">REST API Reference for ListMobileSdkReleases Operation</seealso>
+        public virtual ListMobileSdkReleasesResponse EndListMobileSdkReleases(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListMobileSdkReleasesResponse>(asyncResult);
         }
 
         #endregion
@@ -3779,43 +4075,42 @@ namespace Amazon.WAFV2
 
         /// <summary>
         /// Enables the specified <a>LoggingConfiguration</a>, to start logging from a web ACL,
-        /// according to the configuration provided.
+        /// according to the configuration provided. 
         /// 
-        ///  
+        ///  <note> 
         /// <para>
-        /// You can access information about all traffic that WAF inspects using the following
+        /// You can define one logging destination per web ACL.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// You can access information about the traffic that WAF inspects using the following
         /// steps:
         /// </para>
         ///  <ol> <li> 
         /// <para>
-        /// Create an Amazon Kinesis Data Firehose. 
+        /// Create your logging destination. You can use an Amazon CloudWatch Logs log group,
+        /// an Amazon Simple Storage Service (Amazon S3) bucket, or an Amazon Kinesis Data Firehose.
+        /// For information about configuring logging destinations and the permissions that are
+        /// required for each, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
+        /// web ACL traffic information</a> in the <i>WAF Developer Guide</i>.
         /// </para>
-        ///  
+        ///  </li> <li> 
         /// <para>
-        /// Create the data firehose with a PUT source and in the Region that you are operating.
-        /// If you are capturing logs for Amazon CloudFront, always create the firehose in US
-        /// East (N. Virginia). 
-        /// </para>
-        ///  
-        /// <para>
-        /// Give the data firehose a name that starts with the prefix <code>aws-waf-logs-</code>.
-        /// For example, <code>aws-waf-logs-us-east-2-analytics</code>.
-        /// </para>
-        ///  <note> 
-        /// <para>
-        /// Do not create the data firehose using a <code>Kinesis stream</code> as your source.
-        /// </para>
-        ///  </note> </li> <li> 
-        /// <para>
-        /// Associate that firehose to your web ACL using a <code>PutLoggingConfiguration</code>
+        /// Associate your logging destination to your web ACL using a <code>PutLoggingConfiguration</code>
         /// request.
         /// </para>
         ///  </li> </ol> 
         /// <para>
         /// When you successfully enable logging using a <code>PutLoggingConfiguration</code>
-        /// request, WAF will create a service linked role with the necessary permissions to write
-        /// logs to the Amazon Kinesis Data Firehose. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
-        /// Web ACL Traffic Information</a> in the <i>WAF Developer Guide</i>.
+        /// request, WAF creates an additional role or policy that is required to write logs to
+        /// the logging destination. For an Amazon CloudWatch Logs log group, WAF creates a resource
+        /// policy on the log group. For an Amazon S3 bucket, WAF creates a bucket policy. For
+        /// an Amazon Kinesis Data Firehose, WAF creates a service-linked role.
+        /// </para>
+        ///  
+        /// <para>
+        /// For additional information about web ACL logging, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
+        /// web ACL traffic information</a> in the <i>WAF Developer Guide</i>.
         /// </para>
         ///  <note> 
         /// <para>
@@ -3867,6 +4162,11 @@ namespace Amazon.WAFV2
         /// the maximum number of <code>WebACL</code> objects that you can create for an Amazon
         /// Web Services account. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF
         /// quotas</a> in the <i>WAF Developer Guide</i>.
+        /// </exception>
+        /// <exception cref="Amazon.WAFV2.Model.WAFLogDestinationPermissionIssueException">
+        /// The operation failed because you don't have the permissions that your logging configuration
+        /// requires. For information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
+        /// web ACL traffic information</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
         /// WAF couldn’t perform the operation because your resource doesn’t exist.
@@ -4135,8 +4435,8 @@ namespace Amazon.WAFV2
         ///  </li> <li> 
         /// <para>
         ///  <code>Action</code> must specify <code>wafv2:CreateWebACL</code>, <code>wafv2:UpdateWebACL</code>,
-        /// and <code>wafv2:PutFirewallManagerRuleGroups</code>. WAF rejects any extra actions
-        /// or wildcard actions in the policy.
+        /// and <code>wafv2:PutFirewallManagerRuleGroups</code> and may optionally specify <code>wafv2:GetRuleGroup</code>.
+        /// WAF rejects any extra actions or wildcard actions in the policy.
         /// </para>
         ///  </li> <li> 
         /// <para>

@@ -56,7 +56,7 @@ namespace Amazon.Elasticsearch.Model.Internal.MarshallTransformations
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.Elasticsearch");
             request.Headers["Content-Type"] = "application/json";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2015-01-01";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2015-01-01";
             request.HttpMethod = "POST";
 
             if (!publicRequest.IsSetDomainName())
@@ -130,6 +130,12 @@ namespace Amazon.Elasticsearch.Model.Internal.MarshallTransformations
                     marshaller.Marshall(publicRequest.DomainEndpointOptions, context);
 
                     context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetDryRun())
+                {
+                    context.Writer.WritePropertyName("DryRun");
+                    context.Writer.Write(publicRequest.DryRun);
                 }
 
                 if(publicRequest.IsSetEBSOptions())
@@ -217,7 +223,6 @@ namespace Amazon.Elasticsearch.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

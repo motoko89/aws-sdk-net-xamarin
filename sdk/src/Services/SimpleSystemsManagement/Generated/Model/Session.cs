@@ -29,15 +29,17 @@ using Amazon.Runtime.Internal;
 namespace Amazon.SimpleSystemsManagement.Model
 {
     /// <summary>
-    /// Information about a Session Manager connection to an instance.
+    /// Information about a Session Manager connection to a managed node.
     /// </summary>
     public partial class Session
     {
         private string _details;
         private string _documentName;
         private DateTime? _endDate;
+        private string _maxSessionDuration;
         private SessionManagerOutputUrl _outputUrl;
         private string _owner;
+        private string _reason;
         private string _sessionId;
         private DateTime? _startDate;
         private SessionStatus _status;
@@ -100,6 +102,25 @@ namespace Amazon.SimpleSystemsManagement.Model
         }
 
         /// <summary>
+        /// Gets and sets the property MaxSessionDuration. 
+        /// <para>
+        /// The maximum duration of a session before it terminates.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=4)]
+        public string MaxSessionDuration
+        {
+            get { return this._maxSessionDuration; }
+            set { this._maxSessionDuration = value; }
+        }
+
+        // Check to see if MaxSessionDuration property is set
+        internal bool IsSetMaxSessionDuration()
+        {
+            return this._maxSessionDuration != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property OutputUrl. 
         /// <para>
         /// Reserved for future use.
@@ -134,6 +155,25 @@ namespace Amazon.SimpleSystemsManagement.Model
         internal bool IsSetOwner()
         {
             return this._owner != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Reason. 
+        /// <para>
+        /// The reason for connecting to the instance.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=256)]
+        public string Reason
+        {
+            get { return this._reason; }
+            set { this._reason = value; }
+        }
+
+        // Check to see if Reason property is set
+        internal bool IsSetReason()
+        {
+            return this._reason != null;
         }
 
         /// <summary>
@@ -194,7 +234,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property Target. 
         /// <para>
-        /// The instance that the Session Manager session connected to.
+        /// The managed node that the Session Manager session connected to.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=400)]

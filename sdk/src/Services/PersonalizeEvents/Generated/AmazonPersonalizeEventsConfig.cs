@@ -32,7 +32,7 @@ namespace Amazon.PersonalizeEvents
     public partial class AmazonPersonalizeEventsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.63");
+            InternalSDKUtils.BuildUserAgentString("3.7.1.121");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.PersonalizeEvents
         /// Default constructor
         /// </summary>
         public AmazonPersonalizeEventsConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonPersonalizeEventsDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "personalize";
         }

@@ -34,7 +34,7 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// DatabaseInputDefinition Marshaller
-    /// </summary>       
+    /// </summary>
     public class DatabaseInputDefinitionMarshaller : IRequestMarshaller<DatabaseInputDefinition, JsonMarshallerContext> 
     {
         /// <summary>
@@ -57,6 +57,12 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.GlueConnectionName);
             }
 
+            if(requestObject.IsSetQueryString())
+            {
+                context.Writer.WritePropertyName("QueryString");
+                context.Writer.Write(requestObject.QueryString);
+            }
+
             if(requestObject.IsSetTempDirectory())
             {
                 context.Writer.WritePropertyName("TempDirectory");
@@ -72,7 +78,7 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static DatabaseInputDefinitionMarshaller Instance = new DatabaseInputDefinitionMarshaller();
 
     }

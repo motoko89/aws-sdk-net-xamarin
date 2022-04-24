@@ -30,7 +30,16 @@ namespace Amazon.SecretsManager.Model
 {
     /// <summary>
     /// Container for the parameters to the RemoveRegionsFromReplication operation.
-    /// Remove regions from replication.
+    /// For a secret that is replicated to other Regions, deletes the secret replicas from
+    /// the Regions you specify.
+    /// 
+    ///  
+    /// <para>
+    ///  <b>Required permissions: </b> <code>secretsmanager:RemoveRegionsFromReplication</code>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+    /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+    /// and access control in Secrets Manager</a>. 
+    /// </para>
     /// </summary>
     public partial class RemoveRegionsFromReplicationRequest : AmazonSecretsManagerRequest
     {
@@ -40,7 +49,7 @@ namespace Amazon.SecretsManager.Model
         /// <summary>
         /// Gets and sets the property RemoveReplicaRegions. 
         /// <para>
-        /// Remove replication from specific Regions.
+        /// The Regions of the replicas to remove.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1)]
@@ -59,7 +68,7 @@ namespace Amazon.SecretsManager.Model
         /// <summary>
         /// Gets and sets the property SecretId. 
         /// <para>
-        /// Remove a secret by <code>SecretId</code> from replica Regions.
+        /// The ARN or name of the secret.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=2048)]

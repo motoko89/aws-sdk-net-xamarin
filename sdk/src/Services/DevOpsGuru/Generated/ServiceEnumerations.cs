@@ -129,6 +129,110 @@ namespace Amazon.DevOpsGuru
 
 
     /// <summary>
+    /// Constants used for properties of type AnomalyType.
+    /// </summary>
+    public class AnomalyType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CAUSAL for AnomalyType
+        /// </summary>
+        public static readonly AnomalyType CAUSAL = new AnomalyType("CAUSAL");
+        /// <summary>
+        /// Constant CONTEXTUAL for AnomalyType
+        /// </summary>
+        public static readonly AnomalyType CONTEXTUAL = new AnomalyType("CONTEXTUAL");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public AnomalyType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static AnomalyType FindValue(string value)
+        {
+            return FindValue<AnomalyType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator AnomalyType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type CloudWatchMetricDataStatusCode.
+    /// </summary>
+    public class CloudWatchMetricDataStatusCode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Complete for CloudWatchMetricDataStatusCode
+        /// </summary>
+        public static readonly CloudWatchMetricDataStatusCode Complete = new CloudWatchMetricDataStatusCode("Complete");
+        /// <summary>
+        /// Constant InternalError for CloudWatchMetricDataStatusCode
+        /// </summary>
+        public static readonly CloudWatchMetricDataStatusCode InternalError = new CloudWatchMetricDataStatusCode("InternalError");
+        /// <summary>
+        /// Constant PartialData for CloudWatchMetricDataStatusCode
+        /// </summary>
+        public static readonly CloudWatchMetricDataStatusCode PartialData = new CloudWatchMetricDataStatusCode("PartialData");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public CloudWatchMetricDataStatusCode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static CloudWatchMetricDataStatusCode FindValue(string value)
+        {
+            return FindValue<CloudWatchMetricDataStatusCode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator CloudWatchMetricDataStatusCode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type CloudWatchMetricsStat.
     /// </summary>
     public class CloudWatchMetricsStat : ConstantClass
@@ -408,6 +512,56 @@ namespace Amazon.DevOpsGuru
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator EventDataSource(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type EventSourceOptInStatus.
+    /// </summary>
+    public class EventSourceOptInStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DISABLED for EventSourceOptInStatus
+        /// </summary>
+        public static readonly EventSourceOptInStatus DISABLED = new EventSourceOptInStatus("DISABLED");
+        /// <summary>
+        /// Constant ENABLED for EventSourceOptInStatus
+        /// </summary>
+        public static readonly EventSourceOptInStatus ENABLED = new EventSourceOptInStatus("ENABLED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public EventSourceOptInStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static EventSourceOptInStatus FindValue(string value)
+        {
+            return FindValue<EventSourceOptInStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator EventSourceOptInStatus(string value)
         {
             return FindValue(value);
         }
@@ -767,6 +921,64 @@ namespace Amazon.DevOpsGuru
 
 
     /// <summary>
+    /// Constants used for properties of type OrganizationResourceCollectionType.
+    /// </summary>
+    public class OrganizationResourceCollectionType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AWS_ACCOUNT for OrganizationResourceCollectionType
+        /// </summary>
+        public static readonly OrganizationResourceCollectionType AWS_ACCOUNT = new OrganizationResourceCollectionType("AWS_ACCOUNT");
+        /// <summary>
+        /// Constant AWS_CLOUD_FORMATION for OrganizationResourceCollectionType
+        /// </summary>
+        public static readonly OrganizationResourceCollectionType AWS_CLOUD_FORMATION = new OrganizationResourceCollectionType("AWS_CLOUD_FORMATION");
+        /// <summary>
+        /// Constant AWS_SERVICE for OrganizationResourceCollectionType
+        /// </summary>
+        public static readonly OrganizationResourceCollectionType AWS_SERVICE = new OrganizationResourceCollectionType("AWS_SERVICE");
+        /// <summary>
+        /// Constant AWS_TAGS for OrganizationResourceCollectionType
+        /// </summary>
+        public static readonly OrganizationResourceCollectionType AWS_TAGS = new OrganizationResourceCollectionType("AWS_TAGS");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public OrganizationResourceCollectionType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static OrganizationResourceCollectionType FindValue(string value)
+        {
+            return FindValue<OrganizationResourceCollectionType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator OrganizationResourceCollectionType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ResourceCollectionType.
     /// </summary>
     public class ResourceCollectionType : ConstantClass
@@ -780,6 +992,10 @@ namespace Amazon.DevOpsGuru
         /// Constant AWS_SERVICE for ResourceCollectionType
         /// </summary>
         public static readonly ResourceCollectionType AWS_SERVICE = new ResourceCollectionType("AWS_SERVICE");
+        /// <summary>
+        /// Constant AWS_TAGS for ResourceCollectionType
+        /// </summary>
+        public static readonly ResourceCollectionType AWS_TAGS = new ResourceCollectionType("AWS_TAGS");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -1023,9 +1239,17 @@ namespace Amazon.DevOpsGuru
         /// </summary>
         public static readonly ValidationExceptionReason FIELD_VALIDATION_FAILED = new ValidationExceptionReason("FIELD_VALIDATION_FAILED");
         /// <summary>
+        /// Constant INVALID_PARAMETER_COMBINATION for ValidationExceptionReason
+        /// </summary>
+        public static readonly ValidationExceptionReason INVALID_PARAMETER_COMBINATION = new ValidationExceptionReason("INVALID_PARAMETER_COMBINATION");
+        /// <summary>
         /// Constant OTHER for ValidationExceptionReason
         /// </summary>
         public static readonly ValidationExceptionReason OTHER = new ValidationExceptionReason("OTHER");
+        /// <summary>
+        /// Constant PARAMETER_INCONSISTENT_WITH_SERVICE_STATE for ValidationExceptionReason
+        /// </summary>
+        public static readonly ValidationExceptionReason PARAMETER_INCONSISTENT_WITH_SERVICE_STATE = new ValidationExceptionReason("PARAMETER_INCONSISTENT_WITH_SERVICE_STATE");
         /// <summary>
         /// Constant UNKNOWN_OPERATION for ValidationExceptionReason
         /// </summary>

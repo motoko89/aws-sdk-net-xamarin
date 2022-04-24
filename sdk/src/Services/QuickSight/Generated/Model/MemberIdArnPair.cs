@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.QuickSight.Model
 {
     /// <summary>
-    /// An object that consists of the member Amazon Resource Name (ARN) and member ID.
+    /// An object that consists of a member Amazon Resource Name (ARN) and a member ID.
     /// </summary>
     public partial class MemberIdArnPair
     {

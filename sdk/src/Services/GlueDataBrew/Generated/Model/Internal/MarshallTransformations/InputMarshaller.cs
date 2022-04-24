@@ -34,7 +34,7 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// Input Marshaller
-    /// </summary>       
+    /// </summary>
     public class InputMarshaller : IRequestMarshaller<Input, JsonMarshallerContext> 
     {
         /// <summary>
@@ -67,6 +67,17 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetMetadata())
+            {
+                context.Writer.WritePropertyName("Metadata");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = MetadataMarshaller.Instance;
+                marshaller.Marshall(requestObject.Metadata, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetS3InputDefinition())
             {
                 context.Writer.WritePropertyName("S3InputDefinition");
@@ -82,7 +93,7 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static InputMarshaller Instance = new InputMarshaller();
 
     }

@@ -47,6 +47,22 @@
         {"shape":"ThrottlingException"}
       ]
     },
+    "AssociateDefaultVocabulary":{
+      "name":"AssociateDefaultVocabulary",
+      "http":{
+        "method":"PUT",
+        "requestUri":"/default-vocabulary/{InstanceId}/{LanguageCode}"
+      },
+      "input":{"shape":"AssociateDefaultVocabularyRequest"},
+      "output":{"shape":"AssociateDefaultVocabularyResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"AccessDeniedException"}
+      ]
+    },
     "AssociateInstanceStorageConfig":{
       "name":"AssociateInstanceStorageConfig",
       "http":{
@@ -98,6 +114,21 @@
         {"shape":"ThrottlingException"}
       ]
     },
+    "AssociatePhoneNumberContactFlow":{
+      "name":"AssociatePhoneNumberContactFlow",
+      "http":{
+        "method":"PUT",
+        "requestUri":"/phone-number/{PhoneNumberId}/contact-flow"
+      },
+      "input":{"shape":"AssociatePhoneNumberContactFlowRequest"},
+      "errors":[
+        {"shape":"InvalidParameterException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"AccessDeniedException"}
+      ]
+    },
     "AssociateQueueQuickConnects":{
       "name":"AssociateQueueQuickConnects",
       "http":{
@@ -147,6 +178,23 @@
         {"shape":"ThrottlingException"}
       ]
     },
+    "ClaimPhoneNumber":{
+      "name":"ClaimPhoneNumber",
+      "http":{
+        "method":"POST",
+        "requestUri":"/phone-number/claim"
+      },
+      "input":{"shape":"ClaimPhoneNumberRequest"},
+      "output":{"shape":"ClaimPhoneNumberResponse"},
+      "errors":[
+        {"shape":"InvalidParameterException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"IdempotencyException"},
+        {"shape":"AccessDeniedException"}
+      ]
+    },
     "CreateAgentStatus":{
       "name":"CreateAgentStatus",
       "http":{
@@ -181,6 +229,27 @@
         {"shape":"LimitExceededException"},
         {"shape":"ResourceNotFoundException"},
         {"shape":"ThrottlingException"},
+        {"shape":"InternalServiceException"}
+      ]
+    },
+    "CreateContactFlowModule":{
+      "name":"CreateContactFlowModule",
+      "http":{
+        "method":"PUT",
+        "requestUri":"/contact-flow-modules/{InstanceId}"
+      },
+      "input":{"shape":"CreateContactFlowModuleRequest"},
+      "output":{"shape":"CreateContactFlowModuleResponse"},
+      "errors":[
+        {"shape":"AccessDeniedException"},
+        {"shape":"InvalidRequestException"},
+        {"shape":"InvalidContactFlowModuleException"},
+        {"shape":"InvalidParameterException"},
+        {"shape":"DuplicateResourceException"},
+        {"shape":"LimitExceededException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"IdempotencyException"},
         {"shape":"InternalServiceException"}
       ]
     },
@@ -358,6 +427,57 @@
         {"shape":"InternalServiceException"}
       ]
     },
+    "CreateVocabulary":{
+      "name":"CreateVocabulary",
+      "http":{
+        "method":"POST",
+        "requestUri":"/vocabulary/{InstanceId}"
+      },
+      "input":{"shape":"CreateVocabularyRequest"},
+      "output":{"shape":"CreateVocabularyResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"AccessDeniedException"},
+        {"shape":"ResourceConflictException"},
+        {"shape":"ServiceQuotaExceededException"}
+      ]
+    },
+    "DeleteContactFlow":{
+      "name":"DeleteContactFlow",
+      "http":{
+        "method":"DELETE",
+        "requestUri":"/contact-flows/{InstanceId}/{ContactFlowId}"
+      },
+      "input":{"shape":"DeleteContactFlowRequest"},
+      "errors":[
+        {"shape":"AccessDeniedException"},
+        {"shape":"InvalidRequestException"},
+        {"shape":"InvalidParameterException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"ThrottlingException"}
+      ]
+    },
+    "DeleteContactFlowModule":{
+      "name":"DeleteContactFlowModule",
+      "http":{
+        "method":"DELETE",
+        "requestUri":"/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}"
+      },
+      "input":{"shape":"DeleteContactFlowModuleRequest"},
+      "output":{"shape":"DeleteContactFlowModuleResponse"},
+      "errors":[
+        {"shape":"AccessDeniedException"},
+        {"shape":"InvalidRequestException"},
+        {"shape":"InvalidParameterException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalServiceException"}
+      ]
+    },
     "DeleteHoursOfOperation":{
       "name":"DeleteHoursOfOperation",
       "http":{
@@ -477,6 +597,23 @@
         {"shape":"InternalServiceException"}
       ]
     },
+    "DeleteVocabulary":{
+      "name":"DeleteVocabulary",
+      "http":{
+        "method":"POST",
+        "requestUri":"/vocabulary-remove/{InstanceId}/{VocabularyId}"
+      },
+      "input":{"shape":"DeleteVocabularyRequest"},
+      "output":{"shape":"DeleteVocabularyResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"AccessDeniedException"},
+        {"shape":"ResourceInUseException"}
+      ]
+    },
     "DescribeAgentStatus":{
       "name":"DescribeAgentStatus",
       "http":{
@@ -493,6 +630,22 @@
         {"shape":"InternalServiceException"}
       ]
     },
+    "DescribeContact":{
+      "name":"DescribeContact",
+      "http":{
+        "method":"GET",
+        "requestUri":"/contacts/{InstanceId}/{ContactId}"
+      },
+      "input":{"shape":"DescribeContactRequest"},
+      "output":{"shape":"DescribeContactResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"InvalidParameterException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"ThrottlingException"}
+      ]
+    },
     "DescribeContactFlow":{
       "name":"DescribeContactFlow",
       "http":{
@@ -506,6 +659,23 @@
         {"shape":"InvalidParameterException"},
         {"shape":"ResourceNotFoundException"},
         {"shape":"ContactFlowNotPublishedException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalServiceException"}
+      ]
+    },
+    "DescribeContactFlowModule":{
+      "name":"DescribeContactFlowModule",
+      "http":{
+        "method":"GET",
+        "requestUri":"/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}"
+      },
+      "input":{"shape":"DescribeContactFlowModuleRequest"},
+      "output":{"shape":"DescribeContactFlowModuleResponse"},
+      "errors":[
+        {"shape":"AccessDeniedException"},
+        {"shape":"InvalidRequestException"},
+        {"shape":"InvalidParameterException"},
+        {"shape":"ResourceNotFoundException"},
         {"shape":"ThrottlingException"},
         {"shape":"InternalServiceException"}
       ]
@@ -570,6 +740,22 @@
         {"shape":"InvalidRequestException"},
         {"shape":"InvalidParameterException"},
         {"shape":"ThrottlingException"}
+      ]
+    },
+    "DescribePhoneNumber":{
+      "name":"DescribePhoneNumber",
+      "http":{
+        "method":"GET",
+        "requestUri":"/phone-number/{PhoneNumberId}"
+      },
+      "input":{"shape":"DescribePhoneNumberRequest"},
+      "output":{"shape":"DescribePhoneNumberResponse"},
+      "errors":[
+        {"shape":"InvalidParameterException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"AccessDeniedException"}
       ]
     },
     "DescribeQueue":{
@@ -684,6 +870,22 @@
         {"shape":"InternalServiceException"}
       ]
     },
+    "DescribeVocabulary":{
+      "name":"DescribeVocabulary",
+      "http":{
+        "method":"GET",
+        "requestUri":"/vocabulary/{InstanceId}/{VocabularyId}"
+      },
+      "input":{"shape":"DescribeVocabularyRequest"},
+      "output":{"shape":"DescribeVocabularyResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"AccessDeniedException"}
+      ]
+    },
     "DisassociateApprovedOrigin":{
       "name":"DisassociateApprovedOrigin",
       "http":{
@@ -756,6 +958,21 @@
         {"shape":"InvalidRequestException"},
         {"shape":"InvalidParameterException"},
         {"shape":"ThrottlingException"}
+      ]
+    },
+    "DisassociatePhoneNumberContactFlow":{
+      "name":"DisassociatePhoneNumberContactFlow",
+      "http":{
+        "method":"DELETE",
+        "requestUri":"/phone-number/{PhoneNumberId}/contact-flow"
+      },
+      "input":{"shape":"DisassociatePhoneNumberContactFlowRequest"},
+      "errors":[
+        {"shape":"InvalidParameterException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"AccessDeniedException"}
       ]
     },
     "DisassociateQueueQuickConnects":{
@@ -913,6 +1130,23 @@
         {"shape":"ThrottlingException"}
       ]
     },
+    "ListContactFlowModules":{
+      "name":"ListContactFlowModules",
+      "http":{
+        "method":"GET",
+        "requestUri":"/contact-flow-modules-summary/{InstanceId}"
+      },
+      "input":{"shape":"ListContactFlowModulesRequest"},
+      "output":{"shape":"ListContactFlowModulesResponse"},
+      "errors":[
+        {"shape":"AccessDeniedException"},
+        {"shape":"InvalidRequestException"},
+        {"shape":"InvalidParameterException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalServiceException"}
+      ]
+    },
     "ListContactFlows":{
       "name":"ListContactFlows",
       "http":{
@@ -927,6 +1161,37 @@
         {"shape":"ResourceNotFoundException"},
         {"shape":"ThrottlingException"},
         {"shape":"InternalServiceException"}
+      ]
+    },
+    "ListContactReferences":{
+      "name":"ListContactReferences",
+      "http":{
+        "method":"GET",
+        "requestUri":"/contact/references/{InstanceId}/{ContactId}"
+      },
+      "input":{"shape":"ListContactReferencesRequest"},
+      "output":{"shape":"ListContactReferencesResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"InvalidParameterException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"ThrottlingException"}
+      ]
+    },
+    "ListDefaultVocabularies":{
+      "name":"ListDefaultVocabularies",
+      "http":{
+        "method":"POST",
+        "requestUri":"/default-vocabulary-summary/{InstanceId}"
+      },
+      "input":{"shape":"ListDefaultVocabulariesRequest"},
+      "output":{"shape":"ListDefaultVocabulariesResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"AccessDeniedException"}
       ]
     },
     "ListHoursOfOperations":{
@@ -1051,6 +1316,22 @@
         {"shape":"ResourceNotFoundException"},
         {"shape":"ThrottlingException"},
         {"shape":"InternalServiceException"}
+      ]
+    },
+    "ListPhoneNumbersV2":{
+      "name":"ListPhoneNumbersV2",
+      "http":{
+        "method":"POST",
+        "requestUri":"/phone-number/list"
+      },
+      "input":{"shape":"ListPhoneNumbersV2Request"},
+      "output":{"shape":"ListPhoneNumbersV2Response"},
+      "errors":[
+        {"shape":"InvalidParameterException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"AccessDeniedException"}
       ]
     },
     "ListPrompts":{
@@ -1260,6 +1541,23 @@
         {"shape":"InternalServiceException"}
       ]
     },
+    "ReleasePhoneNumber":{
+      "name":"ReleasePhoneNumber",
+      "http":{
+        "method":"DELETE",
+        "requestUri":"/phone-number/{PhoneNumberId}"
+      },
+      "input":{"shape":"ReleasePhoneNumberRequest"},
+      "errors":[
+        {"shape":"InvalidParameterException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"ResourceInUseException"},
+        {"shape":"IdempotencyException"},
+        {"shape":"AccessDeniedException"}
+      ]
+    },
     "ResumeContactRecording":{
       "name":"ResumeContactRecording",
       "http":{
@@ -1272,6 +1570,36 @@
         {"shape":"InvalidRequestException"},
         {"shape":"ResourceNotFoundException"},
         {"shape":"InternalServiceException"}
+      ]
+    },
+    "SearchAvailablePhoneNumbers":{
+      "name":"SearchAvailablePhoneNumbers",
+      "http":{
+        "method":"POST",
+        "requestUri":"/phone-number/search-available"
+      },
+      "input":{"shape":"SearchAvailablePhoneNumbersRequest"},
+      "output":{"shape":"SearchAvailablePhoneNumbersResponse"},
+      "errors":[
+        {"shape":"InvalidParameterException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"AccessDeniedException"}
+      ]
+    },
+    "SearchVocabularies":{
+      "name":"SearchVocabularies",
+      "http":{
+        "method":"POST",
+        "requestUri":"/vocabulary-summary/{InstanceId}"
+      },
+      "input":{"shape":"SearchVocabulariesRequest"},
+      "output":{"shape":"SearchVocabulariesResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"AccessDeniedException"}
       ]
     },
     "StartChatContact":{
@@ -1462,6 +1790,22 @@
         {"shape":"InternalServiceException"}
       ]
     },
+    "UpdateContact":{
+      "name":"UpdateContact",
+      "http":{
+        "method":"POST",
+        "requestUri":"/contacts/{InstanceId}/{ContactId}"
+      },
+      "input":{"shape":"UpdateContactRequest"},
+      "output":{"shape":"UpdateContactResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"InvalidParameterException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"ThrottlingException"}
+      ]
+    },
     "UpdateContactAttributes":{
       "name":"UpdateContactAttributes",
       "http":{
@@ -1493,6 +1837,57 @@
         {"shape":"InternalServiceException"}
       ]
     },
+    "UpdateContactFlowMetadata":{
+      "name":"UpdateContactFlowMetadata",
+      "http":{
+        "method":"POST",
+        "requestUri":"/contact-flows/{InstanceId}/{ContactFlowId}/metadata"
+      },
+      "input":{"shape":"UpdateContactFlowMetadataRequest"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"InvalidParameterException"},
+        {"shape":"DuplicateResourceException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalServiceException"}
+      ]
+    },
+    "UpdateContactFlowModuleContent":{
+      "name":"UpdateContactFlowModuleContent",
+      "http":{
+        "method":"POST",
+        "requestUri":"/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/content"
+      },
+      "input":{"shape":"UpdateContactFlowModuleContentRequest"},
+      "output":{"shape":"UpdateContactFlowModuleContentResponse"},
+      "errors":[
+        {"shape":"AccessDeniedException"},
+        {"shape":"InvalidRequestException"},
+        {"shape":"InvalidContactFlowModuleException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalServiceException"}
+      ]
+    },
+    "UpdateContactFlowModuleMetadata":{
+      "name":"UpdateContactFlowModuleMetadata",
+      "http":{
+        "method":"POST",
+        "requestUri":"/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/metadata"
+      },
+      "input":{"shape":"UpdateContactFlowModuleMetadataRequest"},
+      "output":{"shape":"UpdateContactFlowModuleMetadataResponse"},
+      "errors":[
+        {"shape":"AccessDeniedException"},
+        {"shape":"InvalidRequestException"},
+        {"shape":"InvalidParameterException"},
+        {"shape":"DuplicateResourceException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalServiceException"}
+      ]
+    },
     "UpdateContactFlowName":{
       "name":"UpdateContactFlowName",
       "http":{
@@ -1506,6 +1901,23 @@
         {"shape":"DuplicateResourceException"},
         {"shape":"ResourceNotFoundException"},
         {"shape":"ThrottlingException"},
+        {"shape":"InternalServiceException"}
+      ]
+    },
+    "UpdateContactSchedule":{
+      "name":"UpdateContactSchedule",
+      "http":{
+        "method":"POST",
+        "requestUri":"/contact/schedule"
+      },
+      "input":{"shape":"UpdateContactScheduleRequest"},
+      "output":{"shape":"UpdateContactScheduleResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"InvalidParameterException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"LimitExceededException"},
         {"shape":"InternalServiceException"}
       ]
     },
@@ -1553,6 +1965,24 @@
         {"shape":"InvalidRequestException"},
         {"shape":"InvalidParameterException"},
         {"shape":"ThrottlingException"}
+      ]
+    },
+    "UpdatePhoneNumber":{
+      "name":"UpdatePhoneNumber",
+      "http":{
+        "method":"PUT",
+        "requestUri":"/phone-number/{PhoneNumberId}"
+      },
+      "input":{"shape":"UpdatePhoneNumberRequest"},
+      "output":{"shape":"UpdatePhoneNumberResponse"},
+      "errors":[
+        {"shape":"InvalidParameterException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"ResourceInUseException"},
+        {"shape":"IdempotencyException"},
+        {"shape":"AccessDeniedException"}
       ]
     },
     "UpdateQueueHoursOfOperation":{
@@ -1864,9 +2294,21 @@
       "max":100,
       "min":1
     },
+    "AgentInfo":{
+      "type":"structure",
+      "members":{
+        "Id":{"shape":"AgentResourceId"},
+        "ConnectedToAgentTimestamp":{"shape":"timestamp"}
+      }
+    },
     "AgentLastName":{
       "type":"string",
       "max":100,
+      "min":1
+    },
+    "AgentResourceId":{
+      "type":"string",
+      "max":256,
       "min":1
     },
     "AgentStatus":{
@@ -1976,6 +2418,31 @@
         "LexV2Bot":{"shape":"LexV2Bot"}
       }
     },
+    "AssociateDefaultVocabularyRequest":{
+      "type":"structure",
+      "required":[
+        "InstanceId",
+        "LanguageCode"
+      ],
+      "members":{
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "LanguageCode":{
+          "shape":"VocabularyLanguageCode",
+          "location":"uri",
+          "locationName":"LanguageCode"
+        },
+        "VocabularyId":{"shape":"VocabularyId"}
+      }
+    },
+    "AssociateDefaultVocabularyResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
     "AssociateInstanceStorageConfigRequest":{
       "type":"structure",
       "required":[
@@ -2027,6 +2494,23 @@
           "locationName":"InstanceId"
         },
         "LexBot":{"shape":"LexBot"}
+      }
+    },
+    "AssociatePhoneNumberContactFlowRequest":{
+      "type":"structure",
+      "required":[
+        "PhoneNumberId",
+        "InstanceId",
+        "ContactFlowId"
+      ],
+      "members":{
+        "PhoneNumberId":{
+          "shape":"PhoneNumberId",
+          "location":"uri",
+          "locationName":"PhoneNumberId"
+        },
+        "InstanceId":{"shape":"InstanceId"},
+        "ContactFlowId":{"shape":"ContactFlowId"}
       }
     },
     "AssociateQueueQuickConnectsRequest":{
@@ -2097,6 +2581,14 @@
       "max":100,
       "min":1
     },
+    "AttachmentReference":{
+      "type":"structure",
+      "members":{
+        "Name":{"shape":"ReferenceKey"},
+        "Value":{"shape":"ReferenceValue"},
+        "Status":{"shape":"ReferenceStatus"}
+      }
+    },
     "Attribute":{
       "type":"structure",
       "members":{
@@ -2124,6 +2616,18 @@
       "member":{"shape":"Attribute"}
     },
     "AutoAccept":{"type":"boolean"},
+    "AvailableNumberSummary":{
+      "type":"structure",
+      "members":{
+        "PhoneNumber":{"shape":"PhoneNumber"},
+        "PhoneNumberCountryCode":{"shape":"PhoneNumberCountryCode"},
+        "PhoneNumberType":{"shape":"PhoneNumberType"}
+      }
+    },
+    "AvailableNumbersList":{
+      "type":"list",
+      "member":{"shape":"AvailableNumberSummary"}
+    },
     "Boolean":{"type":"boolean"},
     "BotName":{
       "type":"string",
@@ -2150,7 +2654,7 @@
     "Channels":{
       "type":"list",
       "member":{"shape":"Channel"},
-      "max":1
+      "max":3
     },
     "ChatContent":{
       "type":"string",
@@ -2161,6 +2665,11 @@
       "type":"string",
       "max":100,
       "min":1
+    },
+    "ChatDurationInMinutes":{
+      "type":"integer",
+      "max":10080,
+      "min":60
     },
     "ChatMessage":{
       "type":"structure",
@@ -2185,6 +2694,44 @@
       "max":350,
       "min":1
     },
+    "ClaimPhoneNumberRequest":{
+      "type":"structure",
+      "required":[
+        "TargetArn",
+        "PhoneNumber"
+      ],
+      "members":{
+        "TargetArn":{"shape":"ARN"},
+        "PhoneNumber":{"shape":"PhoneNumber"},
+        "PhoneNumberDescription":{"shape":"PhoneNumberDescription"},
+        "Tags":{"shape":"TagMap"},
+        "ClientToken":{
+          "shape":"ClientToken",
+          "idempotencyToken":true
+        }
+      }
+    },
+    "ClaimPhoneNumberResponse":{
+      "type":"structure",
+      "members":{
+        "PhoneNumberId":{"shape":"PhoneNumberId"},
+        "PhoneNumberArn":{"shape":"ARN"}
+      }
+    },
+    "ClaimedPhoneNumberSummary":{
+      "type":"structure",
+      "members":{
+        "PhoneNumberId":{"shape":"PhoneNumberId"},
+        "PhoneNumberArn":{"shape":"ARN"},
+        "PhoneNumber":{"shape":"PhoneNumber"},
+        "PhoneNumberCountryCode":{"shape":"PhoneNumberCountryCode"},
+        "PhoneNumberType":{"shape":"PhoneNumberType"},
+        "PhoneNumberDescription":{"shape":"PhoneNumberDescription"},
+        "TargetArn":{"shape":"ARN"},
+        "Tags":{"shape":"TagMap"},
+        "PhoneNumberStatus":{"shape":"PhoneNumberStatus"}
+      }
+    },
     "ClientToken":{
       "type":"string",
       "max":500
@@ -2203,6 +2750,25 @@
       "max":10,
       "min":1
     },
+    "Contact":{
+      "type":"structure",
+      "members":{
+        "Arn":{"shape":"ARN"},
+        "Id":{"shape":"ContactId"},
+        "InitialContactId":{"shape":"ContactId"},
+        "PreviousContactId":{"shape":"ContactId"},
+        "InitiationMethod":{"shape":"ContactInitiationMethod"},
+        "Name":{"shape":"Name"},
+        "Description":{"shape":"Description"},
+        "Channel":{"shape":"Channel"},
+        "QueueInfo":{"shape":"QueueInfo"},
+        "AgentInfo":{"shape":"AgentInfo"},
+        "InitiationTimestamp":{"shape":"timestamp"},
+        "DisconnectTimestamp":{"shape":"timestamp"},
+        "LastUpdateTimestamp":{"shape":"timestamp"},
+        "ScheduledTimestamp":{"shape":"timestamp"}
+      }
+    },
     "ContactFlow":{
       "type":"structure",
       "members":{
@@ -2210,6 +2776,7 @@
         "Id":{"shape":"ContactFlowId"},
         "Name":{"shape":"ContactFlowName"},
         "Type":{"shape":"ContactFlowType"},
+        "State":{"shape":"ContactFlowState"},
         "Description":{"shape":"ContactFlowDescription"},
         "Content":{"shape":"ContactFlowContent"},
         "Tags":{"shape":"TagMap"}
@@ -2220,6 +2787,68 @@
     "ContactFlowId":{
       "type":"string",
       "max":500
+    },
+    "ContactFlowModule":{
+      "type":"structure",
+      "members":{
+        "Arn":{"shape":"ARN"},
+        "Id":{"shape":"ContactFlowModuleId"},
+        "Name":{"shape":"ContactFlowModuleName"},
+        "Content":{"shape":"ContactFlowModuleContent"},
+        "Description":{"shape":"ContactFlowModuleDescription"},
+        "State":{"shape":"ContactFlowModuleState"},
+        "Status":{"shape":"ContactFlowModuleStatus"},
+        "Tags":{"shape":"TagMap"}
+      }
+    },
+    "ContactFlowModuleContent":{
+      "type":"string",
+      "max":256000,
+      "min":1
+    },
+    "ContactFlowModuleDescription":{
+      "type":"string",
+      "max":500,
+      "min":0,
+      "pattern":".*\\S.*"
+    },
+    "ContactFlowModuleId":{
+      "type":"string",
+      "max":256,
+      "min":1
+    },
+    "ContactFlowModuleName":{
+      "type":"string",
+      "max":127,
+      "min":1,
+      "pattern":".*\\S.*"
+    },
+    "ContactFlowModuleState":{
+      "type":"string",
+      "enum":[
+        "ACTIVE",
+        "ARCHIVED"
+      ]
+    },
+    "ContactFlowModuleStatus":{
+      "type":"string",
+      "enum":[
+        "PUBLISHED",
+        "SAVED"
+      ]
+    },
+    "ContactFlowModuleSummary":{
+      "type":"structure",
+      "members":{
+        "Id":{"shape":"ContactFlowModuleId"},
+        "Arn":{"shape":"ARN"},
+        "Name":{"shape":"ContactFlowModuleName"},
+        "State":{"shape":"ContactFlowModuleState"}
+      }
+    },
+    "ContactFlowModulesSummaryList":{
+      "type":"list",
+      "member":{"shape":"ContactFlowModuleSummary"}
     },
     "ContactFlowName":{
       "type":"string",
@@ -2233,13 +2862,21 @@
       "error":{"httpStatusCode":404},
       "exception":true
     },
+    "ContactFlowState":{
+      "type":"string",
+      "enum":[
+        "ACTIVE",
+        "ARCHIVED"
+      ]
+    },
     "ContactFlowSummary":{
       "type":"structure",
       "members":{
         "Id":{"shape":"ContactFlowId"},
         "Arn":{"shape":"ARN"},
         "Name":{"shape":"ContactFlowName"},
-        "ContactFlowType":{"shape":"ContactFlowType"}
+        "ContactFlowType":{"shape":"ContactFlowType"},
+        "ContactFlowState":{"shape":"ContactFlowState"}
       }
     },
     "ContactFlowSummaryList":{
@@ -2269,6 +2906,17 @@
       "type":"string",
       "max":256,
       "min":1
+    },
+    "ContactInitiationMethod":{
+      "type":"string",
+      "enum":[
+        "INBOUND",
+        "OUTBOUND",
+        "TRANSFER",
+        "QUEUE_TRANSFER",
+        "CALLBACK",
+        "API"
+      ]
     },
     "ContactNotFoundException":{
       "type":"structure",
@@ -2311,6 +2959,36 @@
       "members":{
         "AgentStatusARN":{"shape":"ARN"},
         "AgentStatusId":{"shape":"AgentStatusId"}
+      }
+    },
+    "CreateContactFlowModuleRequest":{
+      "type":"structure",
+      "required":[
+        "InstanceId",
+        "Name",
+        "Content"
+      ],
+      "members":{
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "Name":{"shape":"ContactFlowModuleName"},
+        "Description":{"shape":"ContactFlowModuleDescription"},
+        "Content":{"shape":"ContactFlowModuleContent"},
+        "Tags":{"shape":"TagMap"},
+        "ClientToken":{
+          "shape":"ClientToken",
+          "idempotencyToken":true
+        }
+      }
+    },
+    "CreateContactFlowModuleResponse":{
+      "type":"structure",
+      "members":{
+        "Id":{"shape":"ContactFlowModuleId"},
+        "Arn":{"shape":"ARN"}
       }
     },
     "CreateContactFlowRequest":{
@@ -2575,7 +3253,8 @@
           "shape":"InstanceId",
           "location":"uri",
           "locationName":"InstanceId"
-        }
+        },
+        "Tags":{"shape":"TagMap"}
       }
     },
     "CreateUserHierarchyGroupResponse":{
@@ -2616,6 +3295,43 @@
       "members":{
         "UserId":{"shape":"UserId"},
         "UserArn":{"shape":"ARN"}
+      }
+    },
+    "CreateVocabularyRequest":{
+      "type":"structure",
+      "required":[
+        "InstanceId",
+        "VocabularyName",
+        "LanguageCode",
+        "Content"
+      ],
+      "members":{
+        "ClientToken":{
+          "shape":"ClientToken",
+          "idempotencyToken":true
+        },
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "VocabularyName":{"shape":"VocabularyName"},
+        "LanguageCode":{"shape":"VocabularyLanguageCode"},
+        "Content":{"shape":"VocabularyContent"},
+        "Tags":{"shape":"TagMap"}
+      }
+    },
+    "CreateVocabularyResponse":{
+      "type":"structure",
+      "required":[
+        "VocabularyArn",
+        "VocabularyId",
+        "State"
+      ],
+      "members":{
+        "VocabularyArn":{"shape":"ARN"},
+        "VocabularyId":{"shape":"VocabularyId"},
+        "State":{"shape":"VocabularyState"}
       }
     },
     "Credentials":{
@@ -2681,10 +3397,72 @@
       "type":"list",
       "member":{"shape":"CurrentMetric"}
     },
+    "DefaultVocabulary":{
+      "type":"structure",
+      "required":[
+        "InstanceId",
+        "LanguageCode",
+        "VocabularyId",
+        "VocabularyName"
+      ],
+      "members":{
+        "InstanceId":{"shape":"InstanceId"},
+        "LanguageCode":{"shape":"VocabularyLanguageCode"},
+        "VocabularyId":{"shape":"VocabularyId"},
+        "VocabularyName":{"shape":"VocabularyName"}
+      }
+    },
+    "DefaultVocabularyList":{
+      "type":"list",
+      "member":{"shape":"DefaultVocabulary"}
+    },
     "Delay":{
       "type":"integer",
       "max":9999,
       "min":0
+    },
+    "DeleteContactFlowModuleRequest":{
+      "type":"structure",
+      "required":[
+        "InstanceId",
+        "ContactFlowModuleId"
+      ],
+      "members":{
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "ContactFlowModuleId":{
+          "shape":"ContactFlowModuleId",
+          "location":"uri",
+          "locationName":"ContactFlowModuleId"
+        }
+      }
+    },
+    "DeleteContactFlowModuleResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "DeleteContactFlowRequest":{
+      "type":"structure",
+      "required":[
+        "InstanceId",
+        "ContactFlowId"
+      ],
+      "members":{
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "ContactFlowId":{
+          "shape":"ContactFlowId",
+          "location":"uri",
+          "locationName":"ContactFlowId"
+        }
+      }
     },
     "DeleteHoursOfOperationRequest":{
       "type":"structure",
@@ -2836,6 +3614,38 @@
         }
       }
     },
+    "DeleteVocabularyRequest":{
+      "type":"structure",
+      "required":[
+        "InstanceId",
+        "VocabularyId"
+      ],
+      "members":{
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "VocabularyId":{
+          "shape":"VocabularyId",
+          "location":"uri",
+          "locationName":"VocabularyId"
+        }
+      }
+    },
+    "DeleteVocabularyResponse":{
+      "type":"structure",
+      "required":[
+        "VocabularyArn",
+        "VocabularyId",
+        "State"
+      ],
+      "members":{
+        "VocabularyArn":{"shape":"ARN"},
+        "VocabularyId":{"shape":"VocabularyId"},
+        "State":{"shape":"VocabularyState"}
+      }
+    },
     "DescribeAgentStatusRequest":{
       "type":"structure",
       "required":[
@@ -2861,6 +3671,31 @@
         "AgentStatus":{"shape":"AgentStatus"}
       }
     },
+    "DescribeContactFlowModuleRequest":{
+      "type":"structure",
+      "required":[
+        "InstanceId",
+        "ContactFlowModuleId"
+      ],
+      "members":{
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "ContactFlowModuleId":{
+          "shape":"ContactFlowModuleId",
+          "location":"uri",
+          "locationName":"ContactFlowModuleId"
+        }
+      }
+    },
+    "DescribeContactFlowModuleResponse":{
+      "type":"structure",
+      "members":{
+        "ContactFlowModule":{"shape":"ContactFlowModule"}
+      }
+    },
     "DescribeContactFlowRequest":{
       "type":"structure",
       "required":[
@@ -2884,6 +3719,31 @@
       "type":"structure",
       "members":{
         "ContactFlow":{"shape":"ContactFlow"}
+      }
+    },
+    "DescribeContactRequest":{
+      "type":"structure",
+      "required":[
+        "InstanceId",
+        "ContactId"
+      ],
+      "members":{
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "ContactId":{
+          "shape":"ContactId",
+          "location":"uri",
+          "locationName":"ContactId"
+        }
+      }
+    },
+    "DescribeContactResponse":{
+      "type":"structure",
+      "members":{
+        "Contact":{"shape":"Contact"}
       }
     },
     "DescribeHoursOfOperationRequest":{
@@ -2982,6 +3842,23 @@
       "type":"structure",
       "members":{
         "StorageConfig":{"shape":"InstanceStorageConfig"}
+      }
+    },
+    "DescribePhoneNumberRequest":{
+      "type":"structure",
+      "required":["PhoneNumberId"],
+      "members":{
+        "PhoneNumberId":{
+          "shape":"PhoneNumberId",
+          "location":"uri",
+          "locationName":"PhoneNumberId"
+        }
+      }
+    },
+    "DescribePhoneNumberResponse":{
+      "type":"structure",
+      "members":{
+        "ClaimedPhoneNumberSummary":{"shape":"ClaimedPhoneNumberSummary"}
       }
     },
     "DescribeQueueRequest":{
@@ -3151,6 +4028,32 @@
         "User":{"shape":"User"}
       }
     },
+    "DescribeVocabularyRequest":{
+      "type":"structure",
+      "required":[
+        "InstanceId",
+        "VocabularyId"
+      ],
+      "members":{
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "VocabularyId":{
+          "shape":"VocabularyId",
+          "location":"uri",
+          "locationName":"VocabularyId"
+        }
+      }
+    },
+    "DescribeVocabularyResponse":{
+      "type":"structure",
+      "required":["Vocabulary"],
+      "members":{
+        "Vocabulary":{"shape":"Vocabulary"}
+      }
+    },
     "Description":{
       "type":"string",
       "max":4096,
@@ -3291,6 +4194,25 @@
           "shape":"LexRegion",
           "location":"querystring",
           "locationName":"lexRegion"
+        }
+      }
+    },
+    "DisassociatePhoneNumberContactFlowRequest":{
+      "type":"structure",
+      "required":[
+        "PhoneNumberId",
+        "InstanceId"
+      ],
+      "members":{
+        "PhoneNumberId":{
+          "shape":"PhoneNumberId",
+          "location":"uri",
+          "locationName":"PhoneNumberId"
+        },
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"querystring",
+          "locationName":"instanceId"
         }
       }
     },
@@ -3526,7 +4448,8 @@
         "Arn":{"shape":"ARN"},
         "Name":{"shape":"HierarchyGroupName"},
         "LevelId":{"shape":"HierarchyLevelId"},
-        "HierarchyPath":{"shape":"HierarchyPath"}
+        "HierarchyPath":{"shape":"HierarchyPath"},
+        "Tags":{"shape":"TagMap"}
       }
     },
     "HierarchyGroupId":{"type":"string"},
@@ -3750,6 +4673,14 @@
         }
       }
     },
+    "IdempotencyException":{
+      "type":"structure",
+      "members":{
+        "Message":{"shape":"Message"}
+      },
+      "error":{"httpStatusCode":409},
+      "exception":true
+    },
     "InboundCallsEnabled":{"type":"boolean"},
     "Instance":{
       "type":"structure",
@@ -3775,7 +4706,8 @@
         "CONTACT_LENS",
         "AUTO_RESOLVE_BEST_VOICES",
         "USE_CUSTOM_TTS_VOICES",
-        "EARLY_MEDIA"
+        "EARLY_MEDIA",
+        "MULTI_PARTY_CONFERENCE"
       ]
     },
     "InstanceAttributeValue":{
@@ -3826,7 +4758,8 @@
         "SCHEDULED_REPORTS",
         "MEDIA_STREAMS",
         "CONTACT_TRACE_RECORDS",
-        "AGENT_EVENTS"
+        "AGENT_EVENTS",
+        "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS"
       ]
     },
     "InstanceSummary":{
@@ -3895,6 +4828,14 @@
       "error":{"httpStatusCode":400},
       "exception":true
     },
+    "InvalidContactFlowModuleException":{
+      "type":"structure",
+      "members":{
+        "Problems":{"shape":"Problems"}
+      },
+      "error":{"httpStatusCode":400},
+      "exception":true
+    },
     "InvalidParameterException":{
       "type":"structure",
       "members":{
@@ -3942,6 +4883,11 @@
         "RetentionPeriodHours":{"shape":"Hours"},
         "EncryptionConfig":{"shape":"EncryptionConfig"}
       }
+    },
+    "LargeNextToken":{
+      "type":"string",
+      "max":100000,
+      "min":1
     },
     "LexBot":{
       "type":"structure",
@@ -4090,6 +5036,40 @@
         "NextToken":{"shape":"NextToken"}
       }
     },
+    "ListContactFlowModulesRequest":{
+      "type":"structure",
+      "required":["InstanceId"],
+      "members":{
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "NextToken":{
+          "shape":"NextToken",
+          "location":"querystring",
+          "locationName":"nextToken"
+        },
+        "MaxResults":{
+          "shape":"MaxResult1000",
+          "box":true,
+          "location":"querystring",
+          "locationName":"maxResults"
+        },
+        "ContactFlowModuleState":{
+          "shape":"ContactFlowModuleState",
+          "location":"querystring",
+          "locationName":"state"
+        }
+      }
+    },
+    "ListContactFlowModulesResponse":{
+      "type":"structure",
+      "members":{
+        "ContactFlowModulesSummaryList":{"shape":"ContactFlowModulesSummaryList"},
+        "NextToken":{"shape":"NextToken"}
+      }
+    },
     "ListContactFlowsRequest":{
       "type":"structure",
       "required":["InstanceId"],
@@ -4121,6 +5101,65 @@
       "members":{
         "ContactFlowSummaryList":{"shape":"ContactFlowSummaryList"},
         "NextToken":{"shape":"NextToken"}
+      }
+    },
+    "ListContactReferencesRequest":{
+      "type":"structure",
+      "required":[
+        "InstanceId",
+        "ContactId",
+        "ReferenceTypes"
+      ],
+      "members":{
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "ContactId":{
+          "shape":"ContactId",
+          "location":"uri",
+          "locationName":"ContactId"
+        },
+        "ReferenceTypes":{
+          "shape":"ReferenceTypes",
+          "location":"querystring",
+          "locationName":"referenceTypes"
+        },
+        "NextToken":{
+          "shape":"NextToken",
+          "location":"querystring",
+          "locationName":"nextToken"
+        }
+      }
+    },
+    "ListContactReferencesResponse":{
+      "type":"structure",
+      "members":{
+        "ReferenceSummaryList":{"shape":"ReferenceSummaryList"},
+        "NextToken":{"shape":"NextToken"}
+      }
+    },
+    "ListDefaultVocabulariesRequest":{
+      "type":"structure",
+      "required":["InstanceId"],
+      "members":{
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "LanguageCode":{"shape":"VocabularyLanguageCode"},
+        "MaxResults":{"shape":"MaxResult100"},
+        "NextToken":{"shape":"VocabularyNextToken"}
+      }
+    },
+    "ListDefaultVocabulariesResponse":{
+      "type":"structure",
+      "required":["DefaultVocabularyList"],
+      "members":{
+        "DefaultVocabularyList":{"shape":"DefaultVocabularyList"},
+        "NextToken":{"shape":"VocabularyNextToken"}
       }
     },
     "ListHoursOfOperationsRequest":{
@@ -4368,6 +5407,42 @@
       "members":{
         "PhoneNumberSummaryList":{"shape":"PhoneNumberSummaryList"},
         "NextToken":{"shape":"NextToken"}
+      }
+    },
+    "ListPhoneNumbersSummary":{
+      "type":"structure",
+      "members":{
+        "PhoneNumberId":{"shape":"PhoneNumberId"},
+        "PhoneNumberArn":{"shape":"ARN"},
+        "PhoneNumber":{"shape":"PhoneNumber"},
+        "PhoneNumberCountryCode":{"shape":"PhoneNumberCountryCode"},
+        "PhoneNumberType":{"shape":"PhoneNumberType"},
+        "TargetArn":{"shape":"ARN"}
+      }
+    },
+    "ListPhoneNumbersSummaryList":{
+      "type":"list",
+      "member":{"shape":"ListPhoneNumbersSummary"}
+    },
+    "ListPhoneNumbersV2Request":{
+      "type":"structure",
+      "members":{
+        "TargetArn":{"shape":"ARN"},
+        "MaxResults":{
+          "shape":"MaxResult1000",
+          "box":true
+        },
+        "NextToken":{"shape":"LargeNextToken"},
+        "PhoneNumberCountryCodes":{"shape":"PhoneNumberCountryCodes"},
+        "PhoneNumberTypes":{"shape":"PhoneNumberTypes"},
+        "PhoneNumberPrefix":{"shape":"PhoneNumberPrefix"}
+      }
+    },
+    "ListPhoneNumbersV2Response":{
+      "type":"structure",
+      "members":{
+        "NextToken":{"shape":"LargeNextToken"},
+        "ListPhoneNumbersSummaryList":{"shape":"ListPhoneNumbersSummaryList"}
       }
     },
     "ListPromptsRequest":{
@@ -4894,7 +5969,10 @@
       "member":{"shape":"SecurityProfilePermission"},
       "max":500
     },
-    "PhoneNumber":{"type":"string"},
+    "PhoneNumber":{
+      "type":"string",
+      "pattern":"\\\\+[1-9]\\\\d{1,14}$"
+    },
     "PhoneNumberCountryCode":{
       "type":"string",
       "enum":[
@@ -5142,12 +6220,29 @@
       "member":{"shape":"PhoneNumberCountryCode"},
       "max":10
     },
+    "PhoneNumberDescription":{
+      "type":"string",
+      "max":500,
+      "min":0,
+      "pattern":"^[\\W\\S_]*"
+    },
     "PhoneNumberId":{"type":"string"},
+    "PhoneNumberPrefix":{
+      "type":"string",
+      "pattern":"\\\\+?[0-9]{1,11}"
+    },
     "PhoneNumberQuickConnectConfig":{
       "type":"structure",
       "required":["PhoneNumber"],
       "members":{
         "PhoneNumber":{"shape":"PhoneNumber"}
+      }
+    },
+    "PhoneNumberStatus":{
+      "type":"structure",
+      "members":{
+        "Status":{"shape":"PhoneNumberWorkflowStatus"},
+        "Message":{"shape":"PhoneNumberWorkflowMessage"}
       }
     },
     "PhoneNumberSummary":{
@@ -5175,6 +6270,20 @@
       "type":"list",
       "member":{"shape":"PhoneNumberType"},
       "max":2
+    },
+    "PhoneNumberWorkflowMessage":{
+      "type":"string",
+      "max":255,
+      "min":0,
+      "pattern":"^[\\W\\S_]*"
+    },
+    "PhoneNumberWorkflowStatus":{
+      "type":"string",
+      "enum":[
+        "CLAIMED",
+        "IN_PROGRESS",
+        "FAILED"
+      ]
     },
     "PhoneType":{
       "type":"string",
@@ -5255,6 +6364,13 @@
       "min":1
     },
     "QueueId":{"type":"string"},
+    "QueueInfo":{
+      "type":"structure",
+      "members":{
+        "Id":{"shape":"QueueId"},
+        "EnqueueTimestamp":{"shape":"timestamp"}
+      }
+    },
     "QueueMaxContacts":{
       "type":"integer",
       "min":0
@@ -5400,14 +6516,58 @@
       "max":4096,
       "min":1
     },
+    "ReferenceStatus":{
+      "type":"string",
+      "enum":[
+        "APPROVED",
+        "REJECTED"
+      ]
+    },
+    "ReferenceSummary":{
+      "type":"structure",
+      "members":{
+        "Url":{"shape":"UrlReference"},
+        "Attachment":{"shape":"AttachmentReference"}
+      },
+      "union":true
+    },
+    "ReferenceSummaryList":{
+      "type":"list",
+      "member":{"shape":"ReferenceSummary"}
+    },
     "ReferenceType":{
       "type":"string",
-      "enum":["URL"]
+      "enum":[
+        "URL",
+        "ATTACHMENT"
+      ]
+    },
+    "ReferenceTypes":{
+      "type":"list",
+      "member":{"shape":"ReferenceType"},
+      "max":2
     },
     "ReferenceValue":{
       "type":"string",
       "max":4096,
       "min":0
+    },
+    "ReleasePhoneNumberRequest":{
+      "type":"structure",
+      "required":["PhoneNumberId"],
+      "members":{
+        "PhoneNumberId":{
+          "shape":"PhoneNumberId",
+          "location":"uri",
+          "locationName":"PhoneNumberId"
+        },
+        "ClientToken":{
+          "shape":"ClientToken",
+          "idempotencyToken":true,
+          "location":"querystring",
+          "locationName":"clientToken"
+        }
+      }
     },
     "ResourceConflictException":{
       "type":"structure",
@@ -5576,6 +6736,55 @@
         "EncryptionConfig":{"shape":"EncryptionConfig"}
       }
     },
+    "SearchAvailablePhoneNumbersRequest":{
+      "type":"structure",
+      "required":[
+        "TargetArn",
+        "PhoneNumberCountryCode",
+        "PhoneNumberType"
+      ],
+      "members":{
+        "TargetArn":{"shape":"ARN"},
+        "PhoneNumberCountryCode":{"shape":"PhoneNumberCountryCode"},
+        "PhoneNumberType":{"shape":"PhoneNumberType"},
+        "PhoneNumberPrefix":{"shape":"PhoneNumberPrefix"},
+        "MaxResults":{
+          "shape":"MaxResult10",
+          "box":true
+        },
+        "NextToken":{"shape":"LargeNextToken"}
+      }
+    },
+    "SearchAvailablePhoneNumbersResponse":{
+      "type":"structure",
+      "members":{
+        "NextToken":{"shape":"LargeNextToken"},
+        "AvailableNumbersList":{"shape":"AvailableNumbersList"}
+      }
+    },
+    "SearchVocabulariesRequest":{
+      "type":"structure",
+      "required":["InstanceId"],
+      "members":{
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "MaxResults":{"shape":"MaxResult100"},
+        "NextToken":{"shape":"VocabularyNextToken"},
+        "State":{"shape":"VocabularyState"},
+        "NameStartsWith":{"shape":"VocabularyName"},
+        "LanguageCode":{"shape":"VocabularyLanguageCode"}
+      }
+    },
+    "SearchVocabulariesResponse":{
+      "type":"structure",
+      "members":{
+        "VocabularySummaryList":{"shape":"VocabularySummaryList"},
+        "NextToken":{"shape":"VocabularyNextToken"}
+      }
+    },
     "SecurityKey":{
       "type":"structure",
       "members":{
@@ -5669,7 +6878,9 @@
         "ClientToken":{
           "shape":"ClientToken",
           "idempotencyToken":true
-        }
+        },
+        "ChatDurationInMinutes":{"shape":"ChatDurationInMinutes"},
+        "SupportedMessagingContentTypes":{"shape":"SupportedMessagingContentTypes"}
       }
     },
     "StartChatContactResponse":{
@@ -5772,7 +6983,8 @@
         "ClientToken":{
           "shape":"ClientToken",
           "idempotencyToken":true
-        }
+        },
+        "ScheduledTime":{"shape":"Timestamp"}
       }
     },
     "StartTaskContactResponse":{
@@ -5856,6 +7068,15 @@
       "min":1
     },
     "String":{"type":"string"},
+    "SupportedMessagingContentType":{
+      "type":"string",
+      "max":100,
+      "min":1
+    },
+    "SupportedMessagingContentTypes":{
+      "type":"list",
+      "member":{"shape":"SupportedMessagingContentType"}
+    },
     "SuspendContactRecordingRequest":{
       "type":"structure",
       "required":[
@@ -6043,6 +7264,81 @@
         "Content":{"shape":"ContactFlowContent"}
       }
     },
+    "UpdateContactFlowMetadataRequest":{
+      "type":"structure",
+      "required":[
+        "InstanceId",
+        "ContactFlowId"
+      ],
+      "members":{
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "ContactFlowId":{
+          "shape":"ContactFlowId",
+          "location":"uri",
+          "locationName":"ContactFlowId"
+        },
+        "Name":{"shape":"ContactFlowName"},
+        "Description":{"shape":"ContactFlowDescription"},
+        "ContactFlowState":{"shape":"ContactFlowState"}
+      }
+    },
+    "UpdateContactFlowModuleContentRequest":{
+      "type":"structure",
+      "required":[
+        "InstanceId",
+        "ContactFlowModuleId",
+        "Content"
+      ],
+      "members":{
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "ContactFlowModuleId":{
+          "shape":"ContactFlowModuleId",
+          "location":"uri",
+          "locationName":"ContactFlowModuleId"
+        },
+        "Content":{"shape":"ContactFlowModuleContent"}
+      }
+    },
+    "UpdateContactFlowModuleContentResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "UpdateContactFlowModuleMetadataRequest":{
+      "type":"structure",
+      "required":[
+        "InstanceId",
+        "ContactFlowModuleId"
+      ],
+      "members":{
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "ContactFlowModuleId":{
+          "shape":"ContactFlowModuleId",
+          "location":"uri",
+          "locationName":"ContactFlowModuleId"
+        },
+        "Name":{"shape":"ContactFlowModuleName"},
+        "Description":{"shape":"ContactFlowModuleDescription"},
+        "State":{"shape":"ContactFlowModuleState"}
+      }
+    },
+    "UpdateContactFlowModuleMetadataResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
     "UpdateContactFlowNameRequest":{
       "type":"structure",
       "required":[
@@ -6062,6 +7358,51 @@
         },
         "Name":{"shape":"ContactFlowName"},
         "Description":{"shape":"ContactFlowDescription"}
+      }
+    },
+    "UpdateContactRequest":{
+      "type":"structure",
+      "required":[
+        "InstanceId",
+        "ContactId"
+      ],
+      "members":{
+        "InstanceId":{
+          "shape":"InstanceId",
+          "location":"uri",
+          "locationName":"InstanceId"
+        },
+        "ContactId":{
+          "shape":"ContactId",
+          "location":"uri",
+          "locationName":"ContactId"
+        },
+        "Name":{"shape":"Name"},
+        "Description":{"shape":"Description"},
+        "References":{"shape":"ContactReferences"}
+      }
+    },
+    "UpdateContactResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "UpdateContactScheduleRequest":{
+      "type":"structure",
+      "required":[
+        "InstanceId",
+        "ContactId",
+        "ScheduledTime"
+      ],
+      "members":{
+        "InstanceId":{"shape":"InstanceId"},
+        "ContactId":{"shape":"ContactId"},
+        "ScheduledTime":{"shape":"Timestamp"}
+      }
+    },
+    "UpdateContactScheduleResponse":{
+      "type":"structure",
+      "members":{
       }
     },
     "UpdateHoursOfOperationDescription":{
@@ -6138,6 +7479,32 @@
           "locationName":"resourceType"
         },
         "StorageConfig":{"shape":"InstanceStorageConfig"}
+      }
+    },
+    "UpdatePhoneNumberRequest":{
+      "type":"structure",
+      "required":[
+        "PhoneNumberId",
+        "TargetArn"
+      ],
+      "members":{
+        "PhoneNumberId":{
+          "shape":"PhoneNumberId",
+          "location":"uri",
+          "locationName":"PhoneNumberId"
+        },
+        "TargetArn":{"shape":"ARN"},
+        "ClientToken":{
+          "shape":"ClientToken",
+          "idempotencyToken":true
+        }
+      }
+    },
+    "UpdatePhoneNumberResponse":{
+      "type":"structure",
+      "members":{
+        "PhoneNumberId":{"shape":"PhoneNumberId"},
+        "PhoneNumberArn":{"shape":"ARN"}
       }
     },
     "UpdateQueueHoursOfOperationRequest":{
@@ -6539,6 +7906,13 @@
         }
       }
     },
+    "UrlReference":{
+      "type":"structure",
+      "members":{
+        "Name":{"shape":"ReferenceKey"},
+        "Value":{"shape":"ReferenceValue"}
+      }
+    },
     "UseCase":{
       "type":"structure",
       "members":{
@@ -6629,6 +8003,111 @@
       "member":{"shape":"UserSummary"}
     },
     "Value":{"type":"double"},
+    "Vocabulary":{
+      "type":"structure",
+      "required":[
+        "Name",
+        "Id",
+        "Arn",
+        "LanguageCode",
+        "State",
+        "LastModifiedTime"
+      ],
+      "members":{
+        "Name":{"shape":"VocabularyName"},
+        "Id":{"shape":"VocabularyId"},
+        "Arn":{"shape":"ARN"},
+        "LanguageCode":{"shape":"VocabularyLanguageCode"},
+        "State":{"shape":"VocabularyState"},
+        "LastModifiedTime":{"shape":"VocabularyLastModifiedTime"},
+        "FailureReason":{"shape":"VocabularyFailureReason"},
+        "Content":{"shape":"VocabularyContent"},
+        "Tags":{"shape":"TagMap"}
+      }
+    },
+    "VocabularyContent":{
+      "type":"string",
+      "max":60000,
+      "min":1
+    },
+    "VocabularyFailureReason":{"type":"string"},
+    "VocabularyId":{
+      "type":"string",
+      "max":500,
+      "min":1
+    },
+    "VocabularyLanguageCode":{
+      "type":"string",
+      "enum":[
+        "ar-AE",
+        "de-CH",
+        "de-DE",
+        "en-AB",
+        "en-AU",
+        "en-GB",
+        "en-IE",
+        "en-IN",
+        "en-US",
+        "en-WL",
+        "es-ES",
+        "es-US",
+        "fr-CA",
+        "fr-FR",
+        "hi-IN",
+        "it-IT",
+        "ja-JP",
+        "ko-KR",
+        "pt-BR",
+        "pt-PT",
+        "zh-CN"
+      ]
+    },
+    "VocabularyLastModifiedTime":{"type":"timestamp"},
+    "VocabularyName":{
+      "type":"string",
+      "max":140,
+      "min":1,
+      "pattern":"^[0-9a-zA-Z._-]+"
+    },
+    "VocabularyNextToken":{
+      "type":"string",
+      "max":131070,
+      "min":1,
+      "pattern":".*\\S.*"
+    },
+    "VocabularyState":{
+      "type":"string",
+      "enum":[
+        "CREATION_IN_PROGRESS",
+        "ACTIVE",
+        "CREATION_FAILED",
+        "DELETE_IN_PROGRESS"
+      ]
+    },
+    "VocabularySummary":{
+      "type":"structure",
+      "required":[
+        "Name",
+        "Id",
+        "Arn",
+        "LanguageCode",
+        "State",
+        "LastModifiedTime"
+      ],
+      "members":{
+        "Name":{"shape":"VocabularyName"},
+        "Id":{"shape":"VocabularyId"},
+        "Arn":{"shape":"ARN"},
+        "LanguageCode":{"shape":"VocabularyLanguageCode"},
+        "State":{"shape":"VocabularyState"},
+        "LastModifiedTime":{"shape":"VocabularyLastModifiedTime"},
+        "FailureReason":{"shape":"VocabularyFailureReason"}
+      }
+    },
+    "VocabularySummaryList":{
+      "type":"list",
+      "member":{"shape":"VocabularySummary"}
+    },
     "VoiceRecordingConfiguration":{
       "type":"structure",
       "members":{

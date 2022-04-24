@@ -29,8 +29,9 @@ using Amazon.Runtime.Internal;
 namespace Amazon.AutoScaling.Model
 {
     /// <summary>
-    /// Describes a lifecycle hook, which tells Amazon EC2 Auto Scaling that you want to perform
-    /// an action whenever it launches instances or terminates instances.
+    /// Describes a lifecycle hook. A lifecycle hook lets you create solutions that are aware
+    /// of events in the Auto Scaling instance lifecycle, and then perform a custom action
+    /// on instances when the corresponding lifecycle event occurs.
     /// </summary>
     public partial class LifecycleHook
     {
@@ -86,9 +87,9 @@ namespace Amazon.AutoScaling.Model
         /// <summary>
         /// Gets and sets the property GlobalTimeout. 
         /// <para>
-        /// The maximum time, in seconds, that an instance can remain in a <code>Pending:Wait</code>
-        /// or <code>Terminating:Wait</code> state. The maximum is 172800 seconds (48 hours) or
-        /// 100 times <code>HeartbeatTimeout</code>, whichever is smaller.
+        /// The maximum time, in seconds, that an instance can remain in a wait state. The maximum
+        /// is 172800 seconds (48 hours) or 100 times <code>HeartbeatTimeout</code>, whichever
+        /// is smaller.
         /// </para>
         /// </summary>
         public int GlobalTimeout
@@ -215,7 +216,7 @@ namespace Amazon.AutoScaling.Model
         /// Gets and sets the property RoleARN. 
         /// <para>
         /// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified
-        /// notification target.
+        /// notification target (an Amazon SNS topic or an Amazon SQS queue).
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=255)]

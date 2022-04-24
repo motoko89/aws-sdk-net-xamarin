@@ -30,7 +30,7 @@ namespace Amazon.Comprehend.Model
 {
     /// <summary>
     /// Container for the parameters to the StartSentimentDetectionJob operation.
-    /// Starts an asynchronous sentiment detection job for a collection of documents. use
+    /// Starts an asynchronous sentiment detection job for a collection of documents. Use
     /// the operation to track the status of a job.
     /// </summary>
     public partial class StartSentimentDetectionJobRequest : AmazonComprehendRequest

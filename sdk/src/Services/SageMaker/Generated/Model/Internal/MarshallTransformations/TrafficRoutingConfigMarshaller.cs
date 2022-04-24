@@ -34,7 +34,7 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// TrafficRoutingConfig Marshaller
-    /// </summary>       
+    /// </summary>
     public class TrafficRoutingConfigMarshaller : IRequestMarshaller<TrafficRoutingConfig, JsonMarshallerContext> 
     {
         /// <summary>
@@ -56,6 +56,17 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetLinearStepSize())
+            {
+                context.Writer.WritePropertyName("LinearStepSize");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = CapacitySizeMarshaller.Instance;
+                marshaller.Marshall(requestObject.LinearStepSize, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetType())
             {
                 context.Writer.WritePropertyName("Type");
@@ -72,7 +83,7 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static TrafficRoutingConfigMarshaller Instance = new TrafficRoutingConfigMarshaller();
 
     }

@@ -32,7 +32,7 @@ namespace Amazon.Textract
     public partial class AmazonTextractConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.2.5");
+            InternalSDKUtils.BuildUserAgentString("3.7.5.1");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.Textract
         /// Default constructor
         /// </summary>
         public AmazonTextractConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonTextractDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "textract";
         }

@@ -34,7 +34,7 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// CatalogTarget Marshaller
-    /// </summary>       
+    /// </summary>
     public class CatalogTargetMarshaller : IRequestMarshaller<CatalogTarget, JsonMarshallerContext> 
     {
         /// <summary>
@@ -45,6 +45,12 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(CatalogTarget requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetConnectionName())
+            {
+                context.Writer.WritePropertyName("ConnectionName");
+                context.Writer.Write(requestObject.ConnectionName);
+            }
+
             if(requestObject.IsSetDatabaseName())
             {
                 context.Writer.WritePropertyName("DatabaseName");
@@ -66,7 +72,7 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static CatalogTargetMarshaller Instance = new CatalogTargetMarshaller();
 
     }

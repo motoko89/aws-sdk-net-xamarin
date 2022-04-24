@@ -32,7 +32,7 @@ namespace Amazon.Personalize.Model
     /// Container for the parameters to the ListDatasets operation.
     /// Returns the list of datasets contained in the given dataset group. The response provides
     /// the properties for each dataset, including the Amazon Resource Name (ARN). For more
-    /// information on datasets, see <a>CreateDataset</a>.
+    /// information on datasets, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.
     /// </summary>
     public partial class ListDatasetsRequest : AmazonPersonalizeRequest
     {
@@ -86,7 +86,7 @@ namespace Amazon.Personalize.Model
         /// getting the next set of dataset import jobs (if they exist).
         /// </para>
         /// </summary>
-        [AWSProperty(Max=1300)]
+        [AWSProperty(Max=1500)]
         public string NextToken
         {
             get { return this._nextToken; }

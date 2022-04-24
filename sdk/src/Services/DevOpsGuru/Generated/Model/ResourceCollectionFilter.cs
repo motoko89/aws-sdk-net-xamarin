@@ -29,19 +29,21 @@ using Amazon.Runtime.Internal;
 namespace Amazon.DevOpsGuru.Model
 {
     /// <summary>
-    /// Information about a filter used to specify which AWS resources are analyzed for anomalous
-    /// behavior by DevOps Guru.
+    /// Information about a filter used to specify which Amazon Web Services resources are
+    /// analyzed for anomalous behavior by DevOps Guru.
     /// </summary>
     public partial class ResourceCollectionFilter
     {
         private CloudFormationCollectionFilter _cloudFormation;
+        private List<TagCollectionFilter> _tags = new List<TagCollectionFilter>();
 
         /// <summary>
         /// Gets and sets the property CloudFormation. 
         /// <para>
-        ///  Information about AWS CloudFormation stacks. You can use up to 500 stacks to specify
-        /// which AWS resources in your account to analyze. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html">Stacks</a>
-        /// in the <i>AWS CloudFormation User Guide</i>. 
+        ///  Information about Amazon Web Services CloudFormation stacks. You can use up to 500
+        /// stacks to specify which Amazon Web Services resources in your account to analyze.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html">Stacks</a>
+        /// in the <i>Amazon Web Services CloudFormation User Guide</i>. 
         /// </para>
         /// </summary>
         public CloudFormationCollectionFilter CloudFormation
@@ -54,6 +56,64 @@ namespace Amazon.DevOpsGuru.Model
         internal bool IsSetCloudFormation()
         {
             return this._cloudFormation != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// The Amazon Web Services tags used to filter the resources in the resource collection.
+        /// </para>
+        ///  
+        /// <para>
+        /// Tags help you identify and organize your Amazon Web Services resources. Many Amazon
+        /// Web Services services support tagging, so you can assign the same tag to resources
+        /// from different services to indicate that the resources are related. For example, you
+        /// can assign the same tag to an Amazon DynamoDB table resource that you assign to an
+        /// Lambda function. For more information about using tags, see the <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+        /// best practices</a> whitepaper. 
+        /// </para>
+        ///  
+        /// <para>
+        /// Each Amazon Web Services tag has two parts. 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// A tag <i>key</i> (for example, <code>CostCenter</code>, <code>Environment</code>,
+        /// <code>Project</code>, or <code>Secret</code>). Tag <i>keys</i> are case-sensitive.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// An optional field known as a tag <i>value</i> (for example, <code>111122223333</code>,
+        /// <code>Production</code>, or a team name). Omitting the tag <i>value</i> is the same
+        /// as using an empty string. Like tag <i>keys</i>, tag <i>values</i> are case-sensitive.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Together these are known as <i>key</i>-<i>value</i> pairs.
+        /// </para>
+        ///  <important> 
+        /// <para>
+        /// The string used for a <i>key</i> in a tag that you use to define your resource coverage
+        /// must begin with the prefix <code>Devops-guru-</code>. The tag <i>key</i> might be
+        /// <code>Devops-guru-deployment-application</code> or <code>Devops-guru-rds-application</code>.
+        /// While <i>keys</i> are case-sensitive, the case of <i>key</i> characters don't matter
+        /// to DevOps Guru. For example, DevOps Guru works with a <i>key</i> named <code>devops-guru-rds</code>
+        /// and a <i>key</i> named <code>DevOps-Guru-RDS</code>. Possible <i>key</i>/<i>value</i>
+        /// pairs in your application might be <code>Devops-Guru-production-application/RDS</code>
+        /// or <code>Devops-Guru-production-application/containers</code>.
+        /// </para>
+        ///  </important>
+        /// </summary>
+        public List<TagCollectionFilter> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
     }

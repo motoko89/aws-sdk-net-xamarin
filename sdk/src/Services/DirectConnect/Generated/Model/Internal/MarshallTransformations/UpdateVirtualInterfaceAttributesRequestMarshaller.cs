@@ -58,7 +58,7 @@ namespace Amazon.DirectConnect.Model.Internal.MarshallTransformations
             string target = "OvertureService.UpdateVirtualInterfaceAttributes";
             request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/x-amz-json-1.1";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2012-10-25";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2012-10-25";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
@@ -67,6 +67,12 @@ namespace Amazon.DirectConnect.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetEnableSiteLink())
+                {
+                    context.Writer.WritePropertyName("enableSiteLink");
+                    context.Writer.Write(publicRequest.EnableSiteLink);
+                }
+
                 if(publicRequest.IsSetMtu())
                 {
                     context.Writer.WritePropertyName("mtu");
@@ -79,7 +85,12 @@ namespace Amazon.DirectConnect.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.VirtualInterfaceId);
                 }
 
-        
+                if(publicRequest.IsSetVirtualInterfaceName())
+                {
+                    context.Writer.WritePropertyName("virtualInterfaceName");
+                    context.Writer.Write(publicRequest.VirtualInterfaceName);
+                }
+
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

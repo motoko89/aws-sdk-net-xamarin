@@ -66,6 +66,26 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                 {
                     request.Parameters.Add("CustomerOwnedIpv4Pool", StringUtils.FromString(publicRequest.CustomerOwnedIpv4Pool));
                 }
+                if(publicRequest.IsSetDisableLniAtDeviceIndex())
+                {
+                    request.Parameters.Add("DisableLniAtDeviceIndex.Value", StringUtils.FromBool(publicRequest.DisableLniAtDeviceIndex));
+                }
+                if(publicRequest.IsSetEnableDns64())
+                {
+                    request.Parameters.Add("EnableDns64.Value", StringUtils.FromBool(publicRequest.EnableDns64));
+                }
+                if(publicRequest.IsSetEnableLniAtDeviceIndex())
+                {
+                    request.Parameters.Add("EnableLniAtDeviceIndex", StringUtils.FromInt(publicRequest.EnableLniAtDeviceIndex));
+                }
+                if(publicRequest.IsSetEnableResourceNameDnsAAAARecordOnLaunch())
+                {
+                    request.Parameters.Add("EnableResourceNameDnsAAAARecordOnLaunch.Value", StringUtils.FromBool(publicRequest.EnableResourceNameDnsAAAARecordOnLaunch));
+                }
+                if(publicRequest.IsSetEnableResourceNameDnsARecordOnLaunch())
+                {
+                    request.Parameters.Add("EnableResourceNameDnsARecordOnLaunch.Value", StringUtils.FromBool(publicRequest.EnableResourceNameDnsARecordOnLaunch));
+                }
                 if(publicRequest.IsSetMapCustomerOwnedIpOnLaunch())
                 {
                     request.Parameters.Add("MapCustomerOwnedIpOnLaunch.Value", StringUtils.FromBool(publicRequest.MapCustomerOwnedIpOnLaunch));
@@ -73,6 +93,10 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                 if(publicRequest.IsSetMapPublicIpOnLaunch())
                 {
                     request.Parameters.Add("MapPublicIpOnLaunch.Value", StringUtils.FromBool(publicRequest.MapPublicIpOnLaunch));
+                }
+                if(publicRequest.IsSetPrivateDnsHostnameTypeOnLaunch())
+                {
+                    request.Parameters.Add("PrivateDnsHostnameTypeOnLaunch", StringUtils.FromString(publicRequest.PrivateDnsHostnameTypeOnLaunch));
                 }
                 if(publicRequest.IsSetSubnetId())
                 {

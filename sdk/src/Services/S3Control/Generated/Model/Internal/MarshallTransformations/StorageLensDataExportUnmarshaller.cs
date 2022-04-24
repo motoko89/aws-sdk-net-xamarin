@@ -55,6 +55,12 @@ namespace Amazon.S3Control.Model.Internal.MarshallTransformations
             {
                 if (context.IsStartElement || context.IsAttribute)
                 {
+                    if (context.TestExpression("CloudWatchMetrics", targetDepth))
+                    {
+                        var unmarshaller = CloudWatchMetricsUnmarshaller.Instance;
+                        unmarshalledObject.CloudWatchMetrics = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("S3BucketDestination", targetDepth))
                     {
                         var unmarshaller = S3BucketDestinationUnmarshaller.Instance;

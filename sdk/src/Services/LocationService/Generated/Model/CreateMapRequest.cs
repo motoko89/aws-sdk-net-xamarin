@@ -32,6 +32,15 @@ namespace Amazon.LocationService.Model
     /// Container for the parameters to the CreateMap operation.
     /// Creates a map resource in your AWS account, which provides map tiles of different
     /// styles sourced from global location data providers.
+    /// 
+    ///  <note> 
+    /// <para>
+    /// If your application is tracking or routing assets you use in your business, such as
+    /// delivery vehicles or employees, you may only use HERE as your geolocation provider.
+    /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
+    /// for more details.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class CreateMapRequest : AmazonLocationServiceRequest
     {
@@ -119,15 +128,10 @@ namespace Amazon.LocationService.Model
         /// <summary>
         /// Gets and sets the property PricingPlan. 
         /// <para>
-        /// Specifies the pricing plan for your map resource.
-        /// </para>
-        ///  
-        /// <para>
-        /// For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon
-        /// Location Service pricing</a>.
+        /// No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [Obsolete("Deprecated. If included, the only allowed value is RequestBasedUsage.")]
         public PricingPlan PricingPlan
         {
             get { return this._pricingPlan; }
@@ -174,6 +178,10 @@ namespace Amazon.LocationService.Model
         /// <para>
         /// Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
         /// = . _ : / @. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Cannot use "aws:" as a prefix for a key.
         /// </para>
         ///  </li> </ul>
         /// </summary>

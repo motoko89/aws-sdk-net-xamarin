@@ -29,7 +29,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Kendra.Model
 {
     /// <summary>
-    /// Provides configuration information for connecting to a Microsoft SharePoint data source.
+    /// Provides the configuration information to connect to Microsoft SharePoint as your
+    /// data source.
     /// </summary>
     public partial class SharePointConfiguration
     {
@@ -106,10 +107,11 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property ExclusionPatterns. 
         /// <para>
-        /// A list of regular expression patterns. Documents that match the patterns are excluded
-        /// from the index. Documents that don't match the patterns are included in the index.
-        /// If a document matches both an exclusion pattern and an inclusion pattern, the document
-        /// is not included in the index.
+        /// A list of regular expression patterns to exclude certain documents in your SharePoint.
+        /// Documents that match the patterns are excluded from the index. Documents that don't
+        /// match the patterns are included in the index. If a document matches both an inclusion
+        /// and exclusion pattern, the exclusion pattern takes precedence and the document isn't
+        /// included in the index.
         /// </para>
         ///  
         /// <para>
@@ -132,11 +134,12 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property FieldMappings. 
         /// <para>
-        /// A list of <code>DataSourceToIndexFieldMapping</code> objects that map Microsoft SharePoint
-        /// attributes to custom fields in the Amazon Kendra index. You must first create the
-        /// index fields using the <code>UpdateIndex</code> operation before you map SharePoint
-        /// attributes. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping
-        /// Data Source Fields</a>.
+        /// A list of <code>DataSourceToIndexFieldMapping</code> objects that map SharePoint data
+        /// source attributes or field names to Amazon Kendra index field names. To create custom
+        /// fields, use the <code>UpdateIndex</code> API before you map to SharePoint fields.
+        /// For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping
+        /// data source fields</a>. The SharePoint data source field names must exist in your
+        /// SharePoint custom metadata.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=100)]
@@ -155,10 +158,11 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property InclusionPatterns. 
         /// <para>
-        /// A list of regular expression patterns. Documents that match the patterns are included
-        /// in the index. Documents that don't match the patterns are excluded from the index.
-        /// If a document matches both an inclusion pattern and an exclusion pattern, the document
-        /// is not included in the index.
+        /// A list of regular expression patterns to include certain documents in your SharePoint.
+        /// Documents that match the patterns are included in the index. Documents that don't
+        /// match the patterns are excluded from the index. If a document matches both an inclusion
+        /// and exclusion pattern, the exclusion pattern takes precedence and the document isn't
+        /// included in the index.
         /// </para>
         ///  
         /// <para>
@@ -184,7 +188,7 @@ namespace Amazon.Kendra.Model
         /// The Amazon Resource Name (ARN) of credentials stored in Secrets Manager. The credentials
         /// should be a user/password pair. If you use SharePoint Server, you also need to provide
         /// the sever domain name as part of the credentials. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html">Using
-        /// a Microsoft SharePoint Data Source</a>. For more information about Secrets Manager,
+        /// a Microsoft SharePoint Data Source</a>. For more information about Secrets Manager
         /// see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">
         /// What Is Secrets Manager</a> in the <i>Secrets Manager </i> user guide.
         /// </para>
@@ -259,10 +263,9 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property UseChangeLog. 
         /// <para>
-        /// Set to <code>TRUE</code> to use the Microsoft SharePoint change log to determine the
-        /// documents that need to be updated in the index. Depending on the size of the SharePoint
-        /// change log, it may take longer for Amazon Kendra to use the change log than it takes
-        /// it to determine the changed documents using the Amazon Kendra document crawler.
+        ///  <code>TRUE</code> to use the SharePoint change log to determine which documents require
+        /// updating in the index. Depending on the change log's size, it may take longer for
+        /// Amazon Kendra to use the change log than to scan all of your documents in SharePoint.
         /// </para>
         /// </summary>
         public bool UseChangeLog

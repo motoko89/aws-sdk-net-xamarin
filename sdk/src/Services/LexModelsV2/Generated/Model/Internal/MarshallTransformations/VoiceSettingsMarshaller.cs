@@ -34,7 +34,7 @@ namespace Amazon.LexModelsV2.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// VoiceSettings Marshaller
-    /// </summary>       
+    /// </summary>
     public class VoiceSettingsMarshaller : IRequestMarshaller<VoiceSettings, JsonMarshallerContext> 
     {
         /// <summary>
@@ -45,6 +45,12 @@ namespace Amazon.LexModelsV2.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(VoiceSettings requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetEngine())
+            {
+                context.Writer.WritePropertyName("engine");
+                context.Writer.Write(requestObject.Engine);
+            }
+
             if(requestObject.IsSetVoiceId())
             {
                 context.Writer.WritePropertyName("voiceId");
@@ -55,7 +61,7 @@ namespace Amazon.LexModelsV2.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static VoiceSettingsMarshaller Instance = new VoiceSettingsMarshaller();
 
     }

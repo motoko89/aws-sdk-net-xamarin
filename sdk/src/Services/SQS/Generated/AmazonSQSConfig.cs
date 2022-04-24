@@ -32,7 +32,7 @@ namespace Amazon.SQS
     public partial class AmazonSQSConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.35");
+            InternalSDKUtils.BuildUserAgentString("3.7.2.47");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.SQS
         /// Default constructor
         /// </summary>
         public AmazonSQSConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonSQSDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "sqs";
         }

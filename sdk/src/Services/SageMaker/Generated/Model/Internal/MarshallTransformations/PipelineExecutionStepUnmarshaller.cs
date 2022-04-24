@@ -64,6 +64,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("AttemptCount", targetDepth))
+                {
+                    var unmarshaller = IntUnmarshaller.Instance;
+                    unmarshalledObject.AttemptCount = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("CacheHitResult", targetDepth))
                 {
                     var unmarshaller = CacheHitResultUnmarshaller.Instance;
@@ -92,6 +98,18 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = DateTimeUnmarshaller.Instance;
                     unmarshalledObject.StartTime = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("StepDescription", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.StepDescription = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("StepDisplayName", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.StepDisplayName = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("StepName", targetDepth))

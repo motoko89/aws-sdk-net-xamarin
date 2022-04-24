@@ -34,7 +34,7 @@ namespace Amazon.MediaConnect.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// SetSourceRequest Marshaller
-    /// </summary>       
+    /// </summary>
     public class SetSourceRequestMarshaller : IRequestMarshaller<SetSourceRequest, JsonMarshallerContext> 
     {
         /// <summary>
@@ -126,6 +126,18 @@ namespace Amazon.MediaConnect.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.Protocol);
             }
 
+            if(requestObject.IsSetSenderControlPort())
+            {
+                context.Writer.WritePropertyName("senderControlPort");
+                context.Writer.Write(requestObject.SenderControlPort);
+            }
+
+            if(requestObject.IsSetSenderIpAddress())
+            {
+                context.Writer.WritePropertyName("senderIpAddress");
+                context.Writer.Write(requestObject.SenderIpAddress);
+            }
+
             if(requestObject.IsSetStreamId())
             {
                 context.Writer.WritePropertyName("streamId");
@@ -148,7 +160,7 @@ namespace Amazon.MediaConnect.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static SetSourceRequestMarshaller Instance = new SetSourceRequestMarshaller();
 
     }

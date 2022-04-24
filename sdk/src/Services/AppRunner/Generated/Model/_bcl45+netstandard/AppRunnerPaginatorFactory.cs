@@ -60,6 +60,14 @@ namespace Amazon.AppRunner.Model
         }
 
         /// <summary>
+        /// Paginator for ListObservabilityConfigurations operation
+        ///</summary>
+        public IListObservabilityConfigurationsPaginator ListObservabilityConfigurations(ListObservabilityConfigurationsRequest request) 
+        {
+            return new ListObservabilityConfigurationsPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for ListOperations operation
         ///</summary>
         public IListOperationsPaginator ListOperations(ListOperationsRequest request) 
@@ -73,6 +81,14 @@ namespace Amazon.AppRunner.Model
         public IListServicesPaginator ListServices(ListServicesRequest request) 
         {
             return new ListServicesPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListVpcConnectors operation
+        ///</summary>
+        public IListVpcConnectorsPaginator ListVpcConnectors(ListVpcConnectorsRequest request) 
+        {
+            return new ListVpcConnectorsPaginator(this.client, request);
         }
     }
 }

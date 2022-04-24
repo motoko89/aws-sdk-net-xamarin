@@ -61,7 +61,9 @@ namespace Amazon.Redshift.Model
         private string _clusterParameterGroupName;
         private List<string> _clusterSecurityGroups = new List<string>();
         private string _clusterSubnetGroupName;
+        private string _defaultIamRoleArn;
         private string _elasticIp;
+        private bool? _encrypted;
         private bool? _enhancedVpcRouting;
         private string _hsmClientCertificateIdentifier;
         private string _hsmConfigurationIdentifier;
@@ -75,9 +77,11 @@ namespace Amazon.Redshift.Model
         private int? _port;
         private string _preferredMaintenanceWindow;
         private bool? _publiclyAccessible;
+        private string _reservedNodeId;
         private string _snapshotClusterIdentifier;
         private string _snapshotIdentifier;
         private string _snapshotScheduleIdentifier;
+        private string _targetReservedNodeOfferingId;
         private List<string> _vpcSecurityGroupIds = new List<string>();
 
         /// <summary>
@@ -371,6 +375,26 @@ namespace Amazon.Redshift.Model
         }
 
         /// <summary>
+        /// Gets and sets the property DefaultIamRoleArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster
+        /// when the cluster was last modified while it was restored from a snapshot.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Max=2147483647)]
+        public string DefaultIamRoleArn
+        {
+            get { return this._defaultIamRoleArn; }
+            set { this._defaultIamRoleArn = value; }
+        }
+
+        // Check to see if DefaultIamRoleArn property is set
+        internal bool IsSetDefaultIamRoleArn()
+        {
+            return this._defaultIamRoleArn != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property ElasticIp. 
         /// <para>
         /// The elastic IP (EIP) address for the cluster.
@@ -387,6 +411,25 @@ namespace Amazon.Redshift.Model
         internal bool IsSetElasticIp()
         {
             return this._elasticIp != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Encrypted. 
+        /// <para>
+        /// Enables support for restoring an unencrypted snapshot to a cluster encrypted with
+        /// Key Management Service (KMS) and a customer managed key.
+        /// </para>
+        /// </summary>
+        public bool Encrypted
+        {
+            get { return this._encrypted.GetValueOrDefault(); }
+            set { this._encrypted = value; }
+        }
+
+        // Check to see if Encrypted property is set
+        internal bool IsSetEncrypted()
+        {
+            return this._encrypted.HasValue; 
         }
 
         /// <summary>
@@ -463,11 +506,13 @@ namespace Amazon.Redshift.Model
         /// <para>
         /// A list of Identity and Access Management (IAM) roles that can be used by the cluster
         /// to access other Amazon Web Services services. You must supply the IAM roles in their
-        /// Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request.
+        /// Amazon Resource Name (ARN) format. 
         /// </para>
         ///  
         /// <para>
-        /// A cluster can have up to 10 IAM roles associated at any time.
+        /// The maximum number of IAM roles that you can associate is subject to a quota. For
+        /// more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Quotas
+        /// and limits</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
         /// </para>
         /// </summary>
         public List<string> IamRoles
@@ -485,8 +530,12 @@ namespace Amazon.Redshift.Model
         /// <summary>
         /// Gets and sets the property KmsKeyId. 
         /// <para>
-        /// The Key Management Service (KMS) key ID of the encryption key that you want to use
-        /// to encrypt data in the cluster that you restore from a shared snapshot.
+        /// The Key Management Service (KMS) key ID of the encryption key that encrypts data in
+        /// the cluster restored from a shared snapshot. You can also provide the key ID when
+        /// you restore from an unencrypted snapshot to an encrypted cluster in the same account.
+        /// Additionally, you can specify a new KMS key ID when you restore from an encrypted
+        /// snapshot in the same account in order to change it. In that case, the restored cluster
+        /// is encrypted with the new KMS key ID.
         /// </para>
         /// </summary>
         [AWSProperty(Max=2147483647)]
@@ -703,6 +752,25 @@ namespace Amazon.Redshift.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ReservedNodeId. 
+        /// <para>
+        /// The identifier of the target reserved node offering.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Max=2147483647)]
+        public string ReservedNodeId
+        {
+            get { return this._reservedNodeId; }
+            set { this._reservedNodeId = value; }
+        }
+
+        // Check to see if ReservedNodeId property is set
+        internal bool IsSetReservedNodeId()
+        {
+            return this._reservedNodeId != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property SnapshotClusterIdentifier. 
         /// <para>
         /// The name of the cluster the source snapshot was created from. This parameter is required
@@ -764,6 +832,25 @@ namespace Amazon.Redshift.Model
         internal bool IsSetSnapshotScheduleIdentifier()
         {
             return this._snapshotScheduleIdentifier != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property TargetReservedNodeOfferingId. 
+        /// <para>
+        /// The identifier of the target reserved node offering.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Max=2147483647)]
+        public string TargetReservedNodeOfferingId
+        {
+            get { return this._targetReservedNodeOfferingId; }
+            set { this._targetReservedNodeOfferingId = value; }
+        }
+
+        // Check to see if TargetReservedNodeOfferingId property is set
+        internal bool IsSetTargetReservedNodeOfferingId()
+        {
+            return this._targetReservedNodeOfferingId != null;
         }
 
         /// <summary>

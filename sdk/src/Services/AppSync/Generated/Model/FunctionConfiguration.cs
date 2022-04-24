@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.AppSync.Model
 {
     /// <summary>
-    /// A function is a reusable entity. Multiple functions can be used to compose the resolver
+    /// A function is a reusable entity. You can use multiple functions to compose the resolver
     /// logic.
     /// </summary>
     public partial class FunctionConfiguration
@@ -39,6 +39,7 @@ namespace Amazon.AppSync.Model
         private string _functionArn;
         private string _functionId;
         private string _functionVersion;
+        private int? _maxBatchSize;
         private string _name;
         private string _requestMappingTemplate;
         private string _responseMappingTemplate;
@@ -84,7 +85,7 @@ namespace Amazon.AppSync.Model
         /// <summary>
         /// Gets and sets the property FunctionArn. 
         /// <para>
-        /// The ARN of the <code>Function</code> object.
+        /// The Amazon Resource Name (ARN) of the <code>Function</code> object.
         /// </para>
         /// </summary>
         public string FunctionArn
@@ -120,7 +121,7 @@ namespace Amazon.AppSync.Model
         /// <summary>
         /// Gets and sets the property FunctionVersion. 
         /// <para>
-        /// The version of the request mapping template. Currently only the 2018-05-29 version
+        /// The version of the request mapping template. Currently, only the 2018-05-29 version
         /// of the template is supported.
         /// </para>
         /// </summary>
@@ -134,6 +135,25 @@ namespace Amazon.AppSync.Model
         internal bool IsSetFunctionVersion()
         {
             return this._functionVersion != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property MaxBatchSize. 
+        /// <para>
+        /// The maximum batching size for a resolver.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=2000)]
+        public int MaxBatchSize
+        {
+            get { return this._maxBatchSize.GetValueOrDefault(); }
+            set { this._maxBatchSize = value; }
+        }
+
+        // Check to see if MaxBatchSize property is set
+        internal bool IsSetMaxBatchSize()
+        {
+            return this._maxBatchSize.HasValue; 
         }
 
         /// <summary>

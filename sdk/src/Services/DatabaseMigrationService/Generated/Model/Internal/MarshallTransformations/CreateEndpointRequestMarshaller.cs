@@ -58,7 +58,7 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
             string target = "AmazonDMSv20160101.CreateEndpoint";
             request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/x-amz-json-1.1";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2016-01-01";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2016-01-01";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
@@ -151,6 +151,17 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("ExtraConnectionAttributes");
                     context.Writer.Write(publicRequest.ExtraConnectionAttributes);
+                }
+
+                if(publicRequest.IsSetGcpMySQLSettings())
+                {
+                    context.Writer.WritePropertyName("GcpMySQLSettings");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = GcpMySQLSettingsMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.GcpMySQLSettings, context);
+
+                    context.Writer.WriteObjectEnd();
                 }
 
                 if(publicRequest.IsSetIBMDb2Settings())
@@ -360,7 +371,6 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.Username);
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

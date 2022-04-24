@@ -178,6 +178,12 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                     unmarshalledObject.DatePartitionSequence = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("DatePartitionTimezone", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.DatePartitionTimezone = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("DictPageSizeLimit", targetDepth))
                 {
                     var unmarshaller = IntUnmarshaller.Instance;
@@ -278,6 +284,12 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = BoolUnmarshaller.Instance;
                     unmarshalledObject.UseCsvNoSupValue = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("UseTaskStartTimeForFullLoadTimestamp", targetDepth))
+                {
+                    var unmarshaller = BoolUnmarshaller.Instance;
+                    unmarshalledObject.UseTaskStartTimeForFullLoadTimestamp = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

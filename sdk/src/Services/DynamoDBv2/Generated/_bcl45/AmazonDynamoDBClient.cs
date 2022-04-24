@@ -51,15 +51,16 @@ namespace Amazon.DynamoDBv2
     /// With DynamoDB, you can create database tables that can store and retrieve any amount
     /// of data, and serve any level of request traffic. You can scale up or scale down your
     /// tables' throughput capacity without downtime or performance degradation, and use the
-    /// AWS Management Console to monitor resource utilization and performance metrics.
+    /// Amazon Web Services Management Console to monitor resource utilization and performance
+    /// metrics.
     /// </para>
     ///  
     /// <para>
     /// DynamoDB automatically spreads the data and traffic for your tables over a sufficient
     /// number of servers to handle your throughput and storage requirements, while maintaining
     /// consistent and fast performance. All of your data is stored on solid state disks (SSDs)
-    /// and automatically replicated across multiple Availability Zones in an AWS region,
-    /// providing built-in high availability and data durability. 
+    /// and automatically replicated across multiple Availability Zones in an Amazon Web Services
+    /// Region, providing built-in high availability and data durability.
     /// </para>
     /// </summary>
     public partial class AmazonDynamoDBClient : AmazonServiceClient, IAmazonDynamoDB
@@ -318,8 +319,15 @@ namespace Amazon.DynamoDBv2
 
 
         /// <summary>
-        /// This operation allows you to perform batch reads and writes on data stored in DynamoDB,
+        /// This operation allows you to perform batch reads or writes on data stored in DynamoDB,
         /// using PartiQL.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// The entire batch must consist of either read statements or write statements, you cannot
+        /// mix both in one batch.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchExecuteStatement service method.</param>
         /// 
@@ -328,9 +336,9 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/BatchExecuteStatement">REST API Reference for BatchExecuteStatement Operation</seealso>
         public virtual BatchExecuteStatementResponse BatchExecuteStatement(BatchExecuteStatementRequest request)
@@ -344,8 +352,15 @@ namespace Amazon.DynamoDBv2
 
 
         /// <summary>
-        /// This operation allows you to perform batch reads and writes on data stored in DynamoDB,
+        /// This operation allows you to perform batch reads or writes on data stored in DynamoDB,
         /// using PartiQL.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// The entire batch must consist of either read statements or write statements, you cannot
+        /// mix both in one batch.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchExecuteStatement service method.</param>
         /// <param name="cancellationToken">
@@ -357,9 +372,9 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/BatchExecuteStatement">REST API Reference for BatchExecuteStatement Operation</seealso>
         public virtual Task<BatchExecuteStatementResponse> BatchExecuteStatementAsync(BatchExecuteStatementRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
@@ -456,16 +471,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -560,16 +575,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -663,16 +678,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -774,16 +789,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -881,16 +896,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -987,16 +1002,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -1021,9 +1036,12 @@ namespace Amazon.DynamoDBv2
 
         /// <summary>
         /// The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or
-        /// more tables. A single call to <code>BatchWriteItem</code> can write up to 16 MB of
-        /// data, which can comprise as many as 25 put or delete requests. Individual items to
-        /// be written can be as large as 400 KB.
+        /// more tables. A single call to <code>BatchWriteItem</code> can transmit up to 16MB
+        /// of data over the network, consisting of up to 25 item put or delete operations. While
+        /// individual items can be up to 400 KB once stored, it's important to note that an item's
+        /// representation might be greater than 400KB while being sent in DynamoDB's JSON format
+        /// for the API call. For more details on this distinction, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html">Naming
+        /// Rules and Data Types</a>.
         /// 
         ///  <note> 
         /// <para>
@@ -1133,16 +1151,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -1159,9 +1177,12 @@ namespace Amazon.DynamoDBv2
 
         /// <summary>
         /// The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or
-        /// more tables. A single call to <code>BatchWriteItem</code> can write up to 16 MB of
-        /// data, which can comprise as many as 25 put or delete requests. Individual items to
-        /// be written can be as large as 400 KB.
+        /// more tables. A single call to <code>BatchWriteItem</code> can transmit up to 16MB
+        /// of data over the network, consisting of up to 25 item put or delete operations. While
+        /// individual items can be up to 400 KB once stored, it's important to note that an item's
+        /// representation might be greater than 400KB while being sent in DynamoDB's JSON format
+        /// for the API call. For more details on this distinction, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html">Naming
+        /// Rules and Data Types</a>.
         /// 
         ///  <note> 
         /// <para>
@@ -1271,16 +1292,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -1301,9 +1322,12 @@ namespace Amazon.DynamoDBv2
 
         /// <summary>
         /// The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or
-        /// more tables. A single call to <code>BatchWriteItem</code> can write up to 16 MB of
-        /// data, which can comprise as many as 25 put or delete requests. Individual items to
-        /// be written can be as large as 400 KB.
+        /// more tables. A single call to <code>BatchWriteItem</code> can transmit up to 16MB
+        /// of data over the network, consisting of up to 25 item put or delete operations. While
+        /// individual items can be up to 400 KB once stored, it's important to note that an item's
+        /// representation might be greater than 400KB while being sent in DynamoDB's JSON format
+        /// for the API call. For more details on this distinction, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html">Naming
+        /// Rules and Data Types</a>.
         /// 
         ///  <note> 
         /// <para>
@@ -1416,16 +1440,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -1442,9 +1466,12 @@ namespace Amazon.DynamoDBv2
 
         /// <summary>
         /// The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or
-        /// more tables. A single call to <code>BatchWriteItem</code> can write up to 16 MB of
-        /// data, which can comprise as many as 25 put or delete requests. Individual items to
-        /// be written can be as large as 400 KB.
+        /// more tables. A single call to <code>BatchWriteItem</code> can transmit up to 16MB
+        /// of data over the network, consisting of up to 25 item put or delete operations. While
+        /// individual items can be up to 400 KB once stored, it's important to note that an item's
+        /// representation might be greater than 400KB while being sent in DynamoDB's JSON format
+        /// for the API call. For more details on this distinction, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html">Naming
+        /// Rules and Data Types</a>.
         /// 
         ///  <note> 
         /// <para>
@@ -1557,16 +1584,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -2060,9 +2087,9 @@ namespace Amazon.DynamoDBv2
 
 
         /// <summary>
-        /// The <code>CreateTable</code> operation adds a new table to your account. In an AWS
-        /// account, table names must be unique within each Region. That is, you can have two
-        /// tables with same name if you create the tables in different Regions.
+        /// The <code>CreateTable</code> operation adds a new table to your account. In an Amazon
+        /// Web Services account, table names must be unique within each Region. That is, you
+        /// can have two tables with same name if you create the tables in different Regions.
         /// 
         ///  
         /// <para>
@@ -2132,9 +2159,9 @@ namespace Amazon.DynamoDBv2
 
 
         /// <summary>
-        /// The <code>CreateTable</code> operation adds a new table to your account. In an AWS
-        /// account, table names must be unique within each Region. That is, you can have two
-        /// tables with same name if you create the tables in different Regions.
+        /// The <code>CreateTable</code> operation adds a new table to your account. In an Amazon
+        /// Web Services account, table names must be unique within each Region. That is, you
+        /// can have two tables with same name if you create the tables in different Regions.
         /// 
         ///  
         /// <para>
@@ -2202,9 +2229,9 @@ namespace Amazon.DynamoDBv2
 
 
         /// <summary>
-        /// The <code>CreateTable</code> operation adds a new table to your account. In an AWS
-        /// account, table names must be unique within each Region. That is, you can have two
-        /// tables with same name if you create the tables in different Regions.
+        /// The <code>CreateTable</code> operation adds a new table to your account. In an Amazon
+        /// Web Services account, table names must be unique within each Region. That is, you
+        /// can have two tables with same name if you create the tables in different Regions.
         /// 
         ///  
         /// <para>
@@ -2277,9 +2304,9 @@ namespace Amazon.DynamoDBv2
 
 
         /// <summary>
-        /// The <code>CreateTable</code> operation adds a new table to your account. In an AWS
-        /// account, table names must be unique within each Region. That is, you can have two
-        /// tables with same name if you create the tables in different Regions.
+        /// The <code>CreateTable</code> operation adds a new table to your account. In an Amazon
+        /// Web Services account, table names must be unique within each Region. That is, you
+        /// can have two tables with same name if you create the tables in different Regions.
         /// 
         ///  
         /// <para>
@@ -2507,16 +2534,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -2573,16 +2600,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -2638,16 +2665,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -2709,16 +2736,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -2778,16 +2805,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -2846,16 +2873,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -3764,28 +3791,29 @@ namespace Amazon.DynamoDBv2
 
 
         /// <summary>
-        /// Returns the current provisioned-capacity quotas for your AWS account in a Region,
-        /// both for the Region as a whole and for any one DynamoDB table that you create there.
+        /// Returns the current provisioned-capacity quotas for your Amazon Web Services account
+        /// in a Region, both for the Region as a whole and for any one DynamoDB table that you
+        /// create there.
         /// 
         ///  
         /// <para>
-        /// When you establish an AWS account, the account has initial quotas on the maximum read
-        /// capacity units and write capacity units that you can provision across all of your
-        /// DynamoDB tables in a given Region. Also, there are per-table quotas that apply when
-        /// you create a table there. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
+        /// When you establish an Amazon Web Services account, the account has initial quotas
+        /// on the maximum read capacity units and write capacity units that you can provision
+        /// across all of your DynamoDB tables in a given Region. Also, there are per-table quotas
+        /// that apply when you create a table there. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
         /// Account, and Table Quotas</a> page in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </para>
         ///  
         /// <para>
-        /// Although you can increase these quotas by filing a case at <a href="https://console.aws.amazon.com/support/home#/">AWS
-        /// Support Center</a>, obtaining the increase is not instantaneous. The <code>DescribeLimits</code>
-        /// action lets you write code to compare the capacity you are currently using to those
-        /// quotas imposed by your account so that you have enough time to apply for an increase
-        /// before you hit a quota.
+        /// Although you can increase these quotas by filing a case at <a href="https://console.aws.amazon.com/support/home#/">Amazon
+        /// Web Services Support Center</a>, obtaining the increase is not instantaneous. The
+        /// <code>DescribeLimits</code> action lets you write code to compare the capacity you
+        /// are currently using to those quotas imposed by your account so that you have enough
+        /// time to apply for an increase before you hit a quota.
         /// </para>
         ///  
         /// <para>
-        /// For example, you could use one of the AWS SDKs to do the following:
+        /// For example, you could use one of the Amazon Web Services SDKs to do the following:
         /// </para>
         ///  <ol> <li> 
         /// <para>
@@ -3872,28 +3900,29 @@ namespace Amazon.DynamoDBv2
 
 
         /// <summary>
-        /// Returns the current provisioned-capacity quotas for your AWS account in a Region,
-        /// both for the Region as a whole and for any one DynamoDB table that you create there.
+        /// Returns the current provisioned-capacity quotas for your Amazon Web Services account
+        /// in a Region, both for the Region as a whole and for any one DynamoDB table that you
+        /// create there.
         /// 
         ///  
         /// <para>
-        /// When you establish an AWS account, the account has initial quotas on the maximum read
-        /// capacity units and write capacity units that you can provision across all of your
-        /// DynamoDB tables in a given Region. Also, there are per-table quotas that apply when
-        /// you create a table there. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
+        /// When you establish an Amazon Web Services account, the account has initial quotas
+        /// on the maximum read capacity units and write capacity units that you can provision
+        /// across all of your DynamoDB tables in a given Region. Also, there are per-table quotas
+        /// that apply when you create a table there. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
         /// Account, and Table Quotas</a> page in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </para>
         ///  
         /// <para>
-        /// Although you can increase these quotas by filing a case at <a href="https://console.aws.amazon.com/support/home#/">AWS
-        /// Support Center</a>, obtaining the increase is not instantaneous. The <code>DescribeLimits</code>
-        /// action lets you write code to compare the capacity you are currently using to those
-        /// quotas imposed by your account so that you have enough time to apply for an increase
-        /// before you hit a quota.
+        /// Although you can increase these quotas by filing a case at <a href="https://console.aws.amazon.com/support/home#/">Amazon
+        /// Web Services Support Center</a>, obtaining the increase is not instantaneous. The
+        /// <code>DescribeLimits</code> action lets you write code to compare the capacity you
+        /// are currently using to those quotas imposed by your account so that you have enough
+        /// time to apply for an increase before you hit a quota.
         /// </para>
         ///  
         /// <para>
-        /// For example, you could use one of the AWS SDKs to do the following:
+        /// For example, you could use one of the Amazon Web Services SDKs to do the following:
         /// </para>
         ///  <ol> <li> 
         /// <para>
@@ -4544,6 +4573,22 @@ namespace Amazon.DynamoDBv2
         /// <summary>
         /// This operation allows you to perform reads and singleton writes on data stored in
         /// DynamoDB, using PartiQL.
+        /// 
+        ///  
+        /// <para>
+        /// For PartiQL reads (<code>SELECT</code> statement), if the total number of processed
+        /// items exceeds the maximum dataset size limit of 1 MB, the read stops and results are
+        /// returned to the user as a <code>LastEvaluatedKey</code> value to continue the read
+        /// in a subsequent operation. If the filter criteria in <code>WHERE</code> clause does
+        /// not match any data, the read will return an empty result set.
+        /// </para>
+        ///  
+        /// <para>
+        /// A single <code>SELECT</code> statement response can return up to the maximum number
+        /// of items (if using the Limit parameter) or a maximum of 1 MB of data (and then apply
+        /// any filtering to the results using <code>WHERE</code> clause). If <code>LastEvaluatedKey</code>
+        /// is present in the response, you need to paginate the result set.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ExecuteStatement service method.</param>
         /// 
@@ -4563,16 +4608,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -4595,6 +4640,22 @@ namespace Amazon.DynamoDBv2
         /// <summary>
         /// This operation allows you to perform reads and singleton writes on data stored in
         /// DynamoDB, using PartiQL.
+        /// 
+        ///  
+        /// <para>
+        /// For PartiQL reads (<code>SELECT</code> statement), if the total number of processed
+        /// items exceeds the maximum dataset size limit of 1 MB, the read stops and results are
+        /// returned to the user as a <code>LastEvaluatedKey</code> value to continue the read
+        /// in a subsequent operation. If the filter criteria in <code>WHERE</code> clause does
+        /// not match any data, the read will return an empty result set.
+        /// </para>
+        ///  
+        /// <para>
+        /// A single <code>SELECT</code> statement response can return up to the maximum number
+        /// of items (if using the Limit parameter) or a maximum of 1 MB of data (and then apply
+        /// any filtering to the results using <code>WHERE</code> clause). If <code>LastEvaluatedKey</code>
+        /// is present in the response, you need to paginate the result set.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ExecuteStatement service method.</param>
         /// <param name="cancellationToken">
@@ -4617,16 +4678,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -4653,6 +4714,16 @@ namespace Amazon.DynamoDBv2
         /// <summary>
         /// This operation allows you to perform transactional reads or writes on data stored
         /// in DynamoDB, using PartiQL.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// The entire transaction must consist of either read statements or write statements,
+        /// you cannot mix both in one transaction. The EXISTS function is an exception and can
+        /// be used to check the condition of specific attributes of the item in a similar manner
+        /// to <code>ConditionCheck</code> in the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transaction-apis.html#transaction-apis-txwriteitems">TransactWriteItems</a>
+        /// API.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ExecuteTransaction service method.</param>
         /// 
@@ -4665,16 +4736,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -4808,7 +4879,7 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Messages: 
+        /// Messages:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -4937,6 +5008,16 @@ namespace Amazon.DynamoDBv2
         /// <summary>
         /// This operation allows you to perform transactional reads or writes on data stored
         /// in DynamoDB, using PartiQL.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// The entire transaction must consist of either read statements or write statements,
+        /// you cannot mix both in one transaction. The EXISTS function is an exception and can
+        /// be used to check the condition of specific attributes of the item in a similar manner
+        /// to <code>ConditionCheck</code> in the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transaction-apis.html#transaction-apis-txwriteitems">TransactWriteItems</a>
+        /// API.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ExecuteTransaction service method.</param>
         /// <param name="cancellationToken">
@@ -4952,16 +5033,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -5095,7 +5176,7 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Messages: 
+        /// Messages:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -5363,16 +5444,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -5410,16 +5491,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -5456,16 +5537,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -5508,16 +5589,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -5558,16 +5639,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -5607,16 +5688,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -5640,10 +5721,10 @@ namespace Amazon.DynamoDBv2
 
 
         /// <summary>
-        /// List backups associated with an AWS account. To list backups for a given table, specify
-        /// <code>TableName</code>. <code>ListBackups</code> returns a paginated list of results
-        /// with at most 1 MB worth of items in a page. You can also specify a maximum number
-        /// of entries to be returned in a page. 
+        /// List backups associated with an Amazon Web Services account. To list backups for a
+        /// given table, specify <code>TableName</code>. <code>ListBackups</code> returns a paginated
+        /// list of results with at most 1 MB worth of items in a page. You can also specify a
+        /// maximum number of entries to be returned in a page.
         /// 
         ///  
         /// <para>
@@ -5675,10 +5756,10 @@ namespace Amazon.DynamoDBv2
 
 
         /// <summary>
-        /// List backups associated with an AWS account. To list backups for a given table, specify
-        /// <code>TableName</code>. <code>ListBackups</code> returns a paginated list of results
-        /// with at most 1 MB worth of items in a page. You can also specify a maximum number
-        /// of entries to be returned in a page. 
+        /// List backups associated with an Amazon Web Services account. To list backups for a
+        /// given table, specify <code>TableName</code>. <code>ListBackups</code> returns a paginated
+        /// list of results with at most 1 MB worth of items in a page. You can also specify a
+        /// maximum number of entries to be returned in a page.
         /// 
         ///  
         /// <para>
@@ -6238,53 +6319,53 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  
         /// <para>
-        /// For information on how to call the <code>PutItem</code> API using the AWS SDK in specific
-        /// languages, see the following:
+        /// For information on how to call the <code>PutItem</code> API using the Amazon Web Services
+        /// SDK in specific languages, see the following:
         /// </para>
         ///  <ul> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem"> PutItem
-        /// in the AWS Command Line Interface</a> 
+        /// in the Command Line Interface</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/DotNetSDKV3/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for .NET</a> 
+        /// PutItem in the SDK for .NET</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for C++</a> 
+        /// PutItem in the SDK for C++</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForGoV1/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Go</a> 
+        /// PutItem in the SDK for Go</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForJava/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Java</a> 
+        /// PutItem in the SDK for Java</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/AWSJavaScriptSDK/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for JavaScript</a> 
+        /// PutItem in the SDK for JavaScript</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForPHPV3/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for PHP V3</a> 
+        /// PutItem in the SDK for PHP V3</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/PutItem"> PutItem
-        /// in the AWS SDK for Python</a> 
+        /// in the SDK for Python (Boto)</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForRubyV2/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Ruby V2</a> 
+        /// PutItem in the SDK for Ruby V2</a> 
         /// </para>
         ///  </li> </ul> </important> 
         /// <para>
@@ -6331,16 +6412,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -6373,53 +6454,53 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  
         /// <para>
-        /// For information on how to call the <code>PutItem</code> API using the AWS SDK in specific
-        /// languages, see the following:
+        /// For information on how to call the <code>PutItem</code> API using the Amazon Web Services
+        /// SDK in specific languages, see the following:
         /// </para>
         ///  <ul> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem"> PutItem
-        /// in the AWS Command Line Interface</a> 
+        /// in the Command Line Interface</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/DotNetSDKV3/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for .NET</a> 
+        /// PutItem in the SDK for .NET</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for C++</a> 
+        /// PutItem in the SDK for C++</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForGoV1/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Go</a> 
+        /// PutItem in the SDK for Go</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForJava/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Java</a> 
+        /// PutItem in the SDK for Java</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/AWSJavaScriptSDK/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for JavaScript</a> 
+        /// PutItem in the SDK for JavaScript</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForPHPV3/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for PHP V3</a> 
+        /// PutItem in the SDK for PHP V3</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/PutItem"> PutItem
-        /// in the AWS SDK for Python</a> 
+        /// in the SDK for Python (Boto)</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForRubyV2/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Ruby V2</a> 
+        /// PutItem in the SDK for Ruby V2</a> 
         /// </para>
         ///  </li> </ul> </important> 
         /// <para>
@@ -6453,7 +6534,7 @@ namespace Amazon.DynamoDBv2
         /// </summary>
         /// <param name="tableName">The name of the table to contain the item.</param>
         /// <param name="item">A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item. You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key. If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition. Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index. For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>. Each element in the <code>Item</code> map is an <code>AttributeValue</code> object.</param>
-        /// <param name="returnValues">Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are: <ul> <li>  <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.) </li> <li>  <code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned. </li> </ul> <note> The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>PutItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>. </note></param>
+        /// <param name="returnValues">Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are: <ul> <li>  <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.) </li> <li>  <code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned. </li> </ul> The values returned are strongly consistent. <note> The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>PutItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>. </note></param>
         /// 
         /// <returns>The response from the PutItem service method, as returned by DynamoDB.</returns>
         /// <exception cref="Amazon.DynamoDBv2.Model.ConditionalCheckFailedException">
@@ -6467,16 +6548,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -6510,53 +6591,53 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  
         /// <para>
-        /// For information on how to call the <code>PutItem</code> API using the AWS SDK in specific
-        /// languages, see the following:
+        /// For information on how to call the <code>PutItem</code> API using the Amazon Web Services
+        /// SDK in specific languages, see the following:
         /// </para>
         ///  <ul> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem"> PutItem
-        /// in the AWS Command Line Interface</a> 
+        /// in the Command Line Interface</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/DotNetSDKV3/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for .NET</a> 
+        /// PutItem in the SDK for .NET</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for C++</a> 
+        /// PutItem in the SDK for C++</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForGoV1/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Go</a> 
+        /// PutItem in the SDK for Go</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForJava/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Java</a> 
+        /// PutItem in the SDK for Java</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/AWSJavaScriptSDK/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for JavaScript</a> 
+        /// PutItem in the SDK for JavaScript</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForPHPV3/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for PHP V3</a> 
+        /// PutItem in the SDK for PHP V3</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/PutItem"> PutItem
-        /// in the AWS SDK for Python</a> 
+        /// in the SDK for Python (Boto)</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForRubyV2/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Ruby V2</a> 
+        /// PutItem in the SDK for Ruby V2</a> 
         /// </para>
         ///  </li> </ul> </important> 
         /// <para>
@@ -6602,16 +6683,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -6647,53 +6728,53 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  
         /// <para>
-        /// For information on how to call the <code>PutItem</code> API using the AWS SDK in specific
-        /// languages, see the following:
+        /// For information on how to call the <code>PutItem</code> API using the Amazon Web Services
+        /// SDK in specific languages, see the following:
         /// </para>
         ///  <ul> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem"> PutItem
-        /// in the AWS Command Line Interface</a> 
+        /// in the Command Line Interface</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/DotNetSDKV3/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for .NET</a> 
+        /// PutItem in the SDK for .NET</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for C++</a> 
+        /// PutItem in the SDK for C++</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForGoV1/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Go</a> 
+        /// PutItem in the SDK for Go</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForJava/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Java</a> 
+        /// PutItem in the SDK for Java</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/AWSJavaScriptSDK/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for JavaScript</a> 
+        /// PutItem in the SDK for JavaScript</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForPHPV3/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for PHP V3</a> 
+        /// PutItem in the SDK for PHP V3</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/PutItem"> PutItem
-        /// in the AWS SDK for Python</a> 
+        /// in the SDK for Python (Boto)</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForRubyV2/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Ruby V2</a> 
+        /// PutItem in the SDK for Ruby V2</a> 
         /// </para>
         ///  </li> </ul> </important> 
         /// <para>
@@ -6743,16 +6824,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -6785,53 +6866,53 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  
         /// <para>
-        /// For information on how to call the <code>PutItem</code> API using the AWS SDK in specific
-        /// languages, see the following:
+        /// For information on how to call the <code>PutItem</code> API using the Amazon Web Services
+        /// SDK in specific languages, see the following:
         /// </para>
         ///  <ul> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem"> PutItem
-        /// in the AWS Command Line Interface</a> 
+        /// in the Command Line Interface</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/DotNetSDKV3/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for .NET</a> 
+        /// PutItem in the SDK for .NET</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for C++</a> 
+        /// PutItem in the SDK for C++</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForGoV1/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Go</a> 
+        /// PutItem in the SDK for Go</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForJava/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Java</a> 
+        /// PutItem in the SDK for Java</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/AWSJavaScriptSDK/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for JavaScript</a> 
+        /// PutItem in the SDK for JavaScript</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForPHPV3/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for PHP V3</a> 
+        /// PutItem in the SDK for PHP V3</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/PutItem"> PutItem
-        /// in the AWS SDK for Python</a> 
+        /// in the SDK for Python (Boto)</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForRubyV2/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Ruby V2</a> 
+        /// PutItem in the SDK for Ruby V2</a> 
         /// </para>
         ///  </li> </ul> </important> 
         /// <para>
@@ -6865,7 +6946,7 @@ namespace Amazon.DynamoDBv2
         /// </summary>
         /// <param name="tableName">The name of the table to contain the item.</param>
         /// <param name="item">A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item. You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key. If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition. Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index. For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>. Each element in the <code>Item</code> map is an <code>AttributeValue</code> object.</param>
-        /// <param name="returnValues">Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are: <ul> <li>  <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.) </li> <li>  <code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned. </li> </ul> <note> The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>PutItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>. </note></param>
+        /// <param name="returnValues">Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are: <ul> <li>  <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.) </li> <li>  <code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned. </li> </ul> The values returned are strongly consistent. <note> The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>PutItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>. </note></param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -6882,16 +6963,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -6925,53 +7006,53 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  
         /// <para>
-        /// For information on how to call the <code>PutItem</code> API using the AWS SDK in specific
-        /// languages, see the following:
+        /// For information on how to call the <code>PutItem</code> API using the Amazon Web Services
+        /// SDK in specific languages, see the following:
         /// </para>
         ///  <ul> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem"> PutItem
-        /// in the AWS Command Line Interface</a> 
+        /// in the Command Line Interface</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/DotNetSDKV3/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for .NET</a> 
+        /// PutItem in the SDK for .NET</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for C++</a> 
+        /// PutItem in the SDK for C++</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForGoV1/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Go</a> 
+        /// PutItem in the SDK for Go</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForJava/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Java</a> 
+        /// PutItem in the SDK for Java</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/AWSJavaScriptSDK/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for JavaScript</a> 
+        /// PutItem in the SDK for JavaScript</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForPHPV3/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for PHP V3</a> 
+        /// PutItem in the SDK for PHP V3</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/PutItem"> PutItem
-        /// in the AWS SDK for Python</a> 
+        /// in the SDK for Python (Boto)</a> 
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <a href="http://docs.aws.amazon.com/goto/SdkForRubyV2/dynamodb-2012-08-10/PutItem">
-        /// PutItem in the AWS SDK for Ruby V2</a> 
+        /// PutItem in the SDK for Ruby V2</a> 
         /// </para>
         ///  </li> </ul> </important> 
         /// <para>
@@ -7020,16 +7101,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -7056,9 +7137,10 @@ namespace Amazon.DynamoDBv2
 
 
         /// <summary>
-        /// The <code>Query</code> operation finds items based on primary key values. You can
-        /// query any table or secondary index that has a composite primary key (a partition key
-        /// and a sort key). 
+        /// You must provide the name of the partition key attribute and a single value for that
+        /// attribute. <code>Query</code> returns all items with that partition key value. Optionally,
+        /// you can provide a sort key attribute and use a comparison operator to refine the search
+        /// results.
         /// 
         ///  
         /// <para>
@@ -7129,16 +7211,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -7158,9 +7240,10 @@ namespace Amazon.DynamoDBv2
 
 
         /// <summary>
-        /// The <code>Query</code> operation finds items based on primary key values. You can
-        /// query any table or secondary index that has a composite primary key (a partition key
-        /// and a sort key). 
+        /// You must provide the name of the partition key attribute and a single value for that
+        /// attribute. <code>Query</code> returns all items with that partition key value. Optionally,
+        /// you can provide a sort key attribute and use a comparison operator to refine the search
+        /// results.
         /// 
         ///  
         /// <para>
@@ -7234,16 +7317,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -7769,16 +7852,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -7841,16 +7924,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -7914,16 +7997,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -7986,16 +8069,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -8064,16 +8147,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -8139,16 +8222,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -8215,16 +8298,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -8290,16 +8373,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -8457,8 +8540,8 @@ namespace Amazon.DynamoDBv2
         /// and Region. A <code>TransactGetItems</code> call can contain up to 25 <code>TransactGetItem</code>
         /// objects, each of which contains a <code>Get</code> structure that specifies an item
         /// to retrieve from a table in the account and Region. A call to <code>TransactGetItems</code>
-        /// cannot retrieve items from tables in more than one AWS account or Region. The aggregate
-        /// size of the items in the transaction cannot exceed 4 MB.
+        /// cannot retrieve items from tables in more than one Amazon Web Services account or
+        /// Region. The aggregate size of the items in the transaction cannot exceed 4 MB.
         /// 
         ///  
         /// <para>
@@ -8490,16 +8573,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -8633,7 +8716,7 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Messages: 
+        /// Messages:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -8764,8 +8847,8 @@ namespace Amazon.DynamoDBv2
         /// and Region. A <code>TransactGetItems</code> call can contain up to 25 <code>TransactGetItem</code>
         /// objects, each of which contains a <code>Get</code> structure that specifies an item
         /// to retrieve from a table in the account and Region. A call to <code>TransactGetItems</code>
-        /// cannot retrieve items from tables in more than one AWS account or Region. The aggregate
-        /// size of the items in the transaction cannot exceed 4 MB.
+        /// cannot retrieve items from tables in more than one Amazon Web Services account or
+        /// Region. The aggregate size of the items in the transaction cannot exceed 4 MB.
         /// 
         ///  
         /// <para>
@@ -8800,16 +8883,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -8943,7 +9026,7 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Messages: 
+        /// Messages:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -9075,9 +9158,10 @@ namespace Amazon.DynamoDBv2
         /// <summary>
         /// <code>TransactWriteItems</code> is a synchronous write operation that groups up to
         /// 25 action requests. These actions can target items in different tables, but not in
-        /// different AWS accounts or Regions, and no two actions can target the same item. For
-        /// example, you cannot both <code>ConditionCheck</code> and <code>Update</code> the same
-        /// item. The aggregate size of the items in the transaction cannot exceed 4 MB.
+        /// different Amazon Web Services accounts or Regions, and no two actions can target the
+        /// same item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code>
+        /// the same item. The aggregate size of the items in the transaction cannot exceed 4
+        /// MB.
         /// 
         ///  
         /// <para>
@@ -9086,15 +9170,15 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>Put</code>  &#x97;   Initiates a <code>PutItem</code> operation to write a
-        /// new item. This structure specifies the primary key of the item to be written, the
-        /// name of the table to write it in, an optional condition expression that must be satisfied
-        /// for the write to succeed, a list of the item's attributes, and a field indicating
-        /// whether to retrieve the item's attributes if the condition is not met.
+        ///  <code>Put</code>  —   Initiates a <code>PutItem</code> operation to write a new item.
+        /// This structure specifies the primary key of the item to be written, the name of the
+        /// table to write it in, an optional condition expression that must be satisfied for
+        /// the write to succeed, a list of the item's attributes, and a field indicating whether
+        /// to retrieve the item's attributes if the condition is not met.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>Update</code>  &#x97;   Initiates an <code>UpdateItem</code> operation to update
+        ///  <code>Update</code>  —   Initiates an <code>UpdateItem</code> operation to update
         /// an existing item. This structure specifies the primary key of the item to be updated,
         /// the name of the table where it resides, an optional condition expression that must
         /// be satisfied for the update to succeed, an expression that defines one or more attributes
@@ -9103,7 +9187,7 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>Delete</code>  &#x97;   Initiates a <code>DeleteItem</code> operation to delete
+        ///  <code>Delete</code>  —   Initiates a <code>DeleteItem</code> operation to delete
         /// an existing item. This structure specifies the primary key of the item to be deleted,
         /// the name of the table where it resides, an optional condition expression that must
         /// be satisfied for the deletion to succeed, and a field indicating whether to retrieve
@@ -9111,11 +9195,11 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>ConditionCheck</code>  &#x97;   Applies a condition to an item that is not
-        /// being modified by the transaction. This structure specifies the primary key of the
-        /// item to be checked, the name of the table where it resides, a condition expression
-        /// that must be satisfied for the transaction to succeed, and a field indicating whether
-        /// to retrieve the item's attributes if the condition is not met.
+        ///  <code>ConditionCheck</code>  —   Applies a condition to an item that is not being
+        /// modified by the transaction. This structure specifies the primary key of the item
+        /// to be checked, the name of the table where it resides, a condition expression that
+        /// must be satisfied for the transaction to succeed, and a field indicating whether to
+        /// retrieve the item's attributes if the condition is not met.
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -9161,16 +9245,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -9304,7 +9388,7 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Messages: 
+        /// Messages:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -9435,9 +9519,10 @@ namespace Amazon.DynamoDBv2
         /// <summary>
         /// <code>TransactWriteItems</code> is a synchronous write operation that groups up to
         /// 25 action requests. These actions can target items in different tables, but not in
-        /// different AWS accounts or Regions, and no two actions can target the same item. For
-        /// example, you cannot both <code>ConditionCheck</code> and <code>Update</code> the same
-        /// item. The aggregate size of the items in the transaction cannot exceed 4 MB.
+        /// different Amazon Web Services accounts or Regions, and no two actions can target the
+        /// same item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code>
+        /// the same item. The aggregate size of the items in the transaction cannot exceed 4
+        /// MB.
         /// 
         ///  
         /// <para>
@@ -9446,15 +9531,15 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>Put</code>  &#x97;   Initiates a <code>PutItem</code> operation to write a
-        /// new item. This structure specifies the primary key of the item to be written, the
-        /// name of the table to write it in, an optional condition expression that must be satisfied
-        /// for the write to succeed, a list of the item's attributes, and a field indicating
-        /// whether to retrieve the item's attributes if the condition is not met.
+        ///  <code>Put</code>  —   Initiates a <code>PutItem</code> operation to write a new item.
+        /// This structure specifies the primary key of the item to be written, the name of the
+        /// table to write it in, an optional condition expression that must be satisfied for
+        /// the write to succeed, a list of the item's attributes, and a field indicating whether
+        /// to retrieve the item's attributes if the condition is not met.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>Update</code>  &#x97;   Initiates an <code>UpdateItem</code> operation to update
+        ///  <code>Update</code>  —   Initiates an <code>UpdateItem</code> operation to update
         /// an existing item. This structure specifies the primary key of the item to be updated,
         /// the name of the table where it resides, an optional condition expression that must
         /// be satisfied for the update to succeed, an expression that defines one or more attributes
@@ -9463,7 +9548,7 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>Delete</code>  &#x97;   Initiates a <code>DeleteItem</code> operation to delete
+        ///  <code>Delete</code>  —   Initiates a <code>DeleteItem</code> operation to delete
         /// an existing item. This structure specifies the primary key of the item to be deleted,
         /// the name of the table where it resides, an optional condition expression that must
         /// be satisfied for the deletion to succeed, and a field indicating whether to retrieve
@@ -9471,11 +9556,11 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>ConditionCheck</code>  &#x97;   Applies a condition to an item that is not
-        /// being modified by the transaction. This structure specifies the primary key of the
-        /// item to be checked, the name of the table where it resides, a condition expression
-        /// that must be satisfied for the transaction to succeed, and a field indicating whether
-        /// to retrieve the item's attributes if the condition is not met.
+        ///  <code>ConditionCheck</code>  —   Applies a condition to an item that is not being
+        /// modified by the transaction. This structure specifies the primary key of the item
+        /// to be checked, the name of the table where it resides, a condition expression that
+        /// must be satisfied for the transaction to succeed, and a field indicating whether to
+        /// retrieve the item's attributes if the condition is not met.
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -9524,16 +9609,16 @@ namespace Amazon.DynamoDBv2
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -9667,7 +9752,7 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Messages: 
+        /// Messages:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -10022,7 +10107,13 @@ namespace Amazon.DynamoDBv2
 
 
         /// <summary>
-        /// Updates the status for contributor insights for a specific table or index.
+        /// Updates the status for contributor insights for a specific table or index. CloudWatch
+        /// Contributor Insights for DynamoDB graphs display the partition key and (if applicable)
+        /// sort key of frequently accessed items and frequently throttled items in plaintext.
+        /// If you require the use of Amazon Web Services Key Management Service (KMS) to encrypt
+        /// this table’s partition key and sort key data with an Amazon Web Services managed key
+        /// or customer managed key, you should not enable CloudWatch Contributor Insights for
+        /// DynamoDB for this table.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateContributorInsights service method.</param>
         /// 
@@ -10046,7 +10137,13 @@ namespace Amazon.DynamoDBv2
 
 
         /// <summary>
-        /// Updates the status for contributor insights for a specific table or index.
+        /// Updates the status for contributor insights for a specific table or index. CloudWatch
+        /// Contributor Insights for DynamoDB graphs display the partition key and (if applicable)
+        /// sort key of frequently accessed items and frequently throttled items in plaintext.
+        /// If you require the use of Amazon Web Services Key Management Service (KMS) to encrypt
+        /// this table’s partition key and sort key data with an Amazon Web Services managed key
+        /// or customer managed key, you should not enable CloudWatch Contributor Insights for
+        /// DynamoDB for this table.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateContributorInsights service method.</param>
         /// <param name="cancellationToken">
@@ -10363,16 +10460,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -10422,16 +10519,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -10479,16 +10576,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -10542,16 +10639,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -10604,16 +10701,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not
@@ -10664,16 +10761,16 @@ namespace Amazon.DynamoDBv2
         /// one or more local secondary indexes.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException">
-        /// Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests
-        /// that receive this exception. Your request is eventually successful, unless your retry
-        /// queue is too large to finish. Reduce the frequency of requests and use exponential
-        /// backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
+        /// Your request rate is too high. The Amazon Web Services SDKs for DynamoDB automatically
+        /// retry requests that receive this exception. Your request is eventually successful,
+        /// unless your retry queue is too large to finish. Reduce the frequency of requests and
+        /// use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error
         /// Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.RequestLimitExceededException">
-        /// Throughput exceeds the current throughput quota for your account. Please contact AWS
-        /// Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a quota
-        /// increase.
+        /// Throughput exceeds the current throughput quota for your account. Please contact <a
+        /// href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+        /// quota increase.
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceNotFoundException">
         /// The operation tried to access a nonexistent table or index. The resource might not

@@ -32,7 +32,7 @@ namespace Amazon.SageMakerFeatureStoreRuntime
     public partial class AmazonSageMakerFeatureStoreRuntimeConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.63");
+            InternalSDKUtils.BuildUserAgentString("3.7.1.121");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.SageMakerFeatureStoreRuntime
         /// Default constructor
         /// </summary>
         public AmazonSageMakerFeatureStoreRuntimeConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonSageMakerFeatureStoreRuntimeDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "sagemaker";
         }

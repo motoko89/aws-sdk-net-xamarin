@@ -29,7 +29,9 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ComputeOptimizer.Model
 {
     /// <summary>
-    /// Describes preferences for recommendations.
+    /// Describes the recommendation preferences to return in the response of a <a>GetAutoScalingGroupRecommendations</a>,
+    /// <a>GetEC2InstanceRecommendations</a>, and <a>GetEC2RecommendationProjectedMetrics</a>
+    /// request.
     /// </summary>
     public partial class RecommendationPreferences
     {

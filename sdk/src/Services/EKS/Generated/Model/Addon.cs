@@ -29,7 +29,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.EKS.Model
 {
     /// <summary>
-    /// An Amazon EKS add-on.
+    /// An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon
+    /// EKS add-ons</a> in the <i>Amazon EKS User Guide</i>.
     /// </summary>
     public partial class Addon
     {
@@ -212,8 +213,8 @@ namespace Amazon.EKS.Model
         /// Gets and sets the property Tags. 
         /// <para>
         /// The metadata that you apply to the add-on to assist with categorization and organization.
-        /// Each tag consists of a key and an optional value, both of which you define. Add-on
-        /// tags do not propagate to any other resources associated with the cluster. 
+        /// Each tag consists of a key and an optional value. You define both. Add-on tags do
+        /// not propagate to any other resources associated with the cluster. 
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=50)]

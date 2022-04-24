@@ -34,7 +34,7 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// S3Settings Marshaller
-    /// </summary>       
+    /// </summary>
     public class S3SettingsMarshaller : IRequestMarshaller<S3Settings, JsonMarshallerContext> 
     {
         /// <summary>
@@ -159,6 +159,12 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.DatePartitionSequence);
             }
 
+            if(requestObject.IsSetDatePartitionTimezone())
+            {
+                context.Writer.WritePropertyName("DatePartitionTimezone");
+                context.Writer.Write(requestObject.DatePartitionTimezone);
+            }
+
             if(requestObject.IsSetDictPageSizeLimit())
             {
                 context.Writer.WritePropertyName("DictPageSizeLimit");
@@ -261,11 +267,17 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.UseCsvNoSupValue);
             }
 
+            if(requestObject.IsSetUseTaskStartTimeForFullLoadTimestamp())
+            {
+                context.Writer.WritePropertyName("UseTaskStartTimeForFullLoadTimestamp");
+                context.Writer.Write(requestObject.UseTaskStartTimeForFullLoadTimestamp);
+            }
+
         }
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static S3SettingsMarshaller Instance = new S3SettingsMarshaller();
 
     }

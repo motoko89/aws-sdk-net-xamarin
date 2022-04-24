@@ -55,7 +55,7 @@ namespace Amazon.WellArchitected.Model.Internal.MarshallTransformations
         public IRequest Marshall(GetLensVersionDifferenceRequest publicRequest)
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.WellArchitected");
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-03-31";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-03-31";
             request.HttpMethod = "GET";
 
             if (!publicRequest.IsSetLensAlias())
@@ -64,6 +64,9 @@ namespace Amazon.WellArchitected.Model.Internal.MarshallTransformations
             
             if (publicRequest.IsSetBaseLensVersion())
                 request.Parameters.Add("BaseLensVersion", StringUtils.FromString(publicRequest.BaseLensVersion));
+            
+            if (publicRequest.IsSetTargetLensVersion())
+                request.Parameters.Add("TargetLensVersion", StringUtils.FromString(publicRequest.TargetLensVersion));
             request.ResourcePath = "/lenses/{LensAlias}/versionDifference";
             request.UseQueryString = true;
 

@@ -32,7 +32,7 @@ namespace Amazon.IoTFleetHub
     public partial class AmazonIoTFleetHubConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.150");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.IoTFleetHub
         /// Default constructor
         /// </summary>
         public AmazonIoTFleetHubConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonIoTFleetHubDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "iotfleethub";
         }

@@ -30,10 +30,13 @@ namespace Amazon.DevOpsGuru.Model
 {
     /// <summary>
     /// Container for the parameters to the GetResourceCollection operation.
-    /// Returns lists AWS resources that are of the specified resource collection type. The
-    /// one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps
-    /// Guru can be configured to analyze only the AWS resources that are defined in the stacks.
-    /// You can specify up to 500 AWS CloudFormation stacks.
+    /// Returns lists Amazon Web Services resources that are of the specified resource collection
+    /// type. The two types of Amazon Web Services resource collections supported are Amazon
+    /// Web Services CloudFormation stacks and Amazon Web Services resources that contain
+    /// the same Amazon Web Services tag. DevOps Guru can be configured to analyze the Amazon
+    /// Web Services resources that are defined in the stacks or that are tagged using the
+    /// same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation
+    /// stacks.
     /// </summary>
     public partial class GetResourceCollectionRequest : AmazonDevOpsGuruRequest
     {
@@ -63,8 +66,8 @@ namespace Amazon.DevOpsGuru.Model
         /// <summary>
         /// Gets and sets the property ResourceCollectionType. 
         /// <para>
-        ///  The type of AWS resource collections to return. The one valid value is <code>CLOUD_FORMATION</code>
-        /// for AWS CloudFormation stacks. 
+        ///  The type of Amazon Web Services resource collections to return. The one valid value
+        /// is <code>CLOUD_FORMATION</code> for Amazon Web Services CloudFormation stacks. 
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

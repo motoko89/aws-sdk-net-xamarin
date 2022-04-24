@@ -34,7 +34,7 @@ namespace Amazon.FSx.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// CreateFileSystemLustreConfiguration Marshaller
-    /// </summary>       
+    /// </summary>
     public class CreateFileSystemLustreConfigurationMarshaller : IRequestMarshaller<CreateFileSystemLustreConfiguration, JsonMarshallerContext> 
     {
         /// <summary>
@@ -105,6 +105,17 @@ namespace Amazon.FSx.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.ImportPath);
             }
 
+            if(requestObject.IsSetLogConfiguration())
+            {
+                context.Writer.WritePropertyName("LogConfiguration");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = LustreLogCreateConfigurationMarshaller.Instance;
+                marshaller.Marshall(requestObject.LogConfiguration, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetPerUnitStorageThroughput())
             {
                 context.Writer.WritePropertyName("PerUnitStorageThroughput");
@@ -121,7 +132,7 @@ namespace Amazon.FSx.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static CreateFileSystemLustreConfigurationMarshaller Instance = new CreateFileSystemLustreConfigurationMarshaller();
 
     }

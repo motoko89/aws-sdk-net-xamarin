@@ -34,7 +34,7 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// HlsGroupSettings Marshaller
-    /// </summary>       
+    /// </summary>
     public class HlsGroupSettingsMarshaller : IRequestMarshaller<HlsGroupSettings, JsonMarshallerContext> 
     {
         /// <summary>
@@ -104,6 +104,12 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
             {
                 context.Writer.WritePropertyName("captionLanguageSetting");
                 context.Writer.Write(requestObject.CaptionLanguageSetting);
+            }
+
+            if(requestObject.IsSetCaptionSegmentLengthControl())
+            {
+                context.Writer.WritePropertyName("captionSegmentLengthControl");
+                context.Writer.Write(requestObject.CaptionSegmentLengthControl);
             }
 
             if(requestObject.IsSetClientCache())
@@ -269,7 +275,7 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static HlsGroupSettingsMarshaller Instance = new HlsGroupSettingsMarshaller();
 
     }

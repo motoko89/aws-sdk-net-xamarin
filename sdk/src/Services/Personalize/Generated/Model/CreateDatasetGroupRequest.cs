@@ -30,9 +30,9 @@ namespace Amazon.Personalize.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateDatasetGroup operation.
-    /// Creates an empty dataset group. A dataset group contains related datasets that supply
-    /// data for training a model. A dataset group can contain at most three datasets, one
-    /// for each type of dataset:
+    /// Creates an empty dataset group. A dataset group is a container for Amazon Personalize
+    /// resources. A dataset group can contain at most three datasets, one for each type of
+    /// dataset:
     /// 
     ///  <ul> <li> 
     /// <para>
@@ -48,8 +48,12 @@ namespace Amazon.Personalize.Model
     /// </para>
     ///  </li> </ul> 
     /// <para>
-    /// To train a model (create a solution), a dataset group that contains an <code>Interactions</code>
-    /// dataset is required. Call <a>CreateDataset</a> to add a dataset to the group.
+    ///  A dataset group can be a Domain dataset group, where you specify a domain and use
+    /// pre-configured resources like recommenders, or a Custom dataset group, where you use
+    /// custom resources, such as a solution with a solution version, that you deploy with
+    /// a campaign. If you start with a Domain dataset group, you can still add custom resources
+    /// such as solutions and solution versions trained with recipes for custom use cases
+    /// and deployed with campaigns. 
     /// </para>
     ///  
     /// <para>
@@ -65,9 +69,9 @@ namespace Amazon.Personalize.Model
     /// </para>
     ///  </li> </ul> 
     /// <para>
-    /// To get the status of the dataset group, call <a>DescribeDatasetGroup</a>. If the status
-    /// shows as CREATE FAILED, the response includes a <code>failureReason</code> key, which
-    /// describes why the creation failed.
+    /// To get the status of the dataset group, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>.
+    /// If the status shows as CREATE FAILED, the response includes a <code>failureReason</code>
+    /// key, which describes why the creation failed.
     /// </para>
     ///  <note> 
     /// <para>
@@ -84,37 +88,66 @@ namespace Amazon.Personalize.Model
     /// </para>
     ///  <ul> <li> 
     /// <para>
-    ///  <a>CreateDataset</a> 
+    ///  <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>
+    /// 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    ///  <a>CreateEventTracker</a> 
+    ///  <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>
+    /// 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    ///  <a>CreateSolution</a> 
+    ///  <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
+    /// 
     /// </para>
     ///  </li> </ul> <p class="title"> <b>Related APIs</b> 
     /// </para>
     ///  <ul> <li> 
     /// <para>
-    ///  <a>ListDatasetGroups</a> 
+    ///  <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetGroups.html">ListDatasetGroups</a>
+    /// 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    ///  <a>DescribeDatasetGroup</a> 
+    ///  <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>
+    /// 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    ///  <a>DeleteDatasetGroup</a> 
+    ///  <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDatasetGroup.html">DeleteDatasetGroup</a>
+    /// 
     /// </para>
     ///  </li> </ul>
     /// </summary>
     public partial class CreateDatasetGroupRequest : AmazonPersonalizeRequest
     {
+        private Domain _domain;
         private string _kmsKeyArn;
         private string _name;
         private string _roleArn;
+        private List<Tag> _tags = new List<Tag>();
+
+        /// <summary>
+        /// Gets and sets the property Domain. 
+        /// <para>
+        /// The domain of the dataset group. Specify a domain to create a Domain dataset group.
+        /// The domain you specify determines the default schemas for datasets and the use cases
+        /// available for recommenders. If you don't specify a domain, you create a Custom dataset
+        /// group with solution versions that you deploy with a campaign. 
+        /// </para>
+        /// </summary>
+        public Domain Domain
+        {
+            get { return this._domain; }
+            set { this._domain = value; }
+        }
+
+        // Check to see if Domain property is set
+        internal bool IsSetDomain()
+        {
+            return this._domain != null;
+        }
 
         /// <summary>
         /// Gets and sets the property KmsKeyArn. 
@@ -123,6 +156,7 @@ namespace Amazon.Personalize.Model
         /// the datasets.
         /// </para>
         /// </summary>
+        [AWSProperty(Max=2048)]
         public string KmsKeyArn
         {
             get { return this._kmsKeyArn; }
@@ -173,6 +207,26 @@ namespace Amazon.Personalize.Model
         internal bool IsSetRoleArn()
         {
             return this._roleArn != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a>
+        /// to apply to the dataset group.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=200)]
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
     }

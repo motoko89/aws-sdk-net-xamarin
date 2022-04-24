@@ -121,15 +121,30 @@ namespace Amazon.Internal
             /// <param name="serviceName">The services system name.</param>
             /// <param name="dualStack">If true returns the endpoint for dualstack</param>
             /// <exception cref="System.ArgumentException">Thrown when the request service does not have a valid endpoint in the region.</exception>
-            /// <returns></returns>
+            [Obsolete("Use GetEndpointForService(string serviceName, GetEndpointForServiceOptions options) instead",
+                error: false)]
             public Amazon.RegionEndpoint.Endpoint GetEndpointForService(string serviceName, bool dualStack)
             {
+                return GetEndpointForService(serviceName, new GetEndpointForServiceOptions { DualStack = dualStack });
+            }
+
+            /// <summary>
+            /// Gets the endpoint for a service in a region.
+            /// </summary>
+            /// <param name="serviceName">The services system name.</param>
+            /// <param name="options"> Specify additional requirements on the <see cref="Amazon.RegionEndpoint.Endpoint"/> to be returned.</param>
+            /// <exception cref="System.ArgumentException">Thrown when the request service does not have a valid endpoint in the region.</exception>
+            public Amazon.RegionEndpoint.Endpoint GetEndpointForService(string serviceName, GetEndpointForServiceOptions options)
+            {
+                if (options?.FIPS == true)
+                    throw new NotSupportedException($"{typeof(RegionEndpointProviderV2)} does not support FIPS");
+
                 if (!RegionEndpoint.loaded)
                     RegionEndpoint.LoadEndpointDefinitions();
 
                 var rule = GetEndpointRule(serviceName);
                 var endpointTemplate = rule["endpoint"].ToString();
-                if (dualStack)
+                if (options?.DualStack == true)
                 {
                     // We need special handling for S3's s3.amazonaws.com endpoint, which doesn't
                     // support dualstack (need to transform to s3.dualstack.us-east-1.amazonaws.com).
@@ -173,7 +188,11 @@ namespace Amazon.Internal
                 if (string.Equals(authRegion, this.SystemName, StringComparison.OrdinalIgnoreCase))
                     authRegion = null;
 
-                return new Amazon.RegionEndpoint.Endpoint(hostName, authRegion, signatureVersion);
+                // v2 doesn't support the 'deprecated' and 'dnsSuffix' property
+                var deprecated = false;
+                string dnsSuffix = null;
+
+                return new Amazon.RegionEndpoint.Endpoint(hostName, authRegion, signatureVersion, dnsSuffix, deprecated);
             }
 
             JsonData GetEndpointRule(string serviceName)
@@ -193,7 +212,7 @@ namespace Amazon.Internal
 
             // Creates a new RegionEndpoint and stores it in the hash
             private static RegionEndpoint GetEndpoint(string systemName, string displayName)
-            {                
+            {        
                 RegionEndpoint regionEndpoint = null;
                 lock (hashBySystemName)
                 {

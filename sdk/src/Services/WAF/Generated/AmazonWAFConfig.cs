@@ -32,7 +32,7 @@ namespace Amazon.WAF
     public partial class AmazonWAFConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.150");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.WAF
         /// Default constructor
         /// </summary>
         public AmazonWAFConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonWAFDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "waf";
         }

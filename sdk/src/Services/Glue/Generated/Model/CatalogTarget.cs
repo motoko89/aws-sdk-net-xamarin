@@ -33,8 +33,29 @@ namespace Amazon.Glue.Model
     /// </summary>
     public partial class CatalogTarget
     {
+        private string _connectionName;
         private string _databaseName;
         private List<string> _tables = new List<string>();
+
+        /// <summary>
+        /// Gets and sets the property ConnectionName. 
+        /// <para>
+        /// The name of the connection for an Amazon S3-backed Data Catalog table to be a target
+        /// of the crawl when using a <code>Catalog</code> connection type paired with a <code>NETWORK</code>
+        /// Connection type.
+        /// </para>
+        /// </summary>
+        public string ConnectionName
+        {
+            get { return this._connectionName; }
+            set { this._connectionName = value; }
+        }
+
+        // Check to see if ConnectionName property is set
+        internal bool IsSetConnectionName()
+        {
+            return this._connectionName != null;
+        }
 
         /// <summary>
         /// Gets and sets the property DatabaseName. 

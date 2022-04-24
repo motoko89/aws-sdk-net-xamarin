@@ -40,11 +40,15 @@ namespace Amazon.EC2.Model
         private string _cidrBlock;
         private string _customerOwnedIpv4Pool;
         private bool? _defaultForAz;
+        private bool? _enableDns64;
+        private int? _enableLniAtDeviceIndex;
         private List<SubnetIpv6CidrBlockAssociation> _ipv6CidrBlockAssociationSet = new List<SubnetIpv6CidrBlockAssociation>();
+        private bool? _ipv6Native;
         private bool? _mapCustomerOwnedIpOnLaunch;
         private bool? _mapPublicIpOnLaunch;
         private string _outpostArn;
         private string _ownerId;
+        private PrivateDnsNameOptionsOnLaunch _privateDnsNameOptionsOnLaunch;
         private SubnetState _state;
         private string _subnetArn;
         private string _subnetId;
@@ -180,6 +184,45 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EnableDns64. 
+        /// <para>
+        /// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet
+        /// should return synthetic IPv6 addresses for IPv4-only destinations.
+        /// </para>
+        /// </summary>
+        public bool EnableDns64
+        {
+            get { return this._enableDns64.GetValueOrDefault(); }
+            set { this._enableDns64 = value; }
+        }
+
+        // Check to see if EnableDns64 property is set
+        internal bool IsSetEnableDns64()
+        {
+            return this._enableDns64.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property EnableLniAtDeviceIndex. 
+        /// <para>
+        ///  Indicates the device position for local network interfaces in this subnet. For example,
+        /// <code>1</code> indicates local network interfaces in this subnet are the secondary
+        /// network interface (eth1). 
+        /// </para>
+        /// </summary>
+        public int EnableLniAtDeviceIndex
+        {
+            get { return this._enableLniAtDeviceIndex.GetValueOrDefault(); }
+            set { this._enableLniAtDeviceIndex = value; }
+        }
+
+        // Check to see if EnableLniAtDeviceIndex property is set
+        internal bool IsSetEnableLniAtDeviceIndex()
+        {
+            return this._enableLniAtDeviceIndex.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property Ipv6CidrBlockAssociationSet. 
         /// <para>
         /// Information about the IPv6 CIDR blocks associated with the subnet.
@@ -195,6 +238,24 @@ namespace Amazon.EC2.Model
         internal bool IsSetIpv6CidrBlockAssociationSet()
         {
             return this._ipv6CidrBlockAssociationSet != null && this._ipv6CidrBlockAssociationSet.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property Ipv6Native. 
+        /// <para>
+        /// Indicates whether this is an IPv6 only subnet.
+        /// </para>
+        /// </summary>
+        public bool Ipv6Native
+        {
+            get { return this._ipv6Native.GetValueOrDefault(); }
+            set { this._ipv6Native = value; }
+        }
+
+        // Check to see if Ipv6Native property is set
+        internal bool IsSetIpv6Native()
+        {
+            return this._ipv6Native.HasValue; 
         }
 
         /// <summary>
@@ -268,6 +329,25 @@ namespace Amazon.EC2.Model
         internal bool IsSetOwnerId()
         {
             return this._ownerId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PrivateDnsNameOptionsOnLaunch. 
+        /// <para>
+        /// The type of hostnames to assign to instances in the subnet at launch. An instance
+        /// hostname is based on the IPv4 address or ID of the instance.
+        /// </para>
+        /// </summary>
+        public PrivateDnsNameOptionsOnLaunch PrivateDnsNameOptionsOnLaunch
+        {
+            get { return this._privateDnsNameOptionsOnLaunch; }
+            set { this._privateDnsNameOptionsOnLaunch = value; }
+        }
+
+        // Check to see if PrivateDnsNameOptionsOnLaunch property is set
+        internal bool IsSetPrivateDnsNameOptionsOnLaunch()
+        {
+            return this._privateDnsNameOptionsOnLaunch != null;
         }
 
         /// <summary>

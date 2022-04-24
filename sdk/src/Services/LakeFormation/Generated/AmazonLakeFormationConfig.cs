@@ -32,7 +32,7 @@ namespace Amazon.LakeFormation
     public partial class AmazonLakeFormationConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.75");
+            InternalSDKUtils.BuildUserAgentString("3.7.5.12");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.LakeFormation
         /// Default constructor
         /// </summary>
         public AmazonLakeFormationConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonLakeFormationDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "lakeformation";
         }

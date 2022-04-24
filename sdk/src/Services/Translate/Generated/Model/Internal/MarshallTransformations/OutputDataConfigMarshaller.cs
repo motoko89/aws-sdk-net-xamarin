@@ -34,7 +34,7 @@ namespace Amazon.Translate.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// OutputDataConfig Marshaller
-    /// </summary>       
+    /// </summary>
     public class OutputDataConfigMarshaller : IRequestMarshaller<OutputDataConfig, JsonMarshallerContext> 
     {
         /// <summary>
@@ -45,6 +45,17 @@ namespace Amazon.Translate.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(OutputDataConfig requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetEncryptionKey())
+            {
+                context.Writer.WritePropertyName("EncryptionKey");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = EncryptionKeyMarshaller.Instance;
+                marshaller.Marshall(requestObject.EncryptionKey, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetS3Uri())
             {
                 context.Writer.WritePropertyName("S3Uri");
@@ -55,7 +66,7 @@ namespace Amazon.Translate.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static OutputDataConfigMarshaller Instance = new OutputDataConfigMarshaller();
 
     }

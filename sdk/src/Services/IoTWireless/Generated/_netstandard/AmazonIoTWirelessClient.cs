@@ -38,7 +38,25 @@ namespace Amazon.IoTWireless
     /// <summary>
     /// Implementation for accessing IoTWireless
     ///
-    /// AWS IoT Wireless API documentation
+    /// AWS IoT Wireless provides bi-directional communication between internet-connected
+    /// wireless devices and the AWS Cloud. To onboard both LoRaWAN and Sidewalk devices to
+    /// AWS IoT, use the IoT Wireless API. These wireless devices use the Low Power Wide Area
+    /// Networking (LPWAN) communication protocol to communicate with AWS IoT.
+    /// 
+    ///  
+    /// <para>
+    /// Using the API, you can perform create, read, update, and delete operations for your
+    /// wireless devices, gateways, destinations, and profiles. After onboarding your devices,
+    /// you can use the API operations to set log levels and monitor your devices with CloudWatch.
+    /// </para>
+    ///  
+    /// <para>
+    /// You can also use the API operations to create multicast groups and schedule a multicast
+    /// session for sending a downlink message to devices in the group. By using Firmware
+    /// Updates Over-The-Air (FUOTA) API operations, you can create a FUOTA task and schedule
+    /// a session to update the firmware of individual devices or an entire group of devices
+    /// in a multicast group.
+    /// </para>
     /// </summary>
     public partial class AmazonIoTWirelessClient : AmazonServiceClient, IAmazonIoTWireless
     {
@@ -1338,6 +1356,55 @@ namespace Amazon.IoTWireless
 
         #endregion
         
+        #region  DeleteQueuedMessages
+
+        internal virtual DeleteQueuedMessagesResponse DeleteQueuedMessages(DeleteQueuedMessagesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteQueuedMessagesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteQueuedMessagesResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteQueuedMessagesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// The operation to delete queued messages.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteQueuedMessages service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteQueuedMessages service method, as returned by IoTWireless.</returns>
+        /// <exception cref="Amazon.IoTWireless.Model.AccessDeniedException">
+        /// User does not have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.InternalServerException">
+        /// An unexpected error occurred while processing a request.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ResourceNotFoundException">
+        /// Resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ThrottlingException">
+        /// The request was denied because it exceeded the allowed API request rate.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ValidationException">
+        /// The input did not meet the specified constraints.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteQueuedMessages">REST API Reference for DeleteQueuedMessages Operation</seealso>
+        public virtual Task<DeleteQueuedMessagesResponse> DeleteQueuedMessagesAsync(DeleteQueuedMessagesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteQueuedMessagesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteQueuedMessagesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteQueuedMessagesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteServiceProfile
 
         internal virtual DeleteServiceProfileResponse DeleteServiceProfile(DeleteServiceProfileRequest request)
@@ -2229,6 +2296,55 @@ namespace Amazon.IoTWireless
             options.ResponseUnmarshaller = GetMulticastGroupSessionResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetMulticastGroupSessionResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetNetworkAnalyzerConfiguration
+
+        internal virtual GetNetworkAnalyzerConfigurationResponse GetNetworkAnalyzerConfiguration(GetNetworkAnalyzerConfigurationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetNetworkAnalyzerConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetNetworkAnalyzerConfigurationResponseUnmarshaller.Instance;
+
+            return Invoke<GetNetworkAnalyzerConfigurationResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Get NetworkAnalyzer configuration.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetNetworkAnalyzerConfiguration service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetNetworkAnalyzerConfiguration service method, as returned by IoTWireless.</returns>
+        /// <exception cref="Amazon.IoTWireless.Model.AccessDeniedException">
+        /// User does not have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.InternalServerException">
+        /// An unexpected error occurred while processing a request.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ResourceNotFoundException">
+        /// Resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ThrottlingException">
+        /// The request was denied because it exceeded the allowed API request rate.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ValidationException">
+        /// The input did not meet the specified constraints.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetNetworkAnalyzerConfiguration">REST API Reference for GetNetworkAnalyzerConfiguration Operation</seealso>
+        public virtual Task<GetNetworkAnalyzerConfigurationResponse> GetNetworkAnalyzerConfigurationAsync(GetNetworkAnalyzerConfigurationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetNetworkAnalyzerConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetNetworkAnalyzerConfigurationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetNetworkAnalyzerConfigurationResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -3142,6 +3258,55 @@ namespace Amazon.IoTWireless
             options.ResponseUnmarshaller = ListPartnerAccountsResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListPartnerAccountsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListQueuedMessages
+
+        internal virtual ListQueuedMessagesResponse ListQueuedMessages(ListQueuedMessagesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListQueuedMessagesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListQueuedMessagesResponseUnmarshaller.Instance;
+
+            return Invoke<ListQueuedMessagesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// The operation to list queued messages.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListQueuedMessages service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListQueuedMessages service method, as returned by IoTWireless.</returns>
+        /// <exception cref="Amazon.IoTWireless.Model.AccessDeniedException">
+        /// User does not have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.InternalServerException">
+        /// An unexpected error occurred while processing a request.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ResourceNotFoundException">
+        /// Resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ThrottlingException">
+        /// The request was denied because it exceeded the allowed API request rate.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ValidationException">
+        /// The input did not meet the specified constraints.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListQueuedMessages">REST API Reference for ListQueuedMessages Operation</seealso>
+        public virtual Task<ListQueuedMessagesResponse> ListQueuedMessagesAsync(ListQueuedMessagesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListQueuedMessagesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListQueuedMessagesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListQueuedMessagesResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -4180,6 +4345,55 @@ namespace Amazon.IoTWireless
             options.ResponseUnmarshaller = UpdateMulticastGroupResponseUnmarshaller.Instance;
 
             return InvokeAsync<UpdateMulticastGroupResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateNetworkAnalyzerConfiguration
+
+        internal virtual UpdateNetworkAnalyzerConfigurationResponse UpdateNetworkAnalyzerConfiguration(UpdateNetworkAnalyzerConfigurationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateNetworkAnalyzerConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateNetworkAnalyzerConfigurationResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateNetworkAnalyzerConfigurationResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Update NetworkAnalyzer configuration.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateNetworkAnalyzerConfiguration service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateNetworkAnalyzerConfiguration service method, as returned by IoTWireless.</returns>
+        /// <exception cref="Amazon.IoTWireless.Model.AccessDeniedException">
+        /// User does not have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.InternalServerException">
+        /// An unexpected error occurred while processing a request.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ResourceNotFoundException">
+        /// Resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ThrottlingException">
+        /// The request was denied because it exceeded the allowed API request rate.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ValidationException">
+        /// The input did not meet the specified constraints.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateNetworkAnalyzerConfiguration">REST API Reference for UpdateNetworkAnalyzerConfiguration Operation</seealso>
+        public virtual Task<UpdateNetworkAnalyzerConfigurationResponse> UpdateNetworkAnalyzerConfigurationAsync(UpdateNetworkAnalyzerConfigurationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateNetworkAnalyzerConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateNetworkAnalyzerConfigurationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateNetworkAnalyzerConfigurationResponse>(request, options, cancellationToken);
         }
 
         #endregion

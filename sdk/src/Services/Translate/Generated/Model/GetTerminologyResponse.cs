@@ -33,15 +33,56 @@ namespace Amazon.Translate.Model
     /// </summary>
     public partial class GetTerminologyResponse : AmazonWebServiceResponse
     {
+        private TerminologyDataLocation _auxiliaryDataLocation;
         private TerminologyDataLocation _terminologyDataLocation;
         private TerminologyProperties _terminologyProperties;
 
         /// <summary>
+        /// Gets and sets the property AuxiliaryDataLocation. 
+        /// <para>
+        /// The Amazon S3 location of a file that provides any errors or warnings that were produced
+        /// by your input file. This file was created when Amazon Translate attempted to create
+        /// a terminology resource. The location is returned as a presigned URL to that has a
+        /// 30 minute expiration.
+        /// </para>
+        /// </summary>
+        public TerminologyDataLocation AuxiliaryDataLocation
+        {
+            get { return this._auxiliaryDataLocation; }
+            set { this._auxiliaryDataLocation = value; }
+        }
+
+        // Check to see if AuxiliaryDataLocation property is set
+        internal bool IsSetAuxiliaryDataLocation()
+        {
+            return this._auxiliaryDataLocation != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property TerminologyDataLocation. 
         /// <para>
-        /// The data location of the custom terminology being retrieved. The custom terminology
-        /// file is returned in a presigned url that has a 30 minute expiration.
+        /// The Amazon S3 location of the most recent custom terminology input file that was successfully
+        /// imported into Amazon Translate. The location is returned as a presigned URL that has
+        /// a 30 minute expiration.
         /// </para>
+        ///  <important> 
+        /// <para>
+        /// Amazon Translate doesn't scan all input files for the risk of CSV injection attacks.
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// CSV injection occurs when a .csv or .tsv file is altered so that a record contains
+        /// malicious code. The record begins with a special character, such as =, +, -, or @.
+        /// When the file is opened in a spreadsheet program, the program might interpret the
+        /// record as a formula and run the code within it.
+        /// </para>
+        ///  
+        /// <para>
+        /// Before you download an input file from Amazon S3, ensure that you recognize the file
+        /// and trust its creator.
+        /// </para>
+        ///  </important>
         /// </summary>
         public TerminologyDataLocation TerminologyDataLocation
         {

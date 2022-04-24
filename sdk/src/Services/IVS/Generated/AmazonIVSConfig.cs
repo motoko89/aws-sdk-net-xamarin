@@ -32,7 +32,7 @@ namespace Amazon.IVS
     public partial class AmazonIVSConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.2.10");
+            InternalSDKUtils.BuildUserAgentString("3.7.4.33");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.IVS
         /// Default constructor
         /// </summary>
         public AmazonIVSConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonIVSDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "ivs";
         }

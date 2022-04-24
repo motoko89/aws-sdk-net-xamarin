@@ -28,11 +28,28 @@
       "output_token": "NextToken",
       "result_key": "LexBots"
     },
+    "ListContactFlowModules": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "ContactFlowModulesSummaryList"
+    },
     "ListContactFlows": {
       "input_token": "NextToken",
       "limit_key": "MaxResults",
       "output_token": "NextToken",
       "result_key": "ContactFlowSummaryList"
+    },
+    "ListContactReferences": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "ReferenceSummaryList"
+    },
+    "ListDefaultVocabularies": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "DefaultVocabularyList"
     },
     "ListHoursOfOperations": {
       "input_token": "NextToken",
@@ -81,6 +98,12 @@
       "limit_key": "MaxResults",
       "output_token": "NextToken",
       "result_key": "PhoneNumberSummaryList"
+    },
+    "ListPhoneNumbersV2": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "ListPhoneNumbersSummaryList"
     },
     "ListPrompts": {
       "input_token": "NextToken",
@@ -153,6 +176,18 @@
       "limit_key": "MaxResults",
       "output_token": "NextToken",
       "result_key": "UserSummaryList"
+    },
+    "SearchAvailablePhoneNumbers": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "AvailableNumbersList"
+    },
+    "SearchVocabularies": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "VocabularySummaryList"
     }
   }
 }

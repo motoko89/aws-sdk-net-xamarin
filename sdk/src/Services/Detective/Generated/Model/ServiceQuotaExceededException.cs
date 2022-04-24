@@ -34,7 +34,7 @@ namespace Amazon.Detective.Model
     ///  <ul> <li> 
     /// <para>
     /// The request would cause the number of member accounts in the behavior graph to exceed
-    /// the maximum allowed. A behavior graph cannot have more than 1000 member accounts.
+    /// the maximum allowed. A behavior graph cannot have more than 1200 member accounts.
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -44,7 +44,7 @@ namespace Amazon.Detective.Model
     ///  </li> <li> 
     /// <para>
     /// Detective is unable to verify the data rate for the member account. This is usually
-    /// because the member account is not enrolled in Amazon GuardDuty. 
+    /// because the member account is not enrolled in Amazon GuardDuty.
     /// </para>
     ///  </li> </ul>
     /// </summary>

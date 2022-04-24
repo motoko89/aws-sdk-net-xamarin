@@ -164,6 +164,9 @@ namespace Amazon.CloudWatch
         /// <exception cref="Amazon.CloudWatch.Model.InternalServiceException">
         /// Request processing has failed due to some unknown error, exception, or failure.
         /// </exception>
+        /// <exception cref="Amazon.CloudWatch.Model.InvalidParameterCombinationException">
+        /// Parameters were used together that cannot be used together.
+        /// </exception>
         /// <exception cref="Amazon.CloudWatch.Model.InvalidParameterValueException">
         /// The value of an input parameter is bad or out-of-range.
         /// </exception>
@@ -189,6 +192,9 @@ namespace Amazon.CloudWatch
         /// <returns>The response from the DeleteAnomalyDetector service method, as returned by CloudWatch.</returns>
         /// <exception cref="Amazon.CloudWatch.Model.InternalServiceException">
         /// Request processing has failed due to some unknown error, exception, or failure.
+        /// </exception>
+        /// <exception cref="Amazon.CloudWatch.Model.InvalidParameterCombinationException">
+        /// Parameters were used together that cannot be used together.
         /// </exception>
         /// <exception cref="Amazon.CloudWatch.Model.InvalidParameterValueException">
         /// The value of an input parameter is bad or out-of-range.
@@ -362,6 +368,13 @@ namespace Amazon.CloudWatch
         /// <para>
         /// CloudWatch retains the history of an alarm even if you delete the alarm.
         /// </para>
+        ///  
+        /// <para>
+        /// To use this operation and return information about a composite alarm, you must be
+        /// signed on with the <code>cloudwatch:DescribeAlarmHistory</code> permission that is
+        /// scoped to <code>*</code>. You can't return information about composite alarms if your
+        /// <code>cloudwatch:DescribeAlarmHistory</code> permission has a narrower scope.
+        /// </para>
         /// </summary>
         /// 
         /// <returns>The response from the DescribeAlarmHistory service method, as returned by CloudWatch.</returns>
@@ -380,6 +393,13 @@ namespace Amazon.CloudWatch
         ///  
         /// <para>
         /// CloudWatch retains the history of an alarm even if you delete the alarm.
+        /// </para>
+        ///  
+        /// <para>
+        /// To use this operation and return information about a composite alarm, you must be
+        /// signed on with the <code>cloudwatch:DescribeAlarmHistory</code> permission that is
+        /// scoped to <code>*</code>. You can't return information about composite alarms if your
+        /// <code>cloudwatch:DescribeAlarmHistory</code> permission has a narrower scope.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAlarmHistory service method.</param>
@@ -400,6 +420,13 @@ namespace Amazon.CloudWatch
         ///  
         /// <para>
         /// CloudWatch retains the history of an alarm even if you delete the alarm.
+        /// </para>
+        ///  
+        /// <para>
+        /// To use this operation and return information about a composite alarm, you must be
+        /// signed on with the <code>cloudwatch:DescribeAlarmHistory</code> permission that is
+        /// scoped to <code>*</code>. You can't return information about composite alarms if your
+        /// <code>cloudwatch:DescribeAlarmHistory</code> permission has a narrower scope.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -424,6 +451,13 @@ namespace Amazon.CloudWatch
         /// <para>
         /// CloudWatch retains the history of an alarm even if you delete the alarm.
         /// </para>
+        ///  
+        /// <para>
+        /// To use this operation and return information about a composite alarm, you must be
+        /// signed on with the <code>cloudwatch:DescribeAlarmHistory</code> permission that is
+        /// scoped to <code>*</code>. You can't return information about composite alarms if your
+        /// <code>cloudwatch:DescribeAlarmHistory</code> permission has a narrower scope.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAlarmHistory service method.</param>
         /// <param name="cancellationToken">
@@ -445,6 +479,14 @@ namespace Amazon.CloudWatch
         /// <summary>
         /// Retrieves the specified alarms. You can filter the results by specifying a prefix
         /// for the alarm name, the alarm state, or a prefix for any action.
+        /// 
+        ///  
+        /// <para>
+        /// To use this operation and return information about composite alarms, you must be signed
+        /// on with the <code>cloudwatch:DescribeAlarms</code> permission that is scoped to <code>*</code>.
+        /// You can't return information about composite alarms if your <code>cloudwatch:DescribeAlarms</code>
+        /// permission has a narrower scope.
+        /// </para>
         /// </summary>
         /// 
         /// <returns>The response from the DescribeAlarms service method, as returned by CloudWatch.</returns>
@@ -458,6 +500,14 @@ namespace Amazon.CloudWatch
         /// <summary>
         /// Retrieves the specified alarms. You can filter the results by specifying a prefix
         /// for the alarm name, the alarm state, or a prefix for any action.
+        /// 
+        ///  
+        /// <para>
+        /// To use this operation and return information about composite alarms, you must be signed
+        /// on with the <code>cloudwatch:DescribeAlarms</code> permission that is scoped to <code>*</code>.
+        /// You can't return information about composite alarms if your <code>cloudwatch:DescribeAlarms</code>
+        /// permission has a narrower scope.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAlarms service method.</param>
         /// 
@@ -472,6 +522,14 @@ namespace Amazon.CloudWatch
         /// <summary>
         /// Retrieves the specified alarms. You can filter the results by specifying a prefix
         /// for the alarm name, the alarm state, or a prefix for any action.
+        /// 
+        ///  
+        /// <para>
+        /// To use this operation and return information about composite alarms, you must be signed
+        /// on with the <code>cloudwatch:DescribeAlarms</code> permission that is scoped to <code>*</code>.
+        /// You can't return information about composite alarms if your <code>cloudwatch:DescribeAlarms</code>
+        /// permission has a narrower scope.
+        /// </para>
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -489,6 +547,14 @@ namespace Amazon.CloudWatch
         /// <summary>
         /// Retrieves the specified alarms. You can filter the results by specifying a prefix
         /// for the alarm name, the alarm state, or a prefix for any action.
+        /// 
+        ///  
+        /// <para>
+        /// To use this operation and return information about composite alarms, you must be signed
+        /// on with the <code>cloudwatch:DescribeAlarms</code> permission that is scoped to <code>*</code>.
+        /// You can't return information about composite alarms if your <code>cloudwatch:DescribeAlarms</code>
+        /// permission has a narrower scope.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAlarms service method.</param>
         /// <param name="cancellationToken">
@@ -552,9 +618,12 @@ namespace Amazon.CloudWatch
 
 
         /// <summary>
-        /// Lists the anomaly detection models that you have created in your account. You can
-        /// list all models in your account or filter the results to only the models that are
-        /// related to a certain namespace, metric name, or metric dimension.
+        /// Lists the anomaly detection models that you have created in your account. For single
+        /// metric anomaly detectors, you can list all of the models in your account or filter
+        /// the results to only the models that are related to a certain namespace, metric name,
+        /// or metric dimension. For metric math anomaly detectors, you can list them by adding
+        /// <code>METRIC_MATH</code> to the <code>AnomalyDetectorTypes</code> array. This will
+        /// return all metric math anomaly detectors in your account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAnomalyDetectors service method.</param>
         /// 
@@ -565,6 +634,9 @@ namespace Amazon.CloudWatch
         /// <exception cref="Amazon.CloudWatch.Model.InvalidNextTokenException">
         /// The next token specified is invalid.
         /// </exception>
+        /// <exception cref="Amazon.CloudWatch.Model.InvalidParameterCombinationException">
+        /// Parameters were used together that cannot be used together.
+        /// </exception>
         /// <exception cref="Amazon.CloudWatch.Model.InvalidParameterValueException">
         /// The value of an input parameter is bad or out-of-range.
         /// </exception>
@@ -574,9 +646,12 @@ namespace Amazon.CloudWatch
 
 
         /// <summary>
-        /// Lists the anomaly detection models that you have created in your account. You can
-        /// list all models in your account or filter the results to only the models that are
-        /// related to a certain namespace, metric name, or metric dimension.
+        /// Lists the anomaly detection models that you have created in your account. For single
+        /// metric anomaly detectors, you can list all of the models in your account or filter
+        /// the results to only the models that are related to a certain namespace, metric name,
+        /// or metric dimension. For metric math anomaly detectors, you can list them by adding
+        /// <code>METRIC_MATH</code> to the <code>AnomalyDetectorTypes</code> array. This will
+        /// return all metric math anomaly detectors in your account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAnomalyDetectors service method.</param>
         /// <param name="cancellationToken">
@@ -589,6 +664,9 @@ namespace Amazon.CloudWatch
         /// </exception>
         /// <exception cref="Amazon.CloudWatch.Model.InvalidNextTokenException">
         /// The next token specified is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudWatch.Model.InvalidParameterCombinationException">
+        /// Parameters were used together that cannot be used together.
         /// </exception>
         /// <exception cref="Amazon.CloudWatch.Model.InvalidParameterValueException">
         /// The value of an input parameter is bad or out-of-range.
@@ -1000,15 +1078,29 @@ namespace Amazon.CloudWatch
 
 
         /// <summary>
-        /// You can use the <code>GetMetricData</code> API to retrieve as many as 500 different
-        /// metrics in a single request, with a total of as many as 100,800 data points. You can
-        /// also optionally perform math expressions on the values of the returned statistics,
-        /// to create new time series that represent new insights into your data. For example,
-        /// using Lambda metrics, you could divide the Errors metric by the Invocations metric
-        /// to get an error rate time series. For more information about metric math expressions,
-        /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric
-        /// Math Syntax and Functions</a> in the <i>Amazon CloudWatch User Guide</i>.
+        /// You can use the <code>GetMetricData</code> API to retrieve CloudWatch metric values.
+        /// The operation can also include a CloudWatch Metrics Insights query, and one or more
+        /// metric math functions.
         /// 
+        ///  
+        /// <para>
+        /// A <code>GetMetricData</code> operation that does not include a query can retrieve
+        /// as many as 500 different metrics in a single request, with a total of as many as 100,800
+        /// data points. You can also optionally perform metric math expressions on the values
+        /// of the returned statistics, to create new time series that represent new insights
+        /// into your data. For example, using Lambda metrics, you could divide the Errors metric
+        /// by the Invocations metric to get an error rate time series. For more information about
+        /// metric math expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric
+        /// Math Syntax and Functions</a> in the <i>Amazon CloudWatch User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you include a Metrics Insights query, each <code>GetMetricData</code> operation
+        /// can include only one query. But the same <code>GetMetricData</code> operation can
+        /// also retrieve other metrics. Metrics Insights queries can query only the most recent
+        /// three hours of metric data. For more information about Metrics Insights, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html">Query
+        /// your metrics with CloudWatch Metrics Insights</a>.
+        /// </para>
         ///  
         /// <para>
         /// Calls to the <code>GetMetricData</code> API have a different pricing structure than
@@ -1055,6 +1147,20 @@ namespace Amazon.CloudWatch
         /// data that was collected with that unit specified. If you specify a unit that does
         /// not match the data collected, the results of the operation are null. CloudWatch does
         /// not perform unit conversions.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Using Metrics Insights queries with metric math</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// You can't mix a Metric Insights query and metric math syntax in the same expression,
+        /// but you can reference results from a Metrics Insights query within other Metric math
+        /// expressions. A Metrics Insights query without a <b>GROUP BY</b> clause returns a single
+        /// time-series (TS), and can be used as input for a metric math expression that expects
+        /// a single time series. A Metrics Insights query with a <b>GROUP BY</b> clause returns
+        /// an array of time-series (TS[]), and can be used as input for a metric math expression
+        /// that expects an array of time series. 
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMetricData service method.</param>
@@ -1069,15 +1175,29 @@ namespace Amazon.CloudWatch
 
 
         /// <summary>
-        /// You can use the <code>GetMetricData</code> API to retrieve as many as 500 different
-        /// metrics in a single request, with a total of as many as 100,800 data points. You can
-        /// also optionally perform math expressions on the values of the returned statistics,
-        /// to create new time series that represent new insights into your data. For example,
-        /// using Lambda metrics, you could divide the Errors metric by the Invocations metric
-        /// to get an error rate time series. For more information about metric math expressions,
-        /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric
-        /// Math Syntax and Functions</a> in the <i>Amazon CloudWatch User Guide</i>.
+        /// You can use the <code>GetMetricData</code> API to retrieve CloudWatch metric values.
+        /// The operation can also include a CloudWatch Metrics Insights query, and one or more
+        /// metric math functions.
         /// 
+        ///  
+        /// <para>
+        /// A <code>GetMetricData</code> operation that does not include a query can retrieve
+        /// as many as 500 different metrics in a single request, with a total of as many as 100,800
+        /// data points. You can also optionally perform metric math expressions on the values
+        /// of the returned statistics, to create new time series that represent new insights
+        /// into your data. For example, using Lambda metrics, you could divide the Errors metric
+        /// by the Invocations metric to get an error rate time series. For more information about
+        /// metric math expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric
+        /// Math Syntax and Functions</a> in the <i>Amazon CloudWatch User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you include a Metrics Insights query, each <code>GetMetricData</code> operation
+        /// can include only one query. But the same <code>GetMetricData</code> operation can
+        /// also retrieve other metrics. Metrics Insights queries can query only the most recent
+        /// three hours of metric data. For more information about Metrics Insights, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html">Query
+        /// your metrics with CloudWatch Metrics Insights</a>.
+        /// </para>
         ///  
         /// <para>
         /// Calls to the <code>GetMetricData</code> API have a different pricing structure than
@@ -1124,6 +1244,20 @@ namespace Amazon.CloudWatch
         /// data that was collected with that unit specified. If you specify a unit that does
         /// not match the data collected, the results of the operation are null. CloudWatch does
         /// not perform unit conversions.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Using Metrics Insights queries with metric math</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// You can't mix a Metric Insights query and metric math syntax in the same expression,
+        /// but you can reference results from a Metrics Insights query within other Metric math
+        /// expressions. A Metrics Insights query without a <b>GROUP BY</b> clause returns a single
+        /// time-series (TS), and can be used as input for a metric math expression that expects
+        /// a single time series. A Metrics Insights query with a <b>GROUP BY</b> clause returns
+        /// an array of time-series (TS[]), and can be used as input for a metric math expression
+        /// that expects an array of time series. 
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMetricData service method.</param>
@@ -1814,6 +1948,9 @@ namespace Amazon.CloudWatch
         /// <exception cref="Amazon.CloudWatch.Model.InternalServiceException">
         /// Request processing has failed due to some unknown error, exception, or failure.
         /// </exception>
+        /// <exception cref="Amazon.CloudWatch.Model.InvalidParameterCombinationException">
+        /// Parameters were used together that cannot be used together.
+        /// </exception>
         /// <exception cref="Amazon.CloudWatch.Model.InvalidParameterValueException">
         /// The value of an input parameter is bad or out-of-range.
         /// </exception>
@@ -1847,6 +1984,9 @@ namespace Amazon.CloudWatch
         /// <exception cref="Amazon.CloudWatch.Model.InternalServiceException">
         /// Request processing has failed due to some unknown error, exception, or failure.
         /// </exception>
+        /// <exception cref="Amazon.CloudWatch.Model.InvalidParameterCombinationException">
+        /// Parameters were used together that cannot be used together.
+        /// </exception>
         /// <exception cref="Amazon.CloudWatch.Model.InvalidParameterValueException">
         /// The value of an input parameter is bad or out-of-range.
         /// </exception>
@@ -1873,7 +2013,9 @@ namespace Amazon.CloudWatch
         ///  
         /// <para>
         /// The alarms specified in a composite alarm's rule expression can include metric alarms
-        /// and other composite alarms.
+        /// and other composite alarms. The rule expression of a composite alarm can include as
+        /// many as 100 underlying alarms. Any single alarm can be included in the rule expressions
+        /// of as many as 150 composite alarms.
         /// </para>
         ///  
         /// <para>
@@ -1919,6 +2061,12 @@ namespace Amazon.CloudWatch
         /// <para>
         /// When you update an existing alarm, its state is left unchanged, but the update completely
         /// overwrites the previous configuration of the alarm.
+        /// </para>
+        ///  
+        /// <para>
+        /// To use this operation, you must be signed on with the <code>cloudwatch:PutCompositeAlarm</code>
+        /// permission that is scoped to <code>*</code>. You can't create a composite alarms if
+        /// your <code>cloudwatch:PutCompositeAlarm</code> permission has a narrower scope.
         /// </para>
         ///  
         /// <para>
@@ -1946,7 +2094,9 @@ namespace Amazon.CloudWatch
         ///  
         /// <para>
         /// The alarms specified in a composite alarm's rule expression can include metric alarms
-        /// and other composite alarms.
+        /// and other composite alarms. The rule expression of a composite alarm can include as
+        /// many as 100 underlying alarms. Any single alarm can be included in the rule expressions
+        /// of as many as 150 composite alarms.
         /// </para>
         ///  
         /// <para>
@@ -1992,6 +2142,12 @@ namespace Amazon.CloudWatch
         /// <para>
         /// When you update an existing alarm, its state is left unchanged, but the update completely
         /// overwrites the previous configuration of the alarm.
+        /// </para>
+        ///  
+        /// <para>
+        /// To use this operation, you must be signed on with the <code>cloudwatch:PutCompositeAlarm</code>
+        /// permission that is scoped to <code>*</code>. You can't create a composite alarms if
+        /// your <code>cloudwatch:PutCompositeAlarm</code> permission has a narrower scope.
         /// </para>
         ///  
         /// <para>
@@ -2202,9 +2358,9 @@ namespace Amazon.CloudWatch
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// The first time you create an alarm in the Management Console, the CLI, or by using
-        /// the PutMetricAlarm API, CloudWatch creates the necessary service-linked role for you.
-        /// The service-linked roles are called <code>AWSServiceRoleForCloudWatchEvents</code>
+        /// The first time you create an alarm in the Amazon Web Services Management Console,
+        /// the CLI, or by using the PutMetricAlarm API, CloudWatch creates the necessary service-linked
+        /// role for you. The service-linked roles are called <code>AWSServiceRoleForCloudWatchEvents</code>
         /// and <code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>. For more information,
         /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Amazon
         /// Web Services service-linked role</a>.
@@ -2284,9 +2440,9 @@ namespace Amazon.CloudWatch
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// The first time you create an alarm in the Management Console, the CLI, or by using
-        /// the PutMetricAlarm API, CloudWatch creates the necessary service-linked role for you.
-        /// The service-linked roles are called <code>AWSServiceRoleForCloudWatchEvents</code>
+        /// The first time you create an alarm in the Amazon Web Services Management Console,
+        /// the CLI, or by using the PutMetricAlarm API, CloudWatch creates the necessary service-linked
+        /// role for you. The service-linked roles are called <code>AWSServiceRoleForCloudWatchEvents</code>
         /// and <code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>. For more information,
         /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Amazon
         /// Web Services service-linked role</a>.
@@ -2527,7 +2683,7 @@ namespace Amazon.CloudWatch
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Metric-Streams.html">
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html">
         /// Using Metric Streams</a>.
         /// </para>
         ///  
@@ -2554,6 +2710,15 @@ namespace Amazon.CloudWatch
         /// Stream metrics from only the metric namespaces that you list in <code>IncludeFilters</code>.
         /// </para>
         ///  </li> </ul> 
+        /// <para>
+        /// By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>, <code>SUM</code>,
+        /// and <code>SAMPLECOUNT</code> statistics for each metric that is streamed. You can
+        /// use the <code>StatisticsConfigurations</code> parameter to have the metric stream
+        /// also send additional statistics in the stream. Streaming additional statistics incurs
+        /// additional costs. For more information, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon
+        /// CloudWatch Pricing</a>. 
+        /// </para>
+        ///  
         /// <para>
         /// When you use <code>PutMetricStream</code> to create a new metric stream, the stream
         /// is created in the <code>running</code> state. If you use it to update an existing
@@ -2590,7 +2755,7 @@ namespace Amazon.CloudWatch
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Metric-Streams.html">
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html">
         /// Using Metric Streams</a>.
         /// </para>
         ///  
@@ -2617,6 +2782,15 @@ namespace Amazon.CloudWatch
         /// Stream metrics from only the metric namespaces that you list in <code>IncludeFilters</code>.
         /// </para>
         ///  </li> </ul> 
+        /// <para>
+        /// By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>, <code>SUM</code>,
+        /// and <code>SAMPLECOUNT</code> statistics for each metric that is streamed. You can
+        /// use the <code>StatisticsConfigurations</code> parameter to have the metric stream
+        /// also send additional statistics in the stream. Streaming additional statistics incurs
+        /// additional costs. For more information, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon
+        /// CloudWatch Pricing</a>. 
+        /// </para>
+        ///  
         /// <para>
         /// When you use <code>PutMetricStream</code> to create a new metric stream, the stream
         /// is created in the <code>running</code> state. If you use it to update an existing

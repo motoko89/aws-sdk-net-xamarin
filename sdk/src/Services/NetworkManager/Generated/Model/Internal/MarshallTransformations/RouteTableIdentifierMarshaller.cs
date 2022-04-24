@@ -34,7 +34,7 @@ namespace Amazon.NetworkManager.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// RouteTableIdentifier Marshaller
-    /// </summary>       
+    /// </summary>
     public class RouteTableIdentifierMarshaller : IRequestMarshaller<RouteTableIdentifier, JsonMarshallerContext> 
     {
         /// <summary>
@@ -45,6 +45,17 @@ namespace Amazon.NetworkManager.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(RouteTableIdentifier requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetCoreNetworkSegmentEdge())
+            {
+                context.Writer.WritePropertyName("CoreNetworkSegmentEdge");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = CoreNetworkSegmentEdgeIdentifierMarshaller.Instance;
+                marshaller.Marshall(requestObject.CoreNetworkSegmentEdge, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetTransitGatewayRouteTableArn())
             {
                 context.Writer.WritePropertyName("TransitGatewayRouteTableArn");
@@ -55,7 +66,7 @@ namespace Amazon.NetworkManager.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static RouteTableIdentifierMarshaller Instance = new RouteTableIdentifierMarshaller();
 
     }

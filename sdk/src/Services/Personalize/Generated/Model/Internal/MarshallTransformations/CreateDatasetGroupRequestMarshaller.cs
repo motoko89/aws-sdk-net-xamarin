@@ -58,7 +58,7 @@ namespace Amazon.Personalize.Model.Internal.MarshallTransformations
             string target = "AmazonPersonalize.CreateDatasetGroup";
             request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/x-amz-json-1.1";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-05-22";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-05-22";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
@@ -67,6 +67,12 @@ namespace Amazon.Personalize.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetDomain())
+                {
+                    context.Writer.WritePropertyName("domain");
+                    context.Writer.Write(publicRequest.Domain);
+                }
+
                 if(publicRequest.IsSetKmsKeyArn())
                 {
                     context.Writer.WritePropertyName("kmsKeyArn");
@@ -85,7 +91,22 @@ namespace Amazon.Personalize.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.RoleArn);
                 }
 
-        
+                if(publicRequest.IsSetTags())
+                {
+                    context.Writer.WritePropertyName("tags");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestTagsListValue in publicRequest.Tags)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = TagMarshaller.Instance;
+                        marshaller.Marshall(publicRequestTagsListValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteArrayEnd();
+                }
+
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

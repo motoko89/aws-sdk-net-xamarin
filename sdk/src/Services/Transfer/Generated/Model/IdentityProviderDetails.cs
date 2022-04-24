@@ -36,13 +36,14 @@ namespace Amazon.Transfer.Model
     public partial class IdentityProviderDetails
     {
         private string _directoryId;
+        private string _function;
         private string _invocationRole;
         private string _url;
 
         /// <summary>
         /// Gets and sets the property DirectoryId. 
         /// <para>
-        /// The identifier of the Amazon Web ServicesDirectory Service directory that you want
+        /// The identifier of the Amazon Web Services Directory Service directory that you want
         /// to stop sharing.
         /// </para>
         /// </summary>
@@ -57,6 +58,25 @@ namespace Amazon.Transfer.Model
         internal bool IsSetDirectoryId()
         {
             return this._directoryId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Function. 
+        /// <para>
+        /// The ARN for a lambda function to use for the Identity provider.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=170)]
+        public string Function
+        {
+            get { return this._function; }
+            set { this._function = value; }
+        }
+
+        // Check to see if Function property is set
+        internal bool IsSetFunction()
+        {
+            return this._function != null;
         }
 
         /// <summary>

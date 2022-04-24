@@ -34,7 +34,7 @@ namespace Amazon.FSx.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// UpdateFileSystemOntapConfiguration Marshaller
-    /// </summary>       
+    /// </summary>
     public class UpdateFileSystemOntapConfigurationMarshaller : IRequestMarshaller<UpdateFileSystemOntapConfiguration, JsonMarshallerContext> 
     {
         /// <summary>
@@ -57,10 +57,27 @@ namespace Amazon.FSx.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.DailyAutomaticBackupStartTime);
             }
 
+            if(requestObject.IsSetDiskIopsConfiguration())
+            {
+                context.Writer.WritePropertyName("DiskIopsConfiguration");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = DiskIopsConfigurationMarshaller.Instance;
+                marshaller.Marshall(requestObject.DiskIopsConfiguration, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetFsxAdminPassword())
             {
                 context.Writer.WritePropertyName("FsxAdminPassword");
                 context.Writer.Write(requestObject.FsxAdminPassword);
+            }
+
+            if(requestObject.IsSetThroughputCapacity())
+            {
+                context.Writer.WritePropertyName("ThroughputCapacity");
+                context.Writer.Write(requestObject.ThroughputCapacity);
             }
 
             if(requestObject.IsSetWeeklyMaintenanceStartTime())
@@ -73,7 +90,7 @@ namespace Amazon.FSx.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static UpdateFileSystemOntapConfigurationMarshaller Instance = new UpdateFileSystemOntapConfigurationMarshaller();
 
     }

@@ -120,7 +120,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// Gets and sets the property EventsPollInterval. 
         /// <para>
         /// Specifies how often to check the binary log for new changes/events when the database
-        /// is idle.
+        /// is idle. The default is five seconds.
         /// </para>
         ///  
         /// <para>
@@ -172,7 +172,8 @@ namespace Amazon.DatabaseMigrationService.Model
         /// Improves performance when loading data into the MySQL-compatible target database.
         /// Specifies how many threads to use to load the data into the MySQL-compatible target
         /// database. Setting a large number of threads can have an adverse effect on database
-        /// performance, because a separate connection is required for each thread.
+        /// performance, because a separate connection is required for each thread. The default
+        /// is one.
         /// </para>
         ///  
         /// <para>

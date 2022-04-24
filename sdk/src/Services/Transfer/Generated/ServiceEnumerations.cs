@@ -185,9 +185,37 @@ namespace Amazon.Transfer
     {
 
         /// <summary>
+        /// Constant ALREADY_EXISTS for ExecutionErrorType
+        /// </summary>
+        public static readonly ExecutionErrorType ALREADY_EXISTS = new ExecutionErrorType("ALREADY_EXISTS");
+        /// <summary>
+        /// Constant BAD_REQUEST for ExecutionErrorType
+        /// </summary>
+        public static readonly ExecutionErrorType BAD_REQUEST = new ExecutionErrorType("BAD_REQUEST");
+        /// <summary>
+        /// Constant CUSTOM_STEP_FAILED for ExecutionErrorType
+        /// </summary>
+        public static readonly ExecutionErrorType CUSTOM_STEP_FAILED = new ExecutionErrorType("CUSTOM_STEP_FAILED");
+        /// <summary>
+        /// Constant INTERNAL_SERVER_ERROR for ExecutionErrorType
+        /// </summary>
+        public static readonly ExecutionErrorType INTERNAL_SERVER_ERROR = new ExecutionErrorType("INTERNAL_SERVER_ERROR");
+        /// <summary>
+        /// Constant NOT_FOUND for ExecutionErrorType
+        /// </summary>
+        public static readonly ExecutionErrorType NOT_FOUND = new ExecutionErrorType("NOT_FOUND");
+        /// <summary>
         /// Constant PERMISSION_DENIED for ExecutionErrorType
         /// </summary>
         public static readonly ExecutionErrorType PERMISSION_DENIED = new ExecutionErrorType("PERMISSION_DENIED");
+        /// <summary>
+        /// Constant THROTTLED for ExecutionErrorType
+        /// </summary>
+        public static readonly ExecutionErrorType THROTTLED = new ExecutionErrorType("THROTTLED");
+        /// <summary>
+        /// Constant TIMEOUT for ExecutionErrorType
+        /// </summary>
+        public static readonly ExecutionErrorType TIMEOUT = new ExecutionErrorType("TIMEOUT");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -346,6 +374,10 @@ namespace Amazon.Transfer
         /// Constant AWS_DIRECTORY_SERVICE for IdentityProviderType
         /// </summary>
         public static readonly IdentityProviderType AWS_DIRECTORY_SERVICE = new IdentityProviderType("AWS_DIRECTORY_SERVICE");
+        /// <summary>
+        /// Constant AWS_LAMBDA for IdentityProviderType
+        /// </summary>
+        public static readonly IdentityProviderType AWS_LAMBDA = new IdentityProviderType("AWS_LAMBDA");
         /// <summary>
         /// Constant SERVICE_MANAGED for IdentityProviderType
         /// </summary>
@@ -550,6 +582,60 @@ namespace Amazon.Transfer
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator State(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TlsSessionResumptionMode.
+    /// </summary>
+    public class TlsSessionResumptionMode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DISABLED for TlsSessionResumptionMode
+        /// </summary>
+        public static readonly TlsSessionResumptionMode DISABLED = new TlsSessionResumptionMode("DISABLED");
+        /// <summary>
+        /// Constant ENABLED for TlsSessionResumptionMode
+        /// </summary>
+        public static readonly TlsSessionResumptionMode ENABLED = new TlsSessionResumptionMode("ENABLED");
+        /// <summary>
+        /// Constant ENFORCED for TlsSessionResumptionMode
+        /// </summary>
+        public static readonly TlsSessionResumptionMode ENFORCED = new TlsSessionResumptionMode("ENFORCED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TlsSessionResumptionMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TlsSessionResumptionMode FindValue(string value)
+        {
+            return FindValue<TlsSessionResumptionMode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TlsSessionResumptionMode(string value)
         {
             return FindValue(value);
         }

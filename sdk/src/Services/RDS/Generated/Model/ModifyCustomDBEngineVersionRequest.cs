@@ -44,7 +44,7 @@ namespace Amazon.RDS.Model
     /// </para>
     ///  </note> 
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest">Modifying
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.modify">Modifying
     /// CEV status</a> in the <i>Amazon RDS User Guide</i>.
     /// </para>
     /// </summary>
@@ -97,8 +97,8 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property EngineVersion. 
         /// <para>
         /// The custom engine version (CEV) that you want to modify. This option is required for
-        /// RDS Custom, but optional for Amazon RDS. The combination of <code>Engine</code> and
-        /// <code>EngineVersion</code> is unique per customer per Amazon Web Services Region.
+        /// RDS Custom for Oracle, but optional for Amazon RDS. The combination of <code>Engine</code>
+        /// and <code>EngineVersion</code> is unique per customer per Amazon Web Services Region.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=60)]
@@ -135,7 +135,7 @@ namespace Amazon.RDS.Model
         /// example, you might change the status of your CEV from <code>available</code> to <code>inactive</code>,
         /// and from <code>inactive</code> back to <code>available</code>. To change the availability
         /// status of the CEV, it must not currently be in use by an RDS Custom instance, snapshot,
-        /// or automated backup. 
+        /// or automated backup.
         /// </para>
         /// </summary>
         public CustomEngineVersionStatus Status

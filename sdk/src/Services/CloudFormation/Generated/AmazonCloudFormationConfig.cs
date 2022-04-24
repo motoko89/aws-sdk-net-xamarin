@@ -32,7 +32,7 @@ namespace Amazon.CloudFormation
     public partial class AmazonCloudFormationConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.5.36");
+            InternalSDKUtils.BuildUserAgentString("3.7.9.28");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.CloudFormation
         /// Default constructor
         /// </summary>
         public AmazonCloudFormationConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCloudFormationDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "cloudformation";
         }

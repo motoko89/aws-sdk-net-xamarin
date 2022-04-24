@@ -307,6 +307,56 @@ namespace Amazon.AppRunner
 
 
     /// <summary>
+    /// Constants used for properties of type EgressType.
+    /// </summary>
+    public class EgressType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DEFAULT for EgressType
+        /// </summary>
+        public static readonly EgressType DEFAULT = new EgressType("DEFAULT");
+        /// <summary>
+        /// Constant VPC for EgressType
+        /// </summary>
+        public static readonly EgressType VPC = new EgressType("VPC");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public EgressType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static EgressType FindValue(string value)
+        {
+            return FindValue<EgressType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator EgressType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type HealthCheckProtocol.
     /// </summary>
     public class HealthCheckProtocol : ConstantClass
@@ -400,6 +450,56 @@ namespace Amazon.AppRunner
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ImageRepositoryType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ObservabilityConfigurationStatus.
+    /// </summary>
+    public class ObservabilityConfigurationStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ACTIVE for ObservabilityConfigurationStatus
+        /// </summary>
+        public static readonly ObservabilityConfigurationStatus ACTIVE = new ObservabilityConfigurationStatus("ACTIVE");
+        /// <summary>
+        /// Constant INACTIVE for ObservabilityConfigurationStatus
+        /// </summary>
+        public static readonly ObservabilityConfigurationStatus INACTIVE = new ObservabilityConfigurationStatus("INACTIVE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ObservabilityConfigurationStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ObservabilityConfigurationStatus FindValue(string value)
+        {
+            return FindValue<ObservabilityConfigurationStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ObservabilityConfigurationStatus(string value)
         {
             return FindValue(value);
         }
@@ -591,9 +691,21 @@ namespace Amazon.AppRunner
     {
 
         /// <summary>
+        /// Constant CORRETTO_11 for Runtime
+        /// </summary>
+        public static readonly Runtime CORRETTO_11 = new Runtime("CORRETTO_11");
+        /// <summary>
+        /// Constant CORRETTO_8 for Runtime
+        /// </summary>
+        public static readonly Runtime CORRETTO_8 = new Runtime("CORRETTO_8");
+        /// <summary>
         /// Constant NODEJS_12 for Runtime
         /// </summary>
         public static readonly Runtime NODEJS_12 = new Runtime("NODEJS_12");
+        /// <summary>
+        /// Constant NODEJS_14 for Runtime
+        /// </summary>
+        public static readonly Runtime NODEJS_14 = new Runtime("NODEJS_14");
         /// <summary>
         /// Constant PYTHON_3 for Runtime
         /// </summary>
@@ -740,6 +852,102 @@ namespace Amazon.AppRunner
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator SourceCodeVersionType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TracingVendor.
+    /// </summary>
+    public class TracingVendor : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AWSXRAY for TracingVendor
+        /// </summary>
+        public static readonly TracingVendor AWSXRAY = new TracingVendor("AWSXRAY");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TracingVendor(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TracingVendor FindValue(string value)
+        {
+            return FindValue<TracingVendor>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TracingVendor(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type VpcConnectorStatus.
+    /// </summary>
+    public class VpcConnectorStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ACTIVE for VpcConnectorStatus
+        /// </summary>
+        public static readonly VpcConnectorStatus ACTIVE = new VpcConnectorStatus("ACTIVE");
+        /// <summary>
+        /// Constant INACTIVE for VpcConnectorStatus
+        /// </summary>
+        public static readonly VpcConnectorStatus INACTIVE = new VpcConnectorStatus("INACTIVE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public VpcConnectorStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static VpcConnectorStatus FindValue(string value)
+        {
+            return FindValue<VpcConnectorStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator VpcConnectorStatus(string value)
         {
             return FindValue(value);
         }

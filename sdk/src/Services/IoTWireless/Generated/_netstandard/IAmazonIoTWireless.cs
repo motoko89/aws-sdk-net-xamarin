@@ -31,7 +31,25 @@ namespace Amazon.IoTWireless
     /// <summary>
     /// Interface for accessing IoTWireless
     ///
-    /// AWS IoT Wireless API documentation
+    /// AWS IoT Wireless provides bi-directional communication between internet-connected
+    /// wireless devices and the AWS Cloud. To onboard both LoRaWAN and Sidewalk devices to
+    /// AWS IoT, use the IoT Wireless API. These wireless devices use the Low Power Wide Area
+    /// Networking (LPWAN) communication protocol to communicate with AWS IoT.
+    /// 
+    ///  
+    /// <para>
+    /// Using the API, you can perform create, read, update, and delete operations for your
+    /// wireless devices, gateways, destinations, and profiles. After onboarding your devices,
+    /// you can use the API operations to set log levels and monitor your devices with CloudWatch.
+    /// </para>
+    ///  
+    /// <para>
+    /// You can also use the API operations to create multicast groups and schedule a multicast
+    /// session for sending a downlink message to devices in the group. By using Firmware
+    /// Updates Over-The-Air (FUOTA) API operations, you can create a FUOTA task and schedule
+    /// a session to update the firmware of individual devices or an entire group of devices
+    /// in a multicast group.
+    /// </para>
     /// </summary>
     public partial interface IAmazonIoTWireless : IAmazonService, IDisposable
     {
@@ -786,6 +804,39 @@ namespace Amazon.IoTWireless
 
         #endregion
                 
+        #region  DeleteQueuedMessages
+
+
+
+        /// <summary>
+        /// The operation to delete queued messages.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteQueuedMessages service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteQueuedMessages service method, as returned by IoTWireless.</returns>
+        /// <exception cref="Amazon.IoTWireless.Model.AccessDeniedException">
+        /// User does not have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.InternalServerException">
+        /// An unexpected error occurred while processing a request.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ResourceNotFoundException">
+        /// Resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ThrottlingException">
+        /// The request was denied because it exceeded the allowed API request rate.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ValidationException">
+        /// The input did not meet the specified constraints.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteQueuedMessages">REST API Reference for DeleteQueuedMessages Operation</seealso>
+        Task<DeleteQueuedMessagesResponse> DeleteQueuedMessagesAsync(DeleteQueuedMessagesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  DeleteServiceProfile
 
 
@@ -1390,6 +1441,39 @@ namespace Amazon.IoTWireless
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetMulticastGroupSession">REST API Reference for GetMulticastGroupSession Operation</seealso>
         Task<GetMulticastGroupSessionResponse> GetMulticastGroupSessionAsync(GetMulticastGroupSessionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  GetNetworkAnalyzerConfiguration
+
+
+
+        /// <summary>
+        /// Get NetworkAnalyzer configuration.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetNetworkAnalyzerConfiguration service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetNetworkAnalyzerConfiguration service method, as returned by IoTWireless.</returns>
+        /// <exception cref="Amazon.IoTWireless.Model.AccessDeniedException">
+        /// User does not have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.InternalServerException">
+        /// An unexpected error occurred while processing a request.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ResourceNotFoundException">
+        /// Resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ThrottlingException">
+        /// The request was denied because it exceeded the allowed API request rate.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ValidationException">
+        /// The input did not meet the specified constraints.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetNetworkAnalyzerConfiguration">REST API Reference for GetNetworkAnalyzerConfiguration Operation</seealso>
+        Task<GetNetworkAnalyzerConfigurationResponse> GetNetworkAnalyzerConfigurationAsync(GetNetworkAnalyzerConfigurationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -1999,6 +2083,39 @@ namespace Amazon.IoTWireless
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListPartnerAccounts">REST API Reference for ListPartnerAccounts Operation</seealso>
         Task<ListPartnerAccountsResponse> ListPartnerAccountsAsync(ListPartnerAccountsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  ListQueuedMessages
+
+
+
+        /// <summary>
+        /// The operation to list queued messages.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListQueuedMessages service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListQueuedMessages service method, as returned by IoTWireless.</returns>
+        /// <exception cref="Amazon.IoTWireless.Model.AccessDeniedException">
+        /// User does not have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.InternalServerException">
+        /// An unexpected error occurred while processing a request.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ResourceNotFoundException">
+        /// Resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ThrottlingException">
+        /// The request was denied because it exceeded the allowed API request rate.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ValidationException">
+        /// The input did not meet the specified constraints.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListQueuedMessages">REST API Reference for ListQueuedMessages Operation</seealso>
+        Task<ListQueuedMessagesResponse> ListQueuedMessagesAsync(ListQueuedMessagesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -2701,6 +2818,39 @@ namespace Amazon.IoTWireless
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateMulticastGroup">REST API Reference for UpdateMulticastGroup Operation</seealso>
         Task<UpdateMulticastGroupResponse> UpdateMulticastGroupAsync(UpdateMulticastGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  UpdateNetworkAnalyzerConfiguration
+
+
+
+        /// <summary>
+        /// Update NetworkAnalyzer configuration.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateNetworkAnalyzerConfiguration service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateNetworkAnalyzerConfiguration service method, as returned by IoTWireless.</returns>
+        /// <exception cref="Amazon.IoTWireless.Model.AccessDeniedException">
+        /// User does not have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.InternalServerException">
+        /// An unexpected error occurred while processing a request.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ResourceNotFoundException">
+        /// Resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ThrottlingException">
+        /// The request was denied because it exceeded the allowed API request rate.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ValidationException">
+        /// The input did not meet the specified constraints.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateNetworkAnalyzerConfiguration">REST API Reference for UpdateNetworkAnalyzerConfiguration Operation</seealso>
+        Task<UpdateNetworkAnalyzerConfigurationResponse> UpdateNetworkAnalyzerConfigurationAsync(UpdateNetworkAnalyzerConfigurationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 

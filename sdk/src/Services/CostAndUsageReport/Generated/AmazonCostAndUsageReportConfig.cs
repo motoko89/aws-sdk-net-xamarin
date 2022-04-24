@@ -32,7 +32,7 @@ namespace Amazon.CostAndUsageReport
     public partial class AmazonCostAndUsageReportConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.150");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.CostAndUsageReport
         /// Default constructor
         /// </summary>
         public AmazonCostAndUsageReportConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCostAndUsageReportDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "cur";
         }

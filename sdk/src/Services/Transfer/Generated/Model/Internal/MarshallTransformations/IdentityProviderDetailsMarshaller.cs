@@ -34,7 +34,7 @@ namespace Amazon.Transfer.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// IdentityProviderDetails Marshaller
-    /// </summary>       
+    /// </summary>
     public class IdentityProviderDetailsMarshaller : IRequestMarshaller<IdentityProviderDetails, JsonMarshallerContext> 
     {
         /// <summary>
@@ -49,6 +49,12 @@ namespace Amazon.Transfer.Model.Internal.MarshallTransformations
             {
                 context.Writer.WritePropertyName("DirectoryId");
                 context.Writer.Write(requestObject.DirectoryId);
+            }
+
+            if(requestObject.IsSetFunction())
+            {
+                context.Writer.WritePropertyName("Function");
+                context.Writer.Write(requestObject.Function);
             }
 
             if(requestObject.IsSetInvocationRole())
@@ -67,7 +73,7 @@ namespace Amazon.Transfer.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static IdentityProviderDetailsMarshaller Instance = new IdentityProviderDetailsMarshaller();
 
     }

@@ -32,7 +32,7 @@ namespace Amazon.MTurk
     public partial class AmazonMTurkConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.93");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.151");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.MTurk
         /// Default constructor
         /// </summary>
         public AmazonMTurkConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonMTurkDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "mturk-requester";
         }

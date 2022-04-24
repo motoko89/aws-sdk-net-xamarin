@@ -32,7 +32,7 @@ namespace Amazon.Outposts
     public partial class AmazonOutpostsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.3.31");
+            InternalSDKUtils.BuildUserAgentString("3.7.7.15");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.Outposts
         /// Default constructor
         /// </summary>
         public AmazonOutpostsConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonOutpostsDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "outposts";
         }

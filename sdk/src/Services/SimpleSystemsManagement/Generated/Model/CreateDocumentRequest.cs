@@ -31,7 +31,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// <summary>
     /// Container for the parameters to the CreateDocument operation.
     /// Creates a Amazon Web Services Systems Manager (SSM document). An SSM document defines
-    /// the actions that Systems Manager performs on your managed instances. For more information
+    /// the actions that Systems Manager performs on your managed nodes. For more information
     /// about SSM documents, including information about supported schemas, features, and
     /// syntax, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">Amazon
     /// Web Services Systems Manager Documents</a> in the <i>Amazon Web Services Systems Manager
@@ -172,6 +172,12 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <para>
         /// The type of document to create.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// The <code>DeploymentStrategy</code> document type is an internal-use-only document
+        /// type reserved for AppConfig.
+        /// </para>
+        ///  </note>
         /// </summary>
         public DocumentType DocumentType
         {

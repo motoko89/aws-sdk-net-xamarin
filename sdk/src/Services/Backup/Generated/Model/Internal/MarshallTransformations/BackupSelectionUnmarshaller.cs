@@ -64,6 +64,12 @@ namespace Amazon.Backup.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("Conditions", targetDepth))
+                {
+                    var unmarshaller = ConditionsUnmarshaller.Instance;
+                    unmarshalledObject.Conditions = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("IamRoleArn", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -74,6 +80,12 @@ namespace Amazon.Backup.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = new ListUnmarshaller<Condition, ConditionUnmarshaller>(ConditionUnmarshaller.Instance);
                     unmarshalledObject.ListOfTags = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("NotResources", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<string, StringUnmarshaller>(StringUnmarshaller.Instance);
+                    unmarshalledObject.NotResources = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("Resources", targetDepth))

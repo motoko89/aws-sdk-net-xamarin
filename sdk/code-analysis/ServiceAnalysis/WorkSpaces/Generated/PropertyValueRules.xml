@@ -53,6 +53,30 @@
     <pattern>wsi-[0-9a-z]{9,63}$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.CreateConnectClientAddInRequest.Name</property>
+    <min>1</min>
+    <max>64</max>
+    <pattern>^.*$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.CreateConnectClientAddInRequest.ResourceId</property>
+    <min>10</min>
+    <max>65</max>
+    <pattern>^d-[0-9a-f]{8,63}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.CreateConnectClientAddInRequest.URL</property>
+    <min>1</min>
+    <max>1024</max>
+    <pattern>^(http|https)\://\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.CreateConnectClientAddInResponse.AddInId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.WorkSpaces.Model.CreateConnectionAliasRequest.ConnectionString</property>
     <min>1</min>
     <max>255</max>
@@ -109,6 +133,24 @@
     <pattern>wsi-[0-9a-z]{9,63}$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.DeleteClientBrandingRequest.ResourceId</property>
+    <min>10</min>
+    <max>65</max>
+    <pattern>^d-[0-9a-f]{8,63}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.DeleteConnectClientAddInRequest.AddInId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.DeleteConnectClientAddInRequest.ResourceId</property>
+    <min>10</min>
+    <max>65</max>
+    <pattern>^d-[0-9a-f]{8,63}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.WorkSpaces.Model.DeleteConnectionAliasRequest.AliasId</property>
     <min>13</min>
     <max>68</max>
@@ -147,6 +189,33 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.WorkSpaces.Model.DescribeAccountModificationsResponse.NextToken</property>
+    <min>1</min>
+    <max>2048</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.DescribeClientBrandingRequest.ResourceId</property>
+    <min>10</min>
+    <max>65</max>
+    <pattern>^d-[0-9a-f]{8,63}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.DescribeConnectClientAddInsRequest.MaxResults</property>
+    <min>1</min>
+    <max>25</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.DescribeConnectClientAddInsRequest.NextToken</property>
+    <min>1</min>
+    <max>2048</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.DescribeConnectClientAddInsRequest.ResourceId</property>
+    <min>10</min>
+    <max>65</max>
+    <pattern>^d-[0-9a-f]{8,63}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.DescribeConnectClientAddInsResponse.NextToken</property>
     <min>1</min>
     <max>2048</max>
   </property-value-rule>
@@ -335,6 +404,12 @@
     <pattern>^d-[0-9a-f]{8,63}$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.ImportClientBrandingRequest.ResourceId</property>
+    <min>10</min>
+    <max>65</max>
+    <pattern>^d-[0-9a-f]{8,63}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.WorkSpaces.Model.ImportWorkspaceImageRequest.Ec2ImageId</property>
     <pattern>^ami\-([a-f0-9]{8}|[a-f0-9]{17})$</pattern>
   </property-value-rule>
@@ -438,6 +513,30 @@
     <pattern>wsipg-[0-9a-z]{8,63}$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.UpdateConnectClientAddInRequest.AddInId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.UpdateConnectClientAddInRequest.Name</property>
+    <min>1</min>
+    <max>64</max>
+    <pattern>^.*$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.UpdateConnectClientAddInRequest.ResourceId</property>
+    <min>10</min>
+    <max>65</max>
+    <pattern>^d-[0-9a-f]{8,63}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.UpdateConnectClientAddInRequest.URL</property>
+    <min>1</min>
+    <max>1024</max>
+    <pattern>^(http|https)\://\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.WorkSpaces.Model.UpdateConnectionAliasPermissionRequest.AliasId</property>
     <min>13</min>
     <max>68</max>
@@ -470,6 +569,30 @@
   <property-value-rule>
     <property>Amazon.WorkSpaces.Model.ClientPropertiesResult.ResourceId</property>
     <min>1</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.ConnectClientAddIn.AddInId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.ConnectClientAddIn.Name</property>
+    <min>1</min>
+    <max>64</max>
+    <pattern>^.*$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.ConnectClientAddIn.ResourceId</property>
+    <min>10</min>
+    <max>65</max>
+    <pattern>^d-[0-9a-f]{8,63}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.ConnectClientAddIn.URL</property>
+    <min>1</min>
+    <max>1024</max>
+    <pattern>^(http|https)\://\S+</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.WorkSpaces.Model.ConnectionAlias.AliasId</property>
@@ -506,6 +629,53 @@
     <pattern>^\d{12}$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.DefaultClientBrandingAttributes.ForgotPasswordLink</property>
+    <min>1</min>
+    <max>200</max>
+    <pattern>^(http|https)\://\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.DefaultClientBrandingAttributes.LogoUrl</property>
+    <min>1</min>
+    <max>200</max>
+    <pattern>^(http|https)\://\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.DefaultClientBrandingAttributes.SupportEmail</property>
+    <min>6</min>
+    <max>64</max>
+    <pattern>^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.DefaultClientBrandingAttributes.SupportLink</property>
+    <min>1</min>
+    <max>200</max>
+    <pattern>^(http|https)\://\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.DefaultImportClientBrandingAttributes.ForgotPasswordLink</property>
+    <min>1</min>
+    <max>200</max>
+    <pattern>^(http|https)\://\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.DefaultImportClientBrandingAttributes.Logo</property>
+    <min>1</min>
+    <max>1500000</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.DefaultImportClientBrandingAttributes.SupportEmail</property>
+    <min>6</min>
+    <max>64</max>
+    <pattern>^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.DefaultImportClientBrandingAttributes.SupportLink</property>
+    <min>1</min>
+    <max>200</max>
+    <pattern>^(http|https)\://\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.WorkSpaces.Model.DefaultWorkspaceCreationProperties.CustomSecurityGroupId</property>
     <min>11</min>
     <max>20</max>
@@ -518,6 +688,75 @@
   <property-value-rule>
     <property>Amazon.WorkSpaces.Model.ImagePermission.SharedAccountId</property>
     <pattern>^\d{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.IosClientBrandingAttributes.ForgotPasswordLink</property>
+    <min>1</min>
+    <max>200</max>
+    <pattern>^(http|https)\://\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.IosClientBrandingAttributes.Logo2xUrl</property>
+    <min>1</min>
+    <max>200</max>
+    <pattern>^(http|https)\://\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.IosClientBrandingAttributes.Logo3xUrl</property>
+    <min>1</min>
+    <max>200</max>
+    <pattern>^(http|https)\://\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.IosClientBrandingAttributes.LogoUrl</property>
+    <min>1</min>
+    <max>200</max>
+    <pattern>^(http|https)\://\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.IosClientBrandingAttributes.SupportEmail</property>
+    <min>6</min>
+    <max>64</max>
+    <pattern>^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.IosClientBrandingAttributes.SupportLink</property>
+    <min>1</min>
+    <max>200</max>
+    <pattern>^(http|https)\://\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.IosImportClientBrandingAttributes.ForgotPasswordLink</property>
+    <min>1</min>
+    <max>200</max>
+    <pattern>^(http|https)\://\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.IosImportClientBrandingAttributes.Logo</property>
+    <min>1</min>
+    <max>447000</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.IosImportClientBrandingAttributes.Logo2x</property>
+    <min>1</min>
+    <max>1770000</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.IosImportClientBrandingAttributes.Logo3x</property>
+    <min>1</min>
+    <max>1770000</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.IosImportClientBrandingAttributes.SupportEmail</property>
+    <min>6</min>
+    <max>64</max>
+    <pattern>^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.WorkSpaces.Model.IosImportClientBrandingAttributes.SupportLink</property>
+    <min>1</min>
+    <max>200</max>
+    <pattern>^(http|https)\://\S+</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.WorkSpaces.Model.RebootRequest.WorkspaceId</property>

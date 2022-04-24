@@ -34,7 +34,7 @@ namespace Amazon.LakeFormation.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// Resource Marshaller
-    /// </summary>       
+    /// </summary>
     public class ResourceMarshaller : IRequestMarshaller<Resource, JsonMarshallerContext> 
     {
         /// <summary>
@@ -63,6 +63,17 @@ namespace Amazon.LakeFormation.Model.Internal.MarshallTransformations
 
                 var marshaller = DatabaseResourceMarshaller.Instance;
                 marshaller.Marshall(requestObject.Database, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetDataCellsFilter())
+            {
+                context.Writer.WritePropertyName("DataCellsFilter");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = DataCellsFilterResourceMarshaller.Instance;
+                marshaller.Marshall(requestObject.DataCellsFilter, context);
 
                 context.Writer.WriteObjectEnd();
             }
@@ -126,7 +137,7 @@ namespace Amazon.LakeFormation.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static ResourceMarshaller Instance = new ResourceMarshaller();
 
     }

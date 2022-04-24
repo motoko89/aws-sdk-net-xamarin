@@ -47,7 +47,7 @@ namespace Amazon.RDS.Model
     ///  </note> 
     /// <para>
     /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> 
+    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para>
     ///  <note> 
     /// <para>
@@ -83,6 +83,7 @@ namespace Amazon.RDS.Model
         private string _s3BucketName;
         private string _s3IngestionRoleArn;
         private string _s3Prefix;
+        private ServerlessV2ScalingConfiguration _serverlessV2ScalingConfiguration;
         private string _sourceEngine;
         private string _sourceEngineVersion;
         private bool? _storageEncrypted;
@@ -276,7 +277,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property DBClusterParameterGroupName. 
         /// <para>
         /// The name of the DB cluster parameter group to associate with the restored DB cluster.
-        /// If this argument is omitted, <code>default.aurora5.6</code> is used. 
+        /// If this argument is omitted, <code>default.aurora5.6</code> is used.
         /// </para>
         ///  
         /// <para>
@@ -307,11 +308,11 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// Constraints: If supplied, must match the name of an existing DBSubnetGroup. 
+        /// Constraints: If supplied, must match the name of an existing DBSubnetGroup.
         /// </para>
         ///  
         /// <para>
-        /// Example: <code>mySubnetgroup</code> 
+        /// Example: <code>mydbsubnetgroup</code> 
         /// </para>
         /// </summary>
         public string DBSubnetGroupName
@@ -331,7 +332,7 @@ namespace Amazon.RDS.Model
         /// <para>
         /// A value that indicates whether the DB cluster has deletion protection enabled. The
         /// database can't be deleted when deletion protection is enabled. By default, deletion
-        /// protection is disabled. 
+        /// protection isn't enabled.
         /// </para>
         /// </summary>
         public bool DeletionProtection
@@ -350,13 +351,13 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property Domain. 
         /// <para>
         /// Specify the Active Directory directory ID to restore the DB cluster in. The domain
-        /// must be created prior to this operation. 
+        /// must be created prior to this operation.
         /// </para>
         ///  
         /// <para>
-        ///  For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate
+        /// For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate
         /// users that connect to the DB cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos
-        /// Authentication</a> in the <i>Amazon Aurora User Guide</i>. 
+        /// Authentication</a> in the <i>Amazon Aurora User Guide</i>.
         /// </para>
         /// </summary>
         public string Domain
@@ -394,8 +395,28 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property EnableCloudwatchLogsExports. 
         /// <para>
         /// The list of logs that the restored DB cluster is to export to CloudWatch Logs. The
-        /// values in the list depend on the DB engine being used. For more information, see <a
-        /// href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// values in the list depend on the DB engine being used.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Aurora MySQL</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Possible values are <code>audit</code>, <code>error</code>, <code>general</code>,
+        /// and <code>slowquery</code>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Aurora PostgreSQL</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Possible value is <code>postgresql</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.
         /// </para>
         /// </summary>
@@ -415,12 +436,12 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property EnableIAMDatabaseAuthentication. 
         /// <para>
         /// A value that indicates whether to enable mapping of Amazon Web Services Identity and
-        /// Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
+        /// Access Management (IAM) accounts to database accounts. By default, mapping isn't enabled.
         /// </para>
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> 
+        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i>.
         /// </para>
         /// </summary>
         public bool EnableIAMDatabaseAuthentication
@@ -443,7 +464,8 @@ namespace Amazon.RDS.Model
         ///  
         /// <para>
         /// Valid Values: <code>aurora</code> (for MySQL 5.6-compatible Aurora), <code>aurora-mysql</code>
-        /// (for MySQL 5.7-compatible Aurora), and <code>aurora-postgresql</code> 
+        /// (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora), and <code>aurora-postgresql</code>
+        /// 
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -477,7 +499,7 @@ namespace Amazon.RDS.Model
         ///  
         /// <para>
         /// To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL
-        /// 5.7-compatible Aurora), use the following command:
+        /// 5.7-compatible and MySQL 8.0-compatible Aurora), use the following command:
         /// </para>
         ///  
         /// <para>
@@ -501,7 +523,7 @@ namespace Amazon.RDS.Model
         ///  
         /// <para>
         /// Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>,
-        /// <code>5.7.mysql_aurora.2.04.5</code> 
+        /// <code>5.7.mysql_aurora.2.04.5</code>, <code>8.0.mysql_aurora.3.01.0</code> 
         /// </para>
         ///  
         /// <para>
@@ -646,7 +668,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        ///  Default: <code>3306</code> 
+        /// Default: <code>3306</code> 
         /// </para>
         /// </summary>
         public int Port
@@ -665,13 +687,13 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property PreferredBackupWindow. 
         /// <para>
         /// The daily time range during which automated backups are created if automated backups
-        /// are enabled using the <code>BackupRetentionPeriod</code> parameter. 
+        /// are enabled using the <code>BackupRetentionPeriod</code> parameter.
         /// </para>
         ///  
         /// <para>
         /// The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Web Services Region. To view the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow">
-        /// Backup window</a> in the <i>Amazon Aurora User Guide.</i> 
+        /// Backup window</a> in the <i>Amazon Aurora User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -722,8 +744,7 @@ namespace Amazon.RDS.Model
         /// The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Web Services Region, occurring on a random day of the week. To see
         /// the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
-        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
-        /// 
+        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -807,10 +828,25 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ServerlessV2ScalingConfiguration.
+        /// </summary>
+        public ServerlessV2ScalingConfiguration ServerlessV2ScalingConfiguration
+        {
+            get { return this._serverlessV2ScalingConfiguration; }
+            set { this._serverlessV2ScalingConfiguration = value; }
+        }
+
+        // Check to see if ServerlessV2ScalingConfiguration property is set
+        internal bool IsSetServerlessV2ScalingConfiguration()
+        {
+            return this._serverlessV2ScalingConfiguration != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property SourceEngine. 
         /// <para>
         /// The identifier for the database engine that was backed up to create the files stored
-        /// in the Amazon S3 bucket. 
+        /// in the Amazon S3 bucket.
         /// </para>
         ///  
         /// <para>
@@ -837,7 +873,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// MySQL versions 5.5, 5.6, and 5.7 are supported. 
+        /// MySQL versions 5.5, 5.6, and 5.7 are supported.
         /// </para>
         ///  
         /// <para>

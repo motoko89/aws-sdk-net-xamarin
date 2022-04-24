@@ -30,21 +30,22 @@ namespace Amazon.Lambda.Model
 {
     /// <summary>
     /// Container for the parameters to the AddPermission operation.
-    /// Grants an Amazon Web Services service or another account permission to use a function.
-    /// You can apply the policy at the function level, or specify a qualifier to restrict
-    /// access to a single version or alias. If you use a qualifier, the invoker must use
-    /// the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
-    /// Note: Lambda does not support adding policies to version $LATEST.
+    /// Grants an Amazon Web Services service, account, or organization permission to use
+    /// a function. You can apply the policy at the function level, or specify a qualifier
+    /// to restrict access to a single version or alias. If you use a qualifier, the invoker
+    /// must use the full Amazon Resource Name (ARN) of that version or alias to invoke the
+    /// function. Note: Lambda does not support adding policies to version $LATEST.
     /// 
     ///  
     /// <para>
     /// To grant permission to another account, specify the account ID as the <code>Principal</code>.
-    /// For Amazon Web Services services, the principal is a domain-style identifier defined
-    /// by the service, like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>.
-    /// For Amazon Web Services services, you can also specify the ARN of the associated resource
-    /// as the <code>SourceArn</code>. If you grant permission to a service principal without
-    /// specifying the source, other accounts could potentially configure resources in their
-    /// account to invoke your Lambda function.
+    /// To grant permission to an organization defined in Organizations, specify the organization
+    /// ID as the <code>PrincipalOrgID</code>. For Amazon Web Services services, the principal
+    /// is a domain-style identifier defined by the service, like <code>s3.amazonaws.com</code>
+    /// or <code>sns.amazonaws.com</code>. For Amazon Web Services services, you can also
+    /// specify the ARN of the associated resource as the <code>SourceArn</code>. If you grant
+    /// permission to a service principal without specifying the source, other accounts could
+    /// potentially configure resources in their account to invoke your Lambda function.
     /// </para>
     ///  
     /// <para>
@@ -58,7 +59,9 @@ namespace Amazon.Lambda.Model
         private string _action;
         private string _eventSourceToken;
         private string _functionName;
+        private FunctionUrlAuthType _functionUrlAuthType;
         private string _principal;
+        private string _principalOrgID;
         private string _qualifier;
         private string _revisionId;
         private string _sourceAccount;
@@ -145,6 +148,28 @@ namespace Amazon.Lambda.Model
         }
 
         /// <summary>
+        /// Gets and sets the property FunctionUrlAuthType. 
+        /// <para>
+        /// The type of authentication that your function URL uses. Set to <code>AWS_IAM</code>
+        /// if you want to restrict access to authenticated <code>IAM</code> users only. Set to
+        /// <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint.
+        /// For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">
+        /// Security and auth model for Lambda function URLs</a>.
+        /// </para>
+        /// </summary>
+        public FunctionUrlAuthType FunctionUrlAuthType
+        {
+            get { return this._functionUrlAuthType; }
+            set { this._functionUrlAuthType = value; }
+        }
+
+        // Check to see if FunctionUrlAuthType property is set
+        internal bool IsSetFunctionUrlAuthType()
+        {
+            return this._functionUrlAuthType != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Principal. 
         /// <para>
         /// The Amazon Web Services service or account that invokes the function. If you specify
@@ -163,6 +188,26 @@ namespace Amazon.Lambda.Model
         internal bool IsSetPrincipal()
         {
             return this._principal != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PrincipalOrgID. 
+        /// <para>
+        /// The identifier for your organization in Organizations. Use this to grant permissions
+        /// to all the Amazon Web Services accounts under this organization.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=12, Max=34)]
+        public string PrincipalOrgID
+        {
+            get { return this._principalOrgID; }
+            set { this._principalOrgID = value; }
+        }
+
+        // Check to see if PrincipalOrgID property is set
+        internal bool IsSetPrincipalOrgID()
+        {
+            return this._principalOrgID != null;
         }
 
         /// <summary>

@@ -32,7 +32,7 @@ namespace Amazon.SSO
     public partial class AmazonSSOConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.150");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.SSO
         /// Default constructor
         /// </summary>
         public AmazonSSOConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonSSODefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "awsssoportal";
         }

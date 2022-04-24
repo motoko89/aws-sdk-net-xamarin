@@ -34,7 +34,7 @@ namespace Amazon.GreengrassV2.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// ComponentRunWith Marshaller
-    /// </summary>       
+    /// </summary>
     public class ComponentRunWithMarshaller : IRequestMarshaller<ComponentRunWith, JsonMarshallerContext> 
     {
         /// <summary>
@@ -62,11 +62,17 @@ namespace Amazon.GreengrassV2.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetWindowsUser())
+            {
+                context.Writer.WritePropertyName("windowsUser");
+                context.Writer.Write(requestObject.WindowsUser);
+            }
+
         }
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static ComponentRunWithMarshaller Instance = new ComponentRunWithMarshaller();
 
     }

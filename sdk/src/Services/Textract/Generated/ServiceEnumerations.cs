@@ -43,9 +43,21 @@ namespace Amazon.Textract
         /// </summary>
         public static readonly BlockType LINE = new BlockType("LINE");
         /// <summary>
+        /// Constant MERGED_CELL for BlockType
+        /// </summary>
+        public static readonly BlockType MERGED_CELL = new BlockType("MERGED_CELL");
+        /// <summary>
         /// Constant PAGE for BlockType
         /// </summary>
         public static readonly BlockType PAGE = new BlockType("PAGE");
+        /// <summary>
+        /// Constant QUERY for BlockType
+        /// </summary>
+        public static readonly BlockType QUERY = new BlockType("QUERY");
+        /// <summary>
+        /// Constant QUERY_RESULT for BlockType
+        /// </summary>
+        public static readonly BlockType QUERY_RESULT = new BlockType("QUERY_RESULT");
         /// <summary>
         /// Constant SELECTION_ELEMENT for BlockType
         /// </summary>
@@ -54,6 +66,10 @@ namespace Amazon.Textract
         /// Constant TABLE for BlockType
         /// </summary>
         public static readonly BlockType TABLE = new BlockType("TABLE");
+        /// <summary>
+        /// Constant TITLE for BlockType
+        /// </summary>
+        public static readonly BlockType TITLE = new BlockType("TITLE");
         /// <summary>
         /// Constant WORD for BlockType
         /// </summary>
@@ -151,6 +167,10 @@ namespace Amazon.Textract
     {
 
         /// <summary>
+        /// Constant COLUMN_HEADER for EntityType
+        /// </summary>
+        public static readonly EntityType COLUMN_HEADER = new EntityType("COLUMN_HEADER");
+        /// <summary>
         /// Constant KEY for EntityType
         /// </summary>
         public static readonly EntityType KEY = new EntityType("KEY");
@@ -204,6 +224,10 @@ namespace Amazon.Textract
         /// Constant FORMS for FeatureType
         /// </summary>
         public static readonly FeatureType FORMS = new FeatureType("FORMS");
+        /// <summary>
+        /// Constant QUERIES for FeatureType
+        /// </summary>
+        public static readonly FeatureType QUERIES = new FeatureType("QUERIES");
         /// <summary>
         /// Constant TABLES for FeatureType
         /// </summary>
@@ -309,6 +333,10 @@ namespace Amazon.Textract
     {
 
         /// <summary>
+        /// Constant ANSWER for RelationshipType
+        /// </summary>
+        public static readonly RelationshipType ANSWER = new RelationshipType("ANSWER");
+        /// <summary>
         /// Constant CHILD for RelationshipType
         /// </summary>
         public static readonly RelationshipType CHILD = new RelationshipType("CHILD");
@@ -316,6 +344,14 @@ namespace Amazon.Textract
         /// Constant COMPLEX_FEATURES for RelationshipType
         /// </summary>
         public static readonly RelationshipType COMPLEX_FEATURES = new RelationshipType("COMPLEX_FEATURES");
+        /// <summary>
+        /// Constant MERGED_CELL for RelationshipType
+        /// </summary>
+        public static readonly RelationshipType MERGED_CELL = new RelationshipType("MERGED_CELL");
+        /// <summary>
+        /// Constant TITLE for RelationshipType
+        /// </summary>
+        public static readonly RelationshipType TITLE = new RelationshipType("TITLE");
         /// <summary>
         /// Constant VALUE for RelationshipType
         /// </summary>
@@ -450,6 +486,52 @@ namespace Amazon.Textract
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator TextType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ValueType.
+    /// </summary>
+    public class ValueType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DATE for ValueType
+        /// </summary>
+        public static readonly ValueType DATE = new ValueType("DATE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ValueType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ValueType FindValue(string value)
+        {
+            return FindValue<ValueType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ValueType(string value)
         {
             return FindValue(value);
         }

@@ -32,7 +32,7 @@ namespace Amazon.Imagebuilder
     public partial class AmazonImagebuilderConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.3.24");
+            InternalSDKUtils.BuildUserAgentString("3.7.6.25");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.Imagebuilder
         /// Default constructor
         /// </summary>
         public AmazonImagebuilderConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonImagebuilderDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "imagebuilder";
         }

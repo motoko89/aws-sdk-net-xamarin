@@ -32,7 +32,7 @@ namespace Amazon.IoTDeviceAdvisor
     public partial class AmazonIoTDeviceAdvisorConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.71");
+            InternalSDKUtils.BuildUserAgentString("3.7.2.48");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.IoTDeviceAdvisor
         /// Default constructor
         /// </summary>
         public AmazonIoTDeviceAdvisorConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonIoTDeviceAdvisorDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "iotdeviceadvisor";
         }

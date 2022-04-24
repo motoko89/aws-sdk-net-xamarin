@@ -29,8 +29,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Snowball.Model
 {
     /// <summary>
-    /// An object that represents metadata and configuration settings for NFS service on an
-    /// AWS Snow Family device.
+    /// An object that represents the metadata and configuration settings for the NFS (Network
+    /// File System) service on an Amazon Web Services Snow Family device.
     /// </summary>
     public partial class NFSOnDeviceServiceConfiguration
     {
@@ -40,7 +40,7 @@ namespace Amazon.Snowball.Model
         /// <summary>
         /// Gets and sets the property StorageLimit. 
         /// <para>
-        /// The maximum NFS storage for one Snowball Family device.
+        /// The maximum NFS storage for one Snow Family device.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0)]

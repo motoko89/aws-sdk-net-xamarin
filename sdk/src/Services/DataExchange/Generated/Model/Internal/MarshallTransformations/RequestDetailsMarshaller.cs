@@ -34,7 +34,7 @@ namespace Amazon.DataExchange.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// RequestDetails Marshaller
-    /// </summary>       
+    /// </summary>
     public class RequestDetailsMarshaller : IRequestMarshaller<RequestDetails, JsonMarshallerContext> 
     {
         /// <summary>
@@ -78,6 +78,17 @@ namespace Amazon.DataExchange.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetImportAssetFromApiGatewayApi())
+            {
+                context.Writer.WritePropertyName("ImportAssetFromApiGatewayApi");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = ImportAssetFromApiGatewayApiRequestDetailsMarshaller.Instance;
+                marshaller.Marshall(requestObject.ImportAssetFromApiGatewayApi, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetImportAssetFromSignedUrl())
             {
                 context.Writer.WritePropertyName("ImportAssetFromSignedUrl");
@@ -115,7 +126,7 @@ namespace Amazon.DataExchange.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static RequestDetailsMarshaller Instance = new RequestDetailsMarshaller();
 
     }

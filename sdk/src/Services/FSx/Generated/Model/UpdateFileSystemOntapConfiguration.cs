@@ -35,7 +35,9 @@ namespace Amazon.FSx.Model
     {
         private int? _automaticBackupRetentionDays;
         private string _dailyAutomaticBackupStartTime;
+        private DiskIopsConfiguration _diskIopsConfiguration;
         private string _fsxAdminPassword;
+        private int? _throughputCapacity;
         private string _weeklyMaintenanceStartTime;
 
         /// <summary>
@@ -71,6 +73,28 @@ namespace Amazon.FSx.Model
         }
 
         /// <summary>
+        /// Gets and sets the property DiskIopsConfiguration. 
+        /// <para>
+        /// The SSD IOPS (input/output operations per second) configuration for an Amazon FSx
+        /// for NetApp ONTAP file system. The default is 3 IOPS per GB of storage capacity, but
+        /// you can provision additional IOPS per GB of storage. The configuration consists of
+        /// an IOPS mode (<code>AUTOMATIC</code> or <code>USER_PROVISIONED</code>), and in the
+        /// case of <code>USER_PROVISIONED</code> IOPS, the total number of SSD IOPS provisioned.
+        /// </para>
+        /// </summary>
+        public DiskIopsConfiguration DiskIopsConfiguration
+        {
+            get { return this._diskIopsConfiguration; }
+            set { this._diskIopsConfiguration = value; }
+        }
+
+        // Check to see if DiskIopsConfiguration property is set
+        internal bool IsSetDiskIopsConfiguration()
+        {
+            return this._diskIopsConfiguration != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property FsxAdminPassword. 
         /// <para>
         /// The ONTAP administrative password for the <code>fsxadmin</code> user.
@@ -87,6 +111,26 @@ namespace Amazon.FSx.Model
         internal bool IsSetFsxAdminPassword()
         {
             return this._fsxAdminPassword != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ThroughputCapacity. 
+        /// <para>
+        /// Specifies the throughput of an FSx for NetApp ONTAP file system, measured in megabytes
+        /// per second (MBps). Valid values are 128, 256, 512, 1024, or 2048 MB/s.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=8, Max=4096)]
+        public int ThroughputCapacity
+        {
+            get { return this._throughputCapacity.GetValueOrDefault(); }
+            set { this._throughputCapacity = value; }
+        }
+
+        // Check to see if ThroughputCapacity property is set
+        internal bool IsSetThroughputCapacity()
+        {
+            return this._throughputCapacity.HasValue; 
         }
 
         /// <summary>

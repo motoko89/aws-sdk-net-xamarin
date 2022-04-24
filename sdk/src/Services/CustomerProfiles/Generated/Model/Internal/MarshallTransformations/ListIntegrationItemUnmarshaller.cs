@@ -88,6 +88,12 @@ namespace Amazon.CustomerProfiles.Model.Internal.MarshallTransformations
                     unmarshalledObject.ObjectTypeName = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("ObjectTypeNames", targetDepth))
+                {
+                    var unmarshaller = new DictionaryUnmarshaller<string, string, StringUnmarshaller, StringUnmarshaller>(StringUnmarshaller.Instance, StringUnmarshaller.Instance);
+                    unmarshalledObject.ObjectTypeNames = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Tags", targetDepth))
                 {
                     var unmarshaller = new DictionaryUnmarshaller<string, string, StringUnmarshaller, StringUnmarshaller>(StringUnmarshaller.Instance, StringUnmarshaller.Instance);
@@ -98,6 +104,12 @@ namespace Amazon.CustomerProfiles.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.Uri = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("WorkflowId", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.WorkflowId = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

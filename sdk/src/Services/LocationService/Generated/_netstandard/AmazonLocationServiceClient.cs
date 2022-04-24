@@ -474,6 +474,11 @@ namespace Amazon.LocationService
         /// The last geofence that a device was observed within is tracked for 30 days after the
         /// most recent device position update.
         /// </para>
+        ///  </note> <note> 
+        /// <para>
+        /// Geofence evaluation uses the given device position. It does not account for the optional
+        /// <code>Accuracy</code> of a <code>DevicePositionUpdate</code>.
+        /// </para>
         ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchEvaluateGeofences service method.</param>
@@ -640,9 +645,23 @@ namespace Amazon.LocationService
         /// updates are evaluated against linked geofence collections, and location data is stored
         /// at a maximum of one position per 30 second interval. If your update frequency is more
         /// often than every 30 seconds, only one update per 30 seconds is stored for each unique
-        /// device ID. When <code>PositionFiltering</code> is set to <code>DistanceBased</code>
-        /// filtering, location data is stored and evaluated against linked geofence collections
-        /// only if the device has moved more than 30 m (98.4 ft).
+        /// device ID.
+        /// </para>
+        ///  
+        /// <para>
+        /// When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering,
+        /// location data is stored and evaluated against linked geofence collections only if
+        /// the device has moved more than 30 m (98.4 ft).
+        /// </para>
+        ///  
+        /// <para>
+        /// When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering,
+        /// location data is stored and evaluated against linked geofence collections only if
+        /// the device has moved more than the measured accuracy. For example, if two consecutive
+        /// updates from a device have a horizontal accuracy of 5 m and 10 m, the second update
+        /// is neither stored or evaluated if the device has moved less than 15 m. If <code>PositionFiltering</code>
+        /// is set to <code>AccuracyBased</code> filtering, Amazon Location uses the default value
+        /// <code>{ "Horizontal": 0}</code> when accuracy is not provided on a <code>DevicePositionUpdate</code>.
         /// </para>
         ///  </note>
         /// </summary>
@@ -696,9 +715,9 @@ namespace Amazon.LocationService
 
         /// <summary>
         /// <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates
-        /// a route</a> given the following required parameters: <code>DeparturePostiton</code>
+        /// a route</a> given the following required parameters: <code>DeparturePosition</code>
         /// and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create
-        /// a route calculator resource</a> 
+        /// a route calculator resource</a>.
         /// 
         ///  
         /// <para>
@@ -711,26 +730,24 @@ namespace Amazon.LocationService
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time">Specifying
-        /// a departure time</a> using either <code>DepartureTime</code> or <code>DepartureNow</code>.
+        ///  <a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying
+        /// a departure time</a> using either <code>DepartureTime</code> or <code>DepartNow</code>.
         /// This calculates a route based on predictive traffic data at the given time. 
         /// </para>
         ///  <note> 
         /// <para>
-        /// You can't specify both <code>DepartureTime</code> and <code>DepartureNow</code> in
-        /// a single request. Specifying both parameters returns an error message.
+        /// You can't specify both <code>DepartureTime</code> and <code>DepartNow</code> in a
+        /// single request. Specifying both parameters returns a validation error.
         /// </para>
         ///  </note> </li> <li> 
         /// <para>
-        ///  <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying
-        /// a travel mode</a> using TravelMode. This lets you specify an additional route preference
-        /// such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code>
-        /// if traveling by <code>Truck</code>.
+        ///  <a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying
+        /// a travel mode</a> using TravelMode sets the transportation mode used to calculate
+        /// the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code>
+        /// if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by
+        /// <code>Truck</code>.
         /// </para>
-        ///  </li> </ul> 
-        /// <para>
-        ///  
-        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CalculateRoute service method.</param>
         /// <param name="cancellationToken">
@@ -763,6 +780,104 @@ namespace Amazon.LocationService
             options.ResponseUnmarshaller = CalculateRouteResponseUnmarshaller.Instance;
 
             return InvokeAsync<CalculateRouteResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CalculateRouteMatrix
+
+        internal virtual CalculateRouteMatrixResponse CalculateRouteMatrix(CalculateRouteMatrixRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CalculateRouteMatrixRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CalculateRouteMatrixResponseUnmarshaller.Instance;
+
+            return Invoke<CalculateRouteMatrixResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html">
+        /// Calculates a route matrix</a> given the following required parameters: <code>DeparturePositions</code>
+        /// and <code>DestinationPositions</code>. <code>CalculateRouteMatrix</code> calculates
+        /// routes and returns the travel time and travel distance from each departure position
+        /// to each destination position in the request. For example, given departure positions
+        /// A and B, and destination positions X and Y, <code>CalculateRouteMatrix</code> will
+        /// return time and distance for routes from A to X, A to Y, B to X, and B to Y (in that
+        /// order). The number of results returned (and routes calculated) will be the number
+        /// of <code>DeparturePositions</code> times the number of <code>DestinationPositions</code>.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// Your account is charged for each route calculated, not the number of requests.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create
+        /// a route calculator resource</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// By default, a request that doesn't specify a departure time uses the best time of
+        /// day to travel with the best traffic conditions when calculating routes.
+        /// </para>
+        ///  
+        /// <para>
+        /// Additional options include:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">
+        /// Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartNow</code>.
+        /// This calculates routes based on predictive traffic data at the given time. 
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// You can't specify both <code>DepartureTime</code> and <code>DepartNow</code> in a
+        /// single request. Specifying both parameters returns a validation error.
+        /// </para>
+        ///  </note> </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying
+        /// a travel mode</a> using TravelMode sets the transportation mode used to calculate
+        /// the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code>
+        /// if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by
+        /// <code>Truck</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CalculateRouteMatrix service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CalculateRouteMatrix service method, as returned by LocationService.</returns>
+        /// <exception cref="Amazon.LocationService.Model.AccessDeniedException">
+        /// The request was denied because of insufficient access or permissions. Check with an
+        /// administrator to verify your permissions.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.InternalServerException">
+        /// The request has failed to process because of an unknown server error, exception, or
+        /// failure.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ResourceNotFoundException">
+        /// The resource that you've entered was not found in your AWS account.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ThrottlingException">
+        /// The request was denied because of request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ValidationException">
+        /// The input failed to meet the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/CalculateRouteMatrix">REST API Reference for CalculateRouteMatrix Operation</seealso>
+        public virtual Task<CalculateRouteMatrixResponse> CalculateRouteMatrixAsync(CalculateRouteMatrixRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CalculateRouteMatrixRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CalculateRouteMatrixResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CalculateRouteMatrixResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -834,6 +949,15 @@ namespace Amazon.LocationService
         /// <summary>
         /// Creates a map resource in your AWS account, which provides map tiles of different
         /// styles sourced from global location data providers.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// If your application is tracking or routing assets you use in your business, such as
+        /// delivery vehicles or employees, you may only use HERE as your geolocation provider.
+        /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
+        /// for more details.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateMap service method.</param>
         /// <param name="cancellationToken">
@@ -884,8 +1008,20 @@ namespace Amazon.LocationService
 
 
         /// <summary>
-        /// Creates a place index resource in your AWS account, which supports functions with
-        /// geospatial data sourced from your chosen data provider.
+        /// Creates a place index resource in your AWS account. Use a place index resource to
+        /// geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code>
+        /// operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code>
+        /// operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code>
+        /// operation.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// If your application is tracking or routing assets you use in your business, such as
+        /// delivery vehicles or employees, you may only use HERE as your geolocation provider.
+        /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
+        /// for more details.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreatePlaceIndex service method.</param>
         /// <param name="cancellationToken">
@@ -944,6 +1080,14 @@ namespace Amazon.LocationService
         /// and get directions. A route calculator sources traffic and road network data from
         /// your chosen data provider.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// If your application is tracking or routing assets you use in your business, such as
+        /// delivery vehicles or employees, you may only use HERE as your geolocation provider.
+        /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
+        /// for more details.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateRouteCalculator service method.</param>
         /// <param name="cancellationToken">
@@ -2570,6 +2714,73 @@ namespace Amazon.LocationService
 
         #endregion
         
+        #region  SearchPlaceIndexForSuggestions
+
+        internal virtual SearchPlaceIndexForSuggestionsResponse SearchPlaceIndexForSuggestions(SearchPlaceIndexForSuggestionsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = SearchPlaceIndexForSuggestionsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = SearchPlaceIndexForSuggestionsResponseUnmarshaller.Instance;
+
+            return Invoke<SearchPlaceIndexForSuggestionsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Generates suggestions for addresses and points of interest based on partial or misspelled
+        /// free-form text. This operation is also known as autocomplete, autosuggest, or fuzzy
+        /// matching.
+        /// 
+        ///  
+        /// <para>
+        /// Optional parameters let you narrow your search results by bounding box or country,
+        /// or bias your search toward a specific position on the globe.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// You can search for suggested place names near a specified position by using <code>BiasPosition</code>,
+        /// or filter results within a bounding box by using <code>FilterBBox</code>. These parameters
+        /// are mutually exclusive; using both <code>BiasPosition</code> and <code>FilterBBox</code>
+        /// in the same command returns an error.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the SearchPlaceIndexForSuggestions service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the SearchPlaceIndexForSuggestions service method, as returned by LocationService.</returns>
+        /// <exception cref="Amazon.LocationService.Model.AccessDeniedException">
+        /// The request was denied because of insufficient access or permissions. Check with an
+        /// administrator to verify your permissions.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.InternalServerException">
+        /// The request has failed to process because of an unknown server error, exception, or
+        /// failure.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ResourceNotFoundException">
+        /// The resource that you've entered was not found in your AWS account.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ThrottlingException">
+        /// The request was denied because of request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ValidationException">
+        /// The input failed to meet the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/SearchPlaceIndexForSuggestions">REST API Reference for SearchPlaceIndexForSuggestions Operation</seealso>
+        public virtual Task<SearchPlaceIndexForSuggestionsResponse> SearchPlaceIndexForSuggestionsAsync(SearchPlaceIndexForSuggestionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = SearchPlaceIndexForSuggestionsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = SearchPlaceIndexForSuggestionsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<SearchPlaceIndexForSuggestionsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  SearchPlaceIndexForText
 
         internal virtual SearchPlaceIndexForTextResponse SearchPlaceIndexForText(SearchPlaceIndexForTextRequest request)
@@ -2589,7 +2800,8 @@ namespace Amazon.LocationService
         /// 
         ///  
         /// <para>
-        /// Includes the option to apply additional parameters to narrow your list of results.
+        /// Optional parameters let you narrow your search results by bounding box or country,
+        /// or bias your search toward a specific position on the globe.
         /// </para>
         ///  <note> 
         /// <para>
@@ -2597,7 +2809,10 @@ namespace Amazon.LocationService
         /// filter results within a bounding box using <code>FilterBBox</code>. Providing both
         /// parameters simultaneously returns an error.
         /// </para>
-        ///  </note>
+        ///  </note> 
+        /// <para>
+        /// Search results are returned in order of highest to lowest relevance.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SearchPlaceIndexForText service method.</param>
         /// <param name="cancellationToken">

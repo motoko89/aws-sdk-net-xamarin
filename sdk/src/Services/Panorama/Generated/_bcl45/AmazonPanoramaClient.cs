@@ -41,12 +41,14 @@ namespace Amazon.Panorama
     /// AWS Panorama 
     /// <para>
     ///  <b>Overview</b> 
-    /// </para>
+    /// 
     ///  
     /// <para>
     /// This is the <i>AWS Panorama API Reference</i>. For an introduction to the service,
     /// see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What
     /// is AWS Panorama?</a> in the <i>AWS Panorama Developer Guide</i>.
+    /// </para>
+    /// 
     /// </para>
     /// </summary>
     public partial class AmazonPanoramaClient : AmazonServiceClient, IAmazonPanorama
@@ -670,6 +672,13 @@ namespace Amazon.Panorama
 
         /// <summary>
         /// Deletes a package.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// To delete a package, you need permission to call <code>s3:DeleteObject</code> in addition
+        /// to permissions for the AWS Panorama API.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeletePackage service method.</param>
         /// 
@@ -702,6 +711,13 @@ namespace Amazon.Panorama
 
         /// <summary>
         /// Deletes a package.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// To delete a package, you need permission to call <code>s3:DeleteObject</code> in addition
+        /// to permissions for the AWS Panorama API.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeletePackage service method.</param>
         /// <param name="cancellationToken">
@@ -2047,9 +2063,10 @@ namespace Amazon.Panorama
 
         /// <summary>
         /// Creates a device and returns a configuration archive. The configuration archive is
-        /// a ZIP file that contains a provisioning certificate that is valid for 5 minutes. Transfer
-        /// the configuration archive to the device with the included USB storage device within
-        /// 5 minutes.
+        /// a ZIP file that contains a provisioning certificate that is valid for 5 minutes. Name
+        /// the configuration archive <code>certificates-omni_<i>device-name</i>.zip</code> and
+        /// transfer it to the device within 5 minutes. Use the included USB storage device and
+        /// connect it to the USB 3.0 port next to the HDMI output.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ProvisionDevice service method.</param>
         /// 
@@ -2082,9 +2099,10 @@ namespace Amazon.Panorama
 
         /// <summary>
         /// Creates a device and returns a configuration archive. The configuration archive is
-        /// a ZIP file that contains a provisioning certificate that is valid for 5 minutes. Transfer
-        /// the configuration archive to the device with the included USB storage device within
-        /// 5 minutes.
+        /// a ZIP file that contains a provisioning certificate that is valid for 5 minutes. Name
+        /// the configuration archive <code>certificates-omni_<i>device-name</i>.zip</code> and
+        /// transfer it to the device within 5 minutes. Use the included USB storage device and
+        /// connect it to the USB 3.0 port next to the HDMI output.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ProvisionDevice service method.</param>
         /// <param name="cancellationToken">

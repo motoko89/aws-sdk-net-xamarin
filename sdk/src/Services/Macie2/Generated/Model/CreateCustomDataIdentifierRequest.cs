@@ -71,9 +71,8 @@ namespace Amazon.Macie2.Model
         ///  
         /// <para>
         /// We strongly recommend that you avoid including any sensitive data in the description
-        /// of a custom data identifier. Other users of your account might be able to see the
-        /// identifier's description, depending on the actions that they're allowed to perform
-        /// in Amazon Macie.
+        /// of a custom data identifier. Other users of your account might be able to see this
+        /// description, depending on the actions that they're allowed to perform in Amazon Macie.
         /// </para>
         /// </summary>
         public string Description
@@ -161,10 +160,11 @@ namespace Amazon.Macie2.Model
         ///  
         /// <para>
         /// We strongly recommend that you avoid including any sensitive data in the name of a
-        /// custom data identifier. Other users of your account might be able to see the identifier's
-        /// name, depending on the actions that they're allowed to perform in Amazon Macie.
+        /// custom data identifier. Other users of your account might be able to see this name,
+        /// depending on the actions that they're allowed to perform in Amazon Macie.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Name
         {
             get { return this._name; }
@@ -184,6 +184,7 @@ namespace Amazon.Macie2.Model
         /// can contain as many as 512 characters.
         /// </para>
         /// </summary>
+        [AWSProperty(Required=true)]
         public string Regex
         {
             get { return this._regex; }

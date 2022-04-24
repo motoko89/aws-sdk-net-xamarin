@@ -76,11 +76,35 @@ namespace Amazon.Connect.Model
         }
 
         /// <summary>
+        /// Paginator for ListContactFlowModules operation
+        ///</summary>
+        public IListContactFlowModulesPaginator ListContactFlowModules(ListContactFlowModulesRequest request) 
+        {
+            return new ListContactFlowModulesPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for ListContactFlows operation
         ///</summary>
         public IListContactFlowsPaginator ListContactFlows(ListContactFlowsRequest request) 
         {
             return new ListContactFlowsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListContactReferences operation
+        ///</summary>
+        public IListContactReferencesPaginator ListContactReferences(ListContactReferencesRequest request) 
+        {
+            return new ListContactReferencesPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListDefaultVocabularies operation
+        ///</summary>
+        public IListDefaultVocabulariesPaginator ListDefaultVocabularies(ListDefaultVocabulariesRequest request) 
+        {
+            return new ListDefaultVocabulariesPaginator(this.client, request);
         }
 
         /// <summary>
@@ -145,6 +169,14 @@ namespace Amazon.Connect.Model
         public IListPhoneNumbersPaginator ListPhoneNumbers(ListPhoneNumbersRequest request) 
         {
             return new ListPhoneNumbersPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListPhoneNumbersV2 operation
+        ///</summary>
+        public IListPhoneNumbersV2Paginator ListPhoneNumbersV2(ListPhoneNumbersV2Request request) 
+        {
+            return new ListPhoneNumbersV2Paginator(this.client, request);
         }
 
         /// <summary>
@@ -241,6 +273,22 @@ namespace Amazon.Connect.Model
         public IListUsersPaginator ListUsers(ListUsersRequest request) 
         {
             return new ListUsersPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for SearchAvailablePhoneNumbers operation
+        ///</summary>
+        public ISearchAvailablePhoneNumbersPaginator SearchAvailablePhoneNumbers(SearchAvailablePhoneNumbersRequest request) 
+        {
+            return new SearchAvailablePhoneNumbersPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for SearchVocabularies operation
+        ///</summary>
+        public ISearchVocabulariesPaginator SearchVocabularies(SearchVocabulariesRequest request) 
+        {
+            return new SearchVocabulariesPaginator(this.client, request);
         }
     }
 }

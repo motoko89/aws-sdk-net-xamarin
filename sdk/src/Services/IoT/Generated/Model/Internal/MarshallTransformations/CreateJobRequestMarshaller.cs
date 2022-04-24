@@ -56,7 +56,7 @@ namespace Amazon.IoT.Model.Internal.MarshallTransformations
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.IoT");
             request.Headers["Content-Type"] = "application/json";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2015-05-28";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2015-05-28";
             request.HttpMethod = "PUT";
 
             if (!publicRequest.IsSetJobId())
@@ -91,10 +91,35 @@ namespace Amazon.IoT.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.Document);
                 }
 
+                if(publicRequest.IsSetDocumentParameters())
+                {
+                    context.Writer.WritePropertyName("documentParameters");
+                    context.Writer.WriteObjectStart();
+                    foreach (var publicRequestDocumentParametersKvp in publicRequest.DocumentParameters)
+                    {
+                        context.Writer.WritePropertyName(publicRequestDocumentParametersKvp.Key);
+                        var publicRequestDocumentParametersValue = publicRequestDocumentParametersKvp.Value;
+
+                            context.Writer.Write(publicRequestDocumentParametersValue);
+                    }
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetDocumentSource())
                 {
                     context.Writer.WritePropertyName("documentSource");
                     context.Writer.Write(publicRequest.DocumentSource);
+                }
+
+                if(publicRequest.IsSetJobExecutionsRetryConfig())
+                {
+                    context.Writer.WritePropertyName("jobExecutionsRetryConfig");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = JobExecutionsRetryConfigMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.JobExecutionsRetryConfig, context);
+
+                    context.Writer.WriteObjectEnd();
                 }
 
                 if(publicRequest.IsSetJobExecutionsRolloutConfig())
@@ -175,7 +200,6 @@ namespace Amazon.IoT.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

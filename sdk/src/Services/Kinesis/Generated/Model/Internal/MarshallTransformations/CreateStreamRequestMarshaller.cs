@@ -58,7 +58,7 @@ namespace Amazon.Kinesis.Model.Internal.MarshallTransformations
             string target = "Kinesis_20131202.CreateStream";
             request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/x-amz-json-1.1";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2013-12-02";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2013-12-02";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
@@ -73,13 +73,23 @@ namespace Amazon.Kinesis.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.ShardCount);
                 }
 
+                if(publicRequest.IsSetStreamModeDetails())
+                {
+                    context.Writer.WritePropertyName("StreamModeDetails");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = StreamModeDetailsMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.StreamModeDetails, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetStreamName())
                 {
                     context.Writer.WritePropertyName("StreamName");
                     context.Writer.Write(publicRequest.StreamName);
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

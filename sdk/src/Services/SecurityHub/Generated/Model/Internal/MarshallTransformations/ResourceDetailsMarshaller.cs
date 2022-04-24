@@ -34,7 +34,7 @@ namespace Amazon.SecurityHub.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// ResourceDetails Marshaller
-    /// </summary>       
+    /// </summary>
     public class ResourceDetailsMarshaller : IRequestMarshaller<ResourceDetails, JsonMarshallerContext> 
     {
         /// <summary>
@@ -474,6 +474,39 @@ namespace Amazon.SecurityHub.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetAwsNetworkFirewallFirewall())
+            {
+                context.Writer.WritePropertyName("AwsNetworkFirewallFirewall");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = AwsNetworkFirewallFirewallDetailsMarshaller.Instance;
+                marshaller.Marshall(requestObject.AwsNetworkFirewallFirewall, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetAwsNetworkFirewallFirewallPolicy())
+            {
+                context.Writer.WritePropertyName("AwsNetworkFirewallFirewallPolicy");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = AwsNetworkFirewallFirewallPolicyDetailsMarshaller.Instance;
+                marshaller.Marshall(requestObject.AwsNetworkFirewallFirewallPolicy, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetAwsNetworkFirewallRuleGroup())
+            {
+                context.Writer.WritePropertyName("AwsNetworkFirewallRuleGroup");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = AwsNetworkFirewallRuleGroupDetailsMarshaller.Instance;
+                marshaller.Marshall(requestObject.AwsNetworkFirewallRuleGroup, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetAwsOpenSearchServiceDomain())
             {
                 context.Writer.WritePropertyName("AwsOpenSearchServiceDomain");
@@ -514,6 +547,17 @@ namespace Amazon.SecurityHub.Model.Internal.MarshallTransformations
 
                 var marshaller = AwsRdsDbInstanceDetailsMarshaller.Instance;
                 marshaller.Marshall(requestObject.AwsRdsDbInstance, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetAwsRdsDbSecurityGroup())
+            {
+                context.Writer.WritePropertyName("AwsRdsDbSecurityGroup");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = AwsRdsDbSecurityGroupDetailsMarshaller.Instance;
+                marshaller.Marshall(requestObject.AwsRdsDbSecurityGroup, context);
 
                 context.Writer.WriteObjectEnd();
             }
@@ -701,7 +745,7 @@ namespace Amazon.SecurityHub.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static ResourceDetailsMarshaller Instance = new ResourceDetailsMarshaller();
 
     }

@@ -62,6 +62,10 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                 {
                     request.Parameters.Add("AvailabilityZone", StringUtils.FromString(publicRequest.AvailabilityZone));
                 }
+                if(publicRequest.IsSetIpv6Native())
+                {
+                    request.Parameters.Add("Ipv6Native", StringUtils.FromBool(publicRequest.Ipv6Native));
+                }
             }
             return request;
         }

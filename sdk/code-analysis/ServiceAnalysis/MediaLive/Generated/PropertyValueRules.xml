@@ -567,6 +567,11 @@
     <max>5</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.MediaLive.Model.InputSettings.Scte35Pid</property>
+    <min>32</min>
+    <max>8191</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.MediaLive.Model.M2tsSettings.AudioFramesPerPes</property>
     <min>0</min>
   </property-value-rule>
@@ -632,6 +637,14 @@
     <property>Amazon.MediaLive.Model.M3u8Settings.TransportStreamId</property>
     <min>0</min>
     <max>65535</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.MediaLive.Model.MaintenanceCreateSettings.MaintenanceStartTime</property>
+    <pattern>^([0,1]?[0-9]|2[0-3]):00$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.MediaLive.Model.MaintenanceUpdateSettings.MaintenanceStartTime</property>
+    <pattern>^([0,1]?[0-9]|2[0-3]):00$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MediaLive.Model.MediaPackageOutputDestinationSettings.ChannelId</property>

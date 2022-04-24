@@ -35,7 +35,25 @@ namespace Amazon.IoTWireless
     /// <summary>
     /// Implementation for accessing IoTWireless
     ///
-    /// AWS IoT Wireless API documentation
+    /// AWS IoT Wireless provides bi-directional communication between internet-connected
+    /// wireless devices and the AWS Cloud. To onboard both LoRaWAN and Sidewalk devices to
+    /// AWS IoT, use the IoT Wireless API. These wireless devices use the Low Power Wide Area
+    /// Networking (LPWAN) communication protocol to communicate with AWS IoT.
+    /// 
+    ///  
+    /// <para>
+    /// Using the API, you can perform create, read, update, and delete operations for your
+    /// wireless devices, gateways, destinations, and profiles. After onboarding your devices,
+    /// you can use the API operations to set log levels and monitor your devices with CloudWatch.
+    /// </para>
+    ///  
+    /// <para>
+    /// You can also use the API operations to create multicast groups and schedule a multicast
+    /// session for sending a downlink message to devices in the group. By using Firmware
+    /// Updates Over-The-Air (FUOTA) API operations, you can create a FUOTA task and schedule
+    /// a session to update the firmware of individual devices or an entire group of devices
+    /// in a multicast group.
+    /// </para>
     /// </summary>
     public partial class AmazonIoTWirelessClient : AmazonServiceClient, IAmazonIoTWireless
     {
@@ -1755,6 +1773,75 @@ namespace Amazon.IoTWireless
 
         #endregion
         
+        #region  DeleteQueuedMessages
+
+        /// <summary>
+        /// The operation to delete queued messages.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteQueuedMessages service method.</param>
+        /// 
+        /// <returns>The response from the DeleteQueuedMessages service method, as returned by IoTWireless.</returns>
+        /// <exception cref="Amazon.IoTWireless.Model.AccessDeniedException">
+        /// User does not have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.InternalServerException">
+        /// An unexpected error occurred while processing a request.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ResourceNotFoundException">
+        /// Resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ThrottlingException">
+        /// The request was denied because it exceeded the allowed API request rate.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ValidationException">
+        /// The input did not meet the specified constraints.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteQueuedMessages">REST API Reference for DeleteQueuedMessages Operation</seealso>
+        public virtual DeleteQueuedMessagesResponse DeleteQueuedMessages(DeleteQueuedMessagesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteQueuedMessagesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteQueuedMessagesResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteQueuedMessagesResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteQueuedMessages operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteQueuedMessages operation on AmazonIoTWirelessClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteQueuedMessages
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteQueuedMessages">REST API Reference for DeleteQueuedMessages Operation</seealso>
+        public virtual IAsyncResult BeginDeleteQueuedMessages(DeleteQueuedMessagesRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteQueuedMessagesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteQueuedMessagesResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteQueuedMessages operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteQueuedMessages.</param>
+        /// 
+        /// <returns>Returns a  DeleteQueuedMessagesResult from IoTWireless.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/DeleteQueuedMessages">REST API Reference for DeleteQueuedMessages Operation</seealso>
+        public virtual DeleteQueuedMessagesResponse EndDeleteQueuedMessages(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DeleteQueuedMessagesResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  DeleteServiceProfile
 
         /// <summary>
@@ -3006,6 +3093,75 @@ namespace Amazon.IoTWireless
         public virtual GetMulticastGroupSessionResponse EndGetMulticastGroupSession(IAsyncResult asyncResult)
         {
             return EndInvoke<GetMulticastGroupSessionResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetNetworkAnalyzerConfiguration
+
+        /// <summary>
+        /// Get NetworkAnalyzer configuration.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetNetworkAnalyzerConfiguration service method.</param>
+        /// 
+        /// <returns>The response from the GetNetworkAnalyzerConfiguration service method, as returned by IoTWireless.</returns>
+        /// <exception cref="Amazon.IoTWireless.Model.AccessDeniedException">
+        /// User does not have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.InternalServerException">
+        /// An unexpected error occurred while processing a request.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ResourceNotFoundException">
+        /// Resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ThrottlingException">
+        /// The request was denied because it exceeded the allowed API request rate.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ValidationException">
+        /// The input did not meet the specified constraints.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetNetworkAnalyzerConfiguration">REST API Reference for GetNetworkAnalyzerConfiguration Operation</seealso>
+        public virtual GetNetworkAnalyzerConfigurationResponse GetNetworkAnalyzerConfiguration(GetNetworkAnalyzerConfigurationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetNetworkAnalyzerConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetNetworkAnalyzerConfigurationResponseUnmarshaller.Instance;
+
+            return Invoke<GetNetworkAnalyzerConfigurationResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetNetworkAnalyzerConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetNetworkAnalyzerConfiguration operation on AmazonIoTWirelessClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetNetworkAnalyzerConfiguration
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetNetworkAnalyzerConfiguration">REST API Reference for GetNetworkAnalyzerConfiguration Operation</seealso>
+        public virtual IAsyncResult BeginGetNetworkAnalyzerConfiguration(GetNetworkAnalyzerConfigurationRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetNetworkAnalyzerConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetNetworkAnalyzerConfigurationResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetNetworkAnalyzerConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetNetworkAnalyzerConfiguration.</param>
+        /// 
+        /// <returns>Returns a  GetNetworkAnalyzerConfigurationResult from IoTWireless.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/GetNetworkAnalyzerConfiguration">REST API Reference for GetNetworkAnalyzerConfiguration Operation</seealso>
+        public virtual GetNetworkAnalyzerConfigurationResponse EndGetNetworkAnalyzerConfiguration(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetNetworkAnalyzerConfigurationResponse>(asyncResult);
         }
 
         #endregion
@@ -4299,6 +4455,75 @@ namespace Amazon.IoTWireless
         public virtual ListPartnerAccountsResponse EndListPartnerAccounts(IAsyncResult asyncResult)
         {
             return EndInvoke<ListPartnerAccountsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  ListQueuedMessages
+
+        /// <summary>
+        /// The operation to list queued messages.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListQueuedMessages service method.</param>
+        /// 
+        /// <returns>The response from the ListQueuedMessages service method, as returned by IoTWireless.</returns>
+        /// <exception cref="Amazon.IoTWireless.Model.AccessDeniedException">
+        /// User does not have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.InternalServerException">
+        /// An unexpected error occurred while processing a request.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ResourceNotFoundException">
+        /// Resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ThrottlingException">
+        /// The request was denied because it exceeded the allowed API request rate.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ValidationException">
+        /// The input did not meet the specified constraints.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListQueuedMessages">REST API Reference for ListQueuedMessages Operation</seealso>
+        public virtual ListQueuedMessagesResponse ListQueuedMessages(ListQueuedMessagesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListQueuedMessagesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListQueuedMessagesResponseUnmarshaller.Instance;
+
+            return Invoke<ListQueuedMessagesResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListQueuedMessages operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListQueuedMessages operation on AmazonIoTWirelessClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListQueuedMessages
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListQueuedMessages">REST API Reference for ListQueuedMessages Operation</seealso>
+        public virtual IAsyncResult BeginListQueuedMessages(ListQueuedMessagesRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListQueuedMessagesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListQueuedMessagesResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListQueuedMessages operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListQueuedMessages.</param>
+        /// 
+        /// <returns>Returns a  ListQueuedMessagesResult from IoTWireless.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/ListQueuedMessages">REST API Reference for ListQueuedMessages Operation</seealso>
+        public virtual ListQueuedMessagesResponse EndListQueuedMessages(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListQueuedMessagesResponse>(asyncResult);
         }
 
         #endregion
@@ -5757,6 +5982,75 @@ namespace Amazon.IoTWireless
         public virtual UpdateMulticastGroupResponse EndUpdateMulticastGroup(IAsyncResult asyncResult)
         {
             return EndInvoke<UpdateMulticastGroupResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  UpdateNetworkAnalyzerConfiguration
+
+        /// <summary>
+        /// Update NetworkAnalyzer configuration.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateNetworkAnalyzerConfiguration service method.</param>
+        /// 
+        /// <returns>The response from the UpdateNetworkAnalyzerConfiguration service method, as returned by IoTWireless.</returns>
+        /// <exception cref="Amazon.IoTWireless.Model.AccessDeniedException">
+        /// User does not have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.InternalServerException">
+        /// An unexpected error occurred while processing a request.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ResourceNotFoundException">
+        /// Resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ThrottlingException">
+        /// The request was denied because it exceeded the allowed API request rate.
+        /// </exception>
+        /// <exception cref="Amazon.IoTWireless.Model.ValidationException">
+        /// The input did not meet the specified constraints.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateNetworkAnalyzerConfiguration">REST API Reference for UpdateNetworkAnalyzerConfiguration Operation</seealso>
+        public virtual UpdateNetworkAnalyzerConfigurationResponse UpdateNetworkAnalyzerConfiguration(UpdateNetworkAnalyzerConfigurationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateNetworkAnalyzerConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateNetworkAnalyzerConfigurationResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateNetworkAnalyzerConfigurationResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateNetworkAnalyzerConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateNetworkAnalyzerConfiguration operation on AmazonIoTWirelessClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateNetworkAnalyzerConfiguration
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateNetworkAnalyzerConfiguration">REST API Reference for UpdateNetworkAnalyzerConfiguration Operation</seealso>
+        public virtual IAsyncResult BeginUpdateNetworkAnalyzerConfiguration(UpdateNetworkAnalyzerConfigurationRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateNetworkAnalyzerConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateNetworkAnalyzerConfigurationResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateNetworkAnalyzerConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateNetworkAnalyzerConfiguration.</param>
+        /// 
+        /// <returns>Returns a  UpdateNetworkAnalyzerConfigurationResult from IoTWireless.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotwireless-2020-11-22/UpdateNetworkAnalyzerConfiguration">REST API Reference for UpdateNetworkAnalyzerConfiguration Operation</seealso>
+        public virtual UpdateNetworkAnalyzerConfigurationResponse EndUpdateNetworkAnalyzerConfiguration(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateNetworkAnalyzerConfigurationResponse>(asyncResult);
         }
 
         #endregion

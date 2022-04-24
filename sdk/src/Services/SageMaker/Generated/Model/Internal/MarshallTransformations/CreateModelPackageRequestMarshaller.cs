@@ -58,7 +58,7 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
             string target = "SageMaker.CreateModelPackage";
             request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/x-amz-json-1.1";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2017-07-24";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2017-07-24";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
@@ -67,6 +67,22 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetAdditionalInferenceSpecifications())
+                {
+                    context.Writer.WritePropertyName("AdditionalInferenceSpecifications");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestAdditionalInferenceSpecificationsListValue in publicRequest.AdditionalInferenceSpecifications)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = AdditionalInferenceSpecificationDefinitionMarshaller.Instance;
+                        marshaller.Marshall(publicRequestAdditionalInferenceSpecificationsListValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteArrayEnd();
+                }
+
                 if(publicRequest.IsSetCertifyForMarketplace())
                 {
                     context.Writer.WritePropertyName("CertifyForMarketplace");
@@ -82,7 +98,7 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 else if(!(publicRequest.IsSetClientToken()))
                 {
                     context.Writer.WritePropertyName("ClientToken");
-                    context.Writer.Write(Guid.NewGuid().ToString());                                                
+                    context.Writer.Write(Guid.NewGuid().ToString());
                 }
                 if(publicRequest.IsSetCustomerMetadataProperties())
                 {
@@ -95,6 +111,23 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
 
                             context.Writer.Write(publicRequestCustomerMetadataPropertiesValue);
                     }
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetDomain())
+                {
+                    context.Writer.WritePropertyName("Domain");
+                    context.Writer.Write(publicRequest.Domain);
+                }
+
+                if(publicRequest.IsSetDriftCheckBaselines())
+                {
+                    context.Writer.WritePropertyName("DriftCheckBaselines");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = DriftCheckBaselinesMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.DriftCheckBaselines, context);
+
                     context.Writer.WriteObjectEnd();
                 }
 
@@ -155,6 +188,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.ModelPackageName);
                 }
 
+                if(publicRequest.IsSetSamplePayloadUrl())
+                {
+                    context.Writer.WritePropertyName("SamplePayloadUrl");
+                    context.Writer.Write(publicRequest.SamplePayloadUrl);
+                }
+
                 if(publicRequest.IsSetSourceAlgorithmSpecification())
                 {
                     context.Writer.WritePropertyName("SourceAlgorithmSpecification");
@@ -182,6 +221,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     context.Writer.WriteArrayEnd();
                 }
 
+                if(publicRequest.IsSetTask())
+                {
+                    context.Writer.WritePropertyName("Task");
+                    context.Writer.Write(publicRequest.Task);
+                }
+
                 if(publicRequest.IsSetValidationSpecification())
                 {
                     context.Writer.WritePropertyName("ValidationSpecification");
@@ -193,7 +238,6 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

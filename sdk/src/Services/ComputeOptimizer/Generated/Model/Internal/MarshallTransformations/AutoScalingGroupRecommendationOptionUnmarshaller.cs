@@ -70,6 +70,12 @@ namespace Amazon.ComputeOptimizer.Model.Internal.MarshallTransformations
                     unmarshalledObject.Configuration = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("migrationEffort", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.MigrationEffort = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("performanceRisk", targetDepth))
                 {
                     var unmarshaller = DoubleUnmarshaller.Instance;
@@ -86,6 +92,12 @@ namespace Amazon.ComputeOptimizer.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = IntUnmarshaller.Instance;
                     unmarshalledObject.Rank = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("savingsOpportunity", targetDepth))
+                {
+                    var unmarshaller = SavingsOpportunityUnmarshaller.Instance;
+                    unmarshalledObject.SavingsOpportunity = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

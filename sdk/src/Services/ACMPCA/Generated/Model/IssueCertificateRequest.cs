@@ -127,7 +127,7 @@ namespace Amazon.ACMPCA.Model
         ///  
         /// <para>
         ///  <code>openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048
-        /// -days -365 -keyout private/test_cert_priv_key.pem -out csr/test_cert_.csr</code> 
+        /// -days 365 -keyout private/test_cert_priv_key.pem -out csr/test_cert_.csr</code> 
         /// </para>
         ///  
         /// <para>
@@ -183,6 +183,12 @@ namespace Amazon.ACMPCA.Model
         /// This parameter should not be confused with the <code>SigningAlgorithm</code> parameter
         /// used to sign a CSR in the <code>CreateCertificateAuthority</code> action.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// The specified signing algorithm family (RSA or ECDSA) much match the algorithm family
+        /// of the CA's secret key.
+        /// </para>
+        ///  </note>
         /// </summary>
         [AWSProperty(Required=true)]
         public SigningAlgorithm SigningAlgorithm
@@ -243,8 +249,8 @@ namespace Amazon.ACMPCA.Model
         /// Certificate validity is the period of time during which a certificate is valid. Validity
         /// can be expressed as an explicit date and time when the certificate expires, or as
         /// a span of time after issuance, stated in days, months, or years. For more information,
-        /// see <a href="https://tools.ietf.org/html/rfc5280#section-4.1.2.5">Validity</a> in
-        /// RFC 5280. 
+        /// see <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5">Validity</a>
+        /// in RFC 5280. 
         /// </para>
         ///  
         /// <para>
@@ -295,7 +301,7 @@ namespace Amazon.ACMPCA.Model
         /// The <code>ValidityNotBefore</code> value is expressed as an explicit date and time,
         /// using the <code>Validity</code> type value <code>ABSOLUTE</code>. For more information,
         /// see <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_Validity.html">Validity</a>
-        /// in this API reference and <a href="https://tools.ietf.org/html/rfc5280#section-4.1.2.5">Validity</a>
+        /// in this API reference and <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5">Validity</a>
         /// in RFC 5280.
         /// </para>
         /// </summary>

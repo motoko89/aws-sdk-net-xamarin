@@ -38,16 +38,17 @@ namespace Amazon.ACMPCA
     /// <summary>
     /// Implementation for accessing ACMPCA
     ///
-    /// This is the <i>ACM Private CA API Reference</i>. It provides descriptions, syntax,
-    /// and usage examples for each of the actions and data types involved in creating and
-    /// managing private certificate authorities (CA) for your organization.
+    /// This is the <i>Certificate Manager Private Certificate Authority (PCA) API Reference</i>.
+    /// It provides descriptions, syntax, and usage examples for each of the actions and data
+    /// types involved in creating and managing a private certificate authority (CA) for your
+    /// organization.
     /// 
     ///  
     /// <para>
-    /// The documentation for each action shows the Query API request parameters and the XML
-    /// response. Alternatively, you can use one of the AWS SDKs to access an API that's tailored
-    /// to the programming language or platform that you're using. For more information, see
-    /// <a href="https://aws.amazon.com/tools/#SDKs">AWS SDKs</a>.
+    /// The documentation for each action shows the API request parameters and the JSON response.
+    /// Alternatively, you can use one of the Amazon Web Services SDKs to access an API that
+    /// is tailored to the programming language or platform that you prefer. For more information,
+    /// see <a href="https://aws.amazon.com/tools/#SDKs">Amazon Web Services SDKs</a>.
     /// </para>
     ///  
     /// <para>
@@ -62,7 +63,7 @@ namespace Amazon.ACMPCA
     ///  
     /// <para>
     /// To see an up-to-date list of your ACM Private CA quotas, or to request a quota increase,
-    /// log into your AWS account and visit the <a href="https://console.aws.amazon.com/servicequotas/">Service
+    /// log into your Amazon Web Services account and visit the <a href="https://console.aws.amazon.com/servicequotas/">Service
     /// Quotas</a> console.
     /// </para>
     /// </summary>
@@ -320,8 +321,8 @@ namespace Amazon.ACMPCA
         /// <para>
         /// Both PCA and the IAM principal must have permission to write to the S3 bucket that
         /// you specify. If the IAM principal making the call does not have permission to write
-        /// to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html">Configure
-        /// Access to ACM Private CA</a>.
+        /// to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies">Access
+        /// policies for CRLs in Amazon S3</a>.
         /// </para>
         ///  </note>
         /// </summary>
@@ -382,8 +383,8 @@ namespace Amazon.ACMPCA
         /// <para>
         /// Both PCA and the IAM principal must have permission to write to the S3 bucket that
         /// you specify. If the IAM principal making the call does not have permission to write
-        /// to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html">Configure
-        /// Access to ACM Private CA</a>.
+        /// to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies">Access
+        /// policies for CRLs in Amazon S3</a>.
         /// </para>
         ///  </note> 
         /// <para>
@@ -391,6 +392,11 @@ namespace Amazon.ACMPCA
         /// For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuditReport.html#audit-report-encryption">Encrypting
         /// Your Audit Reports</a>.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// You can generate a maximum of one report every 30 minutes.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateCertificateAuthorityAuditReport service method.</param>
         /// <param name="cancellationToken">
@@ -443,9 +449,10 @@ namespace Amazon.ACMPCA
 
 
         /// <summary>
-        /// Grants one or more permissions on a private CA to the AWS Certificate Manager (ACM)
-        /// service principal (<code>acm.amazonaws.com</code>). These permissions allow ACM to
-        /// issue and renew ACM certificates that reside in the same AWS account as the CA.
+        /// Grants one or more permissions on a private CA to the Certificate Manager (ACM) service
+        /// principal (<code>acm.amazonaws.com</code>). These permissions allow ACM to issue and
+        /// renew ACM certificates that reside in the same Amazon Web Services account as the
+        /// CA.
         /// 
         ///  
         /// <para>
@@ -608,14 +615,14 @@ namespace Amazon.ACMPCA
 
 
         /// <summary>
-        /// Revokes permissions on a private CA granted to the AWS Certificate Manager (ACM) service
+        /// Revokes permissions on a private CA granted to the Certificate Manager (ACM) service
         /// principal (acm.amazonaws.com). 
         /// 
         ///  
         /// <para>
         /// These permissions allow ACM to issue and renew ACM certificates that reside in the
-        /// same AWS account as the CA. If you revoke these permissions, ACM will no longer renew
-        /// the affected certificates automatically.
+        /// same Amazon Web Services account as the CA. If you revoke these permissions, ACM will
+        /// no longer renew the affected certificates automatically.
         /// </para>
         ///  
         /// <para>
@@ -697,12 +704,12 @@ namespace Amazon.ACMPCA
         /// 
         ///  
         /// <para>
-        /// If you delete a policy that was applied through AWS Resource Access Manager (RAM),
-        /// the CA will be removed from all shares in which it was included. 
+        /// If you delete a policy that was applied through Amazon Web Services Resource Access
+        /// Manager (RAM), the CA will be removed from all shares in which it was included. 
         /// </para>
         ///  
         /// <para>
-        /// The AWS Certificate Manager Service Linked Role that the policy supports is not affected
+        /// The Certificate Manager Service Linked Role that the policy supports is not affected
         /// when you delete the policy. 
         /// </para>
         ///  
@@ -714,15 +721,16 @@ namespace Amazon.ACMPCA
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// A policy grants access on a private CA to an AWS customer account, to AWS Organizations,
-        /// or to an AWS Organizations unit. Policies are under the control of a CA administrator.
-        /// For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using
-        /// a Resource Based Policy with ACM Private CA</a>.
+        /// A policy grants access on a private CA to an Amazon Web Services customer account,
+        /// to Amazon Web Services Organizations, or to an Amazon Web Services Organizations unit.
+        /// Policies are under the control of a CA administrator. For more information, see <a
+        /// href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource
+        /// Based Policy with ACM Private CA</a>.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// A policy permits a user of AWS Certificate Manager (ACM) to issue ACM certificates
-        /// signed by a CA in another account.
+        /// A policy permits a user of Certificate Manager (ACM) to issue ACM certificates signed
+        /// by a CA in another account.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -734,8 +742,8 @@ namespace Amazon.ACMPCA
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Updates made in AWS Resource Manager (RAM) are reflected in policies. For more information,
-        /// see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach
+        /// Updates made in Amazon Web Services Resource Manager (RAM) are reflected in policies.
+        /// For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach
         /// a Policy for Cross-Account Access</a>.
         /// </para>
         ///  </li> </ul>
@@ -822,8 +830,8 @@ namespace Amazon.ACMPCA
         ///  </li> <li> 
         /// <para>
         ///  <code>FAILED</code> - Your private CA has failed. Your CA can fail because of problems
-        /// such a network outage or back-end AWS failure or other errors. A failed CA can never
-        /// return to the pending state. You must create a new CA. 
+        /// such a network outage or back-end Amazon Web Services failure or other errors. A failed
+        /// CA can never return to the pending state. You must create a new CA. 
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1091,15 +1099,16 @@ namespace Amazon.ACMPCA
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// A policy grants access on a private CA to an AWS customer account, to AWS Organizations,
-        /// or to an AWS Organizations unit. Policies are under the control of a CA administrator.
-        /// For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using
-        /// a Resource Based Policy with ACM Private CA</a>.
+        /// A policy grants access on a private CA to an Amazon Web Services customer account,
+        /// to Amazon Web Services Organizations, or to an Amazon Web Services Organizations unit.
+        /// Policies are under the control of a CA administrator. For more information, see <a
+        /// href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource
+        /// Based Policy with ACM Private CA</a>.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// A policy permits a user of AWS Certificate Manager (ACM) to issue ACM certificates
-        /// signed by a CA in another account.
+        /// A policy permits a user of Certificate Manager (ACM) to issue ACM certificates signed
+        /// by a CA in another account.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1111,8 +1120,8 @@ namespace Amazon.ACMPCA
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Updates made in AWS Resource Manager (RAM) are reflected in policies. For more information,
-        /// see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach
+        /// Updates made in Amazon Web Services Resource Manager (RAM) are reflected in policies.
+        /// For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach
         /// a Policy for Cross-Account Access</a>.
         /// </para>
         ///  </li> </ul>
@@ -1490,13 +1499,13 @@ namespace Amazon.ACMPCA
 
 
         /// <summary>
-        /// List all permissions on a private CA, if any, granted to the AWS Certificate Manager
-        /// (ACM) service principal (acm.amazonaws.com). 
+        /// List all permissions on a private CA, if any, granted to the Certificate Manager (ACM)
+        /// service principal (acm.amazonaws.com). 
         /// 
         ///  
         /// <para>
         /// These permissions allow ACM to issue and renew ACM certificates that reside in the
-        /// same AWS account as the CA. 
+        /// same Amazon Web Services account as the CA. 
         /// </para>
         ///  
         /// <para>
@@ -1628,8 +1637,8 @@ namespace Amazon.ACMPCA
         /// 
         ///  
         /// <para>
-        /// A policy can also be applied by sharing a private CA through AWS Resource Access Manager
-        /// (RAM). For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach
+        /// A policy can also be applied by sharing a private CA through Amazon Web Services Resource
+        /// Access Manager (RAM). For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach
         /// a Policy for Cross-Account Access</a>.
         /// </para>
         ///  
@@ -1641,15 +1650,16 @@ namespace Amazon.ACMPCA
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// A policy grants access on a private CA to an AWS customer account, to AWS Organizations,
-        /// or to an AWS Organizations unit. Policies are under the control of a CA administrator.
-        /// For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using
-        /// a Resource Based Policy with ACM Private CA</a>.
+        /// A policy grants access on a private CA to an Amazon Web Services customer account,
+        /// to Amazon Web Services Organizations, or to an Amazon Web Services Organizations unit.
+        /// Policies are under the control of a CA administrator. For more information, see <a
+        /// href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource
+        /// Based Policy with ACM Private CA</a>.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// A policy permits a user of AWS Certificate Manager (ACM) to issue ACM certificates
-        /// signed by a CA in another account.
+        /// A policy permits a user of Certificate Manager (ACM) to issue ACM certificates signed
+        /// by a CA in another account.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1661,8 +1671,8 @@ namespace Amazon.ACMPCA
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Updates made in AWS Resource Manager (RAM) are reflected in policies. For more information,
-        /// see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach
+        /// Updates made in Amazon Web Services Resource Manager (RAM) are reflected in policies.
+        /// For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach
         /// a Policy for Cross-Account Access</a>.
         /// </para>
         ///  </li> </ul>
@@ -1796,8 +1806,8 @@ namespace Amazon.ACMPCA
         /// <para>
         /// Both PCA and the IAM principal must have permission to write to the S3 bucket that
         /// you specify. If the IAM principal making the call does not have permission to write
-        /// to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html">Configure
-        /// Access to ACM Private CA</a>.
+        /// to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies">Access
+        /// policies for CRLs in Amazon S3</a>.
         /// </para>
         ///  </note> 
         /// <para>
@@ -1872,12 +1882,12 @@ namespace Amazon.ACMPCA
 
         /// <summary>
         /// Adds one or more tags to your private CA. Tags are labels that you can use to identify
-        /// and organize your AWS resources. Each tag consists of a key and an optional value.
-        /// You specify the private CA on input by its Amazon Resource Name (ARN). You specify
-        /// the tag by using a key-value pair. You can apply a tag to just one private CA if you
-        /// want to identify a specific characteristic of that CA, or you can apply the same tag
-        /// to multiple private CAs if you want to filter for a common relationship among those
-        /// CAs. To remove one or more tags, use the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UntagCertificateAuthority.html">UntagCertificateAuthority</a>
+        /// and organize your Amazon Web Services resources. Each tag consists of a key and an
+        /// optional value. You specify the private CA on input by its Amazon Resource Name (ARN).
+        /// You specify the tag by using a key-value pair. You can apply a tag to just one private
+        /// CA if you want to identify a specific characteristic of that CA, or you can apply
+        /// the same tag to multiple private CAs if you want to filter for a common relationship
+        /// among those CAs. To remove one or more tags, use the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UntagCertificateAuthority.html">UntagCertificateAuthority</a>
         /// action. Call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListTags.html">ListTags</a>
         /// action to see what tags are associated with your CA.
         /// </summary>
@@ -1994,8 +2004,8 @@ namespace Amazon.ACMPCA
         /// <para>
         /// Both PCA and the IAM principal must have permission to write to the S3 bucket that
         /// you specify. If the IAM principal making the call does not have permission to write
-        /// to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html">Configure
-        /// Access to ACM Private CA</a>.
+        /// to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies">Access
+        /// policies for CRLs in Amazon S3</a>.
         /// </para>
         ///  </note>
         /// </summary>

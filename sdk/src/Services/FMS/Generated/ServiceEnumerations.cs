@@ -249,6 +249,110 @@ namespace Amazon.FMS
 
 
     /// <summary>
+    /// Constants used for properties of type FirewallDeploymentModel.
+    /// </summary>
+    public class FirewallDeploymentModel : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CENTRALIZED for FirewallDeploymentModel
+        /// </summary>
+        public static readonly FirewallDeploymentModel CENTRALIZED = new FirewallDeploymentModel("CENTRALIZED");
+        /// <summary>
+        /// Constant DISTRIBUTED for FirewallDeploymentModel
+        /// </summary>
+        public static readonly FirewallDeploymentModel DISTRIBUTED = new FirewallDeploymentModel("DISTRIBUTED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public FirewallDeploymentModel(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static FirewallDeploymentModel FindValue(string value)
+        {
+            return FindValue<FirewallDeploymentModel>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator FirewallDeploymentModel(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type MarketplaceSubscriptionOnboardingStatus.
+    /// </summary>
+    public class MarketplaceSubscriptionOnboardingStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant COMPLETE for MarketplaceSubscriptionOnboardingStatus
+        /// </summary>
+        public static readonly MarketplaceSubscriptionOnboardingStatus COMPLETE = new MarketplaceSubscriptionOnboardingStatus("COMPLETE");
+        /// <summary>
+        /// Constant NO_SUBSCRIPTION for MarketplaceSubscriptionOnboardingStatus
+        /// </summary>
+        public static readonly MarketplaceSubscriptionOnboardingStatus NO_SUBSCRIPTION = new MarketplaceSubscriptionOnboardingStatus("NO_SUBSCRIPTION");
+        /// <summary>
+        /// Constant NOT_COMPLETE for MarketplaceSubscriptionOnboardingStatus
+        /// </summary>
+        public static readonly MarketplaceSubscriptionOnboardingStatus NOT_COMPLETE = new MarketplaceSubscriptionOnboardingStatus("NOT_COMPLETE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public MarketplaceSubscriptionOnboardingStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static MarketplaceSubscriptionOnboardingStatus FindValue(string value)
+        {
+            return FindValue<MarketplaceSubscriptionOnboardingStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator MarketplaceSubscriptionOnboardingStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type PolicyComplianceStatusType.
     /// </summary>
     public class PolicyComplianceStatusType : ConstantClass
@@ -379,6 +483,10 @@ namespace Amazon.FMS
         /// </summary>
         public static readonly SecurityServiceType SHIELD_ADVANCED = new SecurityServiceType("SHIELD_ADVANCED");
         /// <summary>
+        /// Constant THIRD_PARTY_FIREWALL for SecurityServiceType
+        /// </summary>
+        public static readonly SecurityServiceType THIRD_PARTY_FIREWALL = new SecurityServiceType("THIRD_PARTY_FIREWALL");
+        /// <summary>
         /// Constant WAF for SecurityServiceType
         /// </summary>
         public static readonly SecurityServiceType WAF = new SecurityServiceType("WAF");
@@ -505,6 +613,114 @@ namespace Amazon.FMS
 
 
     /// <summary>
+    /// Constants used for properties of type ThirdPartyFirewall.
+    /// </summary>
+    public class ThirdPartyFirewall : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant PALO_ALTO_NETWORKS_CLOUD_NGFW for ThirdPartyFirewall
+        /// </summary>
+        public static readonly ThirdPartyFirewall PALO_ALTO_NETWORKS_CLOUD_NGFW = new ThirdPartyFirewall("PALO_ALTO_NETWORKS_CLOUD_NGFW");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ThirdPartyFirewall(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ThirdPartyFirewall FindValue(string value)
+        {
+            return FindValue<ThirdPartyFirewall>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ThirdPartyFirewall(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ThirdPartyFirewallAssociationStatus.
+    /// </summary>
+    public class ThirdPartyFirewallAssociationStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant NOT_EXIST for ThirdPartyFirewallAssociationStatus
+        /// </summary>
+        public static readonly ThirdPartyFirewallAssociationStatus NOT_EXIST = new ThirdPartyFirewallAssociationStatus("NOT_EXIST");
+        /// <summary>
+        /// Constant OFFBOARD_COMPLETE for ThirdPartyFirewallAssociationStatus
+        /// </summary>
+        public static readonly ThirdPartyFirewallAssociationStatus OFFBOARD_COMPLETE = new ThirdPartyFirewallAssociationStatus("OFFBOARD_COMPLETE");
+        /// <summary>
+        /// Constant OFFBOARDING for ThirdPartyFirewallAssociationStatus
+        /// </summary>
+        public static readonly ThirdPartyFirewallAssociationStatus OFFBOARDING = new ThirdPartyFirewallAssociationStatus("OFFBOARDING");
+        /// <summary>
+        /// Constant ONBOARD_COMPLETE for ThirdPartyFirewallAssociationStatus
+        /// </summary>
+        public static readonly ThirdPartyFirewallAssociationStatus ONBOARD_COMPLETE = new ThirdPartyFirewallAssociationStatus("ONBOARD_COMPLETE");
+        /// <summary>
+        /// Constant ONBOARDING for ThirdPartyFirewallAssociationStatus
+        /// </summary>
+        public static readonly ThirdPartyFirewallAssociationStatus ONBOARDING = new ThirdPartyFirewallAssociationStatus("ONBOARDING");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ThirdPartyFirewallAssociationStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ThirdPartyFirewallAssociationStatus FindValue(string value)
+        {
+            return FindValue<ThirdPartyFirewallAssociationStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ThirdPartyFirewallAssociationStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ViolationReason.
     /// </summary>
     public class ViolationReason : ConstantClass
@@ -519,9 +735,17 @@ namespace Amazon.FMS
         /// </summary>
         public static readonly ViolationReason BLACK_HOLE_ROUTE_DETECTED_IN_FIREWALL_SUBNET = new ViolationReason("BLACK_HOLE_ROUTE_DETECTED_IN_FIREWALL_SUBNET");
         /// <summary>
+        /// Constant FIREWALL_SUBNET_IS_OUT_OF_SCOPE for ViolationReason
+        /// </summary>
+        public static readonly ViolationReason FIREWALL_SUBNET_IS_OUT_OF_SCOPE = new ViolationReason("FIREWALL_SUBNET_IS_OUT_OF_SCOPE");
+        /// <summary>
         /// Constant FIREWALL_SUBNET_MISSING_EXPECTED_ROUTE for ViolationReason
         /// </summary>
         public static readonly ViolationReason FIREWALL_SUBNET_MISSING_EXPECTED_ROUTE = new ViolationReason("FIREWALL_SUBNET_MISSING_EXPECTED_ROUTE");
+        /// <summary>
+        /// Constant FIREWALL_SUBNET_MISSING_VPCE_ENDPOINT for ViolationReason
+        /// </summary>
+        public static readonly ViolationReason FIREWALL_SUBNET_MISSING_VPCE_ENDPOINT = new ViolationReason("FIREWALL_SUBNET_MISSING_VPCE_ENDPOINT");
         /// <summary>
         /// Constant FMS_CREATED_SECURITY_GROUP_EDITED for ViolationReason
         /// </summary>
@@ -586,6 +810,10 @@ namespace Amazon.FMS
         /// Constant RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP for ViolationReason
         /// </summary>
         public static readonly ViolationReason RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP = new ViolationReason("RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP");
+        /// <summary>
+        /// Constant ROUTE_HAS_OUT_OF_SCOPE_ENDPOINT for ViolationReason
+        /// </summary>
+        public static readonly ViolationReason ROUTE_HAS_OUT_OF_SCOPE_ENDPOINT = new ViolationReason("ROUTE_HAS_OUT_OF_SCOPE_ENDPOINT");
         /// <summary>
         /// Constant SECURITY_GROUP_REDUNDANT for ViolationReason
         /// </summary>

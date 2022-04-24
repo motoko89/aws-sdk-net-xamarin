@@ -456,6 +456,13 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                             publicRequestLaunchTemplateDatalistValueIndex++;
                         }
                     }
+                    if(publicRequest.LaunchTemplateData.IsSetMaintenanceOptions())
+                    {
+                        if(publicRequest.LaunchTemplateData.MaintenanceOptions.IsSetAutoRecovery())
+                        {
+                            request.Parameters.Add("LaunchTemplateData" + "." + "MaintenanceOptions" + "." + "AutoRecovery", StringUtils.FromString(publicRequest.LaunchTemplateData.MaintenanceOptions.AutoRecovery));
+                        }
+                    }
                     if(publicRequest.LaunchTemplateData.IsSetMetadataOptions())
                     {
                         if(publicRequest.LaunchTemplateData.MetadataOptions.IsSetHttpEndpoint())
@@ -473,6 +480,10 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         if(publicRequest.LaunchTemplateData.MetadataOptions.IsSetHttpTokens())
                         {
                             request.Parameters.Add("LaunchTemplateData" + "." + "MetadataOptions" + "." + "HttpTokens", StringUtils.FromString(publicRequest.LaunchTemplateData.MetadataOptions.HttpTokens));
+                        }
+                        if(publicRequest.LaunchTemplateData.MetadataOptions.IsSetInstanceMetadataTags())
+                        {
+                            request.Parameters.Add("LaunchTemplateData" + "." + "MetadataOptions" + "." + "InstanceMetadataTags", StringUtils.FromString(publicRequest.LaunchTemplateData.MetadataOptions.InstanceMetadataTags));
                         }
                     }
                     if(publicRequest.LaunchTemplateData.IsSetMonitoring())
@@ -640,6 +651,21 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         if(publicRequest.LaunchTemplateData.Placement.IsSetTenancy())
                         {
                             request.Parameters.Add("LaunchTemplateData" + "." + "Placement" + "." + "Tenancy", StringUtils.FromString(publicRequest.LaunchTemplateData.Placement.Tenancy));
+                        }
+                    }
+                    if(publicRequest.LaunchTemplateData.IsSetPrivateDnsNameOptions())
+                    {
+                        if(publicRequest.LaunchTemplateData.PrivateDnsNameOptions.IsSetEnableResourceNameDnsAAAARecord())
+                        {
+                            request.Parameters.Add("LaunchTemplateData" + "." + "PrivateDnsNameOptions" + "." + "EnableResourceNameDnsAAAARecord", StringUtils.FromBool(publicRequest.LaunchTemplateData.PrivateDnsNameOptions.EnableResourceNameDnsAAAARecord));
+                        }
+                        if(publicRequest.LaunchTemplateData.PrivateDnsNameOptions.IsSetEnableResourceNameDnsARecord())
+                        {
+                            request.Parameters.Add("LaunchTemplateData" + "." + "PrivateDnsNameOptions" + "." + "EnableResourceNameDnsARecord", StringUtils.FromBool(publicRequest.LaunchTemplateData.PrivateDnsNameOptions.EnableResourceNameDnsARecord));
+                        }
+                        if(publicRequest.LaunchTemplateData.PrivateDnsNameOptions.IsSetHostnameType())
+                        {
+                            request.Parameters.Add("LaunchTemplateData" + "." + "PrivateDnsNameOptions" + "." + "HostnameType", StringUtils.FromString(publicRequest.LaunchTemplateData.PrivateDnsNameOptions.HostnameType));
                         }
                     }
                     if(publicRequest.LaunchTemplateData.IsSetRamDiskId())

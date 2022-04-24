@@ -43,6 +43,8 @@ namespace Amazon.Batch.Model
         private string _statusReason;
         private Dictionary<string, string> _tags = new Dictionary<string, string>();
         private CEType _type;
+        private int? _unmanagedvCpus;
+        private UpdatePolicy _updatePolicy;
 
         /// <summary>
         /// Gets and sets the property ComputeEnvironmentArn. 
@@ -66,8 +68,8 @@ namespace Amazon.Batch.Model
         /// <summary>
         /// Gets and sets the property ComputeEnvironmentName. 
         /// <para>
-        /// The name of the compute environment. Up to 128 letters (uppercase and lowercase),
-        /// numbers, hyphens, and underscores are allowed.
+        /// The name of the compute environment. It can be up to 128 letters long. It can contain
+        /// uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -88,7 +90,7 @@ namespace Amazon.Batch.Model
         /// <para>
         /// The compute resources defined for the compute environment. For more information, see
         /// <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
-        /// Environments</a> in the <i>Batch User Guide</i>.
+        /// environments</a> in the <i>Batch User Guide</i>.
         /// </para>
         /// </summary>
         public ComputeResource ComputeResources
@@ -110,7 +112,6 @@ namespace Amazon.Batch.Model
         /// environment.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
         public string EcsClusterArn
         {
             get { return this._ecsClusterArn; }
@@ -240,7 +241,7 @@ namespace Amazon.Batch.Model
         /// <para>
         /// The type of the compute environment: <code>MANAGED</code> or <code>UNMANAGED</code>.
         /// For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
-        /// Environments</a> in the <i>Batch User Guide</i>.
+        /// environments</a> in the <i>Batch User Guide</i>.
         /// </para>
         /// </summary>
         public CEType Type
@@ -253,6 +254,44 @@ namespace Amazon.Batch.Model
         internal bool IsSetType()
         {
             return this._type != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property UnmanagedvCpus. 
+        /// <para>
+        /// The maximum number of VCPUs expected to be used for an unmanaged compute environment.
+        /// </para>
+        /// </summary>
+        public int UnmanagedvCpus
+        {
+            get { return this._unmanagedvCpus.GetValueOrDefault(); }
+            set { this._unmanagedvCpus = value; }
+        }
+
+        // Check to see if UnmanagedvCpus property is set
+        internal bool IsSetUnmanagedvCpus()
+        {
+            return this._unmanagedvCpus.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property UpdatePolicy. 
+        /// <para>
+        /// Specifies the infrastructure update policy for the compute environment. For more information
+        /// about infrastructure updates, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
+        /// compute environments</a> in the <i>Batch User Guide</i>.
+        /// </para>
+        /// </summary>
+        public UpdatePolicy UpdatePolicy
+        {
+            get { return this._updatePolicy; }
+            set { this._updatePolicy = value; }
+        }
+
+        // Check to see if UpdatePolicy property is set
+        internal bool IsSetUpdatePolicy()
+        {
+            return this._updatePolicy != null;
         }
 
     }

@@ -349,9 +349,9 @@ namespace Amazon.QuickSight
         ///  
         /// <para>
         /// You can create customizations for your Amazon Web Services account or, if you specify
-        /// a namespace, for a Amazon QuickSight namespace instead. Customizations that apply
-        /// to a namespace always override customizations that apply to an Amazon Web Services
-        /// account. To find out which customizations apply, use the <code>DescribeAccountCustomization</code>
+        /// a namespace, for a QuickSight namespace instead. Customizations that apply to a namespace
+        /// always override customizations that apply to an Amazon Web Services account. To find
+        /// out which customizations apply, use the <code>DescribeAccountCustomization</code>
         /// API operation.
         /// </para>
         ///  
@@ -360,8 +360,9 @@ namespace Amazon.QuickSight
         /// theme as the namespace default, make sure that you first share the theme with the
         /// namespace. If you don't share it with the namespace, the theme isn't visible to your
         /// users even if you make it the default theme. To check if the theme is shared, view
-        /// the current permissions by using the <code> <a>DescribeThemePermissions</a> </code>
-        /// API operation. To share the theme, grant permissions by using the <code> <a>UpdateThemePermissions</a>
+        /// the current permissions by using the <code> <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeThemePermissions.html">DescribeThemePermissions</a>
+        /// </code> API operation. To share the theme, grant permissions by using the <code> <a
+        /// href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateThemePermissions.html">UpdateThemePermissions</a>
         /// </code> API operation. 
         /// </para>
         /// </summary>
@@ -373,6 +374,9 @@ namespace Amazon.QuickSight
         /// You might not be authorized to carry out the request. Make sure that your account
         /// is authorized to use the Amazon QuickSight service, that your policies have the correct
         /// permissions, and that you are using the correct access keys.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.ConflictException">
+        /// Updating or deleting a resource can cause an inconsistent state.
         /// </exception>
         /// <exception cref="Amazon.QuickSight.Model.InternalFailureException">
         /// An internal failure occurred.
@@ -519,7 +523,8 @@ namespace Amazon.QuickSight
         #region  CreateDashboard
 
         /// <summary>
-        /// Creates a dashboard from a template. To first create a template, see the <code> <a>CreateTemplate</a>
+        /// Creates a dashboard from a template. To first create a template, see the <code> <a
+        /// href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
         /// </code> API operation.
         /// 
         ///  
@@ -607,7 +612,8 @@ namespace Amazon.QuickSight
         #region  CreateDataSet
 
         /// <summary>
-        /// Creates a dataset.
+        /// Creates a dataset. This operation doesn't support datasets that include uploaded files
+        /// as a source.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateDataSet service method.</param>
         /// 
@@ -950,7 +956,7 @@ namespace Amazon.QuickSight
         /// 
         ///  
         /// <para>
-        /// The permissions resource is <code>arn:aws:quicksight:us-east-1:<i>&lt;relevant-aws-account-id&gt;</i>:group/default/<i>&lt;group-name&gt;</i>
+        /// The permissions resource is <code>arn:aws:quicksight:&lt;your-region&gt;:<i>&lt;relevant-aws-account-id&gt;</i>:group/default/<i>&lt;group-name&gt;</i>
         /// </code>.
         /// </para>
         ///  
@@ -1118,7 +1124,7 @@ namespace Amazon.QuickSight
         #region  CreateIAMPolicyAssignment
 
         /// <summary>
-        /// Creates an assignment with one specified IAMpolicy, identified by its Amazon Resource
+        /// Creates an assignment with one specified IAM policy, identified by its Amazon Resource
         /// Name (ARN). This policy assignment is attached to the specified groups or users of
         /// Amazon QuickSight. Assignment names are unique per Amazon Web Services account. To
         /// avoid overwriting rules in other namespaces, use assignment names that are unique.
@@ -1200,7 +1206,10 @@ namespace Amazon.QuickSight
         #region  CreateIngestion
 
         /// <summary>
-        /// Creates and starts a new SPICE ingestion on a dataset
+        /// Creates and starts a new SPICE ingestion for a dataset. You can manually refresh datasets
+        /// in an Enterprise edition account 32 times in a 24-hour period. You can manually refresh
+        /// datasets in a Standard edition account 8 times in a 24-hour period. Each 24-hour period
+        /// is measured starting 24 hours before the current date and time.
         /// 
         ///  
         /// <para>
@@ -1745,6 +1754,9 @@ namespace Amazon.QuickSight
         /// You might not be authorized to carry out the request. Make sure that your account
         /// is authorized to use the Amazon QuickSight service, that your policies have the correct
         /// permissions, and that you are using the correct access keys.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.ConflictException">
+        /// Updating or deleting a resource can cause an inconsistent state.
         /// </exception>
         /// <exception cref="Amazon.QuickSight.Model.InternalFailureException">
         /// An internal failure occurred.
@@ -2441,7 +2453,7 @@ namespace Amazon.QuickSight
         #region  DeleteIAMPolicyAssignment
 
         /// <summary>
-        /// Deletes an existing IAMpolicy assignment.
+        /// Deletes an existing IAM policy assignment.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteIAMPolicyAssignment service method.</param>
         /// 
@@ -3082,10 +3094,10 @@ namespace Amazon.QuickSight
         /// <para>
         ///  <code>Amazon Web Services account</code> - The Amazon Web Services account exists
         /// at the top of the hierarchy. It has the potential to use all of the Amazon Web Services
-        /// Regions and AWS Services. When you subscribe to Amazon QuickSight, you choose one
-        /// Amazon Web Services Region to use as your home Region. That's where your free SPICE
-        /// capacity is located. You can use Amazon QuickSight in any supported Amazon Web Services
-        /// Region. 
+        /// Regions and Amazon Web Services Services. When you subscribe to Amazon QuickSight,
+        /// you choose one Amazon Web Services Region to use as your home Region. That's where
+        /// your free SPICE capacity is located. You can use Amazon QuickSight in any supported
+        /// Amazon Web Services Region. 
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -3099,7 +3111,7 @@ namespace Amazon.QuickSight
         ///  
         /// <para>
         /// To run the command in a different Amazon Web Services Region, you change your Region
-        /// settings. If you're using the AWS CLI, you can use one of the following options:
+        /// settings. If you're using the CLI, you can use one of the following options:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -3115,13 +3127,13 @@ namespace Amazon.QuickSight
         /// <para>
         /// Run <code>aws configure</code> to change your default Amazon Web Services Region.
         /// Use Enter to key the same settings for your keys. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html">Configuring
-        /// the AWS CLI</a>.
+        /// the CLI</a>.
         /// </para>
         ///  </li> </ul> </li> <li> 
         /// <para>
-        ///  <code>Namespace</code> - A Amazon QuickSight namespace is a partition that contains
-        /// users and assets (data sources, datasets, dashboards, and so on). To access assets
-        /// that are in a specific namespace, users and groups must also be part of the same namespace.
+        ///  <code>Namespace</code> - A QuickSight namespace is a partition that contains users
+        /// and assets (data sources, datasets, dashboards, and so on). To access assets that
+        /// are in a specific namespace, users and groups must also be part of the same namespace.
         /// People who share a namespace are completely isolated from users and assets in other
         /// namespaces, even if they are in the same Amazon Web Services account and Amazon Web
         /// Services Region.
@@ -3587,7 +3599,8 @@ namespace Amazon.QuickSight
         #region  DescribeDataSet
 
         /// <summary>
-        /// Describes a dataset.
+        /// Describes a dataset. This operation doesn't support datasets that include uploaded
+        /// files as a source.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeDataSet service method.</param>
         /// 
@@ -4190,10 +4203,90 @@ namespace Amazon.QuickSight
 
         #endregion
         
+        #region  DescribeGroupMembership
+
+        /// <summary>
+        /// Use the <code>DescribeGroupMembership</code> operation to determine if a user is a
+        /// member of the specified group. If the user exists and is a member of the specified
+        /// group, an associated <code>GroupMember</code> object is returned.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeGroupMembership service method.</param>
+        /// 
+        /// <returns>The response from the DescribeGroupMembership service method, as returned by QuickSight.</returns>
+        /// <exception cref="Amazon.QuickSight.Model.AccessDeniedException">
+        /// You don't have access to this item. The provided credentials couldn't be validated.
+        /// You might not be authorized to carry out the request. Make sure that your account
+        /// is authorized to use the Amazon QuickSight service, that your policies have the correct
+        /// permissions, and that you are using the correct access keys.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.InternalFailureException">
+        /// An internal failure occurred.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.InvalidParameterValueException">
+        /// One or more parameters has a value that isn't valid.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.PreconditionNotMetException">
+        /// One or more preconditions aren't met.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.ResourceNotFoundException">
+        /// One or more resources can't be found.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.ResourceUnavailableException">
+        /// This resource is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.ThrottlingException">
+        /// Access is throttled.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/quicksight-2018-04-01/DescribeGroupMembership">REST API Reference for DescribeGroupMembership Operation</seealso>
+        public virtual DescribeGroupMembershipResponse DescribeGroupMembership(DescribeGroupMembershipRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeGroupMembershipRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeGroupMembershipResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeGroupMembershipResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeGroupMembership operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeGroupMembership operation on AmazonQuickSightClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeGroupMembership
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/quicksight-2018-04-01/DescribeGroupMembership">REST API Reference for DescribeGroupMembership Operation</seealso>
+        public virtual IAsyncResult BeginDescribeGroupMembership(DescribeGroupMembershipRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeGroupMembershipRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeGroupMembershipResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeGroupMembership operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeGroupMembership.</param>
+        /// 
+        /// <returns>Returns a  DescribeGroupMembershipResult from QuickSight.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/quicksight-2018-04-01/DescribeGroupMembership">REST API Reference for DescribeGroupMembership Operation</seealso>
+        public virtual DescribeGroupMembershipResponse EndDescribeGroupMembership(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DescribeGroupMembershipResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  DescribeIAMPolicyAssignment
 
         /// <summary>
-        /// Describes an existing IAMpolicy assignment, as specified by the assignment name.
+        /// Describes an existing IAM policy assignment, as specified by the assignment name.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeIAMPolicyAssignment service method.</param>
         /// 
@@ -4343,7 +4436,7 @@ namespace Amazon.QuickSight
         #region  DescribeIpRestriction
 
         /// <summary>
-        /// Provides a summary and status of IP Rules.
+        /// Provides a summary and status of IP rules.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeIpRestriction service method.</param>
         /// 
@@ -5097,14 +5190,14 @@ namespace Amazon.QuickSight
         /// <exception cref="Amazon.QuickSight.Model.UnsupportedPricingPlanException">
         /// This error indicates that you are calling an embedding operation in Amazon QuickSight
         /// without the required pricing plan on your Amazon Web Services account. Before you
-        /// can use embedding for anonymous users, a Amazon QuickSight administrator needs to
-        /// add capacity pricing to Amazon QuickSight. You can do this on the <b>Manage Amazon
-        /// QuickSight</b> page. 
+        /// can use embedding for anonymous users, a QuickSight administrator needs to add capacity
+        /// pricing to Amazon QuickSight. You can do this on the <b>Manage Amazon QuickSight</b>
+        /// page. 
         /// 
         ///  
         /// <para>
-        /// After capacity pricing is added, you can use the <a>GetDashboardEmbedUrl</a> API operation
-        /// with the <code>--identity-type ANONYMOUS</code> option.
+        /// After capacity pricing is added, you can use the <code> <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a>
+        /// </code> API operation with the <code>--identity-type ANONYMOUS</code> option.
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.QuickSight.Model.UnsupportedUserEditionException">
@@ -5235,14 +5328,14 @@ namespace Amazon.QuickSight
         /// <exception cref="Amazon.QuickSight.Model.UnsupportedPricingPlanException">
         /// This error indicates that you are calling an embedding operation in Amazon QuickSight
         /// without the required pricing plan on your Amazon Web Services account. Before you
-        /// can use embedding for anonymous users, a Amazon QuickSight administrator needs to
-        /// add capacity pricing to Amazon QuickSight. You can do this on the <b>Manage Amazon
-        /// QuickSight</b> page. 
+        /// can use embedding for anonymous users, a QuickSight administrator needs to add capacity
+        /// pricing to Amazon QuickSight. You can do this on the <b>Manage Amazon QuickSight</b>
+        /// page. 
         /// 
         ///  
         /// <para>
-        /// After capacity pricing is added, you can use the <a>GetDashboardEmbedUrl</a> API operation
-        /// with the <code>--identity-type ANONYMOUS</code> option.
+        /// After capacity pricing is added, you can use the <code> <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a>
+        /// </code> API operation with the <code>--identity-type ANONYMOUS</code> option.
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.QuickSight.Model.UnsupportedUserEditionException">
@@ -5382,14 +5475,14 @@ namespace Amazon.QuickSight
         /// <exception cref="Amazon.QuickSight.Model.UnsupportedPricingPlanException">
         /// This error indicates that you are calling an embedding operation in Amazon QuickSight
         /// without the required pricing plan on your Amazon Web Services account. Before you
-        /// can use embedding for anonymous users, a Amazon QuickSight administrator needs to
-        /// add capacity pricing to Amazon QuickSight. You can do this on the <b>Manage Amazon
-        /// QuickSight</b> page. 
+        /// can use embedding for anonymous users, a QuickSight administrator needs to add capacity
+        /// pricing to Amazon QuickSight. You can do this on the <b>Manage Amazon QuickSight</b>
+        /// page. 
         /// 
         ///  
         /// <para>
-        /// After capacity pricing is added, you can use the <a>GetDashboardEmbedUrl</a> API operation
-        /// with the <code>--identity-type ANONYMOUS</code> option.
+        /// After capacity pricing is added, you can use the <code> <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a>
+        /// </code> API operation with the <code>--identity-type ANONYMOUS</code> option.
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.QuickSight.Model.UnsupportedUserEditionException">
@@ -5453,7 +5546,8 @@ namespace Amazon.QuickSight
         /// datasets, analyses, and dashboards. The users who access an embedded Amazon QuickSight
         /// console need belong to the author or admin security cohort. If you want to restrict
         /// permissions to some of these features, add a custom permissions profile to the user
-        /// with the <code> <a>UpdateUser</a> </code> API operation. Use <code> <a>RegisterUser</a>
+        /// with the <code> <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a>
+        /// </code> API operation. Use <code> <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html">RegisterUser</a>
         /// </code> API operation to add a new user with a custom permission profile attached.
         /// For more information, see the following sections in the <i>Amazon QuickSight User
         /// Guide</i>:
@@ -6247,7 +6341,7 @@ namespace Amazon.QuickSight
         #region  ListIAMPolicyAssignments
 
         /// <summary>
-        /// Lists IAMpolicy assignments in the current Amazon QuickSight account.
+        /// Lists IAM policy assignments in the current Amazon QuickSight account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListIAMPolicyAssignments service method.</param>
         /// 
@@ -6322,7 +6416,7 @@ namespace Amazon.QuickSight
         #region  ListIAMPolicyAssignmentsForUser
 
         /// <summary>
-        /// Lists all the IAMpolicy assignments, including the Amazon Resource Names (ARNs) for
+        /// Lists all the IAM policy assignments, including the Amazon Resource Names (ARNs) for
         /// the IAM policies assigned to the specified user and group or groups that the user
         /// belongs to.
         /// </summary>
@@ -7255,7 +7349,7 @@ namespace Amazon.QuickSight
         #region  RegisterUser
 
         /// <summary>
-        /// Creates an Amazon QuickSight user, whose identity is associated with the AWS Identity
+        /// Creates an Amazon QuickSight user, whose identity is associated with the Identity
         /// and Access Management (IAM) identity or role specified in the request.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RegisterUser service method.</param>
@@ -7657,6 +7751,88 @@ namespace Amazon.QuickSight
 
         #endregion
         
+        #region  SearchGroups
+
+        /// <summary>
+        /// Use the <code>SearchGroups</code> operation to search groups in a specified Amazon
+        /// QuickSight namespace using the supplied filters.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the SearchGroups service method.</param>
+        /// 
+        /// <returns>The response from the SearchGroups service method, as returned by QuickSight.</returns>
+        /// <exception cref="Amazon.QuickSight.Model.AccessDeniedException">
+        /// You don't have access to this item. The provided credentials couldn't be validated.
+        /// You might not be authorized to carry out the request. Make sure that your account
+        /// is authorized to use the Amazon QuickSight service, that your policies have the correct
+        /// permissions, and that you are using the correct access keys.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.InternalFailureException">
+        /// An internal failure occurred.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.InvalidNextTokenException">
+        /// The <code>NextToken</code> value isn't valid.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.InvalidParameterValueException">
+        /// One or more parameters has a value that isn't valid.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.PreconditionNotMetException">
+        /// One or more preconditions aren't met.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.ResourceNotFoundException">
+        /// One or more resources can't be found.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.ResourceUnavailableException">
+        /// This resource is currently unavailable.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.ThrottlingException">
+        /// Access is throttled.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/quicksight-2018-04-01/SearchGroups">REST API Reference for SearchGroups Operation</seealso>
+        public virtual SearchGroupsResponse SearchGroups(SearchGroupsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = SearchGroupsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = SearchGroupsResponseUnmarshaller.Instance;
+
+            return Invoke<SearchGroupsResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the SearchGroups operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the SearchGroups operation on AmazonQuickSightClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndSearchGroups
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/quicksight-2018-04-01/SearchGroups">REST API Reference for SearchGroups Operation</seealso>
+        public virtual IAsyncResult BeginSearchGroups(SearchGroupsRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = SearchGroupsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = SearchGroupsResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  SearchGroups operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginSearchGroups.</param>
+        /// 
+        /// <returns>Returns a  SearchGroupsResult from QuickSight.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/quicksight-2018-04-01/SearchGroups">REST API Reference for SearchGroups Operation</seealso>
+        public virtual SearchGroupsResponse EndSearchGroups(IAsyncResult asyncResult)
+        {
+            return EndInvoke<SearchGroupsResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  TagResource
 
         /// <summary>
@@ -7680,18 +7856,19 @@ namespace Amazon.QuickSight
         /// </para>
         ///  
         /// <para>
-        /// Tagging for Amazon QuickSight works in a similar way to tagging for other AWS services,
-        /// except for the following:
+        /// Tagging for Amazon QuickSight works in a similar way to tagging for other Amazon Web
+        /// Services services, except for the following:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// You can't use tags to track AWS costs for Amazon QuickSight. This restriction is because
-        /// Amazon QuickSight costs are based on users and SPICE capacity, which aren't taggable
-        /// resources.
+        /// You can't use tags to track costs for Amazon QuickSight. This isn't possible because
+        /// you can't tag the resources that Amazon QuickSight costs are based on, for example
+        /// Amazon QuickSight storage capacity (SPICE), number of users, type of users, and usage
+        /// metrics.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Amazon QuickSight doesn't currently support the Tag Editor for Resource Groups.
+        /// Amazon QuickSight doesn't currently support the tag editor for Resource Groups.
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -7860,6 +8037,9 @@ namespace Amazon.QuickSight
         /// You might not be authorized to carry out the request. Make sure that your account
         /// is authorized to use the Amazon QuickSight service, that your policies have the correct
         /// permissions, and that you are using the correct access keys.
+        /// </exception>
+        /// <exception cref="Amazon.QuickSight.Model.ConflictException">
+        /// Updating or deleting a resource can cause an inconsistent state.
         /// </exception>
         /// <exception cref="Amazon.QuickSight.Model.InternalFailureException">
         /// An internal failure occurred.
@@ -8159,7 +8339,8 @@ namespace Amazon.QuickSight
         /// <para>
         /// Updating a Dashboard creates a new dashboard version but does not immediately publish
         /// the new version. You can update the published version of a dashboard by using the
-        /// <a>UpdateDashboardPublishedVersion</a> API operation.
+        /// <code> <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDashboardPublishedVersion.html">UpdateDashboardPublishedVersion</a>
+        /// </code> API operation.
         /// </para>
         ///  </note>
         /// </summary>
@@ -8389,7 +8570,8 @@ namespace Amazon.QuickSight
         #region  UpdateDataSet
 
         /// <summary>
-        /// Updates a dataset.
+        /// Updates a dataset. This operation doesn't support datasets that include uploaded files
+        /// as a source.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateDataSet service method.</param>
         /// 
@@ -8946,7 +9128,7 @@ namespace Amazon.QuickSight
         #region  UpdateIAMPolicyAssignment
 
         /// <summary>
-        /// Updates an existing IAMpolicy assignment. This operation updates only the optional
+        /// Updates an existing IAM policy assignment. This operation updates only the optional
         /// parameter or parameters that are specified in the request. This overwrites all of
         /// the users included in <code>Identities</code>.
         /// </summary>
@@ -9027,7 +9209,9 @@ namespace Amazon.QuickSight
         #region  UpdateIpRestriction
 
         /// <summary>
-        /// Updates content and status of IP Rules.
+        /// Updates the content and status of IP rules. To use this operation, you need to provide
+        /// the entire map of rules. You can use the <code>DescribeIpRestriction</code> operation
+        /// to get the current rule map.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateIpRestriction service method.</param>
         /// 

@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Kendra.Model
 {
     /// <summary>
-    /// Provides configuration information required to connect to a ServiceNow data source.
+    /// Provides the configuration information to connect to ServiceNow as your data source.
     /// </summary>
     public partial class ServiceNowConfiguration
     {
@@ -43,12 +43,12 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property AuthenticationType. 
         /// <para>
-        /// Determines the type of authentication used to connect to the ServiceNow instance.
-        /// If you choose <code>HTTP_BASIC</code>, Amazon Kendra is authenticated using the user
-        /// name and password provided in the AWS Secrets Manager secret in the <code>SecretArn</code>
-        /// field. When you choose <code>OAUTH2</code>, Amazon Kendra is authenticated using the
-        /// OAuth token and secret provided in the Secrets Manager secret, and the user name and
-        /// password are used to determine which information Amazon Kendra has access to.
+        /// The type of authentication used to connect to the ServiceNow instance. If you choose
+        /// <code>HTTP_BASIC</code>, Amazon Kendra is authenticated using the user name and password
+        /// provided in the Secrets Manager secret in the <code>SecretArn</code> field. When you
+        /// choose <code>OAUTH2</code>, Amazon Kendra is authenticated using the OAuth token and
+        /// secret provided in the Secrets Manager secret, and the user name and password are
+        /// used to determine which information Amazon Kendra has access to.
         /// </para>
         ///  
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.Kendra.Model
         /// Gets and sets the property HostUrl. 
         /// <para>
         /// The ServiceNow instance that the data source connects to. The host endpoint should
-        /// look like the following: <code>{instance}.service-now.com.</code> 
+        /// look like the following: <i>{instance}.service-now.com.</i> 
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=2048)]
@@ -92,8 +92,7 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property KnowledgeArticleConfiguration. 
         /// <para>
-        /// Provides configuration information for crawling knowledge articles in the ServiceNow
-        /// site.
+        /// Configuration information for crawling knowledge articles in the ServiceNow site.
         /// </para>
         /// </summary>
         public ServiceNowKnowledgeArticleConfiguration KnowledgeArticleConfiguration
@@ -131,8 +130,7 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property ServiceCatalogConfiguration. 
         /// <para>
-        /// Provides configuration information for crawling service catalogs in the ServiceNow
-        /// site.
+        /// Configuration information for crawling service catalogs in the ServiceNow site.
         /// </para>
         /// </summary>
         public ServiceNowServiceCatalogConfiguration ServiceCatalogConfiguration

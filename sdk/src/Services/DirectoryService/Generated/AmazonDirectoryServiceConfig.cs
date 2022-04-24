@@ -32,7 +32,7 @@ namespace Amazon.DirectoryService
     public partial class AmazonDirectoryServiceConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.40");
+            InternalSDKUtils.BuildUserAgentString("3.7.1.98");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.DirectoryService
         /// Default constructor
         /// </summary>
         public AmazonDirectoryServiceConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonDirectoryServiceDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "ds";
         }

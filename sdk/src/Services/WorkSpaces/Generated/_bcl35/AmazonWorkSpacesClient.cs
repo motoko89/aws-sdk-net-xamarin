@@ -38,7 +38,29 @@ namespace Amazon.WorkSpaces
     /// Amazon WorkSpaces Service 
     /// <para>
     /// Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows
-    /// and Amazon Linux desktops for your users.
+    /// or Amazon Linux desktops for your users, known as <i>WorkSpaces</i>. WorkSpaces eliminates
+    /// the need to procure and deploy hardware or install complex software. You can quickly
+    /// add or remove users as your needs change. Users can access their virtual desktops
+    /// from multiple devices or web browsers.
+    /// </para>
+    ///  
+    /// <para>
+    /// This API Reference provides detailed information about the actions, data types, parameters,
+    /// and errors of the WorkSpaces service. For more information about the supported Amazon
+    /// Web Services Regions, endpoints, and service quotas of the Amazon WorkSpaces service,
+    /// see <a href="https://docs.aws.amazon.com/general/latest/gr/wsp.html">WorkSpaces endpoints
+    /// and quotas</a> in the <i>Amazon Web Services General Reference</i>.
+    /// </para>
+    ///  
+    /// <para>
+    /// You can also manage your WorkSpaces resources using the WorkSpaces console, Command
+    /// Line Interface (CLI), and SDKs. For more information about administering WorkSpaces,
+    /// see the <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/">Amazon
+    /// WorkSpaces Administration Guide</a>. For more information about using the Amazon WorkSpaces
+    /// client application or web browser to access provisioned WorkSpaces, see the <a href="https://docs.aws.amazon.com/workspaces/latest/userguide/">Amazon
+    /// WorkSpaces User Guide</a>. For more information about using the CLI to manage your
+    /// WorkSpaces resources, see the <a href="https://docs.aws.amazon.com/cli/latest/reference/workspaces/index.html">WorkSpaces
+    /// section of the CLI Reference</a>.
     /// </para>
     /// </summary>
     public partial class AmazonWorkSpacesClient : AmazonServiceClient, IAmazonWorkSpaces
@@ -584,6 +606,81 @@ namespace Amazon.WorkSpaces
 
         #endregion
         
+        #region  CreateConnectClientAddIn
+
+        /// <summary>
+        /// Creates a client-add-in for Amazon Connect within a directory. You can create only
+        /// one Amazon Connect client add-in within a directory.
+        /// 
+        ///  
+        /// <para>
+        /// This client add-in allows WorkSpaces users to seamlessly connect to Amazon Connect.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateConnectClientAddIn service method.</param>
+        /// 
+        /// <returns>The response from the CreateConnectClientAddIn service method, as returned by WorkSpaces.</returns>
+        /// <exception cref="Amazon.WorkSpaces.Model.AccessDeniedException">
+        /// The user is not authorized to access a resource.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.InvalidParameterValuesException">
+        /// One or more parameter values are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.ResourceAlreadyExistsException">
+        /// The specified resource already exists.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.ResourceCreationFailedException">
+        /// The resource could not be created.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.ResourceNotFoundException">
+        /// The resource could not be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/CreateConnectClientAddIn">REST API Reference for CreateConnectClientAddIn Operation</seealso>
+        public virtual CreateConnectClientAddInResponse CreateConnectClientAddIn(CreateConnectClientAddInRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateConnectClientAddInRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateConnectClientAddInResponseUnmarshaller.Instance;
+
+            return Invoke<CreateConnectClientAddInResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateConnectClientAddIn operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateConnectClientAddIn operation on AmazonWorkSpacesClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateConnectClientAddIn
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/CreateConnectClientAddIn">REST API Reference for CreateConnectClientAddIn Operation</seealso>
+        public virtual IAsyncResult BeginCreateConnectClientAddIn(CreateConnectClientAddInRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateConnectClientAddInRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateConnectClientAddInResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CreateConnectClientAddIn operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCreateConnectClientAddIn.</param>
+        /// 
+        /// <returns>Returns a  CreateConnectClientAddInResult from WorkSpaces.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/CreateConnectClientAddIn">REST API Reference for CreateConnectClientAddIn Operation</seealso>
+        public virtual CreateConnectClientAddInResponse EndCreateConnectClientAddIn(IAsyncResult asyncResult)
+        {
+            return EndInvoke<CreateConnectClientAddInResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  CreateConnectionAlias
 
         /// <summary>
@@ -821,7 +918,8 @@ namespace Amazon.WorkSpaces
         /// </para>
         ///  <note> <ul> <li> 
         /// <para>
-        /// Only Windows 10 WorkSpace images can be programmatically updated at this time.
+        /// Only Windows 10, Windows Sever 2016, and Windows Server 2019 WorkSpace images can
+        /// be programmatically updated at this time.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1040,6 +1138,141 @@ namespace Amazon.WorkSpaces
         public virtual CreateWorkspacesResponse EndCreateWorkspaces(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateWorkspacesResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  DeleteClientBranding
+
+        /// <summary>
+        /// Deletes customized client branding. Client branding allows you to customize your WorkSpace's
+        /// client login portal. You can tailor your login portal company logo, the support email
+        /// address, support link, link to reset password, and a custom message for users trying
+        /// to sign in.
+        /// 
+        ///  
+        /// <para>
+        /// After you delete your customized client branding, your login portal reverts to the
+        /// default client branding.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteClientBranding service method.</param>
+        /// 
+        /// <returns>The response from the DeleteClientBranding service method, as returned by WorkSpaces.</returns>
+        /// <exception cref="Amazon.WorkSpaces.Model.AccessDeniedException">
+        /// The user is not authorized to access a resource.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.InvalidParameterValuesException">
+        /// One or more parameter values are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.ResourceNotFoundException">
+        /// The resource could not be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DeleteClientBranding">REST API Reference for DeleteClientBranding Operation</seealso>
+        public virtual DeleteClientBrandingResponse DeleteClientBranding(DeleteClientBrandingRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteClientBrandingRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteClientBrandingResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteClientBrandingResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteClientBranding operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteClientBranding operation on AmazonWorkSpacesClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteClientBranding
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DeleteClientBranding">REST API Reference for DeleteClientBranding Operation</seealso>
+        public virtual IAsyncResult BeginDeleteClientBranding(DeleteClientBrandingRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteClientBrandingRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteClientBrandingResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteClientBranding operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteClientBranding.</param>
+        /// 
+        /// <returns>Returns a  DeleteClientBrandingResult from WorkSpaces.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DeleteClientBranding">REST API Reference for DeleteClientBranding Operation</seealso>
+        public virtual DeleteClientBrandingResponse EndDeleteClientBranding(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DeleteClientBrandingResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  DeleteConnectClientAddIn
+
+        /// <summary>
+        /// Deletes a client-add-in for Amazon Connect that is configured within a directory.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteConnectClientAddIn service method.</param>
+        /// 
+        /// <returns>The response from the DeleteConnectClientAddIn service method, as returned by WorkSpaces.</returns>
+        /// <exception cref="Amazon.WorkSpaces.Model.AccessDeniedException">
+        /// The user is not authorized to access a resource.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.InvalidParameterValuesException">
+        /// One or more parameter values are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.ResourceNotFoundException">
+        /// The resource could not be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DeleteConnectClientAddIn">REST API Reference for DeleteConnectClientAddIn Operation</seealso>
+        public virtual DeleteConnectClientAddInResponse DeleteConnectClientAddIn(DeleteConnectClientAddInRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteConnectClientAddInRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteConnectClientAddInResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteConnectClientAddInResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteConnectClientAddIn operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteConnectClientAddIn operation on AmazonWorkSpacesClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteConnectClientAddIn
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DeleteConnectClientAddIn">REST API Reference for DeleteConnectClientAddIn Operation</seealso>
+        public virtual IAsyncResult BeginDeleteConnectClientAddIn(DeleteConnectClientAddInRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteConnectClientAddInRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteConnectClientAddInResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteConnectClientAddIn operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteConnectClientAddIn.</param>
+        /// 
+        /// <returns>Returns a  DeleteConnectClientAddInResult from WorkSpaces.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DeleteConnectClientAddIn">REST API Reference for DeleteConnectClientAddIn Operation</seealso>
+        public virtual DeleteConnectClientAddInResponse EndDeleteConnectClientAddIn(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DeleteConnectClientAddInResponse>(asyncResult);
         }
 
         #endregion
@@ -1602,6 +1835,78 @@ namespace Amazon.WorkSpaces
 
         #endregion
         
+        #region  DescribeClientBranding
+
+        /// <summary>
+        /// Describes the specified client branding. Client branding allows you to customize the
+        /// log in page of various device types for your users. You can add your company logo,
+        /// the support email address, support link, link to reset password, and a custom message
+        /// for users trying to sign in.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// Only device types that have branding information configured will be shown in the response.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeClientBranding service method.</param>
+        /// 
+        /// <returns>The response from the DescribeClientBranding service method, as returned by WorkSpaces.</returns>
+        /// <exception cref="Amazon.WorkSpaces.Model.AccessDeniedException">
+        /// The user is not authorized to access a resource.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.InvalidParameterValuesException">
+        /// One or more parameter values are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.ResourceNotFoundException">
+        /// The resource could not be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DescribeClientBranding">REST API Reference for DescribeClientBranding Operation</seealso>
+        public virtual DescribeClientBrandingResponse DescribeClientBranding(DescribeClientBrandingRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeClientBrandingRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeClientBrandingResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeClientBrandingResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeClientBranding operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeClientBranding operation on AmazonWorkSpacesClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeClientBranding
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DescribeClientBranding">REST API Reference for DescribeClientBranding Operation</seealso>
+        public virtual IAsyncResult BeginDescribeClientBranding(DescribeClientBrandingRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeClientBrandingRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeClientBrandingResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeClientBranding operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeClientBranding.</param>
+        /// 
+        /// <returns>Returns a  DescribeClientBrandingResult from WorkSpaces.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DescribeClientBranding">REST API Reference for DescribeClientBranding Operation</seealso>
+        public virtual DescribeClientBrandingResponse EndDescribeClientBranding(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DescribeClientBrandingResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  DescribeClientProperties
 
         /// <summary>
@@ -1661,6 +1966,69 @@ namespace Amazon.WorkSpaces
         public virtual DescribeClientPropertiesResponse EndDescribeClientProperties(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeClientPropertiesResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  DescribeConnectClientAddIns
+
+        /// <summary>
+        /// Retrieves a list of Amazon Connect client add-ins that have been created.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeConnectClientAddIns service method.</param>
+        /// 
+        /// <returns>The response from the DescribeConnectClientAddIns service method, as returned by WorkSpaces.</returns>
+        /// <exception cref="Amazon.WorkSpaces.Model.AccessDeniedException">
+        /// The user is not authorized to access a resource.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.InvalidParameterValuesException">
+        /// One or more parameter values are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.ResourceNotFoundException">
+        /// The resource could not be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DescribeConnectClientAddIns">REST API Reference for DescribeConnectClientAddIns Operation</seealso>
+        public virtual DescribeConnectClientAddInsResponse DescribeConnectClientAddIns(DescribeConnectClientAddInsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeConnectClientAddInsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeConnectClientAddInsResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeConnectClientAddInsResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeConnectClientAddIns operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeConnectClientAddIns operation on AmazonWorkSpacesClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeConnectClientAddIns
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DescribeConnectClientAddIns">REST API Reference for DescribeConnectClientAddIns Operation</seealso>
+        public virtual IAsyncResult BeginDescribeConnectClientAddIns(DescribeConnectClientAddInsRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeConnectClientAddInsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeConnectClientAddInsResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeConnectClientAddIns operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeConnectClientAddIns.</param>
+        /// 
+        /// <returns>Returns a  DescribeConnectClientAddInsResult from WorkSpaces.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DescribeConnectClientAddIns">REST API Reference for DescribeConnectClientAddIns Operation</seealso>
+        public virtual DescribeConnectClientAddInsResponse EndDescribeConnectClientAddIns(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DescribeConnectClientAddInsResponse>(asyncResult);
         }
 
         #endregion
@@ -2547,6 +2915,99 @@ namespace Amazon.WorkSpaces
         public virtual DisassociateIpGroupsResponse EndDisassociateIpGroups(IAsyncResult asyncResult)
         {
             return EndInvoke<DisassociateIpGroupsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  ImportClientBranding
+
+        /// <summary>
+        /// Imports client branding. Client branding allows you to customize your WorkSpace's
+        /// client login portal. You can tailor your login portal company logo, the support email
+        /// address, support link, link to reset password, and a custom message for users trying
+        /// to sign in.
+        /// 
+        ///  
+        /// <para>
+        /// After you import client branding, the default branding experience for the specified
+        /// platform type is replaced with the imported experience
+        /// </para>
+        ///  <note> <ul> <li> 
+        /// <para>
+        /// You must specify at least one platform type when importing client branding.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You can import up to 6 MB of data with each request. If your request exceeds this
+        /// limit, you can import client branding for different platform types using separate
+        /// requests.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// In each platform type, the <code>SupportEmail</code> and <code>SupportLink</code>
+        /// parameters are mutually exclusive. You can specify only one parameter for each platform
+        /// type, but not both.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Imported data can take up to a minute to appear in the WorkSpaces client.
+        /// </para>
+        ///  </li> </ul> </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ImportClientBranding service method.</param>
+        /// 
+        /// <returns>The response from the ImportClientBranding service method, as returned by WorkSpaces.</returns>
+        /// <exception cref="Amazon.WorkSpaces.Model.AccessDeniedException">
+        /// The user is not authorized to access a resource.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.InvalidParameterValuesException">
+        /// One or more parameter values are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.ResourceLimitExceededException">
+        /// Your resource limits have been exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/ImportClientBranding">REST API Reference for ImportClientBranding Operation</seealso>
+        public virtual ImportClientBrandingResponse ImportClientBranding(ImportClientBrandingRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ImportClientBrandingRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ImportClientBrandingResponseUnmarshaller.Instance;
+
+            return Invoke<ImportClientBrandingResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ImportClientBranding operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ImportClientBranding operation on AmazonWorkSpacesClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndImportClientBranding
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/ImportClientBranding">REST API Reference for ImportClientBranding Operation</seealso>
+        public virtual IAsyncResult BeginImportClientBranding(ImportClientBrandingRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ImportClientBrandingRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ImportClientBrandingResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ImportClientBranding operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginImportClientBranding.</param>
+        /// 
+        /// <returns>Returns a  ImportClientBrandingResult from WorkSpaces.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/ImportClientBranding">REST API Reference for ImportClientBranding Operation</seealso>
+        public virtual ImportClientBrandingResponse EndImportClientBranding(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ImportClientBrandingResponse>(asyncResult);
         }
 
         #endregion
@@ -3841,6 +4302,70 @@ namespace Amazon.WorkSpaces
         public virtual TerminateWorkspacesResponse EndTerminateWorkspaces(IAsyncResult asyncResult)
         {
             return EndInvoke<TerminateWorkspacesResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  UpdateConnectClientAddIn
+
+        /// <summary>
+        /// Updates a Amazon Connect client add-in. Use this action to update the name and endpoint
+        /// URL of a Amazon Connect client add-in.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateConnectClientAddIn service method.</param>
+        /// 
+        /// <returns>The response from the UpdateConnectClientAddIn service method, as returned by WorkSpaces.</returns>
+        /// <exception cref="Amazon.WorkSpaces.Model.AccessDeniedException">
+        /// The user is not authorized to access a resource.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.InvalidParameterValuesException">
+        /// One or more parameter values are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.ResourceNotFoundException">
+        /// The resource could not be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/UpdateConnectClientAddIn">REST API Reference for UpdateConnectClientAddIn Operation</seealso>
+        public virtual UpdateConnectClientAddInResponse UpdateConnectClientAddIn(UpdateConnectClientAddInRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateConnectClientAddInRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateConnectClientAddInResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateConnectClientAddInResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateConnectClientAddIn operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateConnectClientAddIn operation on AmazonWorkSpacesClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateConnectClientAddIn
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/UpdateConnectClientAddIn">REST API Reference for UpdateConnectClientAddIn Operation</seealso>
+        public virtual IAsyncResult BeginUpdateConnectClientAddIn(UpdateConnectClientAddInRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateConnectClientAddInRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateConnectClientAddInResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateConnectClientAddIn operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateConnectClientAddIn.</param>
+        /// 
+        /// <returns>Returns a  UpdateConnectClientAddInResult from WorkSpaces.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/UpdateConnectClientAddIn">REST API Reference for UpdateConnectClientAddIn Operation</seealso>
+        public virtual UpdateConnectClientAddInResponse EndUpdateConnectClientAddIn(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateConnectClientAddInResponse>(asyncResult);
         }
 
         #endregion

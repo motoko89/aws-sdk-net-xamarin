@@ -56,7 +56,7 @@ namespace Amazon.IoTSiteWise.Model.Internal.MarshallTransformations
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.IoTSiteWise");
             request.Headers["Content-Type"] = "application/json";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-12-02";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-12-02";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/configuration/account/storage";
@@ -65,6 +65,12 @@ namespace Amazon.IoTSiteWise.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetDisassociatedDataStorage())
+                {
+                    context.Writer.WritePropertyName("disassociatedDataStorage");
+                    context.Writer.Write(publicRequest.DisassociatedDataStorage);
+                }
+
                 if(publicRequest.IsSetMultiLayerStorage())
                 {
                     context.Writer.WritePropertyName("multiLayerStorage");
@@ -76,13 +82,23 @@ namespace Amazon.IoTSiteWise.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
+                if(publicRequest.IsSetRetentionPeriod())
+                {
+                    context.Writer.WritePropertyName("retentionPeriod");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = RetentionPeriodMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.RetentionPeriod, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetStorageType())
                 {
                     context.Writer.WritePropertyName("storageType");
                     context.Writer.Write(publicRequest.StorageType);
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

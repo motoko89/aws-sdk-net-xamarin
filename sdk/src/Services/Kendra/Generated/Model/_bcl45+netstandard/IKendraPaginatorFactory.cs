@@ -26,6 +26,11 @@ namespace Amazon.Kendra.Model
     {
 
         /// <summary>
+        /// Paginator for GetSnapshots operation
+        ///</summary>
+        IGetSnapshotsPaginator GetSnapshots(GetSnapshotsRequest request);
+
+        /// <summary>
         /// Paginator for ListDataSources operation
         ///</summary>
         IListDataSourcesPaginator ListDataSources(ListDataSourcesRequest request);
@@ -34,6 +39,21 @@ namespace Amazon.Kendra.Model
         /// Paginator for ListDataSourceSyncJobs operation
         ///</summary>
         IListDataSourceSyncJobsPaginator ListDataSourceSyncJobs(ListDataSourceSyncJobsRequest request);
+
+        /// <summary>
+        /// Paginator for ListEntityPersonas operation
+        ///</summary>
+        IListEntityPersonasPaginator ListEntityPersonas(ListEntityPersonasRequest request);
+
+        /// <summary>
+        /// Paginator for ListExperienceEntities operation
+        ///</summary>
+        IListExperienceEntitiesPaginator ListExperienceEntities(ListExperienceEntitiesRequest request);
+
+        /// <summary>
+        /// Paginator for ListExperiences operation
+        ///</summary>
+        IListExperiencesPaginator ListExperiences(ListExperiencesRequest request);
 
         /// <summary>
         /// Paginator for ListIndices operation

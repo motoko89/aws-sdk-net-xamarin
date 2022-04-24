@@ -30,15 +30,14 @@ namespace Amazon.RDS.Model
 {
     /// <summary>
     /// Container for the parameters to the ResetDBClusterParameterGroup operation.
-    /// Modifies the parameters of a DB cluster parameter group to the default value. To
-    /// reset specific parameters submit a list of the following: <code>ParameterName</code>
-    /// and <code>ApplyMethod</code>. To reset the entire DB cluster parameter group, specify
+    /// Modifies the parameters of a DB cluster parameter group to the default value. To reset
+    /// specific parameters submit a list of the following: <code>ParameterName</code> and
+    /// <code>ApplyMethod</code>. To reset the entire DB cluster parameter group, specify
     /// the <code>DBClusterParameterGroupName</code> and <code>ResetAllParameters</code> parameters.
-    /// 
     /// 
     ///  
     /// <para>
-    ///  When resetting the entire group, dynamic parameters are updated immediately and static
+    /// When resetting the entire group, dynamic parameters are updated immediately and static
     /// parameters are set to <code>pending-reboot</code> to take effect on the next DB instance
     /// restart or <code>RebootDBInstance</code> request. You must call <code>RebootDBInstance</code>
     /// for every DB instance in your DB cluster that you want the updated static parameter
@@ -46,14 +45,15 @@ namespace Amazon.RDS.Model
     /// </para>
     ///  
     /// <para>
-    /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> 
+    /// For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para>
-    ///  <note> 
+    ///  
     /// <para>
-    /// This action only applies to Aurora DB clusters.
+    /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+    /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
+    /// User Guide.</i> 
     /// </para>
-    ///  </note>
     /// </summary>
     public partial class ResetDBClusterParameterGroupRequest : AmazonRDSRequest
     {

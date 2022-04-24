@@ -45,7 +45,7 @@ namespace Amazon.Shield.Model
         /// <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=36)]
+        [AWSProperty(Min=36, Max=36)]
         public string ProtectionId
         {
             get { return this._protectionId; }

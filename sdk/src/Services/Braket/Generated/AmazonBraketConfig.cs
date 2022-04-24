@@ -32,7 +32,7 @@ namespace Amazon.Braket
     public partial class AmazonBraketConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.63");
+            InternalSDKUtils.BuildUserAgentString("3.7.2.47");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.Braket
         /// Default constructor
         /// </summary>
         public AmazonBraketConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonBraketDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "braket";
         }

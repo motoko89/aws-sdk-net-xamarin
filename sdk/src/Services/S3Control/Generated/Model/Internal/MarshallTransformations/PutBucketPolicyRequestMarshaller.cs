@@ -64,11 +64,15 @@ namespace Amazon.S3Control.Model.Internal.MarshallTransformations
                 );
             }
         
-            if(publicRequest.IsSetAccountId())
+            if (publicRequest.IsSetAccountId()) 
+            {
                 request.Headers["x-amz-account-id"] = publicRequest.AccountId;
+            }
         
-            if(publicRequest.IsSetConfirmRemoveSelfBucketAccess())
+            if (publicRequest.IsSetConfirmRemoveSelfBucketAccess()) 
+            {
                 request.Headers["x-amz-confirm-remove-self-bucket-access"] = StringUtils.FromBool(publicRequest.ConfirmRemoveSelfBucketAccess);
+            }
             if (!publicRequest.IsSetBucket())
                 throw new AmazonS3ControlException("Request object does not have required field Bucket set");
             request.AddPathResource("{name}", StringUtils.FromString(publicRequest.Bucket));
@@ -89,8 +93,7 @@ namespace Amazon.S3Control.Model.Internal.MarshallTransformations
                 string content = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(content);
                 request.Headers["Content-Type"] = "application/xml";
-                var checksum = Amazon.Util.AWSSDKUtils.GenerateChecksumForContent(content, true);
-                request.Headers[Amazon.Util.HeaderKeys.ContentMD5Header] = checksum;
+                ChecksumUtils.SetRequestChecksumMD5(request);
                 request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-08-20";            
             } 
             catch (EncoderFallbackException e) 

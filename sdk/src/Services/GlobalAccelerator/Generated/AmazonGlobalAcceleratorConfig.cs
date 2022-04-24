@@ -32,7 +32,7 @@ namespace Amazon.GlobalAccelerator
     public partial class AmazonGlobalAcceleratorConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.150");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.GlobalAccelerator
         /// Default constructor
         /// </summary>
         public AmazonGlobalAcceleratorConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonGlobalAcceleratorDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "globalaccelerator";
         }

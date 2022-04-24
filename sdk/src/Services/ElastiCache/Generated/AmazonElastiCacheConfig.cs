@@ -32,7 +32,7 @@ namespace Amazon.ElastiCache
     public partial class AmazonElastiCacheConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.3.41");
+            InternalSDKUtils.BuildUserAgentString("3.7.5.37");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.ElastiCache
         /// Default constructor
         /// </summary>
         public AmazonElastiCacheConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonElastiCacheDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "elasticache";
         }

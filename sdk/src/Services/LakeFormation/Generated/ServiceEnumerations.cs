@@ -239,6 +239,60 @@ namespace Amazon.LakeFormation
 
 
     /// <summary>
+    /// Constants used for properties of type OptimizerType.
+    /// </summary>
+    public class OptimizerType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ALL for OptimizerType
+        /// </summary>
+        public static readonly OptimizerType ALL = new OptimizerType("ALL");
+        /// <summary>
+        /// Constant COMPACTION for OptimizerType
+        /// </summary>
+        public static readonly OptimizerType COMPACTION = new OptimizerType("COMPACTION");
+        /// <summary>
+        /// Constant GARBAGE_COLLECTION for OptimizerType
+        /// </summary>
+        public static readonly OptimizerType GARBAGE_COLLECTION = new OptimizerType("GARBAGE_COLLECTION");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public OptimizerType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static OptimizerType FindValue(string value)
+        {
+            return FindValue<OptimizerType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator OptimizerType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type Permission.
     /// </summary>
     public class Permission : ConstantClass
@@ -253,13 +307,9 @@ namespace Amazon.LakeFormation
         /// </summary>
         public static readonly Permission ALTER = new Permission("ALTER");
         /// <summary>
-        /// Constant ALTER_TAG for Permission
+        /// Constant ASSOCIATE for Permission
         /// </summary>
-        public static readonly Permission ALTER_TAG = new Permission("ALTER_TAG");
-        /// <summary>
-        /// Constant ASSOCIATE_TAG for Permission
-        /// </summary>
-        public static readonly Permission ASSOCIATE_TAG = new Permission("ASSOCIATE_TAG");
+        public static readonly Permission ASSOCIATE = new Permission("ASSOCIATE");
         /// <summary>
         /// Constant CREATE_DATABASE for Permission
         /// </summary>
@@ -281,17 +331,9 @@ namespace Amazon.LakeFormation
         /// </summary>
         public static readonly Permission DELETE = new Permission("DELETE");
         /// <summary>
-        /// Constant DELETE_TAG for Permission
-        /// </summary>
-        public static readonly Permission DELETE_TAG = new Permission("DELETE_TAG");
-        /// <summary>
         /// Constant DESCRIBE for Permission
         /// </summary>
         public static readonly Permission DESCRIBE = new Permission("DESCRIBE");
-        /// <summary>
-        /// Constant DESCRIBE_TAG for Permission
-        /// </summary>
-        public static readonly Permission DESCRIBE_TAG = new Permission("DESCRIBE_TAG");
         /// <summary>
         /// Constant DROP for Permission
         /// </summary>
@@ -334,6 +376,118 @@ namespace Amazon.LakeFormation
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator Permission(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type PermissionType.
+    /// </summary>
+    public class PermissionType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CELL_FILTER_PERMISSION for PermissionType
+        /// </summary>
+        public static readonly PermissionType CELL_FILTER_PERMISSION = new PermissionType("CELL_FILTER_PERMISSION");
+        /// <summary>
+        /// Constant COLUMN_PERMISSION for PermissionType
+        /// </summary>
+        public static readonly PermissionType COLUMN_PERMISSION = new PermissionType("COLUMN_PERMISSION");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public PermissionType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static PermissionType FindValue(string value)
+        {
+            return FindValue<PermissionType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator PermissionType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type QueryStateString.
+    /// </summary>
+    public class QueryStateString : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ERROR for QueryStateString
+        /// </summary>
+        public static readonly QueryStateString ERROR = new QueryStateString("ERROR");
+        /// <summary>
+        /// Constant EXPIRED for QueryStateString
+        /// </summary>
+        public static readonly QueryStateString EXPIRED = new QueryStateString("EXPIRED");
+        /// <summary>
+        /// Constant FINISHED for QueryStateString
+        /// </summary>
+        public static readonly QueryStateString FINISHED = new QueryStateString("FINISHED");
+        /// <summary>
+        /// Constant PENDING for QueryStateString
+        /// </summary>
+        public static readonly QueryStateString PENDING = new QueryStateString("PENDING");
+        /// <summary>
+        /// Constant WORKUNITS_AVAILABLE for QueryStateString
+        /// </summary>
+        public static readonly QueryStateString WORKUNITS_AVAILABLE = new QueryStateString("WORKUNITS_AVAILABLE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public QueryStateString(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static QueryStateString FindValue(string value)
+        {
+            return FindValue<QueryStateString>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator QueryStateString(string value)
         {
             return FindValue(value);
         }
@@ -434,6 +588,176 @@ namespace Amazon.LakeFormation
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ResourceType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TransactionStatus.
+    /// </summary>
+    public class TransactionStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ABORTED for TransactionStatus
+        /// </summary>
+        public static readonly TransactionStatus ABORTED = new TransactionStatus("ABORTED");
+        /// <summary>
+        /// Constant ACTIVE for TransactionStatus
+        /// </summary>
+        public static readonly TransactionStatus ACTIVE = new TransactionStatus("ACTIVE");
+        /// <summary>
+        /// Constant COMMIT_IN_PROGRESS for TransactionStatus
+        /// </summary>
+        public static readonly TransactionStatus COMMIT_IN_PROGRESS = new TransactionStatus("COMMIT_IN_PROGRESS");
+        /// <summary>
+        /// Constant COMMITTED for TransactionStatus
+        /// </summary>
+        public static readonly TransactionStatus COMMITTED = new TransactionStatus("COMMITTED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TransactionStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TransactionStatus FindValue(string value)
+        {
+            return FindValue<TransactionStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TransactionStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TransactionStatusFilter.
+    /// </summary>
+    public class TransactionStatusFilter : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ABORTED for TransactionStatusFilter
+        /// </summary>
+        public static readonly TransactionStatusFilter ABORTED = new TransactionStatusFilter("ABORTED");
+        /// <summary>
+        /// Constant ACTIVE for TransactionStatusFilter
+        /// </summary>
+        public static readonly TransactionStatusFilter ACTIVE = new TransactionStatusFilter("ACTIVE");
+        /// <summary>
+        /// Constant ALL for TransactionStatusFilter
+        /// </summary>
+        public static readonly TransactionStatusFilter ALL = new TransactionStatusFilter("ALL");
+        /// <summary>
+        /// Constant COMMITTED for TransactionStatusFilter
+        /// </summary>
+        public static readonly TransactionStatusFilter COMMITTED = new TransactionStatusFilter("COMMITTED");
+        /// <summary>
+        /// Constant COMPLETED for TransactionStatusFilter
+        /// </summary>
+        public static readonly TransactionStatusFilter COMPLETED = new TransactionStatusFilter("COMPLETED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TransactionStatusFilter(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TransactionStatusFilter FindValue(string value)
+        {
+            return FindValue<TransactionStatusFilter>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TransactionStatusFilter(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TransactionType.
+    /// </summary>
+    public class TransactionType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant READ_AND_WRITE for TransactionType
+        /// </summary>
+        public static readonly TransactionType READ_AND_WRITE = new TransactionType("READ_AND_WRITE");
+        /// <summary>
+        /// Constant READ_ONLY for TransactionType
+        /// </summary>
+        public static readonly TransactionType READ_ONLY = new TransactionType("READ_ONLY");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TransactionType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TransactionType FindValue(string value)
+        {
+            return FindValue<TransactionType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TransactionType(string value)
         {
             return FindValue(value);
         }

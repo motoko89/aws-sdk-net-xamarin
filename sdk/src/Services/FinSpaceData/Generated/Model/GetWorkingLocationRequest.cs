@@ -30,8 +30,8 @@ namespace Amazon.FinSpaceData.Model
 {
     /// <summary>
     /// Container for the parameters to the GetWorkingLocation operation.
-    /// A temporary Amazon S3 location to copy your files from a source location to stage
-    /// or use as a scratch space in Habanero notebook.
+    /// A temporary Amazon S3 location, where you can copy your files from a source location
+    /// to stage or use as a scratch space in FinSpace notebook.
     /// </summary>
     public partial class GetWorkingLocationRequest : AmazonFinSpaceDataRequest
     {
@@ -44,13 +44,13 @@ namespace Amazon.FinSpaceData.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>SAGEMAKER</code> - Use the Amazon S3 location as a temporary location to store
+        ///  <code>SAGEMAKER</code> – Use the Amazon S3 location as a temporary location to store
         /// data content when working with FinSpace Notebooks that run on SageMaker studio.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>INGESTION</code> - Use the Amazon S3 location as a staging location to copy
-        /// your data content and then use the location with the changeset creation operation.
+        ///  <code>INGESTION</code> – Use the Amazon S3 location as a staging location to copy
+        /// your data content and then use the location with the Changeset creation operation.
         /// </para>
         ///  </li> </ul>
         /// </summary>

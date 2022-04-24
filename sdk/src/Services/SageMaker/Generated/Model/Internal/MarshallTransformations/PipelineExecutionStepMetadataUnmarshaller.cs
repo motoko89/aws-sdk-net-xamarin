@@ -70,10 +70,28 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     unmarshalledObject.Callback = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("ClarifyCheck", targetDepth))
+                {
+                    var unmarshaller = ClarifyCheckStepMetadataUnmarshaller.Instance;
+                    unmarshalledObject.ClarifyCheck = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Condition", targetDepth))
                 {
                     var unmarshaller = ConditionStepMetadataUnmarshaller.Instance;
                     unmarshalledObject.Condition = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("EMR", targetDepth))
+                {
+                    var unmarshaller = EMRStepMetadataUnmarshaller.Instance;
+                    unmarshalledObject.EMR = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("Fail", targetDepth))
+                {
+                    var unmarshaller = FailStepMetadataUnmarshaller.Instance;
+                    unmarshalledObject.Fail = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("Lambda", targetDepth))
@@ -92,6 +110,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = ProcessingJobStepMetadataUnmarshaller.Instance;
                     unmarshalledObject.ProcessingJob = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("QualityCheck", targetDepth))
+                {
+                    var unmarshaller = QualityCheckStepMetadataUnmarshaller.Instance;
+                    unmarshalledObject.QualityCheck = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("RegisterModel", targetDepth))

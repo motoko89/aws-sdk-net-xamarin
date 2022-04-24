@@ -64,6 +64,12 @@ namespace Amazon.Shield.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("ApplicationLayerAutomaticResponseConfiguration", targetDepth))
+                {
+                    var unmarshaller = ApplicationLayerAutomaticResponseConfigurationUnmarshaller.Instance;
+                    unmarshalledObject.ApplicationLayerAutomaticResponseConfiguration = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("HealthCheckIds", targetDepth))
                 {
                     var unmarshaller = new ListUnmarshaller<string, StringUnmarshaller>(StringUnmarshaller.Instance);

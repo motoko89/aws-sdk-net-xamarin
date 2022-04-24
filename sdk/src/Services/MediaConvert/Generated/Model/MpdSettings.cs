@@ -37,8 +37,10 @@ namespace Amazon.MediaConvert.Model
         private MpdAccessibilityCaptionHints _accessibilityCaptionHints;
         private MpdAudioDuration _audioDuration;
         private MpdCaptionContainerType _captionContainerType;
+        private MpdKlvMetadata _klvMetadata;
         private MpdScte35Esam _scte35Esam;
         private MpdScte35Source _scte35Source;
+        private MpdTimedMetadata _timedMetadata;
 
         /// <summary>
         /// Gets and sets the property AccessibilityCaptionHints. Optional. Choose Include (INCLUDE)
@@ -108,6 +110,22 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
+        /// Gets and sets the property KlvMetadata. Applies to DASH ISO outputs. Use this setting
+        /// to specify whether the service inserts the KLV metadata from the input in this output.
+        /// </summary>
+        public MpdKlvMetadata KlvMetadata
+        {
+            get { return this._klvMetadata; }
+            set { this._klvMetadata = value; }
+        }
+
+        // Check to see if KlvMetadata property is set
+        internal bool IsSetKlvMetadata()
+        {
+            return this._klvMetadata != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Scte35Esam. Use this setting only when you specify SCTE-35
         /// markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion
         /// points that you specify in an ESAM XML document. Provide the document in the setting
@@ -141,6 +159,25 @@ namespace Amazon.MediaConvert.Model
         internal bool IsSetScte35Source()
         {
             return this._scte35Source != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property TimedMetadata. To include ID3 metadata in this output:
+        /// Set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH). Specify this ID3 metadata
+        /// in Custom ID3 metadata inserter (timedMetadataInsertion). MediaConvert writes each
+        /// instance of ID3 metadata in a separate Event Message (eMSG) box. To exclude this ID3
+        /// metadata: Set ID3 metadata to None (NONE) or leave blank.
+        /// </summary>
+        public MpdTimedMetadata TimedMetadata
+        {
+            get { return this._timedMetadata; }
+            set { this._timedMetadata = value; }
+        }
+
+        // Check to see if TimedMetadata property is set
+        internal bool IsSetTimedMetadata()
+        {
+            return this._timedMetadata != null;
         }
 
     }

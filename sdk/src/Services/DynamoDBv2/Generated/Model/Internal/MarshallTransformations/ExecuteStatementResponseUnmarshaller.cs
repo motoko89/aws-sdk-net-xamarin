@@ -51,10 +51,22 @@ namespace Amazon.DynamoDBv2.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("ConsumedCapacity", targetDepth))
+                {
+                    var unmarshaller = ConsumedCapacityUnmarshaller.Instance;
+                    response.ConsumedCapacity = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Items", targetDepth))
                 {
                     var unmarshaller = new ListUnmarshaller<Dictionary<string, AttributeValue>, DictionaryUnmarshaller<string, AttributeValue, StringUnmarshaller, AttributeValueUnmarshaller>>(new DictionaryUnmarshaller<string, AttributeValue, StringUnmarshaller, AttributeValueUnmarshaller>(StringUnmarshaller.Instance, AttributeValueUnmarshaller.Instance));
                     response.Items = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("LastEvaluatedKey", targetDepth))
+                {
+                    var unmarshaller = new DictionaryUnmarshaller<string, AttributeValue, StringUnmarshaller, AttributeValueUnmarshaller>(StringUnmarshaller.Instance, AttributeValueUnmarshaller.Instance);
+                    response.LastEvaluatedKey = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("NextToken", targetDepth))

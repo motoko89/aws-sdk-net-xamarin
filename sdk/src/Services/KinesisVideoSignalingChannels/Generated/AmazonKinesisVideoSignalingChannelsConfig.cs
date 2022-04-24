@@ -32,7 +32,7 @@ namespace Amazon.KinesisVideoSignalingChannels
     public partial class AmazonKinesisVideoSignalingChannelsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.150");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.KinesisVideoSignalingChannels
         /// Default constructor
         /// </summary>
         public AmazonKinesisVideoSignalingChannelsConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonKinesisVideoSignalingChannelsDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "kinesisvideo";
         }

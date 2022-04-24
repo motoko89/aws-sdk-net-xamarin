@@ -30,7 +30,7 @@ namespace Amazon.SimpleSystemsManagement.Model
 {
     /// <summary>
     /// Container for the parameters to the StartSession operation.
-    /// Initiates a connection to a target (for example, an instance) for a Session Manager
+    /// Initiates a connection to a target (for example, a managed node) for a Session Manager
     /// session. Returns a URL and token that can be used to open a WebSocket connection for
     /// sending input and receiving outputs.
     /// 
@@ -53,6 +53,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     {
         private string _documentName;
         private Dictionary<string, List<string>> _parameters = new Dictionary<string, List<string>>();
+        private string _reason;
         private string _target;
 
         /// <summary>
@@ -61,7 +62,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The name of the SSM document to define the parameters and plugin settings for the
         /// session. For example, <code>SSM-SessionManagerRunShell</code>. You can call the <a>GetDocument</a>
         /// API to verify the document exists before attempting to start a session. If no document
-        /// name is provided, a shell to the instance is launched by default.
+        /// name is provided, a shell to the managed node is launched by default.
         /// </para>
         /// </summary>
         public string DocumentName
@@ -79,7 +80,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property Parameters. 
         /// <para>
-        /// Reserved for future use.
+        /// The values you want to specify for the parameters defined in the Session document.
         /// </para>
         /// </summary>
         public Dictionary<string, List<string>> Parameters
@@ -95,9 +96,29 @@ namespace Amazon.SimpleSystemsManagement.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Reason. 
+        /// <para>
+        /// The reason for connecting to the instance. This value is included in the details for
+        /// the Amazon CloudWatch Events event created when you start the session.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=256)]
+        public string Reason
+        {
+            get { return this._reason; }
+            set { this._reason = value; }
+        }
+
+        // Check to see if Reason property is set
+        internal bool IsSetReason()
+        {
+            return this._reason != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Target. 
         /// <para>
-        /// The instance to connect to for the session.
+        /// The managed node to connect to for the session.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=400)]

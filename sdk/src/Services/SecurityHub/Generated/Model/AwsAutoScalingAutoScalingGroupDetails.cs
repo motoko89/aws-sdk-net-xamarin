@@ -33,11 +33,51 @@ namespace Amazon.SecurityHub.Model
     /// </summary>
     public partial class AwsAutoScalingAutoScalingGroupDetails
     {
+        private List<AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails> _availabilityZones = new List<AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails>();
+        private bool? _capacityRebalance;
         private string _createdTime;
         private int? _healthCheckGracePeriod;
         private string _healthCheckType;
         private string _launchConfigurationName;
+        private AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification _launchTemplate;
         private List<string> _loadBalancerNames = new List<string>();
+        private AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails _mixedInstancesPolicy;
+
+        /// <summary>
+        /// Gets and sets the property AvailabilityZones. 
+        /// <para>
+        /// The list of Availability Zones for the automatic scaling group.
+        /// </para>
+        /// </summary>
+        public List<AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails> AvailabilityZones
+        {
+            get { return this._availabilityZones; }
+            set { this._availabilityZones = value; }
+        }
+
+        // Check to see if AvailabilityZones property is set
+        internal bool IsSetAvailabilityZones()
+        {
+            return this._availabilityZones != null && this._availabilityZones.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property CapacityRebalance. 
+        /// <para>
+        /// Indicates whether capacity rebalancing is enabled. 
+        /// </para>
+        /// </summary>
+        public bool CapacityRebalance
+        {
+            get { return this._capacityRebalance.GetValueOrDefault(); }
+            set { this._capacityRebalance = value; }
+        }
+
+        // Check to see if CapacityRebalance property is set
+        internal bool IsSetCapacityRebalance()
+        {
+            return this._capacityRebalance.HasValue; 
+        }
 
         /// <summary>
         /// Gets and sets the property CreatedTime. 
@@ -119,6 +159,24 @@ namespace Amazon.SecurityHub.Model
         }
 
         /// <summary>
+        /// Gets and sets the property LaunchTemplate. 
+        /// <para>
+        /// The launch template to use.
+        /// </para>
+        /// </summary>
+        public AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification LaunchTemplate
+        {
+            get { return this._launchTemplate; }
+            set { this._launchTemplate = value; }
+        }
+
+        // Check to see if LaunchTemplate property is set
+        internal bool IsSetLaunchTemplate()
+        {
+            return this._launchTemplate != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property LoadBalancerNames. 
         /// <para>
         /// The list of load balancers associated with the group.
@@ -134,6 +192,24 @@ namespace Amazon.SecurityHub.Model
         internal bool IsSetLoadBalancerNames()
         {
             return this._loadBalancerNames != null && this._loadBalancerNames.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property MixedInstancesPolicy. 
+        /// <para>
+        /// The mixed instances policy for the automatic scaling group.
+        /// </para>
+        /// </summary>
+        public AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails MixedInstancesPolicy
+        {
+            get { return this._mixedInstancesPolicy; }
+            set { this._mixedInstancesPolicy = value; }
+        }
+
+        // Check to see if MixedInstancesPolicy property is set
+        internal bool IsSetMixedInstancesPolicy()
+        {
+            return this._mixedInstancesPolicy != null;
         }
 
     }

@@ -32,7 +32,7 @@ namespace Amazon.ServerMigrationService
     public partial class AmazonServerMigrationServiceConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.152");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.ServerMigrationService
         /// Default constructor
         /// </summary>
         public AmazonServerMigrationServiceConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonServerMigrationServiceDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "sms";
         }

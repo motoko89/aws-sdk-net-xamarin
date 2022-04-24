@@ -271,6 +271,56 @@ namespace Amazon.Lambda
 
 
     /// <summary>
+    /// Constants used for properties of type FunctionUrlAuthType.
+    /// </summary>
+    public class FunctionUrlAuthType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AWS_IAM for FunctionUrlAuthType
+        /// </summary>
+        public static readonly FunctionUrlAuthType AWS_IAM = new FunctionUrlAuthType("AWS_IAM");
+        /// <summary>
+        /// Constant NONE for FunctionUrlAuthType
+        /// </summary>
+        public static readonly FunctionUrlAuthType NONE = new FunctionUrlAuthType("NONE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public FunctionUrlAuthType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static FunctionUrlAuthType FindValue(string value)
+        {
+            return FindValue<FunctionUrlAuthType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator FunctionUrlAuthType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type FunctionVersion.
     /// </summary>
     public class FunctionVersion : ConstantClass
@@ -667,6 +717,10 @@ namespace Amazon.Lambda
     {
 
         /// <summary>
+        /// Constant Dotnet6 for Runtime
+        /// </summary>
+        public static readonly Runtime Dotnet6 = new Runtime("dotnet6");
+        /// <summary>
         /// Constant Dotnetcore10 for Runtime
         /// </summary>
         public static readonly Runtime Dotnetcore10 = new Runtime("dotnetcore1.0");
@@ -813,6 +867,10 @@ namespace Amazon.Lambda
         /// </summary>
         public static readonly SourceAccessType BASIC_AUTH = new SourceAccessType("BASIC_AUTH");
         /// <summary>
+        /// Constant CLIENT_CERTIFICATE_TLS_AUTH for SourceAccessType
+        /// </summary>
+        public static readonly SourceAccessType CLIENT_CERTIFICATE_TLS_AUTH = new SourceAccessType("CLIENT_CERTIFICATE_TLS_AUTH");
+        /// <summary>
         /// Constant SASL_SCRAM_256_AUTH for SourceAccessType
         /// </summary>
         public static readonly SourceAccessType SASL_SCRAM_256_AUTH = new SourceAccessType("SASL_SCRAM_256_AUTH");
@@ -820,6 +878,10 @@ namespace Amazon.Lambda
         /// Constant SASL_SCRAM_512_AUTH for SourceAccessType
         /// </summary>
         public static readonly SourceAccessType SASL_SCRAM_512_AUTH = new SourceAccessType("SASL_SCRAM_512_AUTH");
+        /// <summary>
+        /// Constant SERVER_ROOT_CA_CERTIFICATE for SourceAccessType
+        /// </summary>
+        public static readonly SourceAccessType SERVER_ROOT_CA_CERTIFICATE = new SourceAccessType("SERVER_ROOT_CA_CERTIFICATE");
         /// <summary>
         /// Constant VIRTUAL_HOST for SourceAccessType
         /// </summary>

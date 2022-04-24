@@ -30,7 +30,12 @@ namespace Amazon.Connect.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateHoursOfOperation operation.
-    /// Creates hours of operation.
+    /// This API is in preview release for Amazon Connect and is subject to change.
+    /// 
+    ///  
+    /// <para>
+    /// Creates hours of operation. 
+    /// </para>
     /// </summary>
     public partial class CreateHoursOfOperationRequest : AmazonConnectRequest
     {

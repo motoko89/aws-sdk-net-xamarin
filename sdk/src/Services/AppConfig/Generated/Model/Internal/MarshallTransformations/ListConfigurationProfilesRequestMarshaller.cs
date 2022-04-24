@@ -55,7 +55,7 @@ namespace Amazon.AppConfig.Model.Internal.MarshallTransformations
         public IRequest Marshall(ListConfigurationProfilesRequest publicRequest)
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.AppConfig");
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-10-09";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-10-09";
             request.HttpMethod = "GET";
 
             if (!publicRequest.IsSetApplicationId())
@@ -67,6 +67,9 @@ namespace Amazon.AppConfig.Model.Internal.MarshallTransformations
             
             if (publicRequest.IsSetNextToken())
                 request.Parameters.Add("next_token", StringUtils.FromString(publicRequest.NextToken));
+            
+            if (publicRequest.IsSetType())
+                request.Parameters.Add("type", StringUtils.FromString(publicRequest.Type));
             request.ResourcePath = "/applications/{ApplicationId}/configurationprofiles";
             request.UseQueryString = true;
 

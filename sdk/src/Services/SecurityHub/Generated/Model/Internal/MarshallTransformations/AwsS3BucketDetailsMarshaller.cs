@@ -34,7 +34,7 @@ namespace Amazon.SecurityHub.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// AwsS3BucketDetails Marshaller
-    /// </summary>       
+    /// </summary>
     public class AwsS3BucketDetailsMarshaller : IRequestMarshaller<AwsS3BucketDetails, JsonMarshallerContext> 
     {
         /// <summary>
@@ -80,6 +80,17 @@ namespace Amazon.SecurityHub.Model.Internal.MarshallTransformations
 
                 var marshaller = AwsS3BucketNotificationConfigurationMarshaller.Instance;
                 marshaller.Marshall(requestObject.BucketNotificationConfiguration, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetBucketVersioningConfiguration())
+            {
+                context.Writer.WritePropertyName("BucketVersioningConfiguration");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = AwsS3BucketBucketVersioningConfigurationMarshaller.Instance;
+                marshaller.Marshall(requestObject.BucketVersioningConfiguration, context);
 
                 context.Writer.WriteObjectEnd();
             }
@@ -145,7 +156,7 @@ namespace Amazon.SecurityHub.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static AwsS3BucketDetailsMarshaller Instance = new AwsS3BucketDetailsMarshaller();
 
     }

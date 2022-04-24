@@ -32,7 +32,7 @@ namespace Amazon.Lambda
     public partial class AmazonLambdaConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.4.19");
+            InternalSDKUtils.BuildUserAgentString("3.7.12.6");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.Lambda
         /// Default constructor
         /// </summary>
         public AmazonLambdaConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonLambdaDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "lambda";
         }

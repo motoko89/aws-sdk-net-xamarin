@@ -31,7 +31,12 @@ namespace Amazon.Route53Domains.Model
     /// <summary>
     /// Container for the parameters to the ListOperations operation.
     /// Returns information about all of the operations that return an operation ID and that
-    /// have ever been performed on domains that were registered by the current account.
+    /// have ever been performed on domains that were registered by the current account. 
+    /// 
+    ///  
+    /// <para>
+    /// This command runs only in the us-east-1 Region.
+    /// </para>
     /// </summary>
     public partial class ListOperationsRequest : AmazonRoute53DomainsRequest
     {

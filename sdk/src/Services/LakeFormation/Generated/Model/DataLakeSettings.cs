@@ -29,22 +29,98 @@ using Amazon.Runtime.Internal;
 namespace Amazon.LakeFormation.Model
 {
     /// <summary>
-    /// A structure representing a list of AWS Lake Formation principals designated as data
-    /// lake administrators and lists of principal permission entries for default create database
+    /// A structure representing a list of Lake Formation principals designated as data lake
+    /// administrators and lists of principal permission entries for default create database
     /// and default create table permissions.
     /// </summary>
     public partial class DataLakeSettings
     {
+        private bool? _allowExternalDataFiltering;
+        private List<string> _authorizedSessionTagValueList = new List<string>();
         private List<PrincipalPermissions> _createDatabaseDefaultPermissions = new List<PrincipalPermissions>();
         private List<PrincipalPermissions> _createTableDefaultPermissions = new List<PrincipalPermissions>();
         private List<DataLakePrincipal> _dataLakeAdmins = new List<DataLakePrincipal>();
+        private List<DataLakePrincipal> _externalDataFilteringAllowList = new List<DataLakePrincipal>();
         private List<string> _trustedResourceOwners = new List<string>();
+
+        /// <summary>
+        /// Gets and sets the property AllowExternalDataFiltering. 
+        /// <para>
+        /// Whether to allow Amazon EMR clusters to access data managed by Lake Formation. 
+        /// </para>
+        ///  
+        /// <para>
+        /// If true, you allow Amazon EMR clusters to access data in Amazon S3 locations that
+        /// are registered with Lake Formation.
+        /// </para>
+        ///  
+        /// <para>
+        /// If false or null, no Amazon EMR clusters will be able to access data in Amazon S3
+        /// locations that are registered with Lake Formation.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/getting-started-setup.html#emr-switch">(Optional)
+        /// Allow Data Filtering on Amazon EMR</a>.
+        /// </para>
+        /// </summary>
+        public bool AllowExternalDataFiltering
+        {
+            get { return this._allowExternalDataFiltering.GetValueOrDefault(); }
+            set { this._allowExternalDataFiltering = value; }
+        }
+
+        // Check to see if AllowExternalDataFiltering property is set
+        internal bool IsSetAllowExternalDataFiltering()
+        {
+            return this._allowExternalDataFiltering.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property AuthorizedSessionTagValueList. 
+        /// <para>
+        /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party
+        /// integrator to tag the user's role while assuming it. Lake Formation will publish the
+        /// acceptable key-value pair, for example key = "LakeFormationTrustedCaller" and value
+        /// = "TRUE" and the third party integrator must properly tag the temporary security credentials
+        /// that will be used to call Lake Formation's administrative APIs.
+        /// </para>
+        /// </summary>
+        public List<string> AuthorizedSessionTagValueList
+        {
+            get { return this._authorizedSessionTagValueList; }
+            set { this._authorizedSessionTagValueList = value; }
+        }
+
+        // Check to see if AuthorizedSessionTagValueList property is set
+        internal bool IsSetAuthorizedSessionTagValueList()
+        {
+            return this._authorizedSessionTagValueList != null && this._authorizedSessionTagValueList.Count > 0; 
+        }
 
         /// <summary>
         /// Gets and sets the property CreateDatabaseDefaultPermissions. 
         /// <para>
-        /// A structure representing a list of up to three principal permissions entries for default
-        /// create database permissions.
+        /// Specifies whether access control on newly created database is managed by Lake Formation
+        /// permissions or exclusively by IAM permissions. You can override this default setting
+        /// when you create a database.
+        /// </para>
+        ///  
+        /// <para>
+        /// A null value indicates access control by Lake Formation permissions. A value that
+        /// assigns ALL to IAM_ALLOWED_PRINCIPALS indicates access control by IAM permissions.
+        /// This is referred to as the setting "Use only IAM access control," and is for backward
+        /// compatibility with the Glue permission model implemented by IAM permissions.
+        /// </para>
+        ///  
+        /// <para>
+        /// The only permitted values are an empty array or an array that contains a single JSON
+        /// object that grants ALL to IAM_ALLOWED_PRINCIPALS.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html">Changing
+        /// the Default Security Settings for Your Data Lake</a>.
         /// </para>
         /// </summary>
         public List<PrincipalPermissions> CreateDatabaseDefaultPermissions
@@ -62,8 +138,25 @@ namespace Amazon.LakeFormation.Model
         /// <summary>
         /// Gets and sets the property CreateTableDefaultPermissions. 
         /// <para>
-        /// A structure representing a list of up to three principal permissions entries for default
-        /// create table permissions.
+        /// Specifies whether access control on newly created table is managed by Lake Formation
+        /// permissions or exclusively by IAM permissions.
+        /// </para>
+        ///  
+        /// <para>
+        /// A null value indicates access control by Lake Formation permissions. A value that
+        /// assigns ALL to IAM_ALLOWED_PRINCIPALS indicates access control by IAM permissions.
+        /// This is referred to as the setting "Use only IAM access control," and is for backward
+        /// compatibility with the Glue permission model implemented by IAM permissions.
+        /// </para>
+        ///  
+        /// <para>
+        /// The only permitted values are an empty array or an array that contains a single JSON
+        /// object that grants ALL to IAM_ALLOWED_PRINCIPALS.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html">Changing
+        /// the Default Security Settings for Your Data Lake</a>.
         /// </para>
         /// </summary>
         public List<PrincipalPermissions> CreateTableDefaultPermissions
@@ -81,8 +174,7 @@ namespace Amazon.LakeFormation.Model
         /// <summary>
         /// Gets and sets the property DataLakeAdmins. 
         /// <para>
-        /// A list of AWS Lake Formation principals. Supported principals are IAM users or IAM
-        /// roles.
+        /// A list of Lake Formation principals. Supported principals are IAM users or IAM roles.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=10)]
@@ -99,11 +191,31 @@ namespace Amazon.LakeFormation.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ExternalDataFilteringAllowList. 
+        /// <para>
+        /// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters
+        /// that are to perform data filtering.&gt;
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=10)]
+        public List<DataLakePrincipal> ExternalDataFilteringAllowList
+        {
+            get { return this._externalDataFilteringAllowList; }
+            set { this._externalDataFilteringAllowList = value; }
+        }
+
+        // Check to see if ExternalDataFilteringAllowList property is set
+        internal bool IsSetExternalDataFilteringAllowList()
+        {
+            return this._externalDataFilteringAllowList != null && this._externalDataFilteringAllowList.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property TrustedResourceOwners. 
         /// <para>
         /// A list of the resource-owning account IDs that the caller's account can use to share
         /// their user access details (user ARNs). The user ARNs can be logged in the resource
-        /// owner's AWS CloudTrail log.
+        /// owner's CloudTrail log.
         /// </para>
         ///  
         /// <para>

@@ -32,7 +32,7 @@ namespace Amazon.CodeBuild
     public partial class AmazonCodeBuildConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.7.17");
+            InternalSDKUtils.BuildUserAgentString("3.7.7.75");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.CodeBuild
         /// Default constructor
         /// </summary>
         public AmazonCodeBuildConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCodeBuildDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "codebuild";
         }

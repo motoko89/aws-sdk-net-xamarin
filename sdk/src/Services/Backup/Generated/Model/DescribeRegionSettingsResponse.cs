@@ -33,7 +33,43 @@ namespace Amazon.Backup.Model
     /// </summary>
     public partial class DescribeRegionSettingsResponse : AmazonWebServiceResponse
     {
+        private Dictionary<string, bool> _resourceTypeManagementPreference = new Dictionary<string, bool>();
         private Dictionary<string, bool> _resourceTypeOptInPreference = new Dictionary<string, bool>();
+
+        /// <summary>
+        /// Gets and sets the property ResourceTypeManagementPreference. 
+        /// <para>
+        /// Returns whether Backup fully manages the backups for a resource type.
+        /// </para>
+        ///  
+        /// <para>
+        /// For the benefits of full Backup management, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management">
+        /// Full Backup management</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For a list of resource types and whether each supports full Backup management, see
+        /// the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
+        /// Feature availability by resource</a> table.
+        /// </para>
+        ///  
+        /// <para>
+        /// If <code>"DynamoDB":false</code>, you can enable full Backup management for DynamoDB
+        /// backup by enabling <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html#advanced-ddb-backup-enable-cli">
+        /// Backup's advanced DynamoDB backup features</a>.
+        /// </para>
+        /// </summary>
+        public Dictionary<string, bool> ResourceTypeManagementPreference
+        {
+            get { return this._resourceTypeManagementPreference; }
+            set { this._resourceTypeManagementPreference = value; }
+        }
+
+        // Check to see if ResourceTypeManagementPreference property is set
+        internal bool IsSetResourceTypeManagementPreference()
+        {
+            return this._resourceTypeManagementPreference != null && this._resourceTypeManagementPreference.Count > 0; 
+        }
 
         /// <summary>
         /// Gets and sets the property ResourceTypeOptInPreference. 

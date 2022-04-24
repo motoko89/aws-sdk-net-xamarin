@@ -56,7 +56,7 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.Batch");
             request.Headers["Content-Type"] = "application/json";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2016-08-10";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2016-08-10";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/v1/submitjob";
@@ -163,6 +163,18 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
+                if(publicRequest.IsSetSchedulingPriorityOverride())
+                {
+                    context.Writer.WritePropertyName("schedulingPriorityOverride");
+                    context.Writer.Write(publicRequest.SchedulingPriorityOverride);
+                }
+
+                if(publicRequest.IsSetShareIdentifier())
+                {
+                    context.Writer.WritePropertyName("shareIdentifier");
+                    context.Writer.Write(publicRequest.ShareIdentifier);
+                }
+
                 if(publicRequest.IsSetTags())
                 {
                     context.Writer.WritePropertyName("tags");
@@ -188,7 +200,6 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

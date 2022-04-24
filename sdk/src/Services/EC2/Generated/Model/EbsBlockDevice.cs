@@ -85,7 +85,7 @@ namespace Amazon.EC2.Model
         /// </para>
         ///  
         /// <para>
-        /// This parameter is not returned by .
+        /// This parameter is not returned by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html">DescribeImageAttribute</a>.
         /// </para>
         /// </summary>
         public bool Encrypted
@@ -181,6 +181,12 @@ namespace Amazon.EC2.Model
         /// Gets and sets the property OutpostArn. 
         /// <para>
         /// The ARN of the Outpost on which the snapshot is stored.
+        /// </para>
+        ///  
+        /// <para>
+        /// This parameter is only supported on <code>BlockDeviceMapping</code> objects called
+        /// by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">
+        /// CreateImage</a>.
         /// </para>
         /// </summary>
         public string OutpostArn

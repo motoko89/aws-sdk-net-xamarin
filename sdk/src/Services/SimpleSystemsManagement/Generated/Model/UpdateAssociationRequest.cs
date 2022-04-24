@@ -32,7 +32,13 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// Container for the parameters to the UpdateAssociation operation.
     /// Updates an association. You can update the association name and version, the document
     /// version, schedule, parameters, and Amazon Simple Storage Service (Amazon S3) output.
-    /// 
+    /// When you call <code>UpdateAssociation</code>, the system removes all optional parameters
+    /// from the request and overwrites the association with null values for those parameters.
+    /// This is by design. You must specify all optional parameters in the call, even if you
+    /// are not changing the parameters. This includes the <code>Name</code> parameter. Before
+    /// calling this API action, we recommend that you call the <a>DescribeAssociation</a>
+    /// API operation and make a note of all optional parameters required for your <code>UpdateAssociation</code>
+    /// call.
     /// 
     ///  
     /// <para>
@@ -46,7 +52,8 @@ namespace Amazon.SimpleSystemsManagement.Model
     ///  <important> 
     /// <para>
     /// When you update an association, the association immediately runs against the specified
-    /// targets.
+    /// targets. You can add the <code>ApplyOnlyAtCronInterval</code> parameter to run the
+    /// association during the next schedule run.
     /// </para>
     ///  </important>
     /// </summary>
@@ -66,6 +73,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         private InstanceAssociationOutputLocation _outputLocation;
         private Dictionary<string, List<string>> _parameters = new Dictionary<string, List<string>>();
         private string _scheduleExpression;
+        private int? _scheduleOffset;
         private AssociationSyncCompliance _syncCompliance;
         private List<TargetLocation> _targetLocations = new List<TargetLocation>();
         private List<Target> _targets = new List<Target>();
@@ -80,10 +88,21 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// </para>
         ///  
         /// <para>
-        /// Also, if you specified this option when you created the association, you can reset
-        /// it. To do so, specify the <code>no-apply-only-at-cron-interval</code> parameter when
-        /// you update the association from the command line. This parameter forces the association
-        /// to run immediately after updating it and according to the interval specified.
+        /// If you chose this option when you created an association and later you edit that association
+        /// or you make changes to the SSM document on which that association is based (by using
+        /// the Documents page in the console), State Manager applies the association at the next
+        /// specified cron interval. For example, if you chose the <code>Latest</code> version
+        /// of an SSM document when you created an association and you edit the association by
+        /// choosing a different document version on the Documents page, State Manager applies
+        /// the association at the next specified cron interval if you previously selected this
+        /// option. If this option wasn't selected, State Manager immediately runs the association.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can reset this option. To do so, specify the <code>no-apply-only-at-cron-interval</code>
+        /// parameter when you update the association from the command line. This parameter forces
+        /// the association to run immediately after updating it and according to the interval
+        /// specified.
         /// </para>
         /// </summary>
         public bool ApplyOnlyAtCronInterval
@@ -158,9 +177,9 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property AutomationTargetParameterName. 
         /// <para>
-        /// Specify the target for the association. This target is required for associations that
-        /// use an Automation runbook and target resources by using rate controls. Automation
-        /// is a capability of Amazon Web Services Systems Manager.
+        /// Choose the parameter that will define how your automation will branch out. This target
+        /// is required for associations that use an Automation runbook and target resources by
+        /// using rate controls. Automation is a capability of Amazon Web Services Systems Manager.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=50)]
@@ -220,6 +239,16 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <para>
         /// The document version you want update for the association. 
         /// </para>
+        ///  <important> 
+        /// <para>
+        /// State Manager doesn't support running associations that use a new version of a document
+        /// if that document is shared from another account. State Manager always runs the <code>default</code>
+        /// version of a document if shared from another account, even though the Systems Manager
+        /// console shows that a new version was processed. If you want to run an association
+        /// using a new version of a document shared form another account, you must set the document
+        /// version to <code>default</code>.
+        /// </para>
+        ///  </important>
         /// </summary>
         public string DocumentVersion
         {
@@ -243,9 +272,9 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// </para>
         ///  
         /// <para>
-        /// If a new instance starts and attempts to run an association while Systems Manager
+        /// If a new managed node starts and attempts to run an association while Systems Manager
         /// is running <code>MaxConcurrency</code> associations, the association is allowed to
-        /// run. During the next association interval, the new instance will process its association
+        /// run. During the next association interval, the new managed node will process its association
         /// within the limit specified for <code>MaxConcurrency</code>.
         /// </para>
         /// </summary>
@@ -270,7 +299,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// of errors, for example 10, or a percentage of the target set, for example 10%. If
         /// you specify 3, for example, the system stops sending requests when the fourth error
         /// is received. If you specify 0, then the system stops sending requests after the first
-        /// error is returned. If you run an association on 50 instances and set <code>MaxError</code>
+        /// error is returned. If you run an association on 50 managed nodes and set <code>MaxError</code>
         /// to 10%, then the system stops sending the request when the sixth error is received.
         /// </para>
         ///  
@@ -298,7 +327,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Gets and sets the property Name. 
         /// <para>
         /// The name of the SSM Command document or Automation runbook that contains the configuration
-        /// information for the instance.
+        /// information for the managed node.
         /// </para>
         ///  
         /// <para>
@@ -398,6 +427,37 @@ namespace Amazon.SimpleSystemsManagement.Model
         internal bool IsSetScheduleExpression()
         {
             return this._scheduleExpression != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ScheduleOffset. 
+        /// <para>
+        /// Number of days to wait after the scheduled day to run an association. For example,
+        /// if you specified a cron schedule of <code>cron(0 0 ? * THU#2 *)</code>, you could
+        /// specify an offset of 3 to run the association each Sunday after the second Thursday
+        /// of the month. For more information about cron schedules for associations, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html">Reference:
+        /// Cron and rate expressions for Systems Manager</a> in the <i>Amazon Web Services Systems
+        /// Manager User Guide</i>. 
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// To use offsets, you must specify the <code>ApplyOnlyAtCronInterval</code> parameter.
+        /// This option tells the system not to run an association immediately after you create
+        /// it. 
+        /// </para>
+        ///  </note>
+        /// </summary>
+        [AWSProperty(Min=1, Max=6)]
+        public int ScheduleOffset
+        {
+            get { return this._scheduleOffset.GetValueOrDefault(); }
+            set { this._scheduleOffset = value; }
+        }
+
+        // Check to see if ScheduleOffset property is set
+        internal bool IsSetScheduleOffset()
+        {
+            return this._scheduleOffset.HasValue; 
         }
 
         /// <summary>

@@ -32,7 +32,7 @@ namespace Amazon.Mobile
     public partial class AmazonMobileConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.151");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.Mobile
         /// Default constructor
         /// </summary>
         public AmazonMobileConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonMobileDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "AWSMobileHubService";
         }

@@ -32,7 +32,7 @@ namespace Amazon.StorageGateway
     public partial class AmazonStorageGatewayConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.3.11");
+            InternalSDKUtils.BuildUserAgentString("3.7.5.0");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.StorageGateway
         /// Default constructor
         /// </summary>
         public AmazonStorageGatewayConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonStorageGatewayDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "storagegateway";
         }

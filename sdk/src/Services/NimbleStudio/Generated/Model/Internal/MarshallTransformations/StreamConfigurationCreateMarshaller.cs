@@ -34,7 +34,7 @@ namespace Amazon.NimbleStudio.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// StreamConfigurationCreate Marshaller
-    /// </summary>       
+    /// </summary>
     public class StreamConfigurationCreateMarshaller : IRequestMarshaller<StreamConfigurationCreate, JsonMarshallerContext> 
     {
         /// <summary>
@@ -74,6 +74,17 @@ namespace Amazon.NimbleStudio.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.MaxStoppedSessionLengthInMinutes);
             }
 
+            if(requestObject.IsSetSessionStorage())
+            {
+                context.Writer.WritePropertyName("sessionStorage");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = StreamConfigurationSessionStorageMarshaller.Instance;
+                marshaller.Marshall(requestObject.SessionStorage, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetStreamingImageIds())
             {
                 context.Writer.WritePropertyName("streamingImageIds");
@@ -89,7 +100,7 @@ namespace Amazon.NimbleStudio.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static StreamConfigurationCreateMarshaller Instance = new StreamConfigurationCreateMarshaller();
 
     }

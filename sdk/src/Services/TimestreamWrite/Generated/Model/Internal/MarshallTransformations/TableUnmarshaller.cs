@@ -88,6 +88,12 @@ namespace Amazon.TimestreamWrite.Model.Internal.MarshallTransformations
                     unmarshalledObject.LastUpdatedTime = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("MagneticStoreWriteProperties", targetDepth))
+                {
+                    var unmarshaller = MagneticStoreWritePropertiesUnmarshaller.Instance;
+                    unmarshalledObject.MagneticStoreWriteProperties = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("RetentionProperties", targetDepth))
                 {
                     var unmarshaller = RetentionPropertiesUnmarshaller.Instance;

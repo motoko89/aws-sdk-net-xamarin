@@ -47,6 +47,8 @@ namespace Amazon.Transfer.Model
         private string _hostKey;
         private IdentityProviderDetails _identityProviderDetails;
         private string _loggingRole;
+        private string _postAuthenticationLoginBanner;
+        private string _preAuthenticationLoginBanner;
         private ProtocolDetails _protocolDetails;
         private List<string> _protocols = new List<string>();
         private string _securityPolicyName;
@@ -257,6 +259,59 @@ namespace Amazon.Transfer.Model
         }
 
         /// <summary>
+        /// Gets and sets the property PostAuthenticationLoginBanner. 
+        /// <para>
+        /// Specify a string to display when users connect to a server. This string is displayed
+        /// after the user authenticates.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// The SFTP protocol does not support post-authentication display banners.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        [AWSProperty(Max=512)]
+        public string PostAuthenticationLoginBanner
+        {
+            get { return this._postAuthenticationLoginBanner; }
+            set { this._postAuthenticationLoginBanner = value; }
+        }
+
+        // Check to see if PostAuthenticationLoginBanner property is set
+        internal bool IsSetPostAuthenticationLoginBanner()
+        {
+            return this._postAuthenticationLoginBanner != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PreAuthenticationLoginBanner. 
+        /// <para>
+        /// Specify a string to display when users connect to a server. This string is displayed
+        /// before the user authenticates. For example, the following banner displays details
+        /// about using the system.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>This system is for the use of authorized users only. Individuals using this
+        /// computer system without authority, or in excess of their authority, are subject to
+        /// having all of their activities on this system monitored and recorded by system personnel.</code>
+        /// 
+        /// </para>
+        /// </summary>
+        [AWSProperty(Max=512)]
+        public string PreAuthenticationLoginBanner
+        {
+            get { return this._preAuthenticationLoginBanner; }
+            set { this._preAuthenticationLoginBanner = value; }
+        }
+
+        // Check to see if PreAuthenticationLoginBanner property is set
+        internal bool IsSetPreAuthenticationLoginBanner()
+        {
+            return this._preAuthenticationLoginBanner != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property ProtocolDetails. 
         /// <para>
         ///  The protocol settings that are configured for your server. 
@@ -266,6 +321,12 @@ namespace Amazon.Transfer.Model
         ///  Use the <code>PassiveIp</code> parameter to indicate passive mode (for FTP and FTPS
         /// protocols). Enter a single dotted-quad IPv4 address, such as the external IP address
         /// of a firewall, router, or load balancer. 
+        /// </para>
+        ///  
+        /// <para>
+        /// Use the <code>TlsSessionResumptionMode</code> parameter to determine whether or not
+        /// your Transfer server resumes recent, negotiated sessions through a unique session
+        /// ID.
         /// </para>
         /// </summary>
         public ProtocolDetails ProtocolDetails
@@ -380,6 +441,16 @@ namespace Amazon.Transfer.Model
         /// <para>
         /// Specifies the workflow ID for the workflow to assign and the execution role used for
         /// executing the workflow.
+        /// </para>
+        ///  
+        /// <para>
+        /// To remove an associated workflow from a server, you can provide an empty <code>OnUpload</code>
+        /// object, as in the following example.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>aws transfer update-server --server-id s-01234567890abcdef --workflow-details
+        /// '{"OnUpload":[]}'</code> 
         /// </para>
         /// </summary>
         public WorkflowDetails WorkflowDetails

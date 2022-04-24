@@ -34,7 +34,7 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// ViewFrame Marshaller
-    /// </summary>       
+    /// </summary>
     public class ViewFrameMarshaller : IRequestMarshaller<ViewFrame, JsonMarshallerContext> 
     {
         /// <summary>
@@ -45,6 +45,12 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(ViewFrame requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetAnalytics())
+            {
+                context.Writer.WritePropertyName("Analytics");
+                context.Writer.Write(requestObject.Analytics);
+            }
+
             if(requestObject.IsSetColumnRange())
             {
                 context.Writer.WritePropertyName("ColumnRange");
@@ -62,17 +68,29 @@ namespace Amazon.GlueDataBrew.Model.Internal.MarshallTransformations
                 context.Writer.WriteArrayEnd();
             }
 
+            if(requestObject.IsSetRowRange())
+            {
+                context.Writer.WritePropertyName("RowRange");
+                context.Writer.Write(requestObject.RowRange);
+            }
+
             if(requestObject.IsSetStartColumnIndex())
             {
                 context.Writer.WritePropertyName("StartColumnIndex");
                 context.Writer.Write(requestObject.StartColumnIndex);
             }
 
+            if(requestObject.IsSetStartRowIndex())
+            {
+                context.Writer.WritePropertyName("StartRowIndex");
+                context.Writer.Write(requestObject.StartRowIndex);
+            }
+
         }
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static ViewFrameMarshaller Instance = new ViewFrameMarshaller();
 
     }

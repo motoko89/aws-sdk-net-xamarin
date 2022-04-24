@@ -32,20 +32,20 @@ namespace Amazon.DevOpsGuru
     /// Interface for accessing DevOpsGuru
     ///
     /// Amazon DevOps Guru is a fully managed service that helps you identify anomalous behavior
-    /// in business critical operational applications. You specify the AWS resources that
-    /// you want DevOps Guru to cover, then the Amazon CloudWatch metrics and AWS CloudTrail
-    /// events related to those resources are analyzed. When anomalous behavior is detected,
-    /// DevOps Guru creates an <i>insight</i> that includes recommendations, related events,
-    /// and related metrics that can help you improve your operational applications. For more
-    /// information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html">What
+    /// in business critical operational applications. You specify the Amazon Web Services
+    /// resources that you want DevOps Guru to cover, then the Amazon CloudWatch metrics and
+    /// Amazon Web Services CloudTrail events related to those resources are analyzed. When
+    /// anomalous behavior is detected, DevOps Guru creates an <i>insight</i> that includes
+    /// recommendations, related events, and related metrics that can help you improve your
+    /// operational applications. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html">What
     /// is Amazon DevOps Guru</a>. 
     /// 
     ///  
     /// <para>
     ///  You can specify 1 or 2 Amazon Simple Notification Service topics so you are notified
     /// every time a new insight is created. You can also enable DevOps Guru to generate an
-    /// OpsItem in AWS Systems Manager for each insight to help you manage and track your
-    /// work addressing insights. 
+    /// OpsItem in Amazon Web Services Systems Manager for each insight to help you manage
+    /// and track your work addressing insights. 
     /// </para>
     ///  
     /// <para>
@@ -75,16 +75,23 @@ namespace Amazon.DevOpsGuru
         /// <para>
         /// If you use an Amazon SNS topic in another account, you must attach a policy to it
         /// that grants DevOps Guru permission to it notifications. DevOps Guru adds the required
-        /// policy on your behalf to send notifications using Amazon SNS in your account. For
-        /// more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html">Permissions
+        /// policy on your behalf to send notifications using Amazon SNS in your account. DevOps
+        /// Guru only supports standard SNS topics. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html">Permissions
         /// for cross account Amazon SNS topics</a>.
         /// </para>
         ///  
         /// <para>
-        /// If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service
-        /// customer-managed key (CMK), then you must add permissions to the CMK. For more information,
-        /// see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html">Permissions
-        /// for AWS KMS–encrypted Amazon SNS topics</a>.
+        /// If you use an Amazon SNS topic in another account, you must attach a policy to it
+        /// that grants DevOps Guru permission to it notifications. DevOps Guru adds the required
+        /// policy on your behalf to send notifications using Amazon SNS in your account. For
+        /// more information, see Permissions for cross account Amazon SNS topics.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key Management
+        /// Service customer-managed key (CMK), then you must add permissions to the CMK. For
+        /// more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html">Permissions
+        /// for Amazon Web Services KMS–encrypted Amazon SNS topics</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AddNotificationChannel service method.</param>
@@ -123,14 +130,54 @@ namespace Amazon.DevOpsGuru
 
         #endregion
                 
+        #region  DeleteInsight
+
+
+
+        /// <summary>
+        /// Deletes the insight along with the associated anomalies, events and recommendations.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteInsight service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteInsight service method, as returned by DevOpsGuru.</returns>
+        /// <exception cref="Amazon.DevOpsGuru.Model.AccessDeniedException">
+        /// You don't have permissions to perform the requested operation. The user or role that
+        /// is making the request must have at least one IAM permissions policy attached that
+        /// grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+        /// Management</a> in the <i>IAM User Guide</i>.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ConflictException">
+        /// An exception that is thrown when a conflict occurs.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.InternalServerException">
+        /// An internal failure in an Amazon service occurred.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ResourceNotFoundException">
+        /// A requested resource could not be found
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ThrottlingException">
+        /// The request was denied due to a request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ValidationException">
+        /// Contains information about data passed in to a field during a request that is not
+        /// valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/devops-guru-2020-12-01/DeleteInsight">REST API Reference for DeleteInsight Operation</seealso>
+        Task<DeleteInsightResponse> DeleteInsightAsync(DeleteInsightRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  DescribeAccountHealth
 
 
 
         /// <summary>
         /// Returns the number of open reactive insights, the number of open proactive insights,
-        /// and the number of metrics analyzed in your AWS account. Use these numbers to gauge
-        /// the health of operations in your AWS account.
+        /// and the number of metrics analyzed in your Amazon Web Services account. Use these
+        /// numbers to gauge the health of operations in your Amazon Web Services account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAccountHealth service method.</param>
         /// <param name="cancellationToken">
@@ -232,12 +279,50 @@ namespace Amazon.DevOpsGuru
 
         #endregion
                 
+        #region  DescribeEventSourcesConfig
+
+
+
+        /// <summary>
+        /// Returns the integration status of services that are integrated with DevOps Guru as
+        /// Consumer via EventBridge. The one service that can be integrated with DevOps Guru
+        /// is Amazon CodeGuru Profiler, which can produce proactive recommendations which can
+        /// be stored and viewed in DevOps Guru.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeEventSourcesConfig service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeEventSourcesConfig service method, as returned by DevOpsGuru.</returns>
+        /// <exception cref="Amazon.DevOpsGuru.Model.AccessDeniedException">
+        /// You don't have permissions to perform the requested operation. The user or role that
+        /// is making the request must have at least one IAM permissions policy attached that
+        /// grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+        /// Management</a> in the <i>IAM User Guide</i>.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.InternalServerException">
+        /// An internal failure in an Amazon service occurred.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ThrottlingException">
+        /// The request was denied due to a request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ValidationException">
+        /// Contains information about data passed in to a field during a request that is not
+        /// valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/devops-guru-2020-12-01/DescribeEventSourcesConfig">REST API Reference for DescribeEventSourcesConfig Operation</seealso>
+        Task<DescribeEventSourcesConfigResponse> DescribeEventSourcesConfigAsync(DescribeEventSourcesConfigRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  DescribeFeedback
 
 
 
         /// <summary>
-        /// Returns the most recent feedback submitted in the current AWS account and Region.
+        /// Returns the most recent feedback submitted in the current Amazon Web Services account
+        /// and Region.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeFeedback service method.</param>
         /// <param name="cancellationToken">
@@ -306,6 +391,112 @@ namespace Amazon.DevOpsGuru
 
         #endregion
                 
+        #region  DescribeOrganizationHealth
+
+
+
+        /// <summary>
+        /// Returns active insights, predictive insights, and resource hours analyzed in last
+        /// hour.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeOrganizationHealth service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeOrganizationHealth service method, as returned by DevOpsGuru.</returns>
+        /// <exception cref="Amazon.DevOpsGuru.Model.AccessDeniedException">
+        /// You don't have permissions to perform the requested operation. The user or role that
+        /// is making the request must have at least one IAM permissions policy attached that
+        /// grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+        /// Management</a> in the <i>IAM User Guide</i>.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.InternalServerException">
+        /// An internal failure in an Amazon service occurred.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ThrottlingException">
+        /// The request was denied due to a request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ValidationException">
+        /// Contains information about data passed in to a field during a request that is not
+        /// valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/devops-guru-2020-12-01/DescribeOrganizationHealth">REST API Reference for DescribeOrganizationHealth Operation</seealso>
+        Task<DescribeOrganizationHealthResponse> DescribeOrganizationHealthAsync(DescribeOrganizationHealthRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DescribeOrganizationOverview
+
+
+
+        /// <summary>
+        /// Returns an overview of your organization's history based on the specified time range.
+        /// The overview includes the total reactive and proactive insights.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeOrganizationOverview service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeOrganizationOverview service method, as returned by DevOpsGuru.</returns>
+        /// <exception cref="Amazon.DevOpsGuru.Model.AccessDeniedException">
+        /// You don't have permissions to perform the requested operation. The user or role that
+        /// is making the request must have at least one IAM permissions policy attached that
+        /// grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+        /// Management</a> in the <i>IAM User Guide</i>.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.InternalServerException">
+        /// An internal failure in an Amazon service occurred.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ThrottlingException">
+        /// The request was denied due to a request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ValidationException">
+        /// Contains information about data passed in to a field during a request that is not
+        /// valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/devops-guru-2020-12-01/DescribeOrganizationOverview">REST API Reference for DescribeOrganizationOverview Operation</seealso>
+        Task<DescribeOrganizationOverviewResponse> DescribeOrganizationOverviewAsync(DescribeOrganizationOverviewRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DescribeOrganizationResourceCollectionHealth
+
+
+
+        /// <summary>
+        /// Provides an overview of your system's health. If additional member accounts are part
+        /// of your organization, you can filter those accounts using the <code>AccountIds</code>
+        /// field.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeOrganizationResourceCollectionHealth service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeOrganizationResourceCollectionHealth service method, as returned by DevOpsGuru.</returns>
+        /// <exception cref="Amazon.DevOpsGuru.Model.AccessDeniedException">
+        /// You don't have permissions to perform the requested operation. The user or role that
+        /// is making the request must have at least one IAM permissions policy attached that
+        /// grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+        /// Management</a> in the <i>IAM User Guide</i>.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.InternalServerException">
+        /// An internal failure in an Amazon service occurred.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ThrottlingException">
+        /// The request was denied due to a request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ValidationException">
+        /// Contains information about data passed in to a field during a request that is not
+        /// valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/devops-guru-2020-12-01/DescribeOrganizationResourceCollectionHealth">REST API Reference for DescribeOrganizationResourceCollectionHealth Operation</seealso>
+        Task<DescribeOrganizationResourceCollectionHealthResponse> DescribeOrganizationResourceCollectionHealthAsync(DescribeOrganizationResourceCollectionHealthRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  DescribeResourceCollectionHealth
 
 
@@ -313,10 +504,12 @@ namespace Amazon.DevOpsGuru
         /// <summary>
         /// Returns the number of open proactive insights, open reactive insights, and the Mean
         /// Time to Recover (MTTR) for all closed insights in resource collections in your account.
-        /// You specify the type of AWS resources collection. The one type of AWS resource collection
-        /// supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze only
-        /// the AWS resources that are defined in the stacks. You can specify up to 500 AWS CloudFormation
-        /// stacks.
+        /// You specify the type of Amazon Web Services resources collection. The two types of
+        /// Amazon Web Services resource collections supported are Amazon Web Services CloudFormation
+        /// stacks and Amazon Web Services resources that contain the same Amazon Web Services
+        /// tag. DevOps Guru can be configured to analyze the Amazon Web Services resources that
+        /// are defined in the stacks or that are tagged using the same tag <i>key</i>. You can
+        /// specify up to 500 Amazon Web Services CloudFormation stacks.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeResourceCollectionHealth service method.</param>
         /// <param name="cancellationToken">
@@ -351,8 +544,8 @@ namespace Amazon.DevOpsGuru
 
         /// <summary>
         /// Returns the integration status of services that are integrated with DevOps Guru.
-        /// The one service that can be integrated with DevOps Guru is AWS Systems Manager, which
-        /// can be used to create an OpsItem for each generated insight.
+        /// The one service that can be integrated with DevOps Guru is Amazon Web Services Systems
+        /// Manager, which can be used to create an OpsItem for each generated insight.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeServiceIntegration service method.</param>
         /// <param name="cancellationToken">
@@ -386,8 +579,8 @@ namespace Amazon.DevOpsGuru
 
 
         /// <summary>
-        /// Returns an estimate of the monthly cost for DevOps Guru to analyze your AWS resources.
-        /// For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html">Estimate
+        /// Returns an estimate of the monthly cost for DevOps Guru to analyze your Amazon Web
+        /// Services resources. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html">Estimate
         /// your Amazon DevOps Guru costs</a> and <a href="http://aws.amazon.com/devops-guru/pricing/">Amazon
         /// DevOps Guru pricing</a>.
         /// </summary>
@@ -426,10 +619,13 @@ namespace Amazon.DevOpsGuru
 
 
         /// <summary>
-        /// Returns lists AWS resources that are of the specified resource collection type. The
-        /// one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps
-        /// Guru can be configured to analyze only the AWS resources that are defined in the stacks.
-        /// You can specify up to 500 AWS CloudFormation stacks.
+        /// Returns lists Amazon Web Services resources that are of the specified resource collection
+        /// type. The two types of Amazon Web Services resource collections supported are Amazon
+        /// Web Services CloudFormation stacks and Amazon Web Services resources that contain
+        /// the same Amazon Web Services tag. DevOps Guru can be configured to analyze the Amazon
+        /// Web Services resources that are defined in the stacks or that are tagged using the
+        /// same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation
+        /// stacks.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetResourceCollection service method.</param>
         /// <param name="cancellationToken">
@@ -542,8 +738,8 @@ namespace Amazon.DevOpsGuru
 
 
         /// <summary>
-        /// Returns a list of insights in your AWS account. You can specify which insights are
-        /// returned by their start time and status (<code>ONGOING</code>, <code>CLOSED</code>,
+        /// Returns a list of insights in your Amazon Web Services account. You can specify which
+        /// insights are returned by their start time and status (<code>ONGOING</code>, <code>CLOSED</code>,
         /// or <code>ANY</code>).
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListInsights service method.</param>
@@ -607,6 +803,40 @@ namespace Amazon.DevOpsGuru
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/devops-guru-2020-12-01/ListNotificationChannels">REST API Reference for ListNotificationChannels Operation</seealso>
         Task<ListNotificationChannelsResponse> ListNotificationChannelsAsync(ListNotificationChannelsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  ListOrganizationInsights
+
+
+
+        /// <summary>
+        /// Returns a list of insights associated with the account or OU Id.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListOrganizationInsights service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListOrganizationInsights service method, as returned by DevOpsGuru.</returns>
+        /// <exception cref="Amazon.DevOpsGuru.Model.AccessDeniedException">
+        /// You don't have permissions to perform the requested operation. The user or role that
+        /// is making the request must have at least one IAM permissions policy attached that
+        /// grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+        /// Management</a> in the <i>IAM User Guide</i>.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.InternalServerException">
+        /// An internal failure in an Amazon service occurred.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ThrottlingException">
+        /// The request was denied due to a request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ValidationException">
+        /// Contains information about data passed in to a field during a request that is not
+        /// valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/devops-guru-2020-12-01/ListOrganizationInsights">REST API Reference for ListOrganizationInsights Operation</seealso>
+        Task<ListOrganizationInsightsResponse> ListOrganizationInsightsAsync(ListOrganizationInsightsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -735,10 +965,10 @@ namespace Amazon.DevOpsGuru
 
 
         /// <summary>
-        /// Returns a list of insights in your AWS account. You can specify which insights are
-        /// returned by their start time, one or more statuses (<code>ONGOING</code>, <code>CLOSED</code>,
-        /// and <code>CLOSED</code>), one or more severities (<code>LOW</code>, <code>MEDIUM</code>,
-        /// and <code>HIGH</code>), and type (<code>REACTIVE</code> or <code>PROACTIVE</code>).
+        /// Returns a list of insights in your Amazon Web Services account. You can specify which
+        /// insights are returned by their start time, one or more statuses (<code>ONGOING</code>,
+        /// <code>CLOSED</code>, and <code>CLOSED</code>), one or more severities (<code>LOW</code>,
+        /// <code>MEDIUM</code>, and <code>HIGH</code>), and type (<code>REACTIVE</code> or <code>PROACTIVE</code>).
         /// 
         /// 
         ///  
@@ -775,12 +1005,58 @@ namespace Amazon.DevOpsGuru
 
         #endregion
                 
+        #region  SearchOrganizationInsights
+
+
+
+        /// <summary>
+        /// Returns a list of insights in your organization. You can specify which insights are
+        /// returned by their start time, one or more statuses (<code>ONGOING</code>, <code>CLOSED</code>,
+        /// and <code>CLOSED</code>), one or more severities (<code>LOW</code>, <code>MEDIUM</code>,
+        /// and <code>HIGH</code>), and type (<code>REACTIVE</code> or <code>PROACTIVE</code>).
+        /// 
+        /// 
+        ///  
+        /// <para>
+        ///  Use the <code>Filters</code> parameter to specify status and severity search parameters.
+        /// Use the <code>Type</code> parameter to specify <code>REACTIVE</code> or <code>PROACTIVE</code>
+        /// in your search. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the SearchOrganizationInsights service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the SearchOrganizationInsights service method, as returned by DevOpsGuru.</returns>
+        /// <exception cref="Amazon.DevOpsGuru.Model.AccessDeniedException">
+        /// You don't have permissions to perform the requested operation. The user or role that
+        /// is making the request must have at least one IAM permissions policy attached that
+        /// grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+        /// Management</a> in the <i>IAM User Guide</i>.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.InternalServerException">
+        /// An internal failure in an Amazon service occurred.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ThrottlingException">
+        /// The request was denied due to a request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ValidationException">
+        /// Contains information about data passed in to a field during a request that is not
+        /// valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/devops-guru-2020-12-01/SearchOrganizationInsights">REST API Reference for SearchOrganizationInsights Operation</seealso>
+        Task<SearchOrganizationInsightsResponse> SearchOrganizationInsightsAsync(SearchOrganizationInsightsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  StartCostEstimation
 
 
 
         /// <summary>
-        /// Starts the creation of an estimate of the monthly cost to analyze your AWS resources.
+        /// Starts the creation of an estimate of the monthly cost to analyze your Amazon Web
+        /// Services resources.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartCostEstimation service method.</param>
         /// <param name="cancellationToken">
@@ -815,16 +1091,55 @@ namespace Amazon.DevOpsGuru
 
         #endregion
                 
+        #region  UpdateEventSourcesConfig
+
+
+
+        /// <summary>
+        /// Enables or disables integration with a service that can be integrated with DevOps
+        /// Guru. The one service that can be integrated with DevOps Guru is Amazon CodeGuru Profiler,
+        /// which can produce proactive recommendations which can be stored and viewed in DevOps
+        /// Guru.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateEventSourcesConfig service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateEventSourcesConfig service method, as returned by DevOpsGuru.</returns>
+        /// <exception cref="Amazon.DevOpsGuru.Model.AccessDeniedException">
+        /// You don't have permissions to perform the requested operation. The user or role that
+        /// is making the request must have at least one IAM permissions policy attached that
+        /// grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+        /// Management</a> in the <i>IAM User Guide</i>.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.InternalServerException">
+        /// An internal failure in an Amazon service occurred.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ThrottlingException">
+        /// The request was denied due to a request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.DevOpsGuru.Model.ValidationException">
+        /// Contains information about data passed in to a field during a request that is not
+        /// valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/devops-guru-2020-12-01/UpdateEventSourcesConfig">REST API Reference for UpdateEventSourcesConfig Operation</seealso>
+        Task<UpdateEventSourcesConfigResponse> UpdateEventSourcesConfigAsync(UpdateEventSourcesConfigRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  UpdateResourceCollection
 
 
 
         /// <summary>
-        /// Updates the collection of resources that DevOps Guru analyzes. The one type of AWS
-        /// resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured
-        /// to analyze only the AWS resources that are defined in the stacks. You can specify
-        /// up to 500 AWS CloudFormation stacks. This method also creates the IAM role required
-        /// for you to use DevOps Guru.
+        /// Updates the collection of resources that DevOps Guru analyzes. The two types of Amazon
+        /// Web Services resource collections supported are Amazon Web Services CloudFormation
+        /// stacks and Amazon Web Services resources that contain the same Amazon Web Services
+        /// tag. DevOps Guru can be configured to analyze the Amazon Web Services resources that
+        /// are defined in the stacks or that are tagged using the same tag <i>key</i>. You can
+        /// specify up to 500 Amazon Web Services CloudFormation stacks. This method also creates
+        /// the IAM role required for you to use DevOps Guru.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateResourceCollection service method.</param>
         /// <param name="cancellationToken">
@@ -862,8 +1177,8 @@ namespace Amazon.DevOpsGuru
 
         /// <summary>
         /// Enables or disables integration with a service that can be integrated with DevOps
-        /// Guru. The one service that can be integrated with DevOps Guru is AWS Systems Manager,
-        /// which can be used to create an OpsItem for each generated insight.
+        /// Guru. The one service that can be integrated with DevOps Guru is Amazon Web Services
+        /// Systems Manager, which can be used to create an OpsItem for each generated insight.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateServiceIntegration service method.</param>
         /// <param name="cancellationToken">

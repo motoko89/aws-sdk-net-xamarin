@@ -43,7 +43,9 @@ namespace Amazon.IoT.Model
         private AbortConfig _abortConfig;
         private string _description;
         private string _document;
+        private Dictionary<string, string> _documentParameters = new Dictionary<string, string>();
         private string _documentSource;
+        private JobExecutionsRetryConfig _jobExecutionsRetryConfig;
         private JobExecutionsRolloutConfig _jobExecutionsRolloutConfig;
         private string _jobId;
         private string _jobTemplateArn;
@@ -57,7 +59,7 @@ namespace Amazon.IoT.Model
         /// <summary>
         /// Gets and sets the property AbortConfig. 
         /// <para>
-        /// Allows you to create criteria to abort a job.
+        /// Allows you to create the criteria to abort a job.
         /// </para>
         /// </summary>
         public AbortConfig AbortConfig
@@ -111,6 +113,24 @@ namespace Amazon.IoT.Model
         }
 
         /// <summary>
+        /// Gets and sets the property DocumentParameters. 
+        /// <para>
+        /// Parameters of a managed template that you can specify to create the job document.
+        /// </para>
+        /// </summary>
+        public Dictionary<string, string> DocumentParameters
+        {
+            get { return this._documentParameters; }
+            set { this._documentParameters = value; }
+        }
+
+        // Check to see if DocumentParameters property is set
+        internal bool IsSetDocumentParameters()
+        {
+            return this._documentParameters != null && this._documentParameters.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property DocumentSource. 
         /// <para>
         /// An S3 link to the job document. Required if you don't specify a value for <code>document</code>.
@@ -147,6 +167,24 @@ namespace Amazon.IoT.Model
         internal bool IsSetDocumentSource()
         {
             return this._documentSource != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property JobExecutionsRetryConfig. 
+        /// <para>
+        /// Allows you to create the criteria to retry a job.
+        /// </para>
+        /// </summary>
+        public JobExecutionsRetryConfig JobExecutionsRetryConfig
+        {
+            get { return this._jobExecutionsRetryConfig; }
+            set { this._jobExecutionsRetryConfig = value; }
+        }
+
+        // Check to see if JobExecutionsRetryConfig property is set
+        internal bool IsSetJobExecutionsRetryConfig()
+        {
+            return this._jobExecutionsRetryConfig != null;
         }
 
         /// <summary>

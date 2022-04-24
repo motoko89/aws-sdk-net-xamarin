@@ -29,11 +29,12 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Personalize.Model
 {
     /// <summary>
-    /// Describes the schema for a dataset. For more information on schemas, see <a>CreateSchema</a>.
+    /// Describes the schema for a dataset. For more information on schemas, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.
     /// </summary>
     public partial class DatasetSchema
     {
         private DateTime? _creationDateTime;
+        private Domain _domain;
         private DateTime? _lastUpdatedDateTime;
         private string _name;
         private string _schema;
@@ -55,6 +56,24 @@ namespace Amazon.Personalize.Model
         internal bool IsSetCreationDateTime()
         {
             return this._creationDateTime.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property Domain. 
+        /// <para>
+        /// The domain of a schema that you created for a dataset in a Domain dataset group.
+        /// </para>
+        /// </summary>
+        public Domain Domain
+        {
+            get { return this._domain; }
+            set { this._domain = value; }
+        }
+
+        // Check to see if Domain property is set
+        internal bool IsSetDomain()
+        {
+            return this._domain != null;
         }
 
         /// <summary>

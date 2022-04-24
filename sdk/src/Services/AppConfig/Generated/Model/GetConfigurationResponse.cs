@@ -61,6 +61,14 @@ namespace Amazon.AppConfig.Model
         /// <para>
         /// The content of the configuration or the configuration data.
         /// </para>
+        ///  <important> 
+        /// <para>
+        /// The <code>Content</code> attribute only contains data if the system finds new or updated
+        /// configuration data. If there is no new or updated data and <code>ClientConfigurationVersion</code>
+        /// matches the version of the current configuration, AppConfig returns a <code>204 No
+        /// Content</code> HTTP response code and the <code>Content</code> value will be empty.
+        /// </para>
+        ///  </important>
         /// </summary>
         public MemoryStream Content
         {

@@ -449,10 +449,11 @@ namespace Amazon.EKS
         ///  
         /// <para>
         /// Amazon EKS add-ons help to automate the provisioning and lifecycle management of common
-        /// operational software for Amazon EKS clusters. Amazon EKS add-ons can only be used
-        /// with Amazon EKS clusters running version 1.18 with platform version <code>eks.3</code>
-        /// or later because add-ons rely on the Server-side Apply Kubernetes feature, which is
-        /// only available in Kubernetes 1.18 and later.
+        /// operational software for Amazon EKS clusters. Amazon EKS add-ons require clusters
+        /// running version 1.18 or later because Amazon EKS add-ons rely on the Server-side Apply
+        /// Kubernetes feature, which is only available in Kubernetes 1.18 and later. For more
+        /// information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon
+        /// EKS add-ons</a> in the <i>Amazon EKS User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateAddon service method.</param>
@@ -536,9 +537,9 @@ namespace Amazon.EKS
         /// <para>
         /// The Amazon EKS control plane consists of control plane instances that run the Kubernetes
         /// software, such as <code>etcd</code> and the API server. The control plane runs in
-        /// an account managed by Amazon Web Services, and the Kubernetes API is exposed via the
-        /// Amazon EKS API server endpoint. Each Amazon EKS cluster control plane is single-tenant
-        /// and unique and runs on its own set of Amazon EC2 instances.
+        /// an account managed by Amazon Web Services, and the Kubernetes API is exposed by the
+        /// Amazon EKS API server endpoint. Each Amazon EKS cluster control plane is single tenant
+        /// and unique. It runs on its own set of Amazon EC2 instances.
         /// </para>
         ///  
         /// <para>
@@ -551,14 +552,14 @@ namespace Amazon.EKS
         ///  
         /// <para>
         /// Amazon EKS nodes run in your Amazon Web Services account and connect to your cluster's
-        /// control plane via the Kubernetes API server endpoint and a certificate file that is
-        /// created for your cluster.
+        /// control plane over the Kubernetes API server endpoint and a certificate file that
+        /// is created for your cluster.
         /// </para>
         ///  
         /// <para>
-        /// Cluster creation typically takes several minutes. After you create an Amazon EKS cluster,
-        /// you must configure your Kubernetes tooling to communicate with the API server and
-        /// launch nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing
+        /// In most cases, it takes several minutes to create a cluster. After you create an Amazon
+        /// EKS cluster, you must configure your Kubernetes tooling to communicate with the API
+        /// server and launch nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing
         /// Cluster Authentication</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching
         /// Amazon EKS nodes</a> in the <i>Amazon EKS User Guide</i>.
         /// </para>
@@ -1182,6 +1183,12 @@ namespace Amazon.EKS
         /// <param name="request">Container for the necessary parameters to execute the DeregisterCluster service method.</param>
         /// 
         /// <returns>The response from the DeregisterCluster service method, as returned by EKS.</returns>
+        /// <exception cref="Amazon.EKS.Model.AccessDeniedException">
+        /// You don't have permissions to perform the requested operation. The user or role that
+        /// is making the request must have at least one IAM permissions policy attached that
+        /// grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+        /// Management</a> in the <i>IAM User Guide</i>.
+        /// </exception>
         /// <exception cref="Amazon.EKS.Model.ClientException">
         /// These errors are usually caused by a client action. Actions can include using an action
         /// or resource on behalf of a user that doesn't have permissions to use the action or
@@ -2363,14 +2370,19 @@ namespace Amazon.EKS
         ///  
         /// <para>
         /// After the Manifest is updated and applied, then the connected cluster is visible to
-        /// the Amazon EKS control plane. If the Manifest is not applied within a set amount of
-        /// time, then the connected cluster will no longer be visible and must be deregistered.
-        /// See <a>DeregisterCluster</a>.
+        /// the Amazon EKS control plane. If the Manifest is not applied within three days, then
+        /// the connected cluster will no longer be visible and must be deregistered. See <a>DeregisterCluster</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RegisterCluster service method.</param>
         /// 
         /// <returns>The response from the RegisterCluster service method, as returned by EKS.</returns>
+        /// <exception cref="Amazon.EKS.Model.AccessDeniedException">
+        /// You don't have permissions to perform the requested operation. The user or role that
+        /// is making the request must have at least one IAM permissions policy attached that
+        /// grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+        /// Management</a> in the <i>IAM User Guide</i>.
+        /// </exception>
         /// <exception cref="Amazon.EKS.Model.ClientException">
         /// These errors are usually caused by a client action. Actions can include using an action
         /// or resource on behalf of a user that doesn't have permissions to use the action or
@@ -2379,8 +2391,15 @@ namespace Amazon.EKS
         /// <exception cref="Amazon.EKS.Model.InvalidParameterException">
         /// The specified parameter is invalid. Review the available parameters for the API request.
         /// </exception>
+        /// <exception cref="Amazon.EKS.Model.ResourceInUseException">
+        /// The specified resource is in use.
+        /// </exception>
         /// <exception cref="Amazon.EKS.Model.ResourceLimitExceededException">
         /// You have encountered a service limit on the specified resource.
+        /// </exception>
+        /// <exception cref="Amazon.EKS.Model.ResourcePropagationDelayException">
+        /// Required resources (such as Service Linked Roles) were created and are still propagating.
+        /// Retry later.
         /// </exception>
         /// <exception cref="Amazon.EKS.Model.ServerException">
         /// These errors are usually caused by a server-side issue.

@@ -54,6 +54,12 @@
     <pattern>^[-._\w]+$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.LocationService.Model.CalculateRouteMatrixRequest.CalculatorName</property>
+    <min>1</min>
+    <max>100</max>
+    <pattern>^[-._\w]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.LocationService.Model.CreateGeofenceCollectionRequest.CollectionName</property>
     <min>1</min>
     <max>100</max>
@@ -370,6 +376,11 @@
     <pattern>^[-._\p{L}\p{N}]+$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.LocationService.Model.GetDevicePositionHistoryRequest.MaxResults</property>
+    <min>1</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.LocationService.Model.GetDevicePositionHistoryRequest.NextToken</property>
     <min>1</min>
     <max>2000</max>
@@ -611,15 +622,46 @@
     <pattern>^[-._\w]+$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.LocationService.Model.SearchPlaceIndexForPositionRequest.Language</property>
+    <min>2</min>
+    <max>35</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.LocationService.Model.SearchPlaceIndexForPositionRequest.MaxResults</property>
     <min>1</min>
     <max>50</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LocationService.Model.SearchPlaceIndexForSuggestionsRequest.IndexName</property>
+    <min>1</min>
+    <max>100</max>
+    <pattern>^[-._\w]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LocationService.Model.SearchPlaceIndexForSuggestionsRequest.Language</property>
+    <min>2</min>
+    <max>35</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LocationService.Model.SearchPlaceIndexForSuggestionsRequest.MaxResults</property>
+    <min>1</min>
+    <max>15</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LocationService.Model.SearchPlaceIndexForSuggestionsRequest.Text</property>
+    <min>1</min>
+    <max>200</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.LocationService.Model.SearchPlaceIndexForTextRequest.IndexName</property>
     <min>1</min>
     <max>100</max>
     <pattern>^[-._\w]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LocationService.Model.SearchPlaceIndexForTextRequest.Language</property>
+    <min>2</min>
+    <max>35</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.LocationService.Model.SearchPlaceIndexForTextRequest.MaxResults</property>
@@ -807,6 +849,16 @@
     <pattern>^[-._\p{L}\p{N}]+$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.LocationService.Model.CalculateRouteMatrixSummary.ErrorCount</property>
+    <min>1</min>
+    <max>160000</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LocationService.Model.CalculateRouteMatrixSummary.RouteCount</property>
+    <min>1</min>
+    <max>160000</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.LocationService.Model.CalculateRouteSummary.Distance</property>
     <min>0</min>
   </property-value-rule>
@@ -908,9 +960,50 @@
     <pattern>^[-._\w]+$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.LocationService.Model.PositionalAccuracy.Horizontal</property>
+    <min>0</min>
+    <max>10000</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LocationService.Model.RouteMatrixEntry.Distance</property>
+    <min>0</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LocationService.Model.RouteMatrixEntry.DurationSeconds</property>
+    <min>0</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LocationService.Model.SearchForPositionResult.Distance</property>
+    <min>0</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LocationService.Model.SearchForTextResult.Distance</property>
+    <min>0</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LocationService.Model.SearchForTextResult.Relevance</property>
+    <min>0</min>
+    <max>1</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LocationService.Model.SearchPlaceIndexForPositionSummary.Language</property>
+    <min>2</min>
+    <max>35</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.LocationService.Model.SearchPlaceIndexForPositionSummary.MaxResults</property>
     <min>1</min>
     <max>50</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LocationService.Model.SearchPlaceIndexForSuggestionsSummary.Language</property>
+    <min>2</min>
+    <max>35</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LocationService.Model.SearchPlaceIndexForTextSummary.Language</property>
+    <min>2</min>
+    <max>35</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.LocationService.Model.SearchPlaceIndexForTextSummary.MaxResults</property>

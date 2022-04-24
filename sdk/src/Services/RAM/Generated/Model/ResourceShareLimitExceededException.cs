@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.RAM.Model
 {
     /// <summary>
-    /// The requested resource share exceeds the limit for your account.
+    /// This request would exceed the limit for resource shares for your account.
     /// </summary>
     #if !NETSTANDARD
     [Serializable]

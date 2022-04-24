@@ -36,7 +36,15 @@ namespace Amazon.S3.Model
     /// request element to grant access to other people. The <code>Permissions</code> request
     /// element specifies the kind of access the grantee has to the logs.
     /// </para>
-    ///  
+    ///  <important> 
+    /// <para>
+    /// If the target bucket for log delivery uses the bucket owner enforced setting for S3
+    /// Object Ownership, you can't use the <code>Grantee</code> request element to grant
+    /// access to others. Permissions can only be granted using policies. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions
+    /// for server access log delivery</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para>
+    ///  </important> 
     /// <para>
     ///  <b>Grantee Values</b> 
     /// </para>
@@ -93,8 +101,8 @@ namespace Amazon.S3.Model
     /// </para>
     ///  
     /// <para>
-    /// For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html">Server
-    /// Access Logging</a>. 
+    /// For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html">Server
+    /// Access Logging</a> in the <i>Amazon S3 User Guide</i>. 
     /// </para>
     ///  
     /// <para>
@@ -133,12 +141,34 @@ namespace Amazon.S3.Model
         /// Gets and sets the BucketName property.
         /// </summary>
         public string BucketName { get; set; }
+        private ChecksumAlgorithm _checksumAlgorithm;
         private string expectedBucketOwner;
 
         // Check to see if Bucket property is set
         internal bool IsSetBucketName()
         {
             return this.BucketName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ChecksumAlgorithm. 
+        /// <para>
+        /// Indicates the algorithm used to create the checksum for the object. Amazon S3 will
+        /// fail the request with a 400 error if there is no checksum associated with the object.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
+        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        /// </summary>
+        public ChecksumAlgorithm ChecksumAlgorithm
+        {
+            get { return this._checksumAlgorithm; }
+            set { this._checksumAlgorithm = value; }
+        }
+
+        // Check to see if ChecksumAlgorithm property is set
+        internal bool IsSetChecksumAlgorithm()
+        {
+            return this._checksumAlgorithm != null;
         }
 
         /// <summary>

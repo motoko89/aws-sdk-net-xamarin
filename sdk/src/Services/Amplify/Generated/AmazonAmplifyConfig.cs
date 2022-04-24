@@ -32,7 +32,7 @@ namespace Amazon.Amplify
     public partial class AmazonAmplifyConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.1.20");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.Amplify
         /// Default constructor
         /// </summary>
         public AmazonAmplifyConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonAmplifyDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "amplify";
         }

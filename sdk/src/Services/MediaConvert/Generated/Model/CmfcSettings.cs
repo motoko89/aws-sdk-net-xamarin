@@ -40,8 +40,10 @@ namespace Amazon.MediaConvert.Model
         private CmfcAudioTrackType _audioTrackType;
         private CmfcDescriptiveVideoServiceFlag _descriptiveVideoServiceFlag;
         private CmfcIFrameOnlyManifest _iFrameOnlyManifest;
+        private CmfcKlvMetadata _klvMetadata;
         private CmfcScte35Esam _scte35Esam;
         private CmfcScte35Source _scte35Source;
+        private CmfcTimedMetadata _timedMetadata;
 
         /// <summary>
         /// Gets and sets the property AudioDuration. Specify this setting only when your output
@@ -95,10 +97,10 @@ namespace Amazon.MediaConvert.Model
         /// Gets and sets the property AudioRenditionSets. List the audio rendition groups that
         /// you want included with this video rendition. Use a comma-separated list. For example,
         /// say you want to include the audio rendition groups that have the audio group IDs "audio_aac_1"
-        /// and "audio_dolby". Then you would specify this value: "audio_aac_1, audio_dolby".
-        /// Related setting: The rendition groups that you include in your comma-separated list
-        /// should all match values that you specify in the setting Audio group ID (AudioGroupId)
-        /// for audio renditions in the same output group as this video rendition. Default behavior:
+        /// and "audio_dolby". Then you would specify this value: "audio_aac_1,audio_dolby". Related
+        /// setting: The rendition groups that you include in your comma-separated list should
+        /// all match values that you specify in the setting Audio group ID (AudioGroupId) for
+        /// audio renditions in the same output group as this video rendition. Default behavior:
         /// If you don't specify anything here and for Audio group ID, MediaConvert puts each
         /// audio variant in its own audio rendition group and associates it with every video
         /// variant. Each value in your list appears in your HLS parent manifest in the EXT-X-STREAM-INF
@@ -189,6 +191,22 @@ namespace Amazon.MediaConvert.Model
         }
 
         /// <summary>
+        /// Gets and sets the property KlvMetadata. Applies to CMAF outputs. Use this setting
+        /// to specify whether the service inserts the KLV metadata from the input in this output.
+        /// </summary>
+        public CmfcKlvMetadata KlvMetadata
+        {
+            get { return this._klvMetadata; }
+            set { this._klvMetadata = value; }
+        }
+
+        // Check to see if KlvMetadata property is set
+        internal bool IsSetKlvMetadata()
+        {
+            return this._klvMetadata != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Scte35Esam. Use this setting only when you specify SCTE-35
         /// markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion
         /// points that you specify in an ESAM XML document. Provide the document in the setting
@@ -222,6 +240,25 @@ namespace Amazon.MediaConvert.Model
         internal bool IsSetScte35Source()
         {
             return this._scte35Source != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property TimedMetadata. To include ID3 metadata in this output:
+        /// Set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH). Specify this ID3 metadata
+        /// in Custom ID3 metadata inserter (timedMetadataInsertion). MediaConvert writes each
+        /// instance of ID3 metadata in a separate Event Message (eMSG) box. To exclude this ID3
+        /// metadata: Set ID3 metadata to None (NONE) or leave blank.
+        /// </summary>
+        public CmfcTimedMetadata TimedMetadata
+        {
+            get { return this._timedMetadata; }
+            set { this._timedMetadata = value; }
+        }
+
+        // Check to see if TimedMetadata property is set
+        internal bool IsSetTimedMetadata()
+        {
+            return this._timedMetadata != null;
         }
 
     }

@@ -94,6 +94,12 @@ namespace Amazon.IoT.Model.Internal.MarshallTransformations
                     unmarshalledObject.Description = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("documentParameters", targetDepth))
+                {
+                    var unmarshaller = new DictionaryUnmarshaller<string, string, StringUnmarshaller, StringUnmarshaller>(StringUnmarshaller.Instance, StringUnmarshaller.Instance);
+                    unmarshalledObject.DocumentParameters = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("forceCanceled", targetDepth))
                 {
                     var unmarshaller = BoolUnmarshaller.Instance;
@@ -104,6 +110,12 @@ namespace Amazon.IoT.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.JobArn = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("jobExecutionsRetryConfig", targetDepth))
+                {
+                    var unmarshaller = JobExecutionsRetryConfigUnmarshaller.Instance;
+                    unmarshalledObject.JobExecutionsRetryConfig = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("jobExecutionsRolloutConfig", targetDepth))

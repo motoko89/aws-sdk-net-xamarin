@@ -34,7 +34,7 @@ namespace Amazon.DevOpsGuru.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// CostEstimationResourceCollectionFilter Marshaller
-    /// </summary>       
+    /// </summary>
     public class CostEstimationResourceCollectionFilterMarshaller : IRequestMarshaller<CostEstimationResourceCollectionFilter, JsonMarshallerContext> 
     {
         /// <summary>
@@ -56,11 +56,27 @@ namespace Amazon.DevOpsGuru.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetTags())
+            {
+                context.Writer.WritePropertyName("Tags");
+                context.Writer.WriteArrayStart();
+                foreach(var requestObjectTagsListValue in requestObject.Tags)
+                {
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = TagCostEstimationResourceCollectionFilterMarshaller.Instance;
+                    marshaller.Marshall(requestObjectTagsListValue, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+                context.Writer.WriteArrayEnd();
+            }
+
         }
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static CostEstimationResourceCollectionFilterMarshaller Instance = new CostEstimationResourceCollectionFilterMarshaller();
 
     }

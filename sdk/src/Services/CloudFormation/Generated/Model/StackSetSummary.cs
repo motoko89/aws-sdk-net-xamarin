@@ -37,6 +37,7 @@ namespace Amazon.CloudFormation.Model
         private string _description;
         private StackDriftStatus _driftStatus;
         private DateTime? _lastDriftCheckTimestamp;
+        private ManagedExecution _managedExecution;
         private PermissionModels _permissionModel;
         private string _stackSetId;
         private string _stackSetName;
@@ -96,12 +97,12 @@ namespace Amazon.CloudFormation.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>NOT_CHECKED</code>: CloudFormation has not checked the stack set for drift.
+        ///  <code>NOT_CHECKED</code>: CloudFormation hasn't checked the stack set for drift.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>IN_SYNC</code>: All of the stack instances belonging to the stack set stack
-        /// match from the expected template and parameter configuration.
+        ///  <code>IN_SYNC</code>: All the stack instances belonging to the stack set stack match
+        /// from the expected template and parameter configuration.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -126,7 +127,7 @@ namespace Amazon.CloudFormation.Model
         /// <para>
         /// Most recent time when CloudFormation performed a drift detection operation on the
         /// stack set. This value will be <code>NULL</code> for any stack set on which drift detection
-        /// has not yet been performed.
+        /// hasn't yet been performed.
         /// </para>
         /// </summary>
         public DateTime LastDriftCheckTimestamp
@@ -139,6 +140,25 @@ namespace Amazon.CloudFormation.Model
         internal bool IsSetLastDriftCheckTimestamp()
         {
             return this._lastDriftCheckTimestamp.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property ManagedExecution. 
+        /// <para>
+        /// Describes whether StackSets performs non-conflicting operations concurrently and queues
+        /// conflicting operations.
+        /// </para>
+        /// </summary>
+        public ManagedExecution ManagedExecution
+        {
+            get { return this._managedExecution; }
+            set { this._managedExecution = value; }
+        }
+
+        // Check to see if ManagedExecution property is set
+        internal bool IsSetManagedExecution()
+        {
+            return this._managedExecution != null;
         }
 
         /// <summary>

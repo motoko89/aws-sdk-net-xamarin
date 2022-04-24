@@ -32,7 +32,7 @@ namespace Amazon.Glue
     public partial class AmazonGlueConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.9.10");
+            InternalSDKUtils.BuildUserAgentString("3.7.17.0");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.Glue
         /// Default constructor
         /// </summary>
         public AmazonGlueConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonGlueDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "glue";
         }

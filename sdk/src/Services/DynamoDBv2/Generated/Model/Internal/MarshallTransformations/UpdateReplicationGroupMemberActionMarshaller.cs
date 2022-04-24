@@ -34,7 +34,7 @@ namespace Amazon.DynamoDBv2.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// UpdateReplicationGroupMemberAction Marshaller
-    /// </summary>       
+    /// </summary>
     public class UpdateReplicationGroupMemberActionMarshaller : IRequestMarshaller<UpdateReplicationGroupMemberAction, JsonMarshallerContext> 
     {
         /// <summary>
@@ -84,11 +84,17 @@ namespace Amazon.DynamoDBv2.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.RegionName);
             }
 
+            if(requestObject.IsSetTableClassOverride())
+            {
+                context.Writer.WritePropertyName("TableClassOverride");
+                context.Writer.Write(requestObject.TableClassOverride);
+            }
+
         }
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static UpdateReplicationGroupMemberActionMarshaller Instance = new UpdateReplicationGroupMemberActionMarshaller();
 
     }

@@ -34,7 +34,7 @@ namespace Amazon.IoTDeviceAdvisor.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// SuiteRunConfiguration Marshaller
-    /// </summary>       
+    /// </summary>
     public class SuiteRunConfigurationMarshaller : IRequestMarshaller<SuiteRunConfiguration, JsonMarshallerContext> 
     {
         /// <summary>
@@ -45,6 +45,12 @@ namespace Amazon.IoTDeviceAdvisor.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(SuiteRunConfiguration requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetParallelRun())
+            {
+                context.Writer.WritePropertyName("parallelRun");
+                context.Writer.Write(requestObject.ParallelRun);
+            }
+
             if(requestObject.IsSetPrimaryDevice())
             {
                 context.Writer.WritePropertyName("primaryDevice");
@@ -71,7 +77,7 @@ namespace Amazon.IoTDeviceAdvisor.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static SuiteRunConfigurationMarshaller Instance = new SuiteRunConfigurationMarshaller();
 
     }

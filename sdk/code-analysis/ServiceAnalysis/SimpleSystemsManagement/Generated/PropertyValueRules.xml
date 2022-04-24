@@ -89,6 +89,11 @@
     <max>256</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.SimpleSystemsManagement.Model.CreateAssociationRequest.ScheduleOffset</property>
+    <min>1</min>
+    <max>6</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.SimpleSystemsManagement.Model.CreateDocumentRequest.Content</property>
     <min>1</min>
   </property-value-rule>
@@ -326,7 +331,9 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceRequest.InstanceId</property>
-    <pattern>^mi-[0-9a-f]{17}$</pattern>
+    <min>20</min>
+    <max>124</max>
+    <pattern>(^mi-[0-9a-f]{17}$)|(^eks_c:[0-9A-Za-z][A-Za-z0-9\-_]{0,99}_\w{17}$)</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SimpleSystemsManagement.Model.DeregisterPatchBaselineForPatchGroupRequest.BaselineId</property>
@@ -1625,6 +1632,12 @@
     <pattern>^[a-zA-Z0-9_\-.:/]{3,128}$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.SimpleSystemsManagement.Model.StartSessionRequest.Reason</property>
+    <min>1</min>
+    <max>256</max>
+    <pattern>^.{1,256}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.SimpleSystemsManagement.Model.StartSessionRequest.Target</property>
     <min>1</min>
     <max>400</max>
@@ -1700,6 +1713,11 @@
     <property>Amazon.SimpleSystemsManagement.Model.UpdateAssociationRequest.ScheduleExpression</property>
     <min>1</min>
     <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SimpleSystemsManagement.Model.UpdateAssociationRequest.ScheduleOffset</property>
+    <min>1</min>
+    <max>6</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SimpleSystemsManagement.Model.UpdateAssociationStatusRequest.InstanceId</property>
@@ -1975,7 +1993,9 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleRequest.InstanceId</property>
-    <pattern>^mi-[0-9a-f]{17}$</pattern>
+    <min>20</min>
+    <max>124</max>
+    <pattern>(^mi-[0-9a-f]{17}$)|(^eks_c:[0-9A-Za-z][A-Za-z0-9\-_]{0,99}_\w{17}$)</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SimpleSystemsManagement.Model.UpdateOpsItemRequest.Category</property>
@@ -2144,6 +2164,11 @@
     <max>256</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.SimpleSystemsManagement.Model.Association.ScheduleOffset</property>
+    <min>1</min>
+    <max>6</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.SimpleSystemsManagement.Model.AssociationDescription.AssociationId</property>
     <pattern>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}</pattern>
   </property-value-rule>
@@ -2188,6 +2213,11 @@
     <property>Amazon.SimpleSystemsManagement.Model.AssociationDescription.ScheduleExpression</property>
     <min>1</min>
     <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SimpleSystemsManagement.Model.AssociationDescription.ScheduleOffset</property>
+    <min>1</min>
+    <max>6</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SimpleSystemsManagement.Model.AssociationExecution.AssociationId</property>
@@ -2280,6 +2310,11 @@
     <property>Amazon.SimpleSystemsManagement.Model.AssociationVersionInfo.ScheduleExpression</property>
     <min>1</min>
     <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SimpleSystemsManagement.Model.AssociationVersionInfo.ScheduleOffset</property>
+    <min>1</min>
+    <max>6</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SimpleSystemsManagement.Model.AttachmentContent.Hash</property>
@@ -2583,6 +2618,11 @@
     <max>256</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchRequestEntry.ScheduleOffset</property>
+    <min>1</min>
+    <max>6</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.SimpleSystemsManagement.Model.DocumentDefaultVersionDescription.DefaultVersion</property>
     <pattern>([$]LATEST|[$]DEFAULT|^[1-9][0-9]*$)</pattern>
   </property-value-rule>
@@ -2785,6 +2825,12 @@
     <property>Amazon.SimpleSystemsManagement.Model.InstanceInformation.IPAddress</property>
     <min>1</min>
     <max>46</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SimpleSystemsManagement.Model.InstanceInformation.SourceId</property>
+    <min>0</min>
+    <max>128</max>
+    <pattern>^[a-zA-Z0-9:_-]*$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SimpleSystemsManagement.Model.InstanceInformationStringFilter.Key</property>
@@ -3460,6 +3506,18 @@
     <pattern>^[a-zA-Z0-9_\-.]{3,50}$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.SimpleSystemsManagement.Model.RegistrationMetadataItem.Key</property>
+    <min>1</min>
+    <max>128</max>
+    <pattern>^(?!\s*$).+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SimpleSystemsManagement.Model.RegistrationMetadataItem.Value</property>
+    <min>1</min>
+    <max>2048</max>
+    <pattern>^(?!\s*$).+</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.SimpleSystemsManagement.Model.ResourceComplianceSummaryItem.ComplianceType</property>
     <min>1</min>
     <max>100</max>
@@ -3634,9 +3692,21 @@
     <pattern>^[a-zA-Z0-9_\-.]{3,128}$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.SimpleSystemsManagement.Model.Session.MaxSessionDuration</property>
+    <min>1</min>
+    <max>4</max>
+    <pattern>^([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|1[0-4][0-3][0-9]|1440)$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.SimpleSystemsManagement.Model.Session.Owner</property>
     <min>1</min>
     <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SimpleSystemsManagement.Model.Session.Reason</property>
+    <min>1</min>
+    <max>256</max>
+    <pattern>^.{1,256}$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SimpleSystemsManagement.Model.Session.SessionId</property>

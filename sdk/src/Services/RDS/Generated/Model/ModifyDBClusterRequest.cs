@@ -30,26 +30,34 @@ namespace Amazon.RDS.Model
 {
     /// <summary>
     /// Container for the parameters to the ModifyDBCluster operation.
-    /// Modify a setting for an Amazon Aurora DB cluster. You can change one or more database
-    /// configuration parameters by specifying these parameters and the new values in the
-    /// request. For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> 
+    /// Modify the settings for an Amazon Aurora DB cluster or a Multi-AZ DB cluster. You
+    /// can change one or more settings by specifying these parameters and the new values
+    /// in the request.
     /// 
-    ///  <note> 
+    ///  
     /// <para>
-    /// This action only applies to Aurora DB clusters.
+    /// For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para>
-    ///  </note>
+    ///  
+    /// <para>
+    /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+    /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
+    /// User Guide</i>.
+    /// </para>
     /// </summary>
     public partial class ModifyDBClusterRequest : AmazonRDSRequest
     {
+        private int? _allocatedStorage;
         private bool? _allowMajorVersionUpgrade;
         private bool? _applyImmediately;
+        private bool? _autoMinorVersionUpgrade;
         private long? _backtrackWindow;
         private int? _backupRetentionPeriod;
         private CloudwatchLogsExportConfiguration _cloudwatchLogsExportConfiguration;
         private bool? _copyTagsToSnapshot;
         private string _dbClusterIdentifier;
+        private string _dbClusterInstanceClass;
         private string _dbClusterParameterGroupName;
         private string _dbInstanceParameterGroupName;
         private bool? _deletionProtection;
@@ -58,15 +66,50 @@ namespace Amazon.RDS.Model
         private bool? _enableGlobalWriteForwarding;
         private bool? _enableHttpEndpoint;
         private bool? _enableIAMDatabaseAuthentication;
+        private bool? _enablePerformanceInsights;
         private string _engineVersion;
+        private int? _iops;
         private string _masterUserPassword;
+        private int? _monitoringInterval;
+        private string _monitoringRoleArn;
         private string _newDBClusterIdentifier;
         private string _optionGroupName;
+        private string _performanceInsightsKMSKeyId;
+        private int? _performanceInsightsRetentionPeriod;
         private int? _port;
         private string _preferredBackupWindow;
         private string _preferredMaintenanceWindow;
         private ScalingConfiguration _scalingConfiguration;
+        private ServerlessV2ScalingConfiguration _serverlessV2ScalingConfiguration;
+        private string _storageType;
         private List<string> _vpcSecurityGroupIds = new List<string>();
+
+        /// <summary>
+        /// Gets and sets the property AllocatedStorage. 
+        /// <para>
+        /// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ
+        /// DB cluster.
+        /// </para>
+        ///  
+        /// <para>
+        /// Type: Integer
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Multi-AZ DB clusters only
+        /// </para>
+        /// </summary>
+        public int AllocatedStorage
+        {
+            get { return this._allocatedStorage.GetValueOrDefault(); }
+            set { this._allocatedStorage = value; }
+        }
+
+        // Check to see if AllocatedStorage property is set
+        internal bool IsSetAllocatedStorage()
+        {
+            return this._allocatedStorage.HasValue; 
+        }
 
         /// <summary>
         /// Gets and sets the property AllowMajorVersionUpgrade. 
@@ -78,6 +121,10 @@ namespace Amazon.RDS.Model
         /// Constraints: You must allow major version upgrades when specifying a value for the
         /// <code>EngineVersion</code> parameter that is a different major version than the DB
         /// cluster's current version.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters only
         /// </para>
         /// </summary>
         public bool AllowMajorVersionUpgrade
@@ -113,6 +160,10 @@ namespace Amazon.RDS.Model
         /// <para>
         /// By default, this parameter is disabled.
         /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters and Multi-AZ DB clusters
+        /// </para>
         /// </summary>
         public bool ApplyImmediately
         {
@@ -127,16 +178,36 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property AutoMinorVersionUpgrade. 
+        /// <para>
+        /// A value that indicates whether minor engine upgrades are applied automatically to
+        /// the DB cluster during the maintenance window. By default, minor engine upgrades are
+        /// applied automatically.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Multi-AZ DB clusters only
+        /// </para>
+        /// </summary>
+        public bool AutoMinorVersionUpgrade
+        {
+            get { return this._autoMinorVersionUpgrade.GetValueOrDefault(); }
+            set { this._autoMinorVersionUpgrade = value; }
+        }
+
+        // Check to see if AutoMinorVersionUpgrade property is set
+        internal bool IsSetAutoMinorVersionUpgrade()
+        {
+            return this._autoMinorVersionUpgrade.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property BacktrackWindow. 
         /// <para>
         /// The target backtrack window, in seconds. To disable backtracking, set this value to
         /// 0.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// Currently, Backtrack is only supported for Aurora MySQL DB clusters.
-        /// </para>
-        ///  </note> 
+        ///  
         /// <para>
         /// Default: 0
         /// </para>
@@ -148,7 +219,10 @@ namespace Amazon.RDS.Model
         /// <para>
         /// If specified, this value must be set to a number from 0 to 259,200 (72 hours).
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> 
+        /// <para>
+        /// Valid for: Aurora MySQL DB clusters only
+        /// </para>
         /// </summary>
         public long BacktrackWindow
         {
@@ -165,8 +239,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property BackupRetentionPeriod. 
         /// <para>
-        /// The number of days for which automated backups are retained. You must specify a minimum
-        /// value of 1.
+        /// The number of days for which automated backups are retained. Specify a minimum value
+        /// of 1.
         /// </para>
         ///  
         /// <para>
@@ -180,7 +254,10 @@ namespace Amazon.RDS.Model
         /// <para>
         /// Must be a value from 1 to 35
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> 
+        /// <para>
+        /// Valid for: Aurora DB clusters and Multi-AZ DB clusters
+        /// </para>
         /// </summary>
         public int BackupRetentionPeriod
         {
@@ -198,7 +275,55 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property CloudwatchLogsExportConfiguration. 
         /// <para>
         /// The configuration setting for the log types to be enabled for export to CloudWatch
-        /// Logs for a specific DB cluster.
+        /// Logs for a specific DB cluster. The values in the list depend on the DB engine being
+        /// used.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>RDS for MySQL</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Possible values are <code>error</code>, <code>general</code>, and <code>slowquery</code>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>RDS for PostgreSQL</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Possible values are <code>postgresql</code> and <code>upgrade</code>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Aurora MySQL</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Possible values are <code>audit</code>, <code>error</code>, <code>general</code>,
+        /// and <code>slowquery</code>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Aurora PostgreSQL</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Possible value is <code>postgresql</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">
+        /// Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </para>
         /// </summary>
         public CloudwatchLogsExportConfiguration CloudwatchLogsExportConfiguration
@@ -218,6 +343,10 @@ namespace Amazon.RDS.Model
         /// <para>
         /// A value that indicates whether to copy all tags from the DB cluster to snapshots of
         /// the DB cluster. The default is not to copy them.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </para>
         /// </summary>
         public bool CopyTagsToSnapshot
@@ -241,6 +370,10 @@ namespace Amazon.RDS.Model
         /// <para>
         /// Constraints: This identifier must match the identifier of an existing DB cluster.
         /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters and Multi-AZ DB clusters
+        /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
         public string DBClusterIdentifier
@@ -256,9 +389,43 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property DBClusterInstanceClass. 
+        /// <para>
+        /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for
+        /// example db.m6g.xlarge. Not all DB instance classes are available in all Amazon Web
+        /// Services Regions, or for all database engines.
+        /// </para>
+        ///  
+        /// <para>
+        /// For the full list of DB instance classes and availability for your engine, see <a
+        /// href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">
+        /// DB Instance Class</a> in the <i>Amazon RDS User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Multi-AZ DB clusters only
+        /// </para>
+        /// </summary>
+        public string DBClusterInstanceClass
+        {
+            get { return this._dbClusterInstanceClass; }
+            set { this._dbClusterInstanceClass = value; }
+        }
+
+        // Check to see if DBClusterInstanceClass property is set
+        internal bool IsSetDBClusterInstanceClass()
+        {
+            return this._dbClusterInstanceClass != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property DBClusterParameterGroupName. 
         /// <para>
         /// The name of the DB cluster parameter group to use for the DB cluster.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </para>
         /// </summary>
         public string DBClusterParameterGroupName
@@ -276,13 +443,13 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property DBInstanceParameterGroupName. 
         /// <para>
-        /// The name of the DB parameter group to apply to all instances of the DB cluster. 
+        /// The name of the DB parameter group to apply to all instances of the DB cluster.
         /// </para>
         ///  <note> 
         /// <para>
         /// When you apply a parameter group using the <code>DBInstanceParameterGroupName</code>
-        /// parameter, the DB cluster isn't rebooted automatically. Also, parameter changes aren't
-        /// applied during the next maintenance window but instead are applied immediately.
+        /// parameter, the DB cluster isn't rebooted automatically. Also, parameter changes are
+        /// applied immediately rather than during the next maintenance window.
         /// </para>
         ///  </note> 
         /// <para>
@@ -298,10 +465,13 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// The <code>DBInstanceParameterGroupName</code> parameter is only valid in combination
-        /// with the <code>AllowMajorVersionUpgrade</code> parameter.
+        /// The <code>DBInstanceParameterGroupName</code> parameter is valid in combination with
+        /// the <code>AllowMajorVersionUpgrade</code> parameter for a major version upgrade only.
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> 
+        /// <para>
+        /// Valid for: Aurora DB clusters only
+        /// </para>
         /// </summary>
         public string DBInstanceParameterGroupName
         {
@@ -320,7 +490,11 @@ namespace Amazon.RDS.Model
         /// <para>
         /// A value that indicates whether the DB cluster has deletion protection enabled. The
         /// database can't be deleted when deletion protection is enabled. By default, deletion
-        /// protection is disabled. 
+        /// protection isn't enabled.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </para>
         /// </summary>
         public bool DeletionProtection
@@ -340,12 +514,16 @@ namespace Amazon.RDS.Model
         /// <para>
         /// The Active Directory directory ID to move the DB cluster to. Specify <code>none</code>
         /// to remove the cluster from its current domain. The domain must be created prior to
-        /// this operation. 
+        /// this operation.
         /// </para>
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos
-        /// Authentication</a> in the <i>Amazon Aurora User Guide</i>. 
+        /// Authentication</a> in the <i>Amazon Aurora User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters only
         /// </para>
         /// </summary>
         public string Domain
@@ -365,6 +543,10 @@ namespace Amazon.RDS.Model
         /// <para>
         /// Specify the name of the IAM role to be used when making API calls to the Directory
         /// Service.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters only
         /// </para>
         /// </summary>
         public string DomainIAMRoleName
@@ -394,7 +576,11 @@ namespace Amazon.RDS.Model
         /// current primary cluster and the resulting changes are replicated back to this cluster.
         /// For the primary DB cluster of an Aurora global database, this value is used immediately
         /// if the primary is demoted by the <a>FailoverGlobalCluster</a> API operation, but it
-        /// does nothing until then. 
+        /// does nothing until then.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters only
         /// </para>
         /// </summary>
         public bool EnableGlobalWriteForwarding
@@ -413,18 +599,22 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property EnableHttpEndpoint. 
         /// <para>
         /// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless
-        /// DB cluster. By default, the HTTP endpoint is disabled.
+        /// v1 DB cluster. By default, the HTTP endpoint is disabled.
         /// </para>
         ///  
         /// <para>
         /// When enabled, the HTTP endpoint provides a connectionless web service API for running
-        /// SQL queries on the Aurora Serverless DB cluster. You can also query your database
+        /// SQL queries on the Aurora Serverless v1 DB cluster. You can also query your database
         /// from inside the RDS console with the query editor.
         /// </para>
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
-        /// the Data API for Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.
+        /// the Data API for Aurora Serverless v1</a> in the <i>Amazon Aurora User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters only
         /// </para>
         /// </summary>
         public bool EnableHttpEndpoint
@@ -443,12 +633,16 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property EnableIAMDatabaseAuthentication. 
         /// <para>
         /// A value that indicates whether to enable mapping of Amazon Web Services Identity and
-        /// Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
+        /// Access Management (IAM) accounts to database accounts. By default, mapping isn't enabled.
         /// </para>
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> 
+        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters only
         /// </para>
         /// </summary>
         public bool EnableIAMDatabaseAuthentication
@@ -464,6 +658,33 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EnablePerformanceInsights. 
+        /// <para>
+        /// A value that indicates whether to turn on Performance Insights for the DB cluster.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">
+        /// Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Multi-AZ DB clusters only
+        /// </para>
+        /// </summary>
+        public bool EnablePerformanceInsights
+        {
+            get { return this._enablePerformanceInsights.GetValueOrDefault(); }
+            set { this._enablePerformanceInsights = value; }
+        }
+
+        // Check to see if EnablePerformanceInsights property is set
+        internal bool IsSetEnablePerformanceInsights()
+        {
+            return this._enablePerformanceInsights.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property EngineVersion. 
         /// <para>
         /// The version number of the database engine to which you want to upgrade. Changing this
@@ -472,8 +693,8 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// To list all of the available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
-        /// Aurora), use the following command:
+        /// To list all of the available engine versions for MySQL 5.6-compatible Aurora, use
+        /// the following command:
         /// </para>
         ///  
         /// <para>
@@ -482,8 +703,8 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL
-        /// 5.7-compatible Aurora), use the following command:
+        /// To list all of the available engine versions for MySQL 5.7-compatible and MySQL 8.0-compatible
+        /// Aurora, use the following command:
         /// </para>
         ///  
         /// <para>
@@ -492,13 +713,37 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// To list all of the available engine versions for <code>aurora-postgresql</code>, use
-        /// the following command:
+        /// To list all of the available engine versions for Aurora PostgreSQL, use the following
+        /// command:
         /// </para>
         ///  
         /// <para>
         ///  <code>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</code>
         /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// To list all of the available engine versions for RDS for MySQL, use the following
+        /// command:
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>aws rds describe-db-engine-versions --engine mysql --query "DBEngineVersions[].EngineVersion"</code>
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// To list all of the available engine versions for RDS for PostgreSQL, use the following
+        /// command:
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"</code>
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </para>
         /// </summary>
         public string EngineVersion
@@ -514,6 +759,40 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Iops. 
+        /// <para>
+        /// The amount of Provisioned IOPS (input/output operations per second) to be initially
+        /// allocated for each DB instance in the Multi-AZ DB cluster.
+        /// </para>
+        ///  
+        /// <para>
+        /// For information about valid Iops values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
+        /// RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User
+        /// Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB
+        /// cluster.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Multi-AZ DB clusters only
+        /// </para>
+        /// </summary>
+        public int Iops
+        {
+            get { return this._iops.GetValueOrDefault(); }
+            set { this._iops = value; }
+        }
+
+        // Check to see if Iops property is set
+        internal bool IsSetIops()
+        {
+            return this._iops.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property MasterUserPassword. 
         /// <para>
         /// The new password for the master database user. This password can contain any printable
@@ -522,6 +801,10 @@ namespace Amazon.RDS.Model
         ///  
         /// <para>
         /// Constraints: Must contain from 8 to 41 characters.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </para>
         /// </summary>
         public string MasterUserPassword
@@ -534,6 +817,70 @@ namespace Amazon.RDS.Model
         internal bool IsSetMasterUserPassword()
         {
             return this._masterUserPassword != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property MonitoringInterval. 
+        /// <para>
+        /// The interval, in seconds, between points when Enhanced Monitoring metrics are collected
+        /// for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0.
+        /// The default is 0.
+        /// </para>
+        ///  
+        /// <para>
+        /// If <code>MonitoringRoleArn</code> is specified, also set <code>MonitoringInterval</code>
+        /// to a value other than 0.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Multi-AZ DB clusters only
+        /// </para>
+        /// </summary>
+        public int MonitoringInterval
+        {
+            get { return this._monitoringInterval.GetValueOrDefault(); }
+            set { this._monitoringInterval = value; }
+        }
+
+        // Check to see if MonitoringInterval property is set
+        internal bool IsSetMonitoringInterval()
+        {
+            return this._monitoringInterval.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property MonitoringRoleArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced
+        /// Monitoring metrics to Amazon CloudWatch Logs. An example is <code>arn:aws:iam:123456789012:role/emaccess</code>.
+        /// For information on creating a monitoring role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
+        /// create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User
+        /// Guide.</i> 
+        /// </para>
+        ///  
+        /// <para>
+        /// If <code>MonitoringInterval</code> is set to a value other than 0, supply a <code>MonitoringRoleArn</code>
+        /// value.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Multi-AZ DB clusters only
+        /// </para>
+        /// </summary>
+        public string MonitoringRoleArn
+        {
+            get { return this._monitoringRoleArn; }
+            set { this._monitoringRoleArn = value; }
+        }
+
+        // Check to see if MonitoringRoleArn property is set
+        internal bool IsSetMonitoringRoleArn()
+        {
+            return this._monitoringRoleArn != null;
         }
 
         /// <summary>
@@ -562,6 +909,10 @@ namespace Amazon.RDS.Model
         /// <para>
         /// Example: <code>my-cluster2</code> 
         /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters only
+        /// </para>
         /// </summary>
         public string NewDBClusterIdentifier
         {
@@ -579,16 +930,11 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property OptionGroupName. 
         /// <para>
         /// A value that indicates that the DB cluster should be associated with the specified
-        /// option group. Changing this parameter doesn't result in an outage except in the following
-        /// case, and the change is applied during the next maintenance window unless the <code>ApplyImmediately</code>
-        /// is enabled for this request. If the parameter change results in an option group that
-        /// enables OEM, this change can cause a brief (sub-second) period during which new connections
-        /// are rejected but existing connections are not interrupted. 
+        /// option group.
         /// </para>
         ///  
         /// <para>
-        /// Permanent options can't be removed from an option group. The option group can't be
-        /// removed from a DB cluster once it is associated with a DB cluster.
+        /// DB clusters are associated with a default option group that can't be modified.
         /// </para>
         /// </summary>
         public string OptionGroupName
@@ -604,6 +950,64 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property PerformanceInsightsKMSKeyId. 
+        /// <para>
+        /// The Amazon Web Services KMS key identifier for encryption of Performance Insights
+        /// data.
+        /// </para>
+        ///  
+        /// <para>
+        /// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// name for the KMS key.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you don't specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon
+        /// RDS uses your default KMS key. There is a default KMS key for your Amazon Web Services
+        /// account. Your Amazon Web Services account has a different default KMS key for each
+        /// Amazon Web Services Region.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Multi-AZ DB clusters only
+        /// </para>
+        /// </summary>
+        public string PerformanceInsightsKMSKeyId
+        {
+            get { return this._performanceInsightsKMSKeyId; }
+            set { this._performanceInsightsKMSKeyId = value; }
+        }
+
+        // Check to see if PerformanceInsightsKMSKeyId property is set
+        internal bool IsSetPerformanceInsightsKMSKeyId()
+        {
+            return this._performanceInsightsKMSKeyId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PerformanceInsightsRetentionPeriod. 
+        /// <para>
+        /// The amount of time, in days, to retain Performance Insights data. Valid values are
+        /// 7 or 731 (2 years).
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Multi-AZ DB clusters only
+        /// </para>
+        /// </summary>
+        public int PerformanceInsightsRetentionPeriod
+        {
+            get { return this._performanceInsightsRetentionPeriod.GetValueOrDefault(); }
+            set { this._performanceInsightsRetentionPeriod = value; }
+        }
+
+        // Check to see if PerformanceInsightsRetentionPeriod property is set
+        internal bool IsSetPerformanceInsightsRetentionPeriod()
+        {
+            return this._performanceInsightsRetentionPeriod.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property Port. 
         /// <para>
         /// The port number on which the DB cluster accepts connections.
@@ -615,6 +1019,10 @@ namespace Amazon.RDS.Model
         ///  
         /// <para>
         /// Default: The same port as the original DB cluster.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters only
         /// </para>
         /// </summary>
         public int Port
@@ -633,13 +1041,13 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property PreferredBackupWindow. 
         /// <para>
         /// The daily time range during which automated backups are created if automated backups
-        /// are enabled, using the <code>BackupRetentionPeriod</code> parameter. 
+        /// are enabled, using the <code>BackupRetentionPeriod</code> parameter.
         /// </para>
         ///  
         /// <para>
         /// The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each Amazon Web Services Region. To view the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow">
-        /// Backup window</a> in the <i>Amazon Aurora User Guide.</i> 
+        /// Backup window</a> in the <i>Amazon Aurora User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -661,7 +1069,10 @@ namespace Amazon.RDS.Model
         /// <para>
         /// Must be at least 30 minutes.
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> 
+        /// <para>
+        /// Valid for: Aurora DB clusters and Multi-AZ DB clusters
+        /// </para>
         /// </summary>
         public string PreferredBackupWindow
         {
@@ -691,7 +1102,7 @@ namespace Amazon.RDS.Model
         /// for each Amazon Web Services Region, occurring on a random day of the week. To see
         /// the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
         /// Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora
-        /// User Guide.</i> 
+        /// User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -700,6 +1111,10 @@ namespace Amazon.RDS.Model
         ///  
         /// <para>
         /// Constraints: Minimum 30-minute window.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </para>
         /// </summary>
         public string PreferredMaintenanceWindow
@@ -720,6 +1135,10 @@ namespace Amazon.RDS.Model
         /// The scaling properties of the DB cluster. You can only modify scaling properties for
         /// DB clusters in <code>serverless</code> DB engine mode.
         /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters only
+        /// </para>
         /// </summary>
         public ScalingConfiguration ScalingConfiguration
         {
@@ -734,9 +1153,62 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ServerlessV2ScalingConfiguration.
+        /// </summary>
+        public ServerlessV2ScalingConfiguration ServerlessV2ScalingConfiguration
+        {
+            get { return this._serverlessV2ScalingConfiguration; }
+            set { this._serverlessV2ScalingConfiguration = value; }
+        }
+
+        // Check to see if ServerlessV2ScalingConfiguration property is set
+        internal bool IsSetServerlessV2ScalingConfiguration()
+        {
+            return this._serverlessV2ScalingConfiguration != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property StorageType. 
+        /// <para>
+        /// Specifies the storage type to be associated with the DB cluster.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid values: <code>io1</code> 
+        /// </para>
+        ///  
+        /// <para>
+        /// When specified, a value for the <code>Iops</code> parameter is required.
+        /// </para>
+        ///  
+        /// <para>
+        /// Default: <code>io1</code> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Multi-AZ DB clusters only
+        /// </para>
+        /// </summary>
+        public string StorageType
+        {
+            get { return this._storageType; }
+            set { this._storageType = value; }
+        }
+
+        // Check to see if StorageType property is set
+        internal bool IsSetStorageType()
+        {
+            return this._storageType != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property VpcSecurityGroupIds. 
         /// <para>
         /// A list of VPC security groups that the DB cluster will belong to.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </para>
         /// </summary>
         public List<string> VpcSecurityGroupIds

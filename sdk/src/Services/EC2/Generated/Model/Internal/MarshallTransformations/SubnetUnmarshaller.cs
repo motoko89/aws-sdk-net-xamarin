@@ -96,11 +96,29 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         unmarshalledObject.DefaultForAz = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("enableDns64", targetDepth))
+                    {
+                        var unmarshaller = BoolUnmarshaller.Instance;
+                        unmarshalledObject.EnableDns64 = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("enableLniAtDeviceIndex", targetDepth))
+                    {
+                        var unmarshaller = IntUnmarshaller.Instance;
+                        unmarshalledObject.EnableLniAtDeviceIndex = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("ipv6CidrBlockAssociationSet/item", targetDepth))
                     {
                         var unmarshaller = SubnetIpv6CidrBlockAssociationUnmarshaller.Instance;
                         var item = unmarshaller.Unmarshall(context);
                         unmarshalledObject.Ipv6CidrBlockAssociationSet.Add(item);
+                        continue;
+                    }
+                    if (context.TestExpression("ipv6Native", targetDepth))
+                    {
+                        var unmarshaller = BoolUnmarshaller.Instance;
+                        unmarshalledObject.Ipv6Native = unmarshaller.Unmarshall(context);
                         continue;
                     }
                     if (context.TestExpression("mapCustomerOwnedIpOnLaunch", targetDepth))
@@ -125,6 +143,12 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
                         unmarshalledObject.OwnerId = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("privateDnsNameOptionsOnLaunch", targetDepth))
+                    {
+                        var unmarshaller = PrivateDnsNameOptionsOnLaunchUnmarshaller.Instance;
+                        unmarshalledObject.PrivateDnsNameOptionsOnLaunch = unmarshaller.Unmarshall(context);
                         continue;
                     }
                     if (context.TestExpression("state", targetDepth))

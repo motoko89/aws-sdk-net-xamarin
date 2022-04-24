@@ -32,7 +32,7 @@ namespace Amazon.Connect
     public partial class AmazonConnectConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.8.0");
+            InternalSDKUtils.BuildUserAgentString("3.7.17.0");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.Connect
         /// Default constructor
         /// </summary>
         public AmazonConnectConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonConnectDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "connect";
         }

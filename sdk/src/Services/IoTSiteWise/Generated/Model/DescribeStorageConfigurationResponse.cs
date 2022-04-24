@@ -34,8 +34,10 @@ namespace Amazon.IoTSiteWise.Model
     public partial class DescribeStorageConfigurationResponse : AmazonWebServiceResponse
     {
         private ConfigurationStatus _configurationStatus;
+        private DisassociatedDataStorageState _disassociatedDataStorage;
         private DateTime? _lastUpdateDate;
         private MultiLayerStorage _multiLayerStorage;
+        private RetentionPeriod _retentionPeriod;
         private StorageType _storageType;
 
         /// <summary>
@@ -52,6 +54,45 @@ namespace Amazon.IoTSiteWise.Model
         internal bool IsSetConfigurationStatus()
         {
             return this._configurationStatus != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property DisassociatedDataStorage. 
+        /// <para>
+        /// Contains the storage configuration for time series (data streams) that aren't associated
+        /// with asset properties. The <code>disassociatedDataStorage</code> can be one of the
+        /// following values:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>ENABLED</code> – IoT SiteWise accepts time series that aren't associated with
+        /// asset properties.
+        /// </para>
+        ///  <important> 
+        /// <para>
+        /// After the <code>disassociatedDataStorage</code> is enabled, you can't disable it.
+        /// </para>
+        ///  </important> </li> <li> 
+        /// <para>
+        ///  <code>DISABLED</code> – IoT SiteWise doesn't accept time series (data streams) that
+        /// aren't associated with asset properties.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data
+        /// streams</a> in the <i>IoT SiteWise User Guide</i>.
+        /// </para>
+        /// </summary>
+        public DisassociatedDataStorageState DisassociatedDataStorage
+        {
+            get { return this._disassociatedDataStorage; }
+            set { this._disassociatedDataStorage = value; }
+        }
+
+        // Check to see if DisassociatedDataStorage property is set
+        internal bool IsSetDisassociatedDataStorage()
+        {
+            return this._disassociatedDataStorage != null;
         }
 
         /// <summary>
@@ -91,21 +132,39 @@ namespace Amazon.IoTSiteWise.Model
         }
 
         /// <summary>
+        /// Gets and sets the property RetentionPeriod. 
+        /// <para>
+        /// How many days your data is kept in the hot tier. By default, your data is kept indefinitely
+        /// in the hot tier.
+        /// </para>
+        /// </summary>
+        public RetentionPeriod RetentionPeriod
+        {
+            get { return this._retentionPeriod; }
+            set { this._retentionPeriod = value; }
+        }
+
+        // Check to see if RetentionPeriod property is set
+        internal bool IsSetRetentionPeriod()
+        {
+            return this._retentionPeriod != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property StorageType. 
         /// <para>
-        /// The type of storage that you specified for your data. The storage type can be one
-        /// of the following values:
+        /// The storage tier that you specified for your data. The <code>storageType</code> parameter
+        /// can be one of the following values:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise replicates your data into a
-        /// service managed database.
+        ///  <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot
+        /// tier. The hot tier is a service-managed database.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise replicates your data into a service
-        /// managed database and saves a copy of your raw data and metadata in an Amazon S3 object
-        /// that you specified.
+        ///  <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold
+        /// tier and the cold tier. The cold tier is a customer-managed Amazon S3 bucket.
         /// </para>
         ///  </li> </ul>
         /// </summary>

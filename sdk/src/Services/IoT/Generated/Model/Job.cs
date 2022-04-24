@@ -38,8 +38,10 @@ namespace Amazon.IoT.Model
         private DateTime? _completedAt;
         private DateTime? _createdAt;
         private string _description;
+        private Dictionary<string, string> _documentParameters = new Dictionary<string, string>();
         private bool? _forceCanceled;
         private string _jobArn;
+        private JobExecutionsRetryConfig _jobExecutionsRetryConfig;
         private JobExecutionsRolloutConfig _jobExecutionsRolloutConfig;
         private string _jobId;
         private JobProcessDetails _jobProcessDetails;
@@ -146,6 +148,26 @@ namespace Amazon.IoT.Model
         }
 
         /// <summary>
+        /// Gets and sets the property DocumentParameters. 
+        /// <para>
+        /// A key-value map that pairs the patterns that need to be replaced in a managed template
+        /// job document schema. You can use the description of each key as a guidance to specify
+        /// the inputs during runtime when creating a job.
+        /// </para>
+        /// </summary>
+        public Dictionary<string, string> DocumentParameters
+        {
+            get { return this._documentParameters; }
+            set { this._documentParameters = value; }
+        }
+
+        // Check to see if DocumentParameters property is set
+        internal bool IsSetDocumentParameters()
+        {
+            return this._documentParameters != null && this._documentParameters.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property ForceCanceled. 
         /// <para>
         /// Will be <code>true</code> if the job was canceled with the optional <code>force</code>
@@ -180,6 +202,24 @@ namespace Amazon.IoT.Model
         internal bool IsSetJobArn()
         {
             return this._jobArn != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property JobExecutionsRetryConfig. 
+        /// <para>
+        /// The configuration for the criteria to retry the job.
+        /// </para>
+        /// </summary>
+        public JobExecutionsRetryConfig JobExecutionsRetryConfig
+        {
+            get { return this._jobExecutionsRetryConfig; }
+            set { this._jobExecutionsRetryConfig = value; }
+        }
+
+        // Check to see if JobExecutionsRetryConfig property is set
+        internal bool IsSetJobExecutionsRetryConfig()
+        {
+            return this._jobExecutionsRetryConfig != null;
         }
 
         /// <summary>

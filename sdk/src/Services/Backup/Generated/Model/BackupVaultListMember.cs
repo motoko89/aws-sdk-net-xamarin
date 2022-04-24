@@ -108,7 +108,11 @@ namespace Amazon.Backup.Model
         /// Gets and sets the property CreatorRequestId. 
         /// <para>
         /// A unique string that identifies the request and allows failed requests to be retried
-        /// without the risk of running the operation twice.
+        /// without the risk of running the operation twice. This parameter is optional.
+        /// </para>
+        ///  
+        /// <para>
+        /// If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.
         /// </para>
         /// </summary>
         public string CreatorRequestId
@@ -126,8 +130,16 @@ namespace Amazon.Backup.Model
         /// <summary>
         /// Gets and sets the property EncryptionKeyArn. 
         /// <para>
-        /// The server-side encryption key that is used to protect your backups; for example,
-        /// <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.
+        /// A server-side encryption key you can specify to encrypt your backups from services
+        /// that support full Backup management; for example, <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.
+        /// If you specify a key, you must specify its ARN, not its alias. If you do not specify
+        /// a key, Backup creates a KMS key for you by default.
+        /// </para>
+        ///  
+        /// <para>
+        /// To learn which Backup services support full Backup management and how Backup handles
+        /// encryption for backups from services that do not yet support full Backup, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html">
+        /// Encryption for backups in Backup</a> 
         /// </para>
         /// </summary>
         public string EncryptionKeyArn

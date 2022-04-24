@@ -42,6 +42,7 @@ namespace Amazon.Runtime.CredentialManagement
         private const string ConfigFileName = "config";
         private const string DefaultDirectoryName = ".aws";
         private const string DefaultFileName = "credentials";
+        private const string DefaultConfigurationModeField = "defaults_mode";
         private const string CredentialProcess = "credential_process";
         private const string StsRegionalEndpointsField = "sts_regional_endpoints";
         private const string S3UseArnRegionField = "s3_use_arn_region";
@@ -55,6 +56,8 @@ namespace Amazon.Runtime.CredentialManagement
         private const string SsoStartUrl = "sso_start_url";
         private const string EC2MetadataServiceEndpointField = "ec2_metadata_service_endpoint";
         private const string EC2MetadataServiceEndpointModeField = "ec2_metadata_service_endpoint_mode";
+        private const string UseDualstackEndpointField = "use_dualstack_endpoint";
+        private const string UseFIPSEndpointField = "use_fips_endpoint";
         private readonly Logger _logger = Logger.GetLogger(typeof(SharedCredentialsFile));
 
         private static readonly HashSet<string> ReservedPropertyNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
@@ -74,7 +77,10 @@ namespace Amazon.Runtime.CredentialManagement
             SsoRoleName,
             SsoStartUrl,
             EC2MetadataServiceEndpointField,
-            EC2MetadataServiceEndpointModeField
+            EC2MetadataServiceEndpointModeField,
+            UseDualstackEndpointField,
+            UseFIPSEndpointField,
+            DefaultConfigurationModeField
         };
 
         /// <summary>
@@ -131,7 +137,7 @@ namespace Amazon.Runtime.CredentialManagement
             );
 
         public static readonly string DefaultDirectory;
-        public static readonly string DefaultFilePath;
+        public static string DefaultFilePath { get; private set; }
 
         static SharedCredentialsFile()
         {
@@ -283,6 +289,12 @@ namespace Amazon.Runtime.CredentialManagement
             if (profile.EC2MetadataServiceEndpointMode != null)
                 reservedProperties[EC2MetadataServiceEndpointModeField] = profile.EC2MetadataServiceEndpointMode.ToString().ToLowerInvariant();
 
+            if (profile.UseDualstackEndpoint != null)
+                reservedProperties[UseDualstackEndpointField] = profile.UseDualstackEndpoint.ToString().ToLowerInvariant();
+
+            if (profile.UseFIPSEndpoint != null)
+                reservedProperties[UseFIPSEndpointField] = profile.UseFIPSEndpoint.ToString().ToLowerInvariant();
+
             var profileDictionary = PropertyMapping.CombineProfileParts(
                 profile.Options, ReservedPropertyNames, reservedProperties, profile.Properties);
 
@@ -387,8 +399,12 @@ namespace Amazon.Runtime.CredentialManagement
                 CredentialProfileOptions profileOptions;
                 Dictionary<string, string> reservedProperties;
                 Dictionary<string, string> userProperties;
-                PropertyMapping.ExtractProfileParts(profileDictionary, ReservedPropertyNames,
-                    out profileOptions, out reservedProperties, out userProperties);
+                PropertyMapping.ExtractProfileParts(
+                    profileDictionary,
+                    ReservedPropertyNames,
+                    out profileOptions,
+                    out reservedProperties,
+                    out userProperties);
 
                 string toolkitArtifactGuidStr;
                 Guid? toolkitArtifactGuid = null;
@@ -526,10 +542,10 @@ namespace Amazon.Runtime.CredentialManagement
                     requestRetryMode = retryModeTemp;
 #endif
                 }
-                                
+
                 int? maxAttempts = null;
                 if (reservedProperties.TryGetValue(MaxAttemptsField, out var maxAttemptsString))
-                {                    
+                {
                     if (!int.TryParse(maxAttemptsString, out var maxAttemptsTemp) || maxAttemptsTemp <= 0)
                     {
                         Logger.GetLogger(GetType()).InfoFormat("Invalid value {0} for {1} in profile {2}. A positive integer is expected.", maxAttemptsString, MaxAttemptsField, profileName);
@@ -539,6 +555,9 @@ namespace Amazon.Runtime.CredentialManagement
 
                     maxAttempts = maxAttemptsTemp;
                 }
+
+                string defaultConfigurationModeName;
+                reservedProperties.TryGetValue(DefaultConfigurationModeField, out defaultConfigurationModeName);
 
                 string ec2MetadataServiceEndpoint;
                 if (reservedProperties.TryGetValue(EC2MetadataServiceEndpointField, out ec2MetadataServiceEndpoint))
@@ -574,6 +593,33 @@ namespace Amazon.Runtime.CredentialManagement
 #endif
                 }
 
+                string useDualstackEndpointString;
+                bool? useDualstackEndpoint = null;
+                if (reservedProperties.TryGetValue(UseDualstackEndpointField, out useDualstackEndpointString))
+                {
+                    bool useDualstackEndpointOut;
+                    if (!bool.TryParse(useDualstackEndpointString, out useDualstackEndpointOut))
+                    {
+                        Logger.GetLogger(GetType()).InfoFormat("Invalid value {0} for {1} in profile {2}. A boolean true/false is expected.", useDualstackEndpointString, UseDualstackEndpointField, profileName);
+                        profile = null;
+                        return false;
+                    }
+                    useDualstackEndpoint = useDualstackEndpointOut;
+                }
+
+                string useFIPSEndpointString;
+                bool? useFIPSEndpoint = null;
+                if (reservedProperties.TryGetValue(UseFIPSEndpointField, out useFIPSEndpointString))
+                {
+                    bool useFIPSEndpointOut;
+                    if (!bool.TryParse(useFIPSEndpointString, out useFIPSEndpointOut))
+                    {
+                        Logger.GetLogger(GetType()).InfoFormat("Invalid value {0} for {1} in profile {2}. A boolean true/false is expected.", useFIPSEndpointString, UseFIPSEndpointField, profileName);
+                        profile = null;
+                        return false;
+                    }
+                    useFIPSEndpoint = useFIPSEndpointOut;
+                }
 
                 profile = new CredentialProfile(profileName, profileOptions)
                 {
@@ -581,6 +627,7 @@ namespace Amazon.Runtime.CredentialManagement
                     Properties = userProperties,
                     Region = region,
                     CredentialProfileStore = this,
+                    DefaultConfigurationModeName = defaultConfigurationModeName,
                     EndpointDiscoveryEnabled = endpointDiscoveryEnabled,
                     StsRegionalEndpoints = stsRegionalEndpoints,
                     S3UseArnRegion = s3UseArnRegion,
@@ -589,7 +636,9 @@ namespace Amazon.Runtime.CredentialManagement
                     RetryMode = requestRetryMode,
                     MaxAttempts = maxAttempts,
                     EC2MetadataServiceEndpoint = ec2MetadataServiceEndpoint,
-                    EC2MetadataServiceEndpointMode = ec2MetadataServiceEndpointMode
+                    EC2MetadataServiceEndpointMode = ec2MetadataServiceEndpointMode,
+                    UseDualstackEndpoint = useDualstackEndpoint,
+                    UseFIPSEndpoint = useFIPSEndpoint
                 };
 
                 if (!IsSupportedProfileType(profile.ProfileType))

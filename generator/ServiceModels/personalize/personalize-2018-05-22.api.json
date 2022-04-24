@@ -26,7 +26,25 @@
         {"shape":"ResourceAlreadyExistsException"},
         {"shape":"LimitExceededException"},
         {"shape":"ResourceNotFoundException"},
-        {"shape":"ResourceInUseException"}
+        {"shape":"ResourceInUseException"},
+        {"shape":"TooManyTagsException"}
+      ]
+    },
+    "CreateBatchSegmentJob":{
+      "name":"CreateBatchSegmentJob",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"CreateBatchSegmentJobRequest"},
+      "output":{"shape":"CreateBatchSegmentJobResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"ResourceAlreadyExistsException"},
+        {"shape":"LimitExceededException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ResourceInUseException"},
+        {"shape":"TooManyTagsException"}
       ]
     },
     "CreateCampaign":{
@@ -42,7 +60,8 @@
         {"shape":"ResourceNotFoundException"},
         {"shape":"ResourceAlreadyExistsException"},
         {"shape":"LimitExceededException"},
-        {"shape":"ResourceInUseException"}
+        {"shape":"ResourceInUseException"},
+        {"shape":"TooManyTagsException"}
       ],
       "idempotent":true
     },
@@ -59,7 +78,8 @@
         {"shape":"ResourceNotFoundException"},
         {"shape":"ResourceAlreadyExistsException"},
         {"shape":"LimitExceededException"},
-        {"shape":"ResourceInUseException"}
+        {"shape":"ResourceInUseException"},
+        {"shape":"TooManyTagsException"}
       ],
       "idempotent":true
     },
@@ -76,7 +96,8 @@
         {"shape":"ResourceNotFoundException"},
         {"shape":"ResourceAlreadyExistsException"},
         {"shape":"LimitExceededException"},
-        {"shape":"ResourceInUseException"}
+        {"shape":"ResourceInUseException"},
+        {"shape":"TooManyTagsException"}
       ],
       "idempotent":true
     },
@@ -91,7 +112,8 @@
       "errors":[
         {"shape":"InvalidInputException"},
         {"shape":"ResourceAlreadyExistsException"},
-        {"shape":"LimitExceededException"}
+        {"shape":"LimitExceededException"},
+        {"shape":"TooManyTagsException"}
       ]
     },
     "CreateDatasetImportJob":{
@@ -107,7 +129,8 @@
         {"shape":"ResourceNotFoundException"},
         {"shape":"ResourceAlreadyExistsException"},
         {"shape":"LimitExceededException"},
-        {"shape":"ResourceInUseException"}
+        {"shape":"ResourceInUseException"},
+        {"shape":"TooManyTagsException"}
       ]
     },
     "CreateEventTracker":{
@@ -123,7 +146,8 @@
         {"shape":"ResourceAlreadyExistsException"},
         {"shape":"ResourceNotFoundException"},
         {"shape":"LimitExceededException"},
-        {"shape":"ResourceInUseException"}
+        {"shape":"ResourceInUseException"},
+        {"shape":"TooManyTagsException"}
       ],
       "idempotent":true
     },
@@ -139,8 +163,26 @@
         {"shape":"InvalidInputException"},
         {"shape":"ResourceAlreadyExistsException"},
         {"shape":"ResourceNotFoundException"},
-        {"shape":"LimitExceededException"}
+        {"shape":"LimitExceededException"},
+        {"shape":"TooManyTagsException"}
       ]
+    },
+    "CreateRecommender":{
+      "name":"CreateRecommender",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"CreateRecommenderRequest"},
+      "output":{"shape":"CreateRecommenderResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"ResourceAlreadyExistsException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"LimitExceededException"},
+        {"shape":"TooManyTagsException"}
+      ],
+      "idempotent":true
     },
     "CreateSchema":{
       "name":"CreateSchema",
@@ -170,7 +212,8 @@
         {"shape":"ResourceAlreadyExistsException"},
         {"shape":"ResourceNotFoundException"},
         {"shape":"LimitExceededException"},
-        {"shape":"ResourceInUseException"}
+        {"shape":"ResourceInUseException"},
+        {"shape":"TooManyTagsException"}
       ]
     },
     "CreateSolutionVersion":{
@@ -185,7 +228,8 @@
         {"shape":"InvalidInputException"},
         {"shape":"ResourceNotFoundException"},
         {"shape":"LimitExceededException"},
-        {"shape":"ResourceInUseException"}
+        {"shape":"ResourceInUseException"},
+        {"shape":"TooManyTagsException"}
       ]
     },
     "DeleteCampaign":{
@@ -257,6 +301,20 @@
         {"shape":"ResourceInUseException"}
       ]
     },
+    "DeleteRecommender":{
+      "name":"DeleteRecommender",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DeleteRecommenderRequest"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ResourceInUseException"}
+      ],
+      "idempotent":true
+    },
     "DeleteSchema":{
       "name":"DeleteSchema",
       "http":{
@@ -307,6 +365,20 @@
       },
       "input":{"shape":"DescribeBatchInferenceJobRequest"},
       "output":{"shape":"DescribeBatchInferenceJobResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"ResourceNotFoundException"}
+      ],
+      "idempotent":true
+    },
+    "DescribeBatchSegmentJob":{
+      "name":"DescribeBatchSegmentJob",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DescribeBatchSegmentJobRequest"},
+      "output":{"shape":"DescribeBatchSegmentJobResponse"},
       "errors":[
         {"shape":"InvalidInputException"},
         {"shape":"ResourceNotFoundException"}
@@ -439,6 +511,20 @@
       ],
       "idempotent":true
     },
+    "DescribeRecommender":{
+      "name":"DescribeRecommender",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DescribeRecommenderRequest"},
+      "output":{"shape":"DescribeRecommenderResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"ResourceNotFoundException"}
+      ],
+      "idempotent":true
+    },
     "DescribeSchema":{
       "name":"DescribeSchema",
       "http":{
@@ -503,6 +589,20 @@
       },
       "input":{"shape":"ListBatchInferenceJobsRequest"},
       "output":{"shape":"ListBatchInferenceJobsResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"InvalidNextTokenException"}
+      ],
+      "idempotent":true
+    },
+    "ListBatchSegmentJobs":{
+      "name":"ListBatchSegmentJobs",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListBatchSegmentJobsRequest"},
+      "output":{"shape":"ListBatchSegmentJobsResponse"},
       "errors":[
         {"shape":"InvalidInputException"},
         {"shape":"InvalidNextTokenException"}
@@ -615,6 +715,21 @@
       "input":{"shape":"ListRecipesRequest"},
       "output":{"shape":"ListRecipesResponse"},
       "errors":[
+        {"shape":"InvalidNextTokenException"},
+        {"shape":"InvalidInputException"}
+      ],
+      "idempotent":true
+    },
+    "ListRecommenders":{
+      "name":"ListRecommenders",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListRecommendersRequest"},
+      "output":{"shape":"ListRecommendersResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
         {"shape":"InvalidNextTokenException"}
       ],
       "idempotent":true
@@ -661,6 +776,50 @@
       ],
       "idempotent":true
     },
+    "ListTagsForResource":{
+      "name":"ListTagsForResource",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListTagsForResourceRequest"},
+      "output":{"shape":"ListTagsForResourceResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ResourceInUseException"}
+      ]
+    },
+    "StartRecommender":{
+      "name":"StartRecommender",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"StartRecommenderRequest"},
+      "output":{"shape":"StartRecommenderResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ResourceInUseException"}
+      ],
+      "idempotent":true
+    },
+    "StopRecommender":{
+      "name":"StopRecommender",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"StopRecommenderRequest"},
+      "output":{"shape":"StopRecommenderResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ResourceInUseException"}
+      ],
+      "idempotent":true
+    },
     "StopSolutionVersionCreation":{
       "name":"StopSolutionVersionCreation",
       "http":{
@@ -675,6 +834,37 @@
       ],
       "idempotent":true
     },
+    "TagResource":{
+      "name":"TagResource",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"TagResourceRequest"},
+      "output":{"shape":"TagResourceResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"TooManyTagsException"},
+        {"shape":"ResourceInUseException"},
+        {"shape":"LimitExceededException"}
+      ]
+    },
+    "UntagResource":{
+      "name":"UntagResource",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"UntagResourceRequest"},
+      "output":{"shape":"UntagResourceResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"TooManyTagKeysException"},
+        {"shape":"ResourceInUseException"}
+      ]
+    },
     "UpdateCampaign":{
       "name":"UpdateCampaign",
       "http":{
@@ -683,6 +873,21 @@
       },
       "input":{"shape":"UpdateCampaignRequest"},
       "output":{"shape":"UpdateCampaignResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ResourceInUseException"}
+      ],
+      "idempotent":true
+    },
+    "UpdateRecommender":{
+      "name":"UpdateRecommender",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"UpdateRecommenderRequest"},
+      "output":{"shape":"UpdateRecommenderResponse"},
       "errors":[
         {"shape":"InvalidInputException"},
         {"shape":"ResourceNotFoundException"},
@@ -801,6 +1006,54 @@
       "member":{"shape":"BatchInferenceJobSummary"},
       "max":100
     },
+    "BatchSegmentJob":{
+      "type":"structure",
+      "members":{
+        "jobName":{"shape":"Name"},
+        "batchSegmentJobArn":{"shape":"Arn"},
+        "filterArn":{"shape":"Arn"},
+        "failureReason":{"shape":"FailureReason"},
+        "solutionVersionArn":{"shape":"Arn"},
+        "numResults":{"shape":"NumBatchResults"},
+        "jobInput":{"shape":"BatchSegmentJobInput"},
+        "jobOutput":{"shape":"BatchSegmentJobOutput"},
+        "roleArn":{"shape":"RoleArn"},
+        "status":{"shape":"Status"},
+        "creationDateTime":{"shape":"Date"},
+        "lastUpdatedDateTime":{"shape":"Date"}
+      }
+    },
+    "BatchSegmentJobInput":{
+      "type":"structure",
+      "required":["s3DataSource"],
+      "members":{
+        "s3DataSource":{"shape":"S3DataConfig"}
+      }
+    },
+    "BatchSegmentJobOutput":{
+      "type":"structure",
+      "required":["s3DataDestination"],
+      "members":{
+        "s3DataDestination":{"shape":"S3DataConfig"}
+      }
+    },
+    "BatchSegmentJobSummary":{
+      "type":"structure",
+      "members":{
+        "batchSegmentJobArn":{"shape":"Arn"},
+        "jobName":{"shape":"Name"},
+        "status":{"shape":"Status"},
+        "creationDateTime":{"shape":"Date"},
+        "lastUpdatedDateTime":{"shape":"Date"},
+        "failureReason":{"shape":"FailureReason"},
+        "solutionVersionArn":{"shape":"Arn"}
+      }
+    },
+    "BatchSegmentJobs":{
+      "type":"list",
+      "member":{"shape":"BatchSegmentJobSummary"},
+      "max":100
+    },
     "Boolean":{"type":"boolean"},
     "Campaign":{
       "type":"structure",
@@ -910,13 +1163,40 @@
         "jobInput":{"shape":"BatchInferenceJobInput"},
         "jobOutput":{"shape":"BatchInferenceJobOutput"},
         "roleArn":{"shape":"RoleArn"},
-        "batchInferenceJobConfig":{"shape":"BatchInferenceJobConfig"}
+        "batchInferenceJobConfig":{"shape":"BatchInferenceJobConfig"},
+        "tags":{"shape":"Tags"}
       }
     },
     "CreateBatchInferenceJobResponse":{
       "type":"structure",
       "members":{
         "batchInferenceJobArn":{"shape":"Arn"}
+      }
+    },
+    "CreateBatchSegmentJobRequest":{
+      "type":"structure",
+      "required":[
+        "jobName",
+        "solutionVersionArn",
+        "jobInput",
+        "jobOutput",
+        "roleArn"
+      ],
+      "members":{
+        "jobName":{"shape":"Name"},
+        "solutionVersionArn":{"shape":"Arn"},
+        "filterArn":{"shape":"Arn"},
+        "numResults":{"shape":"NumBatchResults"},
+        "jobInput":{"shape":"BatchSegmentJobInput"},
+        "jobOutput":{"shape":"BatchSegmentJobOutput"},
+        "roleArn":{"shape":"RoleArn"},
+        "tags":{"shape":"Tags"}
+      }
+    },
+    "CreateBatchSegmentJobResponse":{
+      "type":"structure",
+      "members":{
+        "batchSegmentJobArn":{"shape":"Arn"}
       }
     },
     "CreateCampaignRequest":{
@@ -929,7 +1209,8 @@
         "name":{"shape":"Name"},
         "solutionVersionArn":{"shape":"Arn"},
         "minProvisionedTPS":{"shape":"TransactionsPerSecond"},
-        "campaignConfig":{"shape":"CampaignConfig"}
+        "campaignConfig":{"shape":"CampaignConfig"},
+        "tags":{"shape":"Tags"}
       }
     },
     "CreateCampaignResponse":{
@@ -951,7 +1232,8 @@
         "datasetArn":{"shape":"Arn"},
         "ingestionMode":{"shape":"IngestionMode"},
         "roleArn":{"shape":"RoleArn"},
-        "jobOutput":{"shape":"DatasetExportJobOutput"}
+        "jobOutput":{"shape":"DatasetExportJobOutput"},
+        "tags":{"shape":"Tags"}
       }
     },
     "CreateDatasetExportJobResponse":{
@@ -966,13 +1248,16 @@
       "members":{
         "name":{"shape":"Name"},
         "roleArn":{"shape":"RoleArn"},
-        "kmsKeyArn":{"shape":"KmsKeyArn"}
+        "kmsKeyArn":{"shape":"KmsKeyArn"},
+        "domain":{"shape":"Domain"},
+        "tags":{"shape":"Tags"}
       }
     },
     "CreateDatasetGroupResponse":{
       "type":"structure",
       "members":{
-        "datasetGroupArn":{"shape":"Arn"}
+        "datasetGroupArn":{"shape":"Arn"},
+        "domain":{"shape":"Domain"}
       }
     },
     "CreateDatasetImportJobRequest":{
@@ -987,7 +1272,8 @@
         "jobName":{"shape":"Name"},
         "datasetArn":{"shape":"Arn"},
         "dataSource":{"shape":"DataSource"},
-        "roleArn":{"shape":"RoleArn"}
+        "roleArn":{"shape":"RoleArn"},
+        "tags":{"shape":"Tags"}
       }
     },
     "CreateDatasetImportJobResponse":{
@@ -1008,7 +1294,8 @@
         "name":{"shape":"Name"},
         "schemaArn":{"shape":"Arn"},
         "datasetGroupArn":{"shape":"Arn"},
-        "datasetType":{"shape":"DatasetType"}
+        "datasetType":{"shape":"DatasetType"},
+        "tags":{"shape":"Tags"}
       }
     },
     "CreateDatasetResponse":{
@@ -1025,7 +1312,8 @@
       ],
       "members":{
         "name":{"shape":"Name"},
-        "datasetGroupArn":{"shape":"Arn"}
+        "datasetGroupArn":{"shape":"Arn"},
+        "tags":{"shape":"Tags"}
       }
     },
     "CreateEventTrackerResponse":{
@@ -1045,13 +1333,35 @@
       "members":{
         "name":{"shape":"Name"},
         "datasetGroupArn":{"shape":"Arn"},
-        "filterExpression":{"shape":"FilterExpression"}
+        "filterExpression":{"shape":"FilterExpression"},
+        "tags":{"shape":"Tags"}
       }
     },
     "CreateFilterResponse":{
       "type":"structure",
       "members":{
         "filterArn":{"shape":"Arn"}
+      }
+    },
+    "CreateRecommenderRequest":{
+      "type":"structure",
+      "required":[
+        "name",
+        "datasetGroupArn",
+        "recipeArn"
+      ],
+      "members":{
+        "name":{"shape":"Name"},
+        "datasetGroupArn":{"shape":"Arn"},
+        "recipeArn":{"shape":"Arn"},
+        "recommenderConfig":{"shape":"RecommenderConfig"},
+        "tags":{"shape":"Tags"}
+      }
+    },
+    "CreateRecommenderResponse":{
+      "type":"structure",
+      "members":{
+        "recommenderArn":{"shape":"Arn"}
       }
     },
     "CreateSchemaRequest":{
@@ -1062,7 +1372,8 @@
       ],
       "members":{
         "name":{"shape":"Name"},
-        "schema":{"shape":"AvroSchema"}
+        "schema":{"shape":"AvroSchema"},
+        "domain":{"shape":"Domain"}
       }
     },
     "CreateSchemaResponse":{
@@ -1084,7 +1395,8 @@
         "recipeArn":{"shape":"Arn"},
         "datasetGroupArn":{"shape":"Arn"},
         "eventType":{"shape":"EventType"},
-        "solutionConfig":{"shape":"SolutionConfig"}
+        "solutionConfig":{"shape":"SolutionConfig"},
+        "tags":{"shape":"Tags"}
       }
     },
     "CreateSolutionResponse":{
@@ -1098,7 +1410,8 @@
       "required":["solutionArn"],
       "members":{
         "solutionArn":{"shape":"Arn"},
-        "trainingMode":{"shape":"TrainingMode"}
+        "trainingMode":{"shape":"TrainingMode"},
+        "tags":{"shape":"Tags"}
       }
     },
     "CreateSolutionVersionResponse":{
@@ -1174,7 +1487,8 @@
         "kmsKeyArn":{"shape":"KmsKeyArn"},
         "creationDateTime":{"shape":"Date"},
         "lastUpdatedDateTime":{"shape":"Date"},
-        "failureReason":{"shape":"FailureReason"}
+        "failureReason":{"shape":"FailureReason"},
+        "domain":{"shape":"Domain"}
       }
     },
     "DatasetGroupSummary":{
@@ -1185,7 +1499,8 @@
         "status":{"shape":"Status"},
         "creationDateTime":{"shape":"Date"},
         "lastUpdatedDateTime":{"shape":"Date"},
-        "failureReason":{"shape":"FailureReason"}
+        "failureReason":{"shape":"FailureReason"},
+        "domain":{"shape":"Domain"}
       }
     },
     "DatasetGroups":{
@@ -1230,7 +1545,8 @@
         "schemaArn":{"shape":"Arn"},
         "schema":{"shape":"AvroSchema"},
         "creationDateTime":{"shape":"Date"},
-        "lastUpdatedDateTime":{"shape":"Date"}
+        "lastUpdatedDateTime":{"shape":"Date"},
+        "domain":{"shape":"Domain"}
       }
     },
     "DatasetSchemaSummary":{
@@ -1239,7 +1555,8 @@
         "name":{"shape":"Name"},
         "schemaArn":{"shape":"Arn"},
         "creationDateTime":{"shape":"Date"},
-        "lastUpdatedDateTime":{"shape":"Date"}
+        "lastUpdatedDateTime":{"shape":"Date"},
+        "domain":{"shape":"Domain"}
       }
     },
     "DatasetSummary":{
@@ -1347,6 +1664,13 @@
         "filterArn":{"shape":"Arn"}
       }
     },
+    "DeleteRecommenderRequest":{
+      "type":"structure",
+      "required":["recommenderArn"],
+      "members":{
+        "recommenderArn":{"shape":"Arn"}
+      }
+    },
     "DeleteSchemaRequest":{
       "type":"structure",
       "required":["schemaArn"],
@@ -1385,6 +1709,19 @@
       "type":"structure",
       "members":{
         "batchInferenceJob":{"shape":"BatchInferenceJob"}
+      }
+    },
+    "DescribeBatchSegmentJobRequest":{
+      "type":"structure",
+      "required":["batchSegmentJobArn"],
+      "members":{
+        "batchSegmentJobArn":{"shape":"Arn"}
+      }
+    },
+    "DescribeBatchSegmentJobResponse":{
+      "type":"structure",
+      "members":{
+        "batchSegmentJob":{"shape":"BatchSegmentJob"}
       }
     },
     "DescribeCampaignRequest":{
@@ -1504,6 +1841,19 @@
         "recipe":{"shape":"Recipe"}
       }
     },
+    "DescribeRecommenderRequest":{
+      "type":"structure",
+      "required":["recommenderArn"],
+      "members":{
+        "recommenderArn":{"shape":"Arn"}
+      }
+    },
+    "DescribeRecommenderResponse":{
+      "type":"structure",
+      "members":{
+        "recommender":{"shape":"Recommender"}
+      }
+    },
     "DescribeSchemaRequest":{
       "type":"structure",
       "required":["schemaArn"],
@@ -1547,6 +1897,13 @@
     "DockerURI":{
       "type":"string",
       "max":256
+    },
+    "Domain":{
+      "type":"string",
+      "enum":[
+        "ECOMMERCE",
+        "VIDEO_ON_DEMAND"
+      ]
     },
     "ErrorMessage":{"type":"string"},
     "EventTracker":{
@@ -1754,6 +2111,7 @@
     },
     "KmsKeyArn":{
       "type":"string",
+      "max":2048,
       "pattern":"arn:aws.*:kms:.*:[0-9]{12}:key/.*"
     },
     "LimitExceededException":{
@@ -1775,6 +2133,21 @@
       "type":"structure",
       "members":{
         "batchInferenceJobs":{"shape":"BatchInferenceJobs"},
+        "nextToken":{"shape":"NextToken"}
+      }
+    },
+    "ListBatchSegmentJobsRequest":{
+      "type":"structure",
+      "members":{
+        "solutionVersionArn":{"shape":"Arn"},
+        "nextToken":{"shape":"NextToken"},
+        "maxResults":{"shape":"MaxResults"}
+      }
+    },
+    "ListBatchSegmentJobsResponse":{
+      "type":"structure",
+      "members":{
+        "batchSegmentJobs":{"shape":"BatchSegmentJobs"},
         "nextToken":{"shape":"NextToken"}
       }
     },
@@ -1887,13 +2260,29 @@
       "members":{
         "recipeProvider":{"shape":"RecipeProvider"},
         "nextToken":{"shape":"NextToken"},
-        "maxResults":{"shape":"MaxResults"}
+        "maxResults":{"shape":"MaxResults"},
+        "domain":{"shape":"Domain"}
       }
     },
     "ListRecipesResponse":{
       "type":"structure",
       "members":{
         "recipes":{"shape":"Recipes"},
+        "nextToken":{"shape":"NextToken"}
+      }
+    },
+    "ListRecommendersRequest":{
+      "type":"structure",
+      "members":{
+        "datasetGroupArn":{"shape":"Arn"},
+        "nextToken":{"shape":"NextToken"},
+        "maxResults":{"shape":"MaxResults"}
+      }
+    },
+    "ListRecommendersResponse":{
+      "type":"structure",
+      "members":{
+        "recommenders":{"shape":"Recommenders"},
         "nextToken":{"shape":"NextToken"}
       }
     },
@@ -1941,6 +2330,19 @@
         "nextToken":{"shape":"NextToken"}
       }
     },
+    "ListTagsForResourceRequest":{
+      "type":"structure",
+      "required":["resourceArn"],
+      "members":{
+        "resourceArn":{"shape":"Arn"}
+      }
+    },
+    "ListTagsForResourceResponse":{
+      "type":"structure",
+      "members":{
+        "tags":{"shape":"Tags"}
+      }
+    },
     "MaxResults":{
       "type":"integer",
       "max":100,
@@ -1969,7 +2371,7 @@
     },
     "NextToken":{
       "type":"string",
-      "max":1300
+      "max":1500
     },
     "NumBatchResults":{"type":"integer"},
     "ObjectiveSensitivity":{
@@ -2023,7 +2425,8 @@
         "recipeArn":{"shape":"Arn"},
         "status":{"shape":"Status"},
         "creationDateTime":{"shape":"Date"},
-        "lastUpdatedDateTime":{"shape":"Date"}
+        "lastUpdatedDateTime":{"shape":"Date"},
+        "domain":{"shape":"Domain"}
       }
     },
     "RecipeType":{
@@ -2033,6 +2436,56 @@
     "Recipes":{
       "type":"list",
       "member":{"shape":"RecipeSummary"},
+      "max":100
+    },
+    "Recommender":{
+      "type":"structure",
+      "members":{
+        "recommenderArn":{"shape":"Arn"},
+        "datasetGroupArn":{"shape":"Arn"},
+        "name":{"shape":"Name"},
+        "recipeArn":{"shape":"Arn"},
+        "recommenderConfig":{"shape":"RecommenderConfig"},
+        "creationDateTime":{"shape":"Date"},
+        "lastUpdatedDateTime":{"shape":"Date"},
+        "status":{"shape":"Status"},
+        "failureReason":{"shape":"FailureReason"},
+        "latestRecommenderUpdate":{"shape":"RecommenderUpdateSummary"}
+      }
+    },
+    "RecommenderConfig":{
+      "type":"structure",
+      "members":{
+        "itemExplorationConfig":{"shape":"HyperParameters"},
+        "minRecommendationRequestsPerSecond":{"shape":"TransactionsPerSecond"}
+      }
+    },
+    "RecommenderSummary":{
+      "type":"structure",
+      "members":{
+        "name":{"shape":"Name"},
+        "recommenderArn":{"shape":"Arn"},
+        "datasetGroupArn":{"shape":"Arn"},
+        "recipeArn":{"shape":"Arn"},
+        "recommenderConfig":{"shape":"RecommenderConfig"},
+        "status":{"shape":"Status"},
+        "creationDateTime":{"shape":"Date"},
+        "lastUpdatedDateTime":{"shape":"Date"}
+      }
+    },
+    "RecommenderUpdateSummary":{
+      "type":"structure",
+      "members":{
+        "recommenderConfig":{"shape":"RecommenderConfig"},
+        "creationDateTime":{"shape":"Date"},
+        "lastUpdatedDateTime":{"shape":"Date"},
+        "status":{"shape":"Status"},
+        "failureReason":{"shape":"FailureReason"}
+      }
+    },
+    "Recommenders":{
+      "type":"list",
+      "member":{"shape":"RecommenderSummary"},
       "max":100
     },
     "ResourceAlreadyExistsException":{
@@ -2164,9 +2617,35 @@
       "member":{"shape":"SolutionSummary"},
       "max":100
     },
+    "StartRecommenderRequest":{
+      "type":"structure",
+      "required":["recommenderArn"],
+      "members":{
+        "recommenderArn":{"shape":"Arn"}
+      }
+    },
+    "StartRecommenderResponse":{
+      "type":"structure",
+      "members":{
+        "recommenderArn":{"shape":"Arn"}
+      }
+    },
     "Status":{
       "type":"string",
       "max":256
+    },
+    "StopRecommenderRequest":{
+      "type":"structure",
+      "required":["recommenderArn"],
+      "members":{
+        "recommenderArn":{"shape":"Arn"}
+      }
+    },
+    "StopRecommenderResponse":{
+      "type":"structure",
+      "members":{
+        "recommenderArn":{"shape":"Arn"}
+      }
     },
     "StopSolutionVersionCreationRequest":{
       "type":"structure",
@@ -2174,6 +2653,71 @@
       "members":{
         "solutionVersionArn":{"shape":"Arn"}
       }
+    },
+    "Tag":{
+      "type":"structure",
+      "required":[
+        "tagKey",
+        "tagValue"
+      ],
+      "members":{
+        "tagKey":{"shape":"TagKey"},
+        "tagValue":{"shape":"TagValue"}
+      }
+    },
+    "TagKey":{
+      "type":"string",
+      "max":128,
+      "min":1,
+      "pattern":"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
+    },
+    "TagKeys":{
+      "type":"list",
+      "member":{"shape":"TagKey"},
+      "max":200,
+      "min":0
+    },
+    "TagResourceRequest":{
+      "type":"structure",
+      "required":[
+        "resourceArn",
+        "tags"
+      ],
+      "members":{
+        "resourceArn":{"shape":"Arn"},
+        "tags":{"shape":"Tags"}
+      }
+    },
+    "TagResourceResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "TagValue":{
+      "type":"string",
+      "max":256,
+      "min":0,
+      "pattern":"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
+    },
+    "Tags":{
+      "type":"list",
+      "member":{"shape":"Tag"},
+      "max":200,
+      "min":0
+    },
+    "TooManyTagKeysException":{
+      "type":"structure",
+      "members":{
+        "message":{"shape":"ErrorMessage"}
+      },
+      "exception":true
+    },
+    "TooManyTagsException":{
+      "type":"structure",
+      "members":{
+        "message":{"shape":"ErrorMessage"}
+      },
+      "exception":true
     },
     "TrackingId":{
       "type":"string",
@@ -2205,6 +2749,22 @@
         "algorithmHyperParameters":{"shape":"HyperParameters"}
       }
     },
+    "UntagResourceRequest":{
+      "type":"structure",
+      "required":[
+        "resourceArn",
+        "tagKeys"
+      ],
+      "members":{
+        "resourceArn":{"shape":"Arn"},
+        "tagKeys":{"shape":"TagKeys"}
+      }
+    },
+    "UntagResourceResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
     "UpdateCampaignRequest":{
       "type":"structure",
       "required":["campaignArn"],
@@ -2219,6 +2779,23 @@
       "type":"structure",
       "members":{
         "campaignArn":{"shape":"Arn"}
+      }
+    },
+    "UpdateRecommenderRequest":{
+      "type":"structure",
+      "required":[
+        "recommenderArn",
+        "recommenderConfig"
+      ],
+      "members":{
+        "recommenderArn":{"shape":"Arn"},
+        "recommenderConfig":{"shape":"RecommenderConfig"}
+      }
+    },
+    "UpdateRecommenderResponse":{
+      "type":"structure",
+      "members":{
+        "recommenderArn":{"shape":"Arn"}
       }
     }
   }

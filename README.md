@@ -74,6 +74,22 @@ You can find the archive for _**legacy**_ Unity support at https://github.com/aw
 
 Due to Silverlight HTTP Caching, AWS SDK for .NET is not fully supported on Silverlight-based platforms such as Windows Phone 8.0. Some HTTP GET calls (such as S3's ListBuckets or ListObjects) will return the same results when called multiple times.
 
+## Functionality requiring AWS Common Runtime (CRT)
+
+This SDK has optional functionality that requires the [AWS Common Runtime (CRT)](https://docs.aws.amazon.com/sdkref/latest/guide/common-runtime.html)
+bindings to be included as a dependency with your application. This functionality includes:
+* [Amazon S3 Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html)
+* [Amazon S3 Object Integrity](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html)
+* Amazon EventBridge Global Endpoints
+
+If the required AWS Common Runtime components are not installed you will receive an error like `Attempting to make a request that requires an implementation of AWS Signature V4a. Add a reference to the AWSSDK.Extensions.CrtIntegration NuGet package to your project to include the AWS Signature V4a signer.`,
+indicating that the required dependency is missing to use the associated functionality. To install this dependency follow
+the provided [instructions](#installing-the-aws-common-runtime-crt-dependency).
+
+### Installing the AWS Common Runtime (CRT) Dependency
+
+Add a reference to the NuGet package [AWSSDK.Extensions.CrtIntegration](https://www.nuget.org/packages/AWSSDK.Extensions.CrtIntegration/) to your project.
+
 ## Tests
 
 **Important:** Do not run the integration tests on a production account.
@@ -101,6 +117,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* Amplify is a fully managed continuous deployment and hosting service for modern web apps.
 * [AWSSDK.AmplifyBackend](https://www.nuget.org/packages/AWSSDK.AmplifyBackend/)
 	* (New Service) The Amplify Admin UI offers an accessible way to develop app backends and manage app content. We recommend that you use the Amplify Admin UI to manage the backend of your Amplify app.
+* [AWSSDK.AmplifyUIBuilder](https://www.nuget.org/packages/AWSSDK.AmplifyUIBuilder/)
+	* This release introduces the actions and data types for the new Amplify UI Builder API. The Amplify UI Builder API provides a programmatic interface for creating and configuring user interface (UI) component libraries and themes for use in Amplify applications.
 * [AWSSDK.APIGateway](https://www.nuget.org/packages/AWSSDK.APIGateway/)
 	* Amazon API Gateway helps developers deliver robust, secure and scalable mobile and web application backends. Amazon API Gateway allows developers to securely connect mobile and web applications to APIs that run on AWS Lambda, Amazon EC2, or other publicly addressable web services that are hosted outside of AWS.
 * [AWSSDK.ApiGatewayManagementApi](https://www.nuget.org/packages/AWSSDK.ApiGatewayManagementApi/)
@@ -109,6 +127,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* This is the initial SDK release for the Amazon API Gateway v2 APIs. This SDK will allow you to manage and configure APIs in Amazon API Gateway; this first release provides the capabilities that allow you to programmatically setup and manage WebSocket APIs end to end.
 * [AWSSDK.AppConfig](https://www.nuget.org/packages/AWSSDK.AppConfig/)
 	* Introducing AWS AppConfig, a new service that enables customers to quickly deploy validated configurations to applications of any size in a controlled and monitored fashion.
+* [AWSSDK.AppConfigData](https://www.nuget.org/packages/AWSSDK.AppConfigData/)
+	* AWS AppConfig Data is a new service that allows you to retrieve configuration deployed by AWS AppConfig. See the AppConfig user guide for more details on getting started. https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html
 * [AWSSDK.Appflow](https://www.nuget.org/packages/AWSSDK.Appflow/)
 	* Amazon AppFlow is a fully managed integration service that securely transfers data between AWS services and SaaS applications. This update releases the first version of Amazon AppFlow APIs and SDK.
 * [AWSSDK.AppIntegrationsService](https://www.nuget.org/packages/AWSSDK.AppIntegrationsService/)
@@ -151,8 +171,12 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* The AWS Support API provides methods for creating and managing AWS Support cases and for retrieving the results of AWS Trusted Advisor checks.
 * [AWSSDK.Backup](https://www.nuget.org/packages/AWSSDK.Backup/)
 	* AWS Backup is a fully managed backup service that makes it easy to centralize and automate the back up of data across AWS services in the cloud as well as on-premises.
+* [AWSSDK.BackupGateway](https://www.nuget.org/packages/AWSSDK.BackupGateway/)
+	* Initial release of AWS Backup gateway which enables you to centralize and automate protection of on-premises VMware and VMware Cloud on AWS workloads using AWS Backup.
 * [AWSSDK.Batch](https://www.nuget.org/packages/AWSSDK.Batch/)
 	* AWS Batch enables developers, scientists, and engineers to easily and efficiently run hundreds of thousands of batch computing jobs on AWS. 
+* [AWSSDK.BillingConductor](https://www.nuget.org/packages/AWSSDK.BillingConductor/)
+	* This is the initial SDK release for AWS Billing Conductor. The AWS Billing Conductor is a customizable billing service, allowing you to customize your billing data to match your desired business structure.
 * [AWSSDK.Braket](https://www.nuget.org/packages/AWSSDK.Braket/)
 	* Amazon Braket general availability with Device and Quantum Task operations.
 * [AWSSDK.Budgets](https://www.nuget.org/packages/AWSSDK.Budgets/)
@@ -191,8 +215,12 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* Amazon CloudWatch is a monitoring service for AWS cloud resources and the applications you run on AWS. You can use Amazon CloudWatch to collect and track metrics, collect and monitor log files, and set alarms.
 * [AWSSDK.CloudWatchEvents](https://www.nuget.org/packages/AWSSDK.CloudWatchEvents/)
 	* Amazon CloudWatch Events helps you to respond to state changes in your AWS resources. When your resources change state they automatically send events into an event stream. You can create rules that match selected events in the stream and route them to targets to take action. You can also use rules to take action on a pre-determined schedule.
+* [AWSSDK.CloudWatchEvidently](https://www.nuget.org/packages/AWSSDK.CloudWatchEvidently/)
+	* Introducing Amazon CloudWatch Evidently. This is the first public release of Amazon CloudWatch Evidently.
 * [AWSSDK.CloudWatchLogs](https://www.nuget.org/packages/AWSSDK.CloudWatchLogs/)
 	* Amazon CloudWatch is a monitoring service for AWS cloud resources and the applications you run on AWS. You can use Amazon CloudWatch to collect and track metrics, collect and monitor log files, and set alarms.
+* [AWSSDK.CloudWatchRUM](https://www.nuget.org/packages/AWSSDK.CloudWatchRUM/)
+	* This is the first public release of CloudWatch RUM
 * [AWSSDK.CodeArtifact](https://www.nuget.org/packages/AWSSDK.CodeArtifact/)
 	* Added support for AWS CodeArtifact.
 * [AWSSDK.CodeBuild](https://www.nuget.org/packages/AWSSDK.CodeBuild/)
@@ -265,6 +293,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* Amazon Data Lifecycle Manager manages lifecycle of your AWS resources.
 * [AWSSDK.DocDB](https://www.nuget.org/packages/AWSSDK.DocDB/)
 	* Amazon DocumentDB is a fast, reliable, and fully managed MongoDB compatible database service.
+* [AWSSDK.Drs](https://www.nuget.org/packages/AWSSDK.Drs/)
+	* Introducing AWS Elastic Disaster Recovery (AWS DRS), a new service that minimizes downtime and data loss with fast, reliable recovery of on-premises and cloud-based applications using affordable storage, minimal compute, and point-in-time recovery.
 * [AWSSDK.DynamoDBv2](https://www.nuget.org/packages/AWSSDK.DynamoDBv2/)
 	* Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need consistent, single-digit millisecond latency at any scale.
 * [AWSSDK.EBS](https://www.nuget.org/packages/AWSSDK.EBS/)
@@ -321,6 +351,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* Amazon FSx provides fully-managed third-party file systems optimized for a variety of enterprise and compute-intensive workloads.
 * [AWSSDK.GameLift](https://www.nuget.org/packages/AWSSDK.GameLift/)
 	* Amazon GameLift Service is a managed AWS service for developers who need a scalable, server-based solution for multiplayer games.
+* [AWSSDK.GameSparks](https://www.nuget.org/packages/AWSSDK.GameSparks/)
+	* Released the preview of Amazon GameSparks, a fully managed AWS service that provides a multi-service backend for game developers.
 * [AWSSDK.Glacier](https://www.nuget.org/packages/AWSSDK.Glacier/)
 	* Amazon Glacier is a secure, durable, and extremely low-cost storage service for data archiving and online backup.
 * [AWSSDK.GlobalAccelerator](https://www.nuget.org/packages/AWSSDK.GlobalAccelerator/)
@@ -351,6 +383,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* AWS Import/Export accelerates moving large amounts of data into and out of the AWS cloud using portable storage devices for transport.
 * [AWSSDK.Inspector](https://www.nuget.org/packages/AWSSDK.Inspector/)
 	* Amazon Inspector identifies security issues in your application deployments.
+* [AWSSDK.Inspector2](https://www.nuget.org/packages/AWSSDK.Inspector2/)
+	* This release adds support for the new Amazon Inspector API. The new Amazon Inspector can automatically discover and scan Amazon EC2 instances and Amazon ECR container images for software vulnerabilities and unintended network exposure, and report centralized findings across multiple AWS accounts.
 * [AWSSDK.IoT](https://www.nuget.org/packages/AWSSDK.IoT/)
 	* AWS IoT allows you to leverage AWS to build your Internet of Things.
 * [AWSSDK.IoT1ClickDevicesService](https://www.nuget.org/packages/AWSSDK.IoT1ClickDevicesService/)
@@ -377,6 +411,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* AWS IoT SiteWise is a managed service that makes it easy to collect, store, organize and monitor data from industrial equipment at scale. You can use AWS IoT SiteWise to model your physical assets, processes and facilities, quickly compute common industrial performance metrics, and create fully managed web applications to help analyze industrial equipment data, prevent costly equipment issues, and reduce production inefficiencies.
 * [AWSSDK.IoTThingsGraph](https://www.nuget.org/packages/AWSSDK.IoTThingsGraph/)
 	* Initial Release.
+* [AWSSDK.IoTTwinMaker](https://www.nuget.org/packages/AWSSDK.IoTTwinMaker/)
+	* AWS IoT TwinMaker makes it faster and easier to create, visualize and monitor digital twins of real-world systems like buildings, factories and industrial equipment to optimize operations. Learn more: https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/Welcome.html (New Service) (Preview)
 * [AWSSDK.IoTWireless](https://www.nuget.org/packages/AWSSDK.IoTWireless/)
 	* AWS IoT for LoRaWAN enables customers to setup a private LoRaWAN network by connecting their LoRaWAN devices and gateways to the AWS cloud without managing a LoRaWAN Network Server.
 * [AWSSDK.IVS](https://www.nuget.org/packages/AWSSDK.IVS/)
@@ -389,6 +425,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* It is a preview launch of Amazon Kendra. Amazon Kendra is a managed, highly accurate and easy to use enterprise search service that is powered by machine learning.
 * [AWSSDK.KeyManagementService](https://www.nuget.org/packages/AWSSDK.KeyManagementService/)
 	* AWS Key Management Service (KMS) is a managed service that makes it easy for you to create and control the encryption keys used to encrypt your data, and uses Hardware Security Modules (HSMs) to protect the security of your keys.
+* [AWSSDK.Keyspaces](https://www.nuget.org/packages/AWSSDK.Keyspaces/)
+	* This release adds support for data definition language (DDL) operations
 * [AWSSDK.Kinesis](https://www.nuget.org/packages/AWSSDK.Kinesis/)
 	* Amazon Kinesis is a fully managed, cloud-based service for real-time processing of large, distributed data streams.
 * [AWSSDK.KinesisAnalytics](https://www.nuget.org/packages/AWSSDK.KinesisAnalytics/)
@@ -467,6 +505,10 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* AWS Migration Hub provides a single location to track migrations across multiple AWS and partner solutions. Using Migration Hub allows you to choose the AWS and partner migration tools that best fit your needs, while providing visibility into the status of your entire migration portfolio. Migration Hub also provides key metrics and progress for individual applications, regardless of which tools are being used to migrate them. For example, you might use AWS Database Migration Service, AWS Server Migration Service, and partner migration tools to migrate an application comprised of a database, virtualized web servers, and a bare metal server. Using Migration Hub will provide you with a single screen that shows the migration progress of all the resources in the application. This allows you to quickly get progress updates across all of your migrations, easily identify and troubleshoot any issues, and reduce the overall time and effort spent on your migration projects. Migration Hub is available to all AWS customers at no additional charge. You only pay for the cost of the migration tools you use, and any resources being consumed on AWS. 
 * [AWSSDK.MigrationHubConfig](https://www.nuget.org/packages/AWSSDK.MigrationHubConfig/)
 	* AWS Migration Hub Config Service allows you to get and set the Migration Hub home region for use with AWS Migration Hub and Application Discovery Service
+* [AWSSDK.MigrationHubRefactorSpaces](https://www.nuget.org/packages/AWSSDK.MigrationHubRefactorSpaces/)
+	* This is the initial SDK release for AWS Migration Hub Refactor Spaces
+* [AWSSDK.MigrationHubStrategyRecommendations](https://www.nuget.org/packages/AWSSDK.MigrationHubStrategyRecommendations/)
+	* AWS SDK for Migration Hub Strategy Recommendations. It includes APIs to start the portfolio assessment, import portfolio data for assessment, and to retrieve recommendations. For more information, see the AWS Migration Hub documentation at https://docs.aws.amazon.com/migrationhub/index.html
 * [AWSSDK.Mobile](https://www.nuget.org/packages/AWSSDK.Mobile/)
 	* AWS Mobile Hub is an integrated experience designed to help developers build, test, configure and release cloud-based applications for mobile devices using Amazon Web Services. AWS Mobile Hub provides a console and API for developers, allowing them to quickly select desired features and integrate them into mobile applications. Features include NoSQL Database, Cloud Logic, Messaging and Analytics. With AWS Mobile Hub, you pay only for the underlying services that Mobile Hub provisions based on the features you choose in the Mobile Hub console.
 * [AWSSDK.MobileAnalytics](https://www.nuget.org/packages/AWSSDK.MobileAnalytics/)
@@ -511,6 +553,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* This is the first release of the Amazon Pinpoint Email API. You can use this API to configure and send transactional email from your Amazon Pinpoint account to specific email addresses. Unlike campaign-based email that you send from Amazon Pinpoint, you don't have to create segments and campaigns in order to send transactional email. 
 * [AWSSDK.PinpointSMSVoice](https://www.nuget.org/packages/AWSSDK.PinpointSMSVoice/)
 	* With Amazon Pinpoint Voice, you can use text-to-speech technology to deliver personalized voice messages to your customers. Amazon Pinpoint Voice is a way to deliver transactional messages -- such as one-time passwords and appointment confirmations to customers.
+* [AWSSDK.PinpointSMSVoiceV2](https://www.nuget.org/packages/AWSSDK.PinpointSMSVoiceV2/)
+	* Amazon Pinpoint now offers a version 2.0 suite of SMS and voice APIs, providing increased control over sending and configuration. This release is a new SDK for sending SMS and voice messages called PinpointSMSVoiceV2.
 * [AWSSDK.Polly](https://www.nuget.org/packages/AWSSDK.Polly/)
 	* Amazon Polly is a service that turns text into lifelike speech, making it easy to develop applications that use high-quality speech to increase engagement and accessibility.
 * [AWSSDK.Pricing](https://www.nuget.org/packages/AWSSDK.Pricing/)
@@ -531,12 +575,16 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* Amazon Relational Database Service (Amazon RDS) is a web service that makes it easy to set up, operate, and scale a relational database in the cloud. It provides cost-efficient and resizable capacity while managing time-consuming database management tasks, freeing you up to focus on your applications and business.
 * [AWSSDK.RDSDataService](https://www.nuget.org/packages/AWSSDK.RDSDataService/)
 	* Amazon RDS Data Service API is an HTTP endpoint to run SQL statements on an Amazon Aurora Serverless DB cluster.
+* [AWSSDK.RecycleBin](https://www.nuget.org/packages/AWSSDK.RecycleBin/)
+	* This release adds support for Recycle Bin.
 * [AWSSDK.Redshift](https://www.nuget.org/packages/AWSSDK.Redshift/)
 	* Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse solution that makes it simple and cost-effective to efficiently analyze all your data using your existing business intelligence tools.
 * [AWSSDK.RedshiftDataAPIService](https://www.nuget.org/packages/AWSSDK.RedshiftDataAPIService/)
 	* The Amazon Redshift Data API is generally available. This release enables querying Amazon Redshift data and listing various database objects.
 * [AWSSDK.Rekognition](https://www.nuget.org/packages/AWSSDK.Rekognition/)
 	* AWS Rekognition service does image processing and concept recognition, face detection and identification, face verification, similar face search and face clustering.
+* [AWSSDK.ResilienceHub](https://www.nuget.org/packages/AWSSDK.ResilienceHub/)
+	* Initial release of AWS Resilience Hub, a managed service that enables you to define, validate, and track the resilience of your applications on AWS
 * [AWSSDK.ResourceGroups](https://www.nuget.org/packages/AWSSDK.ResourceGroups/)
 	* AWS Resource Groups lets you search and group AWS resources from multiple services based on their tags.
 * [AWSSDK.ResourceGroupsTaggingAPI](https://www.nuget.org/packages/AWSSDK.ResourceGroupsTaggingAPI/)
@@ -659,6 +707,8 @@ Unit tests can be found in the **AWSSDK.UnitTests** project.
 	* This release allows customers to access email messages as they flow to and from Amazon WorkMail.
 * [AWSSDK.WorkSpaces](https://www.nuget.org/packages/AWSSDK.WorkSpaces/)
 	* Amazon WorkSpaces is a managed desktop computing service in the cloud.
+* [AWSSDK.WorkSpacesWeb](https://www.nuget.org/packages/AWSSDK.WorkSpacesWeb/)
+	* This is the initial SDK release for Amazon WorkSpaces Web. Amazon WorkSpaces Web is a low-cost, fully managed WorkSpace built to deliver secure web-based workloads and software-as-a-service (SaaS) application access to users within existing web browsers.
 * [AWSSDK.XRay](https://www.nuget.org/packages/AWSSDK.XRay/)
 	* AWS X-Ray helps developers analyze and debug distributed applications. With X-Ray, you can understand how your application and its underlying services are performing to identify and troubleshoot the root cause of performance issues and errors.
 

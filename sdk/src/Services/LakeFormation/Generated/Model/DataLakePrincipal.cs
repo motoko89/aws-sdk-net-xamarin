@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.LakeFormation.Model
 {
     /// <summary>
-    /// The AWS Lake Formation principal. Supported principals are IAM users or IAM roles.
+    /// The Lake Formation principal. Supported principals are IAM users or IAM roles.
     /// </summary>
     public partial class DataLakePrincipal
     {
@@ -38,7 +38,7 @@ namespace Amazon.LakeFormation.Model
         /// <summary>
         /// Gets and sets the property DataLakePrincipalIdentifier. 
         /// <para>
-        /// An identifier for the AWS Lake Formation principal.
+        /// An identifier for the Lake Formation principal.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=255)]

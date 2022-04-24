@@ -37,6 +37,7 @@ namespace Amazon.DynamoDBv2.Model
         private string _kmsMasterKeyId;
         private ProvisionedThroughputOverride _provisionedThroughputOverride;
         private string _regionName;
+        private TableClass _tableClassOverride;
 
         /// <summary>
         /// Gets and sets the property GlobalSecondaryIndexes. 
@@ -60,10 +61,10 @@ namespace Amazon.DynamoDBv2.Model
         /// <summary>
         /// Gets and sets the property KMSMasterKeyId. 
         /// <para>
-        /// The AWS KMS customer master key (CMK) of the replica that should be used for AWS KMS
-        /// encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name,
-        /// or alias ARN. Note that you should only provide this parameter if the key is different
-        /// from the default DynamoDB KMS master key alias/aws/dynamodb.
+        /// The KMS key of the replica that should be used for KMS encryption. To specify a key,
+        /// use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you
+        /// should only provide this parameter if the key is different from the default DynamoDB
+        /// KMS key <code>alias/aws/dynamodb</code>.
         /// </para>
         /// </summary>
         public string KMSMasterKeyId
@@ -114,6 +115,24 @@ namespace Amazon.DynamoDBv2.Model
         internal bool IsSetRegionName()
         {
             return this._regionName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property TableClassOverride. 
+        /// <para>
+        /// Replica-specific table class. If not specified, uses the source table's table class.
+        /// </para>
+        /// </summary>
+        public TableClass TableClassOverride
+        {
+            get { return this._tableClassOverride; }
+            set { this._tableClassOverride = value; }
+        }
+
+        // Check to see if TableClassOverride property is set
+        internal bool IsSetTableClassOverride()
+        {
+            return this._tableClassOverride != null;
         }
 
     }

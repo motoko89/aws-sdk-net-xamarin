@@ -36,13 +36,14 @@ namespace Amazon.RDS.Model
     ///  
     /// <para>
     /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> 
+    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para>
-    ///  <note> 
+    ///  
     /// <para>
-    /// This action only applies to Aurora DB clusters.
+    /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+    /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
+    /// User Guide</i>.
     /// </para>
-    ///  </note>
     /// </summary>
     public partial class DeleteDBClusterParameterGroupRequest : AmazonRDSRequest
     {

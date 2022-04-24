@@ -67,6 +67,12 @@ namespace Amazon.CloudWatch.Model.Internal.MarshallTransformations
                         unmarshalledObject.Dimensions.Add(item);
                         continue;
                     }
+                    if (context.TestExpression("MetricMathAnomalyDetector", targetDepth))
+                    {
+                        var unmarshaller = MetricMathAnomalyDetectorUnmarshaller.Instance;
+                        unmarshalledObject.MetricMathAnomalyDetector = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("MetricName", targetDepth))
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
@@ -77,6 +83,12 @@ namespace Amazon.CloudWatch.Model.Internal.MarshallTransformations
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
                         unmarshalledObject.Namespace = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("SingleMetricAnomalyDetector", targetDepth))
+                    {
+                        var unmarshaller = SingleMetricAnomalyDetectorUnmarshaller.Instance;
+                        unmarshalledObject.SingleMetricAnomalyDetector = unmarshaller.Unmarshall(context);
                         continue;
                     }
                     if (context.TestExpression("Stat", targetDepth))

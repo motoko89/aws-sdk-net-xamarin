@@ -34,6 +34,7 @@ namespace Amazon.DevOpsGuru.Model
     public partial class ProactiveAnomalySummary
     {
         private AnomalyReportedTimeRange _anomalyReportedTimeRange;
+        private List<AnomalyResource> _anomalyResources = new List<AnomalyResource>();
         private AnomalyTimeRange _anomalyTimeRange;
         private string _associatedInsightId;
         private string _id;
@@ -42,13 +43,14 @@ namespace Amazon.DevOpsGuru.Model
         private ResourceCollection _resourceCollection;
         private AnomalySeverity _severity;
         private AnomalySourceDetails _sourceDetails;
+        private AnomalySourceMetadata _sourceMetadata;
         private AnomalyStatus _status;
         private DateTime? _updateTime;
 
         /// <summary>
         /// Gets and sets the property AnomalyReportedTimeRange. 
         /// <para>
-        ///  A <code>AnomalyReportedTimeRange</code> object that specifies the time range between
+        ///  An <code>AnomalyReportedTimeRange</code> object that specifies the time range between
         /// when the anomaly is opened and the time when it is closed. 
         /// </para>
         /// </summary>
@@ -62,6 +64,24 @@ namespace Amazon.DevOpsGuru.Model
         internal bool IsSetAnomalyReportedTimeRange()
         {
             return this._anomalyReportedTimeRange != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property AnomalyResources. 
+        /// <para>
+        /// Information about a resource in which DevOps Guru detected anomalous behavior.
+        /// </para>
+        /// </summary>
+        public List<AnomalyResource> AnomalyResources
+        {
+            get { return this._anomalyResources; }
+            set { this._anomalyResources = value; }
+        }
+
+        // Check to see if AnomalyResources property is set
+        internal bool IsSetAnomalyResources()
+        {
+            return this._anomalyResources != null && this._anomalyResources.Count > 0; 
         }
 
         /// <summary>
@@ -170,7 +190,9 @@ namespace Amazon.DevOpsGuru.Model
         /// <summary>
         /// Gets and sets the property Severity. 
         /// <para>
-        /// The severity of the anomaly.
+        /// The severity of the anomaly. The severity of anomalies that generate an insight determine
+        /// that insight's severity. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
+        /// insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.
         /// </para>
         /// </summary>
         public AnomalySeverity Severity
@@ -202,6 +224,24 @@ namespace Amazon.DevOpsGuru.Model
         internal bool IsSetSourceDetails()
         {
             return this._sourceDetails != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property SourceMetadata. 
+        /// <para>
+        /// The metadata of the source which detects proactive anomalies.
+        /// </para>
+        /// </summary>
+        public AnomalySourceMetadata SourceMetadata
+        {
+            get { return this._sourceMetadata; }
+            set { this._sourceMetadata = value; }
+        }
+
+        // Check to see if SourceMetadata property is set
+        internal bool IsSetSourceMetadata()
+        {
+            return this._sourceMetadata != null;
         }
 
         /// <summary>

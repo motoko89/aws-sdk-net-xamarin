@@ -32,13 +32,18 @@ namespace Amazon.Batch.Model
     /// Container for the parameters to the SubmitJob operation.
     /// Submits an Batch job from a job definition. Parameters that are specified during <a>SubmitJob</a>
     /// override parameters defined in the job definition. vCPU and memory requirements that
-    /// are specified in the <code>ResourceRequirements</code> objects in the job definition
+    /// are specified in the <code>resourceRequirements</code> objects in the job definition
     /// are the exception. They can't be overridden this way using the <code>memory</code>
     /// and <code>vcpus</code> parameters. Rather, you must specify updates to job definition
-    /// parameters in a <code>ResourceRequirements</code> object that's included in the <code>containerOverrides</code>
+    /// parameters in a <code>resourceRequirements</code> object that's included in the <code>containerOverrides</code>
     /// parameter.
     /// 
-    ///  <important> 
+    ///  <note> 
+    /// <para>
+    /// Job queues with a scheduling policy are limited to 500 active fair share identifiers
+    /// at a time. 
+    /// </para>
+    ///  </note> <important> 
     /// <para>
     /// Jobs that run on Fargate resources can't be guaranteed to run for more than 14 days.
     /// This is because, after 14 days, Fargate resources might become unavailable and job
@@ -58,6 +63,8 @@ namespace Amazon.Batch.Model
         private Dictionary<string, string> _parameters = new Dictionary<string, string>();
         private bool? _propagateTags;
         private RetryStrategy _retryStrategy;
+        private int? _schedulingPriorityOverride;
+        private string _shareIdentifier;
         private Dictionary<string, string> _tags = new Dictionary<string, string>();
         private JobTimeout _timeout;
 
@@ -86,11 +93,11 @@ namespace Amazon.Batch.Model
         /// Gets and sets the property ContainerOverrides. 
         /// <para>
         /// A list of container overrides in the JSON format that specify the name of a container
-        /// in the specified job definition and the overrides it should receive. You can override
-        /// the default command for a container, which is specified in the job definition or the
-        /// Docker image, with a <code>command</code> override. You can also override existing
-        /// environment variables on a container or add new environment variables to it with an
-        /// <code>environment</code> override.
+        /// in the specified job definition and the overrides it receives. You can override the
+        /// default command for a container, which is specified in the job definition or the Docker
+        /// image, with a <code>command</code> override. You can also override existing environment
+        /// variables on a container or add new environment variables to it with an <code>environment</code>
+        /// override.
         /// </para>
         /// </summary>
         public ContainerOverrides ContainerOverrides
@@ -152,8 +159,9 @@ namespace Amazon.Batch.Model
         /// <summary>
         /// Gets and sets the property JobName. 
         /// <para>
-        /// The name of the job. The first character must be alphanumeric, and up to 128 letters
-        /// (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
+        /// The name of the job. It can be up to 128 letters long. The first character must be
+        /// alphanumeric, can contain uppercase and lowercase letters, numbers, hyphens (-), and
+        /// underscores (_).
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -276,6 +284,49 @@ namespace Amazon.Batch.Model
         internal bool IsSetRetryStrategy()
         {
             return this._retryStrategy != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property SchedulingPriorityOverride. 
+        /// <para>
+        /// The scheduling priority for the job. This will only affect jobs in job queues with
+        /// a fair share policy. Jobs with a higher scheduling priority will be scheduled before
+        /// jobs with a lower scheduling priority. This will override any scheduling priority
+        /// in the job definition.
+        /// </para>
+        ///  
+        /// <para>
+        /// The minimum supported value is 0 and the maximum supported value is 9999.
+        /// </para>
+        /// </summary>
+        public int SchedulingPriorityOverride
+        {
+            get { return this._schedulingPriorityOverride.GetValueOrDefault(); }
+            set { this._schedulingPriorityOverride = value; }
+        }
+
+        // Check to see if SchedulingPriorityOverride property is set
+        internal bool IsSetSchedulingPriorityOverride()
+        {
+            return this._schedulingPriorityOverride.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property ShareIdentifier. 
+        /// <para>
+        /// The share identifier for the job.
+        /// </para>
+        /// </summary>
+        public string ShareIdentifier
+        {
+            get { return this._shareIdentifier; }
+            set { this._shareIdentifier = value; }
+        }
+
+        // Check to see if ShareIdentifier property is set
+        internal bool IsSetShareIdentifier()
+        {
+            return this._shareIdentifier != null;
         }
 
         /// <summary>

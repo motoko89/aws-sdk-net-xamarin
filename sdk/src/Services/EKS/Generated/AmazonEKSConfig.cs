@@ -32,7 +32,7 @@ namespace Amazon.EKS
     public partial class AmazonEKSConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.9.5");
+            InternalSDKUtils.BuildUserAgentString("3.7.13.17");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.EKS
         /// Default constructor
         /// </summary>
         public AmazonEKSConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonEKSDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "eks";
         }

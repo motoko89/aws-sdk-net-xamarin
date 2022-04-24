@@ -57,6 +57,12 @@ namespace Amazon.IoTSiteWise.Model.Internal.MarshallTransformations
                     response.ConfigurationStatus = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("disassociatedDataStorage", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.DisassociatedDataStorage = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("lastUpdateDate", targetDepth))
                 {
                     var unmarshaller = DateTimeUnmarshaller.Instance;
@@ -67,6 +73,12 @@ namespace Amazon.IoTSiteWise.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = MultiLayerStorageUnmarshaller.Instance;
                     response.MultiLayerStorage = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("retentionPeriod", targetDepth))
+                {
+                    var unmarshaller = RetentionPeriodUnmarshaller.Instance;
+                    response.RetentionPeriod = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("storageType", targetDepth))

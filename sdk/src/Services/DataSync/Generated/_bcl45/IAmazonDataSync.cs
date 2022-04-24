@@ -240,6 +240,86 @@ namespace Amazon.DataSync
 
         #endregion
         
+        #region  CreateLocationFsxLustre
+
+
+        /// <summary>
+        /// Creates an endpoint for an Amazon FSx for Lustre file system.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateLocationFsxLustre service method.</param>
+        /// 
+        /// <returns>The response from the CreateLocationFsxLustre service method, as returned by DataSync.</returns>
+        /// <exception cref="Amazon.DataSync.Model.InternalException">
+        /// This exception is thrown when an error occurs in the DataSync service.
+        /// </exception>
+        /// <exception cref="Amazon.DataSync.Model.InvalidRequestException">
+        /// This exception is thrown when the client submits a malformed request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/datasync-2018-11-09/CreateLocationFsxLustre">REST API Reference for CreateLocationFsxLustre Operation</seealso>
+        CreateLocationFsxLustreResponse CreateLocationFsxLustre(CreateLocationFsxLustreRequest request);
+
+
+
+        /// <summary>
+        /// Creates an endpoint for an Amazon FSx for Lustre file system.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateLocationFsxLustre service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateLocationFsxLustre service method, as returned by DataSync.</returns>
+        /// <exception cref="Amazon.DataSync.Model.InternalException">
+        /// This exception is thrown when an error occurs in the DataSync service.
+        /// </exception>
+        /// <exception cref="Amazon.DataSync.Model.InvalidRequestException">
+        /// This exception is thrown when the client submits a malformed request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/datasync-2018-11-09/CreateLocationFsxLustre">REST API Reference for CreateLocationFsxLustre Operation</seealso>
+        Task<CreateLocationFsxLustreResponse> CreateLocationFsxLustreAsync(CreateLocationFsxLustreRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  CreateLocationFsxOpenZfs
+
+
+        /// <summary>
+        /// Creates an endpoint for an Amazon FSx for OpenZFS file system.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateLocationFsxOpenZfs service method.</param>
+        /// 
+        /// <returns>The response from the CreateLocationFsxOpenZfs service method, as returned by DataSync.</returns>
+        /// <exception cref="Amazon.DataSync.Model.InternalException">
+        /// This exception is thrown when an error occurs in the DataSync service.
+        /// </exception>
+        /// <exception cref="Amazon.DataSync.Model.InvalidRequestException">
+        /// This exception is thrown when the client submits a malformed request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/datasync-2018-11-09/CreateLocationFsxOpenZfs">REST API Reference for CreateLocationFsxOpenZfs Operation</seealso>
+        CreateLocationFsxOpenZfsResponse CreateLocationFsxOpenZfs(CreateLocationFsxOpenZfsRequest request);
+
+
+
+        /// <summary>
+        /// Creates an endpoint for an Amazon FSx for OpenZFS file system.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateLocationFsxOpenZfs service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateLocationFsxOpenZfs service method, as returned by DataSync.</returns>
+        /// <exception cref="Amazon.DataSync.Model.InternalException">
+        /// This exception is thrown when an error occurs in the DataSync service.
+        /// </exception>
+        /// <exception cref="Amazon.DataSync.Model.InvalidRequestException">
+        /// This exception is thrown when the client submits a malformed request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/datasync-2018-11-09/CreateLocationFsxOpenZfs">REST API Reference for CreateLocationFsxOpenZfs Operation</seealso>
+        Task<CreateLocationFsxOpenZfsResponse> CreateLocationFsxOpenZfsAsync(CreateLocationFsxOpenZfsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  CreateLocationFsxWindows
 
 
@@ -808,12 +888,96 @@ namespace Amazon.DataSync
 
         #endregion
         
+        #region  DescribeLocationFsxLustre
+
+
+        /// <summary>
+        /// Returns metadata about an Amazon FSx for Lustre location, such as information about
+        /// its path.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeLocationFsxLustre service method.</param>
+        /// 
+        /// <returns>The response from the DescribeLocationFsxLustre service method, as returned by DataSync.</returns>
+        /// <exception cref="Amazon.DataSync.Model.InternalException">
+        /// This exception is thrown when an error occurs in the DataSync service.
+        /// </exception>
+        /// <exception cref="Amazon.DataSync.Model.InvalidRequestException">
+        /// This exception is thrown when the client submits a malformed request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/datasync-2018-11-09/DescribeLocationFsxLustre">REST API Reference for DescribeLocationFsxLustre Operation</seealso>
+        DescribeLocationFsxLustreResponse DescribeLocationFsxLustre(DescribeLocationFsxLustreRequest request);
+
+
+
+        /// <summary>
+        /// Returns metadata about an Amazon FSx for Lustre location, such as information about
+        /// its path.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeLocationFsxLustre service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeLocationFsxLustre service method, as returned by DataSync.</returns>
+        /// <exception cref="Amazon.DataSync.Model.InternalException">
+        /// This exception is thrown when an error occurs in the DataSync service.
+        /// </exception>
+        /// <exception cref="Amazon.DataSync.Model.InvalidRequestException">
+        /// This exception is thrown when the client submits a malformed request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/datasync-2018-11-09/DescribeLocationFsxLustre">REST API Reference for DescribeLocationFsxLustre Operation</seealso>
+        Task<DescribeLocationFsxLustreResponse> DescribeLocationFsxLustreAsync(DescribeLocationFsxLustreRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DescribeLocationFsxOpenZfs
+
+
+        /// <summary>
+        /// Returns metadata about an Amazon FSx for OpenZFS location, such as information about
+        /// its path.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeLocationFsxOpenZfs service method.</param>
+        /// 
+        /// <returns>The response from the DescribeLocationFsxOpenZfs service method, as returned by DataSync.</returns>
+        /// <exception cref="Amazon.DataSync.Model.InternalException">
+        /// This exception is thrown when an error occurs in the DataSync service.
+        /// </exception>
+        /// <exception cref="Amazon.DataSync.Model.InvalidRequestException">
+        /// This exception is thrown when the client submits a malformed request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/datasync-2018-11-09/DescribeLocationFsxOpenZfs">REST API Reference for DescribeLocationFsxOpenZfs Operation</seealso>
+        DescribeLocationFsxOpenZfsResponse DescribeLocationFsxOpenZfs(DescribeLocationFsxOpenZfsRequest request);
+
+
+
+        /// <summary>
+        /// Returns metadata about an Amazon FSx for OpenZFS location, such as information about
+        /// its path.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeLocationFsxOpenZfs service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeLocationFsxOpenZfs service method, as returned by DataSync.</returns>
+        /// <exception cref="Amazon.DataSync.Model.InternalException">
+        /// This exception is thrown when an error occurs in the DataSync service.
+        /// </exception>
+        /// <exception cref="Amazon.DataSync.Model.InvalidRequestException">
+        /// This exception is thrown when the client submits a malformed request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/datasync-2018-11-09/DescribeLocationFsxOpenZfs">REST API Reference for DescribeLocationFsxOpenZfs Operation</seealso>
+        Task<DescribeLocationFsxOpenZfsResponse> DescribeLocationFsxOpenZfsAsync(DescribeLocationFsxOpenZfsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DescribeLocationFsxWindows
 
 
         /// <summary>
-        /// Returns metadata, such as the path information about an Amazon FSx for Windows File
-        /// Server location.
+        /// Returns metadata about an Amazon FSx for Windows File Server location, such as information
+        /// about its path.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLocationFsxWindows service method.</param>
         /// 
@@ -830,8 +994,8 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Returns metadata, such as the path information about an Amazon FSx for Windows File
-        /// Server location.
+        /// Returns metadata about an Amazon FSx for Windows File Server location, such as information
+        /// about its path.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLocationFsxWindows service method.</param>
         /// <param name="cancellationToken">

@@ -32,7 +32,7 @@ namespace Amazon.AutoScalingPlans
     public partial class AmazonAutoScalingPlansConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.150");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.AutoScalingPlans
         /// Default constructor
         /// </summary>
         public AmazonAutoScalingPlansConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonAutoScalingPlansDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "autoscaling-plans";
         }

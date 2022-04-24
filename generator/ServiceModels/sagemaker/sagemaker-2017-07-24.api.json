@@ -327,6 +327,19 @@
         {"shape":"ResourceNotFound"}
       ]
     },
+    "CreateInferenceRecommendationsJob":{
+      "name":"CreateInferenceRecommendationsJob",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"CreateInferenceRecommendationsJobRequest"},
+      "output":{"shape":"CreateInferenceRecommendationsJobResponse"},
+      "errors":[
+        {"shape":"ResourceInUse"},
+        {"shape":"ResourceLimitExceeded"}
+      ]
+    },
     "CreateLabelingJob":{
       "name":"CreateLabelingJob",
       "http":{
@@ -1295,6 +1308,18 @@
         {"shape":"ResourceNotFound"}
       ]
     },
+    "DescribeInferenceRecommendationsJob":{
+      "name":"DescribeInferenceRecommendationsJob",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DescribeInferenceRecommendationsJobRequest"},
+      "output":{"shape":"DescribeInferenceRecommendationsJobResponse"},
+      "errors":[
+        {"shape":"ResourceNotFound"}
+      ]
+    },
     "DescribeLabelingJob":{
       "name":"DescribeLabelingJob",
       "http":{
@@ -1303,6 +1328,18 @@
       },
       "input":{"shape":"DescribeLabelingJobRequest"},
       "output":{"shape":"DescribeLabelingJobResponse"},
+      "errors":[
+        {"shape":"ResourceNotFound"}
+      ]
+    },
+    "DescribeLineageGroup":{
+      "name":"DescribeLineageGroup",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DescribeLineageGroupRequest"},
+      "output":{"shape":"DescribeLineageGroupResponse"},
       "errors":[
         {"shape":"ResourceNotFound"}
       ]
@@ -1595,6 +1632,18 @@
       "input":{"shape":"GetDeviceFleetReportRequest"},
       "output":{"shape":"GetDeviceFleetReportResponse"}
     },
+    "GetLineageGroupPolicy":{
+      "name":"GetLineageGroupPolicy",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetLineageGroupPolicyRequest"},
+      "output":{"shape":"GetLineageGroupPolicyResponse"},
+      "errors":[
+        {"shape":"ResourceNotFound"}
+      ]
+    },
     "GetModelPackageGroupPolicy":{
       "name":"GetModelPackageGroupPolicy",
       "http":{
@@ -1865,6 +1914,15 @@
       "input":{"shape":"ListImagesRequest"},
       "output":{"shape":"ListImagesResponse"}
     },
+    "ListInferenceRecommendationsJobs":{
+      "name":"ListInferenceRecommendationsJobs",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListInferenceRecommendationsJobsRequest"},
+      "output":{"shape":"ListInferenceRecommendationsJobsResponse"}
+    },
     "ListLabelingJobs":{
       "name":"ListLabelingJobs",
       "http":{
@@ -1886,6 +1944,15 @@
         {"shape":"ResourceNotFound"}
       ]
     },
+    "ListLineageGroups":{
+      "name":"ListLineageGroups",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListLineageGroupsRequest"},
+      "output":{"shape":"ListLineageGroupsResponse"}
+    },
     "ListModelBiasJobDefinitions":{
       "name":"ListModelBiasJobDefinitions",
       "http":{
@@ -1903,6 +1970,15 @@
       },
       "input":{"shape":"ListModelExplainabilityJobDefinitionsRequest"},
       "output":{"shape":"ListModelExplainabilityJobDefinitionsResponse"}
+    },
+    "ListModelMetadata":{
+      "name":"ListModelMetadata",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListModelMetadataRequest"},
+      "output":{"shape":"ListModelMetadataResponse"}
     },
     "ListModelPackageGroups":{
       "name":"ListModelPackageGroups",
@@ -2159,6 +2235,18 @@
       "input":{"shape":"PutModelPackageGroupPolicyInput"},
       "output":{"shape":"PutModelPackageGroupPolicyOutput"}
     },
+    "QueryLineage":{
+      "name":"QueryLineage",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"QueryLineageRequest"},
+      "output":{"shape":"QueryLineageResponse"},
+      "errors":[
+        {"shape":"ResourceNotFound"}
+      ]
+    },
     "RegisterDevices":{
       "name":"RegisterDevices",
       "http":{
@@ -2303,6 +2391,17 @@
         "requestUri":"/"
       },
       "input":{"shape":"StopHyperParameterTuningJobRequest"},
+      "errors":[
+        {"shape":"ResourceNotFound"}
+      ]
+    },
+    "StopInferenceRecommendationsJob":{
+      "name":"StopInferenceRecommendationsJob",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"StopInferenceRecommendationsJobRequest"},
       "errors":[
         {"shape":"ResourceNotFound"}
       ]
@@ -2769,6 +2868,28 @@
       "type":"list",
       "member":{"shape":"CodeRepositoryNameOrUrl"},
       "max":3
+    },
+    "AdditionalInferenceSpecificationDefinition":{
+      "type":"structure",
+      "required":[
+        "Name",
+        "Containers"
+      ],
+      "members":{
+        "Name":{"shape":"EntityName"},
+        "Description":{"shape":"EntityDescription"},
+        "Containers":{"shape":"ModelPackageContainerDefinitionList"},
+        "SupportedTransformInstanceTypes":{"shape":"TransformInstanceTypes"},
+        "SupportedRealtimeInferenceInstanceTypes":{"shape":"RealtimeInferenceInstanceTypes"},
+        "SupportedContentTypes":{"shape":"ContentTypes"},
+        "SupportedResponseMIMETypes":{"shape":"ResponseMIMETypes"}
+      }
+    },
+    "AdditionalInferenceSpecifications":{
+      "type":"list",
+      "member":{"shape":"AdditionalInferenceSpecificationDefinition"},
+      "max":15,
+      "min":1
     },
     "AgentVersion":{
       "type":"structure",
@@ -3365,7 +3486,8 @@
       "members":{
         "DataSource":{"shape":"AutoMLDataSource"},
         "CompressionType":{"shape":"CompressionType"},
-        "TargetAttributeName":{"shape":"TargetAttributeName"}
+        "TargetAttributeName":{"shape":"TargetAttributeName"},
+        "ContentType":{"shape":"ContentType"}
       }
     },
     "AutoMLContainerDefinition":{
@@ -3467,7 +3589,9 @@
         "Completed",
         "ExplainabilityError",
         "DeployingModel",
-        "ModelDeploymentError"
+        "ModelDeploymentError",
+        "GeneratingModelInsightsReport",
+        "ModelInsightsError"
       ]
     },
     "AutoMLJobStatus":{
@@ -3660,7 +3784,9 @@
     "Bias":{
       "type":"structure",
       "members":{
-        "Report":{"shape":"MetricsSource"}
+        "Report":{"shape":"MetricsSource"},
+        "PreTrainingReport":{"shape":"MetricsSource"},
+        "PostTrainingReport":{"shape":"MetricsSource"}
       }
     },
     "BillableTimeInSeconds":{
@@ -3694,6 +3820,12 @@
       "min":1,
       "pattern":"[^ ~^:?*\\[]+"
     },
+    "BucketName":{
+      "type":"string",
+      "max":63,
+      "min":3,
+      "pattern":"[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9]"
+    },
     "CacheHitResult":{
       "type":"structure",
       "members":{
@@ -3718,7 +3850,8 @@
       "type":"structure",
       "required":["Explainability"],
       "members":{
-        "Explainability":{"shape":"ExplainabilityLocation"}
+        "Explainability":{"shape":"ExplainabilityLocation"},
+        "ModelInsights":{"shape":"ModelInsightsLocation"}
       }
     },
     "CandidateDefinitionNotebookLocation":{
@@ -3840,6 +3973,17 @@
       "min":1,
       "pattern":"[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
     },
+    "CategoricalParameter":{
+      "type":"structure",
+      "required":[
+        "Name",
+        "Value"
+      ],
+      "members":{
+        "Name":{"shape":"String64"},
+        "Value":{"shape":"CategoricalParameterRangeValues"}
+      }
+    },
     "CategoricalParameterRange":{
       "type":"structure",
       "required":[
@@ -3858,11 +4002,23 @@
         "Values":{"shape":"ParameterValues"}
       }
     },
+    "CategoricalParameterRangeValues":{
+      "type":"list",
+      "member":{"shape":"String128"},
+      "max":3,
+      "min":1
+    },
     "CategoricalParameterRanges":{
       "type":"list",
       "member":{"shape":"CategoricalParameterRange"},
       "max":20,
       "min":0
+    },
+    "CategoricalParameters":{
+      "type":"list",
+      "member":{"shape":"CategoricalParameter"},
+      "max":5,
+      "min":1
     },
     "Cents":{
       "type":"integer",
@@ -3931,6 +4087,19 @@
     "Cidrs":{
       "type":"list",
       "member":{"shape":"Cidr"}
+    },
+    "ClarifyCheckStepMetadata":{
+      "type":"structure",
+      "members":{
+        "CheckType":{"shape":"String256"},
+        "BaselineUsedForDriftCheckConstraints":{"shape":"String1024"},
+        "CalculatedBaselineConstraints":{"shape":"String1024"},
+        "ModelPackageGroupName":{"shape":"String256"},
+        "ViolationReport":{"shape":"String1024"},
+        "CheckJobArn":{"shape":"String256"},
+        "SkipCheck":{"shape":"Boolean"},
+        "RegisterNewBaseline":{"shape":"Boolean"}
+      }
     },
     "ClientId":{
       "type":"string",
@@ -4181,6 +4350,7 @@
         "ModelDataUrl":{"shape":"Url"},
         "Environment":{"shape":"EnvironmentMap"},
         "ModelPackageName":{"shape":"VersionedArnOrName"},
+        "InferenceSpecificationName":{"shape":"InferenceSpecificationName"},
         "MultiModelConfig":{"shape":"MultiModelConfig"}
       }
     },
@@ -4461,13 +4631,13 @@
       "required":[
         "CompilationJobName",
         "RoleArn",
-        "InputConfig",
         "OutputConfig",
         "StoppingCondition"
       ],
       "members":{
         "CompilationJobName":{"shape":"EntityName"},
         "RoleArn":{"shape":"RoleArn"},
+        "ModelPackageVersionArn":{"shape":"ModelPackageArn"},
         "InputConfig":{"shape":"InputConfig"},
         "OutputConfig":{"shape":"OutputConfig"},
         "VpcConfig":{"shape":"NeoVpcConfig"},
@@ -4635,6 +4805,7 @@
       "members":{
         "EndpointName":{"shape":"EndpointName"},
         "EndpointConfigName":{"shape":"EndpointConfigName"},
+        "DeploymentConfig":{"shape":"DeploymentConfig"},
         "Tags":{"shape":"TagList"}
       }
     },
@@ -4796,6 +4967,31 @@
         "ImageVersionArn":{"shape":"ImageVersionArn"}
       }
     },
+    "CreateInferenceRecommendationsJobRequest":{
+      "type":"structure",
+      "required":[
+        "JobName",
+        "JobType",
+        "RoleArn",
+        "InputConfig"
+      ],
+      "members":{
+        "JobName":{"shape":"RecommendationJobName"},
+        "JobType":{"shape":"RecommendationJobType"},
+        "RoleArn":{"shape":"RoleArn"},
+        "InputConfig":{"shape":"RecommendationJobInputConfig"},
+        "JobDescription":{"shape":"RecommendationJobDescription"},
+        "StoppingConditions":{"shape":"RecommendationJobStoppingConditions"},
+        "Tags":{"shape":"TagList"}
+      }
+    },
+    "CreateInferenceRecommendationsJobResponse":{
+      "type":"structure",
+      "required":["JobArn"],
+      "members":{
+        "JobArn":{"shape":"RecommendationJobArn"}
+      }
+    },
     "CreateLabelingJobRequest":{
       "type":"structure",
       "required":[
@@ -4944,7 +5140,12 @@
           "shape":"ClientToken",
           "idempotencyToken":true
         },
-        "CustomerMetadataProperties":{"shape":"CustomerMetadataMap"}
+        "CustomerMetadataProperties":{"shape":"CustomerMetadataMap"},
+        "DriftCheckBaselines":{"shape":"DriftCheckBaselines"},
+        "Domain":{"shape":"String"},
+        "Task":{"shape":"String"},
+        "SamplePayloadUrl":{"shape":"S3Uri"},
+        "AdditionalInferenceSpecifications":{"shape":"AdditionalInferenceSpecifications"}
       }
     },
     "CreateModelPackageOutput":{
@@ -5053,7 +5254,6 @@
       "type":"structure",
       "required":[
         "PipelineName",
-        "PipelineDefinition",
         "ClientRequestToken",
         "RoleArn"
       ],
@@ -5061,13 +5261,15 @@
         "PipelineName":{"shape":"PipelineName"},
         "PipelineDisplayName":{"shape":"PipelineName"},
         "PipelineDefinition":{"shape":"PipelineDefinition"},
+        "PipelineDefinitionS3Location":{"shape":"PipelineDefinitionS3Location"},
         "PipelineDescription":{"shape":"PipelineDescription"},
         "ClientRequestToken":{
           "shape":"IdempotencyToken",
           "idempotencyToken":true
         },
         "RoleArn":{"shape":"RoleArn"},
-        "Tags":{"shape":"TagList"}
+        "Tags":{"shape":"TagList"},
+        "ParallelismConfiguration":{"shape":"ParallelismConfiguration"}
       }
     },
     "CreatePipelineResponse":{
@@ -5390,7 +5592,7 @@
     "CustomImages":{
       "type":"list",
       "member":{"shape":"CustomImage"},
-      "max":30
+      "max":200
     },
     "CustomerMetadataKey":{
       "type":"string",
@@ -6019,7 +6221,7 @@
     "DescribeActionResponse":{
       "type":"structure",
       "members":{
-        "ActionName":{"shape":"ExperimentEntityName"},
+        "ActionName":{"shape":"ExperimentEntityNameOrArn"},
         "ActionArn":{"shape":"ActionArn"},
         "Source":{"shape":"ActionSource"},
         "ActionType":{"shape":"String256"},
@@ -6030,7 +6232,8 @@
         "CreatedBy":{"shape":"UserContext"},
         "LastModifiedTime":{"shape":"Timestamp"},
         "LastModifiedBy":{"shape":"UserContext"},
-        "MetadataProperties":{"shape":"MetadataProperties"}
+        "MetadataProperties":{"shape":"MetadataProperties"},
+        "LineageGroupArn":{"shape":"LineageGroupArn"}
       }
     },
     "DescribeAlgorithmInput":{
@@ -6122,7 +6325,7 @@
     "DescribeArtifactResponse":{
       "type":"structure",
       "members":{
-        "ArtifactName":{"shape":"ExperimentEntityName"},
+        "ArtifactName":{"shape":"ExperimentEntityNameOrArn"},
         "ArtifactArn":{"shape":"ArtifactArn"},
         "Source":{"shape":"ArtifactSource"},
         "ArtifactType":{"shape":"String256"},
@@ -6131,7 +6334,8 @@
         "CreatedBy":{"shape":"UserContext"},
         "LastModifiedTime":{"shape":"Timestamp"},
         "LastModifiedBy":{"shape":"UserContext"},
-        "MetadataProperties":{"shape":"MetadataProperties"}
+        "MetadataProperties":{"shape":"MetadataProperties"},
+        "LineageGroupArn":{"shape":"LineageGroupArn"}
       }
     },
     "DescribeAutoMLJobRequest":{
@@ -6231,6 +6435,7 @@
         "CompilationEndTime":{"shape":"Timestamp"},
         "StoppingCondition":{"shape":"StoppingCondition"},
         "InferenceImage":{"shape":"InferenceImage"},
+        "ModelPackageVersionArn":{"shape":"ModelPackageArn"},
         "CreationTime":{"shape":"CreationTime"},
         "LastModifiedTime":{"shape":"LastModifiedTime"},
         "FailureReason":{"shape":"FailureReason"},
@@ -6246,7 +6451,7 @@
       "type":"structure",
       "required":["ContextName"],
       "members":{
-        "ContextName":{"shape":"ExperimentEntityName"}
+        "ContextName":{"shape":"ExperimentEntityNameOrArn"}
       }
     },
     "DescribeContextResponse":{
@@ -6261,7 +6466,8 @@
         "CreationTime":{"shape":"Timestamp"},
         "CreatedBy":{"shape":"UserContext"},
         "LastModifiedTime":{"shape":"Timestamp"},
-        "LastModifiedBy":{"shape":"UserContext"}
+        "LastModifiedBy":{"shape":"UserContext"},
+        "LineageGroupArn":{"shape":"LineageGroupArn"}
       }
     },
     "DescribeDataQualityJobDefinitionRequest":{
@@ -6478,7 +6684,8 @@
         "CreationTime":{"shape":"Timestamp"},
         "LastModifiedTime":{"shape":"Timestamp"},
         "LastDeploymentConfig":{"shape":"DeploymentConfig"},
-        "AsyncInferenceConfig":{"shape":"AsyncInferenceConfig"}
+        "AsyncInferenceConfig":{"shape":"AsyncInferenceConfig"},
+        "PendingDeploymentSummary":{"shape":"PendingDeploymentSummary"}
       }
     },
     "DescribeExperimentRequest":{
@@ -6671,6 +6878,41 @@
         "Version":{"shape":"ImageVersionNumber"}
       }
     },
+    "DescribeInferenceRecommendationsJobRequest":{
+      "type":"structure",
+      "required":["JobName"],
+      "members":{
+        "JobName":{"shape":"RecommendationJobName"}
+      }
+    },
+    "DescribeInferenceRecommendationsJobResponse":{
+      "type":"structure",
+      "required":[
+        "JobName",
+        "JobType",
+        "JobArn",
+        "RoleArn",
+        "Status",
+        "CreationTime",
+        "LastModifiedTime",
+        "InputConfig"
+      ],
+      "members":{
+        "JobName":{"shape":"RecommendationJobName"},
+        "JobDescription":{"shape":"RecommendationJobDescription"},
+        "JobType":{"shape":"RecommendationJobType"},
+        "JobArn":{"shape":"RecommendationJobArn"},
+        "RoleArn":{"shape":"RoleArn"},
+        "Status":{"shape":"RecommendationJobStatus"},
+        "CreationTime":{"shape":"CreationTime"},
+        "CompletionTime":{"shape":"Timestamp"},
+        "LastModifiedTime":{"shape":"LastModifiedTime"},
+        "FailureReason":{"shape":"FailureReason"},
+        "InputConfig":{"shape":"RecommendationJobInputConfig"},
+        "StoppingConditions":{"shape":"RecommendationJobStoppingConditions"},
+        "InferenceRecommendations":{"shape":"InferenceRecommendations"}
+      }
+    },
     "DescribeLabelingJobRequest":{
       "type":"structure",
       "required":["LabelingJobName"],
@@ -6712,6 +6954,26 @@
         "HumanTaskConfig":{"shape":"HumanTaskConfig"},
         "Tags":{"shape":"TagList"},
         "LabelingJobOutput":{"shape":"LabelingJobOutput"}
+      }
+    },
+    "DescribeLineageGroupRequest":{
+      "type":"structure",
+      "required":["LineageGroupName"],
+      "members":{
+        "LineageGroupName":{"shape":"ExperimentEntityName"}
+      }
+    },
+    "DescribeLineageGroupResponse":{
+      "type":"structure",
+      "members":{
+        "LineageGroupName":{"shape":"ExperimentEntityName"},
+        "LineageGroupArn":{"shape":"LineageGroupArn"},
+        "DisplayName":{"shape":"ExperimentEntityName"},
+        "Description":{"shape":"ExperimentDescription"},
+        "CreationTime":{"shape":"Timestamp"},
+        "CreatedBy":{"shape":"UserContext"},
+        "LastModifiedTime":{"shape":"Timestamp"},
+        "LastModifiedBy":{"shape":"UserContext"}
       }
     },
     "DescribeModelBiasJobDefinitionRequest":{
@@ -6868,7 +7130,12 @@
         "LastModifiedTime":{"shape":"Timestamp"},
         "LastModifiedBy":{"shape":"UserContext"},
         "ApprovalDescription":{"shape":"ApprovalDescription"},
-        "CustomerMetadataProperties":{"shape":"CustomerMetadataMap"}
+        "CustomerMetadataProperties":{"shape":"CustomerMetadataMap"},
+        "DriftCheckBaselines":{"shape":"DriftCheckBaselines"},
+        "Domain":{"shape":"String"},
+        "Task":{"shape":"String"},
+        "SamplePayloadUrl":{"shape":"String"},
+        "AdditionalInferenceSpecifications":{"shape":"AdditionalInferenceSpecifications"}
       }
     },
     "DescribeModelQualityJobDefinitionRequest":{
@@ -7019,7 +7286,8 @@
         "CreationTime":{"shape":"Timestamp"},
         "LastModifiedTime":{"shape":"Timestamp"},
         "CreatedBy":{"shape":"UserContext"},
-        "LastModifiedBy":{"shape":"UserContext"}
+        "LastModifiedBy":{"shape":"UserContext"},
+        "ParallelismConfiguration":{"shape":"ParallelismConfiguration"}
       }
     },
     "DescribePipelineRequest":{
@@ -7043,7 +7311,8 @@
         "LastModifiedTime":{"shape":"Timestamp"},
         "LastRunTime":{"shape":"Timestamp"},
         "CreatedBy":{"shape":"UserContext"},
-        "LastModifiedBy":{"shape":"UserContext"}
+        "LastModifiedBy":{"shape":"UserContext"},
+        "ParallelismConfiguration":{"shape":"ParallelismConfiguration"}
       }
     },
     "DescribeProcessingJobRequest":{
@@ -7258,7 +7527,7 @@
       "type":"structure",
       "required":["TrialComponentName"],
       "members":{
-        "TrialComponentName":{"shape":"ExperimentEntityName"}
+        "TrialComponentName":{"shape":"ExperimentEntityNameOrArn"}
       }
     },
     "DescribeTrialComponentResponse":{
@@ -7279,7 +7548,8 @@
         "InputArtifacts":{"shape":"TrialComponentArtifacts"},
         "OutputArtifacts":{"shape":"TrialComponentArtifacts"},
         "MetadataProperties":{"shape":"MetadataProperties"},
-        "Metrics":{"shape":"TrialComponentMetricSummaries"}
+        "Metrics":{"shape":"TrialComponentMetricSummaries"},
+        "LineageGroupArn":{"shape":"LineageGroupArn"}
       }
     },
     "DescribeTrialRequest":{
@@ -7502,6 +7772,14 @@
         "Disabled"
       ]
     },
+    "Direction":{
+      "type":"string",
+      "enum":[
+        "Both",
+        "Ascendants",
+        "Descendants"
+      ]
+    },
     "DirectoryPath":{
       "type":"string",
       "max":4096,
@@ -7606,6 +7884,61 @@
       ]
     },
     "DoubleParameterValue":{"type":"double"},
+    "DriftCheckBaselines":{
+      "type":"structure",
+      "members":{
+        "Bias":{"shape":"DriftCheckBias"},
+        "Explainability":{"shape":"DriftCheckExplainability"},
+        "ModelQuality":{"shape":"DriftCheckModelQuality"},
+        "ModelDataQuality":{"shape":"DriftCheckModelDataQuality"}
+      }
+    },
+    "DriftCheckBias":{
+      "type":"structure",
+      "members":{
+        "ConfigFile":{"shape":"FileSource"},
+        "PreTrainingConstraints":{"shape":"MetricsSource"},
+        "PostTrainingConstraints":{"shape":"MetricsSource"}
+      }
+    },
+    "DriftCheckExplainability":{
+      "type":"structure",
+      "members":{
+        "Constraints":{"shape":"MetricsSource"},
+        "ConfigFile":{"shape":"FileSource"}
+      }
+    },
+    "DriftCheckModelDataQuality":{
+      "type":"structure",
+      "members":{
+        "Statistics":{"shape":"MetricsSource"},
+        "Constraints":{"shape":"MetricsSource"}
+      }
+    },
+    "DriftCheckModelQuality":{
+      "type":"structure",
+      "members":{
+        "Statistics":{"shape":"MetricsSource"},
+        "Constraints":{"shape":"MetricsSource"}
+      }
+    },
+    "EMRStepMetadata":{
+      "type":"structure",
+      "members":{
+        "ClusterId":{"shape":"String256"},
+        "StepId":{"shape":"String256"},
+        "StepName":{"shape":"String256"},
+        "LogFilePath":{"shape":"String1024"}
+      }
+    },
+    "Edge":{
+      "type":"structure",
+      "members":{
+        "SourceArn":{"shape":"AssociationEntityArn"},
+        "DestinationArn":{"shape":"AssociationEntityArn"},
+        "AssociationType":{"shape":"AssociationEdgeType"}
+      }
+    },
     "EdgeModel":{
       "type":"structure",
       "required":[
@@ -7742,6 +8075,10 @@
       "min":1,
       "pattern":"[a-zA-Z0-9\\ \\_\\.]+"
     },
+    "Edges":{
+      "type":"list",
+      "member":{"shape":"Edge"}
+    },
     "EfsUid":{
       "type":"string",
       "max":10,
@@ -7848,6 +8185,21 @@
         "EndTimeOffset":{"shape":"MonitoringTimeOffsetString"}
       }
     },
+    "EndpointInputConfiguration":{
+      "type":"structure",
+      "required":["InstanceType"],
+      "members":{
+        "InstanceType":{"shape":"ProductionVariantInstanceType"},
+        "InferenceSpecificationName":{"shape":"InferenceSpecificationName"},
+        "EnvironmentParameterRanges":{"shape":"EnvironmentParameterRanges"}
+      }
+    },
+    "EndpointInputConfigurations":{
+      "type":"list",
+      "member":{"shape":"EndpointInputConfiguration"},
+      "max":10,
+      "min":1
+    },
     "EndpointName":{
       "type":"string",
       "max":63,
@@ -7857,6 +8209,21 @@
       "type":"string",
       "max":63,
       "pattern":"[a-zA-Z0-9-]+"
+    },
+    "EndpointOutputConfiguration":{
+      "type":"structure",
+      "required":[
+        "EndpointName",
+        "VariantName",
+        "InstanceType",
+        "InitialInstanceCount"
+      ],
+      "members":{
+        "EndpointName":{"shape":"String"},
+        "VariantName":{"shape":"String"},
+        "InstanceType":{"shape":"ProductionVariantInstanceType"},
+        "InitialInstanceCount":{"shape":"Integer"}
+      }
     },
     "EndpointSortKey":{
       "type":"string",
@@ -7922,6 +8289,31 @@
       "value":{"shape":"EnvironmentValue"},
       "max":16
     },
+    "EnvironmentParameter":{
+      "type":"structure",
+      "required":[
+        "Key",
+        "ValueType",
+        "Value"
+      ],
+      "members":{
+        "Key":{"shape":"String"},
+        "ValueType":{"shape":"String"},
+        "Value":{"shape":"String"}
+      }
+    },
+    "EnvironmentParameterRanges":{
+      "type":"structure",
+      "members":{
+        "CategoricalParameterRanges":{"shape":"CategoricalParameters"}
+      }
+    },
+    "EnvironmentParameters":{
+      "type":"list",
+      "member":{"shape":"EnvironmentParameter"},
+      "max":10,
+      "min":1
+    },
     "EnvironmentValue":{
       "type":"string",
       "max":1024,
@@ -7983,6 +8375,12 @@
       "min":1,
       "pattern":"^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,119}"
     },
+    "ExperimentEntityNameOrArn":{
+      "type":"string",
+      "max":256,
+      "min":1,
+      "pattern":"(arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:(experiment|experiment-trial|experiment-trial-component|artifact|action|context)\\/)?([a-zA-Z0-9](-*[a-zA-Z0-9]){0,119})"
+    },
     "ExperimentSource":{
       "type":"structure",
       "required":["SourceArn"],
@@ -8025,6 +8423,12 @@
     "ExplainabilityLocation":{
       "type":"string",
       "min":1
+    },
+    "FailStepMetadata":{
+      "type":"structure",
+      "members":{
+        "ErrorMessage":{"shape":"String3072"}
+      }
     },
     "FailureReason":{
       "type":"string",
@@ -8141,6 +8545,15 @@
         "Fractional",
         "String"
       ]
+    },
+    "FileSource":{
+      "type":"structure",
+      "required":["S3Uri"],
+      "members":{
+        "ContentType":{"shape":"ContentType"},
+        "ContentDigest":{"shape":"ContentDigest"},
+        "S3Uri":{"shape":"S3Uri"}
+      }
     },
     "FileSystemAccessMode":{
       "type":"string",
@@ -8372,6 +8785,20 @@
         "DeviceStats":{"shape":"DeviceStats"},
         "AgentVersions":{"shape":"AgentVersions"},
         "ModelStats":{"shape":"EdgeModelStats"}
+      }
+    },
+    "GetLineageGroupPolicyRequest":{
+      "type":"structure",
+      "required":["LineageGroupName"],
+      "members":{
+        "LineageGroupName":{"shape":"LineageGroupNameOrArn"}
+      }
+    },
+    "GetLineageGroupPolicyResponse":{
+      "type":"structure",
+      "members":{
+        "LineageGroupArn":{"shape":"LineageGroupArn"},
+        "ResourcePolicy":{"shape":"ResourcePolicyString"}
       }
     },
     "GetModelPackageGroupPolicyInput":{
@@ -9007,6 +9434,54 @@
       "type":"string",
       "max":256
     },
+    "InferenceRecommendation":{
+      "type":"structure",
+      "required":[
+        "Metrics",
+        "EndpointConfiguration",
+        "ModelConfiguration"
+      ],
+      "members":{
+        "Metrics":{"shape":"RecommendationMetrics"},
+        "EndpointConfiguration":{"shape":"EndpointOutputConfiguration"},
+        "ModelConfiguration":{"shape":"ModelConfiguration"}
+      }
+    },
+    "InferenceRecommendations":{
+      "type":"list",
+      "member":{"shape":"InferenceRecommendation"},
+      "max":10,
+      "min":1
+    },
+    "InferenceRecommendationsJob":{
+      "type":"structure",
+      "required":[
+        "JobName",
+        "JobDescription",
+        "JobType",
+        "JobArn",
+        "Status",
+        "CreationTime",
+        "RoleArn",
+        "LastModifiedTime"
+      ],
+      "members":{
+        "JobName":{"shape":"RecommendationJobName"},
+        "JobDescription":{"shape":"RecommendationJobDescription"},
+        "JobType":{"shape":"RecommendationJobType"},
+        "JobArn":{"shape":"RecommendationJobArn"},
+        "Status":{"shape":"RecommendationJobStatus"},
+        "CreationTime":{"shape":"CreationTime"},
+        "CompletionTime":{"shape":"Timestamp"},
+        "RoleArn":{"shape":"RoleArn"},
+        "LastModifiedTime":{"shape":"LastModifiedTime"},
+        "FailureReason":{"shape":"FailureReason"}
+      }
+    },
+    "InferenceRecommendationsJobs":{
+      "type":"list",
+      "member":{"shape":"InferenceRecommendationsJob"}
+    },
     "InferenceSpecification":{
       "type":"structure",
       "required":[
@@ -9021,6 +9496,16 @@
         "SupportedContentTypes":{"shape":"ContentTypes"},
         "SupportedResponseMIMETypes":{"shape":"ResponseMIMETypes"}
       }
+    },
+    "InferenceSpecificationName":{
+      "type":"string",
+      "max":63,
+      "min":1,
+      "pattern":"^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$"
+    },
+    "InitialNumberOfUsers":{
+      "type":"integer",
+      "min":1
     },
     "InitialTaskCount":{
       "type":"integer",
@@ -9121,7 +9606,15 @@
         "ml.r5.8xlarge",
         "ml.r5.12xlarge",
         "ml.r5.16xlarge",
-        "ml.r5.24xlarge"
+        "ml.r5.24xlarge",
+        "ml.g5.xlarge",
+        "ml.g5.2xlarge",
+        "ml.g5.4xlarge",
+        "ml.g5.8xlarge",
+        "ml.g5.16xlarge",
+        "ml.g5.12xlarge",
+        "ml.g5.24xlarge",
+        "ml.g5.48xlarge"
       ]
     },
     "Integer":{"type":"integer"},
@@ -9156,6 +9649,7 @@
       "max":20,
       "min":0
     },
+    "IntegerValue":{"type":"integer"},
     "InvocationsMaxRetries":{
       "type":"integer",
       "max":3,
@@ -9169,6 +9663,10 @@
     "IotRoleAlias":{
       "type":"string",
       "pattern":"^arn:aws[a-z\\-]*:iam::\\d{12}:rolealias/?[a-zA-Z_0-9+=,.@\\-_/]+$"
+    },
+    "JobDurationInSeconds":{
+      "type":"integer",
+      "min":1
     },
     "JobReferenceCode":{
       "type":"string",
@@ -9249,6 +9747,12 @@
       "member":{"shape":"KernelSpec"},
       "max":1,
       "min":1
+    },
+    "Key":{
+      "type":"string",
+      "max":1024,
+      "min":1,
+      "pattern":".+"
     },
     "KmsKeyId":{
       "type":"string",
@@ -9457,6 +9961,40 @@
       "key":{"shape":"StringParameterValue"},
       "value":{"shape":"StringParameterValue"},
       "max":30
+    },
+    "LineageGroupArn":{
+      "type":"string",
+      "max":256,
+      "pattern":"arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:lineage-group/.*"
+    },
+    "LineageGroupNameOrArn":{
+      "type":"string",
+      "max":256,
+      "min":1,
+      "pattern":"(arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:lineage-group\\/)?([a-zA-Z0-9](-*[a-zA-Z0-9]){0,119})"
+    },
+    "LineageGroupSummaries":{
+      "type":"list",
+      "member":{"shape":"LineageGroupSummary"}
+    },
+    "LineageGroupSummary":{
+      "type":"structure",
+      "members":{
+        "LineageGroupArn":{"shape":"LineageGroupArn"},
+        "LineageGroupName":{"shape":"ExperimentEntityName"},
+        "DisplayName":{"shape":"ExperimentEntityName"},
+        "CreationTime":{"shape":"Timestamp"},
+        "LastModifiedTime":{"shape":"Timestamp"}
+      }
+    },
+    "LineageType":{
+      "type":"string",
+      "enum":[
+        "TrialComponent",
+        "Artifact",
+        "Context",
+        "Action"
+      ]
     },
     "ListActionsRequest":{
       "type":"structure",
@@ -10029,6 +10567,37 @@
         "NextToken":{"shape":"NextToken"}
       }
     },
+    "ListInferenceRecommendationsJobsRequest":{
+      "type":"structure",
+      "members":{
+        "CreationTimeAfter":{"shape":"CreationTime"},
+        "CreationTimeBefore":{"shape":"CreationTime"},
+        "LastModifiedTimeAfter":{"shape":"LastModifiedTime"},
+        "LastModifiedTimeBefore":{"shape":"LastModifiedTime"},
+        "NameContains":{"shape":"NameContains"},
+        "StatusEquals":{"shape":"RecommendationJobStatus"},
+        "SortBy":{"shape":"ListInferenceRecommendationsJobsSortBy"},
+        "SortOrder":{"shape":"SortOrder"},
+        "NextToken":{"shape":"NextToken"},
+        "MaxResults":{"shape":"MaxResults"}
+      }
+    },
+    "ListInferenceRecommendationsJobsResponse":{
+      "type":"structure",
+      "required":["InferenceRecommendationsJobs"],
+      "members":{
+        "InferenceRecommendationsJobs":{"shape":"InferenceRecommendationsJobs"},
+        "NextToken":{"shape":"NextToken"}
+      }
+    },
+    "ListInferenceRecommendationsJobsSortBy":{
+      "type":"string",
+      "enum":[
+        "Name",
+        "CreationTime",
+        "Status"
+      ]
+    },
     "ListLabelingJobsForWorkteamRequest":{
       "type":"structure",
       "required":["WorkteamArn"],
@@ -10081,6 +10650,24 @@
       "type":"list",
       "member":{"shape":"StringParameterValue"}
     },
+    "ListLineageGroupsRequest":{
+      "type":"structure",
+      "members":{
+        "CreatedAfter":{"shape":"Timestamp"},
+        "CreatedBefore":{"shape":"Timestamp"},
+        "SortBy":{"shape":"SortLineageGroupsBy"},
+        "SortOrder":{"shape":"SortOrder"},
+        "NextToken":{"shape":"NextToken"},
+        "MaxResults":{"shape":"MaxResults"}
+      }
+    },
+    "ListLineageGroupsResponse":{
+      "type":"structure",
+      "members":{
+        "LineageGroupSummaries":{"shape":"LineageGroupSummaries"},
+        "NextToken":{"shape":"NextToken"}
+      }
+    },
     "ListMaxResults":{
       "type":"integer",
       "max":100
@@ -10124,6 +10711,22 @@
       "required":["JobDefinitionSummaries"],
       "members":{
         "JobDefinitionSummaries":{"shape":"MonitoringJobDefinitionSummaryList"},
+        "NextToken":{"shape":"NextToken"}
+      }
+    },
+    "ListModelMetadataRequest":{
+      "type":"structure",
+      "members":{
+        "SearchExpression":{"shape":"ModelMetadataSearchExpression"},
+        "NextToken":{"shape":"NextToken"},
+        "MaxResults":{"shape":"MaxResults"}
+      }
+    },
+    "ListModelMetadataResponse":{
+      "type":"structure",
+      "required":["ModelMetadataSummaries"],
+      "members":{
+        "ModelMetadataSummaries":{"shape":"ModelMetadataSummaries"},
         "NextToken":{"shape":"NextToken"}
       }
     },
@@ -10707,7 +11310,19 @@
       "type":"integer",
       "min":1
     },
+    "MaxNumberOfTests":{
+      "type":"integer",
+      "min":1
+    },
     "MaxNumberOfTrainingJobs":{
+      "type":"integer",
+      "min":1
+    },
+    "MaxParallelExecutionSteps":{
+      "type":"integer",
+      "min":1
+    },
+    "MaxParallelOfTests":{
       "type":"integer",
       "min":1
     },
@@ -10920,6 +11535,13 @@
         "InvocationsMaxRetries":{"shape":"InvocationsMaxRetries"}
       }
     },
+    "ModelConfiguration":{
+      "type":"structure",
+      "members":{
+        "InferenceSpecificationName":{"shape":"InferenceSpecificationName"},
+        "EnvironmentParameters":{"shape":"EnvironmentParameters"}
+      }
+    },
     "ModelDataQuality":{
       "type":"structure",
       "members":{
@@ -10972,6 +11594,83 @@
         "EndpointInput":{"shape":"EndpointInput"}
       }
     },
+    "ModelInput":{
+      "type":"structure",
+      "required":["DataInputConfig"],
+      "members":{
+        "DataInputConfig":{"shape":"DataInputConfig"}
+      }
+    },
+    "ModelInsightsLocation":{
+      "type":"string",
+      "min":1
+    },
+    "ModelLatencyThreshold":{
+      "type":"structure",
+      "members":{
+        "Percentile":{"shape":"String64"},
+        "ValueInMilliseconds":{"shape":"Integer"}
+      }
+    },
+    "ModelLatencyThresholds":{
+      "type":"list",
+      "member":{"shape":"ModelLatencyThreshold"},
+      "max":1,
+      "min":1
+    },
+    "ModelMetadataFilter":{
+      "type":"structure",
+      "required":[
+        "Name",
+        "Value"
+      ],
+      "members":{
+        "Name":{"shape":"ModelMetadataFilterType"},
+        "Value":{"shape":"String256"}
+      }
+    },
+    "ModelMetadataFilterType":{
+      "type":"string",
+      "enum":[
+        "Domain",
+        "Framework",
+        "Task",
+        "FrameworkVersion"
+      ]
+    },
+    "ModelMetadataFilters":{
+      "type":"list",
+      "member":{"shape":"ModelMetadataFilter"},
+      "max":4,
+      "min":1
+    },
+    "ModelMetadataSearchExpression":{
+      "type":"structure",
+      "members":{
+        "Filters":{"shape":"ModelMetadataFilters"}
+      }
+    },
+    "ModelMetadataSummaries":{
+      "type":"list",
+      "member":{"shape":"ModelMetadataSummary"}
+    },
+    "ModelMetadataSummary":{
+      "type":"structure",
+      "required":[
+        "Domain",
+        "Framework",
+        "Task",
+        "Model",
+        "FrameworkVersion"
+      ],
+      "members":{
+        "Domain":{"shape":"String"},
+        "Framework":{"shape":"String"},
+        "Task":{"shape":"String"},
+        "Model":{"shape":"String"},
+        "FrameworkVersion":{"shape":"String"}
+      }
+    },
     "ModelMetrics":{
       "type":"structure",
       "members":{
@@ -11013,8 +11712,13 @@
         "LastModifiedTime":{"shape":"Timestamp"},
         "LastModifiedBy":{"shape":"UserContext"},
         "ApprovalDescription":{"shape":"ApprovalDescription"},
+        "Domain":{"shape":"String"},
+        "Task":{"shape":"String"},
+        "SamplePayloadUrl":{"shape":"String"},
+        "AdditionalInferenceSpecifications":{"shape":"AdditionalInferenceSpecifications"},
         "Tags":{"shape":"TagList"},
-        "CustomerMetadataProperties":{"shape":"CustomerMetadataMap"}
+        "CustomerMetadataProperties":{"shape":"CustomerMetadataMap"},
+        "DriftCheckBaselines":{"shape":"DriftCheckBaselines"}
       }
     },
     "ModelPackageArn":{
@@ -11038,7 +11742,11 @@
         "ImageDigest":{"shape":"ImageDigest"},
         "ModelDataUrl":{"shape":"Url"},
         "ProductId":{"shape":"ProductId"},
-        "Environment":{"shape":"EnvironmentMap"}
+        "Environment":{"shape":"EnvironmentMap"},
+        "ModelInput":{"shape":"ModelInput"},
+        "Framework":{"shape":"String"},
+        "FrameworkVersion":{"shape":"FrameworkVersion"},
+        "NearestModelName":{"shape":"String"}
       }
     },
     "ModelPackageContainerDefinitionList":{
@@ -12032,6 +12740,13 @@
       "max":8192,
       "pattern":".*"
     },
+    "ParallelismConfiguration":{
+      "type":"structure",
+      "required":["MaxParallelExecutionSteps"],
+      "members":{
+        "MaxParallelExecutionSteps":{"shape":"MaxParallelExecutionSteps"}
+      }
+    },
     "Parameter":{
       "type":"structure",
       "required":[
@@ -12118,6 +12833,50 @@
       "type":"list",
       "member":{"shape":"Parent"}
     },
+    "PendingDeploymentSummary":{
+      "type":"structure",
+      "required":["EndpointConfigName"],
+      "members":{
+        "EndpointConfigName":{"shape":"EndpointConfigName"},
+        "ProductionVariants":{"shape":"PendingProductionVariantSummaryList"},
+        "StartTime":{"shape":"Timestamp"}
+      }
+    },
+    "PendingProductionVariantSummary":{
+      "type":"structure",
+      "required":["VariantName"],
+      "members":{
+        "VariantName":{"shape":"VariantName"},
+        "DeployedImages":{"shape":"DeployedImages"},
+        "CurrentWeight":{"shape":"VariantWeight"},
+        "DesiredWeight":{"shape":"VariantWeight"},
+        "CurrentInstanceCount":{"shape":"TaskCount"},
+        "DesiredInstanceCount":{"shape":"TaskCount"},
+        "InstanceType":{"shape":"ProductionVariantInstanceType"},
+        "AcceleratorType":{"shape":"ProductionVariantAcceleratorType"},
+        "VariantStatus":{"shape":"ProductionVariantStatusList"},
+        "CurrentServerlessConfig":{"shape":"ProductionVariantServerlessConfig"},
+        "DesiredServerlessConfig":{"shape":"ProductionVariantServerlessConfig"}
+      }
+    },
+    "PendingProductionVariantSummaryList":{
+      "type":"list",
+      "member":{"shape":"PendingProductionVariantSummary"},
+      "min":1
+    },
+    "Phase":{
+      "type":"structure",
+      "members":{
+        "InitialNumberOfUsers":{"shape":"InitialNumberOfUsers"},
+        "SpawnRate":{"shape":"SpawnRate"},
+        "DurationInSeconds":{"shape":"TrafficDurationInSeconds"}
+      }
+    },
+    "Phases":{
+      "type":"list",
+      "member":{"shape":"Phase"},
+      "min":1
+    },
     "Pipeline":{
       "type":"structure",
       "members":{
@@ -12132,6 +12891,7 @@
         "LastRunTime":{"shape":"Timestamp"},
         "CreatedBy":{"shape":"UserContext"},
         "LastModifiedBy":{"shape":"UserContext"},
+        "ParallelismConfiguration":{"shape":"ParallelismConfiguration"},
         "Tags":{"shape":"TagList"}
       }
     },
@@ -12145,6 +12905,18 @@
       "max":1048576,
       "min":1,
       "pattern":".*(?:[ \\r\\n\\t].*)*"
+    },
+    "PipelineDefinitionS3Location":{
+      "type":"structure",
+      "required":[
+        "Bucket",
+        "ObjectKey"
+      ],
+      "members":{
+        "Bucket":{"shape":"BucketName"},
+        "ObjectKey":{"shape":"Key"},
+        "VersionId":{"shape":"VersionId"}
+      }
     },
     "PipelineDescription":{
       "type":"string",
@@ -12166,6 +12938,7 @@
         "LastModifiedTime":{"shape":"Timestamp"},
         "CreatedBy":{"shape":"UserContext"},
         "LastModifiedBy":{"shape":"UserContext"},
+        "ParallelismConfiguration":{"shape":"ParallelismConfiguration"},
         "PipelineParameters":{"shape":"ParameterList"}
       }
     },
@@ -12205,10 +12978,13 @@
       "type":"structure",
       "members":{
         "StepName":{"shape":"StepName"},
+        "StepDisplayName":{"shape":"StepDisplayName"},
+        "StepDescription":{"shape":"StepDescription"},
         "StartTime":{"shape":"Timestamp"},
         "EndTime":{"shape":"Timestamp"},
         "StepStatus":{"shape":"StepStatus"},
         "CacheHitResult":{"shape":"CacheHitResult"},
+        "AttemptCount":{"shape":"IntegerValue"},
         "FailureReason":{"shape":"FailureReason"},
         "Metadata":{"shape":"PipelineExecutionStepMetadata"}
       }
@@ -12230,7 +13006,11 @@
         "RegisterModel":{"shape":"RegisterModelStepMetadata"},
         "Condition":{"shape":"ConditionStepMetadata"},
         "Callback":{"shape":"CallbackStepMetadata"},
-        "Lambda":{"shape":"LambdaStepMetadata"}
+        "Lambda":{"shape":"LambdaStepMetadata"},
+        "QualityCheck":{"shape":"QualityCheckStepMetadata"},
+        "ClarifyCheck":{"shape":"ClarifyCheckStepMetadata"},
+        "EMR":{"shape":"EMRStepMetadata"},
+        "Fail":{"shape":"FailStepMetadata"}
       }
     },
     "PipelineExecutionSummary":{
@@ -12240,7 +13020,8 @@
         "StartTime":{"shape":"Timestamp"},
         "PipelineExecutionStatus":{"shape":"PipelineExecutionStatus"},
         "PipelineExecutionDescription":{"shape":"PipelineExecutionDescription"},
-        "PipelineExecutionDisplayName":{"shape":"PipelineExecutionName"}
+        "PipelineExecutionDisplayName":{"shape":"PipelineExecutionName"},
+        "PipelineExecutionFailureReason":{"shape":"String3072"}
       }
     },
     "PipelineExecutionSummaryList":{
@@ -12625,9 +13406,7 @@
       "type":"structure",
       "required":[
         "VariantName",
-        "ModelName",
-        "InitialInstanceCount",
-        "InstanceType"
+        "ModelName"
       ],
       "members":{
         "VariantName":{"shape":"VariantName"},
@@ -12636,7 +13415,8 @@
         "InstanceType":{"shape":"ProductionVariantInstanceType"},
         "InitialVariantWeight":{"shape":"VariantWeight"},
         "AcceleratorType":{"shape":"ProductionVariantAcceleratorType"},
-        "CoreDumpConfig":{"shape":"ProductionVariantCoreDumpConfig"}
+        "CoreDumpConfig":{"shape":"ProductionVariantCoreDumpConfig"},
+        "ServerlessConfig":{"shape":"ProductionVariantServerlessConfig"}
       }
     },
     "ProductionVariantAcceleratorType":{
@@ -12735,6 +13515,32 @@
       "max":10,
       "min":1
     },
+    "ProductionVariantServerlessConfig":{
+      "type":"structure",
+      "required":[
+        "MemorySizeInMB",
+        "MaxConcurrency"
+      ],
+      "members":{
+        "MemorySizeInMB":{"shape":"ServerlessMemorySizeInMB"},
+        "MaxConcurrency":{"shape":"ServerlessMaxConcurrency"}
+      }
+    },
+    "ProductionVariantStatus":{
+      "type":"structure",
+      "required":["Status"],
+      "members":{
+        "Status":{"shape":"VariantStatus"},
+        "StatusMessage":{"shape":"VariantStatusMessage"},
+        "StartTime":{"shape":"Timestamp"}
+      }
+    },
+    "ProductionVariantStatusList":{
+      "type":"list",
+      "member":{"shape":"ProductionVariantStatus"},
+      "max":5,
+      "min":0
+    },
     "ProductionVariantSummary":{
       "type":"structure",
       "required":["VariantName"],
@@ -12744,7 +13550,10 @@
         "CurrentWeight":{"shape":"VariantWeight"},
         "DesiredWeight":{"shape":"VariantWeight"},
         "CurrentInstanceCount":{"shape":"TaskCount"},
-        "DesiredInstanceCount":{"shape":"TaskCount"}
+        "DesiredInstanceCount":{"shape":"TaskCount"},
+        "VariantStatus":{"shape":"ProductionVariantStatusList"},
+        "CurrentServerlessConfig":{"shape":"ProductionVariantServerlessConfig"},
+        "DesiredServerlessConfig":{"shape":"ProductionVariantServerlessConfig"}
       }
     },
     "ProductionVariantSummaryList":{
@@ -12982,6 +13791,84 @@
         "ModelPackageGroupArn":{"shape":"ModelPackageGroupArn"}
       }
     },
+    "QualityCheckStepMetadata":{
+      "type":"structure",
+      "members":{
+        "CheckType":{"shape":"String256"},
+        "BaselineUsedForDriftCheckStatistics":{"shape":"String1024"},
+        "BaselineUsedForDriftCheckConstraints":{"shape":"String1024"},
+        "CalculatedBaselineStatistics":{"shape":"String1024"},
+        "CalculatedBaselineConstraints":{"shape":"String1024"},
+        "ModelPackageGroupName":{"shape":"String256"},
+        "ViolationReport":{"shape":"String1024"},
+        "CheckJobArn":{"shape":"String256"},
+        "SkipCheck":{"shape":"Boolean"},
+        "RegisterNewBaseline":{"shape":"Boolean"}
+      }
+    },
+    "QueryFilters":{
+      "type":"structure",
+      "members":{
+        "Types":{"shape":"QueryTypes"},
+        "LineageTypes":{"shape":"QueryLineageTypes"},
+        "CreatedBefore":{"shape":"Timestamp"},
+        "CreatedAfter":{"shape":"Timestamp"},
+        "ModifiedBefore":{"shape":"Timestamp"},
+        "ModifiedAfter":{"shape":"Timestamp"},
+        "Properties":{"shape":"QueryProperties"}
+      }
+    },
+    "QueryLineageMaxDepth":{
+      "type":"integer",
+      "max":10
+    },
+    "QueryLineageMaxResults":{
+      "type":"integer",
+      "max":50
+    },
+    "QueryLineageRequest":{
+      "type":"structure",
+      "required":["StartArns"],
+      "members":{
+        "StartArns":{"shape":"QueryLineageStartArns"},
+        "Direction":{"shape":"Direction"},
+        "IncludeEdges":{"shape":"Boolean"},
+        "Filters":{"shape":"QueryFilters"},
+        "MaxDepth":{"shape":"QueryLineageMaxDepth"},
+        "MaxResults":{"shape":"QueryLineageMaxResults"},
+        "NextToken":{"shape":"String8192"}
+      }
+    },
+    "QueryLineageResponse":{
+      "type":"structure",
+      "members":{
+        "Vertices":{"shape":"Vertices"},
+        "Edges":{"shape":"Edges"},
+        "NextToken":{"shape":"String8192"}
+      }
+    },
+    "QueryLineageStartArns":{
+      "type":"list",
+      "member":{"shape":"AssociationEntityArn"},
+      "max":1,
+      "min":1
+    },
+    "QueryLineageTypes":{
+      "type":"list",
+      "member":{"shape":"LineageType"},
+      "max":4
+    },
+    "QueryProperties":{
+      "type":"map",
+      "key":{"shape":"String256"},
+      "value":{"shape":"String256"},
+      "max":5
+    },
+    "QueryTypes":{
+      "type":"list",
+      "member":{"shape":"String40"},
+      "max":5
+    },
     "RSessionAppSettings":{
       "type":"structure",
       "members":{
@@ -13029,6 +13916,79 @@
     "RealtimeInferenceInstanceTypes":{
       "type":"list",
       "member":{"shape":"ProductionVariantInstanceType"}
+    },
+    "RecommendationJobArn":{
+      "type":"string",
+      "max":256,
+      "pattern":"arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:inference-recommendations-job/.*"
+    },
+    "RecommendationJobDescription":{
+      "type":"string",
+      "max":128
+    },
+    "RecommendationJobInputConfig":{
+      "type":"structure",
+      "required":["ModelPackageVersionArn"],
+      "members":{
+        "ModelPackageVersionArn":{"shape":"ModelPackageArn"},
+        "JobDurationInSeconds":{"shape":"JobDurationInSeconds"},
+        "TrafficPattern":{"shape":"TrafficPattern"},
+        "ResourceLimit":{"shape":"RecommendationJobResourceLimit"},
+        "EndpointConfigurations":{"shape":"EndpointInputConfigurations"}
+      }
+    },
+    "RecommendationJobName":{
+      "type":"string",
+      "max":64,
+      "min":1,
+      "pattern":"^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,63}"
+    },
+    "RecommendationJobResourceLimit":{
+      "type":"structure",
+      "members":{
+        "MaxNumberOfTests":{"shape":"MaxNumberOfTests"},
+        "MaxParallelOfTests":{"shape":"MaxParallelOfTests"}
+      }
+    },
+    "RecommendationJobStatus":{
+      "type":"string",
+      "enum":[
+        "PENDING",
+        "IN_PROGRESS",
+        "COMPLETED",
+        "FAILED",
+        "STOPPING",
+        "STOPPED"
+      ]
+    },
+    "RecommendationJobStoppingConditions":{
+      "type":"structure",
+      "members":{
+        "MaxInvocations":{"shape":"Integer"},
+        "ModelLatencyThresholds":{"shape":"ModelLatencyThresholds"}
+      }
+    },
+    "RecommendationJobType":{
+      "type":"string",
+      "enum":[
+        "Default",
+        "Advanced"
+      ]
+    },
+    "RecommendationMetrics":{
+      "type":"structure",
+      "required":[
+        "CostPerHour",
+        "CostPerInference",
+        "MaxInvocations",
+        "ModelLatency"
+      ],
+      "members":{
+        "CostPerHour":{"shape":"Float"},
+        "CostPerInference":{"shape":"Float"},
+        "MaxInvocations":{"shape":"Integer"},
+        "ModelLatency":{"shape":"Integer"}
+      }
     },
     "RecordWrapper":{
       "type":"string",
@@ -13248,6 +14208,11 @@
       },
       "exception":true
     },
+    "ResourcePolicyString":{
+      "type":"string",
+      "max":20480,
+      "pattern":".*(?:[ \\r\\n\\t].*)*"
+    },
     "ResourcePropertyName":{
       "type":"string",
       "max":255,
@@ -13312,7 +14277,8 @@
         "ClientRequestToken":{
           "shape":"IdempotencyToken",
           "idempotencyToken":true
-        }
+        },
+        "ParallelismConfiguration":{"shape":"ParallelismConfiguration"}
       }
     },
     "RetryPipelineExecutionResponse":{
@@ -13595,6 +14561,16 @@
         "PipelineExecutionArn":{"shape":"PipelineExecutionArn"}
       }
     },
+    "ServerlessMaxConcurrency":{
+      "type":"integer",
+      "max":50,
+      "min":1
+    },
+    "ServerlessMemorySizeInMB":{
+      "type":"integer",
+      "max":6144,
+      "min":1024
+    },
     "ServiceCatalogEntityId":{
       "type":"string",
       "max":100,
@@ -13697,6 +14673,13 @@
         "CreationTime"
       ]
     },
+    "SortLineageGroupsBy":{
+      "type":"string",
+      "enum":[
+        "Name",
+        "CreationTime"
+      ]
+    },
     "SortOrder":{
       "type":"string",
       "enum":[
@@ -13769,6 +14752,10 @@
       "max":2048,
       "pattern":".*"
     },
+    "SpawnRate":{
+      "type":"integer",
+      "min":0
+    },
     "SplitType":{
       "type":"string",
       "enum":[
@@ -13806,7 +14793,8 @@
         "ClientRequestToken":{
           "shape":"IdempotencyToken",
           "idempotencyToken":true
-        }
+        },
+        "ParallelismConfiguration":{"shape":"ParallelismConfiguration"}
       }
     },
     "StartPipelineExecutionResponse":{
@@ -13821,10 +14809,22 @@
       "pattern":".*"
     },
     "StatusMessage":{"type":"string"},
-    "StepName":{
+    "StepDescription":{
+      "type":"string",
+      "max":3072,
+      "min":0,
+      "pattern":".*"
+    },
+    "StepDisplayName":{
       "type":"string",
       "max":256,
+      "min":0,
       "pattern":".*"
+    },
+    "StepName":{
+      "type":"string",
+      "max":64,
+      "pattern":"^[A-Za-z0-9\\-_]*$"
     },
     "StepStatus":{
       "type":"string",
@@ -13863,6 +14863,13 @@
       "required":["HyperParameterTuningJobName"],
       "members":{
         "HyperParameterTuningJobName":{"shape":"HyperParameterTuningJobName"}
+      }
+    },
+    "StopInferenceRecommendationsJobRequest":{
+      "type":"structure",
+      "required":["JobName"],
+      "members":{
+        "JobName":{"shape":"RecommendationJobName"}
       }
     },
     "StopLabelingJobRequest":{
@@ -13939,6 +14946,10 @@
       "type":"string",
       "max":1024
     },
+    "String128":{
+      "type":"string",
+      "max":128
+    },
     "String200":{
       "type":"string",
       "max":200,
@@ -13953,9 +14964,21 @@
       "type":"string",
       "max":256
     },
+    "String3072":{
+      "type":"string",
+      "max":3072
+    },
+    "String40":{
+      "type":"string",
+      "max":40
+    },
     "String64":{
       "type":"string",
       "max":64
+    },
+    "String8192":{
+      "type":"string",
+      "max":8192
     },
     "StringParameterValue":{
       "type":"string",
@@ -14112,6 +15135,7 @@
         "qcs605",
         "qcs603",
         "sitara_am57x",
+        "amba_cv2",
         "amba_cv22",
         "amba_cv25",
         "x86_win32",
@@ -14139,7 +15163,8 @@
       "enum":[
         "INTEL_GRAPHICS",
         "MALI",
-        "NVIDIA"
+        "NVIDIA",
+        "NNA"
       ]
     },
     "TargetPlatformArch":{
@@ -14247,6 +15272,17 @@
       "pattern":"[a-zA-Z0-9:_-]+"
     },
     "Timestamp":{"type":"timestamp"},
+    "TrafficDurationInSeconds":{
+      "type":"integer",
+      "min":1
+    },
+    "TrafficPattern":{
+      "type":"structure",
+      "members":{
+        "TrafficType":{"shape":"TrafficType"},
+        "Phases":{"shape":"Phases"}
+      }
+    },
     "TrafficRoutingConfig":{
       "type":"structure",
       "required":[
@@ -14256,15 +15292,21 @@
       "members":{
         "Type":{"shape":"TrafficRoutingConfigType"},
         "WaitIntervalInSeconds":{"shape":"WaitIntervalInSeconds"},
-        "CanarySize":{"shape":"CapacitySize"}
+        "CanarySize":{"shape":"CapacitySize"},
+        "LinearStepSize":{"shape":"CapacitySize"}
       }
     },
     "TrafficRoutingConfigType":{
       "type":"string",
       "enum":[
         "ALL_AT_ONCE",
-        "CANARY"
+        "CANARY",
+        "LINEAR"
       ]
+    },
+    "TrafficType":{
+      "type":"string",
+      "enum":["PHASES"]
     },
     "TrainingEnvironmentKey":{
       "type":"string",
@@ -14335,7 +15377,15 @@
         "ml.c5n.2xlarge",
         "ml.c5n.4xlarge",
         "ml.c5n.9xlarge",
-        "ml.c5n.18xlarge"
+        "ml.c5n.18xlarge",
+        "ml.g5.xlarge",
+        "ml.g5.2xlarge",
+        "ml.g5.4xlarge",
+        "ml.g5.8xlarge",
+        "ml.g5.16xlarge",
+        "ml.g5.12xlarge",
+        "ml.g5.24xlarge",
+        "ml.g5.48xlarge"
       ]
     },
     "TrainingInstanceTypes":{
@@ -14748,6 +15798,7 @@
         "Metrics":{"shape":"TrialComponentMetricSummaries"},
         "MetadataProperties":{"shape":"MetadataProperties"},
         "SourceDetail":{"shape":"TrialComponentSourceDetail"},
+        "LineageGroupArn":{"shape":"LineageGroupArn"},
         "Tags":{"shape":"TagList"},
         "Parents":{"shape":"Parents"}
       }
@@ -15094,7 +16145,8 @@
         "EndpointConfigName":{"shape":"EndpointConfigName"},
         "RetainAllVariantProperties":{"shape":"Boolean"},
         "ExcludeRetainedVariantProperties":{"shape":"VariantPropertyList"},
-        "DeploymentConfig":{"shape":"DeploymentConfig"}
+        "DeploymentConfig":{"shape":"DeploymentConfig"},
+        "RetainDeploymentConfig":{"shape":"Boolean"}
       }
     },
     "UpdateEndpointOutput":{
@@ -15162,7 +16214,8 @@
         "ModelApprovalStatus":{"shape":"ModelApprovalStatus"},
         "ApprovalDescription":{"shape":"ApprovalDescription"},
         "CustomerMetadataProperties":{"shape":"CustomerMetadataMap"},
-        "CustomerMetadataPropertiesToRemove":{"shape":"CustomerMetadataKeyList"}
+        "CustomerMetadataPropertiesToRemove":{"shape":"CustomerMetadataKeyList"},
+        "AdditionalInferenceSpecificationsToAdd":{"shape":"AdditionalInferenceSpecifications"}
       }
     },
     "UpdateModelPackageOutput":{
@@ -15234,7 +16287,8 @@
       "members":{
         "PipelineExecutionArn":{"shape":"PipelineExecutionArn"},
         "PipelineExecutionDescription":{"shape":"PipelineExecutionDescription"},
-        "PipelineExecutionDisplayName":{"shape":"PipelineExecutionName"}
+        "PipelineExecutionDisplayName":{"shape":"PipelineExecutionName"},
+        "ParallelismConfiguration":{"shape":"ParallelismConfiguration"}
       }
     },
     "UpdatePipelineExecutionResponse":{
@@ -15250,8 +16304,10 @@
         "PipelineName":{"shape":"PipelineName"},
         "PipelineDisplayName":{"shape":"PipelineName"},
         "PipelineDefinition":{"shape":"PipelineDefinition"},
+        "PipelineDefinitionS3Location":{"shape":"PipelineDefinitionS3Location"},
         "PipelineDescription":{"shape":"PipelineDescription"},
-        "RoleArn":{"shape":"RoleArn"}
+        "RoleArn":{"shape":"RoleArn"},
+        "ParallelismConfiguration":{"shape":"ParallelismConfiguration"}
       }
     },
     "UpdatePipelineResponse":{
@@ -15476,15 +16532,47 @@
         "DataCaptureConfig"
       ]
     },
+    "VariantStatus":{
+      "type":"string",
+      "enum":[
+        "Creating",
+        "Updating",
+        "Deleting",
+        "ActivatingTraffic",
+        "Baking"
+      ]
+    },
+    "VariantStatusMessage":{
+      "type":"string",
+      "max":1024
+    },
     "VariantWeight":{
       "type":"float",
       "min":0
+    },
+    "VersionId":{
+      "type":"string",
+      "max":1024,
+      "min":1,
+      "pattern":".+"
     },
     "VersionedArnOrName":{
       "type":"string",
       "max":176,
       "min":1,
       "pattern":"(arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:[a-z\\-]*\\/)?([a-zA-Z0-9]([a-zA-Z0-9-]){0,62})(?<!-)(\\/[0-9]{1,5})?$"
+    },
+    "Vertex":{
+      "type":"structure",
+      "members":{
+        "Arn":{"shape":"AssociationEntityArn"},
+        "Type":{"shape":"String40"},
+        "LineageType":{"shape":"LineageType"}
+      }
+    },
+    "Vertices":{
+      "type":"list",
+      "member":{"shape":"Vertex"}
     },
     "VolumeSizeInGB":{
       "type":"integer",

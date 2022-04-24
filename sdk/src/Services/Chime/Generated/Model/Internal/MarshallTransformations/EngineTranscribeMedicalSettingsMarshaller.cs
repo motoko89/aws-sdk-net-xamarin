@@ -34,7 +34,7 @@ namespace Amazon.Chime.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// EngineTranscribeMedicalSettings Marshaller
-    /// </summary>       
+    /// </summary>
     public class EngineTranscribeMedicalSettingsMarshaller : IRequestMarshaller<EngineTranscribeMedicalSettings, JsonMarshallerContext> 
     {
         /// <summary>
@@ -45,6 +45,12 @@ namespace Amazon.Chime.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(EngineTranscribeMedicalSettings requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetContentIdentificationType())
+            {
+                context.Writer.WritePropertyName("ContentIdentificationType");
+                context.Writer.Write(requestObject.ContentIdentificationType);
+            }
+
             if(requestObject.IsSetLanguageCode())
             {
                 context.Writer.WritePropertyName("LanguageCode");
@@ -79,7 +85,7 @@ namespace Amazon.Chime.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static EngineTranscribeMedicalSettingsMarshaller Instance = new EngineTranscribeMedicalSettingsMarshaller();
 
     }

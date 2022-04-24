@@ -34,7 +34,7 @@ namespace Amazon.Snowball.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// OnDeviceServiceConfiguration Marshaller
-    /// </summary>       
+    /// </summary>
     public class OnDeviceServiceConfigurationMarshaller : IRequestMarshaller<OnDeviceServiceConfiguration, JsonMarshallerContext> 
     {
         /// <summary>
@@ -56,11 +56,22 @@ namespace Amazon.Snowball.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetTGWOnDeviceService())
+            {
+                context.Writer.WritePropertyName("TGWOnDeviceService");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = TGWOnDeviceServiceConfigurationMarshaller.Instance;
+                marshaller.Marshall(requestObject.TGWOnDeviceService, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
         }
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static OnDeviceServiceConfigurationMarshaller Instance = new OnDeviceServiceConfigurationMarshaller();
 
     }

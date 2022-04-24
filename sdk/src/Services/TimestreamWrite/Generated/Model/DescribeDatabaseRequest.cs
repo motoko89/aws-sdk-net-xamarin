@@ -31,9 +31,10 @@ namespace Amazon.TimestreamWrite.Model
     /// <summary>
     /// Container for the parameters to the DescribeDatabase operation.
     /// Returns information about the database, including the database name, time that the
-    /// database was created, and the total number of tables found within the database. Service
-    /// quotas apply. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access
-    /// Management</a> in the Timestream Developer Guide.
+    /// database was created, and the total number of tables found within the database. <a
+    /// href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service
+    /// quotas apply</a>. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-db.html">code
+    /// sample</a> for details.
     /// </summary>
     public partial class DescribeDatabaseRequest : AmazonTimestreamWriteRequest
     {
@@ -45,7 +46,7 @@ namespace Amazon.TimestreamWrite.Model
         /// The name of the Timestream database.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=3, Max=64)]
+        [AWSProperty(Required=true)]
         public string DatabaseName
         {
             get { return this._databaseName; }

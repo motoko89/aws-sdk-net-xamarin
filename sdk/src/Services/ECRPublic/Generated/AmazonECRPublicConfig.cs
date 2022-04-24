@@ -32,7 +32,7 @@ namespace Amazon.ECRPublic
     public partial class AmazonECRPublicConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.150");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.ECRPublic
         /// Default constructor
         /// </summary>
         public AmazonECRPublicConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonECRPublicDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "ecr-public";
         }

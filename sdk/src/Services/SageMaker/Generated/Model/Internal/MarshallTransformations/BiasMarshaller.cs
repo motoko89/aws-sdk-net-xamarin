@@ -34,7 +34,7 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// Bias Marshaller
-    /// </summary>       
+    /// </summary>
     public class BiasMarshaller : IRequestMarshaller<Bias, JsonMarshallerContext> 
     {
         /// <summary>
@@ -45,6 +45,28 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(Bias requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetPostTrainingReport())
+            {
+                context.Writer.WritePropertyName("PostTrainingReport");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = MetricsSourceMarshaller.Instance;
+                marshaller.Marshall(requestObject.PostTrainingReport, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetPreTrainingReport())
+            {
+                context.Writer.WritePropertyName("PreTrainingReport");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = MetricsSourceMarshaller.Instance;
+                marshaller.Marshall(requestObject.PreTrainingReport, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetReport())
             {
                 context.Writer.WritePropertyName("Report");
@@ -60,7 +82,7 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static BiasMarshaller Instance = new BiasMarshaller();
 
     }

@@ -53,6 +53,26 @@
         {"shape":"ThrottlingException"}
       ]
     },
+    "AnalyzeID":{
+      "name":"AnalyzeID",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"AnalyzeIDRequest"},
+      "output":{"shape":"AnalyzeIDResponse"},
+      "errors":[
+        {"shape":"InvalidParameterException"},
+        {"shape":"InvalidS3ObjectException"},
+        {"shape":"UnsupportedDocumentException"},
+        {"shape":"DocumentTooLargeException"},
+        {"shape":"BadDocumentException"},
+        {"shape":"AccessDeniedException"},
+        {"shape":"ProvisionedThroughputExceededException"},
+        {"shape":"InternalServerError"},
+        {"shape":"ThrottlingException"}
+      ]
+    },
     "DetectDocumentText":{
       "name":"DetectDocumentText",
       "http":{
@@ -216,7 +236,8 @@
       "members":{
         "Document":{"shape":"Document"},
         "FeatureTypes":{"shape":"FeatureTypes"},
-        "HumanLoopConfig":{"shape":"HumanLoopConfig"}
+        "HumanLoopConfig":{"shape":"HumanLoopConfig"},
+        "QueriesConfig":{"shape":"QueriesConfig"}
       }
     },
     "AnalyzeDocumentResponse":{
@@ -242,6 +263,30 @@
         "ExpenseDocuments":{"shape":"ExpenseDocumentList"}
       }
     },
+    "AnalyzeIDDetections":{
+      "type":"structure",
+      "required":["Text"],
+      "members":{
+        "Text":{"shape":"String"},
+        "NormalizedValue":{"shape":"NormalizedValue"},
+        "Confidence":{"shape":"Percent"}
+      }
+    },
+    "AnalyzeIDRequest":{
+      "type":"structure",
+      "required":["DocumentPages"],
+      "members":{
+        "DocumentPages":{"shape":"DocumentPages"}
+      }
+    },
+    "AnalyzeIDResponse":{
+      "type":"structure",
+      "members":{
+        "IdentityDocuments":{"shape":"IdentityDocumentList"},
+        "DocumentMetadata":{"shape":"DocumentMetadata"},
+        "AnalyzeIDModelVersion":{"shape":"String"}
+      }
+    },
     "BadDocumentException":{
       "type":"structure",
       "members":{
@@ -264,7 +309,8 @@
         "Relationships":{"shape":"RelationshipList"},
         "EntityTypes":{"shape":"EntityTypes"},
         "SelectionStatus":{"shape":"SelectionStatus"},
-        "Page":{"shape":"UInteger"}
+        "Page":{"shape":"UInteger"},
+        "Query":{"shape":"Query"}
       }
     },
     "BlockList":{
@@ -280,7 +326,11 @@
         "WORD",
         "TABLE",
         "CELL",
-        "SELECTION_ELEMENT"
+        "SELECTION_ELEMENT",
+        "MERGED_CELL",
+        "TITLE",
+        "QUERY",
+        "QUERY_RESULT"
       ]
     },
     "BoundingBox":{
@@ -344,6 +394,12 @@
         "Pages":{"shape":"UInteger"}
       }
     },
+    "DocumentPages":{
+      "type":"list",
+      "member":{"shape":"Document"},
+      "max":2,
+      "min":1
+    },
     "DocumentTooLargeException":{
       "type":"structure",
       "members":{
@@ -354,7 +410,8 @@
       "type":"string",
       "enum":[
         "KEY",
-        "VALUE"
+        "VALUE",
+        "COLUMN_HEADER"
       ]
     },
     "EntityTypes":{
@@ -406,7 +463,8 @@
       "type":"string",
       "enum":[
         "TABLES",
-        "FORMS"
+        "FORMS",
+        "QUERIES"
       ]
     },
     "FeatureTypes":{
@@ -556,6 +614,28 @@
       },
       "exception":true
     },
+    "IdentityDocument":{
+      "type":"structure",
+      "members":{
+        "DocumentIndex":{"shape":"UInteger"},
+        "IdentityDocumentFields":{"shape":"IdentityDocumentFieldList"}
+      }
+    },
+    "IdentityDocumentField":{
+      "type":"structure",
+      "members":{
+        "Type":{"shape":"AnalyzeIDDetections"},
+        "ValueDetection":{"shape":"AnalyzeIDDetections"}
+      }
+    },
+    "IdentityDocumentFieldList":{
+      "type":"list",
+      "member":{"shape":"IdentityDocumentField"}
+    },
+    "IdentityDocumentList":{
+      "type":"list",
+      "member":{"shape":"IdentityDocument"}
+    },
     "ImageBlob":{
       "type":"blob",
       "max":10485760,
@@ -654,6 +734,13 @@
       "type":"string",
       "pattern":".*\\S.*"
     },
+    "NormalizedValue":{
+      "type":"structure",
+      "members":{
+        "Value":{"shape":"String"},
+        "ValueType":{"shape":"ValueType"}
+      }
+    },
     "NotificationChannel":{
       "type":"structure",
       "required":[
@@ -705,6 +792,44 @@
       },
       "exception":true
     },
+    "Queries":{
+      "type":"list",
+      "member":{"shape":"Query"},
+      "min":1
+    },
+    "QueriesConfig":{
+      "type":"structure",
+      "required":["Queries"],
+      "members":{
+        "Queries":{"shape":"Queries"}
+      }
+    },
+    "Query":{
+      "type":"structure",
+      "required":["Text"],
+      "members":{
+        "Text":{"shape":"QueryInput"},
+        "Alias":{"shape":"QueryInput"},
+        "Pages":{"shape":"QueryPages"}
+      }
+    },
+    "QueryInput":{
+      "type":"string",
+      "max":200,
+      "min":1,
+      "pattern":"^[a-zA-Z0-9\\s!\"\\#\\$%'&\\(\\)\\*\\+\\,\\-\\./:;=\\?@\\[\\\\\\]\\^_`\\{\\|\\}~><]+$"
+    },
+    "QueryPage":{
+      "type":"string",
+      "max":9,
+      "min":1,
+      "pattern":"^[0-9\\*\\-]+$"
+    },
+    "QueryPages":{
+      "type":"list",
+      "member":{"shape":"QueryPage"},
+      "min":1
+    },
     "Relationship":{
       "type":"structure",
       "members":{
@@ -721,7 +846,10 @@
       "enum":[
         "VALUE",
         "CHILD",
-        "COMPLEX_FEATURES"
+        "COMPLEX_FEATURES",
+        "MERGED_CELL",
+        "TITLE",
+        "ANSWER"
       ]
     },
     "RoleArn":{
@@ -782,7 +910,8 @@
         "JobTag":{"shape":"JobTag"},
         "NotificationChannel":{"shape":"NotificationChannel"},
         "OutputConfig":{"shape":"OutputConfig"},
-        "KMSKeyId":{"shape":"KMSKeyId"}
+        "KMSKeyId":{"shape":"KMSKeyId"},
+        "QueriesConfig":{"shape":"QueriesConfig"}
       }
     },
     "StartDocumentAnalysisResponse":{
@@ -852,6 +981,10 @@
       "members":{
       },
       "exception":true
+    },
+    "ValueType":{
+      "type":"string",
+      "enum":["DATE"]
     },
     "Warning":{
       "type":"structure",

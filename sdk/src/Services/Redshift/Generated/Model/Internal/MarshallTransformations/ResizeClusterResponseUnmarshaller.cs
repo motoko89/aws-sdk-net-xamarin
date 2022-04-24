@@ -116,6 +116,10 @@ namespace Amazon.Redshift.Model.Internal.MarshallTransformations
                 {
                     return ClusterNotFoundExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
                 }
+                if (errorResponse.Code != null && errorResponse.Code.Equals("DependentServiceUnavailableFault"))
+                {
+                    return DependentServiceUnavailableExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
+                }
                 if (errorResponse.Code != null && errorResponse.Code.Equals("InsufficientClusterCapacity"))
                 {
                     return InsufficientClusterCapacityExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
@@ -123,6 +127,10 @@ namespace Amazon.Redshift.Model.Internal.MarshallTransformations
                 if (errorResponse.Code != null && errorResponse.Code.Equals("InvalidClusterState"))
                 {
                     return InvalidClusterStateExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
+                }
+                if (errorResponse.Code != null && errorResponse.Code.Equals("InvalidReservedNodeState"))
+                {
+                    return InvalidReservedNodeStateExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
                 }
                 if (errorResponse.Code != null && errorResponse.Code.Equals("LimitExceededFault"))
                 {
@@ -135,6 +143,22 @@ namespace Amazon.Redshift.Model.Internal.MarshallTransformations
                 if (errorResponse.Code != null && errorResponse.Code.Equals("NumberOfNodesQuotaExceeded"))
                 {
                     return NumberOfNodesQuotaExceededExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
+                }
+                if (errorResponse.Code != null && errorResponse.Code.Equals("ReservedNodeAlreadyExists"))
+                {
+                    return ReservedNodeAlreadyExistsExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
+                }
+                if (errorResponse.Code != null && errorResponse.Code.Equals("ReservedNodeAlreadyMigrated"))
+                {
+                    return ReservedNodeAlreadyMigratedExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
+                }
+                if (errorResponse.Code != null && errorResponse.Code.Equals("ReservedNodeNotFound"))
+                {
+                    return ReservedNodeNotFoundExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
+                }
+                if (errorResponse.Code != null && errorResponse.Code.Equals("ReservedNodeOfferingNotFound"))
+                {
+                    return ReservedNodeOfferingNotFoundExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
                 }
                 if (errorResponse.Code != null && errorResponse.Code.Equals("UnauthorizedOperation"))
                 {

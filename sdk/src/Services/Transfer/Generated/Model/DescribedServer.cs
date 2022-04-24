@@ -42,6 +42,8 @@ namespace Amazon.Transfer.Model
         private IdentityProviderDetails _identityProviderDetails;
         private IdentityProviderType _identityProviderType;
         private string _loggingRole;
+        private string _postAuthenticationLoginBanner;
+        private string _preAuthenticationLoginBanner;
         private ProtocolDetails _protocolDetails;
         private List<string> _protocols = new List<string>();
         private string _securityPolicyName;
@@ -211,6 +213,13 @@ namespace Amazon.Transfer.Model
         /// endpoint URL to call for authentication using the <code>IdentityProviderDetails</code>
         /// parameter.
         /// </para>
+        ///  
+        /// <para>
+        /// Use the <code>AWS_LAMBDA</code> value to directly use a Lambda function as your identity
+        /// provider. If you choose this value, you must specify the ARN for the lambda function
+        /// in the <code>Function</code> parameter for the <code>IdentityProviderDetails</code>
+        /// data type.
+        /// </para>
         /// </summary>
         public IdentityProviderType IdentityProviderType
         {
@@ -244,6 +253,59 @@ namespace Amazon.Transfer.Model
         internal bool IsSetLoggingRole()
         {
             return this._loggingRole != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PostAuthenticationLoginBanner. 
+        /// <para>
+        /// Specify a string to display when users connect to a server. This string is displayed
+        /// after the user authenticates.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// The SFTP protocol does not support post-authentication display banners.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        [AWSProperty(Max=512)]
+        public string PostAuthenticationLoginBanner
+        {
+            get { return this._postAuthenticationLoginBanner; }
+            set { this._postAuthenticationLoginBanner = value; }
+        }
+
+        // Check to see if PostAuthenticationLoginBanner property is set
+        internal bool IsSetPostAuthenticationLoginBanner()
+        {
+            return this._postAuthenticationLoginBanner != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PreAuthenticationLoginBanner. 
+        /// <para>
+        /// Specify a string to display when users connect to a server. This string is displayed
+        /// before the user authenticates. For example, the following banner displays details
+        /// about using the system.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>This system is for the use of authorized users only. Individuals using this
+        /// computer system without authority, or in excess of their authority, are subject to
+        /// having all of their activities on this system monitored and recorded by system personnel.</code>
+        /// 
+        /// </para>
+        /// </summary>
+        [AWSProperty(Max=512)]
+        public string PreAuthenticationLoginBanner
+        {
+            get { return this._preAuthenticationLoginBanner; }
+            set { this._preAuthenticationLoginBanner = value; }
+        }
+
+        // Check to see if PreAuthenticationLoginBanner property is set
+        internal bool IsSetPreAuthenticationLoginBanner()
+        {
+            return this._preAuthenticationLoginBanner != null;
         }
 
         /// <summary>

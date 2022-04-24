@@ -2925,9 +2925,17 @@ namespace Amazon.SimpleSystemsManagement
         /// </summary>
         public static readonly OperatingSystem ORACLE_LINUX = new OperatingSystem("ORACLE_LINUX");
         /// <summary>
+        /// Constant RASPBIAN for OperatingSystem
+        /// </summary>
+        public static readonly OperatingSystem RASPBIAN = new OperatingSystem("RASPBIAN");
+        /// <summary>
         /// Constant REDHAT_ENTERPRISE_LINUX for OperatingSystem
         /// </summary>
         public static readonly OperatingSystem REDHAT_ENTERPRISE_LINUX = new OperatingSystem("REDHAT_ENTERPRISE_LINUX");
+        /// <summary>
+        /// Constant ROCKY_LINUX for OperatingSystem
+        /// </summary>
+        public static readonly OperatingSystem ROCKY_LINUX = new OperatingSystem("ROCKY_LINUX");
         /// <summary>
         /// Constant SUSE for OperatingSystem
         /// </summary>
@@ -4365,6 +4373,10 @@ namespace Amazon.SimpleSystemsManagement
         /// </summary>
         public static readonly PlatformType Linux = new PlatformType("Linux");
         /// <summary>
+        /// Constant MacOS for PlatformType
+        /// </summary>
+        public static readonly PlatformType MacOS = new PlatformType("MacOS");
+        /// <summary>
         /// Constant Windows for PlatformType
         /// </summary>
         public static readonly PlatformType Windows = new PlatformType("Windows");
@@ -4560,6 +4572,10 @@ namespace Amazon.SimpleSystemsManagement
     public class ResourceTypeForTagging : ConstantClass
     {
 
+        /// <summary>
+        /// Constant Automation for ResourceTypeForTagging
+        /// </summary>
+        public static readonly ResourceTypeForTagging Automation = new ResourceTypeForTagging("Automation");
         /// <summary>
         /// Constant Document for ResourceTypeForTagging
         /// </summary>
@@ -4920,6 +4936,60 @@ namespace Amazon.SimpleSystemsManagement
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator SignalType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type SourceType.
+    /// </summary>
+    public class SourceType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AWSEC2Instance for SourceType
+        /// </summary>
+        public static readonly SourceType AWSEC2Instance = new SourceType("AWS::EC2::Instance");
+        /// <summary>
+        /// Constant AWSIoTThing for SourceType
+        /// </summary>
+        public static readonly SourceType AWSIoTThing = new SourceType("AWS::IoT::Thing");
+        /// <summary>
+        /// Constant AWSSSMManagedInstance for SourceType
+        /// </summary>
+        public static readonly SourceType AWSSSMManagedInstance = new SourceType("AWS::SSM::ManagedInstance");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public SourceType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static SourceType FindValue(string value)
+        {
+            return FindValue<SourceType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator SourceType(string value)
         {
             return FindValue(value);
         }

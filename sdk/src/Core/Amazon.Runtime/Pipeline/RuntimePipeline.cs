@@ -56,7 +56,7 @@ namespace Amazon.Runtime.Internal
         /// <summary>
         /// Constructor for RuntimePipeline.
         /// </summary>
-        /// <param name="handler">The handler with which the pipeline is initalized.</param>        
+        /// <param name="handler">The handler with which the pipeline is initialized.</param>
         public RuntimePipeline(IPipelineHandler handler) 
         {
             if (handler == null)
@@ -73,17 +73,17 @@ namespace Amazon.Runtime.Internal
 
         /// <summary>
         /// Constructor for RuntimePipeline.
-        /// </summary>        
-        /// <param name="handlers">List of handlers with which the pipeline is initalized.</param>                
+        /// </summary>
+        /// <param name="handlers">List of handlers with which the pipeline is initialized.</param>
         public RuntimePipeline(IList<IPipelineHandler> handlers)
             : this(handlers, Amazon.Runtime.Internal.Util.Logger.GetLogger(typeof(RuntimePipeline)))
-        {            
+        {    
         }
 
         /// <summary>
         /// Constructor for RuntimePipeline.
-        /// </summary>        
-        /// <param name="handlers">List of handlers with which the pipeline is initalized.</param>        
+        /// </summary>
+        /// <param name="handlers">List of handlers with which the pipeline is initialized.</param>
         /// <param name="logger">The logger used to log messages.</param>
         public RuntimePipeline(IList<IPipelineHandler> handlers, ILogger logger)
         {
@@ -104,7 +104,7 @@ namespace Amazon.Runtime.Internal
         /// <summary>
         /// Constructor for RuntimePipeline.
         /// </summary>
-        /// <param name="handler">The handler with which the pipeline is initalized.</param>
+        /// <param name="handler">The handler with which the pipeline is initialized.</param>
         /// <param name="logger">The logger used to log messages.</param>
         public RuntimePipeline(IPipelineHandler handler, ILogger logger)
         {
@@ -133,7 +133,7 @@ namespace Amazon.Runtime.Internal
         {
             ThrowIfDisposed();
 
-            _handler.InvokeSync(executionContext);            
+            _handler.InvokeSync(executionContext);
             return executionContext.ResponseContext;
         }
 
@@ -346,7 +346,7 @@ namespace Amazon.Runtime.Internal
                     else
                     {
                         // Current is the top, replace it.
-                        _handler = handler;                        
+                        _handler = handler;            
                     }
 
                     if (current.InnerHandler != null)
@@ -363,7 +363,7 @@ namespace Amazon.Runtime.Internal
                     return;
                 }
                 previous = current;
-                current = current.InnerHandler;                
+                current = current.InnerHandler;    
             }
             throw new InvalidOperationException(
                 string.Format(CultureInfo.InvariantCulture, "Cannot find a handler of type {0}", type.Name));

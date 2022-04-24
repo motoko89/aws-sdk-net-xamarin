@@ -31,6 +31,12 @@ namespace Amazon.IoTDeviceAdvisor.Model
     /// <summary>
     /// Container for the parameters to the ListTagsForResource operation.
     /// Lists the tags attached to an IoT Device Advisor resource.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTagsForResource</a>
+    /// action.
+    /// </para>
     /// </summary>
     public partial class ListTagsForResourceRequest : AmazonIoTDeviceAdvisorRequest
     {

@@ -56,7 +56,7 @@ namespace Amazon.Lambda.Model.Internal.MarshallTransformations
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.Lambda");
             request.Headers["Content-Type"] = "application/json";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2015-03-31";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2015-03-31";
             request.HttpMethod = "PUT";
 
             if (!publicRequest.IsSetUUID())
@@ -95,6 +95,17 @@ namespace Amazon.Lambda.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("Enabled");
                     context.Writer.Write(publicRequest.Enabled);
+                }
+
+                if(publicRequest.IsSetFilterCriteria())
+                {
+                    context.Writer.WritePropertyName("FilterCriteria");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = FilterCriteriaMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.FilterCriteria, context);
+
+                    context.Writer.WriteObjectEnd();
                 }
 
                 if(publicRequest.IsSetFunctionName())
@@ -160,7 +171,6 @@ namespace Amazon.Lambda.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.TumblingWindowInSeconds);
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

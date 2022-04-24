@@ -32,7 +32,7 @@ namespace Amazon.SSMContacts
     public partial class AmazonSSMContactsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.2.45");
+            InternalSDKUtils.BuildUserAgentString("3.7.2.103");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.SSMContacts
         /// Default constructor
         /// </summary>
         public AmazonSSMContactsConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonSSMContactsDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "ssm-contacts";
         }

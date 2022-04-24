@@ -612,6 +612,11 @@ namespace Amazon.S3
         public static readonly S3StorageClass Glacier = new S3StorageClass("GLACIER");
 
         /// <summary>
+        /// Constant GLACIER_IR for ObjectStorageClass
+        /// </summary>
+        public static readonly S3StorageClass GlacierInstantRetrieval= new S3StorageClass("GLACIER_IR");
+
+        /// <summary>
         /// IntelligentTiering makes it easy to lower your overall cost of storage by automatically placing data in the storage
         /// class that best matches the access patterns for the storage. With IntelligentTiering, you don’t need to define
         /// and manage individual policies for lifecycle data management or write code to transition objects
@@ -1078,6 +1083,56 @@ namespace Amazon.S3
         public static readonly EventType ReplicationOperationReplicatedAfterThreshold = new EventType("s3:Replication:OperationReplicatedAfterThreshold");
 
         /// <summary>
+        /// Event for Intelligent Tiering
+        /// </summary>
+        public static readonly EventType S3IntelligentTiering = new EventType("s3:IntelligentTiering");
+
+        /// <summary>
+        /// Event for all Lifecycle Expiration events
+        /// </summary>
+        public static readonly EventType S3LifecycleExpirationAll = new EventType("s3:LifecycleExpiration:*");
+
+        /// <summary>
+        /// Event for Lifecycle Expiration deletion
+        /// </summary>
+        public static readonly EventType S3LifecycleExpirationDelete = new EventType("s3:LifecycleExpiration:Delete");
+
+        /// <summary>
+        /// Event for Lifecycle Expiration Delete Marker creation
+        /// </summary>
+        public static readonly EventType S3LifecycleExpirationDeleteMarkerCreated = new EventType("s3:LifecycleExpiration:DeleteMarkerCreated");
+
+        /// <summary>
+        /// Event for Lifecycle Transition
+        /// </summary>
+        public static readonly EventType S3LifecycleTransition = new EventType("s3:LifecycleTransition");
+
+        /// <summary>
+        /// Event for Object Acl puts
+        /// </summary>
+        public static readonly EventType S3ObjectAclPut = new EventType("s3:ObjectAcl:Put");
+
+        /// <summary>
+        /// Event for Object Restore deletes 
+        /// </summary>
+        public static readonly EventType S3ObjectRestoreDelete = new EventType("s3:ObjectRestore:Delete");
+
+        /// <summary>
+        /// Event for all Object Tagging events
+        /// </summary>
+        public static readonly EventType S3ObjectTaggingAll = new EventType("s3:ObjectTagging:*");
+
+        /// <summary>
+        /// Event for Object Tagging deletes
+        /// </summary>
+        public static readonly EventType S3ObjectTaggingDelete = new EventType("s3:ObjectTagging:Delete");
+
+        /// <summary>
+        /// Event for Object Tagging puts
+        /// </summary>
+        public static readonly EventType S3ObjectTaggingPut = new EventType("s3:ObjectTagging:Put");
+
+        /// <summary>
         /// Constructs instance of EventType.
         /// </summary>
         /// <param name="value"></param>
@@ -1351,6 +1406,11 @@ namespace Amazon.S3
         /// Constant BucketKeyStatus for InventoryOptionalField
         /// </summary>
         public static readonly InventoryOptionalField BucketKeyStatus = new InventoryOptionalField("BucketKeyStatus");
+
+        /// <summary>
+        /// Constant ChecksumAlgorithm for InventoryOptionalField
+        /// </summary>
+        public static readonly InventoryOptionalField ChecksumAlgorithm = new InventoryOptionalField("ChecksumAlgorithm");
 
         /// <summary>
         /// Construct instance of InventoryOptionalField.
@@ -2235,6 +2295,11 @@ namespace Amazon.S3
         }
 
         /// <summary>
+        /// Constant BucketOwnerEnforced for ObjectOwnership
+        /// </summary>
+        public static readonly ObjectOwnership BucketOwnerEnforced = new ObjectOwnership("BucketOwnerEnforced");
+        
+        /// <summary>
         /// Objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the bucket-owner-full-control canned ACL
         /// </summary>
         public static readonly ObjectOwnership BucketOwnerPreferred = new ObjectOwnership("BucketOwnerPreferred");
@@ -2424,4 +2489,163 @@ namespace Amazon.S3
         }
     }
 
+    /// <summary>
+    /// Constants used for properties of type ChecksumAlgorithm.
+    /// </summary>
+    public class ChecksumAlgorithm : ConstantClass
+    {
+        /// <summary>
+        /// Constant CRC32 for ChecksumAlgorithm
+        /// </summary>
+        public static readonly ChecksumAlgorithm CRC32 = new ChecksumAlgorithm("CRC32");
+        /// <summary>
+        /// Constant CRC32C for ChecksumAlgorithm
+        /// </summary>
+        public static readonly ChecksumAlgorithm CRC32C = new ChecksumAlgorithm("CRC32C");
+        /// <summary>
+        /// Constant SHA1 for ChecksumAlgorithm
+        /// </summary>
+        public static readonly ChecksumAlgorithm SHA1 = new ChecksumAlgorithm("SHA1");
+        /// <summary>
+        /// Constant SHA256 for ChecksumAlgorithm
+        /// </summary>
+        public static readonly ChecksumAlgorithm SHA256 = new ChecksumAlgorithm("SHA256");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ChecksumAlgorithm(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ChecksumAlgorithm FindValue(string value)
+        {
+            return FindValue<ChecksumAlgorithm>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ChecksumAlgorithm(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+    /// <summary>
+    /// Constants used for properties of type ChecksumMode.
+    /// </summary>
+    public class ChecksumMode : ConstantClass
+    {
+        /// <summary>
+        /// Constant ENABLED for ChecksumMode
+        /// </summary>
+        public static readonly ChecksumMode ENABLED = new ChecksumMode("ENABLED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ChecksumMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ChecksumMode FindValue(string value)
+        {
+            return FindValue<ChecksumMode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ChecksumMode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+    /// <summary>
+    /// Constants used for properties of type ObjectAttributes.
+    /// </summary>
+    public class ObjectAttributes : ConstantClass
+    {
+        /// <summary>
+        /// Constant Checksum for ObjectAttributes
+        /// </summary>
+        public static readonly ObjectAttributes Checksum = new ObjectAttributes("Checksum");
+        /// <summary>
+        /// Constant ETag for ObjectAttributes
+        /// </summary>
+        public static readonly ObjectAttributes ETag = new ObjectAttributes("ETag");
+        /// <summary>
+        /// Constant ObjectParts for ObjectAttributes
+        /// </summary>
+        public static readonly ObjectAttributes ObjectParts = new ObjectAttributes("ObjectParts");
+        /// <summary>
+        /// Constant ObjectSize for ObjectAttributes
+        /// </summary>
+        public static readonly ObjectAttributes ObjectSize = new ObjectAttributes("ObjectSize");
+        /// <summary>
+        /// Constant StorageClass for ObjectAttributes
+        /// </summary>
+        public static readonly ObjectAttributes StorageClass = new ObjectAttributes("StorageClass");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ObjectAttributes(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ObjectAttributes FindValue(string value)
+        {
+            return FindValue<ObjectAttributes>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ObjectAttributes(string value)
+        {
+            return FindValue(value);
+        }
+    }
 }

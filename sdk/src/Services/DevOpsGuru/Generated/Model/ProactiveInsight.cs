@@ -33,6 +33,7 @@ namespace Amazon.DevOpsGuru.Model
     /// </summary>
     public partial class ProactiveInsight
     {
+        private string _description;
         private string _id;
         private InsightTimeRange _insightTimeRange;
         private string _name;
@@ -41,6 +42,24 @@ namespace Amazon.DevOpsGuru.Model
         private InsightSeverity _severity;
         private string _ssmOpsItemId;
         private InsightStatus _status;
+
+        /// <summary>
+        /// Gets and sets the property Description. 
+        /// <para>
+        /// Describes the proactive insight.
+        /// </para>
+        /// </summary>
+        public string Description
+        {
+            get { return this._description; }
+            set { this._description = value; }
+        }
+
+        // Check to see if Description property is set
+        internal bool IsSetDescription()
+        {
+            return this._description != null;
+        }
 
         /// <summary>
         /// Gets and sets the property Id. 
@@ -128,7 +147,8 @@ namespace Amazon.DevOpsGuru.Model
         /// <summary>
         /// Gets and sets the property Severity. 
         /// <para>
-        /// The severity of the proactive insight. 
+        /// The severity of the insight. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
+        /// insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.
         /// </para>
         /// </summary>
         public InsightSeverity Severity
@@ -146,8 +166,9 @@ namespace Amazon.DevOpsGuru.Model
         /// <summary>
         /// Gets and sets the property SsmOpsItemId. 
         /// <para>
-        ///  The ID of the AWS System Manager OpsItem created for this insight. You must enable
-        /// the creation of OpstItems insights before they are created for each insight. 
+        ///  The ID of the Amazon Web Services System Manager OpsItem created for this insight.
+        /// You must enable the creation of OpstItems insights before they are created for each
+        /// insight. 
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=100)]

@@ -34,7 +34,7 @@ namespace Amazon.Transfer.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// ProtocolDetails Marshaller
-    /// </summary>       
+    /// </summary>
     public class ProtocolDetailsMarshaller : IRequestMarshaller<ProtocolDetails, JsonMarshallerContext> 
     {
         /// <summary>
@@ -51,11 +51,17 @@ namespace Amazon.Transfer.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.PassiveIp);
             }
 
+            if(requestObject.IsSetTlsSessionResumptionMode())
+            {
+                context.Writer.WritePropertyName("TlsSessionResumptionMode");
+                context.Writer.Write(requestObject.TlsSessionResumptionMode);
+            }
+
         }
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static ProtocolDetailsMarshaller Instance = new ProtocolDetailsMarshaller();
 
     }

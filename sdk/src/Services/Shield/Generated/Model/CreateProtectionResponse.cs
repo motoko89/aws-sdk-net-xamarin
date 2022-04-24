@@ -41,7 +41,7 @@ namespace Amazon.Shield.Model
         /// The unique identifier (ID) for the <a>Protection</a> object that is created.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=36)]
+        [AWSProperty(Min=36, Max=36)]
         public string ProtectionId
         {
             get { return this._protectionId; }

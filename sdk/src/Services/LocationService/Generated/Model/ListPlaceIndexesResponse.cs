@@ -58,8 +58,8 @@ namespace Amazon.LocationService.Model
         /// <summary>
         /// Gets and sets the property NextToken. 
         /// <para>
-        /// A pagination token indicating there are additional pages available. You can use the
-        /// token in a following request to fetch the next set of results.
+        /// A pagination token indicating that there are additional pages available. You can use
+        /// the token in a new request to fetch the next page of results.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=2000)]

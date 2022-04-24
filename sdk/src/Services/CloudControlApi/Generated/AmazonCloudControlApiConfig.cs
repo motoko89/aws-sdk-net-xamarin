@@ -32,7 +32,7 @@ namespace Amazon.CloudControlApi
     public partial class AmazonCloudControlApiConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.18");
+            InternalSDKUtils.BuildUserAgentString("3.7.1.8");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.CloudControlApi
         /// Default constructor
         /// </summary>
         public AmazonCloudControlApiConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCloudControlApiDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "cloudcontrolapi";
         }

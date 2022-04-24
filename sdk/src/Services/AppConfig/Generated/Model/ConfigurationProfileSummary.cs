@@ -37,6 +37,7 @@ namespace Amazon.AppConfig.Model
         private string _id;
         private string _locationUri;
         private string _name;
+        private string _type;
         private List<string> _validatorTypes = new List<string>();
 
         /// <summary>
@@ -111,6 +112,36 @@ namespace Amazon.AppConfig.Model
         internal bool IsSetName()
         {
             return this._name != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Type. 
+        /// <para>
+        /// The type of configurations contained in the profile. AppConfig supports <code>feature
+        /// flags</code> and <code>freeform</code> configurations. We recommend you create feature
+        /// flag configurations to enable or disable new features and freeform configurations
+        /// to distribute configurations to an application. When calling this API, enter one of
+        /// the following values for <code>Type</code>:
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>AWS.AppConfig.FeatureFlags</code> 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>AWS.Freeform</code> 
+        /// </para>
+        /// </summary>
+        public string Type
+        {
+            get { return this._type; }
+            set { this._type = value; }
+        }
+
+        // Check to see if Type property is set
+        internal bool IsSetType()
+        {
+            return this._type != null;
         }
 
         /// <summary>

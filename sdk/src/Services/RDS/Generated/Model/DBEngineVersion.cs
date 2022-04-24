@@ -52,6 +52,7 @@ namespace Amazon.RDS.Model
         private List<string> _supportedFeatureNames = new List<string>();
         private List<CharacterSet> _supportedNcharCharacterSets = new List<CharacterSet>();
         private List<Timezone> _supportedTimezones = new List<Timezone>();
+        private bool? _supportsBabelfish;
         private bool? _supportsGlobalDatabases;
         private bool? _supportsLogExportsToCloudwatchLogs;
         private bool? _supportsParallelQuery;
@@ -194,8 +195,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property DefaultCharacterSet. 
         /// <para>
-        ///  The default character set for new instances of this engine version, if the <code>CharacterSetName</code>
-        /// parameter of the CreateDBInstance API isn't specified. 
+        /// The default character set for new instances of this engine version, if the <code>CharacterSetName</code>
+        /// parameter of the CreateDBInstance API isn't specified.
         /// </para>
         /// </summary>
         public CharacterSet DefaultCharacterSet
@@ -324,7 +325,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property SupportedCharacterSets. 
         /// <para>
         /// A list of the character sets supported by this engine for the <code>CharacterSetName</code>
-        /// parameter of the <code>CreateDBInstance</code> operation. 
+        /// parameter of the <code>CreateDBInstance</code> operation.
         /// </para>
         /// </summary>
         public List<CharacterSet> SupportedCharacterSets
@@ -360,7 +361,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property SupportedFeatureNames. 
         /// <para>
-        ///  A list of features supported by the DB engine. 
+        /// A list of features supported by the DB engine.
         /// </para>
         ///  
         /// <para>
@@ -408,7 +409,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property SupportedNcharCharacterSets. 
         /// <para>
         /// A list of the character sets supported by the Oracle DB engine for the <code>NcharCharacterSetName</code>
-        /// parameter of the <code>CreateDBInstance</code> operation. 
+        /// parameter of the <code>CreateDBInstance</code> operation.
         /// </para>
         /// </summary>
         public List<CharacterSet> SupportedNcharCharacterSets
@@ -427,7 +428,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property SupportedTimezones. 
         /// <para>
         /// A list of the time zones supported by this engine for the <code>Timezone</code> parameter
-        /// of the <code>CreateDBInstance</code> action. 
+        /// of the <code>CreateDBInstance</code> action.
         /// </para>
         /// </summary>
         public List<Timezone> SupportedTimezones
@@ -440,6 +441,24 @@ namespace Amazon.RDS.Model
         internal bool IsSetSupportedTimezones()
         {
             return this._supportedTimezones != null && this._supportedTimezones.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property SupportsBabelfish. 
+        /// <para>
+        /// A value that indicates whether the engine version supports Babelfish for Aurora PostgreSQL.
+        /// </para>
+        /// </summary>
+        public bool SupportsBabelfish
+        {
+            get { return this._supportsBabelfish.GetValueOrDefault(); }
+            set { this._supportsBabelfish = value; }
+        }
+
+        // Check to see if SupportsBabelfish property is set
+        internal bool IsSetSupportsBabelfish()
+        {
+            return this._supportsBabelfish.HasValue; 
         }
 
         /// <summary>

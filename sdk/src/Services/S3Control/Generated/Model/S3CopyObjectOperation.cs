@@ -39,6 +39,7 @@ namespace Amazon.S3Control.Model
         private List<S3Grant> _accessControlGrants = new List<S3Grant>();
         private bool? _bucketKeyEnabled;
         private S3CannedAccessControlList _cannedAccessControlList;
+        private S3ChecksumAlgorithm _checksumAlgorithm;
         private S3MetadataDirective _metadataDirective;
         private DateTime? _modifiedSinceConstraint;
         private S3ObjectMetadata _newObjectMetadata;
@@ -111,6 +112,26 @@ namespace Amazon.S3Control.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ChecksumAlgorithm. 
+        /// <para>
+        /// Indicates the algorithm you want Amazon S3 to use to create the checksum. For more
+        /// information see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CheckingObjectIntegrity.xml">
+        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        /// </summary>
+        public S3ChecksumAlgorithm ChecksumAlgorithm
+        {
+            get { return this._checksumAlgorithm; }
+            set { this._checksumAlgorithm = value; }
+        }
+
+        // Check to see if ChecksumAlgorithm property is set
+        internal bool IsSetChecksumAlgorithm()
+        {
+            return this._checksumAlgorithm != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property MetadataDirective.
         /// </summary>
         public S3MetadataDirective MetadataDirective
@@ -141,7 +162,12 @@ namespace Amazon.S3Control.Model
         }
 
         /// <summary>
-        /// Gets and sets the property NewObjectMetadata.
+        /// Gets and sets the property NewObjectMetadata. 
+        /// <para>
+        /// If you don't provide this parameter, Amazon S3 copies all the metadata from the original
+        /// objects. If you specify an empty set, the new objects will have no tags. Otherwise,
+        /// Amazon S3 assigns the supplied tags to the new objects.
+        /// </para>
         /// </summary>
         public S3ObjectMetadata NewObjectMetadata
         {
@@ -295,8 +321,8 @@ namespace Amazon.S3Control.Model
         /// Gets and sets the property TargetKeyPrefix. 
         /// <para>
         /// Specifies the folder prefix into which you would like the objects to be copied. For
-        /// example, to copy objects into a folder named "Folder1" in the destination bucket,
-        /// set the TargetKeyPrefix to "Folder1/".
+        /// example, to copy objects into a folder named <code>Folder1</code> in the destination
+        /// bucket, set the TargetKeyPrefix to <code>Folder1</code>.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=1024)]

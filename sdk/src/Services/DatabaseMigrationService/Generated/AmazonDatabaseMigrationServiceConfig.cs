@@ -32,7 +32,7 @@ namespace Amazon.DatabaseMigrationService
     public partial class AmazonDatabaseMigrationServiceConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.4.24");
+            InternalSDKUtils.BuildUserAgentString("3.7.6.47");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.DatabaseMigrationService
         /// Default constructor
         /// </summary>
         public AmazonDatabaseMigrationServiceConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonDatabaseMigrationServiceDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "dms";
         }

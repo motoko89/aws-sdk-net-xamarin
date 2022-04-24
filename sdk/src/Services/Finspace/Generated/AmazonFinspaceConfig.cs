@@ -32,7 +32,7 @@ namespace Amazon.Finspace
     public partial class AmazonFinspaceConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.1");
+            InternalSDKUtils.BuildUserAgentString("3.7.1.59");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.Finspace
         /// Default constructor
         /// </summary>
         public AmazonFinspaceConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonFinspaceDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "finspace";
         }

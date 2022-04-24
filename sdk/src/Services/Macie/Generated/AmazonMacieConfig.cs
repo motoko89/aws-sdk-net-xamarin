@@ -32,7 +32,7 @@ namespace Amazon.Macie
     public partial class AmazonMacieConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.151");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.Macie
         /// Default constructor
         /// </summary>
         public AmazonMacieConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonMacieDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "macie";
         }

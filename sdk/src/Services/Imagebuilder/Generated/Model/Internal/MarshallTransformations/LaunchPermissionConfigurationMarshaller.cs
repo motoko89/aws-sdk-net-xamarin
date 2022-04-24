@@ -34,7 +34,7 @@ namespace Amazon.Imagebuilder.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// LaunchPermissionConfiguration Marshaller
-    /// </summary>       
+    /// </summary>
     public class LaunchPermissionConfigurationMarshaller : IRequestMarshaller<LaunchPermissionConfiguration, JsonMarshallerContext> 
     {
         /// <summary>
@@ -45,6 +45,28 @@ namespace Amazon.Imagebuilder.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(LaunchPermissionConfiguration requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetOrganizationalUnitArns())
+            {
+                context.Writer.WritePropertyName("organizationalUnitArns");
+                context.Writer.WriteArrayStart();
+                foreach(var requestObjectOrganizationalUnitArnsListValue in requestObject.OrganizationalUnitArns)
+                {
+                        context.Writer.Write(requestObjectOrganizationalUnitArnsListValue);
+                }
+                context.Writer.WriteArrayEnd();
+            }
+
+            if(requestObject.IsSetOrganizationArns())
+            {
+                context.Writer.WritePropertyName("organizationArns");
+                context.Writer.WriteArrayStart();
+                foreach(var requestObjectOrganizationArnsListValue in requestObject.OrganizationArns)
+                {
+                        context.Writer.Write(requestObjectOrganizationArnsListValue);
+                }
+                context.Writer.WriteArrayEnd();
+            }
+
             if(requestObject.IsSetUserGroups())
             {
                 context.Writer.WritePropertyName("userGroups");
@@ -71,7 +93,7 @@ namespace Amazon.Imagebuilder.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static LaunchPermissionConfigurationMarshaller Instance = new LaunchPermissionConfigurationMarshaller();
 
     }

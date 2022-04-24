@@ -52,10 +52,12 @@ namespace Amazon.EC2.Model
         private string _kernelId;
         private string _keyName;
         private List<LaunchTemplateLicenseConfiguration> _licenseSpecifications = new List<LaunchTemplateLicenseConfiguration>();
+        private LaunchTemplateInstanceMaintenanceOptions _maintenanceOptions;
         private LaunchTemplateInstanceMetadataOptions _metadataOptions;
         private LaunchTemplatesMonitoring _monitoring;
         private List<LaunchTemplateInstanceNetworkInterfaceSpecification> _networkInterfaces = new List<LaunchTemplateInstanceNetworkInterfaceSpecification>();
         private LaunchTemplatePlacement _placement;
+        private LaunchTemplatePrivateDnsNameOptions _privateDnsNameOptions;
         private string _ramDiskId;
         private List<string> _securityGroupIds = new List<string>();
         private List<string> _securityGroups = new List<string>();
@@ -415,6 +417,24 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property MaintenanceOptions. 
+        /// <para>
+        /// The maintenance options for your instance.
+        /// </para>
+        /// </summary>
+        public LaunchTemplateInstanceMaintenanceOptions MaintenanceOptions
+        {
+            get { return this._maintenanceOptions; }
+            set { this._maintenanceOptions = value; }
+        }
+
+        // Check to see if MaintenanceOptions property is set
+        internal bool IsSetMaintenanceOptions()
+        {
+            return this._maintenanceOptions != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property MetadataOptions. 
         /// <para>
         /// The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
@@ -485,6 +505,24 @@ namespace Amazon.EC2.Model
         internal bool IsSetPlacement()
         {
             return this._placement != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PrivateDnsNameOptions. 
+        /// <para>
+        /// The options for the instance hostname.
+        /// </para>
+        /// </summary>
+        public LaunchTemplatePrivateDnsNameOptions PrivateDnsNameOptions
+        {
+            get { return this._privateDnsNameOptions; }
+            set { this._privateDnsNameOptions = value; }
+        }
+
+        // Check to see if PrivateDnsNameOptions property is set
+        internal bool IsSetPrivateDnsNameOptions()
+        {
+            return this._privateDnsNameOptions != null;
         }
 
         /// <summary>

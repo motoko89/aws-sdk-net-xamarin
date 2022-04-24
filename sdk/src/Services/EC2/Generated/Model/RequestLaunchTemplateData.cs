@@ -30,6 +30,12 @@ namespace Amazon.EC2.Model
 {
     /// <summary>
     /// The information to include in the launch template.
+    /// 
+    ///  <note> 
+    /// <para>
+    /// You must specify at least one parameter for the launch template data.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class RequestLaunchTemplateData
     {
@@ -52,10 +58,12 @@ namespace Amazon.EC2.Model
         private string _kernelId;
         private string _keyName;
         private List<LaunchTemplateLicenseConfigurationRequest> _licenseSpecifications = new List<LaunchTemplateLicenseConfigurationRequest>();
+        private LaunchTemplateInstanceMaintenanceOptionsRequest _maintenanceOptions;
         private LaunchTemplateInstanceMetadataOptionsRequest _metadataOptions;
         private LaunchTemplatesMonitoringRequest _monitoring;
         private List<LaunchTemplateInstanceNetworkInterfaceSpecificationRequest> _networkInterfaces = new List<LaunchTemplateInstanceNetworkInterfaceSpecificationRequest>();
         private LaunchTemplatePlacementRequest _placement;
+        private LaunchTemplatePrivateDnsNameOptionsRequest _privateDnsNameOptions;
         private string _ramDiskId;
         private List<string> _securityGroupIds = new List<string>();
         private List<string> _securityGroups = new List<string>();
@@ -456,6 +464,24 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property MaintenanceOptions. 
+        /// <para>
+        /// The maintenance options for the instance.
+        /// </para>
+        /// </summary>
+        public LaunchTemplateInstanceMaintenanceOptionsRequest MaintenanceOptions
+        {
+            get { return this._maintenanceOptions; }
+            set { this._maintenanceOptions = value; }
+        }
+
+        // Check to see if MaintenanceOptions property is set
+        internal bool IsSetMaintenanceOptions()
+        {
+            return this._maintenanceOptions != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property MetadataOptions. 
         /// <para>
         /// The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
@@ -527,6 +553,24 @@ namespace Amazon.EC2.Model
         internal bool IsSetPlacement()
         {
             return this._placement != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property PrivateDnsNameOptions. 
+        /// <para>
+        /// The options for the instance hostname. The default values are inherited from the subnet.
+        /// </para>
+        /// </summary>
+        public LaunchTemplatePrivateDnsNameOptionsRequest PrivateDnsNameOptions
+        {
+            get { return this._privateDnsNameOptions; }
+            set { this._privateDnsNameOptions = value; }
+        }
+
+        // Check to see if PrivateDnsNameOptions property is set
+        internal bool IsSetPrivateDnsNameOptions()
+        {
+            return this._privateDnsNameOptions != null;
         }
 
         /// <summary>

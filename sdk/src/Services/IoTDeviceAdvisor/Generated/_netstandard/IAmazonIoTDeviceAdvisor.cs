@@ -31,15 +31,16 @@ namespace Amazon.IoTDeviceAdvisor
     /// <summary>
     /// Interface for accessing IoTDeviceAdvisor
     ///
-    /// AWS IoT Core Device Advisor is a cloud-based, fully managed test capability for validating
-    /// IoT devices during device software development. Device Advisor provides pre-built
-    /// tests that you can use to validate IoT devices for reliable and secure connectivity
-    /// with AWS IoT Core before deploying devices to production. By using Device Advisor,
-    /// you can confirm that your devices can connect to AWS IoT Core, follow security best
-    /// practices and, if applicable, receive software updates from IoT Device Management.
-    /// You can also download signed qualification reports to submit to the AWS Partner Network
-    /// to get your device qualified for the AWS Partner Device Catalog without the need to
-    /// send your device in and wait for it to be tested.
+    /// Amazon Web Services IoT Core Device Advisor is a cloud-based, fully managed test capability
+    /// for validating IoT devices during device software development. Device Advisor provides
+    /// pre-built tests that you can use to validate IoT devices for reliable and secure connectivity
+    /// with Amazon Web Services IoT Core before deploying devices to production. By using
+    /// Device Advisor, you can confirm that your devices can connect to Amazon Web Services
+    /// IoT Core, follow security best practices and, if applicable, receive software updates
+    /// from IoT Device Management. You can also download signed qualification reports to
+    /// submit to the Amazon Web Services Partner Network to get your device qualified for
+    /// the Amazon Web Services Partner Device Catalog without the need to send your device
+    /// in and wait for it to be tested.
     /// </summary>
     public partial interface IAmazonIoTDeviceAdvisor : IAmazonService, IDisposable
     {
@@ -56,6 +57,12 @@ namespace Amazon.IoTDeviceAdvisor
 
         /// <summary>
         /// Creates a Device Advisor test suite.
+        /// 
+        ///  
+        /// <para>
+        /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateSuiteDefinition</a>
+        /// action.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSuiteDefinition service method.</param>
         /// <param name="cancellationToken">
@@ -64,10 +71,10 @@ namespace Amazon.IoTDeviceAdvisor
         /// 
         /// <returns>The response from the CreateSuiteDefinition service method, as returned by IoTDeviceAdvisor.</returns>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.InternalServerException">
-        /// Sends Internal Failure Exception.
+        /// Sends an Internal Failure exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ValidationException">
-        /// Sends invalid request exception.
+        /// Sends a validation exception.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotdeviceadvisor-2020-09-18/CreateSuiteDefinition">REST API Reference for CreateSuiteDefinition Operation</seealso>
         Task<CreateSuiteDefinitionResponse> CreateSuiteDefinitionAsync(CreateSuiteDefinitionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -80,6 +87,12 @@ namespace Amazon.IoTDeviceAdvisor
 
         /// <summary>
         /// Deletes a Device Advisor test suite.
+        /// 
+        ///  
+        /// <para>
+        /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteSuiteDefinition</a>
+        /// action.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteSuiteDefinition service method.</param>
         /// <param name="cancellationToken">
@@ -88,13 +101,40 @@ namespace Amazon.IoTDeviceAdvisor
         /// 
         /// <returns>The response from the DeleteSuiteDefinition service method, as returned by IoTDeviceAdvisor.</returns>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.InternalServerException">
-        /// Sends Internal Failure Exception.
+        /// Sends an Internal Failure exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ValidationException">
-        /// Sends invalid request exception.
+        /// Sends a validation exception.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotdeviceadvisor-2020-09-18/DeleteSuiteDefinition">REST API Reference for DeleteSuiteDefinition Operation</seealso>
         Task<DeleteSuiteDefinitionResponse> DeleteSuiteDefinitionAsync(DeleteSuiteDefinitionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  GetEndpoint
+
+
+
+        /// <summary>
+        /// Gets information about an Device Advisor endpoint.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetEndpoint service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetEndpoint service method, as returned by IoTDeviceAdvisor.</returns>
+        /// <exception cref="Amazon.IoTDeviceAdvisor.Model.InternalServerException">
+        /// Sends an Internal Failure exception.
+        /// </exception>
+        /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ResourceNotFoundException">
+        /// Sends a Resource Not Found exception.
+        /// </exception>
+        /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ValidationException">
+        /// Sends a validation exception.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotdeviceadvisor-2020-09-18/GetEndpoint">REST API Reference for GetEndpoint Operation</seealso>
+        Task<GetEndpointResponse> GetEndpointAsync(GetEndpointRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -104,6 +144,12 @@ namespace Amazon.IoTDeviceAdvisor
 
         /// <summary>
         /// Gets information about a Device Advisor test suite.
+        /// 
+        ///  
+        /// <para>
+        /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteDefinition</a>
+        /// action.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetSuiteDefinition service method.</param>
         /// <param name="cancellationToken">
@@ -112,13 +158,13 @@ namespace Amazon.IoTDeviceAdvisor
         /// 
         /// <returns>The response from the GetSuiteDefinition service method, as returned by IoTDeviceAdvisor.</returns>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.InternalServerException">
-        /// Sends Internal Failure Exception.
+        /// Sends an Internal Failure exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ResourceNotFoundException">
-        /// Sends Resource Not Found Exception.
+        /// Sends a Resource Not Found exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ValidationException">
-        /// Sends invalid request exception.
+        /// Sends a validation exception.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotdeviceadvisor-2020-09-18/GetSuiteDefinition">REST API Reference for GetSuiteDefinition Operation</seealso>
         Task<GetSuiteDefinitionResponse> GetSuiteDefinitionAsync(GetSuiteDefinitionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -131,6 +177,12 @@ namespace Amazon.IoTDeviceAdvisor
 
         /// <summary>
         /// Gets information about a Device Advisor test suite run.
+        /// 
+        ///  
+        /// <para>
+        /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteRun</a>
+        /// action.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetSuiteRun service method.</param>
         /// <param name="cancellationToken">
@@ -139,13 +191,13 @@ namespace Amazon.IoTDeviceAdvisor
         /// 
         /// <returns>The response from the GetSuiteRun service method, as returned by IoTDeviceAdvisor.</returns>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.InternalServerException">
-        /// Sends Internal Failure Exception.
+        /// Sends an Internal Failure exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ResourceNotFoundException">
-        /// Sends Resource Not Found Exception.
+        /// Sends a Resource Not Found exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ValidationException">
-        /// Sends invalid request exception.
+        /// Sends a validation exception.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotdeviceadvisor-2020-09-18/GetSuiteRun">REST API Reference for GetSuiteRun Operation</seealso>
         Task<GetSuiteRunResponse> GetSuiteRunAsync(GetSuiteRunRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -159,6 +211,12 @@ namespace Amazon.IoTDeviceAdvisor
         /// <summary>
         /// Gets a report download link for a successful Device Advisor qualifying test suite
         /// run.
+        /// 
+        ///  
+        /// <para>
+        /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteRunReport</a>
+        /// action.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetSuiteRunReport service method.</param>
         /// <param name="cancellationToken">
@@ -167,13 +225,13 @@ namespace Amazon.IoTDeviceAdvisor
         /// 
         /// <returns>The response from the GetSuiteRunReport service method, as returned by IoTDeviceAdvisor.</returns>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.InternalServerException">
-        /// Sends Internal Failure Exception.
+        /// Sends an Internal Failure exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ResourceNotFoundException">
-        /// Sends Resource Not Found Exception.
+        /// Sends a Resource Not Found exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ValidationException">
-        /// Sends invalid request exception.
+        /// Sends a validation exception.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotdeviceadvisor-2020-09-18/GetSuiteRunReport">REST API Reference for GetSuiteRunReport Operation</seealso>
         Task<GetSuiteRunReportResponse> GetSuiteRunReportAsync(GetSuiteRunReportRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -186,6 +244,12 @@ namespace Amazon.IoTDeviceAdvisor
 
         /// <summary>
         /// Lists the Device Advisor test suites you have created.
+        /// 
+        ///  
+        /// <para>
+        /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSuiteDefinitions</a>
+        /// action.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListSuiteDefinitions service method.</param>
         /// <param name="cancellationToken">
@@ -194,10 +258,10 @@ namespace Amazon.IoTDeviceAdvisor
         /// 
         /// <returns>The response from the ListSuiteDefinitions service method, as returned by IoTDeviceAdvisor.</returns>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.InternalServerException">
-        /// Sends Internal Failure Exception.
+        /// Sends an Internal Failure exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ValidationException">
-        /// Sends invalid request exception.
+        /// Sends a validation exception.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotdeviceadvisor-2020-09-18/ListSuiteDefinitions">REST API Reference for ListSuiteDefinitions Operation</seealso>
         Task<ListSuiteDefinitionsResponse> ListSuiteDefinitionsAsync(ListSuiteDefinitionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -209,8 +273,14 @@ namespace Amazon.IoTDeviceAdvisor
 
 
         /// <summary>
-        /// Lists the runs of the specified Device Advisor test suite. You can list all runs of
-        /// the test suite, or the runs of a specific version of the test suite.
+        /// Lists runs of the specified Device Advisor test suite. You can list all runs of the
+        /// test suite, or the runs of a specific version of the test suite.
+        /// 
+        ///  
+        /// <para>
+        /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSuiteRuns</a>
+        /// action.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListSuiteRuns service method.</param>
         /// <param name="cancellationToken">
@@ -219,10 +289,10 @@ namespace Amazon.IoTDeviceAdvisor
         /// 
         /// <returns>The response from the ListSuiteRuns service method, as returned by IoTDeviceAdvisor.</returns>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.InternalServerException">
-        /// Sends Internal Failure Exception.
+        /// Sends an Internal Failure exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ValidationException">
-        /// Sends invalid request exception.
+        /// Sends a validation exception.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotdeviceadvisor-2020-09-18/ListSuiteRuns">REST API Reference for ListSuiteRuns Operation</seealso>
         Task<ListSuiteRunsResponse> ListSuiteRunsAsync(ListSuiteRunsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -235,6 +305,12 @@ namespace Amazon.IoTDeviceAdvisor
 
         /// <summary>
         /// Lists the tags attached to an IoT Device Advisor resource.
+        /// 
+        ///  
+        /// <para>
+        /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTagsForResource</a>
+        /// action.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource service method.</param>
         /// <param name="cancellationToken">
@@ -243,13 +319,13 @@ namespace Amazon.IoTDeviceAdvisor
         /// 
         /// <returns>The response from the ListTagsForResource service method, as returned by IoTDeviceAdvisor.</returns>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.InternalServerException">
-        /// Sends Internal Failure Exception.
+        /// Sends an Internal Failure exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ResourceNotFoundException">
-        /// Sends Resource Not Found Exception.
+        /// Sends a Resource Not Found exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ValidationException">
-        /// Sends invalid request exception.
+        /// Sends a validation exception.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotdeviceadvisor-2020-09-18/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
         Task<ListTagsForResourceResponse> ListTagsForResourceAsync(ListTagsForResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -262,6 +338,12 @@ namespace Amazon.IoTDeviceAdvisor
 
         /// <summary>
         /// Starts a Device Advisor test suite run.
+        /// 
+        ///  
+        /// <para>
+        /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartSuiteRun</a>
+        /// action.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartSuiteRun service method.</param>
         /// <param name="cancellationToken">
@@ -270,13 +352,13 @@ namespace Amazon.IoTDeviceAdvisor
         /// 
         /// <returns>The response from the StartSuiteRun service method, as returned by IoTDeviceAdvisor.</returns>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ConflictException">
-        /// Sends Conflict Exception.
+        /// Sends a Conflict Exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.InternalServerException">
-        /// Sends Internal Failure Exception.
+        /// Sends an Internal Failure exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ValidationException">
-        /// Sends invalid request exception.
+        /// Sends a validation exception.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotdeviceadvisor-2020-09-18/StartSuiteRun">REST API Reference for StartSuiteRun Operation</seealso>
         Task<StartSuiteRunResponse> StartSuiteRunAsync(StartSuiteRunRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -289,6 +371,12 @@ namespace Amazon.IoTDeviceAdvisor
 
         /// <summary>
         /// Stops a Device Advisor test suite run that is currently running.
+        /// 
+        ///  
+        /// <para>
+        /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StopSuiteRun</a>
+        /// action.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StopSuiteRun service method.</param>
         /// <param name="cancellationToken">
@@ -297,13 +385,13 @@ namespace Amazon.IoTDeviceAdvisor
         /// 
         /// <returns>The response from the StopSuiteRun service method, as returned by IoTDeviceAdvisor.</returns>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.InternalServerException">
-        /// Sends Internal Failure Exception.
+        /// Sends an Internal Failure exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ResourceNotFoundException">
-        /// Sends Resource Not Found Exception.
+        /// Sends a Resource Not Found exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ValidationException">
-        /// Sends invalid request exception.
+        /// Sends a validation exception.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotdeviceadvisor-2020-09-18/StopSuiteRun">REST API Reference for StopSuiteRun Operation</seealso>
         Task<StopSuiteRunResponse> StopSuiteRunAsync(StopSuiteRunRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -316,6 +404,12 @@ namespace Amazon.IoTDeviceAdvisor
 
         /// <summary>
         /// Adds to and modifies existing tags of an IoT Device Advisor resource.
+        /// 
+        ///  
+        /// <para>
+        /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TagResource</a>
+        /// action.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
         /// <param name="cancellationToken">
@@ -324,13 +418,13 @@ namespace Amazon.IoTDeviceAdvisor
         /// 
         /// <returns>The response from the TagResource service method, as returned by IoTDeviceAdvisor.</returns>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.InternalServerException">
-        /// Sends Internal Failure Exception.
+        /// Sends an Internal Failure exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ResourceNotFoundException">
-        /// Sends Resource Not Found Exception.
+        /// Sends a Resource Not Found exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ValidationException">
-        /// Sends invalid request exception.
+        /// Sends a validation exception.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotdeviceadvisor-2020-09-18/TagResource">REST API Reference for TagResource Operation</seealso>
         Task<TagResourceResponse> TagResourceAsync(TagResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -343,6 +437,12 @@ namespace Amazon.IoTDeviceAdvisor
 
         /// <summary>
         /// Removes tags from an IoT Device Advisor resource.
+        /// 
+        ///  
+        /// <para>
+        /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UntagResource</a>
+        /// action.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UntagResource service method.</param>
         /// <param name="cancellationToken">
@@ -351,13 +451,13 @@ namespace Amazon.IoTDeviceAdvisor
         /// 
         /// <returns>The response from the UntagResource service method, as returned by IoTDeviceAdvisor.</returns>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.InternalServerException">
-        /// Sends Internal Failure Exception.
+        /// Sends an Internal Failure exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ResourceNotFoundException">
-        /// Sends Resource Not Found Exception.
+        /// Sends a Resource Not Found exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ValidationException">
-        /// Sends invalid request exception.
+        /// Sends a validation exception.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotdeviceadvisor-2020-09-18/UntagResource">REST API Reference for UntagResource Operation</seealso>
         Task<UntagResourceResponse> UntagResourceAsync(UntagResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -370,6 +470,12 @@ namespace Amazon.IoTDeviceAdvisor
 
         /// <summary>
         /// Updates a Device Advisor test suite.
+        /// 
+        ///  
+        /// <para>
+        /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateSuiteDefinition</a>
+        /// action.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateSuiteDefinition service method.</param>
         /// <param name="cancellationToken">
@@ -378,10 +484,10 @@ namespace Amazon.IoTDeviceAdvisor
         /// 
         /// <returns>The response from the UpdateSuiteDefinition service method, as returned by IoTDeviceAdvisor.</returns>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.InternalServerException">
-        /// Sends Internal Failure Exception.
+        /// Sends an Internal Failure exception.
         /// </exception>
         /// <exception cref="Amazon.IoTDeviceAdvisor.Model.ValidationException">
-        /// Sends invalid request exception.
+        /// Sends a validation exception.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotdeviceadvisor-2020-09-18/UpdateSuiteDefinition">REST API Reference for UpdateSuiteDefinition Operation</seealso>
         Task<UpdateSuiteDefinitionResponse> UpdateSuiteDefinitionAsync(UpdateSuiteDefinitionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));

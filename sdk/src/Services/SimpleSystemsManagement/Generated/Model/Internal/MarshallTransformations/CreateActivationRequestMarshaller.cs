@@ -58,7 +58,7 @@ namespace Amazon.SimpleSystemsManagement.Model.Internal.MarshallTransformations
             string target = "AmazonSSM.CreateActivation";
             request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/x-amz-json-1.1";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2014-11-06";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2014-11-06";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
@@ -97,6 +97,22 @@ namespace Amazon.SimpleSystemsManagement.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.RegistrationLimit);
                 }
 
+                if(publicRequest.IsSetRegistrationMetadata())
+                {
+                    context.Writer.WritePropertyName("RegistrationMetadata");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestRegistrationMetadataListValue in publicRequest.RegistrationMetadata)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = RegistrationMetadataItemMarshaller.Instance;
+                        marshaller.Marshall(publicRequestRegistrationMetadataListValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteArrayEnd();
+                }
+
                 if(publicRequest.IsSetTags())
                 {
                     context.Writer.WritePropertyName("Tags");
@@ -113,7 +129,6 @@ namespace Amazon.SimpleSystemsManagement.Model.Internal.MarshallTransformations
                     context.Writer.WriteArrayEnd();
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

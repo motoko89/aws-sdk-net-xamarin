@@ -34,7 +34,7 @@ namespace Amazon.DynamoDBv2.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// ReplicaSettingsUpdate Marshaller
-    /// </summary>       
+    /// </summary>
     public class ReplicaSettingsUpdateMarshaller : IRequestMarshaller<ReplicaSettingsUpdate, JsonMarshallerContext> 
     {
         /// <summary>
@@ -84,11 +84,17 @@ namespace Amazon.DynamoDBv2.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.ReplicaProvisionedReadCapacityUnits);
             }
 
+            if(requestObject.IsSetReplicaTableClass())
+            {
+                context.Writer.WritePropertyName("ReplicaTableClass");
+                context.Writer.Write(requestObject.ReplicaTableClass);
+            }
+
         }
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static ReplicaSettingsUpdateMarshaller Instance = new ReplicaSettingsUpdateMarshaller();
 
     }

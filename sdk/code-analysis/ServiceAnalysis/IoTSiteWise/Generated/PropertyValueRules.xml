@@ -25,6 +25,29 @@
     <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.AssociateTimeSeriesToAssetPropertyRequest.Alias</property>
+    <min>1</min>
+    <pattern>[^\u0000-\u001F\u007F]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.AssociateTimeSeriesToAssetPropertyRequest.AssetId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.AssociateTimeSeriesToAssetPropertyRequest.ClientToken</property>
+    <min>36</min>
+    <max>64</max>
+    <pattern>\S{36,64}</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.AssociateTimeSeriesToAssetPropertyRequest.PropertyId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.BatchAssociateProjectAssetsRequest.ClientToken</property>
     <min>36</min>
     <max>64</max>
@@ -47,6 +70,50 @@
     <min>36</min>
     <max>36</max>
     <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyAggregatesRequest.MaxResults</property>
+    <min>1</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyAggregatesRequest.NextToken</property>
+    <min>1</min>
+    <max>4096</max>
+    <pattern>[A-Za-z0-9+/=]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyAggregatesResponse.NextToken</property>
+    <min>1</min>
+    <max>4096</max>
+    <pattern>[A-Za-z0-9+/=]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueRequest.NextToken</property>
+    <min>1</min>
+    <max>4096</max>
+    <pattern>[A-Za-z0-9+/=]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueResponse.NextToken</property>
+    <min>1</min>
+    <max>4096</max>
+    <pattern>[A-Za-z0-9+/=]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueHistoryRequest.MaxResults</property>
+    <min>1</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueHistoryRequest.NextToken</property>
+    <min>1</min>
+    <max>4096</max>
+    <pattern>[A-Za-z0-9+/=]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueHistoryResponse.NextToken</property>
+    <min>1</min>
+    <max>4096</max>
+    <pattern>[A-Za-z0-9+/=]+</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.CreateAccessPolicyRequest.ClientToken</property>
@@ -361,6 +428,29 @@
     <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.DeleteTimeSeriesRequest.Alias</property>
+    <min>1</min>
+    <pattern>[^\u0000-\u001F\u007F]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.DeleteTimeSeriesRequest.AssetId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.DeleteTimeSeriesRequest.ClientToken</property>
+    <min>36</min>
+    <max>64</max>
+    <pattern>\S{36,64}</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.DeleteTimeSeriesRequest.PropertyId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.DescribeAccessPolicyRequest.AccessPolicyId</property>
     <min>36</min>
     <max>36</max>
@@ -666,6 +756,51 @@
     <pattern>[^\u0000-\u001F\u007F]+</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.DescribeTimeSeriesRequest.Alias</property>
+    <min>1</min>
+    <pattern>[^\u0000-\u001F\u007F]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.DescribeTimeSeriesRequest.AssetId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.DescribeTimeSeriesRequest.PropertyId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.DescribeTimeSeriesResponse.Alias</property>
+    <min>1</min>
+    <pattern>[^\u0000-\u001F\u007F]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.DescribeTimeSeriesResponse.AssetId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.DescribeTimeSeriesResponse.DataTypeSpec</property>
+    <min>1</min>
+    <max>256</max>
+    <pattern>[^\u0000-\u001F\u007F]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.DescribeTimeSeriesResponse.PropertyId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.DescribeTimeSeriesResponse.TimeSeriesId</property>
+    <min>36</min>
+    <max>73</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.DisassociateAssetsRequest.AssetId</property>
     <min>36</min>
     <max>36</max>
@@ -685,6 +820,29 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.DisassociateAssetsRequest.HierarchyId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.DisassociateTimeSeriesFromAssetPropertyRequest.Alias</property>
+    <min>1</min>
+    <pattern>[^\u0000-\u001F\u007F]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.DisassociateTimeSeriesFromAssetPropertyRequest.AssetId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.DisassociateTimeSeriesFromAssetPropertyRequest.ClientToken</property>
+    <min>36</min>
+    <max>64</max>
+    <pattern>\S{36,64}</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.DisassociateTimeSeriesFromAssetPropertyRequest.PropertyId</property>
     <min>36</min>
     <max>36</max>
     <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
@@ -792,7 +950,7 @@
   <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.GetInterpolatedAssetPropertyValuesRequest.EndTimeInSeconds</property>
     <min>1</min>
-    <max>31556889864403199</max>
+    <max>9223372036854774</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.GetInterpolatedAssetPropertyValuesRequest.EndTimeOffsetInNanos</property>
@@ -834,7 +992,7 @@
   <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.GetInterpolatedAssetPropertyValuesRequest.StartTimeInSeconds</property>
     <min>1</min>
-    <max>31556889864403199</max>
+    <max>9223372036854774</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.GetInterpolatedAssetPropertyValuesRequest.StartTimeOffsetInNanos</property>
@@ -1086,6 +1244,34 @@
     <property>Amazon.IoTSiteWise.Model.ListTagsForResourceRequest.ResourceArn</property>
     <min>1</min>
     <max>1011</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.ListTimeSeriesRequest.AliasPrefix</property>
+    <min>1</min>
+    <pattern>[^\u0000-\u001F\u007F]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.ListTimeSeriesRequest.AssetId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.ListTimeSeriesRequest.MaxResults</property>
+    <min>1</min>
+    <max>250</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.ListTimeSeriesRequest.NextToken</property>
+    <min>1</min>
+    <max>4096</max>
+    <pattern>[A-Za-z0-9+/=]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.ListTimeSeriesResponse.NextToken</property>
+    <min>1</min>
+    <max>4096</max>
+    <pattern>[A-Za-z0-9+/=]+</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.PutDefaultEncryptionConfigurationRequest.KmsKeyId</property>
@@ -1598,6 +1784,138 @@
     <pattern>[^\u0000-\u001F\u007F]+</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyAggregatesEntry.AssetId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyAggregatesEntry.EntryId</property>
+    <min>1</min>
+    <max>64</max>
+    <pattern>^[a-zA-Z0-9_-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyAggregatesEntry.PropertyAlias</property>
+    <min>1</min>
+    <max>2048</max>
+    <pattern>[^\u0000-\u001F\u007F]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyAggregatesEntry.PropertyId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyAggregatesEntry.Resolution</property>
+    <min>2</min>
+    <max>2</max>
+    <pattern>1m|1h|1d</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyAggregatesErrorEntry.EntryId</property>
+    <min>1</min>
+    <max>64</max>
+    <pattern>^[a-zA-Z0-9_-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyAggregatesSkippedEntry.EntryId</property>
+    <min>1</min>
+    <max>64</max>
+    <pattern>^[a-zA-Z0-9_-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyAggregatesSuccessEntry.EntryId</property>
+    <min>1</min>
+    <max>64</max>
+    <pattern>^[a-zA-Z0-9_-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueEntry.AssetId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueEntry.EntryId</property>
+    <min>1</min>
+    <max>64</max>
+    <pattern>^[a-zA-Z0-9_-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueEntry.PropertyAlias</property>
+    <min>1</min>
+    <max>2048</max>
+    <pattern>[^\u0000-\u001F\u007F]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueEntry.PropertyId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueErrorEntry.EntryId</property>
+    <min>1</min>
+    <max>64</max>
+    <pattern>^[a-zA-Z0-9_-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueHistoryEntry.AssetId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueHistoryEntry.EntryId</property>
+    <min>1</min>
+    <max>64</max>
+    <pattern>^[a-zA-Z0-9_-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueHistoryEntry.PropertyAlias</property>
+    <min>1</min>
+    <max>2048</max>
+    <pattern>[^\u0000-\u001F\u007F]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueHistoryEntry.PropertyId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueHistoryErrorEntry.EntryId</property>
+    <min>1</min>
+    <max>64</max>
+    <pattern>^[a-zA-Z0-9_-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueHistorySkippedEntry.EntryId</property>
+    <min>1</min>
+    <max>64</max>
+    <pattern>^[a-zA-Z0-9_-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueHistorySuccessEntry.EntryId</property>
+    <min>1</min>
+    <max>64</max>
+    <pattern>^[a-zA-Z0-9_-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueSkippedEntry.EntryId</property>
+    <min>1</min>
+    <max>64</max>
+    <pattern>^[a-zA-Z0-9_-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.BatchGetAssetPropertyValueSuccessEntry.EntryId</property>
+    <min>1</min>
+    <max>64</max>
+    <pattern>^[a-zA-Z0-9_-]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.BatchPutAssetPropertyErrorEntry.EntryId</property>
     <min>1</min>
     <max>64</max>
@@ -1834,6 +2152,10 @@
     <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.RetentionPeriod.NumberOfDays</property>
+    <min>30</min>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.TimeInNanos.OffsetInNanos</property>
     <min>0</min>
     <max>999999999</max>
@@ -1841,7 +2163,35 @@
   <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.TimeInNanos.TimeInSeconds</property>
     <min>1</min>
-    <max>31556889864403199</max>
+    <max>9223372036854774</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.TimeSeriesSummary.Alias</property>
+    <min>1</min>
+    <pattern>[^\u0000-\u001F\u007F]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.TimeSeriesSummary.AssetId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.TimeSeriesSummary.DataTypeSpec</property>
+    <min>1</min>
+    <max>256</max>
+    <pattern>[^\u0000-\u001F\u007F]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.TimeSeriesSummary.PropertyId</property>
+    <min>36</min>
+    <max>36</max>
+    <pattern>^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.IoTSiteWise.Model.TimeSeriesSummary.TimeSeriesId</property>
+    <min>36</min>
+    <max>73</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.IoTSiteWise.Model.TooManyTagsException.ResourceName</property>
@@ -1879,10 +2229,6 @@
     <property>Amazon.IoTSiteWise.Model.VariableValue.PropertyId</property>
     <min>1</min>
     <max>256</max>
-    <pattern>[^\u0000-\u001F\u007F]+</pattern>
-  </property-value-rule>
-  <property-value-rule>
-    <property>Amazon.IoTSiteWise.Model.Variant.StringValue</property>
     <pattern>[^\u0000-\u001F\u007F]+</pattern>
   </property-value-rule>
 </property-value-rules>

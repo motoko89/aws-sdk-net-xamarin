@@ -30,9 +30,9 @@ namespace Amazon.DynamoDBv2.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateTable operation.
-    /// The <code>CreateTable</code> operation adds a new table to your account. In an AWS
-    /// account, table names must be unique within each Region. That is, you can have two
-    /// tables with same name if you create the tables in different Regions.
+    /// The <code>CreateTable</code> operation adds a new table to your account. In an Amazon
+    /// Web Services account, table names must be unique within each Region. That is, you
+    /// can have two tables with same name if you create the tables in different Regions.
     /// 
     ///  
     /// <para>
@@ -64,6 +64,7 @@ namespace Amazon.DynamoDBv2.Model
         private ProvisionedThroughput _provisionedThroughput;
         private SSESpecification _sseSpecification;
         private StreamSpecification _streamSpecification;
+        private TableClass _tableClass;
         private string _tableName;
         private List<Tag> _tags = new List<Tag>();
 
@@ -448,6 +449,24 @@ namespace Amazon.DynamoDBv2.Model
         internal bool IsSetStreamSpecification()
         {
             return this._streamSpecification != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property TableClass. 
+        /// <para>
+        /// The table class of the new table. Valid values are <code>STANDARD</code> and <code>STANDARD_INFREQUENT_ACCESS</code>.
+        /// </para>
+        /// </summary>
+        public TableClass TableClass
+        {
+            get { return this._tableClass; }
+            set { this._tableClass = value; }
+        }
+
+        // Check to see if TableClass property is set
+        internal bool IsSetTableClass()
+        {
+            return this._tableClass != null;
         }
 
         /// <summary>

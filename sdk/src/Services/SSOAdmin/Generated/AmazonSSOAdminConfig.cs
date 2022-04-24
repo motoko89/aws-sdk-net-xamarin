@@ -32,7 +32,7 @@ namespace Amazon.SSOAdmin
     public partial class AmazonSSOAdminConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.93");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.151");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.SSOAdmin
         /// Default constructor
         /// </summary>
         public AmazonSSOAdminConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonSSOAdminDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "sso";
         }

@@ -55,15 +55,21 @@ namespace Amazon.WellArchitected.Model.Internal.MarshallTransformations
         public IRequest Marshall(ListShareInvitationsRequest publicRequest)
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.WellArchitected");
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-03-31";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-03-31";
             request.HttpMethod = "GET";
 
+            
+            if (publicRequest.IsSetLensNamePrefix())
+                request.Parameters.Add("LensNamePrefix", StringUtils.FromString(publicRequest.LensNamePrefix));
             
             if (publicRequest.IsSetMaxResults())
                 request.Parameters.Add("MaxResults", StringUtils.FromInt(publicRequest.MaxResults));
             
             if (publicRequest.IsSetNextToken())
                 request.Parameters.Add("NextToken", StringUtils.FromString(publicRequest.NextToken));
+            
+            if (publicRequest.IsSetShareResourceType())
+                request.Parameters.Add("ShareResourceType", StringUtils.FromString(publicRequest.ShareResourceType));
             
             if (publicRequest.IsSetWorkloadNamePrefix())
                 request.Parameters.Add("WorkloadNamePrefix", StringUtils.FromString(publicRequest.WorkloadNamePrefix));

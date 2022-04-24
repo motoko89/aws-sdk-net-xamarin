@@ -58,7 +58,7 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
             string target = "AWSKendraFrontendService.CreateDataSource";
             request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/x-amz-json-1.1";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-02-03";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-02-03";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
@@ -76,7 +76,7 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
                 else if(!(publicRequest.IsSetClientToken()))
                 {
                     context.Writer.WritePropertyName("ClientToken");
-                    context.Writer.Write(Guid.NewGuid().ToString());                                                
+                    context.Writer.Write(Guid.NewGuid().ToString());
                 }
                 if(publicRequest.IsSetConfiguration())
                 {
@@ -85,6 +85,17 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
 
                     var marshaller = DataSourceConfigurationMarshaller.Instance;
                     marshaller.Marshall(publicRequest.Configuration, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetCustomDocumentEnrichmentConfiguration())
+                {
+                    context.Writer.WritePropertyName("CustomDocumentEnrichmentConfiguration");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = CustomDocumentEnrichmentConfigurationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.CustomDocumentEnrichmentConfiguration, context);
 
                     context.Writer.WriteObjectEnd();
                 }
@@ -147,7 +158,6 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.Type);
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

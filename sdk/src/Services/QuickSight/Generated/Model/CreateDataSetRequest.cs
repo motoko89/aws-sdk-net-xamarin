@@ -30,7 +30,8 @@ namespace Amazon.QuickSight.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateDataSet operation.
-    /// Creates a dataset.
+    /// Creates a dataset. This operation doesn't support datasets that include uploaded files
+    /// as a source.
     /// </summary>
     public partial class CreateDataSetRequest : AmazonQuickSightRequest
     {
@@ -91,7 +92,8 @@ namespace Amazon.QuickSight.Model
         /// <summary>
         /// Gets and sets the property ColumnLevelPermissionRules. 
         /// <para>
-        /// A set of one or more definitions of a <code> <a>ColumnLevelPermissionRule</a> </code>.
+        /// A set of one or more definitions of a <code> <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
+        /// </code>.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1)]

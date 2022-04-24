@@ -53,6 +53,7 @@ namespace Amazon.Redshift.Model
         private string _clusterVersion;
         private DataTransferProgress _dataTransferProgress;
         private string _dbName;
+        private string _defaultIamRoleArn;
         private List<DeferredMaintenanceWindow> _deferredMaintenanceWindows = new List<DeferredMaintenanceWindow>();
         private ElasticIpStatus _elasticIpStatus;
         private string _elasticResizeNumberOfNodeOptions;
@@ -75,6 +76,7 @@ namespace Amazon.Redshift.Model
         private PendingModifiedValues _pendingModifiedValues;
         private string _preferredMaintenanceWindow;
         private bool? _publiclyAccessible;
+        private ReservedNodeExchangeStatus _reservedNodeExchangeStatus;
         private ResizeInfo _resizeInfo;
         private RestoreStatus _restoreStatus;
         private string _snapshotScheduleIdentifier;
@@ -571,6 +573,25 @@ namespace Amazon.Redshift.Model
         }
 
         /// <summary>
+        /// Gets and sets the property DefaultIamRoleArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) for the IAM role set as default for the cluster.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Max=2147483647)]
+        public string DefaultIamRoleArn
+        {
+            get { return this._defaultIamRoleArn; }
+            set { this._defaultIamRoleArn = value; }
+        }
+
+        // Check to see if DefaultIamRoleArn property is set
+        internal bool IsSetDefaultIamRoleArn()
+        {
+            return this._defaultIamRoleArn != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property DeferredMaintenanceWindows. 
         /// <para>
         /// Describes a group of <code>DeferredMaintenanceWindow</code> objects.
@@ -1013,6 +1034,25 @@ namespace Amazon.Redshift.Model
         internal bool IsSetPubliclyAccessible()
         {
             return this._publiclyAccessible.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property ReservedNodeExchangeStatus. 
+        /// <para>
+        /// The status of the reserved-node exchange request. Statuses include in-progress and
+        /// requested.
+        /// </para>
+        /// </summary>
+        public ReservedNodeExchangeStatus ReservedNodeExchangeStatus
+        {
+            get { return this._reservedNodeExchangeStatus; }
+            set { this._reservedNodeExchangeStatus = value; }
+        }
+
+        // Check to see if ReservedNodeExchangeStatus property is set
+        internal bool IsSetReservedNodeExchangeStatus()
+        {
+            return this._reservedNodeExchangeStatus != null;
         }
 
         /// <summary>

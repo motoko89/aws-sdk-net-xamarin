@@ -112,13 +112,17 @@ namespace Amazon.Backup.Model
         ///  
         /// <para>
         /// Backups transitioned to cold storage must be stored in cold storage for a minimum
-        /// of 90 days. Therefore, the “expire after days” setting must be 90 days greater than
-        /// the “transition to cold after days” setting. The “transition to cold after days” setting
-        /// cannot be changed after a backup has been transitioned to cold. 
+        /// of 90 days. Therefore, the “retention” setting must be 90 days greater than the “transition
+        /// to cold after days” setting. The “transition to cold after days” setting cannot be
+        /// changed after a backup has been transitioned to cold. 
         /// </para>
         ///  
         /// <para>
-        /// Only Amazon EFS file system backups can be transitioned to cold storage.
+        /// Only resource types that support full Backup management can transition their backups
+        /// to cold storage. Those resource types are listed in the "Full Backup management" section
+        /// of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
+        /// Feature availability by resource</a> table. Backup ignores this expression for other
+        /// resource types.
         /// </para>
         /// </summary>
         public Lifecycle Lifecycle
@@ -173,7 +177,7 @@ namespace Amazon.Backup.Model
         /// <summary>
         /// Gets and sets the property RuleName. 
         /// <para>
-        /// An optional display name for a backup rule.
+        /// A display name for a backup rule. Must contain 1 to 50 alphanumeric or '-_.' characters.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -193,10 +197,12 @@ namespace Amazon.Backup.Model
         /// Gets and sets the property ScheduleExpression. 
         /// <para>
         /// A cron expression in UTC specifying when Backup initiates a backup job. For more information
-        /// about cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule
-        /// Expressions for Rules</a> in the <i>Amazon CloudWatch Events User Guide.</i>. Prior
-        /// to specifying a value for this parameter, we recommend testing your cron expression
-        /// using one of the many available cron generator and testing tools.
+        /// about Amazon Web Services cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule
+        /// Expressions for Rules</a> in the <i>Amazon CloudWatch Events User Guide.</i>. Two
+        /// examples of Amazon Web Services cron expressions are <code> 15 * ? * * *</code> (take
+        /// a backup every hour at 15 minutes past the hour) and <code>0 12 * * ? *</code> (take
+        /// a backup every day at 12 noon UTC). For a table of examples, click the preceding link
+        /// and scroll down the page.
         /// </para>
         /// </summary>
         public string ScheduleExpression

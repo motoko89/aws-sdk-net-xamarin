@@ -29,8 +29,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Proton.Model
 {
     /// <summary>
-    /// The environment detail data. An AWS Proton environment is a set resources shared across
-    /// an AWS Proton service.
+    /// The environment detail data. An Proton environment is a set resources shared across
+    /// an Proton service.
     /// </summary>
     public partial class Environment
     {
@@ -46,6 +46,7 @@ namespace Amazon.Proton.Model
         private string _name;
         private string _protonServiceRoleArn;
         private Provisioning _provisioning;
+        private RepositoryBranch _provisioningRepository;
         private string _spec;
         private string _templateMajorVersion;
         private string _templateMinorVersion;
@@ -243,8 +244,8 @@ namespace Amazon.Proton.Model
         /// <summary>
         /// Gets and sets the property ProtonServiceRoleArn. 
         /// <para>
-        /// The Amazon Resource Name (ARN) of the AWS Proton service role that allows AWS Proton
-        /// to make calls to other services on your behalf.
+        /// The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make
+        /// calls to other services on your behalf.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=200)]
@@ -280,6 +281,25 @@ namespace Amazon.Proton.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ProvisioningRepository. 
+        /// <para>
+        /// The infrastructure repository that you use to host your rendered infrastructure templates
+        /// for self-managed provisioning.
+        /// </para>
+        /// </summary>
+        public RepositoryBranch ProvisioningRepository
+        {
+            get { return this._provisioningRepository; }
+            set { this._provisioningRepository = value; }
+        }
+
+        // Check to see if ProvisioningRepository property is set
+        internal bool IsSetProvisioningRepository()
+        {
+            return this._provisioningRepository != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Spec. 
         /// <para>
         /// The environment spec.
@@ -301,7 +321,7 @@ namespace Amazon.Proton.Model
         /// <summary>
         /// Gets and sets the property TemplateMajorVersion. 
         /// <para>
-        /// The ID of the major version of the environment template.
+        /// The major version of the environment template.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=20)]
@@ -320,7 +340,7 @@ namespace Amazon.Proton.Model
         /// <summary>
         /// Gets and sets the property TemplateMinorVersion. 
         /// <para>
-        /// The ID of the minor version of the environment template.
+        /// The minor version of the environment template.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=20)]

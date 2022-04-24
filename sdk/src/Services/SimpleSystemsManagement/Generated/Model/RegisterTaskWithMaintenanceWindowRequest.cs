@@ -137,7 +137,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// Gets and sets the property LoggingInfo. 
         /// <para>
         /// A structure containing information about an Amazon Simple Storage Service (Amazon
-        /// S3) bucket to write instance-level logs to. 
+        /// S3) bucket to write managed node-level logs to. 
         /// </para>
         ///  <note> 
         /// <para>
@@ -164,9 +164,15 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property MaxConcurrency. 
         /// <para>
-        /// The maximum number of targets this task can be run for in parallel.
+        /// The maximum number of targets this task can be run for, in parallel.
         /// </para>
         ///  <note> 
+        /// <para>
+        /// Although this element is listed as "Required: No", a value can be omitted only when
+        /// you are registering or updating a <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">targetless
+        /// task</a> You must provide a value in all other cases.
+        /// </para>
+        ///  
         /// <para>
         /// For maintenance window tasks without a target specified, you can't supply a value
         /// for this option. Instead, the system inserts a placeholder value of <code>1</code>.
@@ -193,6 +199,12 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// The maximum number of errors allowed before this task stops being scheduled.
         /// </para>
         ///  <note> 
+        /// <para>
+        /// Although this element is listed as "Required: No", a value can be omitted only when
+        /// you are registering or updating a <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">targetless
+        /// task</a> You must provide a value in all other cases.
+        /// </para>
+        ///  
         /// <para>
         /// For maintenance window tasks without a target specified, you can't supply a value
         /// for this option. Instead, the system inserts a placeholder value of <code>1</code>.
@@ -294,7 +306,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property Targets. 
         /// <para>
-        /// The targets (either instances or maintenance window targets).
+        /// The targets (either managed nodes or maintenance window targets).
         /// </para>
         ///  <note> 
         /// <para>
@@ -307,7 +319,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// </para>
         ///  </note> 
         /// <para>
-        /// Specify instances using the following format: 
+        /// Specify managed nodes using the following format: 
         /// </para>
         ///  
         /// <para>

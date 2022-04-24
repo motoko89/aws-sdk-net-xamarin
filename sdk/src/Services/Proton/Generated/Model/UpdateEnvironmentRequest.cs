@@ -35,20 +35,21 @@ namespace Amazon.Proton.Model
     ///  
     /// <para>
     /// If the environment is associated with an environment account connection, <i>don't</i>
-    /// update or include the <code>protonServiceRoleArn</code> parameter to update or connect
-    /// to an environment account connection. 
+    /// update or include the <code>protonServiceRoleArn</code> and <code>provisioningRepository</code>
+    /// parameter to update or connect to an environment account connection.
     /// </para>
     ///  
     /// <para>
-    /// You can only update to a new environment account connection if it was created in the
-    /// same environment account that the current environment account connection was created
-    /// in and is associated with the current environment.
+    /// You can only update to a new environment account connection if that connection was
+    /// created in the same environment account that the current environment account connection
+    /// was created in. The account connection must also be associated with the current environment.
     /// </para>
     ///  
     /// <para>
     /// If the environment <i>isn't</i> associated with an environment account connection,
-    /// <i>don't</i> update or include the <code>environmentAccountConnectionId</code> parameter
-    /// to update or connect to an environment account connection.
+    /// <i>don't</i> update or include the <code>environmentAccountConnectionId</code> parameter.
+    /// You <i>can't</i> update or connect the environment to an environment account connection
+    /// if it <i>isn't</i> already associated with an environment connection.
     /// </para>
     ///  
     /// <para>
@@ -57,8 +58,25 @@ namespace Amazon.Proton.Model
     /// </para>
     ///  
     /// <para>
-    /// There are four modes for updating an environment as described in the following. The
-    /// <code>deploymentType</code> field defines the mode.
+    /// If the environment was configured for Amazon Web Services-managed provisioning, omit
+    /// the <code>provisioningRepository</code> parameter.
+    /// </para>
+    ///  
+    /// <para>
+    /// If the environment was configured for self-managed provisioning, specify the <code>provisioningRepository</code>
+    /// parameter and omit the <code>protonServiceRoleArn</code> and <code>environmentAccountConnectionId</code>
+    /// parameters.
+    /// </para>
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a>
+    /// and <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html">Provisioning
+    /// methods</a> in the <i>Proton Administrator Guide</i>.
+    /// </para>
+    ///  
+    /// <para>
+    /// There are four modes for updating an environment. The <code>deploymentType</code>
+    /// field defines the mode.
     /// </para>
     ///  <dl> <dt/> <dd> 
     /// <para>
@@ -98,7 +116,7 @@ namespace Amazon.Proton.Model
     /// In this mode, the environment is deployed and updated with the published, recommended
     /// (latest) major and minor version of the current template, by default. You can also
     /// specify a different major version that's higher than the major version in use and
-    /// a minor version (optional).
+    /// a minor version.
     /// </para>
     ///  </dd> </dl>
     /// </summary>
@@ -109,6 +127,7 @@ namespace Amazon.Proton.Model
         private string _environmentAccountConnectionId;
         private string _name;
         private string _protonServiceRoleArn;
+        private RepositoryBranchInput _provisioningRepository;
         private string _spec;
         private string _templateMajorVersion;
         private string _templateMinorVersion;
@@ -116,8 +135,8 @@ namespace Amazon.Proton.Model
         /// <summary>
         /// Gets and sets the property DeploymentType. 
         /// <para>
-        /// There are four modes for updating an environment as described in the following. The
-        /// <code>deploymentType</code> field defines the mode.
+        /// There are four modes for updating an environment. The <code>deploymentType</code>
+        /// field defines the mode.
         /// </para>
         ///  <dl> <dt/> <dd> 
         /// <para>
@@ -135,7 +154,7 @@ namespace Amazon.Proton.Model
         ///  
         /// <para>
         /// In this mode, the environment is deployed and updated with the new spec that you provide.
-        /// Only requested parameters are updated. <i>Don’t</i> include minor or major version
+        /// Only requested parameters are updated. <i>Don’t</i> include major or minor version
         /// parameters when you use this <code>deployment-type</code>.
         /// </para>
         ///  </dd> <dt/> <dd> 
@@ -239,8 +258,8 @@ namespace Amazon.Proton.Model
         /// <summary>
         /// Gets and sets the property ProtonServiceRoleArn. 
         /// <para>
-        /// The Amazon Resource Name (ARN) of the AWS Proton service role that allows AWS Proton
-        /// to make API calls to other services your behalf.
+        /// The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make
+        /// API calls to other services your behalf.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=200)]
@@ -254,6 +273,25 @@ namespace Amazon.Proton.Model
         internal bool IsSetProtonServiceRoleArn()
         {
             return this._protonServiceRoleArn != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ProvisioningRepository. 
+        /// <para>
+        /// The infrastructure repository that you use to host your rendered infrastructure templates
+        /// for self-managed provisioning.
+        /// </para>
+        /// </summary>
+        public RepositoryBranchInput ProvisioningRepository
+        {
+            get { return this._provisioningRepository; }
+            set { this._provisioningRepository = value; }
+        }
+
+        // Check to see if ProvisioningRepository property is set
+        internal bool IsSetProvisioningRepository()
+        {
+            return this._provisioningRepository != null;
         }
 
         /// <summary>
@@ -278,7 +316,7 @@ namespace Amazon.Proton.Model
         /// <summary>
         /// Gets and sets the property TemplateMajorVersion. 
         /// <para>
-        /// The ID of the major version of the environment to update.
+        /// The major version of the environment to update.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=20)]
@@ -297,7 +335,7 @@ namespace Amazon.Proton.Model
         /// <summary>
         /// Gets and sets the property TemplateMinorVersion. 
         /// <para>
-        /// The ID of the minor version of the environment to update.
+        /// The minor version of the environment to update.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=20)]

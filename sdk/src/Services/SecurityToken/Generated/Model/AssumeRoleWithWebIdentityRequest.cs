@@ -32,8 +32,9 @@ namespace Amazon.SecurityToken.Model
     /// Container for the parameters to the AssumeRoleWithWebIdentity operation.
     /// Returns a set of temporary security credentials for users who have been authenticated
     /// in a mobile or web application with a web identity provider. Example providers include
-    /// Amazon Cognito, Login with Amazon, Facebook, Google, or any OpenID Connect-compatible
-    /// identity provider.
+    /// the OAuth 2.0 providers Login with Amazon and Facebook, or any OpenID Connect-compatible
+    /// identity provider such as Google or <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html">Amazon
+    /// Cognito federated identities</a>.
     /// 
     ///  <note> 
     /// <para>
@@ -62,7 +63,7 @@ namespace Amazon.SecurityToken.Model
     /// provider. For a comparison of <code>AssumeRoleWithWebIdentity</code> with the other
     /// API operations that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
     /// Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
-    /// the STS API operations</a> in the <i>IAM User Guide</i>.
+    /// the Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.
     /// </para>
     ///  
     /// <para>
@@ -247,8 +248,8 @@ namespace Amazon.SecurityToken.Model
         /// federation endpoint for a console sign-in token takes a <code>SessionDuration</code>
         /// parameter that specifies the maximum length of the console session. For more information,
         /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html">Creating
-        /// a URL that Enables Federated Users to Access the Management Console</a> in the <i>IAM
-        /// User Guide</i>.
+        /// a URL that Enables Federated Users to Access the Amazon Web Services Management Console</a>
+        /// in the <i>IAM User Guide</i>.
         /// </para>
         ///  </note>
         /// </summary>
@@ -359,13 +360,14 @@ namespace Amazon.SecurityToken.Model
         /// <summary>
         /// Gets and sets the property ProviderId. 
         /// <para>
-        /// The fully qualified host component of the domain name of the identity provider.
+        /// The fully qualified host component of the domain name of the OAuth 2.0 identity provider.
+        /// Do not specify this value for an OpenID Connect identity provider.
         /// </para>
         ///  
         /// <para>
-        /// Specify this value only for OAuth 2.0 access tokens. Currently <code>www.amazon.com</code>
-        /// and <code>graph.facebook.com</code> are the only supported identity providers for
-        /// OAuth 2.0 access tokens. Do not include URL schemes and port numbers.
+        /// Currently <code>www.amazon.com</code> and <code>graph.facebook.com</code> are the
+        /// only supported identity providers for OAuth 2.0 access tokens. Do not include URL
+        /// schemes and port numbers.
         /// </para>
         ///  
         /// <para>

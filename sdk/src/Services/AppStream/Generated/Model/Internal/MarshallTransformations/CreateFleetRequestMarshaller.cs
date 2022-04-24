@@ -58,7 +58,7 @@ namespace Amazon.AppStream.Model.Internal.MarshallTransformations
             string target = "PhotonAdminProxyService.CreateFleet";
             request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/x-amz-json-1.1";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2016-12-01";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2016-12-01";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
@@ -149,6 +149,12 @@ namespace Amazon.AppStream.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.InstanceType);
                 }
 
+                if(publicRequest.IsSetMaxConcurrentSessions())
+                {
+                    context.Writer.WritePropertyName("MaxConcurrentSessions");
+                    context.Writer.Write(publicRequest.MaxConcurrentSessions);
+                }
+
                 if(publicRequest.IsSetMaxUserDurationInSeconds())
                 {
                     context.Writer.WritePropertyName("MaxUserDurationInSeconds");
@@ -159,6 +165,23 @@ namespace Amazon.AppStream.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("Name");
                     context.Writer.Write(publicRequest.Name);
+                }
+
+                if(publicRequest.IsSetPlatform())
+                {
+                    context.Writer.WritePropertyName("Platform");
+                    context.Writer.Write(publicRequest.Platform);
+                }
+
+                if(publicRequest.IsSetSessionScriptS3Location())
+                {
+                    context.Writer.WritePropertyName("SessionScriptS3Location");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = S3LocationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.SessionScriptS3Location, context);
+
+                    context.Writer.WriteObjectEnd();
                 }
 
                 if(publicRequest.IsSetStreamView())
@@ -181,6 +204,17 @@ namespace Amazon.AppStream.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
+                if(publicRequest.IsSetUsbDeviceFilterStrings())
+                {
+                    context.Writer.WritePropertyName("UsbDeviceFilterStrings");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestUsbDeviceFilterStringsListValue in publicRequest.UsbDeviceFilterStrings)
+                    {
+                            context.Writer.Write(publicRequestUsbDeviceFilterStringsListValue);
+                    }
+                    context.Writer.WriteArrayEnd();
+                }
+
                 if(publicRequest.IsSetVpcConfig())
                 {
                     context.Writer.WritePropertyName("VpcConfig");
@@ -192,7 +226,6 @@ namespace Amazon.AppStream.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

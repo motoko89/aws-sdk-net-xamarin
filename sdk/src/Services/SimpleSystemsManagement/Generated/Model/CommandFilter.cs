@@ -33,8 +33,8 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// 
     ///  <note> 
     /// <para>
-    /// An instance ID can't be specified when a command status is <code>Pending</code> because
-    /// the command hasn't run on the instance yet.
+    /// A managed node ID can't be specified when a command status is <code>Pending</code>
+    /// because the command hasn't run on the node yet.
     /// </para>
     ///  </note>
     /// </summary>
@@ -48,6 +48,12 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <para>
         /// The name of the filter.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// The <code>ExecutionStage</code> filter can't be used with the <code>ListCommandInvocations</code>
+        /// operation, only with <code>ListCommands</code>.
+        /// </para>
+        ///  </note>
         /// </summary>
         [AWSProperty(Required=true)]
         public CommandFilterKey Key
@@ -197,11 +203,12 @@ namespace Amazon.SimpleSystemsManagement.Model
         ///  <b>DocumentName</b>: Specify name of the Amazon Web Services Systems Manager document
         /// (SSM document) for which you want to see command execution results. For example, specify
         /// <code>AWS-RunPatchBaseline</code> to see command executions that used this SSM document
-        /// to perform security patching operations on instances. 
+        /// to perform security patching operations on managed nodes. 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b>ExecutionStage</b>: Specify one of the following values:
+        ///  <b>ExecutionStage</b>: Specify one of the following values (<code>ListCommands</code>
+        /// operations only):
         /// </para>
         ///  <ul> <li> 
         /// <para>

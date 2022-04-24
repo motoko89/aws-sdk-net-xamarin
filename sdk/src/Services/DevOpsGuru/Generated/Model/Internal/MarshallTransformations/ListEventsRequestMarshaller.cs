@@ -56,7 +56,7 @@ namespace Amazon.DevOpsGuru.Model.Internal.MarshallTransformations
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.DevOpsGuru");
             request.Headers["Content-Type"] = "application/json";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-12-01";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-12-01";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/events";
@@ -65,6 +65,12 @@ namespace Amazon.DevOpsGuru.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetAccountId())
+                {
+                    context.Writer.WritePropertyName("AccountId");
+                    context.Writer.Write(publicRequest.AccountId);
+                }
+
                 if(publicRequest.IsSetFilters())
                 {
                     context.Writer.WritePropertyName("Filters");
@@ -88,7 +94,6 @@ namespace Amazon.DevOpsGuru.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.NextToken);
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

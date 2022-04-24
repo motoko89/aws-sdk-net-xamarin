@@ -70,6 +70,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     unmarshalledObject.CanarySize = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("LinearStepSize", targetDepth))
+                {
+                    var unmarshaller = CapacitySizeUnmarshaller.Instance;
+                    unmarshalledObject.LinearStepSize = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Type", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

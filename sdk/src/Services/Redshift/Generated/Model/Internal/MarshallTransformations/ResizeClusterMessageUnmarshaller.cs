@@ -84,6 +84,18 @@ namespace Amazon.Redshift.Model.Internal.MarshallTransformations
                         unmarshalledObject.NumberOfNodes = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("ReservedNodeId", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.ReservedNodeId = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("TargetReservedNodeOfferingId", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.TargetReservedNodeOfferingId = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                 }
                 else if (context.IsEndElement && context.CurrentDepth < originalDepth)
                 {

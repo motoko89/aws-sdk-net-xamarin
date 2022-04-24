@@ -32,7 +32,7 @@ namespace Amazon.ApiGatewayManagementApi
     public partial class AmazonApiGatewayManagementApiConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.151");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.ApiGatewayManagementApi
         /// Default constructor
         /// </summary>
         public AmazonApiGatewayManagementApiConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonApiGatewayManagementApiDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "execute-api";
         }

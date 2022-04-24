@@ -64,6 +64,12 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("BoxConfiguration", targetDepth))
+                {
+                    var unmarshaller = BoxConfigurationUnmarshaller.Instance;
+                    unmarshalledObject.BoxConfiguration = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("ConfluenceConfiguration", targetDepth))
                 {
                     var unmarshaller = ConfluenceConfigurationUnmarshaller.Instance;
@@ -76,6 +82,12 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
                     unmarshalledObject.DatabaseConfiguration = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("FsxConfiguration", targetDepth))
+                {
+                    var unmarshaller = FsxConfigurationUnmarshaller.Instance;
+                    unmarshalledObject.FsxConfiguration = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("GoogleDriveConfiguration", targetDepth))
                 {
                     var unmarshaller = GoogleDriveConfigurationUnmarshaller.Instance;
@@ -86,6 +98,12 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = OneDriveConfigurationUnmarshaller.Instance;
                     unmarshalledObject.OneDriveConfiguration = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("QuipConfiguration", targetDepth))
+                {
+                    var unmarshaller = QuipConfigurationUnmarshaller.Instance;
+                    unmarshalledObject.QuipConfiguration = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("S3Configuration", targetDepth))
@@ -110,6 +128,12 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = SharePointConfigurationUnmarshaller.Instance;
                     unmarshalledObject.SharePointConfiguration = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("SlackConfiguration", targetDepth))
+                {
+                    var unmarshaller = SlackConfigurationUnmarshaller.Instance;
+                    unmarshalledObject.SlackConfiguration = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("WebCrawlerConfiguration", targetDepth))

@@ -30,7 +30,7 @@ namespace Amazon.AppConfig.Model
 {
     /// <summary>
     /// Container for the parameters to the DeleteDeploymentStrategy operation.
-    /// Delete a deployment strategy. Deleting a deployment strategy does not delete a configuration
+    /// Deletes a deployment strategy. Deleting a deployment strategy does not delete a configuration
     /// from a host.
     /// </summary>
     public partial class DeleteDeploymentStrategyRequest : AmazonAppConfigRequest

@@ -47,6 +47,11 @@ namespace Amazon.Kendra.Model
     /// For information on the current quota limits for block lists, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
     /// for Amazon Kendra</a>.
     /// </para>
+    ///  
+    /// <para>
+    ///  <code>CreateQuerySuggestionsBlockList</code> is currently not supported in the Amazon
+    /// Web Services GovCloud (US-West) region.
+    /// </para>
     /// </summary>
     public partial class CreateQuerySuggestionsBlockListRequest : AmazonKendraRequest
     {
@@ -153,12 +158,12 @@ namespace Amazon.Kendra.Model
         /// </para>
         ///  
         /// <para>
-        /// You need permissions to the role ARN (Amazon Resource Name). The role needs S3 read
-        /// permissions to your file in S3 and needs to give STS (Security Token Service) assume
-        /// role permissions to Amazon Kendra.
+        /// You need permissions to the role ARN (Amazon Web Services Resource Name). The role
+        /// needs S3 read permissions to your file in S3 and needs to give STS (Security Token
+        /// Service) assume role permissions to Amazon Kendra.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=1284)]
+        [AWSProperty(Required=true, Min=0, Max=1284)]
         public string RoleArn
         {
             get { return this._roleArn; }

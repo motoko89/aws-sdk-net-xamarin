@@ -32,7 +32,7 @@ namespace Amazon.LexRuntimeV2
     public partial class AmazonLexRuntimeV2Config : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.2.13");
+            InternalSDKUtils.BuildUserAgentString("3.7.4.35");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.LexRuntimeV2
         /// Default constructor
         /// </summary>
         public AmazonLexRuntimeV2Config()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonLexRuntimeV2DefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "lex";
         }

@@ -34,7 +34,7 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// ProductionVariant Marshaller
-    /// </summary>       
+    /// </summary>
     public class ProductionVariantMarshaller : IRequestMarshaller<ProductionVariant, JsonMarshallerContext> 
     {
         /// <summary>
@@ -86,6 +86,17 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.ModelName);
             }
 
+            if(requestObject.IsSetServerlessConfig())
+            {
+                context.Writer.WritePropertyName("ServerlessConfig");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = ProductionVariantServerlessConfigMarshaller.Instance;
+                marshaller.Marshall(requestObject.ServerlessConfig, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetVariantName())
             {
                 context.Writer.WritePropertyName("VariantName");
@@ -96,7 +107,7 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static ProductionVariantMarshaller Instance = new ProductionVariantMarshaller();
 
     }

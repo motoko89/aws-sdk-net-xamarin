@@ -38,6 +38,7 @@ namespace Amazon.RDS.Model
         private int? _allocatedStorage;
         private string _availabilityZone;
         private int? _backupRetentionPeriod;
+        private string _backupTarget;
         private string _dbInstanceArn;
         private string _dbInstanceAutomatedBackupsArn;
         private List<DBInstanceAutomatedBackupsReplication> _dbInstanceAutomatedBackupsReplications = new List<DBInstanceAutomatedBackupsReplication>();
@@ -119,6 +120,25 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property BackupTarget. 
+        /// <para>
+        /// Specifies where automated backups are stored: Amazon Web Services Outposts or the
+        /// Amazon Web Services Region.
+        /// </para>
+        /// </summary>
+        public string BackupTarget
+        {
+            get { return this._backupTarget; }
+            set { this._backupTarget = value; }
+        }
+
+        // Check to see if BackupTarget property is set
+        internal bool IsSetBackupTarget()
+        {
+            return this._backupTarget != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property DBInstanceArn. 
         /// <para>
         /// The Amazon Resource Name (ARN) for the automated backups.
@@ -177,7 +197,6 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property DBInstanceIdentifier. 
         /// <para>
         /// The customer id of the instance that is/was associated with the automated backup.
-        /// 
         /// </para>
         /// </summary>
         public string DBInstanceIdentifier
@@ -287,7 +306,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property InstanceCreateTime. 
         /// <para>
-        /// Provides the date and time that the DB instance was created. 
+        /// Provides the date and time that the DB instance was created.
         /// </para>
         /// </summary>
         public DateTime InstanceCreateTime
@@ -305,7 +324,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property Iops. 
         /// <para>
-        /// The IOPS (I/O operations per second) value for the automated backup. 
+        /// The IOPS (I/O operations per second) value for the automated backup.
         /// </para>
         /// </summary>
         public int Iops

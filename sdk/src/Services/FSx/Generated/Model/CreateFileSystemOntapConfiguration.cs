@@ -29,8 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.FSx.Model
 {
     /// <summary>
-    /// The ONTAP configuration properties of the FSx for NetApp ONTAP file system that you
-    /// are creating.
+    /// The ONTAP configuration properties of the FSx for ONTAP file system that you are creating.
     /// </summary>
     public partial class CreateFileSystemOntapConfiguration
     {
@@ -80,7 +79,23 @@ namespace Amazon.FSx.Model
         /// <summary>
         /// Gets and sets the property DeploymentType. 
         /// <para>
-        /// Specifies the ONTAP file system deployment type to use in creating the file system.
+        /// Specifies the FSx for ONTAP file system deployment type to use in creating the file
+        /// system. 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>MULTI_AZ_1</code> - (Default) A high availability file system configured for
+        /// Multi-AZ redundancy to tolerate temporary Availability Zone (AZ) unavailability. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>SINGLE_AZ_1</code> - A file system configured for Single-AZ redundancy.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For information about the use cases for Multi-AZ and Single-AZ deployments, refer
+        /// to <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-multiAZ.html">Choosing
+        /// Multi-AZ or Single-AZ file system deployment</a>. 
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -99,7 +114,7 @@ namespace Amazon.FSx.Model
         /// <summary>
         /// Gets and sets the property DiskIopsConfiguration. 
         /// <para>
-        /// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system.
+        /// The SSD IOPS configuration for the FSx for ONTAP file system.
         /// </para>
         /// </summary>
         public DiskIopsConfiguration DiskIopsConfiguration
@@ -117,10 +132,16 @@ namespace Amazon.FSx.Model
         /// <summary>
         /// Gets and sets the property EndpointIpAddressRange. 
         /// <para>
-        /// Specifies the IP address range in which the endpoints to access your file system will
-        /// be created. By default, Amazon FSx selects an unused IP address range for you from
-        /// the 198.19.* range.
+        /// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your
+        /// file system will be created. By default, Amazon FSx selects an unused IP address range
+        /// for you from the 198.19.* range.
         /// </para>
+        ///  <important> 
+        /// <para>
+        /// The Endpoint IP address range you select for your file system must exist outside the
+        /// VPC's CIDR range and must be at least /30 or larger.
+        /// </para>
+        ///  </important>
         /// </summary>
         [AWSProperty(Min=9, Max=17)]
         public string EndpointIpAddressRange
@@ -138,8 +159,8 @@ namespace Amazon.FSx.Model
         /// <summary>
         /// Gets and sets the property FsxAdminPassword. 
         /// <para>
-        /// The ONTAP administrative password for the <code>fsxadmin</code> user that you can
-        /// use to administer your file system using the ONTAP CLI and REST API.
+        /// The ONTAP administrative password for the <code>fsxadmin</code> user with which you
+        /// administer your file system using the NetApp ONTAP CLI and REST API.
         /// </para>
         /// </summary>
         [AWSProperty(Min=8, Max=50)]
@@ -156,7 +177,11 @@ namespace Amazon.FSx.Model
         }
 
         /// <summary>
-        /// Gets and sets the property PreferredSubnetId.
+        /// Gets and sets the property PreferredSubnetId. 
+        /// <para>
+        /// Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>. This
+        /// specifies the subnet in which you want the preferred file server to be located.
+        /// </para>
         /// </summary>
         [AWSProperty(Min=15, Max=24)]
         public string PreferredSubnetId
@@ -174,9 +199,10 @@ namespace Amazon.FSx.Model
         /// <summary>
         /// Gets and sets the property RouteTableIds. 
         /// <para>
-        /// Specifies the VPC route tables in which your file system's endpoints will be created.
-        /// You should specify all VPC route tables associated with the subnets in which your
-        /// clients are located. By default, Amazon FSx selects your VPC's default route table.
+        /// (Multi-AZ only) Specifies the virtual private cloud (VPC) route tables in which your
+        /// file system's endpoints will be created. You should specify all VPC route tables associated
+        /// with the subnets in which your clients are located. By default, Amazon FSx selects
+        /// your VPC's default route table.
         /// </para>
         /// </summary>
         [AWSProperty(Max=50)]
@@ -193,9 +219,13 @@ namespace Amazon.FSx.Model
         }
 
         /// <summary>
-        /// Gets and sets the property ThroughputCapacity.
+        /// Gets and sets the property ThroughputCapacity. 
+        /// <para>
+        /// Sets the throughput capacity for the file system that you're creating. Valid values
+        /// are 128, 256, 512, 1024, and 2048 MBps.
+        /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=8, Max=2048)]
+        [AWSProperty(Required=true, Min=8, Max=4096)]
         public int ThroughputCapacity
         {
             get { return this._throughputCapacity.GetValueOrDefault(); }

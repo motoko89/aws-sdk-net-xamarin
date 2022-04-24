@@ -29,8 +29,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Personalize.Model
 {
     /// <summary>
-    /// Describes a deployed solution version, otherwise known as a campaign. For more information
-    /// on campaigns, see <a>CreateCampaign</a>.
+    /// An object that describes the deployment of a solution version. For more information
+    /// on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.
     /// </summary>
     public partial class Campaign
     {

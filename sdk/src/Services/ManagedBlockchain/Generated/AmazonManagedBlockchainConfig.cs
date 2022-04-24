@@ -32,7 +32,7 @@ namespace Amazon.ManagedBlockchain
     public partial class AmazonManagedBlockchainConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.63");
+            InternalSDKUtils.BuildUserAgentString("3.7.1.121");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.ManagedBlockchain
         /// Default constructor
         /// </summary>
         public AmazonManagedBlockchainConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonManagedBlockchainDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "managedblockchain";
         }

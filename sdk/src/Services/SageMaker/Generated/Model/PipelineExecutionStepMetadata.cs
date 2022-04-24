@@ -34,10 +34,14 @@ namespace Amazon.SageMaker.Model
     public partial class PipelineExecutionStepMetadata
     {
         private CallbackStepMetadata _callback;
+        private ClarifyCheckStepMetadata _clarifyCheck;
         private ConditionStepMetadata _condition;
+        private EMRStepMetadata _emr;
+        private FailStepMetadata _fail;
         private LambdaStepMetadata _lambda;
         private ModelStepMetadata _model;
         private ProcessingJobStepMetadata _processingJob;
+        private QualityCheckStepMetadata _qualityCheck;
         private RegisterModelStepMetadata _registerModel;
         private TrainingJobStepMetadata _trainingJob;
         private TransformJobStepMetadata _transformJob;
@@ -63,6 +67,59 @@ namespace Amazon.SageMaker.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ClarifyCheck. 
+        /// <para>
+        /// Container for the metadata for a Clarify check step. The configurations and outcomes
+        /// of the check step execution. This includes: 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// The type of the check conducted,
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The Amazon S3 URIs of baseline constraints and statistics files to be used for the
+        /// drift check.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The Amazon S3 URIs of newly calculated baseline constraints and statistics.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The model package group name provided.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The Amazon S3 URI of the violation report if violations detected.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of check processing job initiated by the step execution.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The boolean flags indicating if the drift check is skipped.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// If step property <code>BaselineUsedForDriftCheck</code> is set the same as <code>CalculatedBaseline</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        public ClarifyCheckStepMetadata ClarifyCheck
+        {
+            get { return this._clarifyCheck; }
+            set { this._clarifyCheck = value; }
+        }
+
+        // Check to see if ClarifyCheck property is set
+        internal bool IsSetClarifyCheck()
+        {
+            return this._clarifyCheck != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Condition. 
         /// <para>
         /// The outcome of the condition evaluation that was run by this step execution.
@@ -78,6 +135,42 @@ namespace Amazon.SageMaker.Model
         internal bool IsSetCondition()
         {
             return this._condition != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property EMR. 
+        /// <para>
+        /// The configurations and outcomes of an EMR step execution.
+        /// </para>
+        /// </summary>
+        public EMRStepMetadata EMR
+        {
+            get { return this._emr; }
+            set { this._emr = value; }
+        }
+
+        // Check to see if EMR property is set
+        internal bool IsSetEMR()
+        {
+            return this._emr != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Fail. 
+        /// <para>
+        /// The configurations and outcomes of a Fail step execution.
+        /// </para>
+        /// </summary>
+        public FailStepMetadata Fail
+        {
+            get { return this._fail; }
+            set { this._fail = value; }
+        }
+
+        // Check to see if Fail property is set
+        internal bool IsSetFail()
+        {
+            return this._fail != null;
         }
 
         /// <summary>
@@ -133,6 +226,58 @@ namespace Amazon.SageMaker.Model
         internal bool IsSetProcessingJob()
         {
             return this._processingJob != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property QualityCheck. 
+        /// <para>
+        /// The configurations and outcomes of the check step execution. This includes: 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// The type of the check conducted,
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The Amazon S3 URIs of baseline constraints and statistics files to be used for the
+        /// drift check.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The Amazon S3 URIs of newly calculated baseline constraints and statistics.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The model package group name provided.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The Amazon S3 URI of the violation report if violations detected.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of check processing job initiated by the step execution.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The boolean flags indicating if the drift check is skipped.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// If step property <code>BaselineUsedForDriftCheck</code> is set the same as <code>CalculatedBaseline</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        public QualityCheckStepMetadata QualityCheck
+        {
+            get { return this._qualityCheck; }
+            set { this._qualityCheck = value; }
+        }
+
+        // Check to see if QualityCheck property is set
+        internal bool IsSetQualityCheck()
+        {
+            return this._qualityCheck != null;
         }
 
         /// <summary>

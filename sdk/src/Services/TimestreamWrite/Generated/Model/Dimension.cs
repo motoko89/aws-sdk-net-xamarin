@@ -70,7 +70,7 @@ namespace Amazon.TimestreamWrite.Model
         /// Constraints</a>.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=256)]
+        [AWSProperty(Required=true, Min=1)]
         public string Name
         {
             get { return this._name; }
@@ -89,7 +89,7 @@ namespace Amazon.TimestreamWrite.Model
         /// The value of the dimension.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=2048)]
+        [AWSProperty(Required=true)]
         public string Value
         {
             get { return this._value; }

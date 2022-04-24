@@ -85,6 +85,10 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <para>
         ///  <code>aws:ec2:image</code> 
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aws:ssm:integration</code> 
+        /// </para>
         ///  </li> </ul> 
         /// <para>
         /// When you create a <code>String</code> parameter and specify <code>aws:ec2:image</code>,
@@ -222,14 +226,10 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// The maximum length constraint listed below includes capacity for additional system
-        /// attributes that aren't part of the name. The maximum length for a parameter name,
-        /// including the full length of the parameter ARN, is 1011 characters. For example, the
-        /// length of the following parameter name is 65 characters, not 20 characters:
-        /// </para>
-        ///  
-        /// <para>
-        ///  <code>arn:aws:ssm:us-east-2:111122223333:parameter/ExampleParameterName</code> 
+        /// The maximum length constraint of 2048 characters listed below includes 1037 characters
+        /// reserved for internal use by Systems Manager. The maximum length for a parameter name
+        /// that you create is 1011 characters. This includes the characters in the ARN that precede
+        /// the name you specify, such as <code>arn:aws:ssm:us-east-2:111122223333:parameter/</code>.
         /// </para>
         ///  </note>
         /// </summary>
@@ -280,13 +280,13 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// </para>
         ///  
         /// <para>
-        /// ExpirationNotification: This policy triggers an event in Amazon CloudWatch Events
+        /// ExpirationNotification: This policy initiates an event in Amazon CloudWatch Events
         /// that notifies you about the expiration. By using this policy, you can receive notification
         /// before or after the expiration time is reached, in units of days or hours.
         /// </para>
         ///  
         /// <para>
-        /// NoChangeNotification: This policy triggers a CloudWatch Events event if a parameter
+        /// NoChangeNotification: This policy initiates a CloudWatch Events event if a parameter
         /// hasn't been modified for a specified period of time. This policy type is useful when,
         /// for example, a secret needs to be changed within a period of time, but it hasn't been
         /// changed.

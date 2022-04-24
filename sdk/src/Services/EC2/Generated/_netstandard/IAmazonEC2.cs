@@ -34,13 +34,14 @@ namespace Amazon.EC2
     /// Amazon Elastic Compute Cloud 
     /// <para>
     /// Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing
-    /// capacity in the AWS Cloud. Using Amazon EC2 eliminates the need to invest in hardware
-    /// up front, so you can develop and deploy applications faster. Amazon Virtual Private
-    /// Cloud (Amazon VPC) enables you to provision a logically isolated section of the AWS
-    /// Cloud where you can launch AWS resources in a virtual network that you've defined.
-    /// Amazon Elastic Block Store (Amazon EBS) provides block level storage volumes for use
-    /// with EC2 instances. EBS volumes are highly available and reliable storage volumes
-    /// that can be attached to any running instance and used like a hard drive.
+    /// capacity in the Amazon Web Services Cloud. Using Amazon EC2 eliminates the need to
+    /// invest in hardware up front, so you can develop and deploy applications faster. Amazon
+    /// Virtual Private Cloud (Amazon VPC) enables you to provision a logically isolated section
+    /// of the Amazon Web Services Cloud where you can launch Amazon Web Services resources
+    /// in a virtual network that you've defined. Amazon Elastic Block Store (Amazon EBS)
+    /// provides block level storage volumes for use with EC2 instances. EBS volumes are highly
+    /// available and reliable storage volumes that can be attached to any running instance
+    /// and used like a hard drive.
     /// </para>
     ///  
     /// <para>
@@ -63,7 +64,8 @@ namespace Amazon.EC2
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// AWS VPN: <a href="http://aws.amazon.com/vpn">AWS VPN product page</a>, <a href="http://aws.amazon.com/documentation/vpn">AWS
+    /// Amazon Web Services VPN: <a href="http://aws.amazon.com/vpn">Amazon Web Services VPN
+    /// product page</a>, <a href="http://aws.amazon.com/documentation/vpn">Amazon Web Services
     /// VPN documentation</a> 
     /// </para>
     ///  </li> </ul>
@@ -367,6 +369,26 @@ namespace Amazon.EC2
         /// <returns>The response from the AllocateHosts service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AllocateHosts">REST API Reference for AllocateHosts Operation</seealso>
         Task<AllocateHostsResponse> AllocateHostsAsync(AllocateHostsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  AllocateIpamPoolCidr
+
+
+
+        /// <summary>
+        /// Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from
+        /// an IPAM pool to another resource or IPAM pool. For more information, see <a href="/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate
+        /// CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AllocateIpamPoolCidr service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AllocateIpamPoolCidr service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AllocateIpamPoolCidr">REST API Reference for AllocateIpamPoolCidr Operation</seealso>
+        Task<AllocateIpamPoolCidrResponse> AllocateIpamPoolCidrAsync(AllocateIpamPoolCidrRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -1034,7 +1056,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR
-        /// address ranges, or to the instances that are associated with the specified destination
+        /// address ranges, or to the instances that are associated with the specified source
         /// security groups.
         /// </para>
         ///  
@@ -1638,43 +1660,18 @@ namespace Amazon.EC2
         /// <para>
         /// For devices that use Border Gateway Protocol (BGP), you can also provide the device's
         /// BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network.
-        /// If you don't have an ASN already, you can use a private ASN (in the 64512 - 65534
-        /// range).
+        /// If you don't have an ASN already, you can use a private ASN. For more information,
+        /// see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html">Customer
+        /// gateway options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services
+        /// Site-to-Site VPN User Guide</i>.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// Amazon EC2 supports all 4-byte ASN numbers in the range of 1 - 2147483647, with the
-        /// exception of the following:
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// 7224 - reserved in the <code>us-east-1</code> Region
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// 9059 - reserved in the <code>eu-west-1</code> Region
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// 17943 - reserved in the <code>ap-southeast-1</code> Region
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// 10124 - reserved in the <code>ap-northeast-1</code> Region
-        /// </para>
-        ///  </li> </ul> </note> 
-        /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon
-        /// Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User
-        /// Guide</i>.
-        /// </para>
-        ///  <important> 
+        ///  
         /// <para>
         /// To create more than one customer gateway with the same VPN type, IP address, and BGP
-        /// ASN, specify a unique device name for each customer gateway. Identical requests return
-        /// information about the existing customer gateway and do not create new customer gateways.
+        /// ASN, specify a unique device name for each customer gateway. An identical request
+        /// returns information about the existing customer gateway; it doesn't create a new customer
+        /// gateway.
         /// </para>
-        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateCustomerGateway service method.</param>
         /// <param name="cancellationToken">
@@ -1848,8 +1845,8 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">Launching
-        /// an EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">EC2
+        /// Fleet</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateFleet service method.</param>
@@ -1942,6 +1939,20 @@ namespace Amazon.EC2
         /// running or stopped.
         /// 
         ///  
+        /// <para>
+        /// By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it
+        /// can take snapshots of the attached volumes while data is at rest, in order to ensure
+        /// a consistent state. You can set the <code>NoReboot</code> parameter to <code>true</code>
+        /// in the API request, or use the <code>--no-reboot</code> option in the CLI to prevent
+        /// Amazon EC2 from shutting down and rebooting the instance.
+        /// </para>
+        ///  <important> 
+        /// <para>
+        /// If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code>
+        /// parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code>
+        /// option in the CLI, we can't guarantee the file system integrity of the created image.
+        /// </para>
+        ///  </important> 
         /// <para>
         /// If you customized your instance with instance store volumes or Amazon EBS volumes
         /// in addition to the root device volume, the new AMI contains block device mapping information
@@ -2092,6 +2103,89 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  CreateIpam
+
+
+
+        /// <summary>
+        /// Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can
+        /// use to automate your IP address management workflows including assigning, tracking,
+        /// troubleshooting, and auditing IP addresses across Amazon Web Services Regions and
+        /// accounts throughout your Amazon Web Services Organization.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a>
+        /// in the <i>Amazon VPC IPAM User Guide</i>. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateIpam service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateIpam service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateIpam">REST API Reference for CreateIpam Operation</seealso>
+        Task<CreateIpamResponse> CreateIpamAsync(CreateIpamRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  CreateIpamPool
+
+
+
+        /// <summary>
+        /// Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool
+        /// is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your
+        /// IP addresses according to your routing and security needs. For example, if you have
+        /// separate routing and security needs for development and production applications, you
+        /// can create a pool for each.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="/vpc/latest/ipam/create-top-ipam.html">Create a
+        /// top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateIpamPool service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateIpamPool service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateIpamPool">REST API Reference for CreateIpamPool Operation</seealso>
+        Task<CreateIpamPoolResponse> CreateIpamPoolAsync(CreateIpamPoolRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  CreateIpamScope
+
+
+
+        /// <summary>
+        /// Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM.
+        /// An IPAM contains two default scopes. Each scope represents the IP space for a single
+        /// network. The private scope is intended for all private IP address space. The public
+        /// scope is intended for all public IP address space. Scopes enable you to reuse IP addresses
+        /// across multiple unconnected networks without causing IP address overlap or conflict.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="/vpc/latest/ipam/add-scope-ipam.html">Add a scope</a>
+        /// in the <i>Amazon VPC IPAM User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateIpamScope service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateIpamScope service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateIpamScope">REST API Reference for CreateIpamScope Operation</seealso>
+        Task<CreateIpamScopeResponse> CreateIpamScopeAsync(CreateIpamScopeRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  CreateKeyPair
 
 
@@ -2134,12 +2228,24 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates a launch template. A launch template contains the parameters to launch an
-        /// instance. When you launch an instance using <a>RunInstances</a>, you can specify a
-        /// launch template instead of providing the launch parameters in the request. For more
-        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching
+        /// Creates a launch template.
+        /// 
+        ///  
+        /// <para>
+        /// A launch template contains the parameters to launch an instance. When you launch an
+        /// instance using <a>RunInstances</a>, you can specify a launch template instead of providing
+        /// the launch parameters in the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching
         /// an instance from a launch template</a> in the <i>Amazon Elastic Compute Cloud User
         /// Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you want to clone an existing launch template as the basis for creating a new launch
+        /// template, you can use the Amazon EC2 console. The API, SDKs, and CLI do not support
+        /// cloning a template. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template">Create
+        /// a launch template from an existing launch template</a> in the <i>Amazon Elastic Compute
+        /// Cloud User Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLaunchTemplate service method.</param>
         /// <param name="cancellationToken">
@@ -2341,6 +2447,32 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  CreateNetworkInsightsAccessScope
+
+
+
+        /// <summary>
+        /// Creates a Network Access Scope.
+        /// 
+        ///  
+        /// <para>
+        /// Amazon Web Services Network Access Analyzer enables cloud networking and cloud operations
+        /// teams to verify that their networks on Amazon Web Services conform to their network
+        /// security and governance objectives. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/">Amazon
+        /// Web Services Network Access Analyzer Guide</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateNetworkInsightsAccessScope service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateNetworkInsightsAccessScope service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNetworkInsightsAccessScope">REST API Reference for CreateNetworkInsightsAccessScope Operation</seealso>
+        Task<CreateNetworkInsightsAccessScopeResponse> CreateNetworkInsightsAccessScopeAsync(CreateNetworkInsightsAccessScopeRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  CreateNetworkInsightsPath
 
 
@@ -2445,6 +2577,27 @@ namespace Amazon.EC2
         /// <returns>The response from the CreatePlacementGroup service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreatePlacementGroup">REST API Reference for CreatePlacementGroup Operation</seealso>
         Task<CreatePlacementGroupResponse> CreatePlacementGroupAsync(CreatePlacementGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  CreatePublicIpv4Pool
+
+
+
+        /// <summary>
+        /// Creates a public IPv4 address pool. A public IPv4 pool is an EC2 IP address pool required
+        /// for the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage
+        /// with IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools
+        /// only. To monitor the status of pool creation, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html">DescribePublicIpv4Pools</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreatePublicIpv4Pool service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreatePublicIpv4Pool service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreatePublicIpv4Pool">REST API Reference for CreatePublicIpv4Pool Operation</seealso>
+        Task<CreatePublicIpv4PoolResponse> CreatePublicIpv4PoolAsync(CreatePublicIpv4PoolRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -3392,33 +3545,8 @@ namespace Amazon.EC2
         /// Creates a VPC endpoint for a specified service. An endpoint enables you to create
         /// a private connection between your VPC and the service. The service may be provided
         /// by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another Amazon
-        /// Web Services account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC
-        /// Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
-        /// 
-        ///  
-        /// <para>
-        /// A <code>gateway</code> endpoint serves as a target for a route in your route table
-        /// for traffic destined for the Amazon Web Service. You can specify an endpoint policy
-        /// to attach to the endpoint, which will control access to the service from your VPC.
-        /// You can also specify the VPC route tables that use the endpoint.
-        /// </para>
-        ///  
-        /// <para>
-        /// An <code>interface</code> endpoint is a network interface in your subnet that serves
-        /// as an endpoint for communicating with the specified service. You can specify the subnets
-        /// in which to create an endpoint, and the security groups to associate with the endpoint
-        /// network interface.
-        /// </para>
-        ///  
-        /// <para>
-        /// A <code>GatewayLoadBalancer</code> endpoint is a network interface in your subnet
-        /// that serves an endpoint for communicating with a Gateway Load Balancer that you've
-        /// configured as a VPC endpoint service.
-        /// </para>
-        ///  
-        /// <para>
-        /// Use <a>DescribeVpcEndpointServices</a> to get a list of supported services.
-        /// </para>
+        /// Web Services account. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon
+        /// Web Services PrivateLink Guide</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpcEndpoint service method.</param>
         /// <param name="cancellationToken">
@@ -3462,36 +3590,34 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates a VPC endpoint service configuration to which service consumers (Amazon Web
-        /// Services accounts, IAM users, and IAM roles) can connect.
+        /// Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
+        /// IAM users, and IAM roles) can connect.
         /// 
         ///  
         /// <para>
-        /// To create an endpoint service configuration, you must first create one of the following
-        /// for your service:
+        /// Before you create an endpoint service, you must create one of the following for your
+        /// service:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html">Network
+        /// A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/">Network
         /// Load Balancer</a>. Service consumers connect to your service using an interface endpoint.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html">Gateway
+        /// A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/">Gateway
         /// Load Balancer</a>. Service consumers connect to your service using a Gateway Load
         /// Balancer endpoint.
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC
-        /// Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. 
+        /// If you set the private DNS name, you must prove that you own the private DNS domain
+        /// name.
         /// </para>
         ///  
         /// <para>
-        /// If you set the private DNS name, you must prove that you own the private DNS domain
-        /// name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC
-        /// Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon
+        /// Web Services PrivateLink Guide</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpcEndpointServiceConfiguration service method.</param>
@@ -3807,7 +3933,7 @@ namespace Amazon.EC2
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Deleting
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Delete
         /// an EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
@@ -3898,6 +4024,85 @@ namespace Amazon.EC2
         /// <returns>The response from the DeleteInternetGateway service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteInternetGateway">REST API Reference for DeleteInternetGateway Operation</seealso>
         Task<DeleteInternetGatewayResponse> DeleteInternetGatewayAsync(DeleteInternetGatewayRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DeleteIpam
+
+
+
+        /// <summary>
+        /// Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM
+        /// including the historical data for CIDRs.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="/vpc/latest/ipam/delete-ipam.html">Delete an IPAM</a>
+        /// in the <i>Amazon VPC IPAM User Guide</i>. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteIpam service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteIpam service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteIpam">REST API Reference for DeleteIpam Operation</seealso>
+        Task<DeleteIpamResponse> DeleteIpamAsync(DeleteIpamRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DeleteIpamPool
+
+
+
+        /// <summary>
+        /// Delete an IPAM pool.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned
+        /// to it. To release allocations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>.
+        /// To deprovision pool CIDRs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html">DeprovisionIpamPoolCidr</a>.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// For more information, see <a href="/vpc/latest/ipam/delete-pool-ipam.html">Delete
+        /// a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteIpamPool service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteIpamPool service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteIpamPool">REST API Reference for DeleteIpamPool Operation</seealso>
+        Task<DeleteIpamPoolResponse> DeleteIpamPoolAsync(DeleteIpamPoolRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DeleteIpamScope
+
+
+
+        /// <summary>
+        /// Delete the scope for an IPAM. You cannot delete the default scopes.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="/vpc/latest/ipam/delete-scope-ipam.html">Delete
+        /// a scope</a> in the <i>Amazon VPC IPAM User Guide</i>. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteIpamScope service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteIpamScope service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteIpamScope">REST API Reference for DeleteIpamScope Operation</seealso>
+        Task<DeleteIpamScopeResponse> DeleteIpamScopeAsync(DeleteIpamScopeRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -4070,6 +4275,42 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  DeleteNetworkInsightsAccessScope
+
+
+
+        /// <summary>
+        /// Deletes the specified Network Access Scope.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteNetworkInsightsAccessScope service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteNetworkInsightsAccessScope service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkInsightsAccessScope">REST API Reference for DeleteNetworkInsightsAccessScope Operation</seealso>
+        Task<DeleteNetworkInsightsAccessScopeResponse> DeleteNetworkInsightsAccessScopeAsync(DeleteNetworkInsightsAccessScopeRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DeleteNetworkInsightsAccessScopeAnalysis
+
+
+
+        /// <summary>
+        /// Deletes the specified Network Access Scope analysis.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteNetworkInsightsAccessScopeAnalysis service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteNetworkInsightsAccessScopeAnalysis service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkInsightsAccessScopeAnalysis">REST API Reference for DeleteNetworkInsightsAccessScopeAnalysis Operation</seealso>
+        Task<DeleteNetworkInsightsAccessScopeAnalysisResponse> DeleteNetworkInsightsAccessScopeAnalysisAsync(DeleteNetworkInsightsAccessScopeAnalysisRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  DeleteNetworkInsightsAnalysis
 
 
@@ -4162,6 +4403,26 @@ namespace Amazon.EC2
         /// <returns>The response from the DeletePlacementGroup service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeletePlacementGroup">REST API Reference for DeletePlacementGroup Operation</seealso>
         Task<DeletePlacementGroupResponse> DeletePlacementGroupAsync(DeletePlacementGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DeletePublicIpv4Pool
+
+
+
+        /// <summary>
+        /// Delete a public IPv4 pool. A public IPv4 pool is an EC2 IP address pool required for
+        /// the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage with
+        /// IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools only.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeletePublicIpv4Pool service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeletePublicIpv4Pool service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeletePublicIpv4Pool">REST API Reference for DeletePublicIpv4Pool Operation</seealso>
+        Task<DeletePublicIpv4PoolResponse> DeletePublicIpv4PoolAsync(DeletePublicIpv4PoolRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -4890,16 +5151,66 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  DeprovisionIpamPoolCidr
+
+
+
+        /// <summary>
+        /// Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a
+        /// pool that has a source pool, the CIDR is recycled back into the source pool. For more
+        /// information, see <a href="/vpc/latest/ipam/depro-pool-cidr-ipam.html">Deprovision
+        /// pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeprovisionIpamPoolCidr service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeprovisionIpamPoolCidr service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeprovisionIpamPoolCidr">REST API Reference for DeprovisionIpamPoolCidr Operation</seealso>
+        Task<DeprovisionIpamPoolCidrResponse> DeprovisionIpamPoolCidrAsync(DeprovisionIpamPoolCidrRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DeprovisionPublicIpv4PoolCidr
+
+
+
+        /// <summary>
+        /// Deprovision a CIDR from a public IPv4 pool.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeprovisionPublicIpv4PoolCidr service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeprovisionPublicIpv4PoolCidr service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeprovisionPublicIpv4PoolCidr">REST API Reference for DeprovisionPublicIpv4PoolCidr Operation</seealso>
+        Task<DeprovisionPublicIpv4PoolCidrResponse> DeprovisionPublicIpv4PoolCidrAsync(DeprovisionPublicIpv4PoolCidrRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  DeregisterImage
 
 
 
         /// <summary>
         /// Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch
-        /// new instances; however, it doesn't affect any instances that you've already launched
+        /// new instances.
+        /// 
+        ///  
+        /// <para>
+        /// If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained
+        /// in the Recycle Bin for the specified retention period. For more information, see <a
+        /// href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
+        /// Bin</a> in the Amazon Elastic Compute Cloud User Guide.
+        /// </para>
+        ///  
+        /// <para>
+        /// When you deregister an AMI, it doesn't affect any instances that you've already launched
         /// from the AMI. You'll continue to incur usage costs for those instances until you terminate
         /// them.
-        /// 
+        /// </para>
         ///  
         /// <para>
         /// When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that
@@ -4924,13 +5235,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// c
-        /// 
-        ///  
-        /// <para>
         /// Deregisters tag keys to prevent tags that have the specified tag keys from being included
         /// in scheduled event notifications for resources in the Region.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeregisterInstanceEventNotificationAttributes service method.</param>
         /// <param name="cancellationToken">
@@ -4985,8 +5291,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes attributes of your AWS account. The following are the supported account
-        /// attributes:
+        /// Describes attributes of your Amazon Web Services account. The following are the supported
+        /// account attributes:
         /// 
         ///  <ul> <li> 
         /// <para>
@@ -5032,8 +5338,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes attributes of your AWS account. The following are the supported account
-        /// attributes:
+        /// Describes attributes of your Amazon Web Services account. The following are the supported
+        /// account attributes:
         /// 
         ///  <ul> <li> 
         /// <para>
@@ -5705,6 +6011,24 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  DescribeFastLaunchImages
+
+
+
+        /// <summary>
+        /// Describe details for Windows AMIs that are configured for faster launching.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeFastLaunchImages service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeFastLaunchImages service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFastLaunchImages">REST API Reference for DescribeFastLaunchImages Operation</seealso>
+        Task<DescribeFastLaunchImagesResponse> DescribeFastLaunchImagesAsync(DescribeFastLaunchImagesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  DescribeFastSnapshotRestores
 
 
@@ -5762,7 +6086,7 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet">Monitoring
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Monitor
         /// your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
@@ -5786,7 +6110,7 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet">Monitoring
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Monitor
         /// your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
@@ -6378,7 +6702,7 @@ namespace Amazon.EC2
         /// <para>
         ///  <b>Status checks</b> - Amazon EC2 performs status checks on running EC2 instances
         /// to identify hardware and software issues. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html">Status
-        /// checks for your instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshooting
+        /// checks for your instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshoot
         /// instances with failed status checks</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         ///  </li> <li> 
@@ -6419,7 +6743,7 @@ namespace Amazon.EC2
         /// <para>
         ///  <b>Status checks</b> - Amazon EC2 performs status checks on running EC2 instances
         /// to identify hardware and software issues. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html">Status
-        /// checks for your instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshooting
+        /// checks for your instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshoot
         /// instances with failed status checks</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         ///  </li> <li> 
@@ -6514,6 +6838,66 @@ namespace Amazon.EC2
         /// <returns>The response from the DescribeInternetGateways service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInternetGateways">REST API Reference for DescribeInternetGateways Operation</seealso>
         Task<DescribeInternetGatewaysResponse> DescribeInternetGatewaysAsync(DescribeInternetGatewaysRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DescribeIpamPools
+
+
+
+        /// <summary>
+        /// Get information about your IPAM pools.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeIpamPools service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeIpamPools service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeIpamPools">REST API Reference for DescribeIpamPools Operation</seealso>
+        Task<DescribeIpamPoolsResponse> DescribeIpamPoolsAsync(DescribeIpamPoolsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DescribeIpams
+
+
+
+        /// <summary>
+        /// Get information about your IPAM pools.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is
+        /// IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeIpams service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeIpams service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeIpams">REST API Reference for DescribeIpams Operation</seealso>
+        Task<DescribeIpamsResponse> DescribeIpamsAsync(DescribeIpamsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DescribeIpamScopes
+
+
+
+        /// <summary>
+        /// Get information about your IPAM scopes.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeIpamScopes service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeIpamScopes service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeIpamScopes">REST API Reference for DescribeIpamScopes Operation</seealso>
+        Task<DescribeIpamScopesResponse> DescribeIpamScopesAsync(DescribeIpamScopesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -6826,6 +7210,42 @@ namespace Amazon.EC2
         /// <returns>The response from the DescribeNetworkAcls service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkAcls">REST API Reference for DescribeNetworkAcls Operation</seealso>
         Task<DescribeNetworkAclsResponse> DescribeNetworkAclsAsync(DescribeNetworkAclsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DescribeNetworkInsightsAccessScopeAnalyses
+
+
+
+        /// <summary>
+        /// Describes the specified Network Access Scope analyses.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeNetworkInsightsAccessScopeAnalyses service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeNetworkInsightsAccessScopeAnalyses service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInsightsAccessScopeAnalyses">REST API Reference for DescribeNetworkInsightsAccessScopeAnalyses Operation</seealso>
+        Task<DescribeNetworkInsightsAccessScopeAnalysesResponse> DescribeNetworkInsightsAccessScopeAnalysesAsync(DescribeNetworkInsightsAccessScopeAnalysesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DescribeNetworkInsightsAccessScopes
+
+
+
+        /// <summary>
+        /// Describes the specified Network Access Scopes.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeNetworkInsightsAccessScopes service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeNetworkInsightsAccessScopes service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInsightsAccessScopes">REST API Reference for DescribeNetworkInsightsAccessScopes Operation</seealso>
+        Task<DescribeNetworkInsightsAccessScopesResponse> DescribeNetworkInsightsAccessScopesAsync(DescribeNetworkInsightsAccessScopesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -7744,6 +8164,24 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  DescribeSnapshotTierStatus
+
+
+
+        /// <summary>
+        /// Describes the storage tier status of one or more Amazon EBS snapshots.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeSnapshotTierStatus service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeSnapshotTierStatus service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSnapshotTierStatus">REST API Reference for DescribeSnapshotTierStatus Operation</seealso>
+        Task<DescribeSnapshotTierStatusResponse> DescribeSnapshotTierStatusAsync(DescribeSnapshotTierStatusRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  DescribeSpotDatafeedSubscription
 
 
@@ -7977,8 +8415,9 @@ namespace Amazon.EC2
 
         /// <summary>
         /// [VPC only] Describes the stale security group rules for security groups in a specified
-        /// VPC. Rules are stale when they reference a deleted security group in a peer VPC, or
-        /// a security group in a peer VPC for which the VPC peering connection has been deleted.
+        /// VPC. Rules are stale when they reference a deleted security group in the same VPC
+        /// or in a peer VPC, or if they reference a security group in a peer VPC for which the
+        /// VPC peering connection has been deleted.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeStaleSecurityGroups service method.</param>
         /// <param name="cancellationToken">
@@ -9068,6 +9507,33 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  DisableFastLaunch
+
+
+
+        /// <summary>
+        /// Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned
+        /// snapshots. When you disable faster launching, the AMI uses the standard launch process
+        /// for each instance. All pre-provisioned snapshots must be removed before you can enable
+        /// faster launching again.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// To change these settings, you must own the AMI.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisableFastLaunch service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DisableFastLaunch service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableFastLaunch">REST API Reference for DisableFastLaunch Operation</seealso>
+        Task<DisableFastLaunchResponse> DisableFastLaunchAsync(DisableFastLaunchRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  DisableFastSnapshotRestores
 
 
@@ -9108,6 +9574,25 @@ namespace Amazon.EC2
         /// <returns>The response from the DisableImageDeprecation service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableImageDeprecation">REST API Reference for DisableImageDeprecation Operation</seealso>
         Task<DisableImageDeprecationResponse> DisableImageDeprecationAsync(DisableImageDeprecationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DisableIpamOrganizationAdminAccount
+
+
+
+        /// <summary>
+        /// Disable the IPAM account. For more information, see <a href="/vpc/latest/ipam/enable-integ-ipam.html">Enable
+        /// integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisableIpamOrganizationAdminAccount service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DisableIpamOrganizationAdminAccount service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableIpamOrganizationAdminAccount">REST API Reference for DisableIpamOrganizationAdminAccount Operation</seealso>
+        Task<DisableIpamOrganizationAdminAccountResponse> DisableIpamOrganizationAdminAccountAsync(DisableIpamOrganizationAdminAccountRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -9529,6 +10014,35 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  EnableFastLaunch
+
+
+
+        /// <summary>
+        /// When you enable faster launching for a Windows AMI, images are pre-provisioned, using
+        /// snapshots to launch instances up to 65% faster. To create the optimized Windows image,
+        /// Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required.
+        /// Then it creates a set of reserved snapshots that are used for subsequent launches.
+        /// The reserved snapshots are automatically replenished as they are used, depending on
+        /// your settings for launch frequency.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// To change these settings, you must own the AMI.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the EnableFastLaunch service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the EnableFastLaunch service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableFastLaunch">REST API Reference for EnableFastLaunch Operation</seealso>
+        Task<EnableFastLaunchResponse> EnableFastLaunchAsync(EnableFastLaunchRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  EnableFastSnapshotRestores
 
 
@@ -9581,6 +10095,27 @@ namespace Amazon.EC2
         /// <returns>The response from the EnableImageDeprecation service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableImageDeprecation">REST API Reference for EnableImageDeprecation Operation</seealso>
         Task<EnableImageDeprecationResponse> EnableImageDeprecationAsync(EnableImageDeprecationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  EnableIpamOrganizationAdminAccount
+
+
+
+        /// <summary>
+        /// Enable an Organizations member account as the IPAM admin account. You cannot select
+        /// the Organizations management account as the IPAM admin account. For more information,
+        /// see <a href="/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a>
+        /// in the <i>Amazon VPC IPAM User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the EnableIpamOrganizationAdminAccount service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the EnableIpamOrganizationAdminAccount service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableIpamOrganizationAdminAccount">REST API Reference for EnableIpamOrganizationAdminAccount Operation</seealso>
+        Task<EnableIpamOrganizationAdminAccountResponse> EnableIpamOrganizationAdminAccountAsync(EnableIpamOrganizationAdminAccountRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -10138,6 +10673,80 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  GetIpamAddressHistory
+
+
+
+        /// <summary>
+        /// Retrieve historical information about a CIDR within an IPAM scope. For more information,
+        /// see <a href="/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP
+        /// addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetIpamAddressHistory service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetIpamAddressHistory service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetIpamAddressHistory">REST API Reference for GetIpamAddressHistory Operation</seealso>
+        Task<GetIpamAddressHistoryResponse> GetIpamAddressHistoryAsync(GetIpamAddressHistoryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  GetIpamPoolAllocations
+
+
+
+        /// <summary>
+        /// Get a list of all the CIDR allocations in an IPAM pool.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetIpamPoolAllocations service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetIpamPoolAllocations service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetIpamPoolAllocations">REST API Reference for GetIpamPoolAllocations Operation</seealso>
+        Task<GetIpamPoolAllocationsResponse> GetIpamPoolAllocationsAsync(GetIpamPoolAllocationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  GetIpamPoolCidrs
+
+
+
+        /// <summary>
+        /// Get the CIDRs provisioned to an IPAM pool.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetIpamPoolCidrs service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetIpamPoolCidrs service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetIpamPoolCidrs">REST API Reference for GetIpamPoolCidrs Operation</seealso>
+        Task<GetIpamPoolCidrsResponse> GetIpamPoolCidrsAsync(GetIpamPoolCidrsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  GetIpamResourceCidrs
+
+
+
+        /// <summary>
+        /// Get information about the resources in a scope.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetIpamResourceCidrs service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetIpamResourceCidrs service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetIpamResourceCidrs">REST API Reference for GetIpamResourceCidrs Operation</seealso>
+        Task<GetIpamResourceCidrsResponse> GetIpamResourceCidrsAsync(GetIpamResourceCidrsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  GetLaunchTemplateData
 
 
@@ -10200,6 +10809,42 @@ namespace Amazon.EC2
         /// <returns>The response from the GetManagedPrefixListEntries service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetManagedPrefixListEntries">REST API Reference for GetManagedPrefixListEntries Operation</seealso>
         Task<GetManagedPrefixListEntriesResponse> GetManagedPrefixListEntriesAsync(GetManagedPrefixListEntriesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  GetNetworkInsightsAccessScopeAnalysisFindings
+
+
+
+        /// <summary>
+        /// Gets the findings for the specified Network Access Scope analysis.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetNetworkInsightsAccessScopeAnalysisFindings service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetNetworkInsightsAccessScopeAnalysisFindings service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetNetworkInsightsAccessScopeAnalysisFindings">REST API Reference for GetNetworkInsightsAccessScopeAnalysisFindings Operation</seealso>
+        Task<GetNetworkInsightsAccessScopeAnalysisFindingsResponse> GetNetworkInsightsAccessScopeAnalysisFindingsAsync(GetNetworkInsightsAccessScopeAnalysisFindingsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  GetNetworkInsightsAccessScopeContent
+
+
+
+        /// <summary>
+        /// Gets the content for the specified Network Access Scope.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetNetworkInsightsAccessScopeContent service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetNetworkInsightsAccessScopeContent service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetNetworkInsightsAccessScopeContent">REST API Reference for GetNetworkInsightsAccessScopeContent Operation</seealso>
+        Task<GetNetworkInsightsAccessScopeContentResponse> GetNetworkInsightsAccessScopeContentAsync(GetNetworkInsightsAccessScopeContentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -10639,6 +11284,44 @@ namespace Amazon.EC2
         /// <returns>The response from the ImportVolume service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportVolume">REST API Reference for ImportVolume Operation</seealso>
         Task<ImportVolumeResponse> ImportVolumeAsync(ImportVolumeRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  ListImagesInRecycleBin
+
+
+
+        /// <summary>
+        /// Lists one or more AMIs that are currently in the Recycle Bin. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
+        /// Bin</a> in the Amazon Elastic Compute Cloud User Guide.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListImagesInRecycleBin service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListImagesInRecycleBin service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ListImagesInRecycleBin">REST API Reference for ListImagesInRecycleBin Operation</seealso>
+        Task<ListImagesInRecycleBinResponse> ListImagesInRecycleBinAsync(ListImagesInRecycleBinRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  ListSnapshotsInRecycleBin
+
+
+
+        /// <summary>
+        /// Lists one or more snapshots that are currently in the Recycle Bin.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListSnapshotsInRecycleBin service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListSnapshotsInRecycleBin service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ListSnapshotsInRecycleBin">REST API Reference for ListSnapshotsInRecycleBin Operation</seealso>
+        Task<ListSnapshotsInRecycleBinResponse> ListSnapshotsInRecycleBinAsync(ListSnapshotsInRecycleBinRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -11082,8 +11765,8 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// To modify some attributes, the instance must be stopped. For more information, see
-        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modifying
-        /// attributes of a stopped instance</a> in the <i>Amazon EC2 User Guide</i>.
+        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modify
+        /// a stopped instance</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyInstanceAttribute service method.</param>
@@ -11199,6 +11882,28 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  ModifyInstanceMaintenanceOptions
+
+
+
+        /// <summary>
+        /// Modifies the recovery behavior of your instance to disable simplified automatic recovery
+        /// or set the recovery behavior to default. The default configuration will not enable
+        /// simplified automatic recovery for an unsupported instance type. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified
+        /// automatic recovery</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyInstanceMaintenanceOptions service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyInstanceMaintenanceOptions service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstanceMaintenanceOptions">REST API Reference for ModifyInstanceMaintenanceOptions Operation</seealso>
+        Task<ModifyInstanceMaintenanceOptionsResponse> ModifyInstanceMaintenanceOptionsAsync(ModifyInstanceMaintenanceOptionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  ModifyInstanceMetadataOptions
 
 
@@ -11273,6 +11978,94 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  ModifyIpam
+
+
+
+        /// <summary>
+        /// Modify the configurations of an IPAM.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyIpam service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyIpam service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyIpam">REST API Reference for ModifyIpam Operation</seealso>
+        Task<ModifyIpamResponse> ModifyIpamAsync(ModifyIpamRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  ModifyIpamPool
+
+
+
+        /// <summary>
+        /// Modify the configurations of an IPAM pool.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a>
+        /// in the <i>Amazon VPC IPAM User Guide</i>. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyIpamPool service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyIpamPool service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyIpamPool">REST API Reference for ModifyIpamPool Operation</seealso>
+        Task<ModifyIpamPoolResponse> ModifyIpamPoolAsync(ModifyIpamPoolRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  ModifyIpamResourceCidr
+
+
+
+        /// <summary>
+        /// Modify a resource CIDR. You can use this action to transfer resource CIDRs between
+        /// scopes and ignore resource CIDRs that you do not want to manage. If set to false,
+        /// the resource will not be tracked for overlap, it cannot be auto-imported into a pool,
+        /// and it will be removed from any pool it has an allocation in.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="/vpc/latest/ipam/move-resource-ipam.html">Move
+        /// resource CIDRs between scopes</a> and <a href="/vpc/latest/ipam/change-monitoring-state-ipam.html">Change
+        /// the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyIpamResourceCidr service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyIpamResourceCidr service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyIpamResourceCidr">REST API Reference for ModifyIpamResourceCidr Operation</seealso>
+        Task<ModifyIpamResourceCidrResponse> ModifyIpamResourceCidrAsync(ModifyIpamResourceCidrRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  ModifyIpamScope
+
+
+
+        /// <summary>
+        /// Modify an IPAM scope.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyIpamScope service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyIpamScope service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyIpamScope">REST API Reference for ModifyIpamScope Operation</seealso>
+        Task<ModifyIpamScopeResponse> ModifyIpamScopeAsync(ModifyIpamScopeRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  ModifyLaunchTemplate
 
 
@@ -11339,6 +12132,24 @@ namespace Amazon.EC2
         /// <returns>The response from the ModifyNetworkInterfaceAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyNetworkInterfaceAttribute">REST API Reference for ModifyNetworkInterfaceAttribute Operation</seealso>
         Task<ModifyNetworkInterfaceAttributeResponse> ModifyNetworkInterfaceAttributeAsync(ModifyNetworkInterfaceAttributeRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  ModifyPrivateDnsNameOptions
+
+
+
+        /// <summary>
+        /// Modifies the options for instance hostnames for the specified instance.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyPrivateDnsNameOptions service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyPrivateDnsNameOptions service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyPrivateDnsNameOptions">REST API Reference for ModifyPrivateDnsNameOptions Operation</seealso>
+        Task<ModifyPrivateDnsNameOptionsResponse> ModifyPrivateDnsNameOptionsAsync(ModifyPrivateDnsNameOptionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -11421,6 +12232,28 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  ModifySnapshotTier
+
+
+
+        /// <summary>
+        /// Archives an Amazon EBS snapshot. When you archive a snapshot, it is converted to a
+        /// full snapshot that includes all of the blocks of data that were written to the volume
+        /// at the time the snapshot was created, and moved from the standard tier to the archive
+        /// tier. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-archive.html">Archive
+        /// Amazon EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifySnapshotTier service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifySnapshotTier service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifySnapshotTier">REST API Reference for ModifySnapshotTier Operation</seealso>
+        Task<ModifySnapshotTierResponse> ModifySnapshotTierAsync(ModifySnapshotTierRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  ModifySpotFleetRequest
 
 
@@ -11485,6 +12318,36 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Modifies a subnet attribute. You can only modify one attribute at a time.
+        /// 
+        ///  
+        /// <para>
+        /// Use this action to modify subnets on Amazon Web Services Outposts.
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// To modify a subnet on an Outpost rack, set both <code>MapCustomerOwnedIpOnLaunch</code>
+        /// and <code>CustomerOwnedIpv4Pool</code>. These two parameters act as a single attribute.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// To modify a subnet on an Outpost server, set either <code>EnableLniAtDeviceIndex</code>
+        /// or <code>DisableLniAtDeviceIndex</code>.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information about Amazon Web Services Outposts, see the following:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-servers-work.html">Outpost
+        /// servers</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-racks-work.html">Outpost
+        /// racks</a> 
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifySubnetAttribute service method.</param>
         /// <param name="cancellationToken">
@@ -11661,8 +12524,9 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// If you reach the maximum volume modification rate per volume limit, you must wait
-        /// at least six hours before applying further modifications to the affected EBS volume.
+        /// After modifying a volume, you must wait at least six hours and ensure that the volume
+        /// is in the <code>in-use</code> or <code>available</code> state before you can modify
+        /// the same volume. This is sometimes referred to as a cooldown period.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVolume service method.</param>
@@ -11732,8 +12596,8 @@ namespace Amazon.EC2
         /// <summary>
         /// Modifies attributes of a specified VPC endpoint. The attributes that you can modify
         /// depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer).
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC
-        /// Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon
+        /// Web Services PrivateLink Guide</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVpcEndpoint service method.</param>
         /// <param name="cancellationToken">
@@ -11778,9 +12642,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// If you set or modify the private DNS name, you must prove that you own the private
-        /// DNS domain name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC
-        /// Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// DNS domain name.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVpcEndpointServiceConfiguration service method.</param>
@@ -11794,14 +12656,32 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  ModifyVpcEndpointServicePayerResponsibility
+
+
+
+        /// <summary>
+        /// Modifies the payer responsibility for your VPC endpoint service.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVpcEndpointServicePayerResponsibility service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyVpcEndpointServicePayerResponsibility service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcEndpointServicePayerResponsibility">REST API Reference for ModifyVpcEndpointServicePayerResponsibility Operation</seealso>
+        Task<ModifyVpcEndpointServicePayerResponsibilityResponse> ModifyVpcEndpointServicePayerResponsibilityAsync(ModifyVpcEndpointServicePayerResponsibilityRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  ModifyVpcEndpointServicePermissions
 
 
 
         /// <summary>
-        /// Modifies the permissions for your <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC
-        /// endpoint service</a>. You can add or remove permissions for service consumers (IAM
-        /// users, IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.
+        /// Modifies the permissions for your VPC endpoint service. You can add or remove permissions
+        /// for service consumers (IAM users, IAM roles, and Amazon Web Services accounts) to
+        /// connect to your endpoint service.
         /// 
         ///  
         /// <para>
@@ -12055,12 +12935,12 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Enables detailed monitoring for a running instance. Otherwise, basic monitoring is
-        /// enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring
-        /// your instances and volumes</a> in the <i>Amazon EC2 User Guide</i>.
+        /// enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitor
+        /// your instances using CloudWatch</a> in the <i>Amazon EC2 User Guide</i>.
         /// 
         ///  
         /// <para>
-        /// To disable detailed monitoring, see .
+        /// To disable detailed monitoring, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnmonitorInstances.html">UnmonitorInstances</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the MonitorInstances service method.</param>
@@ -12098,6 +12978,33 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  MoveByoipCidrToIpam
+
+
+
+        /// <summary>
+        /// Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.
+        /// 
+        ///  
+        /// <para>
+        /// If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the
+        /// CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you
+        /// are bringing a new IP address to Amazon Web Services for the first time, complete
+        /// the steps in <a href="/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP
+        /// address CIDRs to IPAM</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the MoveByoipCidrToIpam service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the MoveByoipCidrToIpam service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/MoveByoipCidrToIpam">REST API Reference for MoveByoipCidrToIpam Operation</seealso>
+        Task<MoveByoipCidrToIpamResponse> MoveByoipCidrToIpamAsync(MoveByoipCidrToIpamRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  ProvisionByoipCidr
 
 
@@ -12132,6 +13039,55 @@ namespace Amazon.EC2
         /// <returns>The response from the ProvisionByoipCidr service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ProvisionByoipCidr">REST API Reference for ProvisionByoipCidr Operation</seealso>
         Task<ProvisionByoipCidrResponse> ProvisionByoipCidrAsync(ProvisionByoipCidrRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  ProvisionIpamPoolCidr
+
+
+
+        /// <summary>
+        /// Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to
+        /// a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="/vpc/latest/ipam/prov-cidr-ipam.html">Provision
+        /// CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ProvisionIpamPoolCidr service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ProvisionIpamPoolCidr service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ProvisionIpamPoolCidr">REST API Reference for ProvisionIpamPoolCidr Operation</seealso>
+        Task<ProvisionIpamPoolCidrResponse> ProvisionIpamPoolCidrAsync(ProvisionIpamPoolCidrRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  ProvisionPublicIpv4PoolCidr
+
+
+
+        /// <summary>
+        /// Provision a CIDR to a public IPv4 pool.
+        /// 
+        ///  
+        /// <para>
+        /// For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What
+        /// is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ProvisionPublicIpv4PoolCidr service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ProvisionPublicIpv4PoolCidr service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ProvisionPublicIpv4PoolCidr">REST API Reference for ProvisionPublicIpv4PoolCidr Operation</seealso>
+        Task<ProvisionPublicIpv4PoolCidrResponse> ProvisionPublicIpv4PoolCidrAsync(ProvisionPublicIpv4PoolCidrRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -12242,8 +13198,8 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Getting
-        /// console output and rebooting instances</a> in the <i>Amazon EC2 User Guide</i>.
+        /// For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Troubleshoot
+        /// an unreachable instance</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RebootInstances service method.</param>
@@ -12358,7 +13314,7 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// To remove tags, use .
+        /// To remove tags, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html">DeregisterInstanceEventNotificationAttributes</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RegisterInstanceEventNotificationAttributes service method.</param>
@@ -12608,6 +13564,28 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  ReleaseIpamPoolAllocation
+
+
+
+        /// <summary>
+        /// Release an allocation within an IPAM pool. You can only use this action to release
+        /// manual allocations. To remove an allocation for a resource without deleting the resource,
+        /// set its monitored state to false using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html">ModifyIpamResourceCidr</a>.
+        /// For more information, see <a href="/vpc/latest/ipam/release-pool-alloc-ipam.html">Release
+        /// an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ReleaseIpamPoolAllocation service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ReleaseIpamPoolAllocation service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReleaseIpamPoolAllocation">REST API Reference for ReleaseIpamPoolAllocation Operation</seealso>
+        Task<ReleaseIpamPoolAllocationResponse> ReleaseIpamPoolAllocationAsync(ReleaseIpamPoolAllocationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  ReplaceIamInstanceProfileAssociation
 
 
@@ -12821,6 +13799,14 @@ namespace Amazon.EC2
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot
         /// Fleet requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
         /// </para>
+        ///  <important> 
+        /// <para>
+        /// We strongly discourage using the RequestSpotFleet API because it is a legacy API with
+        /// no planned investment. For options for requesting Spot Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use">Which
+        /// is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide for Linux
+        /// Instances</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RequestSpotFleet service method.</param>
         /// <param name="cancellationToken">
@@ -12845,6 +13831,14 @@ namespace Amazon.EC2
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
         /// Instance requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
         /// </para>
+        ///  <important> 
+        /// <para>
+        /// We strongly discourage using the RequestSpotInstances API because it is a legacy API
+        /// with no planned investment. For options for requesting Spot Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use">Which
+        /// is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide for Linux
+        /// Instances</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RequestSpotInstances service method.</param>
         /// <param name="cancellationToken">
@@ -13032,6 +14026,25 @@ namespace Amazon.EC2
 
         #endregion
                 
+        #region  RestoreImageFromRecycleBin
+
+
+
+        /// <summary>
+        /// Restores an AMI from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
+        /// Bin</a> in the Amazon Elastic Compute Cloud User Guide.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RestoreImageFromRecycleBin service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the RestoreImageFromRecycleBin service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RestoreImageFromRecycleBin">REST API Reference for RestoreImageFromRecycleBin Operation</seealso>
+        Task<RestoreImageFromRecycleBinResponse> RestoreImageFromRecycleBinAsync(RestoreImageFromRecycleBinRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  RestoreManagedPrefixListVersion
 
 
@@ -13048,6 +14061,53 @@ namespace Amazon.EC2
         /// <returns>The response from the RestoreManagedPrefixListVersion service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RestoreManagedPrefixListVersion">REST API Reference for RestoreManagedPrefixListVersion Operation</seealso>
         Task<RestoreManagedPrefixListVersionResponse> RestoreManagedPrefixListVersionAsync(RestoreManagedPrefixListVersionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  RestoreSnapshotFromRecycleBin
+
+
+
+        /// <summary>
+        /// Restores a snapshot from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps">Restore
+        /// snapshots from the Recycle Bin</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RestoreSnapshotFromRecycleBin service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the RestoreSnapshotFromRecycleBin service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RestoreSnapshotFromRecycleBin">REST API Reference for RestoreSnapshotFromRecycleBin Operation</seealso>
+        Task<RestoreSnapshotFromRecycleBinResponse> RestoreSnapshotFromRecycleBinAsync(RestoreSnapshotFromRecycleBinRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  RestoreSnapshotTier
+
+
+
+        /// <summary>
+        /// Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies
+        /// the restore period or restore type for a snapshot that was previously temporarily
+        /// restored.
+        /// 
+        ///  
+        /// <para>
+        /// For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#restore-archived-snapshot">
+        /// Restore an archived snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#modify-temp-restore-period">
+        /// modify the restore period or restore type for a temporarily restored snapshot</a>
+        /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RestoreSnapshotTier service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the RestoreSnapshotTier service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RestoreSnapshotTier">REST API Reference for RestoreSnapshotTier Operation</seealso>
+        Task<RestoreSnapshotTierResponse> RestoreSnapshotTierAsync(RestoreSnapshotTierRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -13369,8 +14429,8 @@ namespace Amazon.EC2
         /// <para>
         /// For more information about configuring your operating system to generate a crash dump
         /// when a kernel panic or stop error occurs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html">Send
-        /// a diagnostic interrupt</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html">Send
-        /// a Diagnostic Interrupt</a> (Windows instances).
+        /// a diagnostic interrupt (for advanced users)</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html">Send
+        /// a diagnostic interrupt (for advanced users)</a> (Windows instances).
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SendDiagnosticInterrupt service method.</param>
@@ -13421,8 +14481,8 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stopping
-        /// instances</a> in the <i>Amazon EC2 User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop
+        /// and start your instance</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartInstances service method.</param>
@@ -13433,6 +14493,24 @@ namespace Amazon.EC2
         /// <returns>The response from the StartInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/StartInstances">REST API Reference for StartInstances Operation</seealso>
         Task<StartInstancesResponse> StartInstancesAsync(StartInstancesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  StartNetworkInsightsAccessScopeAnalysis
+
+
+
+        /// <summary>
+        /// Starts analyzing the specified Network Access Scope.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartNetworkInsightsAccessScopeAnalysis service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartNetworkInsightsAccessScopeAnalysis service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/StartNetworkInsightsAccessScopeAnalysis">REST API Reference for StartNetworkInsightsAccessScopeAnalysis Operation</seealso>
+        Task<StartNetworkInsightsAccessScopeAnalysisResponse> StartNetworkInsightsAccessScopeAnalysisAsync(StartNetworkInsightsAccessScopeAnalysisRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -13471,8 +14549,6 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// Before the service provider runs this command, they must add a record to the DNS server.
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html#add-dns-txt-record">Adding
-        /// a TXT Record to Your Domain's DNS Server </a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartVpcEndpointServicePrivateDnsVerification service method.</param>
@@ -13537,7 +14613,7 @@ namespace Amazon.EC2
         /// <para>
         /// When you stop an instance, we attempt to shut it down forcibly after a short while.
         /// If your instance appears stuck in the stopping state after a period of time, there
-        /// may be an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshooting
+        /// may be an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshoot
         /// stopping your instance</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>

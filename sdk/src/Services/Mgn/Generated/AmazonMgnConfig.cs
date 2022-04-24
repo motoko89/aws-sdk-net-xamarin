@@ -32,7 +32,7 @@ namespace Amazon.Mgn
     public partial class AmazonMgnConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.55");
+            InternalSDKUtils.BuildUserAgentString("3.7.4.0");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.Mgn
         /// Default constructor
         /// </summary>
         public AmazonMgnConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonMgnDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "mgn";
         }

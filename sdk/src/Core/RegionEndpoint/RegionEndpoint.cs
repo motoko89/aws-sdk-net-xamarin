@@ -61,7 +61,7 @@ namespace Amazon
             {
                 List<RegionEndpoint> list = new List<RegionEndpoint>();
                 foreach (IRegionEndpoint endpoint in RegionEndpointProvider.AllRegionEndpoints)
-                {                        
+                {
                     list.Add(GetEndpoint(endpoint.RegionName, endpoint.DisplayName));
                 }
                 return list;
@@ -152,6 +152,9 @@ namespace Amazon
             lock (_hashBySystemName)
             {
                 _hashBySystemName.Clear();
+
+                // Add the .NET/S3-specific legacy region back to the lookup map
+                GetEndpoint("us-east-1-regional", "US East (Virginia) regional");
             }
 
             ResetRegionEndpointOverride();
@@ -251,6 +254,7 @@ namespace Amazon
         private RegionEndpoint(string systemName, string displayName)
         {
             this.SystemName = systemName;
+            this.OriginalSystemName = systemName;
             this.DisplayName = displayName;
         }
 
@@ -261,6 +265,15 @@ namespace Amazon
         {
             get;
             private set;
+        }
+
+        [Obsolete("It should not be necessary to use this property.  To support upgrading to Endpoint Variants, " +
+                  "ClientConfig will manipulate the assigned RegionEndpoint.  To support the Polly PreSigner, it's still necessary" +
+                  "to check the OriginalSystemName to determine if a PseudoRegion was assigned.",error: false)]
+        public string OriginalSystemName
+        {
+            get;
+            internal set;
         }
 
         /// <summary>
@@ -319,7 +332,7 @@ namespace Amazon
         /// <returns></returns>
         public Endpoint GetEndpointForService(string serviceName)
         {
-            return GetEndpointForService(serviceName, false);
+            return GetEndpointForService(serviceName, new GetEndpointForServiceOptions());
         }
 
         /// <summary>
@@ -338,10 +351,29 @@ namespace Amazon
         /// will generate an endpoint using the AWS endpoint heuristics. In this case, it is not guaranteed the
         /// endpoint will point to a valid service endpoint.
         /// </param>
-        /// <returns></returns>
+        [Obsolete("Use GetEndpointForService(string serviceName, GetEndpointForServiceOptions options) instead", error: false)]
         public Endpoint GetEndpointForService(string serviceName, bool dualStack)
         {
-            return InternedRegionEndpoint.GetEndpointForService(serviceName, dualStack);
+            return GetEndpointForService(serviceName, new GetEndpointForServiceOptions {DualStack = dualStack});
+        }
+
+        /// <summary>
+        /// Gets the endpoint for a service in a region.
+        /// <para />
+        /// For forwards compatibility, if the service being requested for isn't known in the region, this method 
+        /// will generate an endpoint using the AWS endpoint heuristics. In this case, it is not guaranteed the
+        /// endpoint will point to a valid service endpoint.
+        /// </summary>
+        /// <param name="serviceName">
+        /// The services system name. Service system names can be obtained from the
+        /// RegionEndpointServiceName member of the ClientConfig-derived class for the service.
+        /// </param>
+        /// <param name="options">
+        /// Specify additional requirements on the <see cref="Endpoint"/> to be returned.
+        /// </param>
+        public Endpoint GetEndpointForService(string serviceName, GetEndpointForServiceOptions options)
+        {
+            return InternedRegionEndpoint.GetEndpointForService(serviceName, options);
         }
 
         public override string ToString()
@@ -354,17 +386,28 @@ namespace Amazon
         /// </summary>
         public class Endpoint
         {
-            internal Endpoint(string hostname, string authregion, string signatureVersionOverride)
+            internal Endpoint(string hostname, string authregion, string signatureVersionOverride, string dnsSuffix, bool deprecated)
             {
                 this.Hostname = hostname;
                 this.AuthRegion = authregion;
                 this.SignatureVersionOverride = signatureVersionOverride;
+                this.Deprecated = deprecated;
+                this.DnsSuffix = dnsSuffix;
             }
 
             /// <summary>
             /// Gets the hostname for the service.
             /// </summary>
             public string Hostname
+            {
+                get;
+                private set;
+            }
+
+            /// <summary>
+            /// Gets the DNS suffix for the service.
+            /// </summary>
+            public string DnsSuffix
             {
                 get;
                 private set;
@@ -389,6 +432,15 @@ namespace Amazon
             /// For S3 endpoints, if the endpoint supports signature version 2 this property will be "2", otherwise it will be "4".
             /// </summary>
             public string SignatureVersionOverride
+            {
+                get;
+                private set;
+            }
+
+            /// <summary>
+            /// Gets the hostname for the service.
+            /// </summary>
+            public bool Deprecated
             {
                 get;
                 private set;

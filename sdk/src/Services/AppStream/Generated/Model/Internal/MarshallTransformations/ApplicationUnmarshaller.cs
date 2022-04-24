@@ -64,6 +64,30 @@ namespace Amazon.AppStream.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("AppBlockArn", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.AppBlockArn = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("Arn", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.Arn = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("CreatedTime", targetDepth))
+                {
+                    var unmarshaller = DateTimeUnmarshaller.Instance;
+                    unmarshalledObject.CreatedTime = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("Description", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.Description = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("DisplayName", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -76,10 +100,22 @@ namespace Amazon.AppStream.Model.Internal.MarshallTransformations
                     unmarshalledObject.Enabled = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("IconS3Location", targetDepth))
+                {
+                    var unmarshaller = S3LocationUnmarshaller.Instance;
+                    unmarshalledObject.IconS3Location = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("IconURL", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.IconURL = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("InstanceFamilies", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<string, StringUnmarshaller>(StringUnmarshaller.Instance);
+                    unmarshalledObject.InstanceFamilies = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("LaunchParameters", targetDepth))
@@ -104,6 +140,18 @@ namespace Amazon.AppStream.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.Name = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("Platforms", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<string, StringUnmarshaller>(StringUnmarshaller.Instance);
+                    unmarshalledObject.Platforms = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("WorkingDirectory", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.WorkingDirectory = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

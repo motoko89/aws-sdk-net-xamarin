@@ -58,7 +58,7 @@ namespace Amazon.Proton.Model.Internal.MarshallTransformations
             string target = "AwsProton20200720.UpdateEnvironment";
             request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/x-amz-json-1.0";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-07-20";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-07-20";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
@@ -97,6 +97,17 @@ namespace Amazon.Proton.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.ProtonServiceRoleArn);
                 }
 
+                if(publicRequest.IsSetProvisioningRepository())
+                {
+                    context.Writer.WritePropertyName("provisioningRepository");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = RepositoryBranchInputMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.ProvisioningRepository, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetSpec())
                 {
                     context.Writer.WritePropertyName("spec");
@@ -115,7 +126,6 @@ namespace Amazon.Proton.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.TemplateMinorVersion);
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

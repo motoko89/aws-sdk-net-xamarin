@@ -57,8 +57,10 @@ namespace Amazon.S3Control.Model.Internal.MarshallTransformations
             var request = new DefaultRequest(publicRequest, "Amazon.S3Control");
             request.HttpMethod = "PUT";
         
-            if(publicRequest.IsSetAccountId())
+            if (publicRequest.IsSetAccountId()) 
+            {
                 request.Headers["x-amz-account-id"] = publicRequest.AccountId;
+            }
             if (!publicRequest.IsSetConfigId())
                 throw new AmazonS3ControlException("Request object does not have required field ConfigId set");
             request.AddPathResource("{storagelensid}", StringUtils.FromString(publicRequest.ConfigId));
@@ -145,6 +147,15 @@ namespace Amazon.S3Control.Model.Internal.MarshallTransformations
                     if (publicRequest.StorageLensConfiguration.DataExport != null) 
                     {
                         xmlWriter.WriteStartElement("DataExport", "http://awss3control.amazonaws.com/doc/2018-08-20/");            
+                        
+                        if (publicRequest.StorageLensConfiguration.DataExport.CloudWatchMetrics != null) 
+                        {
+                            xmlWriter.WriteStartElement("CloudWatchMetrics", "http://awss3control.amazonaws.com/doc/2018-08-20/");            
+                            if(publicRequest.StorageLensConfiguration.DataExport.CloudWatchMetrics.IsSetIsEnabled())
+                                xmlWriter.WriteElementString("IsEnabled", "http://awss3control.amazonaws.com/doc/2018-08-20/", StringUtils.FromBool(publicRequest.StorageLensConfiguration.DataExport.CloudWatchMetrics.IsEnabled));                 
+            
+                            xmlWriter.WriteEndElement();
+                        }
                         
                         if (publicRequest.StorageLensConfiguration.DataExport.S3BucketDestination != null) 
                         {

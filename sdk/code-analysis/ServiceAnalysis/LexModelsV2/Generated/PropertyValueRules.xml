@@ -533,6 +533,30 @@
     <pattern>^[0-9]+$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.DeleteCustomVocabularyRequest.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.DeleteCustomVocabularyRequest.BotVersion</property>
+    <min>5</min>
+    <max>5</max>
+    <pattern>^DRAFT$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.DeleteCustomVocabularyResponse.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.DeleteCustomVocabularyResponse.BotVersion</property>
+    <min>5</min>
+    <max>5</max>
+    <pattern>^DRAFT$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.LexModelsV2.Model.DeleteExportRequest.ExportId</property>
     <min>10</min>
     <max>10</max>
@@ -788,6 +812,42 @@
     <max>1</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.DescribeBotRecommendationRequest.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.DescribeBotRecommendationRequest.BotRecommendationId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.DescribeBotRecommendationRequest.BotVersion</property>
+    <min>5</min>
+    <max>5</max>
+    <pattern>^DRAFT$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.DescribeBotRecommendationResponse.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.DescribeBotRecommendationResponse.BotRecommendationId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.DescribeBotRecommendationResponse.BotVersion</property>
+    <min>5</min>
+    <max>5</max>
+    <pattern>^DRAFT$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.LexModelsV2.Model.DescribeBotVersionRequest.BotId</property>
     <min>10</min>
     <max>10</max>
@@ -832,6 +892,30 @@
     <min>32</min>
     <max>2048</max>
     <pattern>^arn:aws:iam::[0-9]{12}:role/.*$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.DescribeCustomVocabularyMetadataRequest.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.DescribeCustomVocabularyMetadataRequest.BotVersion</property>
+    <min>1</min>
+    <max>5</max>
+    <pattern>^(DRAFT|[0-9]+)$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.DescribeCustomVocabularyMetadataResponse.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.DescribeCustomVocabularyMetadataResponse.BotVersion</property>
+    <min>1</min>
+    <max>5</max>
+    <pattern>^(DRAFT|[0-9]+)$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.LexModelsV2.Model.DescribeExportRequest.ExportId</property>
@@ -1141,6 +1225,35 @@
     <pattern>^(DRAFT|[0-9]+)$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.ListBotRecommendationsRequest.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.ListBotRecommendationsRequest.BotVersion</property>
+    <min>5</min>
+    <max>5</max>
+    <pattern>^DRAFT$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.ListBotRecommendationsRequest.MaxResults</property>
+    <min>1</min>
+    <max>1000</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.ListBotRecommendationsResponse.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.ListBotRecommendationsResponse.BotVersion</property>
+    <min>5</min>
+    <max>5</max>
+    <pattern>^DRAFT$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.LexModelsV2.Model.ListBotsRequest.MaxResults</property>
     <min>1</min>
     <max>1000</max>
@@ -1260,6 +1373,47 @@
     <pattern>^(DRAFT|[0-9]+)$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.ListRecommendedIntentsRequest.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.ListRecommendedIntentsRequest.BotRecommendationId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.ListRecommendedIntentsRequest.BotVersion</property>
+    <min>5</min>
+    <max>5</max>
+    <pattern>^DRAFT$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.ListRecommendedIntentsRequest.MaxResults</property>
+    <min>1</min>
+    <max>1000</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.ListRecommendedIntentsResponse.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.ListRecommendedIntentsResponse.BotRecommendationId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.ListRecommendedIntentsResponse.BotVersion</property>
+    <min>5</min>
+    <max>5</max>
+    <pattern>^DRAFT$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.LexModelsV2.Model.ListSlotsRequest.BotId</property>
     <min>10</min>
     <max>10</max>
@@ -1333,6 +1487,92 @@
     <property>Amazon.LexModelsV2.Model.ListTagsForResourceRequest.ResourceARN</property>
     <min>1</min>
     <max>1011</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.SearchAssociatedTranscriptsRequest.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.SearchAssociatedTranscriptsRequest.BotRecommendationId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.SearchAssociatedTranscriptsRequest.BotVersion</property>
+    <min>1</min>
+    <max>5</max>
+    <pattern>^(DRAFT|[0-9]+)$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.SearchAssociatedTranscriptsRequest.MaxResults</property>
+    <min>1</min>
+    <max>1000</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.SearchAssociatedTranscriptsRequest.NextIndex</property>
+    <min>0</min>
+    <max>10000000</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.SearchAssociatedTranscriptsResponse.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.SearchAssociatedTranscriptsResponse.BotRecommendationId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.SearchAssociatedTranscriptsResponse.BotVersion</property>
+    <min>1</min>
+    <max>5</max>
+    <pattern>^(DRAFT|[0-9]+)$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.SearchAssociatedTranscriptsResponse.NextIndex</property>
+    <min>0</min>
+    <max>10000000</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.SearchAssociatedTranscriptsResponse.TotalResults</property>
+    <min>1</min>
+    <max>1000</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.StartBotRecommendationRequest.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.StartBotRecommendationRequest.BotVersion</property>
+    <min>5</min>
+    <max>5</max>
+    <pattern>^DRAFT$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.StartBotRecommendationResponse.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.StartBotRecommendationResponse.BotRecommendationId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.StartBotRecommendationResponse.BotVersion</property>
+    <min>5</min>
+    <max>5</max>
+    <pattern>^DRAFT$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.LexModelsV2.Model.StartImportRequest.FilePassword</property>
@@ -1518,6 +1758,42 @@
     <property>Amazon.LexModelsV2.Model.UpdateBotLocaleResponse.NluIntentConfidenceThreshold</property>
     <min>0</min>
     <max>1</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.UpdateBotRecommendationRequest.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.UpdateBotRecommendationRequest.BotRecommendationId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.UpdateBotRecommendationRequest.BotVersion</property>
+    <min>5</min>
+    <max>5</max>
+    <pattern>^DRAFT$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.UpdateBotRecommendationResponse.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.UpdateBotRecommendationResponse.BotRecommendationId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.UpdateBotRecommendationResponse.BotVersion</property>
+    <min>5</min>
+    <max>5</max>
+    <pattern>^DRAFT$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.LexModelsV2.Model.UpdateExportRequest.ExportId</property>
@@ -1761,6 +2037,12 @@
     <pattern>^([0-9a-zA-Z][_-]?)+$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.AssociatedTranscript.Transcript</property>
+    <min>1</min>
+    <max>6000000</max>
+    <pattern>.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.LexModelsV2.Model.BotAliasHistoryEvent.BotVersion</property>
     <min>1</min>
     <max>5</max>
@@ -1853,6 +2135,22 @@
     <max>200</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.BotRecommendationResults.AssociatedTranscriptsUrl</property>
+    <min>1</min>
+    <max>1024</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.BotRecommendationResults.BotLocaleExportUrl</property>
+    <min>1</min>
+    <max>1024</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.BotRecommendationSummary.BotRecommendationId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.LexModelsV2.Model.BotSummary.BotId</property>
     <min>10</min>
     <max>10</max>
@@ -1934,6 +2232,46 @@
     <max>1000</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.CustomVocabularyExportSpecification.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.CustomVocabularyExportSpecification.BotVersion</property>
+    <min>1</min>
+    <max>5</max>
+    <pattern>^(DRAFT|[0-9]+)$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.CustomVocabularyImportSpecification.BotId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.CustomVocabularyImportSpecification.BotVersion</property>
+    <min>5</min>
+    <max>5</max>
+    <pattern>^DRAFT$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.EncryptionSetting.AssociatedTranscriptsPassword</property>
+    <min>0</min>
+    <max>1024</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.EncryptionSetting.BotLocaleExportPassword</property>
+    <min>0</min>
+    <max>1024</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.EncryptionSetting.KmsKeyArn</property>
+    <min>20</min>
+    <max>2048</max>
+    <pattern>^arn:[\w\-]+:kms:[\w\-]+:[\d]{12}:(?:key\/[\w\-]+|alias\/[a-zA-Z0-9:\/_\-]{1,256})$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.LexModelsV2.Model.ExportSummary.ExportId</property>
     <min>10</min>
     <max>10</max>
@@ -1953,6 +2291,23 @@
     <property>Amazon.LexModelsV2.Model.FulfillmentUpdatesSpecification.TimeoutInSeconds</property>
     <min>1</min>
     <max>900</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.GrammarSlotTypeSource.KmsKeyArn</property>
+    <min>20</min>
+    <max>2048</max>
+    <pattern>^arn:[\w\-]+:kms:[\w\-]+:[\d]{12}:(?:key\/[\w\-]+|alias\/[a-zA-Z0-9:\/_\-]{1,256})$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.GrammarSlotTypeSource.S3BucketName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>^[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9]$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.GrammarSlotTypeSource.S3ObjectKey</property>
+    <min>1</min>
+    <max>1024</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.LexModelsV2.Model.ImageResponseCard.ImageUrl</property>
@@ -2071,6 +2426,18 @@
     <max>5</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.RecommendedIntentSummary.IntentId</property>
+    <min>10</min>
+    <max>10</max>
+    <pattern>^[0-9a-zA-Z]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.RecommendedIntentSummary.IntentName</property>
+    <min>1</min>
+    <max>100</max>
+    <pattern>^([0-9a-zA-Z][_-]?)+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.LexModelsV2.Model.RelativeAggregationDuration.TimeValue</property>
     <min>1</min>
     <max>24</max>
@@ -2090,6 +2457,18 @@
     <min>1</min>
     <max>2048</max>
     <pattern>^arn:[\w\-]+:s3:::[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9]$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.S3BucketTranscriptSource.KmsKeyArn</property>
+    <min>20</min>
+    <max>2048</max>
+    <pattern>^arn:[\w\-]+:kms:[\w\-]+:[\d]{12}:(?:key\/[\w\-]+|alias\/[a-zA-Z0-9:\/_\-]{1,256})$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.LexModelsV2.Model.S3BucketTranscriptSource.S3BucketName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>^[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9]$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.LexModelsV2.Model.SampleValue.Value</property>

@@ -52,6 +52,7 @@ namespace Amazon.DatabaseMigrationService.Model
         private DatePartitionDelimiterValue _datePartitionDelimiter;
         private bool? _datePartitionEnabled;
         private DatePartitionSequenceValue _datePartitionSequence;
+        private string _datePartitionTimezone;
         private int? _dictPageSizeLimit;
         private bool? _enableStatistics;
         private EncodingTypeValue _encodingType;
@@ -69,6 +70,7 @@ namespace Amazon.DatabaseMigrationService.Model
         private string _serviceAccessRoleArn;
         private string _timestampColumnName;
         private bool? _useCsvNoSupValue;
+        private bool? _useTaskStartTimeForFullLoadTimestamp;
 
         /// <summary>
         /// Gets and sets the property AddColumnName. 
@@ -582,6 +584,34 @@ namespace Amazon.DatabaseMigrationService.Model
         internal bool IsSetDatePartitionSequence()
         {
             return this._datePartitionSequence != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property DatePartitionTimezone. 
+        /// <para>
+        /// When creating an S3 target endpoint, set <code>DatePartitionTimezone</code> to convert
+        /// the current UTC time into a specified time zone. The conversion occurs when a date
+        /// partition folder is created and a CDC filename is generated. The time zone format
+        /// is Area/Location. Use this parameter when <code>DatePartitionedEnabled</code> is set
+        /// to <code>true</code>, as shown in the following example.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>s3-settings='{"DatePartitionEnabled": true, "DatePartitionSequence": "YYYYMMDDHH",
+        /// "DatePartitionDelimiter": "SLASH", "DatePartitionTimezone":"<i>Asia/Seoul</i>", "BucketName":
+        /// "dms-nattarat-test"}'</code> 
+        /// </para>
+        /// </summary>
+        public string DatePartitionTimezone
+        {
+            get { return this._datePartitionTimezone; }
+            set { this._datePartitionTimezone = value; }
+        }
+
+        // Check to see if DatePartitionTimezone property is set
+        internal bool IsSetDatePartitionTimezone()
+        {
+            return this._datePartitionTimezone != null;
         }
 
         /// <summary>
@@ -1121,6 +1151,34 @@ namespace Amazon.DatabaseMigrationService.Model
         internal bool IsSetUseCsvNoSupValue()
         {
             return this._useCsvNoSupValue.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property UseTaskStartTimeForFullLoadTimestamp. 
+        /// <para>
+        /// When set to true, this parameter uses the task start time as the timestamp column
+        /// value instead of the time data is written to target. For full load, when <code>useTaskStartTimeForFullLoadTimestamp</code>
+        /// is set to <code>true</code>, each row of the timestamp column contains the task start
+        /// time. For CDC loads, each row of the timestamp column contains the transaction commit
+        /// time.
+        /// </para>
+        ///  
+        /// <para>
+        /// When <code>useTaskStartTimeForFullLoadTimestamp</code> is set to <code>false</code>,
+        /// the full load timestamp in the timestamp column increments with the time data arrives
+        /// at the target. 
+        /// </para>
+        /// </summary>
+        public bool UseTaskStartTimeForFullLoadTimestamp
+        {
+            get { return this._useTaskStartTimeForFullLoadTimestamp.GetValueOrDefault(); }
+            set { this._useTaskStartTimeForFullLoadTimestamp = value; }
+        }
+
+        // Check to see if UseTaskStartTimeForFullLoadTimestamp property is set
+        internal bool IsSetUseTaskStartTimeForFullLoadTimestamp()
+        {
+            return this._useTaskStartTimeForFullLoadTimestamp.HasValue; 
         }
 
     }

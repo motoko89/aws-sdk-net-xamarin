@@ -32,7 +32,7 @@ namespace Amazon.Proton
     public partial class AmazonProtonConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.60");
+            InternalSDKUtils.BuildUserAgentString("3.7.3.7");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.Proton
         /// Default constructor
         /// </summary>
         public AmazonProtonConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonProtonDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "proton";
         }

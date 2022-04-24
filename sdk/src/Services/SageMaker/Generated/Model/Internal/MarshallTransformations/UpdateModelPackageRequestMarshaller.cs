@@ -58,7 +58,7 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
             string target = "SageMaker.UpdateModelPackage";
             request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/x-amz-json-1.1";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2017-07-24";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2017-07-24";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
@@ -67,6 +67,22 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetAdditionalInferenceSpecificationsToAdd())
+                {
+                    context.Writer.WritePropertyName("AdditionalInferenceSpecificationsToAdd");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestAdditionalInferenceSpecificationsToAddListValue in publicRequest.AdditionalInferenceSpecificationsToAdd)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = AdditionalInferenceSpecificationDefinitionMarshaller.Instance;
+                        marshaller.Marshall(publicRequestAdditionalInferenceSpecificationsToAddListValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteArrayEnd();
+                }
+
                 if(publicRequest.IsSetApprovalDescription())
                 {
                     context.Writer.WritePropertyName("ApprovalDescription");
@@ -110,7 +126,6 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.ModelPackageArn);
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

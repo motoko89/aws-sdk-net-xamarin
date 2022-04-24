@@ -89,10 +89,14 @@ namespace Amazon.SecurityHub.Model
         private AwsKmsKeyDetails _awsKmsKey;
         private AwsLambdaFunctionDetails _awsLambdaFunction;
         private AwsLambdaLayerVersionDetails _awsLambdaLayerVersion;
+        private AwsNetworkFirewallFirewallDetails _awsNetworkFirewallFirewall;
+        private AwsNetworkFirewallFirewallPolicyDetails _awsNetworkFirewallFirewallPolicy;
+        private AwsNetworkFirewallRuleGroupDetails _awsNetworkFirewallRuleGroup;
         private AwsOpenSearchServiceDomainDetails _awsOpenSearchServiceDomain;
         private AwsRdsDbClusterDetails _awsRdsDbCluster;
         private AwsRdsDbClusterSnapshotDetails _awsRdsDbClusterSnapshot;
         private AwsRdsDbInstanceDetails _awsRdsDbInstance;
+        private AwsRdsDbSecurityGroupDetails _awsRdsDbSecurityGroup;
         private AwsRdsDbSnapshotDetails _awsRdsDbSnapshot;
         private AwsRdsEventSubscriptionDetails _awsRdsEventSubscription;
         private AwsRedshiftClusterDetails _awsRedshiftCluster;
@@ -814,6 +818,60 @@ namespace Amazon.SecurityHub.Model
         }
 
         /// <summary>
+        /// Gets and sets the property AwsNetworkFirewallFirewall. 
+        /// <para>
+        /// Details about an Network Firewall firewall.
+        /// </para>
+        /// </summary>
+        public AwsNetworkFirewallFirewallDetails AwsNetworkFirewallFirewall
+        {
+            get { return this._awsNetworkFirewallFirewall; }
+            set { this._awsNetworkFirewallFirewall = value; }
+        }
+
+        // Check to see if AwsNetworkFirewallFirewall property is set
+        internal bool IsSetAwsNetworkFirewallFirewall()
+        {
+            return this._awsNetworkFirewallFirewall != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property AwsNetworkFirewallFirewallPolicy. 
+        /// <para>
+        /// Details about an Network Firewall firewall policy.
+        /// </para>
+        /// </summary>
+        public AwsNetworkFirewallFirewallPolicyDetails AwsNetworkFirewallFirewallPolicy
+        {
+            get { return this._awsNetworkFirewallFirewallPolicy; }
+            set { this._awsNetworkFirewallFirewallPolicy = value; }
+        }
+
+        // Check to see if AwsNetworkFirewallFirewallPolicy property is set
+        internal bool IsSetAwsNetworkFirewallFirewallPolicy()
+        {
+            return this._awsNetworkFirewallFirewallPolicy != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property AwsNetworkFirewallRuleGroup. 
+        /// <para>
+        /// Details about an Network Firewall rule group.
+        /// </para>
+        /// </summary>
+        public AwsNetworkFirewallRuleGroupDetails AwsNetworkFirewallRuleGroup
+        {
+            get { return this._awsNetworkFirewallRuleGroup; }
+            set { this._awsNetworkFirewallRuleGroup = value; }
+        }
+
+        // Check to see if AwsNetworkFirewallRuleGroup property is set
+        internal bool IsSetAwsNetworkFirewallRuleGroup()
+        {
+            return this._awsNetworkFirewallRuleGroup != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property AwsOpenSearchServiceDomain. 
         /// <para>
         /// Details about an Amazon OpenSearch Service domain.
@@ -883,6 +941,24 @@ namespace Amazon.SecurityHub.Model
         internal bool IsSetAwsRdsDbInstance()
         {
             return this._awsRdsDbInstance != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property AwsRdsDbSecurityGroup. 
+        /// <para>
+        /// Details about an Amazon RDS DB security group.
+        /// </para>
+        /// </summary>
+        public AwsRdsDbSecurityGroupDetails AwsRdsDbSecurityGroup
+        {
+            get { return this._awsRdsDbSecurityGroup; }
+            set { this._awsRdsDbSecurityGroup = value; }
+        }
+
+        // Check to see if AwsRdsDbSecurityGroup property is set
+        internal bool IsSetAwsRdsDbSecurityGroup()
+        {
+            return this._awsRdsDbSecurityGroup != null;
         }
 
         /// <summary>

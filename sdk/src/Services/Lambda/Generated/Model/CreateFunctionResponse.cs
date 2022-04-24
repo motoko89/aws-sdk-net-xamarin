@@ -39,6 +39,7 @@ namespace Amazon.Lambda.Model
         private DeadLetterConfig _deadLetterConfig;
         private string _description;
         private EnvironmentResponse _environment;
+        private EphemeralStorage _ephemeralStorage;
         private List<FileSystemConfig> _fileSystemConfigs = new List<FileSystemConfig>();
         private string _functionArn;
         private string _functionName;
@@ -179,6 +180,25 @@ namespace Amazon.Lambda.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EphemeralStorage. 
+        /// <para>
+        /// The size of the function’s /tmp directory in MB. The default value is 512, but can
+        /// be any whole number between 512 and 10240 MB.
+        /// </para>
+        /// </summary>
+        public EphemeralStorage EphemeralStorage
+        {
+            get { return this._ephemeralStorage; }
+            set { this._ephemeralStorage = value; }
+        }
+
+        // Check to see if EphemeralStorage property is set
+        internal bool IsSetEphemeralStorage()
+        {
+            return this._ephemeralStorage != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property FileSystemConfigs. 
         /// <para>
         /// Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon
@@ -276,7 +296,7 @@ namespace Amazon.Lambda.Model
         /// Gets and sets the property KMSKeyArn. 
         /// <para>
         /// The KMS key that's used to encrypt the function's environment variables. This key
-        /// is only returned if you've configured a customer managed CMK.
+        /// is only returned if you've configured a customer managed key.
         /// </para>
         /// </summary>
         public string KMSKeyArn
@@ -387,7 +407,7 @@ namespace Amazon.Lambda.Model
         /// <summary>
         /// Gets and sets the property MasterArn. 
         /// <para>
-        /// For Lambda@Edge functions, the ARN of the master function.
+        /// For Lambda@Edge functions, the ARN of the main function.
         /// </para>
         /// </summary>
         public string MasterArn

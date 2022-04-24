@@ -41,10 +41,12 @@ namespace Amazon.EC2.Model
         private string _ownerAlias;
         private string _ownerId;
         private string _progress;
+        private DateTime? _restoreExpiryTime;
         private string _snapshotId;
         private DateTime? _startTime;
         private SnapshotState _state;
         private string _stateMessage;
+        private StorageTier _storageTier;
         private List<Tag> _tags = new List<Tag>();
         private string _volumeId;
         private int? _volumeSize;
@@ -204,6 +206,25 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property RestoreExpiryTime. 
+        /// <para>
+        /// Only for archived snapshots that are temporarily restored. Indicates the date and
+        /// time when a temporarily restored snapshot will be automatically re-archived.
+        /// </para>
+        /// </summary>
+        public DateTime RestoreExpiryTime
+        {
+            get { return this._restoreExpiryTime.GetValueOrDefault(); }
+            set { this._restoreExpiryTime = value; }
+        }
+
+        // Check to see if RestoreExpiryTime property is set
+        internal bool IsSetRestoreExpiryTime()
+        {
+            return this._restoreExpiryTime.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property SnapshotId. 
         /// <para>
         /// The ID of the snapshot. Each snapshot receives a unique identifier when it is created.
@@ -276,6 +297,27 @@ namespace Amazon.EC2.Model
         internal bool IsSetStateMessage()
         {
             return this._stateMessage != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property StorageTier. 
+        /// <para>
+        /// The storage tier in which the snapshot is stored. <code>standard</code> indicates
+        /// that the snapshot is stored in the standard snapshot storage tier and that it is ready
+        /// for use. <code>archive</code> indicates that the snapshot is currently archived and
+        /// that it must be restored before it can be used.
+        /// </para>
+        /// </summary>
+        public StorageTier StorageTier
+        {
+            get { return this._storageTier; }
+            set { this._storageTier = value; }
+        }
+
+        // Check to see if StorageTier property is set
+        internal bool IsSetStorageTier()
+        {
+            return this._storageTier != null;
         }
 
         /// <summary>

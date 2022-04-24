@@ -29,5 +29,15 @@ namespace Amazon.DevOpsGuru.Model
         /// Enumerable containing all full responses for the operation
         /// </summary>
         IPaginatedEnumerable<GetResourceCollectionResponse> Responses { get; }
+
+        /// <summary>
+        /// Enumerable containing all of the StackNames
+        /// </summary>
+        IPaginatedEnumerable<string> StackNames { get; }
+
+        /// <summary>
+        /// Enumerable containing all of the Tags
+        /// </summary>
+        IPaginatedEnumerable<TagCollectionFilter> Tags { get; }
     }
 }

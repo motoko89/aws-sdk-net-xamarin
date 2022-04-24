@@ -32,7 +32,7 @@ namespace Amazon.Redshift
     public partial class AmazonRedshiftConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.8.45");
+            InternalSDKUtils.BuildUserAgentString("3.7.14.1");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.Redshift
         /// Default constructor
         /// </summary>
         public AmazonRedshiftConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonRedshiftDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "redshift";
         }

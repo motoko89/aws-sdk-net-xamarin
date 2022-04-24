@@ -404,7 +404,7 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.TranscribeService.Model.StartMedicalTranscriptionJobRequest.MediaSampleRateHertz</property>
-    <min>8000</min>
+    <min>16000</min>
     <max>48000</max>
   </property-value-rule>
   <property-value-rule>
@@ -675,7 +675,7 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.TranscribeService.Model.MedicalTranscriptionJob.MediaSampleRateHertz</property>
-    <min>8000</min>
+    <min>16000</min>
     <max>48000</max>
   </property-value-rule>
   <property-value-rule>
@@ -758,6 +758,16 @@
     <min>1</min>
     <max>200</max>
     <pattern>^[0-9a-zA-Z._-]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.TranscribeService.Model.Subtitles.OutputStartIndex</property>
+    <min>0</min>
+    <max>1</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.TranscribeService.Model.SubtitlesOutput.OutputStartIndex</property>
+    <min>0</min>
+    <max>1</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.TranscribeService.Model.Tag.Key</property>

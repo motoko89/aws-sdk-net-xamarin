@@ -44,7 +44,19 @@ namespace Amazon.TranscribeService.Model
         /// </para>
         ///  
         /// <para>
+        ///  <code>s3://DOC-EXAMPLE-BUCKET/keyprefix/objectkey</code> 
+        /// </para>
+        ///  
+        /// <para>
         /// For example:
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>s3://DOC-EXAMPLE-BUCKET/example.flac</code> 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>s3://DOC-EXAMPLE-BUCKET/mediafiles/example.flac</code> 
         /// </para>
         ///  
         /// <para>
@@ -68,7 +80,7 @@ namespace Amazon.TranscribeService.Model
         /// <summary>
         /// Gets and sets the property RedactedMediaFileUri. 
         /// <para>
-        ///  The S3 object location for your redacted output media file. This is only supported
+        /// The S3 object location for your redacted output media file. This is only supported
         /// for call analytics jobs.
         /// </para>
         /// </summary>

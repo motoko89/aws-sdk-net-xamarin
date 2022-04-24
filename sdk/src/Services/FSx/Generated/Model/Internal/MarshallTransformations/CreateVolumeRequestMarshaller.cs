@@ -58,7 +58,7 @@ namespace Amazon.FSx.Model.Internal.MarshallTransformations
             string target = "AWSSimbaAPIService_v20180301.CreateVolume";
             request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/x-amz-json-1.1";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-03-01";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-03-01";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
@@ -76,7 +76,7 @@ namespace Amazon.FSx.Model.Internal.MarshallTransformations
                 else if(!(publicRequest.IsSetClientRequestToken()))
                 {
                     context.Writer.WritePropertyName("ClientRequestToken");
-                    context.Writer.Write(Guid.NewGuid().ToString());                                                
+                    context.Writer.Write(Guid.NewGuid().ToString());
                 }
                 if(publicRequest.IsSetName())
                 {
@@ -91,6 +91,17 @@ namespace Amazon.FSx.Model.Internal.MarshallTransformations
 
                     var marshaller = CreateOntapVolumeConfigurationMarshaller.Instance;
                     marshaller.Marshall(publicRequest.OntapConfiguration, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetOpenZFSConfiguration())
+                {
+                    context.Writer.WritePropertyName("OpenZFSConfiguration");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = CreateOpenZFSVolumeConfigurationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.OpenZFSConfiguration, context);
 
                     context.Writer.WriteObjectEnd();
                 }
@@ -117,7 +128,6 @@ namespace Amazon.FSx.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.VolumeType);
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

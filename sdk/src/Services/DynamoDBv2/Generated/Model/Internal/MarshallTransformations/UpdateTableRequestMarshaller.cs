@@ -58,7 +58,7 @@ namespace Amazon.DynamoDBv2.Model.Internal.MarshallTransformations
             string target = "DynamoDB_20120810.UpdateTable";
             request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/x-amz-json-1.0";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2012-08-10";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2012-08-10";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
@@ -154,13 +154,18 @@ namespace Amazon.DynamoDBv2.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
+                if(publicRequest.IsSetTableClass())
+                {
+                    context.Writer.WritePropertyName("TableClass");
+                    context.Writer.Write(publicRequest.TableClass);
+                }
+
                 if(publicRequest.IsSetTableName())
                 {
                     context.Writer.WritePropertyName("TableName");
                     context.Writer.Write(publicRequest.TableName);
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

@@ -34,16 +34,17 @@ namespace Amazon.RDS.Model
     /// a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
     /// Manual DB cluster snapshots of the specified DB cluster are not deleted.
     /// 
-    ///   
+    ///  
     /// <para>
     /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> 
+    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para>
-    ///  <note> 
+    ///  
     /// <para>
-    /// This action only applies to Aurora DB clusters.
+    /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+    /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
+    /// User Guide</i>.
     /// </para>
-    ///  </note>
     /// </summary>
     public partial class DeleteDBClusterRequest : AmazonRDSRequest
     {
@@ -82,12 +83,12 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property FinalDBSnapshotIdentifier. 
         /// <para>
-        ///  The DB cluster snapshot identifier of the new DB cluster snapshot created when <code>SkipFinalSnapshot</code>
-        /// is disabled. 
+        /// The DB cluster snapshot identifier of the new DB cluster snapshot created when <code>SkipFinalSnapshot</code>
+        /// is disabled.
         /// </para>
         ///  <note> 
         /// <para>
-        ///  Specifying this parameter and also skipping the creation of a final DB cluster snapshot
+        /// Specifying this parameter and also skipping the creation of a final DB cluster snapshot
         /// with the <code>SkipFinalShapshot</code> parameter results in an error.
         /// </para>
         ///  </note> 

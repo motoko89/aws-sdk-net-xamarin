@@ -34,7 +34,7 @@ namespace Amazon.WAFV2.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// RuleAction Marshaller
-    /// </summary>       
+    /// </summary>
     public class RuleActionMarshaller : IRequestMarshaller<RuleAction, JsonMarshallerContext> 
     {
         /// <summary>
@@ -67,6 +67,17 @@ namespace Amazon.WAFV2.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetCaptcha())
+            {
+                context.Writer.WritePropertyName("Captcha");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = CaptchaActionMarshaller.Instance;
+                marshaller.Marshall(requestObject.Captcha, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetCount())
             {
                 context.Writer.WritePropertyName("Count");
@@ -82,7 +93,7 @@ namespace Amazon.WAFV2.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static RuleActionMarshaller Instance = new RuleActionMarshaller();
 
     }

@@ -56,7 +56,7 @@ namespace Amazon.Mgn.Model.Internal.MarshallTransformations
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.Mgn");
             request.Headers["Content-Type"] = "application/json";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-02-26";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-02-26";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/UpdateLaunchConfiguration";
@@ -65,6 +65,12 @@ namespace Amazon.Mgn.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetBootMode())
+                {
+                    context.Writer.WritePropertyName("bootMode");
+                    context.Writer.Write(publicRequest.BootMode);
+                }
+
                 if(publicRequest.IsSetCopyPrivateIp())
                 {
                     context.Writer.WritePropertyName("copyPrivateIp");
@@ -112,7 +118,6 @@ namespace Amazon.Mgn.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.TargetInstanceTypeRightSizingMethod);
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

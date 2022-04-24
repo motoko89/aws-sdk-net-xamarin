@@ -88,10 +88,28 @@ namespace Amazon.ComputeOptimizer.Model.Internal.MarshallTransformations
                     unmarshalledObject.CurrentConfiguration = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("currentPerformanceRisk", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.CurrentPerformanceRisk = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("effectiveRecommendationPreferences", targetDepth))
+                {
+                    var unmarshaller = EffectiveRecommendationPreferencesUnmarshaller.Instance;
+                    unmarshalledObject.EffectiveRecommendationPreferences = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("finding", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.Finding = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("inferredWorkloadTypes", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<string, StringUnmarshaller>(StringUnmarshaller.Instance);
+                    unmarshalledObject.InferredWorkloadTypes = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("lastRefreshTimestamp", targetDepth))

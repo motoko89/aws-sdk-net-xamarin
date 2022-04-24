@@ -56,7 +56,7 @@ namespace Amazon.MediaTailor.Model.Internal.MarshallTransformations
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.MediaTailor");
             request.Headers["Content-Type"] = "application/json";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-04-23";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-04-23";
             request.HttpMethod = "PUT";
 
             if (!publicRequest.IsSetChannelName())
@@ -68,6 +68,17 @@ namespace Amazon.MediaTailor.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetFillerSlate())
+                {
+                    context.Writer.WritePropertyName("FillerSlate");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = SlateSourceMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.FillerSlate, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetOutputs())
                 {
                     context.Writer.WritePropertyName("Outputs");
@@ -84,7 +95,6 @@ namespace Amazon.MediaTailor.Model.Internal.MarshallTransformations
                     context.Writer.WriteArrayEnd();
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

@@ -102,6 +102,12 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         unmarshalledObject.Progress = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("restoreExpiryTime", targetDepth))
+                    {
+                        var unmarshaller = DateTimeUnmarshaller.Instance;
+                        unmarshalledObject.RestoreExpiryTime = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("snapshotId", targetDepth))
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
@@ -124,6 +130,12 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
                         unmarshalledObject.StateMessage = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("storageTier", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.StorageTier = unmarshaller.Unmarshall(context);
                         continue;
                     }
                     if (context.TestExpression("tagSet/item", targetDepth))

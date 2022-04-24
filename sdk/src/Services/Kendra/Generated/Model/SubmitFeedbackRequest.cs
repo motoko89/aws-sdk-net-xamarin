@@ -32,6 +32,12 @@ namespace Amazon.Kendra.Model
     /// Container for the parameters to the SubmitFeedback operation.
     /// Enables you to provide feedback to Amazon Kendra to improve the performance of your
     /// index.
+    /// 
+    ///  
+    /// <para>
+    ///  <code>SubmitFeedback</code> is currently not supported in the Amazon Web Services
+    /// GovCloud (US-West) region.
+    /// </para>
     /// </summary>
     public partial class SubmitFeedbackRequest : AmazonKendraRequest
     {
@@ -81,7 +87,7 @@ namespace Amazon.Kendra.Model
         /// Gets and sets the property QueryId. 
         /// <para>
         /// The identifier of the specific query for which you are submitting feedback. The query
-        /// ID is returned in the response to the <code>Query</code> operation.
+        /// ID is returned in the response to the <code>Query</code> API.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=36)]

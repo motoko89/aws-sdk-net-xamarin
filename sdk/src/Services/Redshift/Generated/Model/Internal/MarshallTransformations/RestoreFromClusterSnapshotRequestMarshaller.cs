@@ -103,9 +103,17 @@ namespace Amazon.Redshift.Model.Internal.MarshallTransformations
                 {
                     request.Parameters.Add("ClusterSubnetGroupName", StringUtils.FromString(publicRequest.ClusterSubnetGroupName));
                 }
+                if(publicRequest.IsSetDefaultIamRoleArn())
+                {
+                    request.Parameters.Add("DefaultIamRoleArn", StringUtils.FromString(publicRequest.DefaultIamRoleArn));
+                }
                 if(publicRequest.IsSetElasticIp())
                 {
                     request.Parameters.Add("ElasticIp", StringUtils.FromString(publicRequest.ElasticIp));
+                }
+                if(publicRequest.IsSetEncrypted())
+                {
+                    request.Parameters.Add("Encrypted", StringUtils.FromBool(publicRequest.Encrypted));
                 }
                 if(publicRequest.IsSetEnhancedVpcRouting())
                 {
@@ -164,6 +172,10 @@ namespace Amazon.Redshift.Model.Internal.MarshallTransformations
                 {
                     request.Parameters.Add("PubliclyAccessible", StringUtils.FromBool(publicRequest.PubliclyAccessible));
                 }
+                if(publicRequest.IsSetReservedNodeId())
+                {
+                    request.Parameters.Add("ReservedNodeId", StringUtils.FromString(publicRequest.ReservedNodeId));
+                }
                 if(publicRequest.IsSetSnapshotClusterIdentifier())
                 {
                     request.Parameters.Add("SnapshotClusterIdentifier", StringUtils.FromString(publicRequest.SnapshotClusterIdentifier));
@@ -175,6 +187,10 @@ namespace Amazon.Redshift.Model.Internal.MarshallTransformations
                 if(publicRequest.IsSetSnapshotScheduleIdentifier())
                 {
                     request.Parameters.Add("SnapshotScheduleIdentifier", StringUtils.FromString(publicRequest.SnapshotScheduleIdentifier));
+                }
+                if(publicRequest.IsSetTargetReservedNodeOfferingId())
+                {
+                    request.Parameters.Add("TargetReservedNodeOfferingId", StringUtils.FromString(publicRequest.TargetReservedNodeOfferingId));
                 }
                 if(publicRequest.IsSetVpcSecurityGroupIds())
                 {

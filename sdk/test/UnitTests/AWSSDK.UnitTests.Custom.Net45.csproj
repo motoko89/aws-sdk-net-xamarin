@@ -33,6 +33,7 @@ This project file should not be used as part of a release pipeline.
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\extensions\src\AWSSDK.Extensions.CrtIntegration\AWSSDK.Extensions.CrtIntegration.Net45.csproj" />
         <ProjectReference Include="..\..\src\Core\AWSSDK.Core.Net45.csproj" />
         <ProjectReference Include="..\..\src\Services\IotData\AWSSDK.IotData.Net45.csproj" />
         <ProjectReference Include="..\Common\AWSSDK.CommonTest.csproj" />
@@ -64,6 +65,7 @@ This project file should not be used as part of a release pipeline.
     <ItemGroup>
         <EmbeddedResource Include="Custom\Runtime\TestResponses\*.txt" />
         <EmbeddedResource Include="Custom\Runtime\EventStreams\test_vectors\*" />
+        <EmbeddedResource Include="Custom\Runtime\TestEndpoints\*.json"/>
         <EmbeddedResource Include="Custom\TestTools\ComparerTest.json" />
         <EmbeddedResource Include="..\Services\CloudFront\UnitTests\Custom\EmbeddedResource\sample.rsa.private.key.txt" />
     </ItemGroup>

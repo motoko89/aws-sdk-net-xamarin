@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Json.LitJson;
+using ServiceClientGenerator.DefaultConfiguration;
 
 namespace ServiceClientGenerator
 {
@@ -35,6 +36,7 @@ namespace ServiceClientGenerator
             public const string ParentBaseNameKey = "parent-base-name";
             public const string TagsKey = "tags";
             public const string LicenseUrlKey = "license-url";
+            public const string TestServiceKey = "test-service";
 
         }
 
@@ -96,6 +98,12 @@ namespace ServiceClientGenerator
             private set;
         }
 
+        /// <summary>
+        /// Model representing the default configuration modes as built
+        /// from the sdk-default-configurations.json file.
+        /// </summary>
+        public DefaultConfiguration.DefaultConfigurationModel DefaultConfiguration { get; set; }
+
         //This should be the same version number as SdkVersioning.DefaultAssemblyVersion in BuildTasks
         private const string DefaultAssemblyVersion = "3.3";
  
@@ -109,7 +117,12 @@ namespace ServiceClientGenerator
         /// <param name="modelsFolder">Path to the service models to be parsed</param>
         public static GenerationManifest Load(string manifestPath, string versionsPath, string modelsFolder)
         {
-            var generationManifest = new GenerationManifest();
+            var generationManifest = 
+                new GenerationManifest(
+                    new DefaultConfigurationController(
+                        new FileReader(),
+                        new DefaultConfigurationParser()));
+
             var manifest = LoadJsonFromFile(manifestPath);
             var versionsManifest = LoadJsonFromFile(versionsPath);
 
@@ -124,6 +137,7 @@ namespace ServiceClientGenerator
             if (!string.IsNullOrEmpty(generationManifest.PreviewLabel))
                 generationManifest.PreviewLabel = "-" + generationManifest.PreviewLabel;
 
+            generationManifest.LoadDefaultConfiguration(modelsFolder);
             generationManifest.LoadServiceConfigurations(manifest, versionsManifest["ServiceVersions"], modelsFolder);
             generationManifest.LoadProjectConfigurations(manifest);
             generationManifest.LoadUnitTestProjectConfigurations(manifest);
@@ -132,7 +146,18 @@ namespace ServiceClientGenerator
         }
 
         /// <summary>
-        /// Recursively walk thorugh the ServiceModels folder and load/parse the 
+        /// Loads the sdk-default-configurations.json file.
+        /// </summary>
+        private void LoadDefaultConfiguration(string manifestPath)
+        {
+            // ../../../ServiceModels/ + ../../
+            var repositoryRootDirectoryPath = Path.Combine(manifestPath, "..","..");
+
+            DefaultConfiguration = _defaultConfigurationController.LoadDefaultConfiguration(repositoryRootDirectoryPath);
+        }
+
+        /// <summary>
+        /// Recursively walk through the ServiceModels folder and load/parse the 
         /// model files to generate ServiceConfiguration objects.
         /// </summary>
         /// <param name="manifest">loaded _manifest.json file</param>
@@ -143,7 +168,8 @@ namespace ServiceClientGenerator
             List<Tuple<JsonData, ServiceConfiguration>> modelConfigList = new List<Tuple<JsonData, ServiceConfiguration>>();
             var serviceConfigurations = new List<ServiceConfiguration>();
 
-            var serviceDirectories = Directory.GetDirectories(Path.Combine(serviceModelsFolder));
+            var serviceDirectories = Directory.GetDirectories(serviceModelsFolder)
+                .Concat(Directory.GetDirectories(serviceModelsFolder.Replace("ServiceModels", "TestServiceModels"))).ToList();
             foreach (string serviceDirectory in serviceDirectories)
             {
                 string metadataJsonFile = Path.Combine(serviceDirectory, "metadata.json");
@@ -152,11 +178,11 @@ namespace ServiceClientGenerator
                     JsonData metadataNode = LoadJsonFromFile(metadataJsonFile);
 
                     var activeNode = metadataNode[ModelsSectionKeys.ActiveKey];
-                    if (    activeNode != null
+                    if (activeNode != null
                         &&  activeNode.IsBoolean
                         && !(bool)activeNode )
                     {
-                        continue;                             
+                        continue;
                     }
 
                     var serviceModelFileName = GetLatestModel(serviceDirectory);
@@ -265,6 +291,7 @@ namespace ServiceClientGenerator
                 ClassNameOverride = Utils.JsonDataToString(modelNode[ModelsSectionKeys.BaseNameKey]),
                 DefaultRegion = Utils.JsonDataToString(modelNode[ModelsSectionKeys.DefaultRegionKey]),
                 GenerateConstructors = modelNode[ModelsSectionKeys.GenerateClientConstructorsKey] == null || (bool)modelNode[ModelsSectionKeys.GenerateClientConstructorsKey], // A way to prevent generating basic constructors
+                IsTestService = modelNode[ModelsSectionKeys.TestServiceKey] != null && (bool)modelNode[ModelsSectionKeys.TestServiceKey]
             };
 
             if (modelNode[ModelsSectionKeys.NugetPackageTitleSuffix] != null)
@@ -511,9 +538,10 @@ namespace ServiceClientGenerator
             return data;
         }
 
-        private GenerationManifest()
+        private readonly IDefaultConfigurationController _defaultConfigurationController;
+        private GenerationManifest(IDefaultConfigurationController defaultConfigurationController)
         {
-
+            _defaultConfigurationController = defaultConfigurationController;
         }
     }
 }

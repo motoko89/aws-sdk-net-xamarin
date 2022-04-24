@@ -32,7 +32,7 @@ namespace Amazon.QLDBSession
     public partial class AmazonQLDBSessionConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.150");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.QLDBSession
         /// Default constructor
         /// </summary>
         public AmazonQLDBSessionConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonQLDBSessionDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "qldb";
         }

@@ -33,7 +33,7 @@ namespace Amazon.RDS.Model
     /// Enables ingress to a DBSecurityGroup using one of two forms of authorization. First,
     /// EC2 or VPC security groups can be added to the DBSecurityGroup if the application
     /// using the database is running on EC2 or VPC instances. Second, IP ranges are available
-    /// if the application accessing your database is running on the Internet. Required parameters
+    /// if the application accessing your database is running on the internet. Required parameters
     /// for this API are one of CIDR range, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId
     /// and either EC2SecurityGroupName or EC2SecurityGroupId for non-VPC).
     /// 
@@ -46,7 +46,7 @@ namespace Amazon.RDS.Model
     ///  </note> 
     /// <para>
     /// For an overview of CIDR ranges, go to the <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Wikipedia
-    /// Tutorial</a>. 
+    /// Tutorial</a>.
     /// </para>
     /// </summary>
     public partial class AuthorizeDBSecurityGroupIngressRequest : AmazonRDSRequest
@@ -111,9 +111,9 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property EC2SecurityGroupId. 
         /// <para>
-        ///  Id of the EC2 security group to authorize. For VPC DB security groups, <code>EC2SecurityGroupId</code>
+        /// Id of the EC2 security group to authorize. For VPC DB security groups, <code>EC2SecurityGroupId</code>
         /// must be provided. Otherwise, <code>EC2SecurityGroupOwnerId</code> and either <code>EC2SecurityGroupName</code>
-        /// or <code>EC2SecurityGroupId</code> must be provided. 
+        /// or <code>EC2SecurityGroupId</code> must be provided.
         /// </para>
         /// </summary>
         public string EC2SecurityGroupId
@@ -131,9 +131,9 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property EC2SecurityGroupName. 
         /// <para>
-        ///  Name of the EC2 security group to authorize. For VPC DB security groups, <code>EC2SecurityGroupId</code>
+        /// Name of the EC2 security group to authorize. For VPC DB security groups, <code>EC2SecurityGroupId</code>
         /// must be provided. Otherwise, <code>EC2SecurityGroupOwnerId</code> and either <code>EC2SecurityGroupName</code>
-        /// or <code>EC2SecurityGroupId</code> must be provided. 
+        /// or <code>EC2SecurityGroupId</code> must be provided.
         /// </para>
         /// </summary>
         public string EC2SecurityGroupName
@@ -151,11 +151,11 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property EC2SecurityGroupOwnerId. 
         /// <para>
-        ///  Amazon Web Services account number of the owner of the EC2 security group specified
+        /// Amazon Web Services account number of the owner of the EC2 security group specified
         /// in the <code>EC2SecurityGroupName</code> parameter. The Amazon Web Services access
         /// key ID isn't an acceptable value. For VPC DB security groups, <code>EC2SecurityGroupId</code>
         /// must be provided. Otherwise, <code>EC2SecurityGroupOwnerId</code> and either <code>EC2SecurityGroupName</code>
-        /// or <code>EC2SecurityGroupId</code> must be provided. 
+        /// or <code>EC2SecurityGroupId</code> must be provided.
         /// </para>
         /// </summary>
         public string EC2SecurityGroupOwnerId

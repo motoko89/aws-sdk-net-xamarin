@@ -32,7 +32,7 @@ namespace Amazon.GlueDataBrew
     public partial class AmazonGlueDataBrewConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.4.41");
+            InternalSDKUtils.BuildUserAgentString("3.7.8.8");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.GlueDataBrew
         /// Default constructor
         /// </summary>
         public AmazonGlueDataBrewConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonGlueDataBrewDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "databrew";
         }

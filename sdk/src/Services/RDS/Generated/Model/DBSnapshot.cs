@@ -29,12 +29,12 @@ using Amazon.Runtime.Internal;
 namespace Amazon.RDS.Model
 {
     /// <summary>
-    /// Contains the details of an Amazon RDS DB snapshot. 
+    /// Contains the details of an Amazon RDS DB snapshot.
     /// 
     ///  
     /// <para>
     /// This data type is used as a response element in the <code>DescribeDBSnapshots</code>
-    /// action. 
+    /// action.
     /// </para>
     /// </summary>
     public partial class DBSnapshot
@@ -60,6 +60,7 @@ namespace Amazon.RDS.Model
         private int? _port;
         private List<ProcessorFeature> _processorFeatures = new List<ProcessorFeature>();
         private DateTime? _snapshotCreateTime;
+        private string _snapshotTarget;
         private string _snapshotType;
         private string _sourceDBSnapshotIdentifier;
         private string _sourceRegion;
@@ -295,8 +296,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property KmsKeyId. 
         /// <para>
-        ///  If <code>Encrypted</code> is true, the Amazon Web Services KMS key identifier for
-        /// the encrypted DB snapshot. 
+        /// If <code>Encrypted</code> is true, the Amazon Web Services KMS key identifier for
+        /// the encrypted DB snapshot.
         /// </para>
         ///  
         /// <para>
@@ -464,6 +465,25 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property SnapshotTarget. 
+        /// <para>
+        /// Specifies where manual snapshots are stored: Amazon Web Services Outposts or the Amazon
+        /// Web Services Region.
+        /// </para>
+        /// </summary>
+        public string SnapshotTarget
+        {
+            get { return this._snapshotTarget; }
+            set { this._snapshotTarget = value; }
+        }
+
+        // Check to see if SnapshotTarget property is set
+        internal bool IsSetSnapshotTarget()
+        {
+            return this._snapshotTarget != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property SnapshotType. 
         /// <para>
         /// Provides the type of the DB snapshot.
@@ -592,7 +612,7 @@ namespace Amazon.RDS.Model
         /// <para>
         /// The time zone of the DB snapshot. In most cases, the <code>Timezone</code> element
         /// is empty. <code>Timezone</code> content appears only for snapshots taken from Microsoft
-        /// SQL Server DB instances that were created with a time zone specified. 
+        /// SQL Server DB instances that were created with a time zone specified.
         /// </para>
         /// </summary>
         public string Timezone

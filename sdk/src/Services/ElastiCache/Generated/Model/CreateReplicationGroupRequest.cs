@@ -93,6 +93,7 @@ namespace Amazon.ElastiCache.Model
         private string _cacheParameterGroupName;
         private List<string> _cacheSecurityGroupNames = new List<string>();
         private string _cacheSubnetGroupName;
+        private bool? _dataTieringEnabled;
         private string _engine;
         private string _engineVersion;
         private string _globalReplicationGroupId;
@@ -234,7 +235,9 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property AutoMinorVersionUpgrade. 
         /// <para>
-        /// This parameter is currently disabled.
+        ///  If you are running Redis engine version 6.0 or later, set this parameter to yes if
+        /// you want to opt-in to the next auto minor version upgrade campaign. This parameter
+        /// is disabled for previous versions.  
         /// </para>
         /// </summary>
         public bool AutoMinorVersionUpgrade
@@ -271,13 +274,9 @@ namespace Amazon.ElastiCache.Model
         ///  
         /// <para>
         ///  <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for
-        /// Memcached engine version 1.5.16 onward).
-        /// </para>
-        ///  
-        /// <para>
-        ///  <code>cache.m6g.large</code>, <code>cache.m6g.xlarge</code>, <code>cache.m6g.2xlarge</code>,
-        /// <code>cache.m6g.4xlarge</code>, <code>cache.m6g.8xlarge</code>, <code>cache.m6g.12xlarge</code>,
-        /// <code>cache.m6g.16xlarge</code> 
+        /// Memcached engine version 1.5.16 onward): <code>cache.m6g.large</code>, <code>cache.m6g.xlarge</code>,
+        /// <code>cache.m6g.2xlarge</code>, <code>cache.m6g.4xlarge</code>, <code>cache.m6g.8xlarge</code>,
+        /// <code>cache.m6g.12xlarge</code>, <code>cache.m6g.16xlarge</code> 
         /// </para>
         ///  <note> 
         /// <para>
@@ -298,6 +297,12 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  
         /// <para>
+        ///  <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached
+        /// engine version 1.5.16 onward): <code>cache.t4g.micro</code>, <code>cache.t4g.small</code>,
+        /// <code>cache.t4g.medium</code> 
+        /// </para>
+        ///  
+        /// <para>
         ///  <b>T3 node types:</b> <code>cache.t3.micro</code>, <code>cache.t3.small</code>, <code>cache.t3.medium</code>
         /// 
         /// </para>
@@ -308,7 +313,8 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Previous generation: (not recommended)
+        /// Previous generation: (not recommended. Existing clusters are still supported but creation
+        /// of new clusters is not supported for these types.)
         /// </para>
         ///  
         /// <para>
@@ -330,11 +336,30 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Previous generation: (not recommended)
+        /// Previous generation: (not recommended. Existing clusters are still supported but creation
+        /// of new clusters is not supported for these types.)
         /// </para>
         ///  
         /// <para>
         ///  <b>C1 node types:</b> <code>cache.c1.xlarge</code> 
+        /// </para>
+        ///  </li> </ul> </li> <li> 
+        /// <para>
+        /// Memory optimized with data tiering:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Current generation: 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>cache.r6gd.xlarge</code>, <code>cache.r6gd.2xlarge</code>, <code>cache.r6gd.4xlarge</code>,
+        /// <code>cache.r6gd.8xlarge</code>, <code>cache.r6gd.12xlarge</code>, <code>cache.r6gd.16xlarge</code>
+        /// 
         /// </para>
         ///  </li> </ul> </li> <li> 
         /// <para>
@@ -374,7 +399,8 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Previous generation: (not recommended)
+        /// Previous generation: (not recommended. Existing clusters are still supported but creation
+        /// of new clusters is not supported for these types.)
         /// </para>
         ///  
         /// <para>
@@ -498,6 +524,27 @@ namespace Amazon.ElastiCache.Model
         internal bool IsSetCacheSubnetGroupName()
         {
             return this._cacheSubnetGroupName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property DataTieringEnabled. 
+        /// <para>
+        /// Enables data tiering. Data tiering is only supported for replication groups using
+        /// the r6gd node type. This parameter must be set to true when using r6gd nodes. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html">Data
+        /// tiering</a>.
+        /// </para>
+        /// </summary>
+        public bool DataTieringEnabled
+        {
+            get { return this._dataTieringEnabled.GetValueOrDefault(); }
+            set { this._dataTieringEnabled = value; }
+        }
+
+        // Check to see if DataTieringEnabled property is set
+        internal bool IsSetDataTieringEnabled()
+        {
+            return this._dataTieringEnabled.HasValue; 
         }
 
         /// <summary>

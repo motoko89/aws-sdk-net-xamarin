@@ -32,7 +32,7 @@ namespace Amazon.Polly
     public partial class AmazonPollyConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.3.35");
+            InternalSDKUtils.BuildUserAgentString("3.7.5.1");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.Polly
         /// Default constructor
         /// </summary>
         public AmazonPollyConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonPollyDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "polly";
         }

@@ -43,6 +43,7 @@ namespace Amazon.Translate.Model
         private string _message;
         private OutputDataConfig _outputDataConfig;
         private List<string> _parallelDataNames = new List<string>();
+        private TranslationSettings _settings;
         private string _sourceLanguageCode;
         private DateTime? _submittedTime;
         private List<string> _targetLanguageCodes = new List<string>();
@@ -182,7 +183,7 @@ namespace Amazon.Translate.Model
         /// <summary>
         /// Gets and sets the property Message. 
         /// <para>
-        /// An explanation of any errors that may have occured during the translation job.
+        /// An explanation of any errors that may have occurred during the translation job.
         /// </para>
         /// </summary>
         public string Message
@@ -232,6 +233,24 @@ namespace Amazon.Translate.Model
         internal bool IsSetParallelDataNames()
         {
             return this._parallelDataNames != null && this._parallelDataNames.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property Settings. 
+        /// <para>
+        /// Settings that configure the translation output.
+        /// </para>
+        /// </summary>
+        public TranslationSettings Settings
+        {
+            get { return this._settings; }
+            set { this._settings = value; }
+        }
+
+        // Check to see if Settings property is set
+        internal bool IsSetSettings()
+        {
+            return this._settings != null;
         }
 
         /// <summary>

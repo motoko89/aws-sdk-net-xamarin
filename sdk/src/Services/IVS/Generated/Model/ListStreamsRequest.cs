@@ -35,8 +35,27 @@ namespace Amazon.IVS.Model
     /// </summary>
     public partial class ListStreamsRequest : AmazonIVSRequest
     {
+        private StreamFilters _filterBy;
         private int? _maxResults;
         private string _nextToken;
+
+        /// <summary>
+        /// Gets and sets the property FilterBy. 
+        /// <para>
+        /// Filters the stream list to match the specified criterion.
+        /// </para>
+        /// </summary>
+        public StreamFilters FilterBy
+        {
+            get { return this._filterBy; }
+            set { this._filterBy = value; }
+        }
+
+        // Check to see if FilterBy property is set
+        internal bool IsSetFilterBy()
+        {
+            return this._filterBy != null;
+        }
 
         /// <summary>
         /// Gets and sets the property MaxResults. 

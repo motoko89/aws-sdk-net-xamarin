@@ -14,8 +14,8 @@ namespace ServiceClientGeneratorTests
         // This goes serviceAbbreviation : serviceFullName : serviceId
         static readonly IList<Tuple<string, string, string>> serviceIDMetadata = new List<Tuple<string, string, string>>();
         private readonly ServiceModel _model;
-        private readonly string _modelsPath = "../../../TestModel.json";
-        private readonly string _paginatorsPath = "../../../TestPaginators.json";
+        private readonly string _modelsPath = "../../../Content/TestModel.json";
+        private readonly string _paginatorsPath = "../../../Content/TestPaginators.json";
 
         public UnitTests()
         {
@@ -31,7 +31,7 @@ namespace ServiceClientGeneratorTests
         {
             foreach (var tuple in serviceIDMetadata)
             {
-                Assert.Equal(tuple.Item3, Utils.DetermineServiceId(tuple.Item1, tuple.Item2));
+                Assert.Equal(tuple.Item3, ServiceClientGenerator.Utils.DetermineServiceId(tuple.Item1, tuple.Item2));
             }
         }
 
@@ -39,9 +39,10 @@ namespace ServiceClientGeneratorTests
         [InlineData("notJmespath", false)]
         [InlineData("notJmespath.", false)]
         [InlineData(".notJmespath", false)]
-        [InlineData("Not.Supported.Jmespath", false)]
         [InlineData("Is.Jmespath", true)]
         [InlineData("Is.Jmespath2", true)]
+        [InlineData("One.Two.Three", true)]
+        [InlineData("One.Two.Three.", false)]
         public void TestIsJmesPath(string input, bool result)
         {
             JsonData node = new JsonData(input);
@@ -58,6 +59,7 @@ namespace ServiceClientGeneratorTests
         [Theory]
         [InlineData("ListItems", "ParentItem.ChildItem", "ChildItem")]
         [InlineData("ListItems", "ParentItem.NextToken", "NextToken")]
+        [InlineData("ListItems", "ParentItem.SubItem.ChildItem", "ChildItem")]
         public void TestHandleJmesPathWithServiceModel(string operationName, string jmesPathInput, string childName)
         {
             var operation = _model.Operations.Single(x => x.Name.Equals(operationName));
@@ -68,9 +70,9 @@ namespace ServiceClientGeneratorTests
             MethodInfo handleJmesPathMethod = typeof(OperationPaginatorConfig).GetMethod("HandleJmesPath",
                 BindingFlags.NonPublic | BindingFlags.Static);
 
-            var methodResult = handleJmesPathMethod.Invoke(null, new object[] { testNode, '.', shapes });
+            var methodResult = handleJmesPathMethod.Invoke(null, new object[] { testNode, '.', operation });
             Assert.Equal(childName, ((OperationPaginatorConfigOption)methodResult).Member.PropertyName);
-
+            Assert.Equal(jmesPathInput, ((OperationPaginatorConfigOption)methodResult).PropertyName);
         }
 
         [Theory]

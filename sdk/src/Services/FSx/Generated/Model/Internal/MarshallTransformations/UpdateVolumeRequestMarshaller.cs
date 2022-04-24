@@ -58,7 +58,7 @@ namespace Amazon.FSx.Model.Internal.MarshallTransformations
             string target = "AWSSimbaAPIService_v20180301.UpdateVolume";
             request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/x-amz-json-1.1";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-03-01";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-03-01";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
@@ -76,8 +76,14 @@ namespace Amazon.FSx.Model.Internal.MarshallTransformations
                 else if(!(publicRequest.IsSetClientRequestToken()))
                 {
                     context.Writer.WritePropertyName("ClientRequestToken");
-                    context.Writer.Write(Guid.NewGuid().ToString());                                                
+                    context.Writer.Write(Guid.NewGuid().ToString());
                 }
+                if(publicRequest.IsSetName())
+                {
+                    context.Writer.WritePropertyName("Name");
+                    context.Writer.Write(publicRequest.Name);
+                }
+
                 if(publicRequest.IsSetOntapConfiguration())
                 {
                     context.Writer.WritePropertyName("OntapConfiguration");
@@ -89,13 +95,23 @@ namespace Amazon.FSx.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
+                if(publicRequest.IsSetOpenZFSConfiguration())
+                {
+                    context.Writer.WritePropertyName("OpenZFSConfiguration");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = UpdateOpenZFSVolumeConfigurationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.OpenZFSConfiguration, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetVolumeId())
                 {
                     context.Writer.WritePropertyName("VolumeId");
                     context.Writer.Write(publicRequest.VolumeId);
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

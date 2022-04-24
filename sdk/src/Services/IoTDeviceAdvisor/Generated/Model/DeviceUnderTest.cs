@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.IoTDeviceAdvisor.Model
 {
     /// <summary>
-    /// Lists all the devices under test
+    /// Information of a test device. A thing ARN or a certificate ARN is required.
     /// </summary>
     public partial class DeviceUnderTest
     {
@@ -39,7 +39,7 @@ namespace Amazon.IoTDeviceAdvisor.Model
         /// <summary>
         /// Gets and sets the property CertificateArn. 
         /// <para>
-        /// Lists devices certificate arn
+        /// Lists devices certificate ARN.
         /// </para>
         /// </summary>
         [AWSProperty(Min=20, Max=2048)]
@@ -58,7 +58,7 @@ namespace Amazon.IoTDeviceAdvisor.Model
         /// <summary>
         /// Gets and sets the property ThingArn. 
         /// <para>
-        /// Lists devices thing arn
+        /// Lists devices thing ARN.
         /// </para>
         /// </summary>
         [AWSProperty(Min=20, Max=2048)]

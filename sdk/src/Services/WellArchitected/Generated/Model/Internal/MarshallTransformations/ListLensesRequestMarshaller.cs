@@ -55,9 +55,18 @@ namespace Amazon.WellArchitected.Model.Internal.MarshallTransformations
         public IRequest Marshall(ListLensesRequest publicRequest)
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.WellArchitected");
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-03-31";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-03-31";
             request.HttpMethod = "GET";
 
+            
+            if (publicRequest.IsSetLensName())
+                request.Parameters.Add("LensName", StringUtils.FromString(publicRequest.LensName));
+            
+            if (publicRequest.IsSetLensStatus())
+                request.Parameters.Add("LensStatus", StringUtils.FromString(publicRequest.LensStatus));
+            
+            if (publicRequest.IsSetLensType())
+                request.Parameters.Add("LensType", StringUtils.FromString(publicRequest.LensType));
             
             if (publicRequest.IsSetMaxResults())
                 request.Parameters.Add("MaxResults", StringUtils.FromInt(publicRequest.MaxResults));

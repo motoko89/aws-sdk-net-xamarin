@@ -34,7 +34,7 @@ namespace Amazon.Mgn.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// DescribeSourceServersRequestFilters Marshaller
-    /// </summary>       
+    /// </summary>
     public class DescribeSourceServersRequestFiltersMarshaller : IRequestMarshaller<DescribeSourceServersRequestFilters, JsonMarshallerContext> 
     {
         /// <summary>
@@ -49,6 +49,28 @@ namespace Amazon.Mgn.Model.Internal.MarshallTransformations
             {
                 context.Writer.WritePropertyName("isArchived");
                 context.Writer.Write(requestObject.IsArchived);
+            }
+
+            if(requestObject.IsSetLifeCycleStates())
+            {
+                context.Writer.WritePropertyName("lifeCycleStates");
+                context.Writer.WriteArrayStart();
+                foreach(var requestObjectLifeCycleStatesListValue in requestObject.LifeCycleStates)
+                {
+                        context.Writer.Write(requestObjectLifeCycleStatesListValue);
+                }
+                context.Writer.WriteArrayEnd();
+            }
+
+            if(requestObject.IsSetReplicationTypes())
+            {
+                context.Writer.WritePropertyName("replicationTypes");
+                context.Writer.WriteArrayStart();
+                foreach(var requestObjectReplicationTypesListValue in requestObject.ReplicationTypes)
+                {
+                        context.Writer.Write(requestObjectReplicationTypesListValue);
+                }
+                context.Writer.WriteArrayEnd();
             }
 
             if(requestObject.IsSetSourceServerIDs())
@@ -66,7 +88,7 @@ namespace Amazon.Mgn.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static DescribeSourceServersRequestFiltersMarshaller Instance = new DescribeSourceServersRequestFiltersMarshaller();
 
     }

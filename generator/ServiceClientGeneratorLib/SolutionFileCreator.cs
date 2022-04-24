@@ -26,7 +26,7 @@ namespace ServiceClientGenerator
         {
             public const string Net35 = "Net35";
             public const string Net45 = "Net45";
-            public const string NetStandard = "NetStandard";            
+            public const string NetStandard = "NetStandard";
             public const string Partial = "partial";
 
         }
@@ -189,13 +189,13 @@ namespace ServiceClientGenerator
 
             var netStandardProjectConfigs = new List<ProjectFileConfiguration> {
                     GetProjectConfig(ProjectTypes.NetStandard)
-                };            
+                };
 
             GenerateVS2017ServiceSolution(net35ProjectConfigs);
             GenerateVS2017Solution("AWSSDK.Net35.sln", true, false, net35ProjectConfigs);
             GenerateVS2017Solution("AWSSDK.Net45.sln", true, false, net45ProjectConfigs);
 
-            GenerateVS2017Solution("AWSSDK.NetStandard.sln", true, false, netStandardProjectConfigs);            
+            GenerateVS2017Solution("AWSSDK.NetStandard.sln", true, false, netStandardProjectConfigs);
 
             // Include solutions that Travis CI can build
             GenerateVS2017Solution("AWSSDK.Net35.Travis.sln", false, true, net35ProjectConfigs);
@@ -488,9 +488,12 @@ namespace ServiceClientGenerator
 
             var serviceSolutionFolders = new List<ServiceSolutionFolder>();
             var serviceProjectsRoot = Path.Combine(sdkSourceFolder, GeneratorDriver.ServicesSubFoldername);
-            foreach (var servicePath in Directory.GetDirectories(serviceProjectsRoot))
+            var testServiceProjectsRoot = serviceProjectsRoot.Replace("src", "test");
+            var services = Directory.GetDirectories(serviceProjectsRoot).Select(c => new { Path = c, IsTestService = false });
+            var testServices = Directory.GetDirectories(testServiceProjectsRoot).Select(c => new { Path = c, IsTestService = true });
+            foreach (var servicePath in services.Concat(testServices))
             {
-                var di = new DirectoryInfo(servicePath);
+                var di = new DirectoryInfo(servicePath.Path);
                 var folder = ServiceSolutionFolderFromPath(di.Name);
 
                 // If we are generating a partial solution, and the service project has not changed, omit it from the partial solution.
@@ -503,7 +506,7 @@ namespace ServiceClientGenerator
                 foreach (var configuration in projectFileConfigurations)
                 {
                     string projectFilePattern = string.Format("*.{0}.csproj", configuration.Name);
-                    foreach (var projectFile in Directory.GetFiles(servicePath, projectFilePattern, SearchOption.TopDirectoryOnly))
+                    foreach (var projectFile in Directory.GetFiles(servicePath.Path, projectFilePattern, SearchOption.TopDirectoryOnly))
                     {
                         if (isTravisSolution && projectFile.Contains("AWSSDK.MobileAnalytics"))
                             continue;
@@ -512,7 +515,7 @@ namespace ServiceClientGenerator
                         folder.Projects.Add(new Project
                         {
                             Name = projectName,
-                            ProjectPath = string.Format(@"src\Services\{0}\{1}", di.Name, Path.GetFileName(projectFile)),
+                            ProjectPath = string.Format(servicePath.IsTestService ? @"test\Services\{0}\{1}" : @"src\Services\{0}\{1}", di.Name, Path.GetFileName(projectFile)),
                             ProjectGuid = projectGuidDictionary.ContainsKey(projectName) ? projectGuidDictionary[projectName] : Guid.NewGuid().ToString("B").ToUpper(),
                         });
                         SelectProjectAndConfigurationsForSolution(projectFile, solutionProjects, buildConfigurations);
@@ -832,7 +835,7 @@ namespace ServiceClientGenerator
                         continue;
                     }
 
-                    if (projectName.Contains("Integration"))
+                    if (projectName.Contains("Integration") || projectName.Contains("UnitTests"))
                     {
                         dependentProjects.AddRange(AddProjectDependencies
                             (projectFile, serviceDirectory.Name, new List<string>()));
@@ -876,7 +879,7 @@ namespace ServiceClientGenerator
                 {
                     var matches = ProjectReferenceRegex.Match(line);
                     var fileName = matches.ToString().Replace("\"", "");
-                    if (!(fileName.Contains("\\Core\\") || fileName.Contains(serviceName) || fileName.Contains("Test") || depsProjects.Contains(fileName)))
+                    if (!(fileName.Contains("\\Core\\") || fileName.Contains($".{serviceName}.") || fileName.Contains("Test") || depsProjects.Contains(fileName)))
                     {
                         // This is in a different folder in than the usual service dependencies.
                         // Also skipping the recursion since this does not currently have any ProjectReferences beyond Core

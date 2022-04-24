@@ -70,6 +70,12 @@ namespace Amazon.LocationService.Model.Internal.MarshallTransformations
                     unmarshalledObject.DataSource = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("Language", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.Language = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("MaxResults", targetDepth))
                 {
                     var unmarshaller = IntUnmarshaller.Instance;

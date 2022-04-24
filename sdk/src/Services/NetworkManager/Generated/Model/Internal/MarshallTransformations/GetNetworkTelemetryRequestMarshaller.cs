@@ -55,7 +55,7 @@ namespace Amazon.NetworkManager.Model.Internal.MarshallTransformations
         public IRequest Marshall(GetNetworkTelemetryRequest publicRequest)
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.NetworkManager");
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-07-05";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-07-05";
             request.HttpMethod = "GET";
 
             if (!publicRequest.IsSetGlobalNetworkId())
@@ -67,6 +67,9 @@ namespace Amazon.NetworkManager.Model.Internal.MarshallTransformations
             
             if (publicRequest.IsSetAwsRegion())
                 request.Parameters.Add("awsRegion", StringUtils.FromString(publicRequest.AwsRegion));
+            
+            if (publicRequest.IsSetCoreNetworkId())
+                request.Parameters.Add("coreNetworkId", StringUtils.FromString(publicRequest.CoreNetworkId));
             
             if (publicRequest.IsSetMaxResults())
                 request.Parameters.Add("maxResults", StringUtils.FromInt(publicRequest.MaxResults));

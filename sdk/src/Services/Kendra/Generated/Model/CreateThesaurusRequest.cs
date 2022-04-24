@@ -47,8 +47,8 @@ namespace Amazon.Kendra.Model
         /// Gets and sets the property ClientToken. 
         /// <para>
         /// A token that you provide to identify the request to create a thesaurus. Multiple calls
-        /// to the <code>CreateThesaurus</code> operation with the same client token will create
-        /// only one thesaurus. 
+        /// to the <code>CreateThesaurus</code> API with the same client token will create only
+        /// one thesaurus. 
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=100)]
@@ -124,11 +124,11 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property RoleArn. 
         /// <para>
-        /// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions
-        /// to access thesaurus file specified in <code>SourceS3Path</code>. 
+        /// An IAM role that gives Amazon Kendra permissions to access thesaurus file specified
+        /// in <code>SourceS3Path</code>. 
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=1284)]
+        [AWSProperty(Required=true, Min=0, Max=1284)]
         public string RoleArn
         {
             get { return this._roleArn; }

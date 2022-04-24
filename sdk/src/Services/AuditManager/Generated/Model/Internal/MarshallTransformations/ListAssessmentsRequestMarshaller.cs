@@ -55,7 +55,7 @@ namespace Amazon.AuditManager.Model.Internal.MarshallTransformations
         public IRequest Marshall(ListAssessmentsRequest publicRequest)
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.AuditManager");
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2017-07-25";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2017-07-25";
             request.HttpMethod = "GET";
 
             
@@ -64,6 +64,9 @@ namespace Amazon.AuditManager.Model.Internal.MarshallTransformations
             
             if (publicRequest.IsSetNextToken())
                 request.Parameters.Add("nextToken", StringUtils.FromString(publicRequest.NextToken));
+            
+            if (publicRequest.IsSetStatus())
+                request.Parameters.Add("status", StringUtils.FromString(publicRequest.Status));
             request.ResourcePath = "/assessments";
             request.UseQueryString = true;
 

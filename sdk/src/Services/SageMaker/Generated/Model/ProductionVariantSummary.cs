@@ -37,11 +37,14 @@ namespace Amazon.SageMaker.Model
     public partial class ProductionVariantSummary
     {
         private int? _currentInstanceCount;
+        private ProductionVariantServerlessConfig _currentServerlessConfig;
         private float? _currentWeight;
         private List<DeployedImage> _deployedImages = new List<DeployedImage>();
         private int? _desiredInstanceCount;
+        private ProductionVariantServerlessConfig _desiredServerlessConfig;
         private float? _desiredWeight;
         private string _variantName;
+        private List<ProductionVariantStatus> _variantStatus = new List<ProductionVariantStatus>();
 
         /// <summary>
         /// Gets and sets the property CurrentInstanceCount. 
@@ -60,6 +63,30 @@ namespace Amazon.SageMaker.Model
         internal bool IsSetCurrentInstanceCount()
         {
             return this._currentInstanceCount.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property CurrentServerlessConfig. 
+        /// <para>
+        /// The serverless configuration for the endpoint.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// Serverless Inference is in preview release for Amazon SageMaker and is subject to
+        /// change. We do not recommend using this feature in production environments.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        public ProductionVariantServerlessConfig CurrentServerlessConfig
+        {
+            get { return this._currentServerlessConfig; }
+            set { this._currentServerlessConfig = value; }
+        }
+
+        // Check to see if CurrentServerlessConfig property is set
+        internal bool IsSetCurrentServerlessConfig()
+        {
+            return this._currentServerlessConfig != null;
         }
 
         /// <summary>
@@ -121,6 +148,30 @@ namespace Amazon.SageMaker.Model
         }
 
         /// <summary>
+        /// Gets and sets the property DesiredServerlessConfig. 
+        /// <para>
+        /// The serverless configuration requested for the endpoint update.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// Serverless Inference is in preview release for Amazon SageMaker and is subject to
+        /// change. We do not recommend using this feature in production environments.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        public ProductionVariantServerlessConfig DesiredServerlessConfig
+        {
+            get { return this._desiredServerlessConfig; }
+            set { this._desiredServerlessConfig = value; }
+        }
+
+        // Check to see if DesiredServerlessConfig property is set
+        internal bool IsSetDesiredServerlessConfig()
+        {
+            return this._desiredServerlessConfig != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property DesiredWeight. 
         /// <para>
         /// The requested weight, as specified in the <code>UpdateEndpointWeightsAndCapacities</code>
@@ -157,6 +208,26 @@ namespace Amazon.SageMaker.Model
         internal bool IsSetVariantName()
         {
             return this._variantName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property VariantStatus. 
+        /// <para>
+        /// The endpoint variant status which describes the current deployment stage status or
+        /// operational status.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=5)]
+        public List<ProductionVariantStatus> VariantStatus
+        {
+            get { return this._variantStatus; }
+            set { this._variantStatus = value; }
+        }
+
+        // Check to see if VariantStatus property is set
+        internal bool IsSetVariantStatus()
+        {
+            return this._variantStatus != null && this._variantStatus.Count > 0; 
         }
 
     }

@@ -93,7 +93,7 @@ namespace Amazon.Batch.Model
         /// <para>
         /// If you're trying to maximize your resource utilization by providing your jobs as much
         /// memory as possible for a particular instance type, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html">Memory
-        /// Management</a> in the <i>Batch User Guide</i>.
+        /// management</a> in the <i>Batch User Guide</i>.
         /// </para>
         ///  </note> 
         /// <para>
@@ -153,8 +153,8 @@ namespace Amazon.Batch.Model
         /// <para>
         /// For jobs that are running on Fargate resources, then <code>value</code> must match
         /// one of the supported values and the <code>MEMORY</code> values must be one of the
-        /// values supported for that VCPU value. The supported values are 0.25, 0.5, 1, 2, and
-        /// 4
+        /// values supported for that <code>VCPU</code> value. The supported values are 0.25,
+        /// 0.5, 1, 2, and 4
         /// </para>
         ///  <dl> <dt>value = 0.25</dt> <dd> 
         /// <para>

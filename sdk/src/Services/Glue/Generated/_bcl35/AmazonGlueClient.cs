@@ -484,6 +484,9 @@ namespace Amazon.Glue
         /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
         /// A specified entity does not exist
         /// </exception>
+        /// <exception cref="Amazon.Glue.Model.GlueEncryptionException">
+        /// An encryption operation failed.
+        /// </exception>
         /// <exception cref="Amazon.Glue.Model.InternalServiceException">
         /// An internal service error occurred.
         /// </exception>
@@ -492,6 +495,9 @@ namespace Amazon.Glue
         /// </exception>
         /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
         /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ResourceNotReadyException">
+        /// A resource was not ready for a transaction.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchDeleteTable">REST API Reference for BatchDeleteTable Operation</seealso>
         public virtual BatchDeleteTableResponse BatchDeleteTable(BatchDeleteTableRequest request)
@@ -731,6 +737,69 @@ namespace Amazon.Glue
 
         #endregion
         
+        #region  BatchGetCustomEntityTypes
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchGetCustomEntityTypes service method.</param>
+        /// 
+        /// <returns>The response from the BatchGetCustomEntityTypes service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchGetCustomEntityTypes">REST API Reference for BatchGetCustomEntityTypes Operation</seealso>
+        public virtual BatchGetCustomEntityTypesResponse BatchGetCustomEntityTypes(BatchGetCustomEntityTypesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchGetCustomEntityTypesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchGetCustomEntityTypesResponseUnmarshaller.Instance;
+
+            return Invoke<BatchGetCustomEntityTypesResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the BatchGetCustomEntityTypes operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the BatchGetCustomEntityTypes operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndBatchGetCustomEntityTypes
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchGetCustomEntityTypes">REST API Reference for BatchGetCustomEntityTypes Operation</seealso>
+        public virtual IAsyncResult BeginBatchGetCustomEntityTypes(BatchGetCustomEntityTypesRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchGetCustomEntityTypesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchGetCustomEntityTypesResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  BatchGetCustomEntityTypes operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginBatchGetCustomEntityTypes.</param>
+        /// 
+        /// <returns>Returns a  BatchGetCustomEntityTypesResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchGetCustomEntityTypes">REST API Reference for BatchGetCustomEntityTypes Operation</seealso>
+        public virtual BatchGetCustomEntityTypesResponse EndBatchGetCustomEntityTypes(IAsyncResult asyncResult)
+        {
+            return EndInvoke<BatchGetCustomEntityTypesResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  BatchGetDevEndpoints
 
         /// <summary>
@@ -885,6 +954,9 @@ namespace Amazon.Glue
         /// </exception>
         /// <exception cref="Amazon.Glue.Model.InvalidInputException">
         /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidStateException">
+        /// An error that indicates your data is in an invalid state.
         /// </exception>
         /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
         /// The operation timed out.
@@ -1268,6 +1340,78 @@ namespace Amazon.Glue
 
         #endregion
         
+        #region  CancelStatement
+
+        /// <summary>
+        /// Cancels the statement..
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CancelStatement service method.</param>
+        /// 
+        /// <returns>The response from the CancelStatement service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.AccessDeniedException">
+        /// Access to a resource was denied.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.IllegalSessionStateException">
+        /// The session is in an invalid state to perform a requested operation.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CancelStatement">REST API Reference for CancelStatement Operation</seealso>
+        public virtual CancelStatementResponse CancelStatement(CancelStatementRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CancelStatementRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CancelStatementResponseUnmarshaller.Instance;
+
+            return Invoke<CancelStatementResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CancelStatement operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CancelStatement operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCancelStatement
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CancelStatement">REST API Reference for CancelStatement Operation</seealso>
+        public virtual IAsyncResult BeginCancelStatement(CancelStatementRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CancelStatementRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CancelStatementResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CancelStatement operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCancelStatement.</param>
+        /// 
+        /// <returns>Returns a  CancelStatementResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CancelStatement">REST API Reference for CancelStatement Operation</seealso>
+        public virtual CancelStatementResponse EndCancelStatement(IAsyncResult asyncResult)
+        {
+            return EndInvoke<CancelStatementResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  CheckSchemaVersionValidity
 
         /// <summary>
@@ -1600,6 +1744,81 @@ namespace Amazon.Glue
         public virtual CreateCrawlerResponse EndCreateCrawler(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateCrawlerResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  CreateCustomEntityType
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateCustomEntityType service method.</param>
+        /// 
+        /// <returns>The response from the CreateCustomEntityType service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.AccessDeniedException">
+        /// Access to a resource was denied.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.AlreadyExistsException">
+        /// A resource to be created or added already exists.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.IdempotentParameterMismatchException">
+        /// The same unique identifier was associated with two different records.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ResourceNumberLimitExceededException">
+        /// A resource numerical limit was exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateCustomEntityType">REST API Reference for CreateCustomEntityType Operation</seealso>
+        public virtual CreateCustomEntityTypeResponse CreateCustomEntityType(CreateCustomEntityTypeRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateCustomEntityTypeRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateCustomEntityTypeResponseUnmarshaller.Instance;
+
+            return Invoke<CreateCustomEntityTypeResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateCustomEntityType operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateCustomEntityType operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateCustomEntityType
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateCustomEntityType">REST API Reference for CreateCustomEntityType Operation</seealso>
+        public virtual IAsyncResult BeginCreateCustomEntityType(CreateCustomEntityTypeRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateCustomEntityTypeRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateCustomEntityTypeResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CreateCustomEntityType operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCreateCustomEntityType.</param>
+        /// 
+        /// <returns>Returns a  CreateCustomEntityTypeResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateCustomEntityType">REST API Reference for CreateCustomEntityType Operation</seealso>
+        public virtual CreateCustomEntityTypeResponse EndCreateCustomEntityType(IAsyncResult asyncResult)
+        {
+            return EndInvoke<CreateCustomEntityTypeResponse>(asyncResult);
         }
 
         #endregion
@@ -2087,6 +2306,9 @@ namespace Amazon.Glue
         /// <exception cref="Amazon.Glue.Model.AlreadyExistsException">
         /// A resource to be created or added already exists.
         /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ConcurrentModificationException">
+        /// Two processes are trying to modify a resource simultaneously.
+        /// </exception>
         /// <exception cref="Amazon.Glue.Model.InternalServiceException">
         /// An internal service error occurred.
         /// </exception>
@@ -2170,6 +2392,9 @@ namespace Amazon.Glue
         /// </exception>
         /// <exception cref="Amazon.Glue.Model.AlreadyExistsException">
         /// A resource to be created or added already exists.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ConcurrentModificationException">
+        /// Two processes are trying to modify a resource simultaneously.
         /// </exception>
         /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
         /// A specified entity does not exist
@@ -2365,6 +2590,84 @@ namespace Amazon.Glue
 
         #endregion
         
+        #region  CreateSession
+
+        /// <summary>
+        /// Creates a new session.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateSession service method.</param>
+        /// 
+        /// <returns>The response from the CreateSession service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.AccessDeniedException">
+        /// Access to a resource was denied.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.AlreadyExistsException">
+        /// A resource to be created or added already exists.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.IdempotentParameterMismatchException">
+        /// The same unique identifier was associated with two different records.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ResourceNumberLimitExceededException">
+        /// A resource numerical limit was exceeded.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ValidationException">
+        /// A value could not be validated.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateSession">REST API Reference for CreateSession Operation</seealso>
+        public virtual CreateSessionResponse CreateSession(CreateSessionRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateSessionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateSessionResponseUnmarshaller.Instance;
+
+            return Invoke<CreateSessionResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateSession operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateSession operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateSession
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateSession">REST API Reference for CreateSession Operation</seealso>
+        public virtual IAsyncResult BeginCreateSession(CreateSessionRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateSessionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateSessionResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CreateSession operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCreateSession.</param>
+        /// 
+        /// <returns>Returns a  CreateSessionResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateSession">REST API Reference for CreateSession Operation</seealso>
+        public virtual CreateSessionResponse EndCreateSession(IAsyncResult asyncResult)
+        {
+            return EndInvoke<CreateSessionResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  CreateTable
 
         /// <summary>
@@ -2393,6 +2696,9 @@ namespace Amazon.Glue
         /// </exception>
         /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
         /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ResourceNotReadyException">
+        /// A resource was not ready for a transaction.
         /// </exception>
         /// <exception cref="Amazon.Glue.Model.ResourceNumberLimitExceededException">
         /// A resource numerical limit was exceeded.
@@ -3064,6 +3370,75 @@ namespace Amazon.Glue
         public virtual DeleteCrawlerResponse EndDeleteCrawler(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteCrawlerResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  DeleteCustomEntityType
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteCustomEntityType service method.</param>
+        /// 
+        /// <returns>The response from the DeleteCustomEntityType service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.AccessDeniedException">
+        /// Access to a resource was denied.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/DeleteCustomEntityType">REST API Reference for DeleteCustomEntityType Operation</seealso>
+        public virtual DeleteCustomEntityTypeResponse DeleteCustomEntityType(DeleteCustomEntityTypeRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteCustomEntityTypeRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteCustomEntityTypeResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteCustomEntityTypeResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteCustomEntityType operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteCustomEntityType operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteCustomEntityType
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/DeleteCustomEntityType">REST API Reference for DeleteCustomEntityType Operation</seealso>
+        public virtual IAsyncResult BeginDeleteCustomEntityType(DeleteCustomEntityTypeRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteCustomEntityTypeRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteCustomEntityTypeResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteCustomEntityType operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteCustomEntityType.</param>
+        /// 
+        /// <returns>Returns a  DeleteCustomEntityTypeResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/DeleteCustomEntityType">REST API Reference for DeleteCustomEntityType Operation</seealso>
+        public virtual DeleteCustomEntityTypeResponse EndDeleteCustomEntityType(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DeleteCustomEntityTypeResponse>(asyncResult);
         }
 
         #endregion
@@ -3856,6 +4231,78 @@ namespace Amazon.Glue
 
         #endregion
         
+        #region  DeleteSession
+
+        /// <summary>
+        /// Deletes the session.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteSession service method.</param>
+        /// 
+        /// <returns>The response from the DeleteSession service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.AccessDeniedException">
+        /// Access to a resource was denied.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ConcurrentModificationException">
+        /// Two processes are trying to modify a resource simultaneously.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.IllegalSessionStateException">
+        /// The session is in an invalid state to perform a requested operation.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/DeleteSession">REST API Reference for DeleteSession Operation</seealso>
+        public virtual DeleteSessionResponse DeleteSession(DeleteSessionRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteSessionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteSessionResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteSessionResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteSession operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteSession operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteSession
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/DeleteSession">REST API Reference for DeleteSession Operation</seealso>
+        public virtual IAsyncResult BeginDeleteSession(DeleteSessionRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteSessionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteSessionResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteSession operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteSession.</param>
+        /// 
+        /// <returns>Returns a  DeleteSessionResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/DeleteSession">REST API Reference for DeleteSession Operation</seealso>
+        public virtual DeleteSessionResponse EndDeleteSession(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DeleteSessionResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  DeleteTable
 
         /// <summary>
@@ -3892,6 +4339,9 @@ namespace Amazon.Glue
         /// </exception>
         /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
         /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ResourceNotReadyException">
+        /// A resource was not ready for a transaction.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/DeleteTable">REST API Reference for DeleteTable Operation</seealso>
         public virtual DeleteTableResponse DeleteTable(DeleteTableRequest request)
@@ -5027,6 +5477,75 @@ namespace Amazon.Glue
         public virtual GetCrawlersResponse EndGetCrawlers(IAsyncResult asyncResult)
         {
             return EndInvoke<GetCrawlersResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetCustomEntityType
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetCustomEntityType service method.</param>
+        /// 
+        /// <returns>The response from the GetCustomEntityType service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.AccessDeniedException">
+        /// Access to a resource was denied.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetCustomEntityType">REST API Reference for GetCustomEntityType Operation</seealso>
+        public virtual GetCustomEntityTypeResponse GetCustomEntityType(GetCustomEntityTypeRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetCustomEntityTypeRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetCustomEntityTypeResponseUnmarshaller.Instance;
+
+            return Invoke<GetCustomEntityTypeResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetCustomEntityType operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetCustomEntityType operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetCustomEntityType
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetCustomEntityType">REST API Reference for GetCustomEntityType Operation</seealso>
+        public virtual IAsyncResult BeginGetCustomEntityType(GetCustomEntityTypeRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetCustomEntityTypeRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetCustomEntityTypeResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetCustomEntityType operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetCustomEntityType.</param>
+        /// 
+        /// <returns>Returns a  GetCustomEntityTypeResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetCustomEntityType">REST API Reference for GetCustomEntityType Operation</seealso>
+        public virtual GetCustomEntityTypeResponse EndGetCustomEntityType(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetCustomEntityTypeResponse>(asyncResult);
         }
 
         #endregion
@@ -6281,8 +6800,14 @@ namespace Amazon.Glue
         /// <exception cref="Amazon.Glue.Model.InvalidInputException">
         /// The input provided was not valid.
         /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidStateException">
+        /// An error that indicates your data is in an invalid state.
+        /// </exception>
         /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
         /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ResourceNotReadyException">
+        /// A resource was not ready for a transaction.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetPartitions">REST API Reference for GetPartitions Operation</seealso>
         public virtual GetPartitionsResponse GetPartitions(GetPartitionsRequest request)
@@ -7008,6 +7533,147 @@ namespace Amazon.Glue
 
         #endregion
         
+        #region  GetSession
+
+        /// <summary>
+        /// Retrieves the session.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetSession service method.</param>
+        /// 
+        /// <returns>The response from the GetSession service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.AccessDeniedException">
+        /// Access to a resource was denied.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetSession">REST API Reference for GetSession Operation</seealso>
+        public virtual GetSessionResponse GetSession(GetSessionRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetSessionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetSessionResponseUnmarshaller.Instance;
+
+            return Invoke<GetSessionResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetSession operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetSession operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetSession
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetSession">REST API Reference for GetSession Operation</seealso>
+        public virtual IAsyncResult BeginGetSession(GetSessionRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetSessionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetSessionResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetSession operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetSession.</param>
+        /// 
+        /// <returns>Returns a  GetSessionResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetSession">REST API Reference for GetSession Operation</seealso>
+        public virtual GetSessionResponse EndGetSession(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetSessionResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetStatement
+
+        /// <summary>
+        /// Retrieves the statement.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetStatement service method.</param>
+        /// 
+        /// <returns>The response from the GetStatement service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.AccessDeniedException">
+        /// Access to a resource was denied.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.IllegalSessionStateException">
+        /// The session is in an invalid state to perform a requested operation.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetStatement">REST API Reference for GetStatement Operation</seealso>
+        public virtual GetStatementResponse GetStatement(GetStatementRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetStatementRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetStatementResponseUnmarshaller.Instance;
+
+            return Invoke<GetStatementResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetStatement operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetStatement operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetStatement
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetStatement">REST API Reference for GetStatement Operation</seealso>
+        public virtual IAsyncResult BeginGetStatement(GetStatementRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetStatementRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetStatementResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetStatement operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetStatement.</param>
+        /// 
+        /// <returns>Returns a  GetStatementResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetStatement">REST API Reference for GetStatement Operation</seealso>
+        public virtual GetStatementResponse EndGetStatement(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetStatementResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  GetTable
 
         /// <summary>
@@ -7030,6 +7696,9 @@ namespace Amazon.Glue
         /// </exception>
         /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
         /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ResourceNotReadyException">
+        /// A resource was not ready for a transaction.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetTable">REST API Reference for GetTable Operation</seealso>
         public virtual GetTableResponse GetTable(GetTableRequest request)
@@ -7478,6 +8147,222 @@ namespace Amazon.Glue
         public virtual GetTriggersResponse EndGetTriggers(IAsyncResult asyncResult)
         {
             return EndInvoke<GetTriggersResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetUnfilteredPartitionMetadata
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetUnfilteredPartitionMetadata service method.</param>
+        /// 
+        /// <returns>The response from the GetUnfilteredPartitionMetadata service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.GlueEncryptionException">
+        /// An encryption operation failed.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.PermissionTypeMismatchException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetUnfilteredPartitionMetadata">REST API Reference for GetUnfilteredPartitionMetadata Operation</seealso>
+        public virtual GetUnfilteredPartitionMetadataResponse GetUnfilteredPartitionMetadata(GetUnfilteredPartitionMetadataRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetUnfilteredPartitionMetadataRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetUnfilteredPartitionMetadataResponseUnmarshaller.Instance;
+
+            return Invoke<GetUnfilteredPartitionMetadataResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetUnfilteredPartitionMetadata operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetUnfilteredPartitionMetadata operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetUnfilteredPartitionMetadata
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetUnfilteredPartitionMetadata">REST API Reference for GetUnfilteredPartitionMetadata Operation</seealso>
+        public virtual IAsyncResult BeginGetUnfilteredPartitionMetadata(GetUnfilteredPartitionMetadataRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetUnfilteredPartitionMetadataRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetUnfilteredPartitionMetadataResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetUnfilteredPartitionMetadata operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetUnfilteredPartitionMetadata.</param>
+        /// 
+        /// <returns>Returns a  GetUnfilteredPartitionMetadataResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetUnfilteredPartitionMetadata">REST API Reference for GetUnfilteredPartitionMetadata Operation</seealso>
+        public virtual GetUnfilteredPartitionMetadataResponse EndGetUnfilteredPartitionMetadata(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetUnfilteredPartitionMetadataResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetUnfilteredPartitionsMetadata
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetUnfilteredPartitionsMetadata service method.</param>
+        /// 
+        /// <returns>The response from the GetUnfilteredPartitionsMetadata service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.GlueEncryptionException">
+        /// An encryption operation failed.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.PermissionTypeMismatchException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetUnfilteredPartitionsMetadata">REST API Reference for GetUnfilteredPartitionsMetadata Operation</seealso>
+        public virtual GetUnfilteredPartitionsMetadataResponse GetUnfilteredPartitionsMetadata(GetUnfilteredPartitionsMetadataRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetUnfilteredPartitionsMetadataRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetUnfilteredPartitionsMetadataResponseUnmarshaller.Instance;
+
+            return Invoke<GetUnfilteredPartitionsMetadataResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetUnfilteredPartitionsMetadata operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetUnfilteredPartitionsMetadata operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetUnfilteredPartitionsMetadata
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetUnfilteredPartitionsMetadata">REST API Reference for GetUnfilteredPartitionsMetadata Operation</seealso>
+        public virtual IAsyncResult BeginGetUnfilteredPartitionsMetadata(GetUnfilteredPartitionsMetadataRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetUnfilteredPartitionsMetadataRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetUnfilteredPartitionsMetadataResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetUnfilteredPartitionsMetadata operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetUnfilteredPartitionsMetadata.</param>
+        /// 
+        /// <returns>Returns a  GetUnfilteredPartitionsMetadataResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetUnfilteredPartitionsMetadata">REST API Reference for GetUnfilteredPartitionsMetadata Operation</seealso>
+        public virtual GetUnfilteredPartitionsMetadataResponse EndGetUnfilteredPartitionsMetadata(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetUnfilteredPartitionsMetadataResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetUnfilteredTableMetadata
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetUnfilteredTableMetadata service method.</param>
+        /// 
+        /// <returns>The response from the GetUnfilteredTableMetadata service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.GlueEncryptionException">
+        /// An encryption operation failed.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.PermissionTypeMismatchException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetUnfilteredTableMetadata">REST API Reference for GetUnfilteredTableMetadata Operation</seealso>
+        public virtual GetUnfilteredTableMetadataResponse GetUnfilteredTableMetadata(GetUnfilteredTableMetadataRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetUnfilteredTableMetadataRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetUnfilteredTableMetadataResponseUnmarshaller.Instance;
+
+            return Invoke<GetUnfilteredTableMetadataResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetUnfilteredTableMetadata operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetUnfilteredTableMetadata operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetUnfilteredTableMetadata
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetUnfilteredTableMetadata">REST API Reference for GetUnfilteredTableMetadata Operation</seealso>
+        public virtual IAsyncResult BeginGetUnfilteredTableMetadata(GetUnfilteredTableMetadataRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetUnfilteredTableMetadataRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetUnfilteredTableMetadataResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetUnfilteredTableMetadata operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetUnfilteredTableMetadata.</param>
+        /// 
+        /// <returns>Returns a  GetUnfilteredTableMetadataResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetUnfilteredTableMetadata">REST API Reference for GetUnfilteredTableMetadata Operation</seealso>
+        public virtual GetUnfilteredTableMetadataResponse EndGetUnfilteredTableMetadata(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetUnfilteredTableMetadataResponse>(asyncResult);
         }
 
         #endregion
@@ -8073,6 +8958,69 @@ namespace Amazon.Glue
 
         #endregion
         
+        #region  ListCustomEntityTypes
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListCustomEntityTypes service method.</param>
+        /// 
+        /// <returns>The response from the ListCustomEntityTypes service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListCustomEntityTypes">REST API Reference for ListCustomEntityTypes Operation</seealso>
+        public virtual ListCustomEntityTypesResponse ListCustomEntityTypes(ListCustomEntityTypesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListCustomEntityTypesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListCustomEntityTypesResponseUnmarshaller.Instance;
+
+            return Invoke<ListCustomEntityTypesResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListCustomEntityTypes operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListCustomEntityTypes operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListCustomEntityTypes
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListCustomEntityTypes">REST API Reference for ListCustomEntityTypes Operation</seealso>
+        public virtual IAsyncResult BeginListCustomEntityTypes(ListCustomEntityTypesRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListCustomEntityTypesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListCustomEntityTypesResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListCustomEntityTypes operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListCustomEntityTypes.</param>
+        /// 
+        /// <returns>Returns a  ListCustomEntityTypesResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListCustomEntityTypes">REST API Reference for ListCustomEntityTypes Operation</seealso>
+        public virtual ListCustomEntityTypesResponse EndListCustomEntityTypes(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListCustomEntityTypesResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  ListDevEndpoints
 
         /// <summary>
@@ -8496,6 +9444,144 @@ namespace Amazon.Glue
         public virtual ListSchemaVersionsResponse EndListSchemaVersions(IAsyncResult asyncResult)
         {
             return EndInvoke<ListSchemaVersionsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  ListSessions
+
+        /// <summary>
+        /// Retrieve a session..
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListSessions service method.</param>
+        /// 
+        /// <returns>The response from the ListSessions service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.AccessDeniedException">
+        /// Access to a resource was denied.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListSessions">REST API Reference for ListSessions Operation</seealso>
+        public virtual ListSessionsResponse ListSessions(ListSessionsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListSessionsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListSessionsResponseUnmarshaller.Instance;
+
+            return Invoke<ListSessionsResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListSessions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListSessions operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListSessions
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListSessions">REST API Reference for ListSessions Operation</seealso>
+        public virtual IAsyncResult BeginListSessions(ListSessionsRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListSessionsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListSessionsResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListSessions operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListSessions.</param>
+        /// 
+        /// <returns>Returns a  ListSessionsResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListSessions">REST API Reference for ListSessions Operation</seealso>
+        public virtual ListSessionsResponse EndListSessions(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListSessionsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  ListStatements
+
+        /// <summary>
+        /// Lists statements for the session.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListStatements service method.</param>
+        /// 
+        /// <returns>The response from the ListStatements service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.AccessDeniedException">
+        /// Access to a resource was denied.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.IllegalSessionStateException">
+        /// The session is in an invalid state to perform a requested operation.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListStatements">REST API Reference for ListStatements Operation</seealso>
+        public virtual ListStatementsResponse ListStatements(ListStatementsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListStatementsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListStatementsResponseUnmarshaller.Instance;
+
+            return Invoke<ListStatementsResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListStatements operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListStatements operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListStatements
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListStatements">REST API Reference for ListStatements Operation</seealso>
+        public virtual IAsyncResult BeginListStatements(ListStatementsRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListStatementsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListStatementsResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListStatements operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListStatements.</param>
+        /// 
+        /// <returns>Returns a  ListStatementsResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListStatements">REST API Reference for ListStatements Operation</seealso>
+        public virtual ListStatementsResponse EndListStatements(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListStatementsResponse>(asyncResult);
         }
 
         #endregion
@@ -9271,6 +10357,84 @@ namespace Amazon.Glue
         public virtual ResumeWorkflowRunResponse EndResumeWorkflowRun(IAsyncResult asyncResult)
         {
             return EndInvoke<ResumeWorkflowRunResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  RunStatement
+
+        /// <summary>
+        /// Executes the statement.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RunStatement service method.</param>
+        /// 
+        /// <returns>The response from the RunStatement service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.AccessDeniedException">
+        /// Access to a resource was denied.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.IllegalSessionStateException">
+        /// The session is in an invalid state to perform a requested operation.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ResourceNumberLimitExceededException">
+        /// A resource numerical limit was exceeded.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ValidationException">
+        /// A value could not be validated.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/RunStatement">REST API Reference for RunStatement Operation</seealso>
+        public virtual RunStatementResponse RunStatement(RunStatementRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RunStatementRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RunStatementResponseUnmarshaller.Instance;
+
+            return Invoke<RunStatementResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the RunStatement operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the RunStatement operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRunStatement
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/RunStatement">REST API Reference for RunStatement Operation</seealso>
+        public virtual IAsyncResult BeginRunStatement(RunStatementRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = RunStatementRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = RunStatementResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  RunStatement operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginRunStatement.</param>
+        /// 
+        /// <returns>Returns a  RunStatementResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/RunStatement">REST API Reference for RunStatement Operation</seealso>
+        public virtual RunStatementResponse EndRunStatement(IAsyncResult asyncResult)
+        {
+            return EndInvoke<RunStatementResponse>(asyncResult);
         }
 
         #endregion
@@ -10249,6 +11413,78 @@ namespace Amazon.Glue
         public virtual StopCrawlerScheduleResponse EndStopCrawlerSchedule(IAsyncResult asyncResult)
         {
             return EndInvoke<StopCrawlerScheduleResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  StopSession
+
+        /// <summary>
+        /// Stops the session.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StopSession service method.</param>
+        /// 
+        /// <returns>The response from the StopSession service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.AccessDeniedException">
+        /// Access to a resource was denied.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ConcurrentModificationException">
+        /// Two processes are trying to modify a resource simultaneously.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.IllegalSessionStateException">
+        /// The session is in an invalid state to perform a requested operation.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/StopSession">REST API Reference for StopSession Operation</seealso>
+        public virtual StopSessionResponse StopSession(StopSessionRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StopSessionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StopSessionResponseUnmarshaller.Instance;
+
+            return Invoke<StopSessionResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StopSession operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StopSession operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStopSession
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/StopSession">REST API Reference for StopSession Operation</seealso>
+        public virtual IAsyncResult BeginStopSession(StopSessionRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StopSessionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StopSessionResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  StopSession operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginStopSession.</param>
+        /// 
+        /// <returns>Returns a  StopSessionResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/StopSession">REST API Reference for StopSession Operation</seealso>
+        public virtual StopSessionResponse EndStopSession(IAsyncResult asyncResult)
+        {
+            return EndInvoke<StopSessionResponse>(asyncResult);
         }
 
         #endregion
@@ -11560,6 +12796,9 @@ namespace Amazon.Glue
         /// </exception>
         /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
         /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ResourceNotReadyException">
+        /// A resource was not ready for a transaction.
         /// </exception>
         /// <exception cref="Amazon.Glue.Model.ResourceNumberLimitExceededException">
         /// A resource numerical limit was exceeded.

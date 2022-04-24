@@ -44,8 +44,8 @@ namespace Amazon.ACMPCA.Model
     /// <para>
     /// Both PCA and the IAM principal must have permission to write to the S3 bucket that
     /// you specify. If the IAM principal making the call does not have permission to write
-    /// to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html">Configure
-    /// Access to ACM Private CA</a>.
+    /// to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies">Access
+    /// policies for CRLs in Amazon S3</a>.
     /// </para>
     ///  </note> 
     /// <para>
@@ -106,7 +106,7 @@ namespace Amazon.ACMPCA.Model
         ///  
         /// <para>
         /// You can also copy the serial number from the console or use the <a href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a>
-        /// action in the <i>AWS Certificate Manager API Reference</i>. 
+        /// action in the <i>Certificate Manager API Reference</i>. 
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=0, Max=128)]

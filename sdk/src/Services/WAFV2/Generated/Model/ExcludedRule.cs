@@ -29,9 +29,10 @@ using Amazon.Runtime.Internal;
 namespace Amazon.WAFV2.Model
 {
     /// <summary>
-    /// Specifies a single rule to exclude from the rule group. Excluding a rule overrides
-    /// its action setting for the rule group in the web ACL, setting it to <code>COUNT</code>.
-    /// This effectively excludes the rule from acting on web requests.
+    /// Specifies a single rule in a rule group whose action you want to override to <code>Count</code>.
+    /// When you exclude a rule, WAF evaluates it exactly as it would if the rule action setting
+    /// were <code>Count</code>. This is a useful option for testing the rules in a rule group
+    /// without modifying how they handle your web traffic.
     /// </summary>
     public partial class ExcludedRule
     {
@@ -40,7 +41,7 @@ namespace Amazon.WAFV2.Model
         /// <summary>
         /// Gets and sets the property Name. 
         /// <para>
-        /// The name of the rule to exclude.
+        /// The name of the rule whose action you want to override to <code>Count</code>.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=128)]

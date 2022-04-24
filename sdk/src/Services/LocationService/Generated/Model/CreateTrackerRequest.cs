@@ -100,10 +100,21 @@ namespace Amazon.LocationService.Model
         ///  </li> <li> 
         /// <para>
         ///  <code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location
-        /// updates are ignored. Location updates within this distance are neither evaluated against
+        /// updates are ignored. Location updates within this area are neither evaluated against
         /// linked geofence collections, nor stored. This helps control costs by reducing the
-        /// number of geofence evaluations and device positions to retrieve. Distance-based filtering
-        /// can also reduce the jitter effect when displaying device trajectory on a map. 
+        /// number of geofence evaluations and historical device positions to paginate through.
+        /// Distance-based filtering can also reduce the effects of GPS noise when displaying
+        /// device trajectories on a map. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>AccuracyBased</code> - If the device has moved less than the measured accuracy,
+        /// location updates are ignored. For example, if two consecutive updates from a device
+        /// have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device
+        /// has moved less than 15 m. Ignored location updates are neither evaluated against linked
+        /// geofence collections, nor stored. This can reduce the effects of GPS noise when displaying
+        /// device trajectories on a map, and can help control your costs by reducing the number
+        /// of geofence evaluations. 
         /// </para>
         ///  </li> </ul> 
         /// <para>
@@ -125,15 +136,10 @@ namespace Amazon.LocationService.Model
         /// <summary>
         /// Gets and sets the property PricingPlan. 
         /// <para>
-        /// Specifies the pricing plan for the tracker resource.
-        /// </para>
-        ///  
-        /// <para>
-        /// For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon
-        /// Location Service pricing</a>.
+        /// No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [Obsolete("Deprecated. If included, the only allowed value is RequestBasedUsage.")]
         public PricingPlan PricingPlan
         {
             get { return this._pricingPlan; }
@@ -149,30 +155,10 @@ namespace Amazon.LocationService.Model
         /// <summary>
         /// Gets and sets the property PricingPlanDataSource. 
         /// <para>
-        /// Specifies the data provider for the tracker resource.
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// Required value for the following pricing plans: <code>MobileAssetTracking </code>|
-        /// <code>MobileAssetManagement</code> 
-        /// </para>
-        ///  </li> </ul> 
-        /// <para>
-        /// For more information about <a href="https://aws.amazon.com/location/data-providers/">Data
-        /// Providers</a>, and <a href="https://aws.amazon.com/location/pricing/">Pricing plans</a>,
-        /// see the Amazon Location Service product page.
-        /// </para>
-        ///  <note> 
-        /// <para>
-        /// Amazon Location Service only uses <code>PricingPlanDataSource</code> to calculate
-        /// billing for your tracker resource. Your data will not be shared with the data provider,
-        /// and will remain in your AWS account or Region unless you move it.
-        /// </para>
-        ///  </note> 
-        /// <para>
-        /// Valid values: <code>Esri</code> | <code>Here</code> 
+        /// This parameter is no longer used.
         /// </para>
         /// </summary>
+        [Obsolete("Deprecated. No longer allowed.")]
         public string PricingPlanDataSource
         {
             get { return this._pricingPlanDataSource; }
@@ -219,6 +205,10 @@ namespace Amazon.LocationService.Model
         /// <para>
         /// Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
         /// = . _ : / @. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Cannot use "aws:" as a prefix for a key.
         /// </para>
         ///  </li> </ul>
         /// </summary>

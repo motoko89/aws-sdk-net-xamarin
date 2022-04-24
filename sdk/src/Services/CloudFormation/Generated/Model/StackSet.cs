@@ -31,8 +31,8 @@ namespace Amazon.CloudFormation.Model
     /// <summary>
     /// A structure that contains information about a stack set. A stack set enables you to
     /// provision stacks into Amazon Web Services accounts and across Regions by using a single
-    /// CloudFormation template. In the stack set, you specify the template to use, as well
-    /// as any parameters and capabilities that the template requires.
+    /// CloudFormation template. In the stack set, you specify the template to use, in addition
+    /// to any parameters and capabilities that the template requires.
     /// </summary>
     public partial class StackSet
     {
@@ -41,6 +41,7 @@ namespace Amazon.CloudFormation.Model
         private List<string> _capabilities = new List<string>();
         private string _description;
         private string _executionRoleName;
+        private ManagedExecution _managedExecution;
         private List<string> _organizationalUnitIds = new List<string>();
         private List<Parameter> _parameters = new List<Parameter>();
         private PermissionModels _permissionModel;
@@ -142,12 +143,12 @@ namespace Amazon.CloudFormation.Model
         /// <summary>
         /// Gets and sets the property ExecutionRoleName. 
         /// <para>
-        /// The name of the IAM execution role used to create or update the stack set. 
+        /// The name of the IAM execution role used to create or update the stack set.
         /// </para>
         ///  
         /// <para>
         /// Use customized execution roles to control which stack resources users and groups can
-        /// include in their stack sets. 
+        /// include in their stack sets.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=64)]
@@ -161,6 +162,25 @@ namespace Amazon.CloudFormation.Model
         internal bool IsSetExecutionRoleName()
         {
             return this._executionRoleName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ManagedExecution. 
+        /// <para>
+        /// Describes whether StackSets performs non-conflicting operations concurrently and queues
+        /// conflicting operations.
+        /// </para>
+        /// </summary>
+        public ManagedExecution ManagedExecution
+        {
+            get { return this._managedExecution; }
+            set { this._managedExecution = value; }
+        }
+
+        // Check to see if ManagedExecution property is set
+        internal bool IsSetManagedExecution()
+        {
+            return this._managedExecution != null;
         }
 
         /// <summary>
@@ -260,7 +280,7 @@ namespace Amazon.CloudFormation.Model
         /// <para>
         /// For stack sets, contains information about the last <i>completed</i> drift operation
         /// performed on the stack set. Information about drift operations currently in progress
-        /// is not included.
+        /// isn't included.
         /// </para>
         /// </summary>
         public StackSetDriftDetectionDetails StackSetDriftDetectionDetails

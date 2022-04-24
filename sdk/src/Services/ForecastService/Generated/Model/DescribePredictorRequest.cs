@@ -30,8 +30,15 @@ namespace Amazon.ForecastService.Model
 {
     /// <summary>
     /// Container for the parameters to the DescribePredictor operation.
+    /// <note> 
+    /// <para>
+    ///  This operation is only valid for legacy predictors created with CreatePredictor.
+    /// If you are not using a legacy predictor, use <a>DescribeAutoPredictor</a>.
+    /// </para>
+    ///  </note> 
+    /// <para>
     /// Describes a predictor created using the <a>CreatePredictor</a> operation.
-    /// 
+    /// </para>
     ///  
     /// <para>
     /// In addition to listing the properties provided in the <code>CreatePredictor</code>

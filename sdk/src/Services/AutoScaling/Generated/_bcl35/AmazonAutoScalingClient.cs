@@ -369,6 +369,11 @@ namespace Amazon.AutoScaling
         /// </para>
         ///  
         /// <para>
+        /// This operation is additive and does not detach existing Classic Load Balancers or
+        /// target groups from the Auto Scaling group.
+        /// </para>
+        ///  
+        /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Elastic
         /// Load Balancing and Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User
         /// Guide</i>. 
@@ -458,6 +463,11 @@ namespace Amazon.AutoScaling
         /// To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a>
         /// API. To detach the target group from the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a>
         /// API.
+        /// </para>
+        ///  
+        /// <para>
+        /// This operation is additive and does not detach existing target groups or Classic Load
+        /// Balancers from the Auto Scaling group.
         /// </para>
         ///  
         /// <para>
@@ -737,8 +747,14 @@ namespace Amazon.AutoScaling
         /// </para>
         ///  <ol> <li> 
         /// <para>
-        /// (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke
-        /// your Lambda function when Amazon EC2 Auto Scaling launches or terminates instances.
+        /// (Optional) Create a launch template or launch configuration with a user data script
+        /// that runs while an instance is in a wait state due to a lifecycle hook.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// (Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke
+        /// your Lambda function when an instance is put into a wait state due to a lifecycle
+        /// hook.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -754,12 +770,12 @@ namespace Amazon.AutoScaling
         ///  </li> <li> 
         /// <para>
         /// If you need more time, record the lifecycle action heartbeat to keep the instance
-        /// in a pending state.
+        /// in a wait state.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b>If you finish before the timeout period ends, complete the lifecycle action.</b>
-        /// 
+        ///  <b>If you finish before the timeout period ends, send a callback by using the <a>CompleteLifecycleAction</a>
+        /// API call.</b> 
         /// </para>
         ///  </li> </ol> 
         /// <para>
@@ -4013,9 +4029,9 @@ namespace Amazon.AutoScaling
         /// 
         ///  
         /// <para>
-        /// A lifecycle hook tells Amazon EC2 Auto Scaling to perform an action on an instance
-        /// when the instance launches (before it is put into service) or as the instance terminates
-        /// (before it is fully terminated).
+        /// Lifecycle hooks let you create solutions that are aware of events in the Auto Scaling
+        /// instance lifecycle, and then perform a custom action on instances when the corresponding
+        /// lifecycle event occurs.
         /// </para>
         ///  
         /// <para>
@@ -4024,8 +4040,14 @@ namespace Amazon.AutoScaling
         /// </para>
         ///  <ol> <li> 
         /// <para>
-        /// (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke
-        /// your Lambda function when Amazon EC2 Auto Scaling launches or terminates instances.
+        /// (Optional) Create a launch template or launch configuration with a user data script
+        /// that runs while an instance is in a wait state due to a lifecycle hook.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// (Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke
+        /// your Lambda function when an instance is put into a wait state due to a lifecycle
+        /// hook.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -4041,12 +4063,12 @@ namespace Amazon.AutoScaling
         ///  </li> <li> 
         /// <para>
         /// If you need more time, record the lifecycle action heartbeat to keep the instance
-        /// in a pending state using the <a>RecordLifecycleActionHeartbeat</a> API call.
+        /// in a wait state using the <a>RecordLifecycleActionHeartbeat</a> API call.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// If you finish before the timeout period ends, complete the lifecycle action using
-        /// the <a>CompleteLifecycleAction</a> API call.
+        /// If you finish before the timeout period ends, send a callback by using the <a>CompleteLifecycleAction</a>
+        /// API call.
         /// </para>
         ///  </li> </ol> 
         /// <para>
@@ -4471,8 +4493,14 @@ namespace Amazon.AutoScaling
         /// </para>
         ///  <ol> <li> 
         /// <para>
-        /// (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke
-        /// your Lambda function when Amazon EC2 Auto Scaling launches or terminates instances.
+        /// (Optional) Create a launch template or launch configuration with a user data script
+        /// that runs while an instance is in a wait state due to a lifecycle hook.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// (Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke
+        /// your Lambda function when an instance is put into a wait state due to a lifecycle
+        /// hook.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -4488,11 +4516,12 @@ namespace Amazon.AutoScaling
         ///  </li> <li> 
         /// <para>
         ///  <b>If you need more time, record the lifecycle action heartbeat to keep the instance
-        /// in a pending state.</b> 
+        /// in a wait state.</b> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// If you finish before the timeout period ends, complete the lifecycle action.
+        /// If you finish before the timeout period ends, send a callback by using the <a>CompleteLifecycleAction</a>
+        /// API call.
         /// </para>
         ///  </li> </ol> 
         /// <para>
@@ -4767,8 +4796,8 @@ namespace Amazon.AutoScaling
         ///  
         /// <para>
         /// For more information about preventing instances that are part of an Auto Scaling group
-        /// from terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance
-        /// scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        /// from terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Using
+        /// instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
         /// </para>
         ///  
         /// <para>

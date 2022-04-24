@@ -14,7 +14,7 @@
  */
 using System;
 using System.Net;
-
+using Amazon.Runtime.Internal;
 using Amazon.Runtime.Internal.Auth;
 using Amazon.Util;
 #if NETSTANDARD
@@ -29,6 +29,12 @@ namespace Amazon.Runtime
     /// </summary>
     public partial interface IClientConfig
     {
+        /// <summary>
+        /// Returns the <see cref="Amazon.Runtime.DefaultConfigurationMode"/> that will be used. If none is specified,
+        /// than the correct one is computed by <see cref="IDefaultConfigurationProvider"/>.
+        /// </summary>
+        DefaultConfigurationMode DefaultConfigurationMode { get; }
+
         /// <summary>
         /// Gets the RegionEndpoint property. The region constant to use that 
         /// determines the endpoint to use.  If this is not set
@@ -212,6 +218,12 @@ namespace Amazon.Runtime
         bool UseDualstackEndpoint { get; }
 
         /// <summary>
+        /// Configures the endpoint calculation to go to a FIPS (https://aws.amazon.com/compliance/fips/) endpoint
+        /// for the configured region.
+        /// </summary>
+        bool UseFIPSEndpoint { get; }
+
+        /// <summary>
         /// Configures a flag enabling to either opt in or opt out of the retry throttling service.
         /// Note: set value to true to enable retry throttling feature. The Default value for this flag is false.
         /// </summary>
@@ -222,6 +234,11 @@ namespace Amazon.Runtime
         /// </summary>
         /// <returns>The URL to the service.</returns>
         string DetermineServiceURL();
+
+        /// <summary>
+        /// Given this client configuration, return a DNS suffix for service endpoint url.
+        /// </summary>
+        string DetermineDnsSuffix();
 
         /// <summary>
         /// Performs validation on this config object.

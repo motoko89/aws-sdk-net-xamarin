@@ -34,7 +34,7 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// AutoMLChannel Marshaller
-    /// </summary>       
+    /// </summary>
     public class AutoMLChannelMarshaller : IRequestMarshaller<AutoMLChannel, JsonMarshallerContext> 
     {
         /// <summary>
@@ -49,6 +49,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
             {
                 context.Writer.WritePropertyName("CompressionType");
                 context.Writer.Write(requestObject.CompressionType);
+            }
+
+            if(requestObject.IsSetContentType())
+            {
+                context.Writer.WritePropertyName("ContentType");
+                context.Writer.Write(requestObject.ContentType);
             }
 
             if(requestObject.IsSetDataSource())
@@ -72,7 +78,7 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static AutoMLChannelMarshaller Instance = new AutoMLChannelMarshaller();
 
     }

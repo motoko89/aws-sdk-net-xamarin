@@ -50,6 +50,7 @@ namespace Amazon.DynamoDBv2.Model
         private SSEDescription _sseDescription;
         private StreamSpecification _streamSpecification;
         private string _tableArn;
+        private TableClassSummary _tableClassSummary;
         private string _tableId;
         private string _tableName;
         private long? _tableSizeBytes;
@@ -271,7 +272,7 @@ namespace Amazon.DynamoDBv2.Model
         /// Gets and sets the property GlobalTableVersion. 
         /// <para>
         /// Represents the version of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">global
-        /// tables</a> in use, if the table is replicated across AWS Regions.
+        /// tables</a> in use, if the table is replicated across Amazon Web Services Regions.
         /// </para>
         /// </summary>
         public string GlobalTableVersion
@@ -391,7 +392,7 @@ namespace Amazon.DynamoDBv2.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// AWS customer ID
+        /// Amazon Web Services customer ID
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -605,6 +606,24 @@ namespace Amazon.DynamoDBv2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property TableClassSummary. 
+        /// <para>
+        /// Contains details of the table class.
+        /// </para>
+        /// </summary>
+        public TableClassSummary TableClassSummary
+        {
+            get { return this._tableClassSummary; }
+            set { this._tableClassSummary = value; }
+        }
+
+        // Check to see if TableClassSummary property is set
+        internal bool IsSetTableClassSummary()
+        {
+            return this._tableClassSummary != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property TableId. 
         /// <para>
         /// Unique identifier for the table for which the backup was created. 
@@ -683,10 +702,10 @@ namespace Amazon.DynamoDBv2.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The AWS KMS key used to encrypt
-        /// the table in inaccessible. Table operations may fail due to failure to use the AWS
-        /// KMS key. DynamoDB will initiate the table archival process when a table's AWS KMS
-        /// key remains inaccessible for more than seven days. 
+        ///  <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the
+        /// table in inaccessible. Table operations may fail due to failure to use the KMS key.
+        /// DynamoDB will initiate the table archival process when a table's KMS key remains inaccessible
+        /// for more than seven days. 
         /// </para>
         ///  </li> <li> 
         /// <para>

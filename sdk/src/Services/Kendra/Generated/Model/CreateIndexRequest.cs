@@ -30,15 +30,15 @@ namespace Amazon.Kendra.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateIndex operation.
-    /// Creates a new Amazon Kendra index. Index creation is an asynchronous operation. To
-    /// determine if index creation has completed, check the <code>Status</code> field returned
-    /// from a call to <code>DescribeIndex</code>. The <code>Status</code> field is set to
-    /// <code>ACTIVE</code> when the index is ready to use.
+    /// Creates a new Amazon Kendra index. Index creation is an asynchronous API. To determine
+    /// if index creation has completed, check the <code>Status</code> field returned from
+    /// a call to <code>DescribeIndex</code>. The <code>Status</code> field is set to <code>ACTIVE</code>
+    /// when the index is ready to use.
     /// 
     ///  
     /// <para>
     /// Once the index is active you can index your documents using the <code>BatchPutDocument</code>
-    /// operation or using one of the supported data sources. 
+    /// API or using one of the supported data sources. 
     /// </para>
     /// </summary>
     public partial class CreateIndexRequest : AmazonKendraRequest
@@ -58,8 +58,8 @@ namespace Amazon.Kendra.Model
         /// Gets and sets the property ClientToken. 
         /// <para>
         /// A token that you provide to identify the request to create an index. Multiple calls
-        /// to the <code>CreateIndex</code> operation with the same client token will create only
-        /// one index.
+        /// to the <code>CreateIndex</code> API with the same client token will create only one
+        /// index.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=100)]
@@ -147,13 +147,13 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property RoleArn. 
         /// <para>
-        /// An Identity and Access Management(IAM) role that gives Amazon Kendra permissions to
-        /// access your Amazon CloudWatch logs and metrics. This is also the role used when you
-        /// use the <code>BatchPutDocument</code> operation to index documents from an Amazon
-        /// S3 bucket.
+        /// An Identity and Access Management (IAM) role that gives Amazon Kendra permissions
+        /// to access your Amazon CloudWatch logs and metrics. This is also the role you use when
+        /// you call the <code>BatchPutDocument</code> API to index documents from an Amazon S3
+        /// bucket.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=1284)]
+        [AWSProperty(Required=true, Min=0, Max=1284)]
         public string RoleArn
         {
             get { return this._roleArn; }
@@ -169,7 +169,7 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property ServerSideEncryptionConfiguration. 
         /// <para>
-        /// The identifier of the KMScustomer managed key (CMK) to use to encrypt data indexed
+        /// The identifier of the KMS customer managed key (CMK) that's used to encrypt data indexed
         /// by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs.
         /// </para>
         /// </summary>
@@ -240,8 +240,8 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property UserGroupResolutionConfiguration. 
         /// <para>
-        /// Enables fetching access levels of groups and users from an AWS Single Sign-On identity
-        /// source. To configure this, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>.
+        /// Enables fetching access levels of groups and users from an Amazon Web Services Single
+        /// Sign On identity source. To configure this, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>.
         /// </para>
         /// </summary>
         public UserGroupResolutionConfiguration UserGroupResolutionConfiguration

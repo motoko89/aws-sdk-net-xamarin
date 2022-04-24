@@ -94,6 +94,12 @@ namespace Amazon.IVS.Model.Internal.MarshallTransformations
                     unmarshalledObject.State = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("streamId", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.StreamId = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("viewerCount", targetDepth))
                 {
                     var unmarshaller = LongUnmarshaller.Instance;

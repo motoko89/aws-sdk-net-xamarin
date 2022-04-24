@@ -51,9 +51,24 @@ namespace Amazon.Connect.Model
         IListBotsPaginator ListBots(ListBotsRequest request);
 
         /// <summary>
+        /// Paginator for ListContactFlowModules operation
+        ///</summary>
+        IListContactFlowModulesPaginator ListContactFlowModules(ListContactFlowModulesRequest request);
+
+        /// <summary>
         /// Paginator for ListContactFlows operation
         ///</summary>
         IListContactFlowsPaginator ListContactFlows(ListContactFlowsRequest request);
+
+        /// <summary>
+        /// Paginator for ListContactReferences operation
+        ///</summary>
+        IListContactReferencesPaginator ListContactReferences(ListContactReferencesRequest request);
+
+        /// <summary>
+        /// Paginator for ListDefaultVocabularies operation
+        ///</summary>
+        IListDefaultVocabulariesPaginator ListDefaultVocabularies(ListDefaultVocabulariesRequest request);
 
         /// <summary>
         /// Paginator for ListHoursOfOperations operation
@@ -94,6 +109,11 @@ namespace Amazon.Connect.Model
         /// Paginator for ListPhoneNumbers operation
         ///</summary>
         IListPhoneNumbersPaginator ListPhoneNumbers(ListPhoneNumbersRequest request);
+
+        /// <summary>
+        /// Paginator for ListPhoneNumbersV2 operation
+        ///</summary>
+        IListPhoneNumbersV2Paginator ListPhoneNumbersV2(ListPhoneNumbersV2Request request);
 
         /// <summary>
         /// Paginator for ListPrompts operation
@@ -154,5 +174,15 @@ namespace Amazon.Connect.Model
         /// Paginator for ListUsers operation
         ///</summary>
         IListUsersPaginator ListUsers(ListUsersRequest request);
+
+        /// <summary>
+        /// Paginator for SearchAvailablePhoneNumbers operation
+        ///</summary>
+        ISearchAvailablePhoneNumbersPaginator SearchAvailablePhoneNumbers(SearchAvailablePhoneNumbersRequest request);
+
+        /// <summary>
+        /// Paginator for SearchVocabularies operation
+        ///</summary>
+        ISearchVocabulariesPaginator SearchVocabularies(SearchVocabulariesRequest request);
     }
 }

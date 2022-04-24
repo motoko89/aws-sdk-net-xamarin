@@ -34,7 +34,7 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// VideoSelector Marshaller
-    /// </summary>       
+    /// </summary>
     public class VideoSelectorMarshaller : IRequestMarshaller<VideoSelector, JsonMarshallerContext> 
     {
         /// <summary>
@@ -61,6 +61,12 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
             {
                 context.Writer.WritePropertyName("colorSpaceUsage");
                 context.Writer.Write(requestObject.ColorSpaceUsage);
+            }
+
+            if(requestObject.IsSetEmbeddedTimecodeOverride())
+            {
+                context.Writer.WritePropertyName("embeddedTimecodeOverride");
+                context.Writer.Write(requestObject.EmbeddedTimecodeOverride);
             }
 
             if(requestObject.IsSetHdr10Metadata())
@@ -102,7 +108,7 @@ namespace Amazon.MediaConvert.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static VideoSelectorMarshaller Instance = new VideoSelectorMarshaller();
 
     }

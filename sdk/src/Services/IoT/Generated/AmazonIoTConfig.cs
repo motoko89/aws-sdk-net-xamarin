@@ -32,7 +32,7 @@ namespace Amazon.IoT
     public partial class AmazonIoTConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.6.24");
+            InternalSDKUtils.BuildUserAgentString("3.7.12.7");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.IoT
         /// Default constructor
         /// </summary>
         public AmazonIoTConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonIoTDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "execute-api";
         }

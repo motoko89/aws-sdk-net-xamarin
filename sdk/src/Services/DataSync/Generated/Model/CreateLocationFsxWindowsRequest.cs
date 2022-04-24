@@ -103,8 +103,8 @@ namespace Amazon.DataSync.Model
         /// <summary>
         /// Gets and sets the property SecurityGroupArns. 
         /// <para>
-        /// The Amazon Resource Names (ARNs) of the security groups that are to use to configure
-        /// the FSx for Windows File Server file system.
+        /// The ARNs of the security groups that are used to configure the FSx for Windows File
+        /// Server file system.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=5)]
@@ -123,7 +123,7 @@ namespace Amazon.DataSync.Model
         /// <summary>
         /// Gets and sets the property Subdirectory. 
         /// <para>
-        /// A subdirectory in the location’s path. This subdirectory in the Amazon FSx for Windows
+        /// A subdirectory in the location's path. This subdirectory in the Amazon FSx for Windows
         /// File Server file system is used to read data from the Amazon FSx for Windows File
         /// Server source location or write data to the FSx for Windows File Server destination.
         /// </para>

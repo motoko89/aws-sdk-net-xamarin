@@ -40,31 +40,31 @@ namespace Amazon.FSx.Model
     /// </para>
     ///  <ul> <li> 
     /// <para>
-    /// AuditLogConfiguration
+    ///  <code>AuditLogConfiguration</code> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// AutomaticBackupRetentionDays
+    ///  <code>AutomaticBackupRetentionDays</code> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// DailyAutomaticBackupStartTime
+    ///  <code>DailyAutomaticBackupStartTime</code> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// SelfManagedActiveDirectoryConfiguration
+    ///  <code>SelfManagedActiveDirectoryConfiguration</code> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// StorageCapacity
+    ///  <code>StorageCapacity</code> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// ThroughputCapacity
+    ///  <code>ThroughputCapacity</code> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// WeeklyMaintenanceStartTime
+    ///  <code>WeeklyMaintenanceStartTime</code> 
     /// </para>
     ///  </li> </ul> 
     /// <para>
@@ -72,27 +72,27 @@ namespace Amazon.FSx.Model
     /// </para>
     ///  <ul> <li> 
     /// <para>
-    /// AutoImportPolicy
+    ///  <code>AutoImportPolicy</code> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// AutomaticBackupRetentionDays
+    ///  <code>AutomaticBackupRetentionDays</code> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// DailyAutomaticBackupStartTime
+    ///  <code>DailyAutomaticBackupStartTime</code> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// DataCompressionType
+    ///  <code>DataCompressionType</code> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// StorageCapacity
+    ///  <code>StorageCapacity</code> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// WeeklyMaintenanceStartTime
+    ///  <code>WeeklyMaintenanceStartTime</code> 
     /// </para>
     ///  </li> </ul> 
     /// <para>
@@ -100,19 +100,59 @@ namespace Amazon.FSx.Model
     /// </para>
     ///  <ul> <li> 
     /// <para>
-    /// AutomaticBackupRetentionDays
+    ///  <code>AutomaticBackupRetentionDays</code> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// DailyAutomaticBackupStartTime
+    ///  <code>DailyAutomaticBackupStartTime</code> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// FsxAdminPassword
+    ///  <code>DiskIopsConfiguration</code> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// WeeklyMaintenanceStartTime
+    ///  <code>FsxAdminPassword</code> 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <code>StorageCapacity</code> 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <code>ThroughputCapacity</code> 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <code>WeeklyMaintenanceStartTime</code> 
+    /// </para>
+    ///  </li> </ul> 
+    /// <para>
+    /// For the Amazon FSx for OpenZFS file systems, you can update the following properties:
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    ///  <code>AutomaticBackupRetentionDays</code> 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <code>CopyTagsToBackups</code> 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <code>CopyTagsToVolumes</code> 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <code>DailyAutomaticBackupStartTime</code> 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <code>ThroughputCapacity</code> 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <code>WeeklyMaintenanceStartTime</code> 
     /// </para>
     ///  </li> </ul>
     /// </summary>
@@ -122,6 +162,7 @@ namespace Amazon.FSx.Model
         private string _fileSystemId;
         private UpdateFileSystemLustreConfiguration _lustreConfiguration;
         private UpdateFileSystemOntapConfiguration _ontapConfiguration;
+        private UpdateFileSystemOpenZFSConfiguration _openZFSConfiguration;
         private int? _storageCapacity;
         private UpdateFileSystemWindowsConfiguration _windowsConfiguration;
 
@@ -149,7 +190,7 @@ namespace Amazon.FSx.Model
         /// <summary>
         /// Gets and sets the property FileSystemId. 
         /// <para>
-        /// Identifies the file system that you are updating.
+        /// The ID of the file system that you are updating.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=11, Max=21)]
@@ -196,19 +237,43 @@ namespace Amazon.FSx.Model
         }
 
         /// <summary>
+        /// Gets and sets the property OpenZFSConfiguration. 
+        /// <para>
+        /// The configuration updates for an Amazon FSx for OpenZFS file system.
+        /// </para>
+        /// </summary>
+        public UpdateFileSystemOpenZFSConfiguration OpenZFSConfiguration
+        {
+            get { return this._openZFSConfiguration; }
+            set { this._openZFSConfiguration = value; }
+        }
+
+        // Check to see if OpenZFSConfiguration property is set
+        internal bool IsSetOpenZFSConfiguration()
+        {
+            return this._openZFSConfiguration != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property StorageCapacity. 
         /// <para>
         /// Use this parameter to increase the storage capacity of an Amazon FSx for Windows File
-        /// Server or Amazon FSx for Lustre file system. Specifies the storage capacity target
-        /// value, GiB, to increase the storage capacity for the file system that you're updating.
-        /// You cannot make a storage capacity increase request if there is an existing storage
+        /// Server, Amazon FSx for Lustre, or Amazon FSx for NetApp ONTAP file system. Specifies
+        /// the storage capacity target value, in GiB, to increase the storage capacity for the
+        /// file system that you're updating. 
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// You can't make a storage capacity increase request if there is an existing storage
         /// capacity increase request in progress.
         /// </para>
-        ///  
+        ///  </note> 
         /// <para>
         /// For Windows file systems, the storage capacity target value must be at least 10 percent
-        /// (%) greater than the current storage capacity value. In order to increase storage
-        /// capacity, the file system must have at least 16 MB/s of throughput capacity.
+        /// greater than the current storage capacity value. To increase storage capacity, the
+        /// file system must have at least 16 MBps of throughput capacity. For more information,
+        /// see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing
+        /// storage capacity</a> in the <i>Amazon FSx for Windows File Server User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -216,26 +281,32 @@ namespace Amazon.FSx.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// For <code>SCRATCH_2</code> and <code>PERSISTENT_1 SSD</code> deployment types, valid
-        /// values are in multiples of 2400 GiB. The value must be greater than the current storage
-        /// capacity.
+        /// For <code>SCRATCH_2</code>, <code>PERSISTENT_1</code>, and <code>PERSISTENT_2 SSD</code>
+        /// deployment types, valid values are in multiples of 2400 GiB. The value must be greater
+        /// than the current storage capacity.
         /// </para>
         ///  </li> <li> 
         /// <para>
         /// For <code>PERSISTENT HDD</code> file systems, valid values are multiples of 6000 GiB
-        /// for 12 MB/s/TiB file systems and multiples of 1800 GiB for 40 MB/s/TiB file systems.
-        /// The values must be greater than the current storage capacity.
+        /// for 12-MBps throughput per TiB file systems and multiples of 1800 GiB for 40-MBps
+        /// throughput per TiB file systems. The values must be greater than the current storage
+        /// capacity.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// For <code>SCRATCH_1</code> file systems, you cannot increase the storage capacity.
+        /// For <code>SCRATCH_1</code> file systems, you can't increase the storage capacity.
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing
-        /// storage capacity</a> in the <i>Amazon FSx for Windows File Server User Guide</i> and
-        /// <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing
+        /// For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing
         /// storage and throughput capacity</a> in the <i>Amazon FSx for Lustre User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For ONTAP file systems, the storage capacity target value must be at least 10 percent
+        /// greater than the current storage capacity value. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-storage-capacity.html">Managing
+        /// storage capacity and provisioned IOPS</a> in the <i>Amazon FSx for NetApp ONTAP User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=2147483647)]

@@ -34,7 +34,7 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// DataSourceConfiguration Marshaller
-    /// </summary>       
+    /// </summary>
     public class DataSourceConfigurationMarshaller : IRequestMarshaller<DataSourceConfiguration, JsonMarshallerContext> 
     {
         /// <summary>
@@ -45,6 +45,17 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(DataSourceConfiguration requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetBoxConfiguration())
+            {
+                context.Writer.WritePropertyName("BoxConfiguration");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = BoxConfigurationMarshaller.Instance;
+                marshaller.Marshall(requestObject.BoxConfiguration, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetConfluenceConfiguration())
             {
                 context.Writer.WritePropertyName("ConfluenceConfiguration");
@@ -67,6 +78,17 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetFsxConfiguration())
+            {
+                context.Writer.WritePropertyName("FsxConfiguration");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = FsxConfigurationMarshaller.Instance;
+                marshaller.Marshall(requestObject.FsxConfiguration, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetGoogleDriveConfiguration())
             {
                 context.Writer.WritePropertyName("GoogleDriveConfiguration");
@@ -85,6 +107,17 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
 
                 var marshaller = OneDriveConfigurationMarshaller.Instance;
                 marshaller.Marshall(requestObject.OneDriveConfiguration, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetQuipConfiguration())
+            {
+                context.Writer.WritePropertyName("QuipConfiguration");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = QuipConfigurationMarshaller.Instance;
+                marshaller.Marshall(requestObject.QuipConfiguration, context);
 
                 context.Writer.WriteObjectEnd();
             }
@@ -133,6 +166,17 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetSlackConfiguration())
+            {
+                context.Writer.WritePropertyName("SlackConfiguration");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = SlackConfigurationMarshaller.Instance;
+                marshaller.Marshall(requestObject.SlackConfiguration, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetWebCrawlerConfiguration())
             {
                 context.Writer.WritePropertyName("WebCrawlerConfiguration");
@@ -159,7 +203,7 @@ namespace Amazon.Kendra.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static DataSourceConfigurationMarshaller Instance = new DataSourceConfigurationMarshaller();
 
     }

@@ -30,11 +30,13 @@ namespace Amazon.Personalize.Model
 {
     /// <summary>
     /// Provides a summary of the properties of a dataset schema. For a complete listing,
-    /// call the <a>DescribeSchema</a> API.
+    /// call the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html">DescribeSchema</a>
+    /// API.
     /// </summary>
     public partial class DatasetSchemaSummary
     {
         private DateTime? _creationDateTime;
+        private Domain _domain;
         private DateTime? _lastUpdatedDateTime;
         private string _name;
         private string _schemaArn;
@@ -55,6 +57,24 @@ namespace Amazon.Personalize.Model
         internal bool IsSetCreationDateTime()
         {
             return this._creationDateTime.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property Domain. 
+        /// <para>
+        /// The domain of a schema that you created for a dataset in a Domain dataset group.
+        /// </para>
+        /// </summary>
+        public Domain Domain
+        {
+            get { return this._domain; }
+            set { this._domain = value; }
+        }
+
+        // Check to see if Domain property is set
+        internal bool IsSetDomain()
+        {
+            return this._domain != null;
         }
 
         /// <summary>

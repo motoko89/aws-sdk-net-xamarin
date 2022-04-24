@@ -57,8 +57,10 @@ namespace Amazon.S3Control.Model.Internal.MarshallTransformations
             var request = new DefaultRequest(publicRequest, "Amazon.S3Control");
             request.HttpMethod = "POST";
         
-            if(publicRequest.IsSetAccountId())
+            if (publicRequest.IsSetAccountId()) 
+            {
                 request.Headers["x-amz-account-id"] = publicRequest.AccountId;
+            }
             request.ResourcePath = "/v20180820/async-requests/mrap/put-policy";
 
             var stringWriter = new XMLEncodedStringWriter(CultureInfo.InvariantCulture);
@@ -90,8 +92,7 @@ namespace Amazon.S3Control.Model.Internal.MarshallTransformations
                 string content = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(content);
                 request.Headers["Content-Type"] = "application/xml";
-                var checksum = Amazon.Util.AWSSDKUtils.GenerateChecksumForContent(content, true);
-                request.Headers[Amazon.Util.HeaderKeys.ContentMD5Header] = checksum;
+                ChecksumUtils.SetRequestChecksumMD5(request);
                 request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2018-08-20";            
             } 
             catch (EncoderFallbackException e) 

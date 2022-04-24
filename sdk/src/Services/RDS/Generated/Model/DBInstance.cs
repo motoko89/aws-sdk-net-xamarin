@@ -29,12 +29,15 @@ using Amazon.Runtime.Internal;
 namespace Amazon.RDS.Model
 {
     /// <summary>
-    /// Contains the details of an Amazon RDS DB instance. 
+    /// Contains the details of an Amazon RDS DB instance.
     /// 
     ///  
     /// <para>
-    /// This data type is used as a response element in the <code>DescribeDBInstances</code>
-    /// action. 
+    /// This data type is used as a response element in the operations <code>CreateDBInstance</code>,
+    /// <code>CreateDBInstanceReadReplica</code>, <code>DeleteDBInstance</code>, <code>DescribeDBInstances</code>,
+    /// <code>ModifyDBInstance</code>, <code>PromoteReadReplica</code>, <code>RebootDBInstance</code>,
+    /// <code>RestoreDBInstanceFromDBSnapshot</code>, <code>RestoreDBInstanceFromS3</code>,
+    /// <code>RestoreDBInstanceToPointInTime</code>, <code>StartDBInstance</code>, and <code>StopDBInstance</code>.
     /// </para>
     /// </summary>
     public partial class DBInstance
@@ -52,6 +55,7 @@ namespace Amazon.RDS.Model
         private string _availabilityZone;
         private string _awsBackupRecoveryPointArn;
         private int? _backupRetentionPeriod;
+        private string _backupTarget;
         private string _caCertificateIdentifier;
         private string _characterSetName;
         private bool? _copyTagsToSnapshot;
@@ -228,8 +232,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property AssociatedRoles. 
         /// <para>
-        ///  The Amazon Web Services Identity and Access Management (IAM) roles associated with
-        /// the DB instance. 
+        /// The Amazon Web Services Identity and Access Management (IAM) roles associated with
+        /// the DB instance.
         /// </para>
         /// </summary>
         public List<DBInstanceRole> AssociatedRoles
@@ -356,6 +360,25 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property BackupTarget. 
+        /// <para>
+        /// Specifies where automated backups and manual snapshots are stored: Amazon Web Services
+        /// Outposts or the Amazon Web Services Region.
+        /// </para>
+        /// </summary>
+        public string BackupTarget
+        {
+            get { return this._backupTarget; }
+            set { this._backupTarget = value; }
+        }
+
+        // Check to see if BackupTarget property is set
+        internal bool IsSetBackupTarget()
+        {
+            return this._backupTarget != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property CACertificateIdentifier. 
         /// <para>
         /// The identifier of the CA certificate for this DB instance.
@@ -478,7 +501,7 @@ namespace Amazon.RDS.Model
         ///  </li> </ul> 
         /// <para>
         /// For the list of permissions required for the IAM role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc">
-        /// Configure IAM and your VPC</a> in the <i>Amazon Relational Database Service User Guide</i>.
+        /// Configure IAM and your VPC</a> in the <i>Amazon RDS User Guide</i>.
         /// </para>
         /// </summary>
         public string CustomIamInstanceProfile
@@ -709,8 +732,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property DBSecurityGroups. 
         /// <para>
-        ///  A list of DB security group elements containing <code>DBSecurityGroup.Name</code>
-        /// and <code>DBSecurityGroup.Status</code> subelements. 
+        /// A list of DB security group elements containing <code>DBSecurityGroup.Name</code>
+        /// and <code>DBSecurityGroup.Status</code> subelements.
         /// </para>
         /// </summary>
         public List<DBSecurityGroupMembership> DBSecurityGroups
@@ -749,7 +772,7 @@ namespace Amazon.RDS.Model
         /// <para>
         /// Indicates if the DB instance has deletion protection enabled. The database can't be
         /// deleted when deletion protection is enabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
-        /// Deleting a DB Instance</a>. 
+        /// Deleting a DB Instance</a>.
         /// </para>
         /// </summary>
         public bool DeletionProtection
@@ -960,8 +983,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property KmsKeyId. 
         /// <para>
-        ///  If <code>StorageEncrypted</code> is true, the Amazon Web Services KMS key identifier
-        /// for the encrypted DB instance. 
+        /// If <code>StorageEncrypted</code> is true, the Amazon Web Services KMS key identifier
+        /// for the encrypted DB instance.
         /// </para>
         ///  
         /// <para>
@@ -1135,7 +1158,7 @@ namespace Amazon.RDS.Model
         /// <para>
         /// The name of the NCHAR character set for the Oracle DB instance. This character set
         /// specifies the Unicode encoding for data stored in table columns of type NCHAR, NCLOB,
-        /// or NVARCHAR2. 
+        /// or NVARCHAR2.
         /// </para>
         /// </summary>
         public string NcharCharacterSetName
@@ -1233,7 +1256,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property PerformanceInsightsRetentionPeriod. 
         /// <para>
         /// The amount of time, in days, to retain Performance Insights data. Valid values are
-        /// 7 or 731 (2 years). 
+        /// 7 or 731 (2 years).
         /// </para>
         /// </summary>
         public int PerformanceInsightsRetentionPeriod
@@ -1251,8 +1274,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property PreferredBackupWindow. 
         /// <para>
-        ///  Specifies the daily time range during which automated backups are created if automated
-        /// backups are enabled, as determined by the <code>BackupRetentionPeriod</code>. 
+        /// Specifies the daily time range during which automated backups are created if automated
+        /// backups are enabled, as determined by the <code>BackupRetentionPeriod</code>.
         /// </para>
         /// </summary>
         public string PreferredBackupWindow
@@ -1312,7 +1335,6 @@ namespace Amazon.RDS.Model
         /// instance after a failure of the existing primary instance. For more information, see
         /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance">
         /// Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.
-        /// 
         /// </para>
         /// </summary>
         public int PromotionTier
@@ -1334,11 +1356,12 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// When the DB instance is publicly accessible, its DNS endpoint resolves to the private
-        /// IP address from within the DB instance's VPC, and to the public IP address from outside
-        /// of the DB instance's VPC. Access to the DB instance is ultimately controlled by the
-        /// security group it uses, and that public access is not permitted if the security group
-        /// assigned to the DB instance doesn't permit it.
+        /// When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint
+        /// resolves to the private IP address from within the DB cluster's virtual private cloud
+        /// (VPC). It resolves to the public IP address from outside of the DB cluster's VPC.
+        /// Access to the DB cluster is ultimately controlled by the security group it uses. That
+        /// public access isn't permitted if the security group assigned to the DB cluster doesn't
+        /// permit it.
         /// </para>
         ///  
         /// <para>
@@ -1367,9 +1390,8 @@ namespace Amazon.RDS.Model
         /// <para>
         /// Contains one or more identifiers of Aurora DB clusters to which the RDS DB instance
         /// is replicated as a read replica. For example, when you create an Aurora read replica
-        /// of an RDS MySQL DB instance, the Aurora MySQL DB cluster for the Aurora read replica
-        /// is shown. This output does not contain information about cross region Aurora read
-        /// replicas.
+        /// of an RDS for MySQL DB instance, the Aurora MySQL DB cluster for the Aurora read replica
+        /// is shown. This output doesn't contain information about cross-Region Aurora read replicas.
         /// </para>
         ///  <note> 
         /// <para>
@@ -1455,7 +1477,6 @@ namespace Amazon.RDS.Model
         /// <para>
         /// The number of minutes to pause the automation. When the time period ends, RDS Custom
         /// resumes full automation. The minimum value is 60 (default). The maximum value is 1,440.
-        /// 
         /// </para>
         /// </summary>
         public DateTime ResumeFullAutomationModeTime
@@ -1581,7 +1602,7 @@ namespace Amazon.RDS.Model
         /// <para>
         /// The time zone of the DB instance. In most cases, the <code>Timezone</code> element
         /// is empty. <code>Timezone</code> content appears only for Microsoft SQL Server DB instances
-        /// that were created with a time zone specified. 
+        /// that were created with a time zone specified.
         /// </para>
         /// </summary>
         public string Timezone

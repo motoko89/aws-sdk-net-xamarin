@@ -23,7 +23,8 @@
       "output":{"shape":"CreateCanaryResponse"},
       "errors":[
         {"shape":"InternalServerException"},
-        {"shape":"ValidationException"}
+        {"shape":"ValidationException"},
+        {"shape":"RequestEntityTooLargeException"}
       ]
     },
     "DeleteCanary":{
@@ -191,7 +192,8 @@
         {"shape":"InternalServerException"},
         {"shape":"ValidationException"},
         {"shape":"ResourceNotFoundException"},
-        {"shape":"ConflictException"}
+        {"shape":"ConflictException"},
+        {"shape":"RequestEntityTooLargeException"}
       ]
     }
   },
@@ -279,7 +281,7 @@
         "S3Key":{"shape":"String"},
         "S3Version":{"shape":"String"},
         "ZipFile":{"shape":"Blob"},
-        "Handler":{"shape":"String"}
+        "Handler":{"shape":"CodeHandler"}
       }
     },
     "CanaryCodeOutput":{
@@ -413,6 +415,12 @@
         "LastStopped":{"shape":"Timestamp"}
       }
     },
+    "CodeHandler":{
+      "type":"string",
+      "max":128,
+      "min":1,
+      "pattern":"^([0-9a-zA-Z_-]+\\/)*[0-9A-Za-z_\\\\-]+\\.[A-Za-z_][A-Za-z0-9_]*$"
+    },
     "ConflictException":{
       "type":"structure",
       "members":{
@@ -468,11 +476,18 @@
       "members":{
       }
     },
+    "DescribeCanariesLastRunNameFilter":{
+      "type":"list",
+      "member":{"shape":"CanaryName"},
+      "max":5,
+      "min":1
+    },
     "DescribeCanariesLastRunRequest":{
       "type":"structure",
       "members":{
         "NextToken":{"shape":"Token"},
-        "MaxResults":{"shape":"MaxSize100"}
+        "MaxResults":{"shape":"MaxSize100"},
+        "Names":{"shape":"DescribeCanariesLastRunNameFilter"}
       }
     },
     "DescribeCanariesLastRunResponse":{
@@ -482,11 +497,18 @@
         "NextToken":{"shape":"Token"}
       }
     },
+    "DescribeCanariesNameFilter":{
+      "type":"list",
+      "member":{"shape":"CanaryName"},
+      "max":5,
+      "min":1
+    },
     "DescribeCanariesRequest":{
       "type":"structure",
       "members":{
         "NextToken":{"shape":"Token"},
-        "MaxResults":{"shape":"MaxCanaryResults"}
+        "MaxResults":{"shape":"MaxCanaryResults"},
+        "Names":{"shape":"DescribeCanariesNameFilter"}
       }
     },
     "DescribeCanariesResponse":{
@@ -633,6 +655,14 @@
       "min":960
     },
     "NullableBoolean":{"type":"boolean"},
+    "RequestEntityTooLargeException":{
+      "type":"structure",
+      "members":{
+        "Message":{"shape":"ErrorMessage"}
+      },
+      "error":{"httpStatusCode":413},
+      "exception":true
+    },
     "ResourceNotFoundException":{
       "type":"structure",
       "members":{

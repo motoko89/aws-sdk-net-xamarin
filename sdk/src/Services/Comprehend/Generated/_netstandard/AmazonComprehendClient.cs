@@ -1000,6 +1000,49 @@ namespace Amazon.Comprehend
 
         #endregion
         
+        #region  DeleteResourcePolicy
+
+        internal virtual DeleteResourcePolicyResponse DeleteResourcePolicy(DeleteResourcePolicyRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteResourcePolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteResourcePolicyResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteResourcePolicyResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes a resource-based policy that is attached to a custom model.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteResourcePolicy service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteResourcePolicy service method, as returned by Comprehend.</returns>
+        /// <exception cref="Amazon.Comprehend.Model.InternalServerException">
+        /// An internal server error occurred. Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.InvalidRequestException">
+        /// The request is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.ResourceNotFoundException">
+        /// The specified resource ARN was not found. Check the ARN and try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/comprehend-2017-11-27/DeleteResourcePolicy">REST API Reference for DeleteResourcePolicy Operation</seealso>
+        public virtual Task<DeleteResourcePolicyResponse> DeleteResourcePolicyAsync(DeleteResourcePolicyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteResourcePolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteResourcePolicyResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteResourcePolicyResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DescribeDocumentClassificationJob
 
         internal virtual DescribeDocumentClassificationJobResponse DescribeDocumentClassificationJob(DescribeDocumentClassificationJobRequest request)
@@ -1421,6 +1464,50 @@ namespace Amazon.Comprehend
 
         #endregion
         
+        #region  DescribeResourcePolicy
+
+        internal virtual DescribeResourcePolicyResponse DescribeResourcePolicy(DescribeResourcePolicyRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeResourcePolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeResourcePolicyResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeResourcePolicyResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Gets the details of a resource-based policy that is attached to a custom model, including
+        /// the JSON body of the policy.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeResourcePolicy service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeResourcePolicy service method, as returned by Comprehend.</returns>
+        /// <exception cref="Amazon.Comprehend.Model.InternalServerException">
+        /// An internal server error occurred. Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.InvalidRequestException">
+        /// The request is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.ResourceNotFoundException">
+        /// The specified resource ARN was not found. Check the ARN and try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/comprehend-2017-11-27/DescribeResourcePolicy">REST API Reference for DescribeResourcePolicy Operation</seealso>
+        public virtual Task<DescribeResourcePolicyResponse> DescribeResourcePolicyAsync(DescribeResourcePolicyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeResourcePolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeResourcePolicyResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeResourcePolicyResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DescribeSentimentDetectionJob
 
         internal virtual DescribeSentimentDetectionJobResponse DescribeSentimentDetectionJob(DescribeSentimentDetectionJobRequest request)
@@ -1464,6 +1551,53 @@ namespace Amazon.Comprehend
             options.ResponseUnmarshaller = DescribeSentimentDetectionJobResponseUnmarshaller.Instance;
 
             return InvokeAsync<DescribeSentimentDetectionJobResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeTargetedSentimentDetectionJob
+
+        internal virtual DescribeTargetedSentimentDetectionJobResponse DescribeTargetedSentimentDetectionJob(DescribeTargetedSentimentDetectionJobRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeTargetedSentimentDetectionJobRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeTargetedSentimentDetectionJobResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeTargetedSentimentDetectionJobResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Gets the properties associated with a targeted sentiment detection job. Use this operation
+        /// to get the status of the job.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeTargetedSentimentDetectionJob service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeTargetedSentimentDetectionJob service method, as returned by Comprehend.</returns>
+        /// <exception cref="Amazon.Comprehend.Model.InternalServerException">
+        /// An internal server error occurred. Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.InvalidRequestException">
+        /// The request is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.JobNotFoundException">
+        /// The specified job was not found. Check the job ID and try again.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.TooManyRequestsException">
+        /// The number of requests exceeds the limit. Resubmit your request later.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/comprehend-2017-11-27/DescribeTargetedSentimentDetectionJob">REST API Reference for DescribeTargetedSentimentDetectionJob Operation</seealso>
+        public virtual Task<DescribeTargetedSentimentDetectionJobResponse> DescribeTargetedSentimentDetectionJobAsync(DescribeTargetedSentimentDetectionJobRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeTargetedSentimentDetectionJobRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeTargetedSentimentDetectionJobResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeTargetedSentimentDetectionJobResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1803,6 +1937,84 @@ namespace Amazon.Comprehend
             options.ResponseUnmarshaller = DetectSyntaxResponseUnmarshaller.Instance;
 
             return InvokeAsync<DetectSyntaxResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ImportModel
+
+        internal virtual ImportModelResponse ImportModel(ImportModelRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ImportModelRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ImportModelResponseUnmarshaller.Instance;
+
+            return Invoke<ImportModelResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates a new custom model that replicates a source custom model that you import.
+        /// The source model can be in your AWS account or another one.
+        /// 
+        ///  
+        /// <para>
+        /// If the source model is in another AWS account, then it must have a resource-based
+        /// policy that authorizes you to import it.
+        /// </para>
+        ///  
+        /// <para>
+        /// The source model must be in the same AWS region that you're using when you import.
+        /// You can't import a model that's in a different region.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ImportModel service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ImportModel service method, as returned by Comprehend.</returns>
+        /// <exception cref="Amazon.Comprehend.Model.InternalServerException">
+        /// An internal server error occurred. Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.InvalidRequestException">
+        /// The request is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.KmsKeyValidationException">
+        /// The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
+        /// re-enter it.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.ResourceInUseException">
+        /// The specified resource name is already in use. Use a different name and try your request
+        /// again.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.ResourceLimitExceededException">
+        /// The maximum number of resources per account has been exceeded. Review the resources,
+        /// and then try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.ResourceNotFoundException">
+        /// The specified resource ARN was not found. Check the ARN and try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.ResourceUnavailableException">
+        /// The specified resource is not available. Check the resource and try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.TooManyRequestsException">
+        /// The number of requests exceeds the limit. Resubmit your request later.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.TooManyTagsException">
+        /// The request contains more tags than can be associated with a resource (50 tags per
+        /// resource). The maximum number of tags includes both existing tags and those included
+        /// in your current request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/comprehend-2017-11-27/ImportModel">REST API Reference for ImportModel Operation</seealso>
+        public virtual Task<ImportModelResponse> ImportModelAsync(ImportModelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ImportModelRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ImportModelResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ImportModelResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -2402,6 +2614,52 @@ namespace Amazon.Comprehend
 
         #endregion
         
+        #region  ListTargetedSentimentDetectionJobs
+
+        internal virtual ListTargetedSentimentDetectionJobsResponse ListTargetedSentimentDetectionJobs(ListTargetedSentimentDetectionJobsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTargetedSentimentDetectionJobsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTargetedSentimentDetectionJobsResponseUnmarshaller.Instance;
+
+            return Invoke<ListTargetedSentimentDetectionJobsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Gets a list of targeted sentiment detection jobs that you have submitted.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListTargetedSentimentDetectionJobs service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListTargetedSentimentDetectionJobs service method, as returned by Comprehend.</returns>
+        /// <exception cref="Amazon.Comprehend.Model.InternalServerException">
+        /// An internal server error occurred. Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.InvalidFilterException">
+        /// The filter specified for the operation is invalid. Specify a different filter.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.InvalidRequestException">
+        /// The request is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.TooManyRequestsException">
+        /// The number of requests exceeds the limit. Resubmit your request later.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/comprehend-2017-11-27/ListTargetedSentimentDetectionJobs">REST API Reference for ListTargetedSentimentDetectionJobs Operation</seealso>
+        public virtual Task<ListTargetedSentimentDetectionJobsResponse> ListTargetedSentimentDetectionJobsAsync(ListTargetedSentimentDetectionJobsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTargetedSentimentDetectionJobsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTargetedSentimentDetectionJobsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListTargetedSentimentDetectionJobsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListTopicsDetectionJobs
 
         internal virtual ListTopicsDetectionJobsResponse ListTopicsDetectionJobs(ListTopicsDetectionJobsRequest request)
@@ -2444,6 +2702,51 @@ namespace Amazon.Comprehend
             options.ResponseUnmarshaller = ListTopicsDetectionJobsResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListTopicsDetectionJobsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  PutResourcePolicy
+
+        internal virtual PutResourcePolicyResponse PutResourcePolicy(PutResourcePolicyRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutResourcePolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutResourcePolicyResponseUnmarshaller.Instance;
+
+            return Invoke<PutResourcePolicyResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Attaches a resource-based policy to a custom model. You can use this policy to authorize
+        /// an entity in another AWS account to import the custom model, which replicates it in
+        /// Amazon Comprehend in their account.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the PutResourcePolicy service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the PutResourcePolicy service method, as returned by Comprehend.</returns>
+        /// <exception cref="Amazon.Comprehend.Model.InternalServerException">
+        /// An internal server error occurred. Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.InvalidRequestException">
+        /// The request is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.ResourceNotFoundException">
+        /// The specified resource ARN was not found. Check the ARN and try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/comprehend-2017-11-27/PutResourcePolicy">REST API Reference for PutResourcePolicy Operation</seealso>
+        public virtual Task<PutResourcePolicyResponse> PutResourcePolicyAsync(PutResourcePolicyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutResourcePolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutResourcePolicyResponseUnmarshaller.Instance;
+
+            return InvokeAsync<PutResourcePolicyResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -2798,7 +3101,7 @@ namespace Amazon.Comprehend
 
 
         /// <summary>
-        /// Starts an asynchronous sentiment detection job for a collection of documents. use
+        /// Starts an asynchronous sentiment detection job for a collection of documents. Use
         /// the operation to track the status of a job.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartSentimentDetectionJob service method.</param>
@@ -2833,6 +3136,59 @@ namespace Amazon.Comprehend
             options.ResponseUnmarshaller = StartSentimentDetectionJobResponseUnmarshaller.Instance;
 
             return InvokeAsync<StartSentimentDetectionJobResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  StartTargetedSentimentDetectionJob
+
+        internal virtual StartTargetedSentimentDetectionJobResponse StartTargetedSentimentDetectionJob(StartTargetedSentimentDetectionJobRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartTargetedSentimentDetectionJobRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartTargetedSentimentDetectionJobResponseUnmarshaller.Instance;
+
+            return Invoke<StartTargetedSentimentDetectionJobResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Starts an asynchronous targeted sentiment detection job for a collection of documents.
+        /// Use the operation to track the status of a job.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartTargetedSentimentDetectionJob service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartTargetedSentimentDetectionJob service method, as returned by Comprehend.</returns>
+        /// <exception cref="Amazon.Comprehend.Model.InternalServerException">
+        /// An internal server error occurred. Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.InvalidRequestException">
+        /// The request is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.KmsKeyValidationException">
+        /// The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
+        /// re-enter it.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.TooManyRequestsException">
+        /// The number of requests exceeds the limit. Resubmit your request later.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.TooManyTagsException">
+        /// The request contains more tags than can be associated with a resource (50 tags per
+        /// resource). The maximum number of tags includes both existing tags and those included
+        /// in your current request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/comprehend-2017-11-27/StartTargetedSentimentDetectionJob">REST API Reference for StartTargetedSentimentDetectionJob Operation</seealso>
+        public virtual Task<StartTargetedSentimentDetectionJobResponse> StartTargetedSentimentDetectionJobAsync(StartTargetedSentimentDetectionJobRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartTargetedSentimentDetectionJobRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartTargetedSentimentDetectionJobResponseUnmarshaller.Instance;
+
+            return InvokeAsync<StartTargetedSentimentDetectionJobResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -3216,6 +3572,67 @@ namespace Amazon.Comprehend
             options.ResponseUnmarshaller = StopSentimentDetectionJobResponseUnmarshaller.Instance;
 
             return InvokeAsync<StopSentimentDetectionJobResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  StopTargetedSentimentDetectionJob
+
+        internal virtual StopTargetedSentimentDetectionJobResponse StopTargetedSentimentDetectionJob(StopTargetedSentimentDetectionJobRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StopTargetedSentimentDetectionJobRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StopTargetedSentimentDetectionJobResponseUnmarshaller.Instance;
+
+            return Invoke<StopTargetedSentimentDetectionJobResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Stops a targeted sentiment detection job in progress.
+        /// 
+        ///  
+        /// <para>
+        /// If the job state is <code>IN_PROGRESS</code> the job is marked for termination and
+        /// put into the <code>STOP_REQUESTED</code> state. If the job completes before it can
+        /// be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is
+        /// be stopped and put into the <code>STOPPED</code> state.
+        /// </para>
+        ///  
+        /// <para>
+        /// If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you
+        /// call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns
+        /// a 400 Internal Request Exception. 
+        /// </para>
+        ///  
+        /// <para>
+        /// When a job is stopped, any documents already processed are written to the output location.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StopTargetedSentimentDetectionJob service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StopTargetedSentimentDetectionJob service method, as returned by Comprehend.</returns>
+        /// <exception cref="Amazon.Comprehend.Model.InternalServerException">
+        /// An internal server error occurred. Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.InvalidRequestException">
+        /// The request is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.Comprehend.Model.JobNotFoundException">
+        /// The specified job was not found. Check the job ID and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/comprehend-2017-11-27/StopTargetedSentimentDetectionJob">REST API Reference for StopTargetedSentimentDetectionJob Operation</seealso>
+        public virtual Task<StopTargetedSentimentDetectionJobResponse> StopTargetedSentimentDetectionJobAsync(StopTargetedSentimentDetectionJobRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StopTargetedSentimentDetectionJobRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StopTargetedSentimentDetectionJobResponseUnmarshaller.Instance;
+
+            return InvokeAsync<StopTargetedSentimentDetectionJobResponse>(request, options, cancellationToken);
         }
 
         #endregion

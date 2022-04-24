@@ -32,7 +32,7 @@ namespace Amazon.MobileAnalytics
     public partial class AmazonMobileAnalyticsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.92");
+            InternalSDKUtils.BuildUserAgentString("3.7.0.150");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.MobileAnalytics
         /// Default constructor
         /// </summary>
         public AmazonMobileAnalyticsConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonMobileAnalyticsDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "mobileanalytics";
         }

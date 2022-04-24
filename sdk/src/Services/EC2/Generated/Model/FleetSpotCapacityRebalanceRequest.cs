@@ -31,7 +31,7 @@ namespace Amazon.EC2.Model
     /// <summary>
     /// The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance notification
     /// signal that your Spot Instance is at an elevated risk of being interrupted. For more
-    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-capacity-rebalance">Capacity
+    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-capacity-rebalance.html">Capacity
     /// rebalancing</a> in the <i>Amazon EC2 User Guide</i>.
     /// </summary>
     public partial class FleetSpotCapacityRebalanceRequest
@@ -77,6 +77,19 @@ namespace Amazon.EC2.Model
         /// <para>
         /// The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
         /// Instance after launching a new replacement Spot Instance.
+        /// </para>
+        ///  
+        /// <para>
+        /// Required when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Not valid when <code>ReplacementStrategy</code> is set to <code>launch</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code>
+        /// seconds.
         /// </para>
         /// </summary>
         public int TerminationDelay

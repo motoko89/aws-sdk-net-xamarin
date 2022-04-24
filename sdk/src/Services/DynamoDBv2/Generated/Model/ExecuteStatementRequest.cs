@@ -32,19 +32,37 @@ namespace Amazon.DynamoDBv2.Model
     /// Container for the parameters to the ExecuteStatement operation.
     /// This operation allows you to perform reads and singleton writes on data stored in
     /// DynamoDB, using PartiQL.
+    /// 
+    ///  
+    /// <para>
+    /// For PartiQL reads (<code>SELECT</code> statement), if the total number of processed
+    /// items exceeds the maximum dataset size limit of 1 MB, the read stops and results are
+    /// returned to the user as a <code>LastEvaluatedKey</code> value to continue the read
+    /// in a subsequent operation. If the filter criteria in <code>WHERE</code> clause does
+    /// not match any data, the read will return an empty result set.
+    /// </para>
+    ///  
+    /// <para>
+    /// A single <code>SELECT</code> statement response can return up to the maximum number
+    /// of items (if using the Limit parameter) or a maximum of 1 MB of data (and then apply
+    /// any filtering to the results using <code>WHERE</code> clause). If <code>LastEvaluatedKey</code>
+    /// is present in the response, you need to paginate the result set.
+    /// </para>
     /// </summary>
     public partial class ExecuteStatementRequest : AmazonDynamoDBRequest
     {
         private bool? _consistentRead;
+        private int? _limit;
         private string _nextToken;
         private List<AttributeValue> _parameters = new List<AttributeValue>();
+        private ReturnConsumedCapacity _returnConsumedCapacity;
         private string _statement;
 
         /// <summary>
         /// Gets and sets the property ConsistentRead. 
         /// <para>
-        ///  The consistency of a read operation. If set to <code>true</code>, then a strongly
-        /// consistent read is used; otherwise, an eventually consistent read is used. 
+        /// The consistency of a read operation. If set to <code>true</code>, then a strongly
+        /// consistent read is used; otherwise, an eventually consistent read is used.
         /// </para>
         /// </summary>
         public bool ConsistentRead
@@ -60,10 +78,36 @@ namespace Amazon.DynamoDBv2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Limit. 
+        /// <para>
+        /// The maximum number of items to evaluate (not necessarily the number of matching items).
+        /// If DynamoDB processes the number of items up to the limit while processing the results,
+        /// it stops the operation and returns the matching values up to that point, along with
+        /// a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation so you can
+        /// pick up where you left off. Also, if the processed dataset size exceeds 1 MB before
+        /// DynamoDB reaches this limit, it stops the operation and returns the matching values
+        /// up to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent
+        /// operation to continue the operation. 
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1)]
+        public int Limit
+        {
+            get { return this._limit.GetValueOrDefault(); }
+            set { this._limit = value; }
+        }
+
+        // Check to see if Limit property is set
+        internal bool IsSetLimit()
+        {
+            return this._limit.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property NextToken. 
         /// <para>
-        ///  Set this value to get remaining results, if <code>NextToken</code> was returned in
-        /// the statement response. 
+        /// Set this value to get remaining results, if <code>NextToken</code> was returned in
+        /// the statement response.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=32768)]
@@ -82,7 +126,7 @@ namespace Amazon.DynamoDBv2.Model
         /// <summary>
         /// Gets and sets the property Parameters. 
         /// <para>
-        ///  The parameters for the PartiQL statement, if any. 
+        /// The parameters for the PartiQL statement, if any.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1)]
@@ -99,9 +143,24 @@ namespace Amazon.DynamoDBv2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ReturnConsumedCapacity.
+        /// </summary>
+        public ReturnConsumedCapacity ReturnConsumedCapacity
+        {
+            get { return this._returnConsumedCapacity; }
+            set { this._returnConsumedCapacity = value; }
+        }
+
+        // Check to see if ReturnConsumedCapacity property is set
+        internal bool IsSetReturnConsumedCapacity()
+        {
+            return this._returnConsumedCapacity != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Statement. 
         /// <para>
-        ///  The PartiQL statement representing the operation to run. 
+        /// The PartiQL statement representing the operation to run.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=8192)]

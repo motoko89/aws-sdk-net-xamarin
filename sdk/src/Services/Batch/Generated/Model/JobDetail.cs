@@ -49,6 +49,8 @@ namespace Amazon.Batch.Model
         private List<string> _platformCapabilities = new List<string>();
         private bool? _propagateTags;
         private RetryStrategy _retryStrategy;
+        private int? _schedulingPriority;
+        private string _shareIdentifier;
         private long? _startedAt;
         private JobStatus _status;
         private string _statusReason;
@@ -170,7 +172,7 @@ namespace Amazon.Batch.Model
         /// <summary>
         /// Gets and sets the property JobDefinition. 
         /// <para>
-        /// The job definition that's used by this job.
+        /// The Amazon Resource Name (ARN) of the job definition that's used by this job.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -365,6 +367,44 @@ namespace Amazon.Batch.Model
         }
 
         /// <summary>
+        /// Gets and sets the property SchedulingPriority. 
+        /// <para>
+        /// The scheduling policy of the job definition. This only affects jobs in job queues
+        /// with a fair share policy. Jobs with a higher scheduling priority are scheduled before
+        /// jobs with a lower scheduling priority.
+        /// </para>
+        /// </summary>
+        public int SchedulingPriority
+        {
+            get { return this._schedulingPriority.GetValueOrDefault(); }
+            set { this._schedulingPriority = value; }
+        }
+
+        // Check to see if SchedulingPriority property is set
+        internal bool IsSetSchedulingPriority()
+        {
+            return this._schedulingPriority.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property ShareIdentifier. 
+        /// <para>
+        /// The share identifier for the job.
+        /// </para>
+        /// </summary>
+        public string ShareIdentifier
+        {
+            get { return this._shareIdentifier; }
+            set { this._shareIdentifier = value; }
+        }
+
+        // Check to see if ShareIdentifier property is set
+        internal bool IsSetShareIdentifier()
+        {
+            return this._shareIdentifier != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property StartedAt. 
         /// <para>
         /// The Unix timestamp (in milliseconds) for when the job was started (when the job transitioned
@@ -393,7 +433,7 @@ namespace Amazon.Batch.Model
         ///  <note> 
         /// <para>
         /// If your jobs don't progress to <code>STARTING</code>, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable">Jobs
-        /// Stuck in RUNNABLE Status</a> in the troubleshooting section of the <i>Batch User Guide</i>.
+        /// stuck in RUNNABLE status</a> in the troubleshooting section of the <i>Batch User Guide</i>.
         /// </para>
         ///  </note>
         /// </summary>

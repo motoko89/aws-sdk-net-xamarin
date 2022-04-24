@@ -36,7 +36,9 @@ namespace Amazon.Kendra.Model
         private List<FacetResult> _facetResults = new List<FacetResult>();
         private string _queryId;
         private List<QueryResultItem> _resultItems = new List<QueryResultItem>();
+        private List<SpellCorrectedQuery> _spellCorrectedQueries = new List<SpellCorrectedQuery>();
         private int? _totalNumberOfResults;
+        private List<Warning> _warnings = new List<Warning>();
 
         /// <summary>
         /// Gets and sets the property FacetResults. 
@@ -96,6 +98,24 @@ namespace Amazon.Kendra.Model
         }
 
         /// <summary>
+        /// Gets and sets the property SpellCorrectedQueries. 
+        /// <para>
+        /// A list of information related to suggested spell corrections for a query.
+        /// </para>
+        /// </summary>
+        public List<SpellCorrectedQuery> SpellCorrectedQueries
+        {
+            get { return this._spellCorrectedQueries; }
+            set { this._spellCorrectedQueries = value; }
+        }
+
+        // Check to see if SpellCorrectedQueries property is set
+        internal bool IsSetSpellCorrectedQueries()
+        {
+            return this._spellCorrectedQueries != null && this._spellCorrectedQueries.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property TotalNumberOfResults. 
         /// <para>
         /// The total number of items found by the search; however, you can only retrieve up to
@@ -113,6 +133,31 @@ namespace Amazon.Kendra.Model
         internal bool IsSetTotalNumberOfResults()
         {
             return this._totalNumberOfResults.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property Warnings. 
+        /// <para>
+        /// A list of warning codes and their messages on problems with your query.
+        /// </para>
+        ///  
+        /// <para>
+        /// Amazon Kendra currently only supports one type of warning, which is a warning on invalid
+        /// syntax used in the query. For examples of invalid query syntax, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax">Searching
+        /// with advanced query syntax</a>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=1)]
+        public List<Warning> Warnings
+        {
+            get { return this._warnings; }
+            set { this._warnings = value; }
+        }
+
+        // Check to see if Warnings property is set
+        internal bool IsSetWarnings()
+        {
+            return this._warnings != null && this._warnings.Count > 0; 
         }
 
     }

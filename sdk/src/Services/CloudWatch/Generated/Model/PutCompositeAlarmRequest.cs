@@ -38,7 +38,9 @@ namespace Amazon.CloudWatch.Model
     ///  
     /// <para>
     /// The alarms specified in a composite alarm's rule expression can include metric alarms
-    /// and other composite alarms.
+    /// and other composite alarms. The rule expression of a composite alarm can include as
+    /// many as 100 underlying alarms. Any single alarm can be included in the rule expressions
+    /// of as many as 150 composite alarms.
     /// </para>
     ///  
     /// <para>
@@ -84,6 +86,12 @@ namespace Amazon.CloudWatch.Model
     /// <para>
     /// When you update an existing alarm, its state is left unchanged, but the update completely
     /// overwrites the previous configuration of the alarm.
+    /// </para>
+    ///  
+    /// <para>
+    /// To use this operation, you must be signed on with the <code>cloudwatch:PutCompositeAlarm</code>
+    /// permission that is scoped to <code>*</code>. You can't create a composite alarms if
+    /// your <code>cloudwatch:PutCompositeAlarm</code> permission has a narrower scope.
     /// </para>
     ///  
     /// <para>

@@ -34,7 +34,7 @@ namespace Amazon.DevOpsGuru.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// UpdateResourceCollectionFilter Marshaller
-    /// </summary>       
+    /// </summary>
     public class UpdateResourceCollectionFilterMarshaller : IRequestMarshaller<UpdateResourceCollectionFilter, JsonMarshallerContext> 
     {
         /// <summary>
@@ -56,11 +56,27 @@ namespace Amazon.DevOpsGuru.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetTags())
+            {
+                context.Writer.WritePropertyName("Tags");
+                context.Writer.WriteArrayStart();
+                foreach(var requestObjectTagsListValue in requestObject.Tags)
+                {
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = UpdateTagCollectionFilterMarshaller.Instance;
+                    marshaller.Marshall(requestObjectTagsListValue, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+                context.Writer.WriteArrayEnd();
+            }
+
         }
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static UpdateResourceCollectionFilterMarshaller Instance = new UpdateResourceCollectionFilterMarshaller();
 
     }

@@ -34,10 +34,10 @@ namespace Amazon.Kendra.Model
     /// 
     ///  
     /// <para>
-    /// The <code>BatchPutDocument</code> operation enables you to ingest inline documents
-    /// or a set of documents stored in an Amazon S3 bucket. Use this operation to ingest
-    /// your text and unstructured text into an index, add custom attributes to the documents,
-    /// and to attach an access control list to the documents added to the index.
+    /// The <code>BatchPutDocument</code> API enables you to ingest inline documents or a
+    /// set of documents stored in an Amazon S3 bucket. Use this API to ingest your text and
+    /// unstructured text into an index, add custom attributes to the documents, and to attach
+    /// an access control list to the documents added to the index.
     /// </para>
     ///  
     /// <para>
@@ -48,21 +48,40 @@ namespace Amazon.Kendra.Model
     /// </summary>
     public partial class BatchPutDocumentRequest : AmazonKendraRequest
     {
+        private CustomDocumentEnrichmentConfiguration _customDocumentEnrichmentConfiguration;
         private List<Document> _documents = new List<Document>();
         private string _indexId;
         private string _roleArn;
 
         /// <summary>
-        /// Gets and sets the property Documents. 
+        /// Gets and sets the property CustomDocumentEnrichmentConfiguration. 
         /// <para>
-        /// One or more documents to add to the index.
+        /// Configuration information for altering your document metadata and content during the
+        /// document ingestion process when you use the <code>BatchPutDocument</code> API.
         /// </para>
         ///  
         /// <para>
-        /// Documents can include custom attributes. For example, 'DataSourceId' and 'DataSourceSyncJobId'
-        /// are custom attributes that provide information on the synchronization of documents
-        /// running on a data source. Note, 'DataSourceSyncJobId' could be an optional custom
-        /// attribute as Amazon Kendra will use the ID of a running sync job.
+        /// For more information on how to create, modify and delete document metadata, or make
+        /// other content alterations when you ingest documents into Amazon Kendra, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html">Customizing
+        /// document metadata during the ingestion process</a>.
+        /// </para>
+        /// </summary>
+        public CustomDocumentEnrichmentConfiguration CustomDocumentEnrichmentConfiguration
+        {
+            get { return this._customDocumentEnrichmentConfiguration; }
+            set { this._customDocumentEnrichmentConfiguration = value; }
+        }
+
+        // Check to see if CustomDocumentEnrichmentConfiguration property is set
+        internal bool IsSetCustomDocumentEnrichmentConfiguration()
+        {
+            return this._customDocumentEnrichmentConfiguration != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Documents. 
+        /// <para>
+        /// One or more documents to add to the index.
         /// </para>
         ///  
         /// <para>
@@ -102,7 +121,7 @@ namespace Amazon.Kendra.Model
         /// Gets and sets the property IndexId. 
         /// <para>
         /// The identifier of the index to add the documents to. You need to create the index
-        /// first using the <code>CreateIndex</code> operation.
+        /// first using the <code>CreateIndex</code> API.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=36, Max=36)]
@@ -122,11 +141,11 @@ namespace Amazon.Kendra.Model
         /// Gets and sets the property RoleArn. 
         /// <para>
         /// The Amazon Resource Name (ARN) of a role that is allowed to run the <code>BatchPutDocument</code>
-        /// operation. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// API. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
         /// Roles for Amazon Kendra</a>.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=1284)]
+        [AWSProperty(Min=0, Max=1284)]
         public string RoleArn
         {
             get { return this._roleArn; }

@@ -58,7 +58,7 @@ namespace Amazon.WAFV2.Model.Internal.MarshallTransformations
             string target = "AWSWAF_20190729.UpdateWebACL";
             request.Headers["X-Amz-Target"] = target;
             request.Headers["Content-Type"] = "application/x-amz-json-1.1";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-07-29";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2019-07-29";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/";
@@ -67,6 +67,17 @@ namespace Amazon.WAFV2.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetCaptchaConfig())
+                {
+                    context.Writer.WritePropertyName("CaptchaConfig");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = CaptchaConfigMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.CaptchaConfig, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetCustomResponseBodies())
                 {
                     context.Writer.WritePropertyName("CustomResponseBodies");
@@ -154,7 +165,6 @@ namespace Amazon.WAFV2.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

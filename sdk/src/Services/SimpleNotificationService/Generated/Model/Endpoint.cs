@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.SimpleNotificationService.Model
 {
     /// <summary>
-    /// Endpoint for mobile app and device.
+    /// The endpoint for mobile app and device.
     /// </summary>
     public partial class Endpoint
     {
@@ -57,7 +57,7 @@ namespace Amazon.SimpleNotificationService.Model
         /// <summary>
         /// Gets and sets the property EndpointArn. 
         /// <para>
-        /// EndpointArn for mobile app and device.
+        /// The <code>EndpointArn</code> for mobile app and device.
         /// </para>
         /// </summary>
         public string EndpointArn

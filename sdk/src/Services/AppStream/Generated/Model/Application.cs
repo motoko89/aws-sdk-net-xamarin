@@ -33,13 +33,94 @@ namespace Amazon.AppStream.Model
     /// </summary>
     public partial class Application
     {
+        private string _appBlockArn;
+        private string _arn;
+        private DateTime? _createdTime;
+        private string _description;
         private string _displayName;
         private bool? _enabled;
+        private S3Location _iconS3Location;
         private string _iconURL;
+        private List<string> _instanceFamilies = new List<string>();
         private string _launchParameters;
         private string _launchPath;
         private Dictionary<string, string> _metadata = new Dictionary<string, string>();
         private string _name;
+        private List<string> _platforms = new List<string>();
+        private string _workingDirectory;
+
+        /// <summary>
+        /// Gets and sets the property AppBlockArn. 
+        /// <para>
+        /// The app block ARN of the application.
+        /// </para>
+        /// </summary>
+        public string AppBlockArn
+        {
+            get { return this._appBlockArn; }
+            set { this._appBlockArn = value; }
+        }
+
+        // Check to see if AppBlockArn property is set
+        internal bool IsSetAppBlockArn()
+        {
+            return this._appBlockArn != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Arn. 
+        /// <para>
+        /// The ARN of the application.
+        /// </para>
+        /// </summary>
+        public string Arn
+        {
+            get { return this._arn; }
+            set { this._arn = value; }
+        }
+
+        // Check to see if Arn property is set
+        internal bool IsSetArn()
+        {
+            return this._arn != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property CreatedTime. 
+        /// <para>
+        /// The time at which the application was created within the app block.
+        /// </para>
+        /// </summary>
+        public DateTime CreatedTime
+        {
+            get { return this._createdTime.GetValueOrDefault(); }
+            set { this._createdTime = value; }
+        }
+
+        // Check to see if CreatedTime property is set
+        internal bool IsSetCreatedTime()
+        {
+            return this._createdTime.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property Description. 
+        /// <para>
+        /// The description of the application.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1)]
+        public string Description
+        {
+            get { return this._description; }
+            set { this._description = value; }
+        }
+
+        // Check to see if Description property is set
+        internal bool IsSetDescription()
+        {
+            return this._description != null;
+        }
 
         /// <summary>
         /// Gets and sets the property DisplayName. 
@@ -79,6 +160,24 @@ namespace Amazon.AppStream.Model
         }
 
         /// <summary>
+        /// Gets and sets the property IconS3Location. 
+        /// <para>
+        /// The S3 location of the application icon.
+        /// </para>
+        /// </summary>
+        public S3Location IconS3Location
+        {
+            get { return this._iconS3Location; }
+            set { this._iconS3Location = value; }
+        }
+
+        // Check to see if IconS3Location property is set
+        internal bool IsSetIconS3Location()
+        {
+            return this._iconS3Location != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property IconURL. 
         /// <para>
         /// The URL for the application icon. This URL might be time-limited.
@@ -95,6 +194,24 @@ namespace Amazon.AppStream.Model
         internal bool IsSetIconURL()
         {
             return this._iconURL != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property InstanceFamilies. 
+        /// <para>
+        /// The instance families for the application.
+        /// </para>
+        /// </summary>
+        public List<string> InstanceFamilies
+        {
+            get { return this._instanceFamilies; }
+            set { this._instanceFamilies = value; }
+        }
+
+        // Check to see if InstanceFamilies property is set
+        internal bool IsSetInstanceFamilies()
+        {
+            return this._instanceFamilies != null && this._instanceFamilies.Count > 0; 
         }
 
         /// <summary>
@@ -170,6 +287,44 @@ namespace Amazon.AppStream.Model
         internal bool IsSetName()
         {
             return this._name != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Platforms. 
+        /// <para>
+        /// The platforms on which the application can run.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Max=4)]
+        public List<string> Platforms
+        {
+            get { return this._platforms; }
+            set { this._platforms = value; }
+        }
+
+        // Check to see if Platforms property is set
+        internal bool IsSetPlatforms()
+        {
+            return this._platforms != null && this._platforms.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property WorkingDirectory. 
+        /// <para>
+        /// The working directory for the application.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1)]
+        public string WorkingDirectory
+        {
+            get { return this._workingDirectory; }
+            set { this._workingDirectory = value; }
+        }
+
+        // Check to see if WorkingDirectory property is set
+        internal bool IsSetWorkingDirectory()
+        {
+            return this._workingDirectory != null;
         }
 
     }

@@ -56,7 +56,7 @@ namespace Amazon.Lambda.Model.Internal.MarshallTransformations
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.Lambda");
             request.Headers["Content-Type"] = "application/json";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2015-03-31";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2015-03-31";
             request.HttpMethod = "POST";
 
             request.ResourcePath = "/2015-03-31/functions";
@@ -117,6 +117,17 @@ namespace Amazon.Lambda.Model.Internal.MarshallTransformations
 
                     var marshaller = EnvironmentMarshaller.Instance;
                     marshaller.Marshall(publicRequest.Environment, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetEphemeralStorage())
+                {
+                    context.Writer.WritePropertyName("EphemeralStorage");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = EphemeralStorageMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.EphemeralStorage, context);
 
                     context.Writer.WriteObjectEnd();
                 }
@@ -249,7 +260,6 @@ namespace Amazon.Lambda.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

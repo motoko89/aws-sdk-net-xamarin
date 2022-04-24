@@ -98,12 +98,13 @@ namespace Amazon.Batch.Model
         private CEState _state;
         private Dictionary<string, string> _tags = new Dictionary<string, string>();
         private CEType _type;
+        private int? _unmanagedvCpus;
 
         /// <summary>
         /// Gets and sets the property ComputeEnvironmentName. 
         /// <para>
-        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase),
-        /// numbers, hyphens, and underscores are allowed.
+        /// The name for your compute environment. It can be up to 128 letters long. It can contain
+        /// uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -267,6 +268,31 @@ namespace Amazon.Batch.Model
         internal bool IsSetType()
         {
             return this._type != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property UnmanagedvCpus. 
+        /// <para>
+        /// The maximum number of vCPUs for an unmanaged compute environment. This parameter is
+        /// only used for fair share scheduling to reserve vCPU capacity for new share identifiers.
+        /// If this parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// This parameter is only supported when the <code>type</code> parameter is set to <code>UNMANAGED</code>.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        public int UnmanagedvCpus
+        {
+            get { return this._unmanagedvCpus.GetValueOrDefault(); }
+            set { this._unmanagedvCpus = value; }
+        }
+
+        // Check to see if UnmanagedvCpus property is set
+        internal bool IsSetUnmanagedvCpus()
+        {
+            return this._unmanagedvCpus.HasValue; 
         }
 
     }

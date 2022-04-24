@@ -112,6 +112,7 @@ namespace Amazon.Lambda.Model
         private DeadLetterConfig _deadLetterConfig;
         private string _description;
         private Environment _environment;
+        private EphemeralStorage _ephemeralStorage;
         private List<FileSystemConfig> _fileSystemConfigs = new List<FileSystemConfig>();
         private string _functionName;
         private string _handler;
@@ -132,7 +133,7 @@ namespace Amazon.Lambda.Model
         /// Gets and sets the property Architectures. 
         /// <para>
         /// The instruction set architecture that the function supports. Enter a string array
-        /// with one of the valid values. The default value is <code>x86_64</code>.
+        /// with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=1)]
@@ -246,6 +247,25 @@ namespace Amazon.Lambda.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EphemeralStorage. 
+        /// <para>
+        /// The size of the function’s /tmp directory in MB. The default value is 512, but can
+        /// be any whole number between 512 and 10240 MB.
+        /// </para>
+        /// </summary>
+        public EphemeralStorage EphemeralStorage
+        {
+            get { return this._ephemeralStorage; }
+            set { this._ephemeralStorage = value; }
+        }
+
+        // Check to see if EphemeralStorage property is set
+        internal bool IsSetEphemeralStorage()
+        {
+            return this._ephemeralStorage != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property FileSystemConfigs. 
         /// <para>
         /// Connection settings for an Amazon EFS file system.
@@ -306,8 +326,9 @@ namespace Amazon.Lambda.Model
         /// Gets and sets the property Handler. 
         /// <para>
         /// The name of the method within your code that Lambda calls to execute your function.
-        /// The format includes the file name. It can also include namespaces and other qualifiers,
-        /// depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming
+        /// Handler is required if the deployment package is a .zip file archive. The format includes
+        /// the file name. It can also include namespaces and other qualifiers, depending on the
+        /// runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming
         /// Model</a>.
         /// </para>
         /// </summary>
@@ -465,6 +486,7 @@ namespace Amazon.Lambda.Model
         /// Gets and sets the property Runtime. 
         /// <para>
         /// The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.
+        /// Runtime is required if the deployment package is a .zip file archive. 
         /// </para>
         /// </summary>
         public Runtime Runtime
@@ -501,9 +523,9 @@ namespace Amazon.Lambda.Model
         /// <summary>
         /// Gets and sets the property Timeout. 
         /// <para>
-        /// The amount of time that Lambda allows a function to run before stopping it. The default
-        /// is 3 seconds. The maximum allowed value is 900 seconds. For additional information,
-        /// see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda
+        /// The amount of time (in seconds) that Lambda allows a function to run before stopping
+        /// it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional
+        /// information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda
         /// execution environment</a>.
         /// </para>
         /// </summary>

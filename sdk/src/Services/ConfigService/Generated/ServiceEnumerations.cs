@@ -925,6 +925,56 @@ namespace Amazon.ConfigService
 
 
     /// <summary>
+    /// Constants used for properties of type OrganizationConfigRuleTriggerTypeNoSN.
+    /// </summary>
+    public class OrganizationConfigRuleTriggerTypeNoSN : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ConfigurationItemChangeNotification for OrganizationConfigRuleTriggerTypeNoSN
+        /// </summary>
+        public static readonly OrganizationConfigRuleTriggerTypeNoSN ConfigurationItemChangeNotification = new OrganizationConfigRuleTriggerTypeNoSN("ConfigurationItemChangeNotification");
+        /// <summary>
+        /// Constant OversizedConfigurationItemChangeNotification for OrganizationConfigRuleTriggerTypeNoSN
+        /// </summary>
+        public static readonly OrganizationConfigRuleTriggerTypeNoSN OversizedConfigurationItemChangeNotification = new OrganizationConfigRuleTriggerTypeNoSN("OversizedConfigurationItemChangeNotification");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public OrganizationConfigRuleTriggerTypeNoSN(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static OrganizationConfigRuleTriggerTypeNoSN FindValue(string value)
+        {
+            return FindValue<OrganizationConfigRuleTriggerTypeNoSN>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator OrganizationConfigRuleTriggerTypeNoSN(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type OrganizationResourceDetailedStatus.
     /// </summary>
     public class OrganizationResourceDetailedStatus : ConstantClass
@@ -1172,6 +1222,10 @@ namespace Amazon.ConfigService
         /// Constant CUSTOM_LAMBDA for Owner
         /// </summary>
         public static readonly Owner CUSTOM_LAMBDA = new Owner("CUSTOM_LAMBDA");
+        /// <summary>
+        /// Constant CUSTOM_POLICY for Owner
+        /// </summary>
+        public static readonly Owner CUSTOM_POLICY = new Owner("CUSTOM_POLICY");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -1557,6 +1611,18 @@ namespace Amazon.ConfigService
         /// </summary>
         public static readonly ResourceType AWSCodeBuildProject = new ResourceType("AWS::CodeBuild::Project");
         /// <summary>
+        /// Constant AWSCodeDeployApplication for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSCodeDeployApplication = new ResourceType("AWS::CodeDeploy::Application");
+        /// <summary>
+        /// Constant AWSCodeDeployDeploymentConfig for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSCodeDeployDeploymentConfig = new ResourceType("AWS::CodeDeploy::DeploymentConfig");
+        /// <summary>
+        /// Constant AWSCodeDeployDeploymentGroup for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSCodeDeployDeploymentGroup = new ResourceType("AWS::CodeDeploy::DeploymentGroup");
+        /// <summary>
         /// Constant AWSCodePipelinePipeline for ResourceType
         /// </summary>
         public static readonly ResourceType AWSCodePipelinePipeline = new ResourceType("AWS::CodePipeline::Pipeline");
@@ -1601,6 +1667,10 @@ namespace Amazon.ConfigService
         /// </summary>
         public static readonly ResourceType AWSEC2InternetGateway = new ResourceType("AWS::EC2::InternetGateway");
         /// <summary>
+        /// Constant AWSEC2LaunchTemplate for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSEC2LaunchTemplate = new ResourceType("AWS::EC2::LaunchTemplate");
+        /// <summary>
         /// Constant AWSEC2NatGateway for ResourceType
         /// </summary>
         public static readonly ResourceType AWSEC2NatGateway = new ResourceType("AWS::EC2::NatGateway");
@@ -1629,6 +1699,10 @@ namespace Amazon.ConfigService
         /// </summary>
         public static readonly ResourceType AWSEC2Subnet = new ResourceType("AWS::EC2::Subnet");
         /// <summary>
+        /// Constant AWSEC2TransitGateway for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSEC2TransitGateway = new ResourceType("AWS::EC2::TransitGateway");
+        /// <summary>
         /// Constant AWSEC2Volume for ResourceType
         /// </summary>
         public static readonly ResourceType AWSEC2Volume = new ResourceType("AWS::EC2::Volume");
@@ -1656,6 +1730,10 @@ namespace Amazon.ConfigService
         /// Constant AWSEC2VPNGateway for ResourceType
         /// </summary>
         public static readonly ResourceType AWSEC2VPNGateway = new ResourceType("AWS::EC2::VPNGateway");
+        /// <summary>
+        /// Constant AWSECRPublicRepository for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSECRPublicRepository = new ResourceType("AWS::ECR::PublicRepository");
         /// <summary>
         /// Constant AWSECRRepository for ResourceType
         /// </summary>
@@ -1709,6 +1787,14 @@ namespace Amazon.ConfigService
         /// </summary>
         public static readonly ResourceType AWSElasticsearchDomain = new ResourceType("AWS::Elasticsearch::Domain");
         /// <summary>
+        /// Constant AWSEMRSecurityConfiguration for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSEMRSecurityConfiguration = new ResourceType("AWS::EMR::SecurityConfiguration");
+        /// <summary>
+        /// Constant AWSGuardDutyDetector for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSGuardDutyDetector = new ResourceType("AWS::GuardDuty::Detector");
+        /// <summary>
         /// Constant AWSIAMGroup for ResourceType
         /// </summary>
         public static readonly ResourceType AWSIAMGroup = new ResourceType("AWS::IAM::Group");
@@ -1724,6 +1810,14 @@ namespace Amazon.ConfigService
         /// Constant AWSIAMUser for ResourceType
         /// </summary>
         public static readonly ResourceType AWSIAMUser = new ResourceType("AWS::IAM::User");
+        /// <summary>
+        /// Constant AWSKinesisStream for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSKinesisStream = new ResourceType("AWS::Kinesis::Stream");
+        /// <summary>
+        /// Constant AWSKinesisStreamConsumer for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSKinesisStreamConsumer = new ResourceType("AWS::Kinesis::StreamConsumer");
         /// <summary>
         /// Constant AWSKMSKey for ResourceType
         /// </summary>
@@ -1812,6 +1906,10 @@ namespace Amazon.ConfigService
         /// Constant AWSS3Bucket for ResourceType
         /// </summary>
         public static readonly ResourceType AWSS3Bucket = new ResourceType("AWS::S3::Bucket");
+        /// <summary>
+        /// Constant AWSSageMakerCodeRepository for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSSageMakerCodeRepository = new ResourceType("AWS::SageMaker::CodeRepository");
         /// <summary>
         /// Constant AWSSecretsManagerSecret for ResourceType
         /// </summary>

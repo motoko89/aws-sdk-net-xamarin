@@ -38,7 +38,8 @@ namespace Amazon.Kafka.Model
         /// <summary>
         /// Gets and sets the property Enabled.             
         /// <para>
-        /// Specifies whether you want to enable or disable unauthenticated traffic to your cluster.
+        /// Specifies whether you want to turn on or turn off unauthenticated traffic to your
+        /// cluster.
         /// </para>
         /// </summary>
         public bool Enabled

@@ -32,7 +32,7 @@ namespace Amazon.FSx
     public partial class AmazonFSxConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.5.16");
+            InternalSDKUtils.BuildUserAgentString("3.7.12.3");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.FSx
         /// Default constructor
         /// </summary>
         public AmazonFSxConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonFSxDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "fsx";
         }

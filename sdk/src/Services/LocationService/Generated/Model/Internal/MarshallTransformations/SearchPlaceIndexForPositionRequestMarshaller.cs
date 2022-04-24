@@ -56,7 +56,7 @@ namespace Amazon.LocationService.Model.Internal.MarshallTransformations
         {
             IRequest request = new DefaultRequest(publicRequest, "Amazon.LocationService");
             request.Headers["Content-Type"] = "application/json";
-            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-11-19";            
+            request.Headers[Amazon.Util.HeaderKeys.XAmzApiVersion] = "2020-11-19";
             request.HttpMethod = "POST";
 
             if (!publicRequest.IsSetIndexName())
@@ -68,6 +68,12 @@ namespace Amazon.LocationService.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetLanguage())
+                {
+                    context.Writer.WritePropertyName("Language");
+                    context.Writer.Write(publicRequest.Language);
+                }
+
                 if(publicRequest.IsSetMaxResults())
                 {
                     context.Writer.WritePropertyName("MaxResults");
@@ -85,7 +91,6 @@ namespace Amazon.LocationService.Model.Internal.MarshallTransformations
                     context.Writer.WriteArrayEnd();
                 }
 
-        
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

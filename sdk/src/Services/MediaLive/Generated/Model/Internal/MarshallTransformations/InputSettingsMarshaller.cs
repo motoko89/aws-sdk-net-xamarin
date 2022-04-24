@@ -34,7 +34,7 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
 {
     /// <summary>
     /// InputSettings Marshaller
-    /// </summary>       
+    /// </summary>
     public class InputSettingsMarshaller : IRequestMarshaller<InputSettings, JsonMarshallerContext> 
     {
         /// <summary>
@@ -112,6 +112,12 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetScte35Pid())
+            {
+                context.Writer.WritePropertyName("scte35Pid");
+                context.Writer.Write(requestObject.Scte35Pid);
+            }
+
             if(requestObject.IsSetSmpte2038DataPreference())
             {
                 context.Writer.WritePropertyName("smpte2038DataPreference");
@@ -139,7 +145,7 @@ namespace Amazon.MediaLive.Model.Internal.MarshallTransformations
 
         /// <summary>
         /// Singleton Marshaller.
-        /// </summary>  
+        /// </summary>
         public readonly static InputSettingsMarshaller Instance = new InputSettingsMarshaller();
 
     }

@@ -57,6 +57,12 @@ namespace Amazon.Personalize.Model.Internal.MarshallTransformations
                     response.DatasetGroupArn = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("domain", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.Domain = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
 
             return response;
@@ -91,6 +97,10 @@ namespace Amazon.Personalize.Model.Internal.MarshallTransformations
                 if (errorResponse.Code != null && errorResponse.Code.Equals("ResourceAlreadyExistsException"))
                 {
                     return ResourceAlreadyExistsExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
+                }
+                if (errorResponse.Code != null && errorResponse.Code.Equals("TooManyTagsException"))
+                {
+                    return TooManyTagsExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
                 }
             }
             return new AmazonPersonalizeException(errorResponse.Message, errorResponse.InnerException, errorResponse.Type, errorResponse.Code, errorResponse.RequestId, errorResponse.StatusCode);

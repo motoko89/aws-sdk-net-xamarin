@@ -32,7 +32,7 @@ namespace Amazon.ForecastService
     public partial class AmazonForecastServiceConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.5.30");
+            InternalSDKUtils.BuildUserAgentString("3.7.7.42");
 
         private string _userAgent = UserAgentString;
 
@@ -40,6 +40,7 @@ namespace Amazon.ForecastService
         /// Default constructor
         /// </summary>
         public AmazonForecastServiceConfig()
+            : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonForecastServiceDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "forecast";
         }

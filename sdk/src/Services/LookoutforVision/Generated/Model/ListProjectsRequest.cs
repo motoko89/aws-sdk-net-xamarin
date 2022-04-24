@@ -34,6 +34,12 @@ namespace Amazon.LookoutforVision.Model
     /// 
     ///  
     /// <para>
+    /// The <code>ListProjects</code> operation is eventually consistent. Recent calls to
+    /// <code>CreateProject</code> and <code>DeleteProject</code> might take a while to appear
+    /// in the response from <code>ListProjects</code>.
+    /// </para>
+    ///  
+    /// <para>
     /// This operation requires permissions to perform the <code>lookoutvision:ListProjects</code>
     /// operation.
     /// </para>

@@ -139,6 +139,11 @@
     <pattern>^[a-zA-Z0-9-_]+$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Textract.Model.AnalyzeIDDetections.Confidence</property>
+    <min>0</min>
+    <max>100</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Textract.Model.Block.ColumnIndex</property>
     <min>0</min>
   </property-value-rule>
@@ -213,6 +218,10 @@
     <pattern>^[a-z0-9](-*[a-z0-9])*</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Textract.Model.IdentityDocument.DocumentIndex</property>
+    <min>0</min>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Textract.Model.LineItemGroup.LineItemGroupIndex</property>
     <min>0</min>
   </property-value-rule>
@@ -239,6 +248,18 @@
     <min>1</min>
     <max>1024</max>
     <pattern>.*\S.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Textract.Model.Query.Alias</property>
+    <min>1</min>
+    <max>200</max>
+    <pattern>^[a-zA-Z0-9\s!"\#\$%'&amp;\(\)\*\+\,\-\./:;=\?@\[\\\]\^_`\{\|\}~&gt;&lt;]+$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Textract.Model.Query.Text</property>
+    <min>1</min>
+    <max>200</max>
+    <pattern>^[a-zA-Z0-9\s!"\#\$%'&amp;\(\)\*\+\,\-\./:;=\?@\[\\\]\^_`\{\|\}~&gt;&lt;]+$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Textract.Model.S3Object.Bucket</property>
